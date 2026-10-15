@@ -1293,3 +1293,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Authority and scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; exactsource5120b6d5 nonruntime approved-pixel panorama mapping comparison at2aspects. Onepath-lossreject/onelower-preservingcandidate,460800exactlowerpixels,40unchangedstate/geometrychecks;81native/74bounded/7excluded. Noart/source change,adoption,newdrawing,generationoracceptance;240roles/32families,0accepted/globalunknown. |
+
+## Castle crest studio context — 2026-10-15 R53
+
+| Document | State | Authority and scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r53_castle_logo_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; exact source5120b6d5 original paint-table/crest controls, 48 combinations per aspect and private save/cancel/room copies. 280 retained /140 bounded /140 excluded fixture diagnostics; two current cases pass136 checks. 12 native/3 source views identify flat backing and selector identity mismatch. No runtime/art change, generation or acceptance;240 roles/32 families,0 accepted/global unknown. |

@@ -1,0 +1,21 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "trace": [
+    "Declared synthetic postboss seed and original Main Continue",
+    "Declared startup level2/Castle/CraftRoom API mount (not full natural journey)",
+    "Original viewport Touch_paint_table -> original walk/contact/action sequence -> original _open_castle_logo",
+    "castle_logo_studio navigation; original color/symbol buttons -> Keep or global Back",
+    "Registered Craft two banners + board badge; Playroom two banners; Library absent"
+  ],
+  "catalogue_aliases": [
+    "ui.logo",
+    "game.logo_studio"
+  ],
+  "new_partial_alias": "game.logo_studio",
+  "count_unit": "Two retained catalogue aliases for one overlay. Runtime game remains level2, not a forced logo_studio state.",
+  "inactive_candidates_not_forced": [
+    "ui.intro: normal display uses StartMenu; Intro retained for headless branch",
+    "Shop friend dispatcher lacks proved literal live launcher"
+  ],
+  "closure": "Partial current source/runtime only. Other launchers, callback runtime domains, full natural route and whole-game screens remain unknown."
+}

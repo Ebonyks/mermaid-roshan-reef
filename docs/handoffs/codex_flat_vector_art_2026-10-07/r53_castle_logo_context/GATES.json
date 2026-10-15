@@ -1,0 +1,100 @@
+{
+  "status": "PASS_CURRENT_CASTLE_LOGO_CONTEXT_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r53_castle_logo_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "8169645a015860268dc09043018fe63eab4a8ea695f75b9b1908a0f90c79ddf6",
+      "checked_at_utc": "2026-10-15T10:40:39.156372+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f4c0c12b0e5de6949ecccf35ed615cb4065d6216732e5eacdb9598c21662131e",
+      "checked_at_utc": "2026-10-15T10:40:48.374329+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T10:40:53.633210+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "650787f32f6d6ef2a01e6fc46ee5643f0b6a7688cab5d13bf4b87b1759a5fbf4",
+      "checked_at_utc": "2026-10-15T10:41:02.424964+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-15T10:41:03.339013+00:00"
+    }
+  ],
+  "raw_log_sha256": "fdb581b0001e11af0f98793bf151e511fdfe9365b95a68b3f67d75f20efa046c",
+  "scope": "Two current native cases pass136 checks; all140 initial fixture failure captures retained/excluded. 54 audit tests/6stress. No production change/full82/art/QA11/device/child/owner acceptance.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r53_castle_logo_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "8169645a015860268dc09043018fe63eab4a8ea695f75b9b1908a0f90c79ddf6",
+      "output": "R53_INTEGRITY_PASS 280native=140current+140excluded; 136currentchecks/48choices peraspect; 74exactrefs/12native3sourceviews; frozen/runtime unchanged;0accepted/globalunknown\r\n",
+      "checked_at_utc": "2026-10-15T10:42:07.234788+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "f4c0c12b0e5de6949ecccf35ed615cb4065d6216732e5eacdb9598c21662131e",
+      "output": "DOCAUTH|INVENTORY=756|LEDGER=756|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T10:42:16.559791+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T10:42:21.756075+00:00"
+    }
+  ]
+}

@@ -1,0 +1,3699 @@
+{
+  "cases": [
+    {
+      "case": "attempt1_logo_1280",
+      "report_sha256": "fa287fb616cc2a74b4adea7b90149fd87727608d0b6e2394bed2f313275ea11c",
+      "fixture_sha256": "cea448213a6d143e3d1d20fa5899c8801db8c98d51fecdac1daff67006e31bf6",
+      "exit_code": 1,
+      "current": false,
+      "checks_passed": 67,
+      "checks_total": 68,
+      "errors": [
+        "unknownsavefieldpreserved"
+      ]
+    },
+    {
+      "case": "attempt1_logo_1600",
+      "report_sha256": "696fcf375d211816d18ecaf559da611980ab466b4cd3e6ab33f295a61d004f3d",
+      "fixture_sha256": "cea448213a6d143e3d1d20fa5899c8801db8c98d51fecdac1daff67006e31bf6",
+      "exit_code": 1,
+      "current": false,
+      "checks_passed": 67,
+      "checks_total": 68,
+      "errors": [
+        "unknownsavefieldpreserved"
+      ]
+    },
+    {
+      "case": "attempt2_logo_1280",
+      "report_sha256": "678f064d0877551bdaf62b8202224db74efd7a4216d69ea1401761c8386177e7",
+      "fixture_sha256": "04b432ae645c2be1fb70b9615aba6cebcbbd8735506bbc76881155abe6735249",
+      "exit_code": 0,
+      "current": true,
+      "checks_passed": 68,
+      "checks_total": 68,
+      "errors": []
+    },
+    {
+      "case": "attempt2_logo_1600",
+      "report_sha256": "ac206762d65317e70f6501df500c839bb848f2b9f01131a5764e85308094b224",
+      "fixture_sha256": "04b432ae645c2be1fb70b9615aba6cebcbbd8735506bbc76881155abe6735249",
+      "exit_code": 0,
+      "current": true,
+      "checks_passed": 68,
+      "checks_total": 68,
+      "errors": []
+    }
+  ],
+  "captures": [
+    {
+      "path": "native/attempt1_logo_1280/first_paint_table_before.png",
+      "id": "first_paint_table_before",
+      "case": "attempt1_logo_1280",
+      "sha256": "a0f5efbceab47c6e5fbb3a6bf212ed617e5035fe90856483b05aa1217f6cbe04",
+      "bytes": 1187321,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/first_logo_ready.png",
+      "id": "first_logo_ready",
+      "case": "attempt1_logo_1280",
+      "sha256": "502fe6aa4da6b93571b53b753cb299b206c829cc4c803207628b974b2fef0485",
+      "bytes": 254532,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/logo_passive.png",
+      "id": "logo_passive",
+      "case": "attempt1_logo_1280",
+      "sha256": "a451b84d43c2e90504afda7600b44e4093bebe29252830bb69f814eb59f2350a",
+      "bytes": 254995,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_pink_rainbow.png",
+      "id": "choice_pink_rainbow",
+      "case": "attempt1_logo_1280",
+      "sha256": "56e34971317c270b963f80dd2e1a836210126c0df1e3d8c03199903bef4f15fb",
+      "bytes": 252515,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_pink_shell.png",
+      "id": "choice_pink_shell",
+      "case": "attempt1_logo_1280",
+      "sha256": "cb90fcc094d3c5e117f782d198e1ddeb971c7abeef1527d0b73b6581174cb36b",
+      "bytes": 258436,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_pink_kitty.png",
+      "id": "choice_pink_kitty",
+      "case": "attempt1_logo_1280",
+      "sha256": "a2eb626eb95381c70a802077aaff65e6991e7f5a519533d329159d68382d405d",
+      "bytes": 263432,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_pink_dog.png",
+      "id": "choice_pink_dog",
+      "case": "attempt1_logo_1280",
+      "sha256": "21d625038a89ada6d3ac5662c61c9d3554bd35d3e695a67f51c096fcd4c4b8b5",
+      "bytes": 254642,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_pink_star.png",
+      "id": "choice_pink_star",
+      "case": "attempt1_logo_1280",
+      "sha256": "57e42d353f0ca8783be0faed4ff8d7d10414e7e7fd4eb3aec966b4a26b212989",
+      "bytes": 251147,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_pink_heart.png",
+      "id": "choice_pink_heart",
+      "case": "attempt1_logo_1280",
+      "sha256": "8de4bd2dfdabc6aa7d2cc28d7c0afb9d7348ff13b761d1f2a384f7c01703f36a",
+      "bytes": 261475,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_pink_crown.png",
+      "id": "choice_pink_crown",
+      "case": "attempt1_logo_1280",
+      "sha256": "3ba7dd5500a77d975c3aa9a904d4b27710f60b5a5c1293af2bc4647571a587b9",
+      "bytes": 263359,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_pink_butterfly.png",
+      "id": "choice_pink_butterfly",
+      "case": "attempt1_logo_1280",
+      "sha256": "0c3f8b4faedd09a4ce432daed8d182da76d1eb72e45032b538c9a4f6d3f65803",
+      "bytes": 270197,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_gold_rainbow.png",
+      "id": "choice_gold_rainbow",
+      "case": "attempt1_logo_1280",
+      "sha256": "5720b9a7fbd359a5dff756da331dc00000f3042f6f7d935fc97bc86c60560850",
+      "bytes": 262605,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_gold_shell.png",
+      "id": "choice_gold_shell",
+      "case": "attempt1_logo_1280",
+      "sha256": "cbd3fda63f85f8b8aae9dff9637aaf676eef0465b33cafa15f68a19d9dd12222",
+      "bytes": 267075,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_gold_kitty.png",
+      "id": "choice_gold_kitty",
+      "case": "attempt1_logo_1280",
+      "sha256": "bb319d9960bd945a82f6d27c51a7463da3b41617ffef90fab2cb587603f5f32e",
+      "bytes": 270846,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_gold_dog.png",
+      "id": "choice_gold_dog",
+      "case": "attempt1_logo_1280",
+      "sha256": "7200d8e2bbeeefa579c0a3f5e641c7c2be31726889d069b33262449798836240",
+      "bytes": 262728,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_gold_star.png",
+      "id": "choice_gold_star",
+      "case": "attempt1_logo_1280",
+      "sha256": "db5c3e38d4c4547be379fad8416e045693ee686101ec6339ec7a22aef3f0fedc",
+      "bytes": 260906,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_gold_heart.png",
+      "id": "choice_gold_heart",
+      "case": "attempt1_logo_1280",
+      "sha256": "2fe184e1a9fc159cbab1e1c6fcf9d1d375451e97116eb67b82fe118d53df2165",
+      "bytes": 263545,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_gold_crown.png",
+      "id": "choice_gold_crown",
+      "case": "attempt1_logo_1280",
+      "sha256": "54afdf2687d126b4544f263c110efca1ba52f3a78c13d80ac34186c75d3c990f",
+      "bytes": 264196,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_gold_butterfly.png",
+      "id": "choice_gold_butterfly",
+      "case": "attempt1_logo_1280",
+      "sha256": "a3eb537509f5898c122f7e8db98208e1ca7c7cc5fa7d306c7c3eac7347246655",
+      "bytes": 270014,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_mint_rainbow.png",
+      "id": "choice_mint_rainbow",
+      "case": "attempt1_logo_1280",
+      "sha256": "6ea267793cdaf325bf3df70a84d6dad2bec13077de90ccd76cd4bb3816979a71",
+      "bytes": 261967,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_mint_shell.png",
+      "id": "choice_mint_shell",
+      "case": "attempt1_logo_1280",
+      "sha256": "1e61266578bcab10f8c7726fbd00ac9e2fc32ecba5258db050079303d0cffaa5",
+      "bytes": 267584,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_mint_kitty.png",
+      "id": "choice_mint_kitty",
+      "case": "attempt1_logo_1280",
+      "sha256": "8f949d84ae73aa9e683f0d06f181ba919f24c4515abca960408f9d1ad2f77093",
+      "bytes": 271528,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_mint_dog.png",
+      "id": "choice_mint_dog",
+      "case": "attempt1_logo_1280",
+      "sha256": "be7162381ae6713abfc1bb4204a146ef8e4a81c6c500781379f4f16abd6d56c9",
+      "bytes": 261156,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_mint_star.png",
+      "id": "choice_mint_star",
+      "case": "attempt1_logo_1280",
+      "sha256": "e3da20b9f1546b47db90a7a73c07baa3ecbe164e8c1640976e96f67b43ba8f79",
+      "bytes": 259298,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_mint_heart.png",
+      "id": "choice_mint_heart",
+      "case": "attempt1_logo_1280",
+      "sha256": "a04e53420c89e837c78d3437cefce8b771220dc4054355ebe3c210dc4cfc5872",
+      "bytes": 262826,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_mint_crown.png",
+      "id": "choice_mint_crown",
+      "case": "attempt1_logo_1280",
+      "sha256": "a555d86c2521a8467103064fef4ae04d5dfc7cfbca05738870689bbe927b860d",
+      "bytes": 265136,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_mint_butterfly.png",
+      "id": "choice_mint_butterfly",
+      "case": "attempt1_logo_1280",
+      "sha256": "de73f85032a6f004073eaebf61390cf457db0a98fa316f447352cac5a0fcd5ca",
+      "bytes": 270561,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_ocean_rainbow.png",
+      "id": "choice_ocean_rainbow",
+      "case": "attempt1_logo_1280",
+      "sha256": "b3302d03bce73b3e9909f090b645325b2240a4f0ac61082fd32a0ca0d43365bc",
+      "bytes": 262616,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_ocean_shell.png",
+      "id": "choice_ocean_shell",
+      "case": "attempt1_logo_1280",
+      "sha256": "b87fdb39fe03ec02340d5f09f1763c26734a25f713df3c8ae3833b16da285ac7",
+      "bytes": 268752,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_ocean_kitty.png",
+      "id": "choice_ocean_kitty",
+      "case": "attempt1_logo_1280",
+      "sha256": "ffcb92819fe6dab8f53b674b7311b97e9cd85d30da399b20694c0f2ddc88774d",
+      "bytes": 273773,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_ocean_dog.png",
+      "id": "choice_ocean_dog",
+      "case": "attempt1_logo_1280",
+      "sha256": "55a414f8d3f5984d6c3a571d9462a538beb5718b76fc60d7ee1549913f283e73",
+      "bytes": 264787,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_ocean_star.png",
+      "id": "choice_ocean_star",
+      "case": "attempt1_logo_1280",
+      "sha256": "66166d56a913499ccdf9c2f9035fb218fd6889e26e48e066a3fb4dec2ee74b76",
+      "bytes": 262026,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_ocean_heart.png",
+      "id": "choice_ocean_heart",
+      "case": "attempt1_logo_1280",
+      "sha256": "388d89e84347fd8f854c5e215266a2904efeb0fc5ab88827e778b86c105c117b",
+      "bytes": 264560,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_ocean_crown.png",
+      "id": "choice_ocean_crown",
+      "case": "attempt1_logo_1280",
+      "sha256": "795dd3a8bff367535b10f026c7cd2f523bd7e34ef3e613a28e3803eba9348560",
+      "bytes": 265695,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_ocean_butterfly.png",
+      "id": "choice_ocean_butterfly",
+      "case": "attempt1_logo_1280",
+      "sha256": "7f5b3d5ffb2200a9550e73c9935a07e60d193a5baa5ec42ca44332054e7225a1",
+      "bytes": 272637,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_purple_rainbow.png",
+      "id": "choice_purple_rainbow",
+      "case": "attempt1_logo_1280",
+      "sha256": "9eea13b868765f05f86fec7453504d4e75b6f9be39fe3b18670a7a2f521a9658",
+      "bytes": 263923,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_purple_shell.png",
+      "id": "choice_purple_shell",
+      "case": "attempt1_logo_1280",
+      "sha256": "9805010c29076c244d859e4ff6d71b46f8ef8d8a994e03964b1b2cd366464884",
+      "bytes": 269370,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_purple_kitty.png",
+      "id": "choice_purple_kitty",
+      "case": "attempt1_logo_1280",
+      "sha256": "d27367d9c537f6d314b9eb51f23868c695eb2e2c88e19489fe4fa008b37a7d8c",
+      "bytes": 272634,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_purple_dog.png",
+      "id": "choice_purple_dog",
+      "case": "attempt1_logo_1280",
+      "sha256": "4e4dec80aa8d47101665ea17c76f4a01c781174a35d610a6b6f3c255e9852633",
+      "bytes": 263096,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_purple_star.png",
+      "id": "choice_purple_star",
+      "case": "attempt1_logo_1280",
+      "sha256": "3451ee99a7fc559cb7d5f16babe48115017aa591cdd3f3ecc1141b0f31cd1479",
+      "bytes": 261708,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_purple_heart.png",
+      "id": "choice_purple_heart",
+      "case": "attempt1_logo_1280",
+      "sha256": "e13c09a399f95fc7bbb15747c72d0f725d1948ecd9d87ae5f0efd3e5ca2abc35",
+      "bytes": 265202,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_purple_crown.png",
+      "id": "choice_purple_crown",
+      "case": "attempt1_logo_1280",
+      "sha256": "152bd4e5a3661e32b1382df67cdab219dc3275c2d7f4c92f50d9f6b438ca7fb8",
+      "bytes": 266927,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_purple_butterfly.png",
+      "id": "choice_purple_butterfly",
+      "case": "attempt1_logo_1280",
+      "sha256": "8599e6f33dc2c78a2fe033ee52b213eb893bca39f8ac48455057552ecbdf1e78",
+      "bytes": 271134,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_rainbow_rainbow.png",
+      "id": "choice_rainbow_rainbow",
+      "case": "attempt1_logo_1280",
+      "sha256": "d11e6525851145b126b5292d3980260ebbb0896be5a7d706ca9bb9b1cafa9894",
+      "bytes": 262050,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_rainbow_shell.png",
+      "id": "choice_rainbow_shell",
+      "case": "attempt1_logo_1280",
+      "sha256": "e02b908a74cf3cdb931f0991d0db9f09313404bc0b87b05f195dff722b84c649",
+      "bytes": 268826,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_rainbow_kitty.png",
+      "id": "choice_rainbow_kitty",
+      "case": "attempt1_logo_1280",
+      "sha256": "eda738a522654ad37e683eb306cb43b747e3e624196e7981a6c82d60f9a0ef95",
+      "bytes": 273204,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_rainbow_dog.png",
+      "id": "choice_rainbow_dog",
+      "case": "attempt1_logo_1280",
+      "sha256": "afecdf7522852a9381faa38b93388474b0c7a92b4b2dc56fc289ebd6defde119",
+      "bytes": 264102,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_rainbow_star.png",
+      "id": "choice_rainbow_star",
+      "case": "attempt1_logo_1280",
+      "sha256": "0cbf375df6b31faedf99f411637c93ef5ab307e1c14d502caa714a31655eba46",
+      "bytes": 260418,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_rainbow_heart.png",
+      "id": "choice_rainbow_heart",
+      "case": "attempt1_logo_1280",
+      "sha256": "c90a644477dfad94b7cd3aa873b40310d27a06cdf46a12d40522dab9792b26fb",
+      "bytes": 263792,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_rainbow_crown.png",
+      "id": "choice_rainbow_crown",
+      "case": "attempt1_logo_1280",
+      "sha256": "e97eeff534a94d4443da6daf64c2fff1d1c6f0303f8d6dbc1235a434223d444e",
+      "bytes": 266159,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/choice_rainbow_butterfly.png",
+      "id": "choice_rainbow_butterfly",
+      "case": "attempt1_logo_1280",
+      "sha256": "5c815c17a9e431a947a028d576efd090e65284b4db705793e40721df3b7cff6e",
+      "bytes": 272230,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/symbol_heart_pressed.png",
+      "id": "symbol_heart_pressed",
+      "case": "attempt1_logo_1280",
+      "sha256": "249b1666eab18fd6c39842edd516ed1962f10c43a3d619a4ef0ea97187ba8e4e",
+      "bytes": 273857,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/symbol_heart_released.png",
+      "id": "symbol_heart_released",
+      "case": "attempt1_logo_1280",
+      "sha256": "54726a571c69e3a5b967b2b18a86749e1c314f851693e01a093cc1784356f594",
+      "bytes": 265008,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/cancel_restored.png",
+      "id": "cancel_restored",
+      "case": "attempt1_logo_1280",
+      "sha256": "99c4085049abcd1c638124a02a40fa053b239231739b03658b3558839614f4e5",
+      "bytes": 1278139,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/commit_paint_table_before.png",
+      "id": "commit_paint_table_before",
+      "case": "attempt1_logo_1280",
+      "sha256": "be6085355f1bf04c778347b9e24697cebd070183ef90affe1af541a8aea1398a",
+      "bytes": 1278557,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/commit_logo_ready.png",
+      "id": "commit_logo_ready",
+      "case": "attempt1_logo_1280",
+      "sha256": "24f127f3b8344fd6708e4be3ad01023e03598ed77b2ef2cf79beefc380068ffb",
+      "bytes": 261017,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/keep_feedback.png",
+      "id": "keep_feedback",
+      "case": "attempt1_logo_1280",
+      "sha256": "cdc5e9ddfb6fe226273e9637f7ecf3c35234a779e73af6bae1445405d41bbed9",
+      "bytes": 264586,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/craft_committed_display.png",
+      "id": "craft_committed_display",
+      "case": "attempt1_logo_1280",
+      "sha256": "13704637c759d99d418081ccce8a99fe3a6a70ea64324f87a881228bb1d6d4e3",
+      "bytes": 1278009,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/playroom_committed_display.png",
+      "id": "playroom_committed_display",
+      "case": "attempt1_logo_1280",
+      "sha256": "a156e46f4fc18ddec15212da325bc9e3a9895d8f95a81183f73bc1d2ed54f419",
+      "bytes": 1298026,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/library_unregistered_absence.png",
+      "id": "library_unregistered_absence",
+      "case": "attempt1_logo_1280",
+      "sha256": "2cfd9bef1ce76743223a1c45e2cf0e4be537ec77ede293be589fdbd835dcbfb8",
+      "bytes": 1388102,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/background_cancel_paint_table_before.png",
+      "id": "background_cancel_paint_table_before",
+      "case": "attempt1_logo_1280",
+      "sha256": "f25e96e84f4c86e8dff7748708f7cfe916b89c446473197bdbe2fbb213cb595a",
+      "bytes": 1282769,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/background_cancel_logo_ready.png",
+      "id": "background_cancel_logo_ready",
+      "case": "attempt1_logo_1280",
+      "sha256": "20573188e443682e9c8ab1e81e00c51a09101fbec75e27c0e66750c61645b0e9",
+      "bytes": 261374,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/draft_before_background.png",
+      "id": "draft_before_background",
+      "case": "attempt1_logo_1280",
+      "sha256": "317635a2416a1c1d275707081bf2189656923c35d7d85f53af3325478e609232",
+      "bytes": 259615,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/draft_after_background.png",
+      "id": "draft_after_background",
+      "case": "attempt1_logo_1280",
+      "sha256": "2375374597202408cc034cfc7ea75bea696fd719225413896adffea4b177f462",
+      "bytes": 259493,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/background_cancel_restored.png",
+      "id": "background_cancel_restored",
+      "case": "attempt1_logo_1280",
+      "sha256": "5a197b806dbf72805cb6864ae55f203a631feab0d54abb9ee86e15b8d170c4fb",
+      "bytes": 1279435,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/fresh_main_loaded_display.png",
+      "id": "fresh_main_loaded_display",
+      "case": "attempt1_logo_1280",
+      "sha256": "42bc7b83747b05299b9ed8f3b7e744e48d8ed0511531f23a29c56f58ab32c80e",
+      "bytes": 1192664,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/reload_paint_table_before.png",
+      "id": "reload_paint_table_before",
+      "case": "attempt1_logo_1280",
+      "sha256": "247469cbd33e8cad60055dc96f9b018d1e14c67f1f51a1c7eea20814f7b09d09",
+      "bytes": 1205339,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/reload_logo_ready.png",
+      "id": "reload_logo_ready",
+      "case": "attempt1_logo_1280",
+      "sha256": "0ca124f7042c78d28be415f5f7142b778bc2d2172df2f87881d082b8d60bc1e0",
+      "bytes": 255191,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/fresh_main_logo_reopened.png",
+      "id": "fresh_main_logo_reopened",
+      "case": "attempt1_logo_1280",
+      "sha256": "fa6be0361f449246f3bbf5807b821e01a2e500790eef3b190013f085ceb1a7ac",
+      "bytes": 254737,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1280/final_craft_restored.png",
+      "id": "final_craft_restored",
+      "case": "attempt1_logo_1280",
+      "sha256": "515113784f1f6e3530fc8829bc10e9f98c25dec2b1feadd6a2c3cbd3bd3398a4",
+      "bytes": 1202165,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/first_paint_table_before.png",
+      "id": "first_paint_table_before",
+      "case": "attempt1_logo_1600",
+      "sha256": "ee4d94bf1b10b39834618633499aca997d47ca54154b9c81a462df68fab322d1",
+      "bytes": 1228200,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/first_logo_ready.png",
+      "id": "first_logo_ready",
+      "case": "attempt1_logo_1600",
+      "sha256": "abe5b7c2861254171c0e6cd4e7a7109ad6331ac162e251bc3ef0f69310433d9e",
+      "bytes": 264686,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/logo_passive.png",
+      "id": "logo_passive",
+      "case": "attempt1_logo_1600",
+      "sha256": "34740f13dfd507d00e1444bcd3b8d5e0311380a58391d07b6ec690520ab29193",
+      "bytes": 264666,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_pink_rainbow.png",
+      "id": "choice_pink_rainbow",
+      "case": "attempt1_logo_1600",
+      "sha256": "1156cb412b9359ff0bb8a9e9d678d6d8fbe6656c47551ba22143fa5603e78d5d",
+      "bytes": 263095,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_pink_shell.png",
+      "id": "choice_pink_shell",
+      "case": "attempt1_logo_1600",
+      "sha256": "40c55433b16b48a0e63cfb21f545099e4bb6b7ffeadda5c5ddc11f267b053539",
+      "bytes": 268812,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_pink_kitty.png",
+      "id": "choice_pink_kitty",
+      "case": "attempt1_logo_1600",
+      "sha256": "20d60fe564b3722a63915b08eaad3601c854a21e626845b21acd342d568ac3ba",
+      "bytes": 273707,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_pink_dog.png",
+      "id": "choice_pink_dog",
+      "case": "attempt1_logo_1600",
+      "sha256": "07ba84aea46c78bbe8ba16011e99e3672ea17f4eaada0af3d1c4deceff8e34fd",
+      "bytes": 265446,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_pink_star.png",
+      "id": "choice_pink_star",
+      "case": "attempt1_logo_1600",
+      "sha256": "e1025bcb230b75216ec3e08a2188e5f32851ef3f01a7a3de7affac8cb7c32c7c",
+      "bytes": 261481,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_pink_heart.png",
+      "id": "choice_pink_heart",
+      "case": "attempt1_logo_1600",
+      "sha256": "fbbe2689d4d209872167218e0f4fa515ca20527c92bda4a65d75887a271aabfa",
+      "bytes": 270987,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_pink_crown.png",
+      "id": "choice_pink_crown",
+      "case": "attempt1_logo_1600",
+      "sha256": "d83038b14f7166382e44164c0f90e0a90e8551a9b7de376d4c112d5ba913c5b8",
+      "bytes": 273098,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_pink_butterfly.png",
+      "id": "choice_pink_butterfly",
+      "case": "attempt1_logo_1600",
+      "sha256": "7dfb87574fa854a6143920e1c9c52e5253870d997ef9b69b05c3122ed130af1f",
+      "bytes": 280170,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_gold_rainbow.png",
+      "id": "choice_gold_rainbow",
+      "case": "attempt1_logo_1600",
+      "sha256": "247723d4476032c1b1b8cea747b5c7367e0977b2ba2f0a9f734bf7b6e83cc1a5",
+      "bytes": 271655,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_gold_shell.png",
+      "id": "choice_gold_shell",
+      "case": "attempt1_logo_1600",
+      "sha256": "a2fe77e649dd59df20b6d700e7f60f3e2fbbd8ec89c443d718c29e8a7ccf823e",
+      "bytes": 276820,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_gold_kitty.png",
+      "id": "choice_gold_kitty",
+      "case": "attempt1_logo_1600",
+      "sha256": "1cd2dcc71dad950903aa62cf3d59199e784e41b56dbe6dd8db1d428c01056d59",
+      "bytes": 280338,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_gold_dog.png",
+      "id": "choice_gold_dog",
+      "case": "attempt1_logo_1600",
+      "sha256": "c9fe4591646e065c08682577ef3db302fe7c860ffa071902b072c2c78056e564",
+      "bytes": 272200,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_gold_star.png",
+      "id": "choice_gold_star",
+      "case": "attempt1_logo_1600",
+      "sha256": "1771a9c3031882c2d3820d1d9c4de6e473fcb9da59f82ec0762e660091cd57ae",
+      "bytes": 270133,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_gold_heart.png",
+      "id": "choice_gold_heart",
+      "case": "attempt1_logo_1600",
+      "sha256": "375d8b6fc6f67fc72b5b8831599b43e6fdd5572830cf0840a6f323301e39e446",
+      "bytes": 273370,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_gold_crown.png",
+      "id": "choice_gold_crown",
+      "case": "attempt1_logo_1600",
+      "sha256": "5a7fd1d5fb4568debf8239795c9aa91e4c22c86e219c8dd44411608e4d30a1ac",
+      "bytes": 273621,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_gold_butterfly.png",
+      "id": "choice_gold_butterfly",
+      "case": "attempt1_logo_1600",
+      "sha256": "7a3666e956115251a0758da042c9e0a6772eeed3b61a379074b9b980af3cfdde",
+      "bytes": 280411,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_mint_rainbow.png",
+      "id": "choice_mint_rainbow",
+      "case": "attempt1_logo_1600",
+      "sha256": "1a989554509e016e9a1eb621c589d7fcf38b43584bbf4f55db34fbdbdca3ce61",
+      "bytes": 271360,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_mint_shell.png",
+      "id": "choice_mint_shell",
+      "case": "attempt1_logo_1600",
+      "sha256": "ed314bcba15ca2d5207b64a4196d70f2cd42e6f3e177f73f645d1fe2ab3e3d8c",
+      "bytes": 277441,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_mint_kitty.png",
+      "id": "choice_mint_kitty",
+      "case": "attempt1_logo_1600",
+      "sha256": "984345df1ecf00eb9ea66992da776d96ad56b357857c25b092bb0cedd38b2d84",
+      "bytes": 280732,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_mint_dog.png",
+      "id": "choice_mint_dog",
+      "case": "attempt1_logo_1600",
+      "sha256": "0184b27611766d5c53b9a3d418a0233f84b649340b8226a01d90d3f825031bb7",
+      "bytes": 270503,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_mint_star.png",
+      "id": "choice_mint_star",
+      "case": "attempt1_logo_1600",
+      "sha256": "0377fc7eb250c29d466ab1d52e17df065ac7ac8b23d204dc11471618d1254cf8",
+      "bytes": 268491,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_mint_heart.png",
+      "id": "choice_mint_heart",
+      "case": "attempt1_logo_1600",
+      "sha256": "e7c6740ecae302f0ede251df9a362c866c9efde760430d77eae09a83c7bb3269",
+      "bytes": 272617,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_mint_crown.png",
+      "id": "choice_mint_crown",
+      "case": "attempt1_logo_1600",
+      "sha256": "081af0b1f09ae0d999d721a15bf2567992e67590dde7f7da4c60f7c8642b900e",
+      "bytes": 274148,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_mint_butterfly.png",
+      "id": "choice_mint_butterfly",
+      "case": "attempt1_logo_1600",
+      "sha256": "9476ae547da701960740a3fcec8cc275576adfe343208f2572c673522b025247",
+      "bytes": 280218,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_ocean_rainbow.png",
+      "id": "choice_ocean_rainbow",
+      "case": "attempt1_logo_1600",
+      "sha256": "37c4a2504dbacfb98312d08bf834866ef0e7e2bea8e9be6faf75ab79e0a2a9b9",
+      "bytes": 272043,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_ocean_shell.png",
+      "id": "choice_ocean_shell",
+      "case": "attempt1_logo_1600",
+      "sha256": "a42321c30750acdec3864454d6c9b111431a413d9a82bd4acd647f4e1305eede",
+      "bytes": 278270,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_ocean_kitty.png",
+      "id": "choice_ocean_kitty",
+      "case": "attempt1_logo_1600",
+      "sha256": "d0093fe687606675ca2416041db9fd97a77ae86567d015bf7cd947ff3b7d98ed",
+      "bytes": 282710,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_ocean_dog.png",
+      "id": "choice_ocean_dog",
+      "case": "attempt1_logo_1600",
+      "sha256": "f3220fa0df7b252d03c69a21d2692636ed92cb89dfba3abb45a7184fa39bd760",
+      "bytes": 274172,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_ocean_star.png",
+      "id": "choice_ocean_star",
+      "case": "attempt1_logo_1600",
+      "sha256": "f43456a1d281e91057aececd33b01ebe6ad3795b1cf56c9a939ebcf00f88a09d",
+      "bytes": 270724,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_ocean_heart.png",
+      "id": "choice_ocean_heart",
+      "case": "attempt1_logo_1600",
+      "sha256": "215caff33bbe67d53734cddb343ffe924cc17f1f37a38f08f7997b3f17305640",
+      "bytes": 274160,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_ocean_crown.png",
+      "id": "choice_ocean_crown",
+      "case": "attempt1_logo_1600",
+      "sha256": "1cccd42a84e409192ce8ce6bf4be4512a5fd64d20ddd4d3ea2c289f33c4ce641",
+      "bytes": 275081,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_ocean_butterfly.png",
+      "id": "choice_ocean_butterfly",
+      "case": "attempt1_logo_1600",
+      "sha256": "88aeb545cd6538d2cac6a9fd214d701644a5536e029b2c2af11973d2dc6fa074",
+      "bytes": 282432,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_purple_rainbow.png",
+      "id": "choice_purple_rainbow",
+      "case": "attempt1_logo_1600",
+      "sha256": "c6f5f9615c79b37a7730afb0da937f34425fb548603c9978d733b8d1e10421f1",
+      "bytes": 273336,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_purple_shell.png",
+      "id": "choice_purple_shell",
+      "case": "attempt1_logo_1600",
+      "sha256": "8c2cdb29503c4830b0fa88800569dbc220cf9c2e27b478de4063cd3ce9d5ad0d",
+      "bytes": 278938,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_purple_kitty.png",
+      "id": "choice_purple_kitty",
+      "case": "attempt1_logo_1600",
+      "sha256": "06fbc309fe7c27b9738cb3ef894c78b32c8fc905f53803723b9e064efc85bed9",
+      "bytes": 281839,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_purple_dog.png",
+      "id": "choice_purple_dog",
+      "case": "attempt1_logo_1600",
+      "sha256": "95493ed6352487229e537e5167f03d3ff2094d1d6f1740dee8f2f40e24b6d1a1",
+      "bytes": 272388,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_purple_star.png",
+      "id": "choice_purple_star",
+      "case": "attempt1_logo_1600",
+      "sha256": "87ccec7fd64b795b589dc56c5e2e922bbdd755fa83edb616890b550095b9a756",
+      "bytes": 271089,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_purple_heart.png",
+      "id": "choice_purple_heart",
+      "case": "attempt1_logo_1600",
+      "sha256": "8e74da47d83a63d50fc9a34db9f26fc9a4a841ddac83422f850b689dbd7918d7",
+      "bytes": 275091,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_purple_crown.png",
+      "id": "choice_purple_crown",
+      "case": "attempt1_logo_1600",
+      "sha256": "9a701bc4c90530c78b1b33d607282e12045e6e6fa5fe54713315cdbd520fd3f1",
+      "bytes": 275816,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_purple_butterfly.png",
+      "id": "choice_purple_butterfly",
+      "case": "attempt1_logo_1600",
+      "sha256": "1aca9ffe540aafab84344d1c96df4124e195cfb2bd9163a56e6dd4e7e69c8ac6",
+      "bytes": 280800,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_rainbow_rainbow.png",
+      "id": "choice_rainbow_rainbow",
+      "case": "attempt1_logo_1600",
+      "sha256": "46ea3fbb147c53b6468bca8a35c7ca11b9e5c96e1597d3b7d82a6edae9ffc820",
+      "bytes": 271600,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_rainbow_shell.png",
+      "id": "choice_rainbow_shell",
+      "case": "attempt1_logo_1600",
+      "sha256": "881b4baa66eaee5b467d5cf079807bdce3a8ed3bccdb4294225a8171a6f857f4",
+      "bytes": 278645,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_rainbow_kitty.png",
+      "id": "choice_rainbow_kitty",
+      "case": "attempt1_logo_1600",
+      "sha256": "a13a9876e18ad6288d4ed5f9bd6ccf2563463089fb6c0f296effc6a9953e63bf",
+      "bytes": 282494,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_rainbow_dog.png",
+      "id": "choice_rainbow_dog",
+      "case": "attempt1_logo_1600",
+      "sha256": "8170965e58c540df7b1274211ee49e63a6c209995f183c74ad67408faa7d46cb",
+      "bytes": 272353,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_rainbow_star.png",
+      "id": "choice_rainbow_star",
+      "case": "attempt1_logo_1600",
+      "sha256": "b8d92a97742011b47d9fed9a9599ec8a61a588cbcffb440f00ba457b72703eee",
+      "bytes": 269620,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_rainbow_heart.png",
+      "id": "choice_rainbow_heart",
+      "case": "attempt1_logo_1600",
+      "sha256": "0bd478bf3465500609026d67372d69333db21c03edd171a697ae42cc469c4cf7",
+      "bytes": 273711,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_rainbow_crown.png",
+      "id": "choice_rainbow_crown",
+      "case": "attempt1_logo_1600",
+      "sha256": "d08833dbdc3959722f0cd6cdbe37317b0fa04745778acc2be373c3cad349d7cf",
+      "bytes": 275837,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/choice_rainbow_butterfly.png",
+      "id": "choice_rainbow_butterfly",
+      "case": "attempt1_logo_1600",
+      "sha256": "def1d28219768827c8b70279ae3bea5a01f198d32e7114d95d81ba2625b28203",
+      "bytes": 281578,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/symbol_heart_pressed.png",
+      "id": "symbol_heart_pressed",
+      "case": "attempt1_logo_1600",
+      "sha256": "cd523cce8145c42c6f94489d8975c3c9762ca6ff52cbd7175bed1a795ac267d4",
+      "bytes": 282683,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/symbol_heart_released.png",
+      "id": "symbol_heart_released",
+      "case": "attempt1_logo_1600",
+      "sha256": "fd9f1bad2d5ebbb6d35b039bde66463d7e5a729e241a7610c94f4036689dbc06",
+      "bytes": 273669,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/cancel_restored.png",
+      "id": "cancel_restored",
+      "case": "attempt1_logo_1600",
+      "sha256": "36d7808c1166d573571e5f21cab73ac9dbbc97011d56185fad653c265cda0d88",
+      "bytes": 1312848,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/commit_paint_table_before.png",
+      "id": "commit_paint_table_before",
+      "case": "attempt1_logo_1600",
+      "sha256": "cca43a981ecff3f0490b9acb6852e0808ea77fbe6a7aad4959c96adc2bfe4231",
+      "bytes": 1312939,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/commit_logo_ready.png",
+      "id": "commit_logo_ready",
+      "case": "attempt1_logo_1600",
+      "sha256": "49185448fe2a03bdeefd1325da58df841a24ff8cb09656ac19da71ffe09013cc",
+      "bytes": 269908,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/keep_feedback.png",
+      "id": "keep_feedback",
+      "case": "attempt1_logo_1600",
+      "sha256": "5be52cbbafc687d53488b0c0403c1e110fbcbfdbab7aadc49fc921ff79505bcd",
+      "bytes": 273813,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/craft_committed_display.png",
+      "id": "craft_committed_display",
+      "case": "attempt1_logo_1600",
+      "sha256": "133f73d4017aaa082a106f71f41e490ba2406efe5745a15d19be4212e488868d",
+      "bytes": 1312880,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/playroom_committed_display.png",
+      "id": "playroom_committed_display",
+      "case": "attempt1_logo_1600",
+      "sha256": "efbb86bcc680b3179309bc071face2f04d66e3d3decbf422b40333a820ec84b2",
+      "bytes": 1336195,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/library_unregistered_absence.png",
+      "id": "library_unregistered_absence",
+      "case": "attempt1_logo_1600",
+      "sha256": "6e73d29ab08af1622823dc12fe636bd55021b5cbe8a46fe217904e6cff127179",
+      "bytes": 1421346,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/background_cancel_paint_table_before.png",
+      "id": "background_cancel_paint_table_before",
+      "case": "attempt1_logo_1600",
+      "sha256": "0e8a0c52200198d11298c3e944878c209acd343019f0bde4df776835b00cabdc",
+      "bytes": 1317469,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/background_cancel_logo_ready.png",
+      "id": "background_cancel_logo_ready",
+      "case": "attempt1_logo_1600",
+      "sha256": "7b31bcfb8e8525fc37e758374fda1cd38e041a59621f56075b5df2f4f802af0c",
+      "bytes": 271394,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/draft_before_background.png",
+      "id": "draft_before_background",
+      "case": "attempt1_logo_1600",
+      "sha256": "6bb63b5c2950d78c2844a7d6612530bc007fde5fed3d7cfd08ab087e7168ab02",
+      "bytes": 269028,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/draft_after_background.png",
+      "id": "draft_after_background",
+      "case": "attempt1_logo_1600",
+      "sha256": "60fe795d0c137ce401c4cc09bed12eab5db06e2b807593e9f7c01658361c0537",
+      "bytes": 269045,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/background_cancel_restored.png",
+      "id": "background_cancel_restored",
+      "case": "attempt1_logo_1600",
+      "sha256": "ea08be10d10260f3ae0d63b18823b64a42fda342635ccbab8b7255ba07ca03ab",
+      "bytes": 1313816,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/fresh_main_loaded_display.png",
+      "id": "fresh_main_loaded_display",
+      "case": "attempt1_logo_1600",
+      "sha256": "353077d39586e504cc515ece198bcc7e790cb53e7d6d958aa0e6fc11a7122e39",
+      "bytes": 1216595,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/reload_paint_table_before.png",
+      "id": "reload_paint_table_before",
+      "case": "attempt1_logo_1600",
+      "sha256": "bf4f22d50ad9d1105a3ad34b5f2e486ab074db8f4850ffd051f0b59e32334102",
+      "bytes": 1240374,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/reload_logo_ready.png",
+      "id": "reload_logo_ready",
+      "case": "attempt1_logo_1600",
+      "sha256": "6c230da7276f5629165a24be4429e387f3c537f752dd839e131d5afef412dbbe",
+      "bytes": 265690,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/fresh_main_logo_reopened.png",
+      "id": "fresh_main_logo_reopened",
+      "case": "attempt1_logo_1600",
+      "sha256": "904d538c2669f859ccb3b633444fc5568a20cc47480e2f7d803f6e8cbf4af3bf",
+      "bytes": 264847,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt1_logo_1600/final_craft_restored.png",
+      "id": "final_craft_restored",
+      "case": "attempt1_logo_1600",
+      "sha256": "f0f5f8b1a98f4ed0348e9126a1e6137d38f7fd97ee0d8928dffa8d66c894f479",
+      "bytes": 1236429,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_FIXTURE_COMPARISON_FAILURE",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/first_paint_table_before.png",
+      "id": "first_paint_table_before",
+      "case": "attempt2_logo_1280",
+      "sha256": "90850baf447aff4eee0ed2d88a87571a5e52870af6a48b5786d9d9686778f560",
+      "bytes": 1182850,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/first_logo_ready.png",
+      "id": "first_logo_ready",
+      "case": "attempt2_logo_1280",
+      "sha256": "a7789c636d6975d83aa9f80e4205addc631e1f59b66b55302421f255c0797277",
+      "bytes": 254532,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/logo_passive.png",
+      "id": "logo_passive",
+      "case": "attempt2_logo_1280",
+      "sha256": "f5a269a90befd03a4760ad74c249e68594df995fe7d18baec42ccceb6e0fc603",
+      "bytes": 254993,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_pink_rainbow.png",
+      "id": "choice_pink_rainbow",
+      "case": "attempt2_logo_1280",
+      "sha256": "0fdecd760670258de25098dd9f748057b623e9a880a23134f4fb0f27f202a637",
+      "bytes": 252566,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_pink_shell.png",
+      "id": "choice_pink_shell",
+      "case": "attempt2_logo_1280",
+      "sha256": "57b7a39128c8188a39e82ed40f57f0de62d9885248c283d3b577e72eeb2890ba",
+      "bytes": 258327,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_pink_kitty.png",
+      "id": "choice_pink_kitty",
+      "case": "attempt2_logo_1280",
+      "sha256": "4e856855c88bdd4ad14f6ceba3159cf58f8fa0fc83fc3f751e75a48d94dd88aa",
+      "bytes": 262845,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_pink_dog.png",
+      "id": "choice_pink_dog",
+      "case": "attempt2_logo_1280",
+      "sha256": "5cfe011775902c8e0f92256a3e581df31c6a96a72cf839678195ab44ea8b1d49",
+      "bytes": 254687,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_pink_star.png",
+      "id": "choice_pink_star",
+      "case": "attempt2_logo_1280",
+      "sha256": "1e65bb0b8f2a09f3d1ea4815a7ea1db02be815db6f9a2e13fb1fd38d827a6396",
+      "bytes": 252016,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_pink_heart.png",
+      "id": "choice_pink_heart",
+      "case": "attempt2_logo_1280",
+      "sha256": "7d597786f1791f94fa846dbe5621ec9afad40c1f2fe6e2acca49ca8b2732ea25",
+      "bytes": 254031,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_pink_crown.png",
+      "id": "choice_pink_crown",
+      "case": "attempt2_logo_1280",
+      "sha256": "a178179088b58d3b1403b60106a2901710146228417ee4e9d28394d5d5ac5f28",
+      "bytes": 263065,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_pink_butterfly.png",
+      "id": "choice_pink_butterfly",
+      "case": "attempt2_logo_1280",
+      "sha256": "971635aa5ef48403b90227cd70e2e61e327268c5d40f69039f07e857731213d0",
+      "bytes": 269326,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_gold_rainbow.png",
+      "id": "choice_gold_rainbow",
+      "case": "attempt2_logo_1280",
+      "sha256": "0a4313ab0b63a6624104ada027524b45bf19d1ea93f240aa980ce45c556ebd70",
+      "bytes": 263120,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_gold_shell.png",
+      "id": "choice_gold_shell",
+      "case": "attempt2_logo_1280",
+      "sha256": "0f48def5b82b30164152bccbb1f41be12db77c8de53b6e9115904ae77cca9183",
+      "bytes": 268144,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_gold_kitty.png",
+      "id": "choice_gold_kitty",
+      "case": "attempt2_logo_1280",
+      "sha256": "fa9c112cc8d7ac3fe1a2e93e5b83424d2dc9e622975675154f52da7d9f510da9",
+      "bytes": 270943,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_gold_dog.png",
+      "id": "choice_gold_dog",
+      "case": "attempt2_logo_1280",
+      "sha256": "c2d3dc37a158d41b0f9a152ada7580321d07b56bd2dfbddfd58568ac94308626",
+      "bytes": 261923,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_gold_star.png",
+      "id": "choice_gold_star",
+      "case": "attempt2_logo_1280",
+      "sha256": "fadd9f5e13149018f648d80c0f16d29a59545f0aa4c684606c057df4cc886a09",
+      "bytes": 260722,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_gold_heart.png",
+      "id": "choice_gold_heart",
+      "case": "attempt2_logo_1280",
+      "sha256": "43c233ab091977301b8da55d8e9c7f30d6e54b902354907b3b2dc69a1b41431e",
+      "bytes": 263978,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_gold_crown.png",
+      "id": "choice_gold_crown",
+      "case": "attempt2_logo_1280",
+      "sha256": "8775180282ae5bf8949741cd472a4694215633c085d19cbbbee5e0eeb5d15bfa",
+      "bytes": 265632,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_gold_butterfly.png",
+      "id": "choice_gold_butterfly",
+      "case": "attempt2_logo_1280",
+      "sha256": "e36a9deeca6d117393aa3358ceff3023b325f7e8749e97b3dd173e3f7c6f6cfe",
+      "bytes": 270364,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_mint_rainbow.png",
+      "id": "choice_mint_rainbow",
+      "case": "attempt2_logo_1280",
+      "sha256": "c0fbffcfbb4a75324bd75a9561c4ad89d8a692c5bd08e62c28741b54674dc253",
+      "bytes": 260939,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_mint_shell.png",
+      "id": "choice_mint_shell",
+      "case": "attempt2_logo_1280",
+      "sha256": "fd7d30183a9e6ae5a3b39a014c13767d42382d61f903751235dff1ad744383ee",
+      "bytes": 267363,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_mint_kitty.png",
+      "id": "choice_mint_kitty",
+      "case": "attempt2_logo_1280",
+      "sha256": "d9e79a4e36ab15b9b24414a137fbff35a22806fe99c7925751be8f6c268b3c61",
+      "bytes": 271522,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_mint_dog.png",
+      "id": "choice_mint_dog",
+      "case": "attempt2_logo_1280",
+      "sha256": "975b62fbf82397c7ec2a6453f998624a6181716723e0344179f755b94e062156",
+      "bytes": 262271,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_mint_star.png",
+      "id": "choice_mint_star",
+      "case": "attempt2_logo_1280",
+      "sha256": "096e12b1de295349b8333dde0c9eeed2b5a6163292c8de260f0570a99a69d61d",
+      "bytes": 259058,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_mint_heart.png",
+      "id": "choice_mint_heart",
+      "case": "attempt2_logo_1280",
+      "sha256": "4d23c414a85b112b6cb1388bcc06fa78128018156d8a0a3215ea647bdda19087",
+      "bytes": 262425,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_mint_crown.png",
+      "id": "choice_mint_crown",
+      "case": "attempt2_logo_1280",
+      "sha256": "e8b849e3b5d81474815d6c96be78d7273cec225d4a414ca63dcb551f5eb3a2fa",
+      "bytes": 264424,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_mint_butterfly.png",
+      "id": "choice_mint_butterfly",
+      "case": "attempt2_logo_1280",
+      "sha256": "c149ffd41390187acb0a983bbe0a95bf942c65eeb5ae955ed6f7a9e837123e06",
+      "bytes": 270853,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_ocean_rainbow.png",
+      "id": "choice_ocean_rainbow",
+      "case": "attempt2_logo_1280",
+      "sha256": "d73c160055e4c7e4e7c4927080c7044567a2384675ec0c3d9c613f9bcdaba810",
+      "bytes": 263719,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_ocean_shell.png",
+      "id": "choice_ocean_shell",
+      "case": "attempt2_logo_1280",
+      "sha256": "94a7316b0e0a14f7e113d4cfa26e1dd9f38864e8396ccbd44fc913beb6afa412",
+      "bytes": 268443,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_ocean_kitty.png",
+      "id": "choice_ocean_kitty",
+      "case": "attempt2_logo_1280",
+      "sha256": "2b2d0a6a29aa54aa24edbfedc79fb8b4a4dd43f22c7f26a616085c4a9aaa2f82",
+      "bytes": 272588,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_ocean_dog.png",
+      "id": "choice_ocean_dog",
+      "case": "attempt2_logo_1280",
+      "sha256": "06ddab9fb490c40fe25183f835d935d01dc563ba1777b9784003216b69f4b437",
+      "bytes": 263872,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_ocean_star.png",
+      "id": "choice_ocean_star",
+      "case": "attempt2_logo_1280",
+      "sha256": "0b7bf44a453c60bf8d7fbdc306bdbca0efd0076fd9af5978d44e43bffdc28bf7",
+      "bytes": 262224,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_ocean_heart.png",
+      "id": "choice_ocean_heart",
+      "case": "attempt2_logo_1280",
+      "sha256": "12f46bcd7b087fc957603022b32a8f2129ccf66fb34065ce8cd6a22d9ff751cd",
+      "bytes": 264896,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_ocean_crown.png",
+      "id": "choice_ocean_crown",
+      "case": "attempt2_logo_1280",
+      "sha256": "57b1c0954f50f210335ca34f423c4249d206bd562267459272f220fb8f692e9e",
+      "bytes": 266270,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_ocean_butterfly.png",
+      "id": "choice_ocean_butterfly",
+      "case": "attempt2_logo_1280",
+      "sha256": "96803f5bd589fbe6cbd376ace521a6eb49464f81ef4277b4173d6ee1afac423c",
+      "bytes": 272005,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_purple_rainbow.png",
+      "id": "choice_purple_rainbow",
+      "case": "attempt2_logo_1280",
+      "sha256": "42e4a20b4fca5e8e99a62977bc0925afae778309c0aad50364211194ca541ed8",
+      "bytes": 263728,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_purple_shell.png",
+      "id": "choice_purple_shell",
+      "case": "attempt2_logo_1280",
+      "sha256": "ff05080a23ec29222969dd8225c3f3a264d1bd755894ea0b5c8f6c168a978b9f",
+      "bytes": 269497,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_purple_kitty.png",
+      "id": "choice_purple_kitty",
+      "case": "attempt2_logo_1280",
+      "sha256": "6bb3523ae7ae05e9cb00ea3a6b4871ba46c2f8ae67c1860538c2b60d4fdb5fa9",
+      "bytes": 273004,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_purple_dog.png",
+      "id": "choice_purple_dog",
+      "case": "attempt2_logo_1280",
+      "sha256": "f191dfec6951577cc54ba69184a73309672fce6f8c9181af07d2a4ad1e82bd97",
+      "bytes": 263455,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_purple_star.png",
+      "id": "choice_purple_star",
+      "case": "attempt2_logo_1280",
+      "sha256": "838b3ede48842b371f841a71fa3fca63d58ada1ebd02ef01adf324e91f322b73",
+      "bytes": 261164,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_purple_heart.png",
+      "id": "choice_purple_heart",
+      "case": "attempt2_logo_1280",
+      "sha256": "4daf3ed61e233b15d390bae43a686427316b915d73719049d0ee6bd7f3c8b572",
+      "bytes": 265155,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_purple_crown.png",
+      "id": "choice_purple_crown",
+      "case": "attempt2_logo_1280",
+      "sha256": "6328326a6ba13d16b22e7de5059a147c2e009ada5bb8b2d8682ee908a1bbc1bb",
+      "bytes": 266890,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_purple_butterfly.png",
+      "id": "choice_purple_butterfly",
+      "case": "attempt2_logo_1280",
+      "sha256": "ea68b94cce46cb4ed988e457dae4f25d3897c67c2edd705a270c606ba2d1dd87",
+      "bytes": 272258,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_rainbow_rainbow.png",
+      "id": "choice_rainbow_rainbow",
+      "case": "attempt2_logo_1280",
+      "sha256": "dd747630ac199111f7700dd9ce61d604fceb66e21490d6f5805bf9bea9f9a452",
+      "bytes": 261779,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_rainbow_shell.png",
+      "id": "choice_rainbow_shell",
+      "case": "attempt2_logo_1280",
+      "sha256": "0e83661e089d897a61e4b6edc09fd7327f5e5d0b2d5ecd357c00a6217b390f6f",
+      "bytes": 267884,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_rainbow_kitty.png",
+      "id": "choice_rainbow_kitty",
+      "case": "attempt2_logo_1280",
+      "sha256": "3f7889bb27f45139aa01299f580847c8c3195bfd0766b572bc83c42e3a9a1a16",
+      "bytes": 272932,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_rainbow_dog.png",
+      "id": "choice_rainbow_dog",
+      "case": "attempt2_logo_1280",
+      "sha256": "fbce76576512f51e0f79d6904c691c019a149a35d26eeb092af2116db1003e84",
+      "bytes": 263999,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_rainbow_star.png",
+      "id": "choice_rainbow_star",
+      "case": "attempt2_logo_1280",
+      "sha256": "4ef6889ebfacf993d74d7480a05362176a016aa14d02539cb963004758b47f3a",
+      "bytes": 261468,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_rainbow_heart.png",
+      "id": "choice_rainbow_heart",
+      "case": "attempt2_logo_1280",
+      "sha256": "ee0e629705b8069354208fafa5936a00ce92487e8086510a17cd79c0d5da7fe8",
+      "bytes": 263664,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_rainbow_crown.png",
+      "id": "choice_rainbow_crown",
+      "case": "attempt2_logo_1280",
+      "sha256": "0d8e5fc1b432ca836e3b5df37d282508d241b7c40d32c6dc8e38d55e6a3344a1",
+      "bytes": 265469,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/choice_rainbow_butterfly.png",
+      "id": "choice_rainbow_butterfly",
+      "case": "attempt2_logo_1280",
+      "sha256": "0bb034ae1ba71338f070f85ed3e2032fdb7612261b1d210d0668a2874103d991",
+      "bytes": 271713,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/symbol_heart_pressed.png",
+      "id": "symbol_heart_pressed",
+      "case": "attempt2_logo_1280",
+      "sha256": "8c18465a461fcfddcf81f64f7911037f0248dd0419ec549902dd2feb7e499299",
+      "bytes": 273519,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/symbol_heart_released.png",
+      "id": "symbol_heart_released",
+      "case": "attempt2_logo_1280",
+      "sha256": "c40eb0e932d6789b713fe48658efd7ba86099e1fe921f15a853708b523146a15",
+      "bytes": 265248,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/cancel_restored.png",
+      "id": "cancel_restored",
+      "case": "attempt2_logo_1280",
+      "sha256": "b4548391649f15d6f412e40cb6e4e529f81a827dbdbe86a4be96ee14843d909b",
+      "bytes": 1279372,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/commit_paint_table_before.png",
+      "id": "commit_paint_table_before",
+      "case": "attempt2_logo_1280",
+      "sha256": "8e348ded90e7bc16559e26c8b238d702fe2a8ace17933582455dca3da40e0b18",
+      "bytes": 1278275,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/commit_logo_ready.png",
+      "id": "commit_logo_ready",
+      "case": "attempt2_logo_1280",
+      "sha256": "1a928c7ac0f60ed62588831f9439217c6188025852e32a3c48b4f47fdd9844bf",
+      "bytes": 260597,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/keep_feedback.png",
+      "id": "keep_feedback",
+      "case": "attempt2_logo_1280",
+      "sha256": "8da2c29024886dd9ef3828b3d20ec57ca11c91f641261120b13810bcc82503c9",
+      "bytes": 265015,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/craft_committed_display.png",
+      "id": "craft_committed_display",
+      "case": "attempt2_logo_1280",
+      "sha256": "4b46eb78ce3d8c83bc1c095b7e9cedaa8c9613e2df945c313119ee18cd99d844",
+      "bytes": 1279121,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/playroom_committed_display.png",
+      "id": "playroom_committed_display",
+      "case": "attempt2_logo_1280",
+      "sha256": "19523fa63c692718f0dc0de9bc4c9338188d30cf98ccb5d556730ef2e63a975b",
+      "bytes": 1298128,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/library_unregistered_absence.png",
+      "id": "library_unregistered_absence",
+      "case": "attempt2_logo_1280",
+      "sha256": "67afdac20cd832051e968807b71bd6008e02ee01fc7d38f2651053d803d5160f",
+      "bytes": 1388000,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/background_cancel_paint_table_before.png",
+      "id": "background_cancel_paint_table_before",
+      "case": "attempt2_logo_1280",
+      "sha256": "7ef6b614c1e2a4336c62399cc09428bdbd4959216f1596d6002877ccdb77bc1e",
+      "bytes": 1282856,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/background_cancel_logo_ready.png",
+      "id": "background_cancel_logo_ready",
+      "case": "attempt2_logo_1280",
+      "sha256": "c2778b485bc5f1547a4ea8678ec43bb4dce2145890bd93eaa4a19cb11052ea3d",
+      "bytes": 261747,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/draft_before_background.png",
+      "id": "draft_before_background",
+      "case": "attempt2_logo_1280",
+      "sha256": "0a3565faf371b2e1b563c153713339c11d706ae204f7755a68c8e14af15596ff",
+      "bytes": 260008,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/draft_after_background.png",
+      "id": "draft_after_background",
+      "case": "attempt2_logo_1280",
+      "sha256": "de32fb1a63cd50a7627cb4729812a1e773858b19931fdd77c33146f88a2f8430",
+      "bytes": 259990,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/background_cancel_restored.png",
+      "id": "background_cancel_restored",
+      "case": "attempt2_logo_1280",
+      "sha256": "eff9283386500aaa5334c25411dfd4c778bf90ad32107c20095feb68f6f8101f",
+      "bytes": 1279943,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/fresh_main_loaded_display.png",
+      "id": "fresh_main_loaded_display",
+      "case": "attempt2_logo_1280",
+      "sha256": "3a5ff2a395de38431ea6ebd75af4280283aef285cd149897e7234615edb978d5",
+      "bytes": 1193678,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/reload_paint_table_before.png",
+      "id": "reload_paint_table_before",
+      "case": "attempt2_logo_1280",
+      "sha256": "50febc0e71764885d0afb7e7bdc6de216d20c994efd0e616baf57ffb1566268d",
+      "bytes": 1205094,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/reload_logo_ready.png",
+      "id": "reload_logo_ready",
+      "case": "attempt2_logo_1280",
+      "sha256": "1efe7e428558ebfa6ff96985604c90c31b94f1ced098199d596fb18bdba0d248",
+      "bytes": 255166,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/fresh_main_logo_reopened.png",
+      "id": "fresh_main_logo_reopened",
+      "case": "attempt2_logo_1280",
+      "sha256": "9f56e9eee8b148496883e497698c0100f48c6ead181d939dd5737f3273ad8532",
+      "bytes": 254619,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1280/final_craft_restored.png",
+      "id": "final_craft_restored",
+      "case": "attempt2_logo_1280",
+      "sha256": "8fb6c4530174f634a9ded891b9fa3bc03ee3a8b9c6dcc17daabb8a1579fa1f96",
+      "bytes": 1202370,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/first_paint_table_before.png",
+      "id": "first_paint_table_before",
+      "case": "attempt2_logo_1600",
+      "sha256": "a0aa541be91b37a9fd8cc2d17028a91f697b63b1e0b3ff23eac9e4bf260205d1",
+      "bytes": 1222207,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/first_logo_ready.png",
+      "id": "first_logo_ready",
+      "case": "attempt2_logo_1600",
+      "sha256": "52d7abb4cf3736d662e86ba9156929d948388480beb1f6794512b069f1496eb4",
+      "bytes": 264867,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/logo_passive.png",
+      "id": "logo_passive",
+      "case": "attempt2_logo_1600",
+      "sha256": "47ad90c9ac851552cea89afae2f496b01b3877a4029753760b61d5562f9207c7",
+      "bytes": 265083,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_pink_rainbow.png",
+      "id": "choice_pink_rainbow",
+      "case": "attempt2_logo_1600",
+      "sha256": "19d982d8eb74f86bb185e88d5265eba3c459ee7a0025dd747146c3cc1bfa4909",
+      "bytes": 262921,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_pink_shell.png",
+      "id": "choice_pink_shell",
+      "case": "attempt2_logo_1600",
+      "sha256": "7cf3addd34bd2b8b262393054a06b773ea6f6dee6fca4c61f73423b8fe21eba5",
+      "bytes": 268840,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_pink_kitty.png",
+      "id": "choice_pink_kitty",
+      "case": "attempt2_logo_1600",
+      "sha256": "63e1f808a6dd846cbc1c7c6a469834d3ddb339be7198e48414958892774d5f49",
+      "bytes": 273334,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_pink_dog.png",
+      "id": "choice_pink_dog",
+      "case": "attempt2_logo_1600",
+      "sha256": "a170b5d2d249187f7dd6abe5145d2da056550423ed370683cac00b6acb8bca61",
+      "bytes": 265493,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_pink_star.png",
+      "id": "choice_pink_star",
+      "case": "attempt2_logo_1600",
+      "sha256": "8e60decb0c13cdabb00a24638e78cf45e020e69f22584489415d683c76c992e4",
+      "bytes": 262204,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_pink_heart.png",
+      "id": "choice_pink_heart",
+      "case": "attempt2_logo_1600",
+      "sha256": "4689b76fbbda49e1cd7334631de0623ae379c89adcd3eef0e669cb9ca1ee73a5",
+      "bytes": 264557,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_pink_crown.png",
+      "id": "choice_pink_crown",
+      "case": "attempt2_logo_1600",
+      "sha256": "1b28c4348c1637ddc3253e122037bbd7bd663d378037ca022efa4da9f29f19c0",
+      "bytes": 271991,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_pink_butterfly.png",
+      "id": "choice_pink_butterfly",
+      "case": "attempt2_logo_1600",
+      "sha256": "ba94485e5551be92b578e87db178084516db803475223181e4a37f9357d9b504",
+      "bytes": 279828,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_gold_rainbow.png",
+      "id": "choice_gold_rainbow",
+      "case": "attempt2_logo_1600",
+      "sha256": "a7d909802bf91184d20ba7f74c0edc5d1b4c62d0ff6938ef104f6f10298adb1e",
+      "bytes": 272339,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_gold_shell.png",
+      "id": "choice_gold_shell",
+      "case": "attempt2_logo_1600",
+      "sha256": "4f94b93ce83ee65586a8dd0f221a3243ec014b13543d196dc192fedfe2da45e2",
+      "bytes": 277510,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_gold_kitty.png",
+      "id": "choice_gold_kitty",
+      "case": "attempt2_logo_1600",
+      "sha256": "f613ec26072b82af6b6c67a146b816354c377c5afc18d8418585d90a380a95af",
+      "bytes": 280385,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_gold_dog.png",
+      "id": "choice_gold_dog",
+      "case": "attempt2_logo_1600",
+      "sha256": "b669383642c297c818dd5c138be6610775beed78c5796e0defdae94762103690",
+      "bytes": 271286,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_gold_star.png",
+      "id": "choice_gold_star",
+      "case": "attempt2_logo_1600",
+      "sha256": "11b1a0d3111359f7f2bb694ab276b627c075ac0a2a793993f5683fde7dbd80eb",
+      "bytes": 269843,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_gold_heart.png",
+      "id": "choice_gold_heart",
+      "case": "attempt2_logo_1600",
+      "sha256": "f4b3df04189366fafa6a7b6ebb282eebefe08337c3860e748157fa5b6c0ca27b",
+      "bytes": 273639,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_gold_crown.png",
+      "id": "choice_gold_crown",
+      "case": "attempt2_logo_1600",
+      "sha256": "8b8dc357e7dfad61abe28de6fb00e62dac12c6a00bdf3251e4a024d9029f64aa",
+      "bytes": 274349,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_gold_butterfly.png",
+      "id": "choice_gold_butterfly",
+      "case": "attempt2_logo_1600",
+      "sha256": "505a1d0392f911b373c88b97b3b7e16f2efc9e01ecc53f95f689656a7ab2b3a4",
+      "bytes": 280110,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_mint_rainbow.png",
+      "id": "choice_mint_rainbow",
+      "case": "attempt2_logo_1600",
+      "sha256": "dbb4e453abcfdc211807c6e64ddb573cabd5c9bd84bc60ef1ce88f95bb1d1fb9",
+      "bytes": 270461,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_mint_shell.png",
+      "id": "choice_mint_shell",
+      "case": "attempt2_logo_1600",
+      "sha256": "175c7f831d04e50c2dcc7d17c88c184fa5abb7c72e644950dd359efaf44c7797",
+      "bytes": 277305,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_mint_kitty.png",
+      "id": "choice_mint_kitty",
+      "case": "attempt2_logo_1600",
+      "sha256": "39bc275eb586a7bae621ada79e86a3811e4691636a02d561ae4ebd556c096f6b",
+      "bytes": 281008,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_mint_dog.png",
+      "id": "choice_mint_dog",
+      "case": "attempt2_logo_1600",
+      "sha256": "0e83de0332d08fcdc0eb95e759f89a8563c701680c4b04c3902de327526c163c",
+      "bytes": 271295,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_mint_star.png",
+      "id": "choice_mint_star",
+      "case": "attempt2_logo_1600",
+      "sha256": "c416da71f952369bece7b8d1faa25615c599937312710e1c9362086065de41f9",
+      "bytes": 268159,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_mint_heart.png",
+      "id": "choice_mint_heart",
+      "case": "attempt2_logo_1600",
+      "sha256": "11f4b5044886dd66bc9bf5f80785c295f7e8ff82828e8b6eb7bdbd848c941029",
+      "bytes": 271929,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_mint_crown.png",
+      "id": "choice_mint_crown",
+      "case": "attempt2_logo_1600",
+      "sha256": "31e3dbc68ced51d901c9bb2d4d1aeb5e97f706ec0f985297532a30a16b6ecd9d",
+      "bytes": 273701,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_mint_butterfly.png",
+      "id": "choice_mint_butterfly",
+      "case": "attempt2_logo_1600",
+      "sha256": "7ca72d3c990dff0ecfcd7820c96956a5a1acab88b7fae2ed13d9108bba73ab55",
+      "bytes": 280596,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_ocean_rainbow.png",
+      "id": "choice_ocean_rainbow",
+      "case": "attempt2_logo_1600",
+      "sha256": "70a27456389d3a5a4a3c898f528bcfaa79fcf1e0ee6e04d190c1090d983004c4",
+      "bytes": 272599,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_ocean_shell.png",
+      "id": "choice_ocean_shell",
+      "case": "attempt2_logo_1600",
+      "sha256": "2a17505ad949a0b43129ef832b2d37fe08fbecf6760a2b00ced6795310f8bea6",
+      "bytes": 278216,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_ocean_kitty.png",
+      "id": "choice_ocean_kitty",
+      "case": "attempt2_logo_1600",
+      "sha256": "cb0315274e79ed1b7e63c0a7113909eebdbad5d510751526923535b64c2bfea1",
+      "bytes": 281944,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_ocean_dog.png",
+      "id": "choice_ocean_dog",
+      "case": "attempt2_logo_1600",
+      "sha256": "198bece0f9ab06d06eb9f067faae9415e980bccd7aa572a2dd6a1d588564c01a",
+      "bytes": 273660,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_ocean_star.png",
+      "id": "choice_ocean_star",
+      "case": "attempt2_logo_1600",
+      "sha256": "aea9c8a26e63a433e77b3cf45c4f2f9059d467d3733132534eb07b5e08fb2dba",
+      "bytes": 271504,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_ocean_heart.png",
+      "id": "choice_ocean_heart",
+      "case": "attempt2_logo_1600",
+      "sha256": "6bc1a932a3b4cd603044c0d727ea5752c383b45ca7b11113aeb5949e94cc71b6",
+      "bytes": 274545,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_ocean_crown.png",
+      "id": "choice_ocean_crown",
+      "case": "attempt2_logo_1600",
+      "sha256": "cd0f8c30e5a220e7f0d63174ed4b23cb7b20fe0c62ad0fd913acce174ea650ae",
+      "bytes": 275378,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_ocean_butterfly.png",
+      "id": "choice_ocean_butterfly",
+      "case": "attempt2_logo_1600",
+      "sha256": "9e3b34a050d08f12fde7b1dacab99935155fc09625ad120b64f57a6be7c16e4d",
+      "bytes": 281416,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_purple_rainbow.png",
+      "id": "choice_purple_rainbow",
+      "case": "attempt2_logo_1600",
+      "sha256": "729740f0de29a8707c0fdb3f9a61c7e335c3f928d7dc3f680b1b48a0c05395ef",
+      "bytes": 272859,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_purple_shell.png",
+      "id": "choice_purple_shell",
+      "case": "attempt2_logo_1600",
+      "sha256": "1b8f0310118f32ec6e47ea4881abc4fcae468295504f63c1ad23666bc5bab125",
+      "bytes": 279270,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_purple_kitty.png",
+      "id": "choice_purple_kitty",
+      "case": "attempt2_logo_1600",
+      "sha256": "894e944b918ce6cb43d6df50a1151310793cfa476aa2f06f3b0a5f73bc77fd5b",
+      "bytes": 282361,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_purple_dog.png",
+      "id": "choice_purple_dog",
+      "case": "attempt2_logo_1600",
+      "sha256": "bc44241418af4d0751f323731fc1c6afd73c38a824a8231ce774af2b401499be",
+      "bytes": 272672,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_purple_star.png",
+      "id": "choice_purple_star",
+      "case": "attempt2_logo_1600",
+      "sha256": "2f653531840f87d2d4d1b1d230fa0dac7b38b6932a3dcb1f3ba368db7eff2fe2",
+      "bytes": 269948,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_purple_heart.png",
+      "id": "choice_purple_heart",
+      "case": "attempt2_logo_1600",
+      "sha256": "2c4f245c3b35c46951f9f030e181ee134db3206964992dad6d16776c059aef06",
+      "bytes": 274722,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_purple_crown.png",
+      "id": "choice_purple_crown",
+      "case": "attempt2_logo_1600",
+      "sha256": "91521bf4bbd1d187b203b4a9c67b1b50e2f6b645cd3893c5e40e16c703d2128e",
+      "bytes": 276068,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_purple_butterfly.png",
+      "id": "choice_purple_butterfly",
+      "case": "attempt2_logo_1600",
+      "sha256": "01dce6be04343702b0bf63e1f203ecc87dcb235f24f53bd4c2678dc98bd3fb39",
+      "bytes": 281909,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_rainbow_rainbow.png",
+      "id": "choice_rainbow_rainbow",
+      "case": "attempt2_logo_1600",
+      "sha256": "5d1b4b6fc39b79ead90ade65a6c726e1a6110cc4d5cae834450a5335eeb4dcde",
+      "bytes": 271139,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_rainbow_shell.png",
+      "id": "choice_rainbow_shell",
+      "case": "attempt2_logo_1600",
+      "sha256": "1141a6d3cfaab0a5e5907ef0004973ff5f7a8a8afc4931cffe3fcc900ef5acaa",
+      "bytes": 277547,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_rainbow_kitty.png",
+      "id": "choice_rainbow_kitty",
+      "case": "attempt2_logo_1600",
+      "sha256": "4a63b064c827ee053e963434ab0456a4c9ce8701d48ff77e3788ee99a8659f19",
+      "bytes": 281961,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_rainbow_dog.png",
+      "id": "choice_rainbow_dog",
+      "case": "attempt2_logo_1600",
+      "sha256": "7c3eb72db5e37c72ffcd82a0478c7253f71621de1ff45c3326ae72884373c042",
+      "bytes": 273365,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_rainbow_star.png",
+      "id": "choice_rainbow_star",
+      "case": "attempt2_logo_1600",
+      "sha256": "7e188a8284ef4389100aee2481da711e673da9f3454ebd261b4b705a1d60c21b",
+      "bytes": 270673,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_rainbow_heart.png",
+      "id": "choice_rainbow_heart",
+      "case": "attempt2_logo_1600",
+      "sha256": "98cb7f78e2f7919565397cbceb2a9d45031c44d1b4700483156e6a3e064fe19b",
+      "bytes": 273236,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_rainbow_crown.png",
+      "id": "choice_rainbow_crown",
+      "case": "attempt2_logo_1600",
+      "sha256": "4cc226362d44a48a39d0696092ec251d486b7dc9f69843024204e924a2cae7d8",
+      "bytes": 274622,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/choice_rainbow_butterfly.png",
+      "id": "choice_rainbow_butterfly",
+      "case": "attempt2_logo_1600",
+      "sha256": "69f58ccaba936b90fbd1070367e69fd59066bb4ef8e6abc1acaab4d392a39b55",
+      "bytes": 281033,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/symbol_heart_pressed.png",
+      "id": "symbol_heart_pressed",
+      "case": "attempt2_logo_1600",
+      "sha256": "a4814766be63c9a237183f8e0315efd2bc915569eb11043a0807fe58ca7ca23b",
+      "bytes": 282956,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/symbol_heart_released.png",
+      "id": "symbol_heart_released",
+      "case": "attempt2_logo_1600",
+      "sha256": "66d0ef4c08279a9791927d6b6f53316175070e0af0f38c4877524a71fcd780b5",
+      "bytes": 275093,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/cancel_restored.png",
+      "id": "cancel_restored",
+      "case": "attempt2_logo_1600",
+      "sha256": "21d500eea59c6eda740e17460f101507c2b4194b2e954099e917da373d0f120c",
+      "bytes": 1313612,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/commit_paint_table_before.png",
+      "id": "commit_paint_table_before",
+      "case": "attempt2_logo_1600",
+      "sha256": "20368a59dc8adad9a6afb0144c62056e7fbc9b076f2df674b34c2f64ac57c954",
+      "bytes": 1312497,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/commit_logo_ready.png",
+      "id": "commit_logo_ready",
+      "case": "attempt2_logo_1600",
+      "sha256": "a1c41168482d2c8267829f6b4845ec253ca427bafa9c87710c2c67c3a4fd6e9d",
+      "bytes": 269933,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/keep_feedback.png",
+      "id": "keep_feedback",
+      "case": "attempt2_logo_1600",
+      "sha256": "789490425a8874c648368369882aaf787ff7eb85494b87a26c7ddef5e8ebb897",
+      "bytes": 273707,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/craft_committed_display.png",
+      "id": "craft_committed_display",
+      "case": "attempt2_logo_1600",
+      "sha256": "23629f25da26039b3e98f359df0eacb3220c76b9a717be0aec744a44c77a875c",
+      "bytes": 1313720,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/playroom_committed_display.png",
+      "id": "playroom_committed_display",
+      "case": "attempt2_logo_1600",
+      "sha256": "2f8acfd15d3a234ad5a5115dee4c2ecfb6a2acb123ce1df039e04ff0157ade06",
+      "bytes": 1336901,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/library_unregistered_absence.png",
+      "id": "library_unregistered_absence",
+      "case": "attempt2_logo_1600",
+      "sha256": "bb053e72ddbd7a13d4758fcb7b393820a3f52bdf91099f765049cd836ec4169c",
+      "bytes": 1421293,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/background_cancel_paint_table_before.png",
+      "id": "background_cancel_paint_table_before",
+      "case": "attempt2_logo_1600",
+      "sha256": "79b2e214cb696e4c9645dbb724da4dc7c56ece293bd4486650c8132c9d9df08b",
+      "bytes": 1317327,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/background_cancel_logo_ready.png",
+      "id": "background_cancel_logo_ready",
+      "case": "attempt2_logo_1600",
+      "sha256": "a932f1f7d73dc37a6475582433a0a2435421bd26831633a950bebf898ce2861f",
+      "bytes": 271336,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/draft_before_background.png",
+      "id": "draft_before_background",
+      "case": "attempt2_logo_1600",
+      "sha256": "dae583fb287dd7dcd681fe084f58e147733f0e3978daf6fd8d1fa66ca84ebbf7",
+      "bytes": 269159,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/draft_after_background.png",
+      "id": "draft_after_background",
+      "case": "attempt2_logo_1600",
+      "sha256": "bf8f36428c034986a213816d28a4074d01a279740570355173c999f648fe9fd9",
+      "bytes": 269251,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/background_cancel_restored.png",
+      "id": "background_cancel_restored",
+      "case": "attempt2_logo_1600",
+      "sha256": "4a7a793f20c04a0243b2f86c267afa931e3903291e866d1745f52e844d2e2f43",
+      "bytes": 1313736,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/fresh_main_loaded_display.png",
+      "id": "fresh_main_loaded_display",
+      "case": "attempt2_logo_1600",
+      "sha256": "2bd5032cb4c984385ef64eb6748a10975ac7f33fc5247d04691d5f8df37b36e5",
+      "bytes": 1221690,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/reload_paint_table_before.png",
+      "id": "reload_paint_table_before",
+      "case": "attempt2_logo_1600",
+      "sha256": "e49435a43dcf48f599fba51f2a2a3ef6145004ea0efef4aa20e882189ce94d74",
+      "bytes": 1239991,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/reload_logo_ready.png",
+      "id": "reload_logo_ready",
+      "case": "attempt2_logo_1600",
+      "sha256": "0fd75119a30bba3d5eeb4c83065d3daefeb6df559426e2fb6c9c1a0322da8f9d",
+      "bytes": 265609,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/fresh_main_logo_reopened.png",
+      "id": "fresh_main_logo_reopened",
+      "case": "attempt2_logo_1600",
+      "sha256": "4b3c0f3aca4129f2e96fd65a13703b2230c7825c963e2554945f07ee0d4e4e03",
+      "bytes": 264718,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    },
+    {
+      "path": "native/attempt2_logo_1600/final_craft_restored.png",
+      "id": "final_craft_restored",
+      "case": "attempt2_logo_1600",
+      "sha256": "7f81cd34b6357ca9aad11aa7ef56dca5a4ccd62626367403956221751b687514",
+      "bytes": 1236191,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "CURRENT_SOURCE_CONTROL",
+      "scope": "Ordered native event/state capture, not unique artwork or authored animation frame"
+    }
+  ],
+  "lanes": {
+    "EXCLUDED_FIXTURE_COMPARISON_FAILURE": 140,
+    "CURRENT_SOURCE_CONTROL": 140
+  },
+  "native": 280,
+  "bounded": 140,
+  "excluded": 140,
+  "current_unique_png_hashes": 140,
+  "count_unit": "Native event/state capture files; repeated states remain explicit. No global unique-screen/artwork count or full-motion review claim."
+}

@@ -1,0 +1,12 @@
+{
+  "failure": "Both initial native runs exited 1 only on the fixture unknown-field assertion. The raw reports contain the unchanged sentinel token and array [3.0,7.0]; no save data loss occurred.",
+  "cause": "Godot Dictionary equality distinguishes nested integer/float values. JSON loads numbers as floats; the original synthetic seed used integers.",
+  "bounded_fix": "Normalize only the expected sentinel through the same JSON parse domain, retaining exact value/structure equality. A separate actual-engine adversarial check rejects a changed value. No production source/save behavior was changed.",
+  "failed_attempts": [
+    "native/attempt1_logo_1280",
+    "native/attempt1_logo_1600"
+  ],
+  "failed_native_retained_excluded": 140,
+  "runtime_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "new_fixture_sha256": "04b432ae645c2be1fb70b9615aba6cebcbbd8735506bbc76881155abe6735249"
+}
