@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\r55_comfy_room_context\validate.py", line 58, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\r55_comfy_room_context\validate.py", line 25, in main
+    route=d['route_events'][0];assert route['button']=='HallDoor_mermaid_pool' and route['dust_before']=={} and route['dust_after']=={'runner_bunny':True} and (route['pearl_before'],route['pearl_after'])==(23,24)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

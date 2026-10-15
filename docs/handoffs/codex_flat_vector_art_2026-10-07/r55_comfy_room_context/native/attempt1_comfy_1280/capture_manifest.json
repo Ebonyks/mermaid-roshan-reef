@@ -1,0 +1,299 @@
+{
+	"actual_child_data": false,
+	"aspect": [
+		1280,
+		720
+	],
+	"boot_count": 1,
+	"checks": [
+		{
+			"label": "original Comfy unlocked after private Day One checkpoint",
+			"pass": true,
+			"ticks_msec": 10658
+		}
+	],
+	"display": "Windows",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [
+		"original hall door unavailable mermaid_pool"
+	],
+	"events": [
+		{
+			"local": "(170.0, 59.0)",
+			"point": "(460.0, 607.0)",
+			"pressed": true,
+			"target": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton",
+			"ticks_msec": 9424,
+			"type": "touch"
+		},
+		{
+			"local": "(170.0, 59.0)",
+			"point": "(460.0, 607.0)",
+			"pressed": false,
+			"target": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton",
+			"ticks_msec": 9457,
+			"type": "touch"
+		}
+	],
+	"mode": "ORIGINAL_CASTLE_ROOM_COMFY_INPUTS",
+	"normal_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_route_proved": false,
+	"private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-comfy-room-context-20261015\\attempt1_comfy_1280\\output/private_profile/reef_save.json",
+	"quality_requested": "speedy",
+	"renderer": "mobile",
+	"route_events": [],
+	"schema": "reef.comfy_room_context/1",
+	"scope": "Original Castle room floor/doors and embedded Comfy targets after a declared private postboss Castle bootstrap. Original viewport room doors and Comfy targets after explicit private Castle bootstrap m.game=level2/m.g[t]=0. No measured action/progress/target/visual/source writes. Synthetic data only;actualchildsavesnevercopied. FreshMain same-engine profile reload isnotfreshOS/device/child/owner/QA11 orartacceptance.",
+	"seed": {
+		"chapter2_active": true,
+		"chapter2_job_phase_masks": [
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		"chapter2_unlocked_opera_mask": 1097,
+		"crafts": {},
+		"custom_fish": [],
+		"custom_friends": [],
+		"day_one_active": false,
+		"day_one_cleaned_rooms": [
+			"bathroom",
+			"pool",
+			"stuffie",
+			"art"
+		],
+		"day_one_completed_rooms": [
+			"bathroom",
+			"pool",
+			"stuffie",
+			"art"
+		],
+		"day_one_giant_dust_bunny_boss_defeated": true,
+		"day_one_giant_dust_bunny_boss_triggered": true,
+		"flat_vector_private_unknown": {
+			"keep": [
+				3,
+				7
+			],
+			"token": "R55_PRIVATE_ONLY"
+		},
+		"mic": false,
+		"music": false,
+		"pearls": 23,
+		"pearls_ever": 23,
+		"quality": "speedy",
+		"save_generation": 7,
+		"schema_version": 1,
+		"stickers": {}
+	},
+	"source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+	"states": [
+		{
+			"id": "main_hall_checkpoint",
+			"node_inventory_scope": "Comfy root, player and global Back only; full PNG retained, no full compositor/resource/occlusion/QA11 closure claim.",
+			"path": "main_hall_checkpoint.png",
+			"role": "ORIGINAL_ROUTE_DIAGNOSTIC",
+			"selected_canvas_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@362/CastleRooms25D/StorybookStage/ComfyGamesCastleLayer",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 28
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@362/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanCutout",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+						"size": "(1024.0, 512.0)"
+					},
+					"z_index": 220
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (18.0, 18.0), S: (112.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "☰",
+					"z_index": 0
+				}
+			],
+			"sha256": "ee1cd9a1cc0267798e46f0684eecdbc700f777e94669ab0ee423388730eb2f1d",
+			"size": [
+				1280,
+				720
+			],
+			"snapshot": {
+				"comfy": {
+					"day2_castle_hide_and_seek": {
+						"accepted": false,
+						"completed": false,
+						"found": {
+							"baby_eagle": false,
+							"daddy_mermaid": false,
+							"rumi": false
+						}
+					},
+					"day2_family_comfy_evening": {
+						"accepted": false,
+						"bedtime": {
+							"completed": false,
+							"tucked_in": {
+								"baby_eagle": false,
+								"daddy_mermaid": false,
+								"roshan": false,
+								"rumi": false
+							}
+						},
+						"completed": false,
+						"dinner": {
+							"completed": false,
+							"ingredients": {
+								"apple": false,
+								"carrot": false,
+								"strawberry": false
+							},
+							"pot_stirred": false
+						},
+						"movie": {
+							"completed": false,
+							"scenes_watched": 0
+						},
+						"reward": {
+							"id": "comfy_evening_mystery_reward",
+							"introduced": false,
+							"unlocked": false,
+							"verified": false
+						}
+					},
+					"version": 2
+				},
+				"day_one_active": false,
+				"disk": {
+					"comfy": {
+						"day2_castle_hide_and_seek": {
+							"accepted": false,
+							"completed": false,
+							"found": {
+								"baby_eagle": false,
+								"daddy_mermaid": false,
+								"rumi": false
+							}
+						},
+						"day2_family_comfy_evening": {
+							"accepted": false,
+							"bedtime": {
+								"completed": false,
+								"tucked_in": {
+									"baby_eagle": false,
+									"daddy_mermaid": false,
+									"roshan": false,
+									"rumi": false
+								}
+							},
+							"completed": false,
+							"dinner": {
+								"completed": false,
+								"ingredients": {
+									"apple": false,
+									"carrot": false,
+									"strawberry": false
+								},
+								"pot_stirred": false
+							},
+							"movie": {
+								"completed": false,
+								"scenes_watched": 0.0
+							},
+							"reward": {
+								"id": "comfy_evening_mystery_reward",
+								"introduced": false,
+								"unlocked": false,
+								"verified": false
+							}
+						},
+						"version": 2.0
+					},
+					"save_generation": 7.0,
+					"stickers": {},
+					"unknown": {
+						"keep": [
+							3.0,
+							7.0
+						],
+						"token": "R55_PRIVATE_ONLY"
+					}
+				},
+				"game": "level2",
+				"navigation_top": "pearl_castle",
+				"normal_route_proved": false,
+				"player_foot": "(380.0, 765.0)",
+				"private_checkpoint": true,
+				"quality": "speedy",
+				"room": "main_hall",
+				"save_dirty": false,
+				"save_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-comfy-room-context-20261015\\attempt1_comfy_1280\\output/private_profile/reef_save.json",
+				"save_pending": false,
+				"save_sha256": "a6f9ebcdcc0713a7b0adef46b7110ec94e09c43646cc3221c4dd8d61a190f765",
+				"stickers": {},
+				"story_counters": [
+					0,
+					0,
+					23
+				],
+				"time_scale": 1.0
+			},
+			"ticks_msec": 10954
+		}
+	],
+	"time_scale": 1.0
+}

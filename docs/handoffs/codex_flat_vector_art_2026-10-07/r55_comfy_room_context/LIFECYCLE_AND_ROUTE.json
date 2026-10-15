@@ -1,0 +1,670 @@
+{
+  "cases": [
+    {
+      "case": "attempt3_comfy_1280",
+      "route_events": [
+        {
+          "button": "HallDoor_mermaid_pool",
+          "dust_after": {
+            "runner_bunny": true
+          },
+          "dust_before": {},
+          "pearl_after": 24,
+          "pearl_before": 23,
+          "room": "mermaid_pool",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "from": "mermaid_pool",
+          "to": "main_hall",
+          "type": "ORIGINAL_GLOBAL_BACK"
+        },
+        {
+          "button": "HallDoor_playroom",
+          "dust_after": {
+            "runner_bunny": true
+          },
+          "dust_before": {
+            "runner_bunny": true
+          },
+          "pearl_after": 24,
+          "pearl_before": 24,
+          "room": "playroom",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "button": "HallDoor_library",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 24,
+          "pearl_before": 24,
+          "room": "library",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "from": "library",
+          "to": "main_hall",
+          "type": "ORIGINAL_GLOBAL_BACK"
+        },
+        {
+          "button": "HallDoor_kitchen",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 24,
+          "pearl_before": 24,
+          "room": "kitchen",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "from": "kitchen",
+          "to": "main_hall",
+          "type": "ORIGINAL_GLOBAL_BACK"
+        },
+        {
+          "button": "HallDoor_family_gallery",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 24,
+          "pearl_before": 24,
+          "room": "family_gallery",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "item": "gallery_movie_door",
+          "room": "movie_lounge",
+          "type": "ORIGINAL_GALLERY_DOOR"
+        },
+        {
+          "from": "movie_lounge",
+          "to": "family_gallery",
+          "type": "ORIGINAL_GLOBAL_BACK"
+        },
+        {
+          "from": "family_gallery",
+          "to": "main_hall",
+          "type": "ORIGINAL_GLOBAL_BACK"
+        },
+        {
+          "button": "HallDoor_family_gallery",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 24,
+          "pearl_before": 24,
+          "room": "family_gallery",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "item": "gallery_sleepover_door",
+          "room": "sleepover_bedroom",
+          "type": "ORIGINAL_GALLERY_DOOR"
+        },
+        {
+          "button": "HallDoor_library",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 24,
+          "pearl_before": 24,
+          "room": "library",
+          "type": "ORIGINAL_HALL_DOOR"
+        }
+      ],
+      "checks": [
+        {
+          "label": "original Comfy unlocked after private Day One checkpoint",
+          "pass": true,
+          "ticks_msec": 9503
+        },
+        {
+          "label": "passive Comfy progress unchanged",
+          "pass": true,
+          "ticks_msec": 19447
+        },
+        {
+          "label": "Comfy action preserves story counters find_rumi",
+          "pass": true,
+          "ticks_msec": 20433
+        },
+        {
+          "label": "original Rumi found",
+          "pass": true,
+          "ticks_msec": 20433
+        },
+        {
+          "label": "Comfy action preserves story counters find_eagle",
+          "pass": true,
+          "ticks_msec": 27130
+        },
+        {
+          "label": "original Eagle found",
+          "pass": true,
+          "ticks_msec": 27130
+        },
+        {
+          "label": "mid private disk matches Comfy state",
+          "pass": true,
+          "ticks_msec": 27499
+        },
+        {
+          "label": "owned Main free preserves mid disk bytes",
+          "pass": true,
+          "ticks_msec": 27833
+        },
+        {
+          "label": "fresh Main loads two original finds",
+          "pass": true,
+          "ticks_msec": 31011
+        },
+        {
+          "label": "Comfy action preserves story counters find_daddy",
+          "pass": true,
+          "ticks_msec": 33707
+        },
+        {
+          "label": "all finds complete",
+          "pass": true,
+          "ticks_msec": 33707
+        },
+        {
+          "label": "original Super Seeker sticker awarded",
+          "pass": true,
+          "ticks_msec": 33707
+        },
+        {
+          "label": "Comfy action preserves story counters dinner_apple",
+          "pass": true,
+          "ticks_msec": 37776
+        },
+        {
+          "label": "original ingredient added apple",
+          "pass": true,
+          "ticks_msec": 37776
+        },
+        {
+          "label": "Comfy action preserves story counters dinner_carrot",
+          "pass": true,
+          "ticks_msec": 38828
+        },
+        {
+          "label": "original ingredient added carrot",
+          "pass": true,
+          "ticks_msec": 38828
+        },
+        {
+          "label": "Comfy action preserves story counters dinner_strawberry",
+          "pass": true,
+          "ticks_msec": 39948
+        },
+        {
+          "label": "original ingredient added strawberry",
+          "pass": true,
+          "ticks_msec": 39948
+        },
+        {
+          "label": "Comfy action preserves story counters dinner_stir",
+          "pass": true,
+          "ticks_msec": 41010
+        },
+        {
+          "label": "original dinner complete",
+          "pass": true,
+          "ticks_msec": 41010
+        },
+        {
+          "label": "Comfy action preserves story counters movie_1",
+          "pass": true,
+          "ticks_msec": 44880
+        },
+        {
+          "label": "original movie counter 1",
+          "pass": true,
+          "ticks_msec": 44880
+        },
+        {
+          "label": "Comfy action preserves story counters movie_2",
+          "pass": true,
+          "ticks_msec": 45812
+        },
+        {
+          "label": "original movie counter 2",
+          "pass": true,
+          "ticks_msec": 45812
+        },
+        {
+          "label": "Comfy action preserves story counters movie_3",
+          "pass": true,
+          "ticks_msec": 46682
+        },
+        {
+          "label": "original movie counter 3",
+          "pass": true,
+          "ticks_msec": 46682
+        },
+        {
+          "label": "original movie complete",
+          "pass": true,
+          "ticks_msec": 46682
+        },
+        {
+          "label": "Comfy action preserves story counters bedtime_rumi",
+          "pass": true,
+          "ticks_msec": 49790
+        },
+        {
+          "label": "original tucked in rumi",
+          "pass": true,
+          "ticks_msec": 49790
+        },
+        {
+          "label": "Comfy action preserves story counters bedtime_baby_eagle",
+          "pass": true,
+          "ticks_msec": 50301
+        },
+        {
+          "label": "original tucked in baby_eagle",
+          "pass": true,
+          "ticks_msec": 50301
+        },
+        {
+          "label": "Comfy action preserves story counters bedtime_daddy_mermaid",
+          "pass": true,
+          "ticks_msec": 50809
+        },
+        {
+          "label": "original tucked in daddy_mermaid",
+          "pass": true,
+          "ticks_msec": 50809
+        },
+        {
+          "label": "Comfy action preserves story counters bedtime_roshan",
+          "pass": true,
+          "ticks_msec": 51330
+        },
+        {
+          "label": "original tucked in roshan",
+          "pass": true,
+          "ticks_msec": 51330
+        },
+        {
+          "label": "original optional evening complete",
+          "pass": true,
+          "ticks_msec": 51330
+        },
+        {
+          "label": "future reward remains unverified/unintroduced",
+          "pass": true,
+          "ticks_msec": 51330
+        },
+        {
+          "label": "Opera progression unchanged",
+          "pass": true,
+          "ticks_msec": 52428
+        },
+        {
+          "label": "legitimately earned route pearls preserved",
+          "pass": true,
+          "ticks_msec": 52428
+        },
+        {
+          "label": "unknown private key retained",
+          "pass": true,
+          "ticks_msec": 52429
+        },
+        {
+          "label": "fresh Main loads completed Comfy state",
+          "pass": true,
+          "ticks_msec": 55616
+        },
+        {
+          "label": "Comfy action preserves story counters repeat_daddy_visit",
+          "pass": true,
+          "ticks_msec": 58172
+        },
+        {
+          "label": "repeat visit preserves optional progress",
+          "pass": true,
+          "ticks_msec": 58172
+        },
+        {
+          "label": "reloaded Opera progression unchanged",
+          "pass": true,
+          "ticks_msec": 58172
+        }
+      ]
+    },
+    {
+      "case": "attempt3_comfy_1600",
+      "route_events": [
+        {
+          "button": "HallDoor_mermaid_pool",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 23,
+          "pearl_before": 23,
+          "room": "mermaid_pool",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "from": "mermaid_pool",
+          "to": "main_hall",
+          "type": "ORIGINAL_GLOBAL_BACK"
+        },
+        {
+          "button": "HallDoor_playroom",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 23,
+          "pearl_before": 23,
+          "room": "playroom",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "button": "HallDoor_library",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 23,
+          "pearl_before": 23,
+          "room": "library",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "from": "library",
+          "to": "main_hall",
+          "type": "ORIGINAL_GLOBAL_BACK"
+        },
+        {
+          "button": "HallDoor_kitchen",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 23,
+          "pearl_before": 23,
+          "room": "kitchen",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "from": "kitchen",
+          "to": "main_hall",
+          "type": "ORIGINAL_GLOBAL_BACK"
+        },
+        {
+          "button": "HallDoor_family_gallery",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 23,
+          "pearl_before": 23,
+          "room": "family_gallery",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "item": "gallery_movie_door",
+          "room": "movie_lounge",
+          "type": "ORIGINAL_GALLERY_DOOR"
+        },
+        {
+          "from": "movie_lounge",
+          "to": "family_gallery",
+          "type": "ORIGINAL_GLOBAL_BACK"
+        },
+        {
+          "from": "family_gallery",
+          "to": "main_hall",
+          "type": "ORIGINAL_GLOBAL_BACK"
+        },
+        {
+          "button": "HallDoor_family_gallery",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 23,
+          "pearl_before": 23,
+          "room": "family_gallery",
+          "type": "ORIGINAL_HALL_DOOR"
+        },
+        {
+          "item": "gallery_sleepover_door",
+          "room": "sleepover_bedroom",
+          "type": "ORIGINAL_GALLERY_DOOR"
+        },
+        {
+          "button": "HallDoor_library",
+          "dust_after": {},
+          "dust_before": {},
+          "pearl_after": 23,
+          "pearl_before": 23,
+          "room": "library",
+          "type": "ORIGINAL_HALL_DOOR"
+        }
+      ],
+      "checks": [
+        {
+          "label": "original Comfy unlocked after private Day One checkpoint",
+          "pass": true,
+          "ticks_msec": 9741
+        },
+        {
+          "label": "passive Comfy progress unchanged",
+          "pass": true,
+          "ticks_msec": 17401
+        },
+        {
+          "label": "Comfy action preserves story counters find_rumi",
+          "pass": true,
+          "ticks_msec": 18364
+        },
+        {
+          "label": "original Rumi found",
+          "pass": true,
+          "ticks_msec": 18364
+        },
+        {
+          "label": "Comfy action preserves story counters find_eagle",
+          "pass": true,
+          "ticks_msec": 24852
+        },
+        {
+          "label": "original Eagle found",
+          "pass": true,
+          "ticks_msec": 24852
+        },
+        {
+          "label": "mid private disk matches Comfy state",
+          "pass": true,
+          "ticks_msec": 25270
+        },
+        {
+          "label": "owned Main free preserves mid disk bytes",
+          "pass": true,
+          "ticks_msec": 25604
+        },
+        {
+          "label": "fresh Main loads two original finds",
+          "pass": true,
+          "ticks_msec": 28445
+        },
+        {
+          "label": "Comfy action preserves story counters find_daddy",
+          "pass": true,
+          "ticks_msec": 31269
+        },
+        {
+          "label": "all finds complete",
+          "pass": true,
+          "ticks_msec": 31269
+        },
+        {
+          "label": "original Super Seeker sticker awarded",
+          "pass": true,
+          "ticks_msec": 31269
+        },
+        {
+          "label": "Comfy action preserves story counters dinner_apple",
+          "pass": true,
+          "ticks_msec": 35226
+        },
+        {
+          "label": "original ingredient added apple",
+          "pass": true,
+          "ticks_msec": 35226
+        },
+        {
+          "label": "Comfy action preserves story counters dinner_carrot",
+          "pass": true,
+          "ticks_msec": 36275
+        },
+        {
+          "label": "original ingredient added carrot",
+          "pass": true,
+          "ticks_msec": 36275
+        },
+        {
+          "label": "Comfy action preserves story counters dinner_strawberry",
+          "pass": true,
+          "ticks_msec": 37334
+        },
+        {
+          "label": "original ingredient added strawberry",
+          "pass": true,
+          "ticks_msec": 37334
+        },
+        {
+          "label": "Comfy action preserves story counters dinner_stir",
+          "pass": true,
+          "ticks_msec": 38390
+        },
+        {
+          "label": "original dinner complete",
+          "pass": true,
+          "ticks_msec": 38390
+        },
+        {
+          "label": "Comfy action preserves story counters movie_1",
+          "pass": true,
+          "ticks_msec": 42271
+        },
+        {
+          "label": "original movie counter 1",
+          "pass": true,
+          "ticks_msec": 42272
+        },
+        {
+          "label": "Comfy action preserves story counters movie_2",
+          "pass": true,
+          "ticks_msec": 43114
+        },
+        {
+          "label": "original movie counter 2",
+          "pass": true,
+          "ticks_msec": 43114
+        },
+        {
+          "label": "Comfy action preserves story counters movie_3",
+          "pass": true,
+          "ticks_msec": 43926
+        },
+        {
+          "label": "original movie counter 3",
+          "pass": true,
+          "ticks_msec": 43926
+        },
+        {
+          "label": "original movie complete",
+          "pass": true,
+          "ticks_msec": 43926
+        },
+        {
+          "label": "Comfy action preserves story counters bedtime_rumi",
+          "pass": true,
+          "ticks_msec": 47018
+        },
+        {
+          "label": "original tucked in rumi",
+          "pass": true,
+          "ticks_msec": 47018
+        },
+        {
+          "label": "Comfy action preserves story counters bedtime_baby_eagle",
+          "pass": true,
+          "ticks_msec": 47520
+        },
+        {
+          "label": "original tucked in baby_eagle",
+          "pass": true,
+          "ticks_msec": 47520
+        },
+        {
+          "label": "Comfy action preserves story counters bedtime_daddy_mermaid",
+          "pass": true,
+          "ticks_msec": 48004
+        },
+        {
+          "label": "original tucked in daddy_mermaid",
+          "pass": true,
+          "ticks_msec": 48004
+        },
+        {
+          "label": "Comfy action preserves story counters bedtime_roshan",
+          "pass": true,
+          "ticks_msec": 48472
+        },
+        {
+          "label": "original tucked in roshan",
+          "pass": true,
+          "ticks_msec": 48472
+        },
+        {
+          "label": "original optional evening complete",
+          "pass": true,
+          "ticks_msec": 48472
+        },
+        {
+          "label": "future reward remains unverified/unintroduced",
+          "pass": true,
+          "ticks_msec": 48472
+        },
+        {
+          "label": "Opera progression unchanged",
+          "pass": true,
+          "ticks_msec": 49571
+        },
+        {
+          "label": "legitimately earned route pearls preserved",
+          "pass": true,
+          "ticks_msec": 49571
+        },
+        {
+          "label": "unknown private key retained",
+          "pass": true,
+          "ticks_msec": 49571
+        },
+        {
+          "label": "fresh Main loads completed Comfy state",
+          "pass": true,
+          "ticks_msec": 52761
+        },
+        {
+          "label": "Comfy action preserves story counters repeat_daddy_visit",
+          "pass": true,
+          "ticks_msec": 55254
+        },
+        {
+          "label": "repeat visit preserves optional progress",
+          "pass": true,
+          "ticks_msec": 55254
+        },
+        {
+          "label": "reloaded Opera progression unchanged",
+          "pass": true,
+          "ticks_msec": 55254
+        }
+      ]
+    }
+  ],
+  "current_checks": 88,
+  "original_route_events": 28,
+  "original_comfy_target_actions": 30,
+  "runtime_game": "level2",
+  "catalogue_alias": "game.comfy_games",
+  "bootstrap": "Synthetic private postboss checkpoint -> original Main Continue -> declared startup m.game=level2,m.g[t]=0 before original Castle mount. All subsequent room changes use original floor walking/hall doors/Back/gallery item door targets. No direct per-room API or forced Comfy game.",
+  "pearl_reconciliation": "At1280, original hall travel pops runner_bunny before first Comfy action, pearl23->24, dust{}->{runner_bunny:true}. At1600, original viewport floor walking follows a different effective route and does not hit that bunny:23->23,dust{}->{}. All15 Comfy actions per aspect preserve immediate story counters. Neither legitimate result is reset; route equality is not claimed.",
+  "save_scope": "New private profiles only; two background boundaries/three Main instances per current case, mid two-finds and final completed state/unknown JSON key survive. Same-engine reload is not cold OS/Android lifecycle acceptance.",
+  "reward_scope": "Original super_seeker sticker set; future optional evening reward unlocked=true but verified=false,introduced=false; no fabricated acceptance.",
+  "normal_route_proved": false
+}

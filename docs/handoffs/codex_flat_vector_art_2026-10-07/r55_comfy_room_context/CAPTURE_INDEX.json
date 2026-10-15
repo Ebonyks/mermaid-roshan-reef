@@ -1,0 +1,2643 @@
+{
+  "cases": [
+    {
+      "case": "attempt1_comfy_1280",
+      "current": false,
+      "report_sha256": "d65edb0d4fc191d477dd6ee6113dfd47019ba61386b6d34c48ee60d2ec510863",
+      "fixture_sha256": "e0be7cf6a1a856178ce38063e11f4ce891510794949cb0ad48be06d2e730d9ff",
+      "exit_code": 1,
+      "native": 1,
+      "checks": 1,
+      "errors": [
+        "original hall door unavailable mermaid_pool"
+      ],
+      "boots": 1
+    },
+    {
+      "case": "attempt2_comfy_1280",
+      "current": false,
+      "report_sha256": "7e3abcc52df0593593a4f4cb9f78fb7f9fc08f32cd07c0dd0d318c22ba143801",
+      "fixture_sha256": "247cf15844d27c40879516a513382545ceb9fa5ed01bc4ef385eda07933ab72f",
+      "exit_code": 1,
+      "native": 61,
+      "checks": 28,
+      "errors": [
+        "main story counters unchanged",
+        "reloaded story counters unchanged"
+      ],
+      "boots": 3
+    },
+    {
+      "case": "attempt3_comfy_1280",
+      "current": true,
+      "report_sha256": "c8be4e282e66730e4bd82b79bc10bf9e2bebae2d730534dd4296fbf438f8d3f2",
+      "fixture_sha256": "07e2039f5329a6428320c85011a326b73a9220752776c0330796c30aeb2ba82b",
+      "exit_code": 0,
+      "native": 61,
+      "checks": 44,
+      "errors": [],
+      "boots": 3
+    },
+    {
+      "case": "attempt3_comfy_1600",
+      "current": true,
+      "report_sha256": "bbdf51fc5b015fb044cdba58d6d988034b74d5629dcf69050a8b0eda9f54bace",
+      "fixture_sha256": "07e2039f5329a6428320c85011a326b73a9220752776c0330796c30aeb2ba82b",
+      "exit_code": 0,
+      "native": 61,
+      "checks": 44,
+      "errors": [],
+      "boots": 3
+    }
+  ],
+  "captures": [
+    {
+      "path": "native/attempt1_comfy_1280/main_hall_checkpoint.png",
+      "case": "attempt1_comfy_1280",
+      "id": "main_hall_checkpoint",
+      "sha256": "ee1cd9a1cc0267798e46f0684eecdbc700f777e94669ab0ee423388730eb2f1d",
+      "bytes": 1472594,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "ORIGINAL_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/main_hall_checkpoint.png",
+      "case": "attempt2_comfy_1280",
+      "id": "main_hall_checkpoint",
+      "sha256": "9a4ec7acf53a69c5726782ed7a628460f8983e0996c467f48c62622e1f5f33a5",
+      "bytes": 1524015,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "ORIGINAL_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/entered_mermaid_pool_1.png",
+      "case": "attempt2_comfy_1280",
+      "id": "entered_mermaid_pool_1",
+      "sha256": "8b91dd4e4c761a9fa1fff9bdf0eade7f381cdd3a6694ec219806b7852b01ba67",
+      "bytes": 1430202,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/pool_passive.png",
+      "case": "attempt2_comfy_1280",
+      "id": "pool_passive",
+      "sha256": "48ec62aeb7418e72943550f797373ccb1053f8dea14f74f55dabf3b2cea43b6a",
+      "bytes": 1431411,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/find_rumi_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "find_rumi_before",
+      "sha256": "967aaf231897840da42df80dee724717a18a706da87a986d03fe8ae6e8eecedd",
+      "bytes": 1431340,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/find_rumi_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "find_rumi_pressed",
+      "sha256": "56b8266f9454b53d56d8e7f6b679df5cf95069e978c9c89760254aa8814336c5",
+      "bytes": 1431093,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/find_rumi_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "find_rumi_released",
+      "sha256": "4d50673dffb9998c5135116769f7184aefbb3012b0dac181cec9f63e27a5a257",
+      "bytes": 1434290,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/entered_playroom_3.png",
+      "case": "attempt2_comfy_1280",
+      "id": "entered_playroom_3",
+      "sha256": "4e99cf41fcbf1791ad296c764085d28a8c994b3457fe7f141aecf918087345c5",
+      "bytes": 1302170,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/find_eagle_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "find_eagle_before",
+      "sha256": "f56fef4b99c5bcaed0a6493cfc49d81c086ef1659689724bc52d28e92c025fc1",
+      "bytes": 1301710,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/find_eagle_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "find_eagle_pressed",
+      "sha256": "79f73e56dc7f2e553e9d9adaa9c8f041a4244d4b9d695cd5abaedba6c725086b",
+      "bytes": 1301753,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/find_eagle_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "find_eagle_released",
+      "sha256": "9241e2e4ac39de5ab23f03a006d5d6c921d7bdc100b9f27416bfbfa854648140",
+      "bytes": 1223001,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/two_finds_background.png",
+      "case": "attempt2_comfy_1280",
+      "id": "two_finds_background",
+      "sha256": "88425adea5dd2e673250220d2e644f50c7e72e3518db7351f4636100f3a59a76",
+      "bytes": 1223545,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/fresh_main_two_finds.png",
+      "case": "attempt2_comfy_1280",
+      "id": "fresh_main_two_finds",
+      "sha256": "c9753469821bba214c9cbae4b3abc93eb6a38be1727e4f08923a9daf64f7d515",
+      "bytes": 1524025,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "PRIVATE_RELOAD_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/entered_library_4.png",
+      "case": "attempt2_comfy_1280",
+      "id": "entered_library_4",
+      "sha256": "7d0e84f1d6ad2a16ef33aaef269d2c96530ebb915d9b4172898a25409ed42aa8",
+      "bytes": 1300812,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/find_daddy_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "find_daddy_before",
+      "sha256": "52166ffd441e73512db1c654cd299c0b142d6dd25e33f792832f210055464372",
+      "bytes": 1301481,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/find_daddy_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "find_daddy_pressed",
+      "sha256": "8f66af9f0ffefca0910e06d93ef2a273b519e13834d7cf8ad9a71e4ee1137369",
+      "bytes": 1301223,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/find_daddy_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "find_daddy_released",
+      "sha256": "776b2037b34c1098f1e5246a403f5d1137449c3b325a16af67ed8450afadb08b",
+      "bytes": 1305694,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/hunt_sticker_settle.png",
+      "case": "attempt2_comfy_1280",
+      "id": "hunt_sticker_settle",
+      "sha256": "6753dd2c3cb8de72db74b43657d56ebba15e1390c2637c9122246d541a61e404",
+      "bytes": 1306866,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/entered_kitchen_6.png",
+      "case": "attempt2_comfy_1280",
+      "id": "entered_kitchen_6",
+      "sha256": "e14d103671fadbca9516b975ad316a67394945567956d3a064b21c62fc0ffd65",
+      "bytes": 1384877,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_apple_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_apple_before",
+      "sha256": "808ada005072992c48937ffaf3b3f670f1e74c0f01cbd19ca2b63aaf0be8eeba",
+      "bytes": 1384229,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_apple_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_apple_pressed",
+      "sha256": "6f51155bd707c5ebed4d11a2bea220d6f77bffc44befca8b8cb97ed18f9f083d",
+      "bytes": 1384224,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_apple_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_apple_released",
+      "sha256": "6453c0421ee68154acb9ac88e03febb4435ba8f8775cfdf49f8e73e2f7f1a79d",
+      "bytes": 1373327,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_carrot_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_carrot_before",
+      "sha256": "157b9d2ae02a4bc12036b7f8fdc051a74adfbc078b5c862defa07e86bafe34b4",
+      "bytes": 1373118,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_carrot_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_carrot_pressed",
+      "sha256": "17d7c1d6a40de43ab1acb15a71e450a097502ae46e8c98b0022f5915788571d7",
+      "bytes": 1370614,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_carrot_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_carrot_released",
+      "sha256": "e6ae81557ae8fde0129d8e734c750bd4ff17796761be9d126220ef3664031c11",
+      "bytes": 1368899,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_strawberry_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_strawberry_before",
+      "sha256": "69e1242b14ed3f4b4d3c539f190970607836807da502b7892950bce223e9e58c",
+      "bytes": 1369830,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_strawberry_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_strawberry_pressed",
+      "sha256": "e10128e4b45033cd57de8d4ddcc0e5a4a91f52b26ae7916692f497a4f2592152",
+      "bytes": 1369313,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_strawberry_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_strawberry_released",
+      "sha256": "cbdd98f4be1120c5c477180380646c025f477ea62bed13b51a70121c69079b44",
+      "bytes": 1351674,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_stir_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_stir_before",
+      "sha256": "a3ccf471a45ab27c9b88bc0a2812a4b72a471716b2c1ecffb46b2d09c56caf2d",
+      "bytes": 1351210,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_stir_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_stir_pressed",
+      "sha256": "ce23f1ce687b764eb76c6ef23775afd9bb02e496e2a7e30ae1160ceec06e099a",
+      "bytes": 1351269,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/dinner_stir_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "dinner_stir_released",
+      "sha256": "b390cc9a83a0a3d744890088716428c5fb51d8d995e4e88b5bece384e1a1c7c7",
+      "bytes": 1372569,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/entered_family_gallery_8.png",
+      "case": "attempt2_comfy_1280",
+      "id": "entered_family_gallery_8",
+      "sha256": "f6d091b1ed4e133eacdc7c31550a27aefae40bcc1eab19ad7547a56fae995bec",
+      "bytes": 697688,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/entered_movie_lounge_9.png",
+      "case": "attempt2_comfy_1280",
+      "id": "entered_movie_lounge_9",
+      "sha256": "5d87faeb218ac7a1a8e6ed7d947f5c2829dc6794f1237cc03a0fdb9f09015c85",
+      "bytes": 875009,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/movie_1_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "movie_1_before",
+      "sha256": "8537cbc945daa93d4bceb379824887e082cb848169a7e6a9f52e353ba145374f",
+      "bytes": 876530,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/movie_1_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "movie_1_pressed",
+      "sha256": "bd6586a4c76f2b1a26ddd37db4803cbb1e9b3b4c7fb6167929cd6df0fd107b8f",
+      "bytes": 876969,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/movie_1_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "movie_1_released",
+      "sha256": "6def75e42e1fec9b5a6a08a5a865bcbc68a549e446e4f065fda250613da350e3",
+      "bytes": 873316,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/movie_2_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "movie_2_before",
+      "sha256": "78f7974e01537fbc591b5cc0e8e493b6392beaefed4581c8489e50a1271fc604",
+      "bytes": 873387,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/movie_2_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "movie_2_pressed",
+      "sha256": "b40b9ee3cfa119911a278f0fafe1cf8412e9fb47e1338122f3f62b5bb67b7a37",
+      "bytes": 874239,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/movie_2_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "movie_2_released",
+      "sha256": "3b84ddaac92618491a22adbb826894d172b880a6cc94d39b7f41e39706b77947",
+      "bytes": 875882,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/movie_3_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "movie_3_before",
+      "sha256": "8662a5af10e426c3f041b40f88fa4958a68dd04335072d054142f5ab4cf56bd4",
+      "bytes": 875573,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/movie_3_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "movie_3_pressed",
+      "sha256": "9910b56f52a547de1d3523bcbddf2000594d519910710a8bfbea852ccac69763",
+      "bytes": 875896,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/movie_3_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "movie_3_released",
+      "sha256": "fc078b29750ff0ee1be9baff509219702bcf3a98a39907a27af67acfcbc4d6f4",
+      "bytes": 879083,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/entered_family_gallery_12.png",
+      "case": "attempt2_comfy_1280",
+      "id": "entered_family_gallery_12",
+      "sha256": "e4ebd4b3168a9b2171435bd4cbc7793c1385ef737e72626a554c180d26eec119",
+      "bytes": 701622,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/entered_sleepover_bedroom_13.png",
+      "case": "attempt2_comfy_1280",
+      "id": "entered_sleepover_bedroom_13",
+      "sha256": "41eb91b0341fe757bcd7bba8c1229d9e1f017858026d76184ff55e707a09fb37",
+      "bytes": 669815,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_rumi_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_rumi_before",
+      "sha256": "7024cd82757b128600d079c8af995716c70590ff2ad8899d37baf0d89e95470f",
+      "bytes": 670385,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_rumi_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_rumi_pressed",
+      "sha256": "fd4d9991d34ed35d21e6f3a790e861411d49a469872cd59252648fa9dd4af1bc",
+      "bytes": 670720,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_rumi_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_rumi_released",
+      "sha256": "dcc21ffbd6494a721972661a48b59d86dfcaeaefb3c17cac16c6fcf8ed763974",
+      "bytes": 637004,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_baby_eagle_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_baby_eagle_before",
+      "sha256": "ee8d454fc8ea482d67f020b7a57c9b26584b0ad4ea5416559d2b5251c8f2ab96",
+      "bytes": 638028,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_baby_eagle_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_baby_eagle_pressed",
+      "sha256": "c5ff0e59d9ca3bf83942a1c4801d580d026f7f9f654b181adedbfb55cff4dcb0",
+      "bytes": 640246,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_baby_eagle_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_baby_eagle_released",
+      "sha256": "ddc6a58a09682ae47fd76f92bd700ecf568a39fadea585e171848dc37ffba947",
+      "bytes": 613608,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_daddy_mermaid_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_daddy_mermaid_before",
+      "sha256": "d6241f402d2e943de58f1fa7e3272c2edc1a852c20e934e7e4fe0bc031c431f3",
+      "bytes": 615558,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_daddy_mermaid_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_daddy_mermaid_pressed",
+      "sha256": "36d486a829bf73004636ac1eca8235b545bb4b26ad2cfb7ee0f98a66c000b85f",
+      "bytes": 616433,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_daddy_mermaid_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_daddy_mermaid_released",
+      "sha256": "f907a0e5a000674e7e3085b25a1e5e9e3952f8c34712009942a360438f51f69d",
+      "bytes": 573182,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_roshan_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_roshan_before",
+      "sha256": "6eb4c772027fa450f58e55ca911c3264b10bdd785491d4202b8294bf8fb2dc0d",
+      "bytes": 573483,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_roshan_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_roshan_pressed",
+      "sha256": "714947ffc23672a9fdceb08f5dae5e2376140ec903dfcc479887070661741f1f",
+      "bytes": 573623,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/bedtime_roshan_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "bedtime_roshan_released",
+      "sha256": "325fd3cea4350fc6d142a2f43b5d5cc485e995d0bfce3eefca4d4069589f63d9",
+      "bytes": 565053,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/evening_complete_settle.png",
+      "case": "attempt2_comfy_1280",
+      "id": "evening_complete_settle",
+      "sha256": "2180df2af037fbd709f06b2dee1f46ceb1592d7f1f12257ab26d35a7467a49cd",
+      "bytes": 564439,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/entered_library_14.png",
+      "case": "attempt2_comfy_1280",
+      "id": "entered_library_14",
+      "sha256": "dfe223ccd59f54eaa9c4f68b061f674c97148c76c43485747c61d324a0275a93",
+      "bytes": 1300023,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/repeat_daddy_visit_before.png",
+      "case": "attempt2_comfy_1280",
+      "id": "repeat_daddy_visit_before",
+      "sha256": "71f3ddd98fc265a1d3b46bf28db8d132a4c21d334d940e98227bc24a7068d4e5",
+      "bytes": 1299887,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/repeat_daddy_visit_pressed.png",
+      "case": "attempt2_comfy_1280",
+      "id": "repeat_daddy_visit_pressed",
+      "sha256": "e2516e42ca33adfc75339c30dc2019cdda834f7e299eb664ae2ac0c02057eb0f",
+      "bytes": 1299593,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/repeat_daddy_visit_released.png",
+      "case": "attempt2_comfy_1280",
+      "id": "repeat_daddy_visit_released",
+      "sha256": "1d6cdb786725201aaab348cd63d1534f2890d23a48befa0ffef37c7a55eb8cfa",
+      "bytes": 1302539,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt2_comfy_1280/final_library_repeat.png",
+      "case": "attempt2_comfy_1280",
+      "id": "final_library_repeat",
+      "sha256": "3bc02410afc03e458f32b91293ff16e951391bf77d244ebf872dc7ad94ea5bd9",
+      "bytes": 1302337,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/main_hall_checkpoint.png",
+      "case": "attempt3_comfy_1280",
+      "id": "main_hall_checkpoint",
+      "sha256": "1d4c949d552b4078b6adf7903371293dc67ff6643b26e186c5482754b20d3069",
+      "bytes": 1524078,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "ORIGINAL_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/entered_mermaid_pool_1.png",
+      "case": "attempt3_comfy_1280",
+      "id": "entered_mermaid_pool_1",
+      "sha256": "476b06644fcb95da44172d50752e790d33612f664db63d6b1f16b426ba329a90",
+      "bytes": 1430241,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/pool_passive.png",
+      "case": "attempt3_comfy_1280",
+      "id": "pool_passive",
+      "sha256": "45613e52d0b8d26a0e551a422eb90a003a0bdf901b5778d302d68973989a200d",
+      "bytes": 1431605,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/find_rumi_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "find_rumi_before",
+      "sha256": "dfe5da668b6295484703afedfe841d387c6404e327e765d69b4a08be3d720a4f",
+      "bytes": 1431781,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/find_rumi_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "find_rumi_pressed",
+      "sha256": "a3c538f871cc315a05feea070322c53d37ca6addc939de6b08641f1fd5956c18",
+      "bytes": 1431549,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/find_rumi_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "find_rumi_released",
+      "sha256": "b697e1d7fbb4835859814c563fb0cc7822d0775238d6008dc68f83961df4a26e",
+      "bytes": 1434357,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/entered_playroom_3.png",
+      "case": "attempt3_comfy_1280",
+      "id": "entered_playroom_3",
+      "sha256": "f8694af1d99110854c52a74eaa2c067d51de61e0e86a93b27705c427bd340acd",
+      "bytes": 1302213,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/find_eagle_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "find_eagle_before",
+      "sha256": "e5a4b022ede5b9a400187989e654829e8146caa5c5ecd0891687fc8428ef1b05",
+      "bytes": 1301978,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/find_eagle_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "find_eagle_pressed",
+      "sha256": "4384f38287ff2c2e316bf788a815b40c42c97017a2744d1493dd35deff26d2fc",
+      "bytes": 1301682,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/find_eagle_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "find_eagle_released",
+      "sha256": "01e6e3977e9e015548e9b79ec956f36305748e3775a8e7e823c25128780bde01",
+      "bytes": 1223241,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/two_finds_background.png",
+      "case": "attempt3_comfy_1280",
+      "id": "two_finds_background",
+      "sha256": "430716e6d7c2fe15edb5b297059e30db25f93248d0a2877c50a81381e90a3e9e",
+      "bytes": 1223206,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/fresh_main_two_finds.png",
+      "case": "attempt3_comfy_1280",
+      "id": "fresh_main_two_finds",
+      "sha256": "161e19a53b5170b58de50806f2afa16317171fc3452852307ba2c3b58d93a56f",
+      "bytes": 1524066,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "PRIVATE_RELOAD_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/entered_library_4.png",
+      "case": "attempt3_comfy_1280",
+      "id": "entered_library_4",
+      "sha256": "f944d3cf4bc91c1fb60facb2b062d6d58fe2508fa7be2da5b2fd8b5016165d70",
+      "bytes": 1300895,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/find_daddy_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "find_daddy_before",
+      "sha256": "455e16d08092eeef44bb1b545efe91b54a96cef4eaf53162cfdb0cdfb7e79ad0",
+      "bytes": 1301305,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/find_daddy_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "find_daddy_pressed",
+      "sha256": "9babd96597d4a0bf76e4e9d8d424c7a50d41d17c6ee58f101021fe186f0cc796",
+      "bytes": 1301135,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/find_daddy_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "find_daddy_released",
+      "sha256": "8babb0b69b30eb9a6589b4d4d1bebeccdc21cafe5cd1a4cf4485e63d930254aa",
+      "bytes": 1306672,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/hunt_sticker_settle.png",
+      "case": "attempt3_comfy_1280",
+      "id": "hunt_sticker_settle",
+      "sha256": "2ef51bdfc24eb1e031333af9a7e039c57763f49d292ab95aa7078ea834945938",
+      "bytes": 1306655,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/entered_kitchen_6.png",
+      "case": "attempt3_comfy_1280",
+      "id": "entered_kitchen_6",
+      "sha256": "cce64d49f66c8b1d360972f8989d38644d2bcad8991fb31282988e0b29bacdc2",
+      "bytes": 1384754,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_apple_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_apple_before",
+      "sha256": "d357129e3ed2df1abc405e07317bf921253ca71e4e2e0d2529965fc4fc6792b6",
+      "bytes": 1384116,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_apple_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_apple_pressed",
+      "sha256": "ef41aad046720dea767b1c6c2e046774154e7068fb402ee230b9042c86893b59",
+      "bytes": 1383618,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_apple_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_apple_released",
+      "sha256": "87b5713f3fc37a4d6460ec0f5267a8f4c5e6673077232d12f5f308fbc25bb991",
+      "bytes": 1372797,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_carrot_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_carrot_before",
+      "sha256": "fe8032de57a1914d32e23827579361a1d6ece77223983f433d38f9e061b6d64e",
+      "bytes": 1373296,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_carrot_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_carrot_pressed",
+      "sha256": "7b0f293c45f2855656d68a8d50bd26fa2b6e82b9a2c4963521882619929647a4",
+      "bytes": 1371722,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_carrot_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_carrot_released",
+      "sha256": "132da523ea7089c65d97056355856cfdb34da36ca5ca9b47666ddebb522efbf5",
+      "bytes": 1368969,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_strawberry_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_strawberry_before",
+      "sha256": "4105906084e554ca904bc666d647b4d674194c4d6995acfcd629737a8799341e",
+      "bytes": 1370048,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_strawberry_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_strawberry_pressed",
+      "sha256": "dc34512021c49f464f5aea64b252eac7f39f40877290fcdc275893fe9a00aedd",
+      "bytes": 1369403,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_strawberry_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_strawberry_released",
+      "sha256": "221f26cb62c20ffacdd518103f0d22457e30af9b20a520d6cd7055daebc4c838",
+      "bytes": 1351985,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_stir_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_stir_before",
+      "sha256": "155718dbc7048da34f86360f5e4762ae0aae4652de56b54294e8163a040852ff",
+      "bytes": 1351478,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_stir_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_stir_pressed",
+      "sha256": "f46f8fa52cfe29c4d285e20edd194a678629457b1c5cb972538be7d9655b6dee",
+      "bytes": 1350590,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/dinner_stir_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "dinner_stir_released",
+      "sha256": "e45acd1a40a940af01eecdaf6cc1b1a7bde1e6c2a9913e091ac6592dd1d22426",
+      "bytes": 1372106,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/entered_family_gallery_8.png",
+      "case": "attempt3_comfy_1280",
+      "id": "entered_family_gallery_8",
+      "sha256": "0c42b968f570e43986b89c768fef127097fe4e2ae63b0fa9d2d1041418a47f29",
+      "bytes": 701592,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/entered_movie_lounge_9.png",
+      "case": "attempt3_comfy_1280",
+      "id": "entered_movie_lounge_9",
+      "sha256": "d0f0fdc1ca742e64963bdef442671a27b42da966065d6184963b8f8bafb89300",
+      "bytes": 874241,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/movie_1_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "movie_1_before",
+      "sha256": "74672583f6d175120fa3d395e2f8b65a11dcb070593a8ceee9e08156288e1470",
+      "bytes": 874701,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/movie_1_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "movie_1_pressed",
+      "sha256": "0c476951dfe99c78c48d07a7af966a1506d6b09071799291fe5f63e7ef15b5f8",
+      "bytes": 874964,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/movie_1_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "movie_1_released",
+      "sha256": "643f3936e229fa29bed0e5ccad206eac007f8e3debe4c3be7f5e9d8f0d1e68ac",
+      "bytes": 871562,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/movie_2_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "movie_2_before",
+      "sha256": "166242d6026e9812077fa845528ffd5fa1928bcd0bfc8583d0ca4eaf1881ecd2",
+      "bytes": 871863,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/movie_2_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "movie_2_pressed",
+      "sha256": "829a941310ac8ce2781360634906410093ba60ddd55b8220b8db0d8a8123ba17",
+      "bytes": 873904,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/movie_2_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "movie_2_released",
+      "sha256": "9aa1d30b5f856a5f68c44839ffb9311d7a231ba4c908b827632d181a789f9c28",
+      "bytes": 875624,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/movie_3_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "movie_3_before",
+      "sha256": "96efc7228cb36c3a0ed96cc84c753714386ab1207d421fedad5d684d5e6c8ece",
+      "bytes": 875401,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/movie_3_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "movie_3_pressed",
+      "sha256": "0a3ed639ab08ac961a91070026aded04e21e2fe74bb28ee8471ee5bb2e71bc3c",
+      "bytes": 875663,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/movie_3_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "movie_3_released",
+      "sha256": "10b5b56a7362e7fea0b4c5394ed801a11685297560dfa978774ae67256b26063",
+      "bytes": 879590,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/entered_family_gallery_12.png",
+      "case": "attempt3_comfy_1280",
+      "id": "entered_family_gallery_12",
+      "sha256": "3c89bfddd2fd57b50e68c86d560ce69087b6c1f71d763a019060cbee29f97727",
+      "bytes": 700123,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/entered_sleepover_bedroom_13.png",
+      "case": "attempt3_comfy_1280",
+      "id": "entered_sleepover_bedroom_13",
+      "sha256": "0748241bcd1cb7ab982dfff115dda54143f51902fc634502f4b339c70b52e271",
+      "bytes": 668527,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_rumi_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_rumi_before",
+      "sha256": "e00dc16af4ffe6d6671562f25701a2a69987f173303eba36214addc9582c7588",
+      "bytes": 669978,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_rumi_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_rumi_pressed",
+      "sha256": "8fccdb7fe990fbb4c84733c9de9031992ed737fa0c085de3ec477470667bc185",
+      "bytes": 670314,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_rumi_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_rumi_released",
+      "sha256": "9e23bc283876bc0de66bccca2bd34bfb813222334e432f379871ceaab865f107",
+      "bytes": 637029,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_baby_eagle_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_baby_eagle_before",
+      "sha256": "d3cf78524ee62a12c57cbe0b04df7632ce34ffea991df12628206c8c3db797e1",
+      "bytes": 639197,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_baby_eagle_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_baby_eagle_pressed",
+      "sha256": "37bd72978effe2e39a9e14dc42ee90f022f0c7b2108ecc5c195f04110e8eff59",
+      "bytes": 641452,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_baby_eagle_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_baby_eagle_released",
+      "sha256": "6c5eaf65cb29f507685a0f4e501e92b158918cb1d27955a9cd087c2ea205f2f9",
+      "bytes": 614032,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_daddy_mermaid_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_daddy_mermaid_before",
+      "sha256": "c80e681359caf34c235935debca7d1f49a176394371d5ec3fd567e26c1ae7101",
+      "bytes": 615543,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_daddy_mermaid_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_daddy_mermaid_pressed",
+      "sha256": "9839edf610f2e5de6f403d6b01396c1ad2a816e2ad69692bed0d829a4b117361",
+      "bytes": 616487,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_daddy_mermaid_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_daddy_mermaid_released",
+      "sha256": "11413b56901d62704d0d469676ee0cfd190fd5efffca2fa1e50323133cc02140",
+      "bytes": 572245,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_roshan_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_roshan_before",
+      "sha256": "0a784d84903190b55b8200ec04798274ffaf76ebbb3c91d841ede81f86205836",
+      "bytes": 572272,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_roshan_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_roshan_pressed",
+      "sha256": "dc80f6725a621a3438420c5a486983c4f825456a3f447aa6dd5baa4752ff8dcc",
+      "bytes": 572044,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/bedtime_roshan_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "bedtime_roshan_released",
+      "sha256": "1001d09ef66f087937100a31ca1f599feb40697a4606e478062ab79be0754158",
+      "bytes": 563067,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/evening_complete_settle.png",
+      "case": "attempt3_comfy_1280",
+      "id": "evening_complete_settle",
+      "sha256": "f8c54faadca3985ed8384efaebf173514eb41c5fd1b1e9e1d34a26a5628ed51a",
+      "bytes": 564927,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/entered_library_14.png",
+      "case": "attempt3_comfy_1280",
+      "id": "entered_library_14",
+      "sha256": "996af4762b76b392ac62016927f09c80a821926046f3b6d628d621c6f22e10f7",
+      "bytes": 1299622,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/repeat_daddy_visit_before.png",
+      "case": "attempt3_comfy_1280",
+      "id": "repeat_daddy_visit_before",
+      "sha256": "334f77daa35875d738163deb1f3bac990de9d9abaa9b9e25104e5b81c9faf227",
+      "bytes": 1299861,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/repeat_daddy_visit_pressed.png",
+      "case": "attempt3_comfy_1280",
+      "id": "repeat_daddy_visit_pressed",
+      "sha256": "c6db6571ebf107ef2ea3e79eb59e176174b0f2a7c904e418366929b001f7e3f0",
+      "bytes": 1299669,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/repeat_daddy_visit_released.png",
+      "case": "attempt3_comfy_1280",
+      "id": "repeat_daddy_visit_released",
+      "sha256": "75c16a3806e48c393d6785c71abe5a0f946ecfa6498d26fcaa57bd62773f606e",
+      "bytes": 1302835,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1280/final_library_repeat.png",
+      "case": "attempt3_comfy_1280",
+      "id": "final_library_repeat",
+      "sha256": "9f726155b70de784e21ea3514a84232309e3bf897ae91ea67a5dfd0cec6b04fb",
+      "bytes": 1302462,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/main_hall_checkpoint.png",
+      "case": "attempt3_comfy_1600",
+      "id": "main_hall_checkpoint",
+      "sha256": "270eddbc900e203f175dfc0a68feb9a09fba937501dfa05a27f000d6a0474c29",
+      "bytes": 1755055,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "ORIGINAL_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/entered_mermaid_pool_1.png",
+      "case": "attempt3_comfy_1600",
+      "id": "entered_mermaid_pool_1",
+      "sha256": "1e3b989ec571e25aa24e64b35ca4f72b3bbbe7a0fbe74b899277b7212f1c5206",
+      "bytes": 1463950,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/pool_passive.png",
+      "case": "attempt3_comfy_1600",
+      "id": "pool_passive",
+      "sha256": "ed889a0cf50448f30aa7db32172c2893a4b230dd9b42d77dbc414dec1112d8a7",
+      "bytes": 1463164,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/find_rumi_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "find_rumi_before",
+      "sha256": "390cb744213a6649dc30d2ee341bd3dd2be2b6e12f873b95db109c3167a89ed2",
+      "bytes": 1462975,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/find_rumi_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "find_rumi_pressed",
+      "sha256": "8f9c659a5d4b98ff2c9ba912d4845d9aeb88b517d74d0d04476cfc659ef9bf39",
+      "bytes": 1463029,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/find_rumi_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "find_rumi_released",
+      "sha256": "5c588c0f6bafbe7f862937530bbab5d6f980d5040eda01e5b4dfe52e4384691e",
+      "bytes": 1466588,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/entered_playroom_3.png",
+      "case": "attempt3_comfy_1600",
+      "id": "entered_playroom_3",
+      "sha256": "5aef0bc1516371e87e89e26651a8dc0068b6732d7b6a56eb95d8a050eb107613",
+      "bytes": 1256975,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/find_eagle_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "find_eagle_before",
+      "sha256": "4b0c50e271cf431aa20eb774dc742f4d54cc132d3744dc8f21386448b51b2e27",
+      "bytes": 1340359,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/find_eagle_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "find_eagle_pressed",
+      "sha256": "242f127ae40c1acd727e65de44249a0b3b4e681d4bcbffe4c4b0795e09e430ec",
+      "bytes": 1340506,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/find_eagle_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "find_eagle_released",
+      "sha256": "790f186063058c0abc167eb0894235deb78a188a8902cebab4aee1c23878635d",
+      "bytes": 1262244,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/two_finds_background.png",
+      "case": "attempt3_comfy_1600",
+      "id": "two_finds_background",
+      "sha256": "dbbd8c83c49935d18b7bfbea886cae8e13e055dff5f0cc7d68191229660a8d3e",
+      "bytes": 1262769,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/fresh_main_two_finds.png",
+      "case": "attempt3_comfy_1600",
+      "id": "fresh_main_two_finds",
+      "sha256": "8faabb51c81be0889051e6b54d932b2a5fd15a572674839fb4a5c98667127b29",
+      "bytes": 1755053,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "PRIVATE_RELOAD_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/entered_library_4.png",
+      "case": "attempt3_comfy_1600",
+      "id": "entered_library_4",
+      "sha256": "6a38290a6eed0dd837207362c7a7cafd0cde457dfaaaae01b9317121df79b51e",
+      "bytes": 1327914,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/find_daddy_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "find_daddy_before",
+      "sha256": "161e8fccb29f0ca7a463fc16d9849121f8c0b9b6ecca360c153e547aa43e54b0",
+      "bytes": 1328058,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/find_daddy_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "find_daddy_pressed",
+      "sha256": "7f28c5f91a892e900b0e0a26149fdc7509c83a980b842ce958025e24cde0a971",
+      "bytes": 1327731,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/find_daddy_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "find_daddy_released",
+      "sha256": "b7053c325a9d515d4f9bf8a0da1bb5f556a2a2d4436d215c95e6a6ef6b1f3cd6",
+      "bytes": 1333591,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/hunt_sticker_settle.png",
+      "case": "attempt3_comfy_1600",
+      "id": "hunt_sticker_settle",
+      "sha256": "1973d5a9b01da9ae002f1c3498de7576f622a4c57dc825683a6e814be7404c14",
+      "bytes": 1333909,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/entered_kitchen_6.png",
+      "case": "attempt3_comfy_1600",
+      "id": "entered_kitchen_6",
+      "sha256": "cdf3df52371551f2ac1b825d5e6d81f46f697a5274e5bfcd05f13bb9dacfba35",
+      "bytes": 1424394,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_apple_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_apple_before",
+      "sha256": "4586b5d62b7f7e2d5d226d5ed26d884950d468c606fde321aa8d2f4f6e44c5e8",
+      "bytes": 1423540,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_apple_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_apple_pressed",
+      "sha256": "3b058bbc1f559df6781f2c538c4133c52815d402ca11416772d7f5cfbf35b30f",
+      "bytes": 1423078,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_apple_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_apple_released",
+      "sha256": "5276a8a5f235ae8e9062ed97597c4c8d6f5d8d05c6ea3b1852848c8f8ae785f6",
+      "bytes": 1412912,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_carrot_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_carrot_before",
+      "sha256": "538821754b4c3a615cb901ba7f6bb5f3976a89c0e99134ea546c3762525bfa39",
+      "bytes": 1412720,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_carrot_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_carrot_pressed",
+      "sha256": "ffd714fa280cd889857148cfbd60dcfb27b4456cd5e51451d46efafb47e7cff6",
+      "bytes": 1410993,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_carrot_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_carrot_released",
+      "sha256": "fb42527eb2b90c5864222029c0d121487c9186ddc76432969ad103c5c45f6ea5",
+      "bytes": 1406593,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_strawberry_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_strawberry_before",
+      "sha256": "199a3f9d76d51f9f29f53a0e43485c92622a9661f98380f90b1e9f30049024b9",
+      "bytes": 1408929,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_strawberry_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_strawberry_pressed",
+      "sha256": "33608622338e761ee97088958a8c8cf5d55f128921082fd507049f9fa67a7b6f",
+      "bytes": 1408271,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_strawberry_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_strawberry_released",
+      "sha256": "1fd65076e487f08a8837764b1fc08fd14d1c523eaba8255f9aa1a752d7a205fc",
+      "bytes": 1390380,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_stir_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_stir_before",
+      "sha256": "4c143eb282e48f6d36b5cd3dc48a004c95f5ddffd67d7ad4b46b7f2f01b83fd2",
+      "bytes": 1389938,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_stir_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_stir_pressed",
+      "sha256": "eb5019a6b865211921e6f3f02cb2326bd9f61bc607448bee9d36d4cedc0c02f5",
+      "bytes": 1389338,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/dinner_stir_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "dinner_stir_released",
+      "sha256": "8503da7419eb7b47fb7b5a5c5452a84cc3d8dd7c7378e6c558c5576c872d4008",
+      "bytes": 1411495,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/entered_family_gallery_8.png",
+      "case": "attempt3_comfy_1600",
+      "id": "entered_family_gallery_8",
+      "sha256": "d0422fec4d588b308ff6487c2e9fc9efdacbda302fd3b94f995730c62df20bfa",
+      "bytes": 705315,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/entered_movie_lounge_9.png",
+      "case": "attempt3_comfy_1600",
+      "id": "entered_movie_lounge_9",
+      "sha256": "92249b8de9f971e576bc2f3fb688f553cc8b28724f068ea77f1998f1ab75a871",
+      "bytes": 891932,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/movie_1_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "movie_1_before",
+      "sha256": "739048fb80474402ad447db8efc01d1193c18ef7bfc6a6db7ac6560ba4343e67",
+      "bytes": 893802,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/movie_1_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "movie_1_pressed",
+      "sha256": "e8168a9c6b6b4fafdd2e00420f8be60531d961f1a994da1e6c490eaabafa341e",
+      "bytes": 893903,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/movie_1_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "movie_1_released",
+      "sha256": "c2b8e9cfd9ceee036ff2e571278256df01876192b47edaeee78eab4c404f2ba2",
+      "bytes": 889828,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/movie_2_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "movie_2_before",
+      "sha256": "4b4cc265bc8c20fa5d5f4faf604c5023f6c8aef5461bceab58245c0376cf8585",
+      "bytes": 889808,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/movie_2_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "movie_2_pressed",
+      "sha256": "47f3ff5d19ca35d700aa46a1f15fa1148d5aa52f7eb38880529123be9ed904a0",
+      "bytes": 890448,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/movie_2_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "movie_2_released",
+      "sha256": "d9722c53ea2ff3a864693f8c038c0185d3f8ba3b6ee407eca21626f03d89431f",
+      "bytes": 891747,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/movie_3_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "movie_3_before",
+      "sha256": "54a139b42eee3886ee3b662bd2220aed790bdd251982b52444bec9db607ea342",
+      "bytes": 891677,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/movie_3_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "movie_3_pressed",
+      "sha256": "64283b174294677b59c5f63deb70a4e53c67fff9f526af121f6c948f14bb4372",
+      "bytes": 891635,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/movie_3_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "movie_3_released",
+      "sha256": "c3f5f29325c55a1cc8393c7002e688115b0e68fd1a3808dc36954fc12eeccdbf",
+      "bytes": 894771,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/entered_family_gallery_12.png",
+      "case": "attempt3_comfy_1600",
+      "id": "entered_family_gallery_12",
+      "sha256": "e39a814f60fe7744202bd6267ef58d7475757c9d2deaed8000782115e1446bb1",
+      "bytes": 706450,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/entered_sleepover_bedroom_13.png",
+      "case": "attempt3_comfy_1600",
+      "id": "entered_sleepover_bedroom_13",
+      "sha256": "0db0395e85fb3bb09c0274603f2f815d0710bb41b16ec29d2735eaab78484e24",
+      "bytes": 675681,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_rumi_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_rumi_before",
+      "sha256": "f5e89e6e8af16853a832c5b4a4bd5a0c1f62540adc10447c0b3fd6c25ad6ca03",
+      "bytes": 676635,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_rumi_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_rumi_pressed",
+      "sha256": "20cc0c85f948fa6a0ef2822c431ebd0e31b3d87eb0289f46c2fd18613cebb4f9",
+      "bytes": 677568,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_rumi_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_rumi_released",
+      "sha256": "f95b01902925992fba3e35b594c6f2f22b239cba01aaff5eac510cb68e03b901",
+      "bytes": 642111,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_baby_eagle_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_baby_eagle_before",
+      "sha256": "6c8f8b87318a2cf6a143ffd88e0874eafb4c833d6b4b570681a0be7c15d27645",
+      "bytes": 643874,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_baby_eagle_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_baby_eagle_pressed",
+      "sha256": "8811969d01b611ec2294937cf07a3bf0b2980a8832e2cbfb34a84422e985cab1",
+      "bytes": 645699,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_baby_eagle_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_baby_eagle_released",
+      "sha256": "3ee59abcbc9e38e10f24eafcdf8c6002ade2f6cd9fcb776599fa3e0fa73910c7",
+      "bytes": 618090,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_daddy_mermaid_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_daddy_mermaid_before",
+      "sha256": "1327eedf1272d86c556633d077027c1dd90ddb3d45b136c297d184562dcb0b4c",
+      "bytes": 619580,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_daddy_mermaid_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_daddy_mermaid_pressed",
+      "sha256": "30c071b3c18f3757108147459fe42f49495f2e0be6cefd320138508651bc942b",
+      "bytes": 620122,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_daddy_mermaid_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_daddy_mermaid_released",
+      "sha256": "916dc6e1fbd41a0ff9ff2ce878b987d4e893579f9f64e781830527bf98cbeb8e",
+      "bytes": 573824,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_roshan_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_roshan_before",
+      "sha256": "3d5c6845b35887c3f6408c2e2c0e02fb855c21c94db3f439e64ce97522ccfc99",
+      "bytes": 573437,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_roshan_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_roshan_pressed",
+      "sha256": "9cbf6a8c26186cbd4d6d31e3add9f73b527464156842cc20ec65773c2afd3649",
+      "bytes": 573948,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/bedtime_roshan_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "bedtime_roshan_released",
+      "sha256": "e0f42b15f636c598e593112b28f644261a89bcaac38e9e0f472175418060fb04",
+      "bytes": 567452,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/evening_complete_settle.png",
+      "case": "attempt3_comfy_1600",
+      "id": "evening_complete_settle",
+      "sha256": "0a995c47abd4dfd3b1d75055b1ab345a900ee138255330ca15c0de9b98ab66f4",
+      "bytes": 566990,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/entered_library_14.png",
+      "case": "attempt3_comfy_1600",
+      "id": "entered_library_14",
+      "sha256": "79a4894996cdf3ba4e54039fd85a38a1c6058bbb5935c6d9c72a572429e08293",
+      "bytes": 1326518,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/repeat_daddy_visit_before.png",
+      "case": "attempt3_comfy_1600",
+      "id": "repeat_daddy_visit_before",
+      "sha256": "656e87cee4a9acb28fd963d022104c46094f80ff6e423027fbc1c8506cc09d4c",
+      "bytes": 1326571,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/repeat_daddy_visit_pressed.png",
+      "case": "attempt3_comfy_1600",
+      "id": "repeat_daddy_visit_pressed",
+      "sha256": "1f325eb7b8b44ab88f648ffe16dbf03770b1e0012808441117a941264af505d0",
+      "bytes": 1325862,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/repeat_daddy_visit_released.png",
+      "case": "attempt3_comfy_1600",
+      "id": "repeat_daddy_visit_released",
+      "sha256": "2aa58e9bdfc3fcec081d3aff11f3fd0194974cac619abb0d0b179a4c0bc3a3e7",
+      "bytes": 1328870,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    },
+    {
+      "path": "native/attempt3_comfy_1600/final_library_repeat.png",
+      "case": "attempt3_comfy_1600",
+      "id": "final_library_repeat",
+      "sha256": "3eb50b630e0f54dcc98ae6036549bb65c9db546f66af9bdda21bac54ff9af92a",
+      "bytes": 1328444,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "source_role": "CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "lane": "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT",
+      "count_unit": "Ordered event/state file; not unique artwork/screens/authored animation frames"
+    }
+  ],
+  "lanes": {
+    "EXCLUDED_FIXTURE_OR_BOOT_DIAGNOSTIC": 66,
+    "BOUNDED_CURRENT_ORIGINAL_COMFY_CONTEXT": 118
+  },
+  "native": 184,
+  "bounded": 118,
+  "excluded": 66,
+  "current_native": 122,
+  "current_checks": 88,
+  "failed_fixture_native_excluded": 62,
+  "current_boot_diagnostics_excluded": 4,
+  "credit_rule": "All62 initial fixture failure files and4 current boot-only diagnostics retained/excluded.118 current source event/state files add bounded context only. No unique artwork/screen count."
+}

@@ -1,0 +1,19 @@
+{
+  "failed_case": "native/attempt1_comfy_1280",
+  "failed_native_retained_excluded": 1,
+  "failure": "Fixture declared the source-culled offscreen Mermaid Pool hall door unavailable before attempting original floor walking. No original route/game failure is established by that attempt.",
+  "source_reason": "CastleRooms25D._update_hall_portals sets Button.visible only when the authored projected portal intersects the current canvas. Hidden portal control positions can be stale.",
+  "bounded_fixture_fix": "Read existing portal foot and current player foot to select the original floor-walk direction until the source makes the original door visible. No visibility/hit/pose/clock/progress write or direct room API fallback. Allow original Hall40frames to settle after startup.",
+  "initial_fixture_sha256": "e0be7cf6a1a856178ce38063e11f4ce891510794949cb0ad48be06d2e730d9ff",
+  "current_fixture_sha256": "247cf15844d27c40879516a513382545ceb9fa5ed01bc4ef385eda07933ab72f",
+  "executed_initial_source": "native/attempt1_comfy_1280/fixture_source.gd",
+  "second_failure": {
+    "case": "native/attempt2_comfy_1280",
+    "retained_native_excluded": 61,
+    "failure": "Blanket fixture pearl invariance incorrectly includes original hallway walk-contact rewards. Pearl23 becomes24 before Pool entry and before any Comfy target; source CastleRooms25D._explode_dust_bunny awards one pearl for nonrescue walk/tap contact. No Comfy source regression is established.",
+    "bounded_fix": "Preserve original earned pearl; check all three story counters around each Comfy target separately, keep Opera progression invariant globally, and explicitly record before/after live hall-pop dictionaries and pearls for each original hall-door route. No model/pearl/phase correction or bypass.",
+    "initial_fixture_sha256": "247cf15844d27c40879516a513382545ceb9fa5ed01bc4ef385eda07933ab72f",
+    "current_fixture_sha256": "07e2039f5329a6428320c85011a326b73a9220752776c0330796c30aeb2ba82b"
+  },
+  "failed_native_total_retained_excluded": 62
+}

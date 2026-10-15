@@ -1,0 +1,187 @@
+{
+  "audited_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "baseline": "../r51_farmer_context/RUNTIME_BYTE_BASELINE.json at d464dfd07cf53563a3fa3b729624bd12909c751d",
+  "runtime_root_tracked_files_checked": 4420,
+  "initialized_sidecars_checked": 4041,
+  "cases": [
+    {
+      "case": "attempt1_comfy_1280",
+      "current": false,
+      "report_sha256": "d65edb0d4fc191d477dd6ee6113dfd47019ba61386b6d34c48ee60d2ec510863",
+      "fixture_sha256": "e0be7cf6a1a856178ce38063e11f4ce891510794949cb0ad48be06d2e730d9ff",
+      "exit_code": 1,
+      "native": 1,
+      "checks": 1,
+      "errors": [
+        "original hall door unavailable mermaid_pool"
+      ],
+      "boots": 1,
+      "guard": {
+        "exit_code": 1,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T11:45:02.434178+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "230d3354e844676394cd87a9113a5c9f1ae575096f9e4652082b21f62bad534b",
+        "script_or_shader_errors": false
+      }
+    },
+    {
+      "case": "attempt2_comfy_1280",
+      "current": false,
+      "report_sha256": "7e3abcc52df0593593a4f4cb9f78fb7f9fc08f32cd07c0dd0d318c22ba143801",
+      "fixture_sha256": "247cf15844d27c40879516a513382545ceb9fa5ed01bc4ef385eda07933ab72f",
+      "exit_code": 1,
+      "native": 61,
+      "checks": 28,
+      "errors": [
+        "main story counters unchanged",
+        "reloaded story counters unchanged"
+      ],
+      "boots": 3,
+      "guard": {
+        "exit_code": 1,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T11:48:30.820459+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "e66eb9055d82d0329df748b96d6cbabdfae8abe0f260e309ea5259dde213bd59",
+        "script_or_shader_errors": false
+      }
+    },
+    {
+      "case": "attempt3_comfy_1280",
+      "current": true,
+      "report_sha256": "c8be4e282e66730e4bd82b79bc10bf9e2bebae2d730534dd4296fbf438f8d3f2",
+      "fixture_sha256": "07e2039f5329a6428320c85011a326b73a9220752776c0330796c30aeb2ba82b",
+      "exit_code": 0,
+      "native": 61,
+      "checks": 44,
+      "errors": [],
+      "boots": 3,
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T11:52:50.831029+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "288989deccd8c545d664cd9efb259bb3c63f31587e88554d88b75086a3f714c6",
+        "script_or_shader_errors": false
+      }
+    },
+    {
+      "case": "attempt3_comfy_1600",
+      "current": true,
+      "report_sha256": "bbdf51fc5b015fb044cdba58d6d988034b74d5629dcf69050a8b0eda9f54bace",
+      "fixture_sha256": "07e2039f5329a6428320c85011a326b73a9220752776c0330796c30aeb2ba82b",
+      "exit_code": 0,
+      "native": 61,
+      "checks": 44,
+      "errors": [],
+      "boots": 3,
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T11:54:31.550551+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "288989deccd8c545d664cd9efb259bb3c63f31587e88554d88b75086a3f714c6",
+        "script_or_shader_errors": false
+      }
+    }
+  ],
+  "production_art_code_changes": [],
+  "scope": "All4 attempts keep tracked runtime raw bytes, initialized sidecars and normal eight save suffix hashes exact. Historical R51 import writes retain their original declared scope."
+}

@@ -1305,3 +1305,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Authority and scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; exact source5120b6d5 nonruntime eight-motif selector/status reuse at two aspects.252 checks/116 unchanged local-layout/state comparisons;372 native/118 bounded/254 excluded comparisons.15 native/8 source direct views. No new art, production adoption or acceptance;240 roles/32 families,0 accepted/global unknown. |
+
+## Original Comfy room context — 2026-10-15 R55
+
+| Document | State | Authority and scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; source5120b6d5 original optional Castle route,88 checks/15 native9 source direct views,12 consumers9 textures.184 native118 bounded66 excluded.85partial catalogue aliases91without0complete. No production/art/acceptance;240roles32families/global unknown. |
