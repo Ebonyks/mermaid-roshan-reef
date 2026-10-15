@@ -1,0 +1,408 @@
+{
+  "baseline": "ccbe6d60e4021977c520844797d4d36086ad6e73",
+  "cases": [
+    {
+      "identity": "eagle",
+      "aspect": [
+        1280,
+        720
+      ],
+      "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/native/native_current_1280_eagle/captures/capture_manifest.json",
+      "startup_constructs_retained_follower": true,
+      "promenade_follower_tick_delta": 0,
+      "promenade_care_tick_delta": 6,
+      "hall_normal_tick_delta": 71,
+      "hall_tick_room_calls": 0,
+      "hall_room_present": false,
+      "forced_battle_constructed": true,
+      "battle_cancel_teardown": true,
+      "forced_room_constructed": true,
+      "owned_room_teardown": true,
+      "reef_exit_request_actual_game": "level2",
+      "reef_exit_request_actual_phase": "promenade",
+      "normal_save_hashes_unchanged": true,
+      "source_only_not_normal_playthrough": true
+    },
+    {
+      "identity": "lamma",
+      "aspect": [
+        1280,
+        720
+      ],
+      "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/native/native_current_1280_lamma/captures/capture_manifest.json",
+      "startup_constructs_retained_follower": true,
+      "promenade_follower_tick_delta": 0,
+      "promenade_care_tick_delta": 6,
+      "hall_normal_tick_delta": 71,
+      "hall_tick_room_calls": 0,
+      "hall_room_present": false,
+      "forced_battle_constructed": true,
+      "battle_cancel_teardown": true,
+      "forced_room_constructed": true,
+      "owned_room_teardown": true,
+      "reef_exit_request_actual_game": "level2",
+      "reef_exit_request_actual_phase": "promenade",
+      "normal_save_hashes_unchanged": true,
+      "source_only_not_normal_playthrough": true
+    },
+    {
+      "identity": "mewsha",
+      "aspect": [
+        1280,
+        720
+      ],
+      "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/native/native_current_1280_mewsha/captures/capture_manifest.json",
+      "startup_constructs_retained_follower": true,
+      "promenade_follower_tick_delta": 0,
+      "promenade_care_tick_delta": 6,
+      "hall_normal_tick_delta": 71,
+      "hall_tick_room_calls": 0,
+      "hall_room_present": false,
+      "forced_battle_constructed": true,
+      "battle_cancel_teardown": true,
+      "forced_room_constructed": true,
+      "owned_room_teardown": true,
+      "reef_exit_request_actual_game": "level2",
+      "reef_exit_request_actual_phase": "promenade",
+      "normal_save_hashes_unchanged": true,
+      "source_only_not_normal_playthrough": true
+    },
+    {
+      "identity": "eagle",
+      "aspect": [
+        1600,
+        720
+      ],
+      "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/native/native_current_1600_eagle/captures/capture_manifest.json",
+      "startup_constructs_retained_follower": true,
+      "promenade_follower_tick_delta": 0,
+      "promenade_care_tick_delta": 6,
+      "hall_normal_tick_delta": 71,
+      "hall_tick_room_calls": 0,
+      "hall_room_present": false,
+      "forced_battle_constructed": true,
+      "battle_cancel_teardown": true,
+      "forced_room_constructed": true,
+      "owned_room_teardown": true,
+      "reef_exit_request_actual_game": "level2",
+      "reef_exit_request_actual_phase": "promenade",
+      "normal_save_hashes_unchanged": true,
+      "source_only_not_normal_playthrough": true
+    },
+    {
+      "identity": "lamma",
+      "aspect": [
+        1600,
+        720
+      ],
+      "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/native/native_current_1600_lamma/captures/capture_manifest.json",
+      "startup_constructs_retained_follower": true,
+      "promenade_follower_tick_delta": 0,
+      "promenade_care_tick_delta": 6,
+      "hall_normal_tick_delta": 71,
+      "hall_tick_room_calls": 0,
+      "hall_room_present": false,
+      "forced_battle_constructed": true,
+      "battle_cancel_teardown": true,
+      "forced_room_constructed": true,
+      "owned_room_teardown": true,
+      "reef_exit_request_actual_game": "level2",
+      "reef_exit_request_actual_phase": "promenade",
+      "normal_save_hashes_unchanged": true,
+      "source_only_not_normal_playthrough": true
+    },
+    {
+      "identity": "mewsha",
+      "aspect": [
+        1600,
+        720
+      ],
+      "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/native/native_current_1600_mewsha/captures/capture_manifest.json",
+      "startup_constructs_retained_follower": true,
+      "promenade_follower_tick_delta": 0,
+      "promenade_care_tick_delta": 6,
+      "hall_normal_tick_delta": 71,
+      "hall_tick_room_calls": 0,
+      "hall_room_present": false,
+      "forced_battle_constructed": true,
+      "battle_cancel_teardown": true,
+      "forced_room_constructed": true,
+      "owned_room_teardown": true,
+      "reef_exit_request_actual_game": "level2",
+      "reef_exit_request_actual_phase": "promenade",
+      "normal_save_hashes_unchanged": true,
+      "source_only_not_normal_playthrough": true
+    }
+  ],
+  "factory_pairs": [
+    {
+      "kind": "fish",
+      "third_input": "000000",
+      "visible_source_layers": [
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/fish_body.png",
+          "texture_size": "(1024.0, 387.0)",
+          "tint": "(0.95, 0.7, 0.85, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 0,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/fish_fins.png",
+          "texture_size": "(985.0, 1024.0)",
+          "tint": "(0.7681, 0.5639, 0.942, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 1,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/fish_line.png",
+          "texture_size": "(400.0, 400.0)",
+          "tint": "(1.0, 1.0, 1.0, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 2,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        }
+      ],
+      "count": 3,
+      "scope": "Serialized existing constructor textures/tints/material parameters, not visible viewport pixels"
+    },
+    {
+      "kind": "fish",
+      "third_input": "ffffff",
+      "visible_source_layers": [
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/fish_body.png",
+          "texture_size": "(1024.0, 387.0)",
+          "tint": "(0.95, 0.7, 0.85, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 0,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/fish_fins.png",
+          "texture_size": "(985.0, 1024.0)",
+          "tint": "(0.6196, 0.4191, 0.9049, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 1,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/fish_line.png",
+          "texture_size": "(400.0, 400.0)",
+          "tint": "(1.0, 1.0, 1.0, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 2,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        }
+      ],
+      "count": 3,
+      "scope": "Serialized existing constructor textures/tints/material parameters, not visible viewport pixels"
+    },
+    {
+      "kind": "cat",
+      "third_input": "000000",
+      "visible_source_layers": [
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/cat_body.png",
+          "texture_size": "(340.0, 520.0)",
+          "tint": "(0.95, 0.7, 0.85, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 0,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/cat_accent.png",
+          "texture_size": "(340.0, 520.0)",
+          "tint": "(0.6111, 0.4109, 0.9028, 0.505)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 1,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/cat_line.png",
+          "texture_size": "(8.0, 8.0)",
+          "tint": "(1.0, 1.0, 1.0, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 2,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        }
+      ],
+      "count": 3,
+      "scope": "Serialized existing constructor textures/tints/material parameters, not visible viewport pixels"
+    },
+    {
+      "kind": "cat",
+      "third_input": "ffffff",
+      "visible_source_layers": [
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/cat_body.png",
+          "texture_size": "(340.0, 520.0)",
+          "tint": "(0.95, 0.7, 0.85, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 0,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/cat_accent.png",
+          "texture_size": "(340.0, 520.0)",
+          "tint": "(0.6342, 0.4333, 0.9085, 0.5154)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 1,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/cat_line.png",
+          "texture_size": "(8.0, 8.0)",
+          "tint": "(1.0, 1.0, 1.0, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 2,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        }
+      ],
+      "count": 3,
+      "scope": "Serialized existing constructor textures/tints/material parameters, not visible viewport pixels"
+    },
+    {
+      "kind": "bird",
+      "third_input": "000000",
+      "visible_source_layers": [
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/bird_body.png",
+          "texture_size": "(308.0, 520.0)",
+          "tint": "(0.95, 0.7, 0.85, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 0,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/bird_accent.png",
+          "texture_size": "(308.0, 520.0)",
+          "tint": "(0.6527, 0.4513, 0.9132, 0.5237)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 1,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/bird_line.png",
+          "texture_size": "(8.0, 8.0)",
+          "tint": "(1.0, 1.0, 1.0, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 2,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        }
+      ],
+      "count": 3,
+      "scope": "Serialized existing constructor textures/tints/material parameters, not visible viewport pixels"
+    },
+    {
+      "kind": "bird",
+      "third_input": "ffffff",
+      "visible_source_layers": [
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/bird_body.png",
+          "texture_size": "(308.0, 520.0)",
+          "tint": "(0.95, 0.7, 0.85, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 0,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/bird_accent.png",
+          "texture_size": "(308.0, 520.0)",
+          "tint": "(0.6207, 0.4202, 0.9052, 0.5093)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 1,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        },
+        {
+          "class": "Sprite3D",
+          "texture": "res://assets/mg/bird_line.png",
+          "texture_size": "(8.0, 8.0)",
+          "tint": "(1.0, 1.0, 1.0, 1.0)",
+          "pixel_size": 0.0199999995529652,
+          "billboard": 1,
+          "render_priority": 2,
+          "material_class": null,
+          "shader_sha256": null,
+          "shader_parameters": null
+        }
+      ],
+      "count": 3,
+      "scope": "Serialized existing constructor textures/tints/material parameters, not visible viewport pixels"
+    }
+  ],
+  "third_slot_scope": "Three original Main fallbacks each retain the same three Sprite3D texture paths/body/line tints for black/white third inputs. Sampled accent tints differ under autonomous _layer_fx pulsing; no accent/pixel invariance or third-input causation is inferred. Exact fallback source does not bind third to _creature_spawned. No normal-route visibility claim.",
+  "normal_route_scope": "Promenade care dispatch does not increment the old follower loop during the measured slice. Startup nevertheless constructs the retained follower before authored session ownership. Hall ticks the old system but does not dispatch _tick_room. These are bounded current cases, not global dead-code proofs.",
+  "forced_API_scope": "Private battle/room/factory calls are retained diagnostics, not navigation or playable-route evidence. Current Canvas layers/camera are not hidden/reframed to expose their old art.",
+  "full_compositor_runtime_closures_added": 0,
+  "accepted_removed": 0
+}

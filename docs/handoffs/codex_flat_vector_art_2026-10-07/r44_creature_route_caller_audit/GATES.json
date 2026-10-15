@@ -1,0 +1,137 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_AUDIT_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/capture_creature_routes.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/observe_companion.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T01:24:24.772306+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/capture_creature_routes.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/observe_companion.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T01:24:25.903281+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/capture_creature_routes.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T01:24:35.080450+00:00",
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r44_creature_route_caller_audit\\validate.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T01:25:03.062453+00:00",
+      "stdout_sha256": "0cb79ac2b266f096fb87d7b8809a9e84bde8745f75743f18e1599aec56456ed7",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T01:25:16.302285+00:00",
+      "stdout_sha256": "5d89c490ba5f93ceb877ed27525e67deb5fb41ce3c45487d762f718bcb789c0e",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T01:25:23.288543+00:00",
+      "stdout_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T01:25:35.870301+00:00",
+      "stdout_sha256": "02870444267be8bd24486ffb884fa66ac271417c4bfce25a41fcc139754518a8",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "c27146a935822eb9d85f2decc9ecc7b300ae36aadcd27a1e934b816150e0d824",
+  "scope": "Fresh fixture/parser/inference/official Godot4.7.2/source/dispatch/seed/capture integrity checks/canonical/doc/coverage/54unit tests;6 supported actual source/dispatch/API diagnostic native cases,73captures excludedfrom newart/routecredit. Staged/committed2D gates follow. Prior R32full82/R35CI retained at unchanged production, not new full suite.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r44_creature_route_caller_audit\\validate.py"
+      ],
+      "checked_at_utc": "2026-10-15T01:42:01.335365+00:00",
+      "exit_code": 0,
+      "sha256": "0cb79ac2b266f096fb87d7b8809a9e84bde8745f75743f18e1599aec56456ed7",
+      "output": "R44 PASS:6actual source-bound Mobile cases,73excluded captures,312ASTfiles/49calls/95unresolved dynamictargets;source/save/frozen history parity,230roles31families3samples0accepted/globalunknown\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "checked_at_utc": "2026-10-15T01:42:15.132430+00:00",
+      "exit_code": 0,
+      "sha256": "5d89c490ba5f93ceb877ed27525e67deb5fb41ce3c45487d762f718bcb789c0e",
+      "output": "DOCAUTH|INVENTORY=747|LEDGER=747|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "checked_at_utc": "2026-10-15T01:42:27.109084+00:00",
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    }
+  ]
+}

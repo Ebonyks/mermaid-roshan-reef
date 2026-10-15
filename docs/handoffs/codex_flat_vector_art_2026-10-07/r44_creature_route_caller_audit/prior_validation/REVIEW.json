@@ -1,0 +1,10 @@
+{
+  "status": "DOCUMENT_GATE_FAILURE_REPAIRED_BEFORE_PUBLICATION",
+  "failure": "DOC072 four future publication/gate links had no pending records yet. Parser/inference/exactGodot/source evidence validator passed before the document gate failed.",
+  "repair": "Create honest PENDING publication/gate records, rebuild final manifest after final facts, then rerun required gates. No gameplay, art, validator floor or acceptance change.",
+  "strict_2d_gate_correction": {
+    "finding": "G2D101 in design impact: concatenated prose retained3D matched class-suffix regex",
+    "preserved": "impact_before_prose_spacing_correction.json;staged_2d_document_token_failure.log;staged_2d_document_token_failure_result.json",
+    "correction": "Proper English retained 3D in current impact and plan; no weakening of gate, baseline, runtime or model inventory. Current exact token classifier returns empty mapping. Full authoritative gate rerun remains required."
+  }
+}

@@ -1,0 +1,4967 @@
+{
+	"actual_child_data": false,
+	"art_context_credits": 0,
+	"aspect": [
+		1280,
+		720
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [],
+	"factory_diagnostics": [],
+	"identity": "eagle",
+	"normal_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"quality": "speedy",
+	"renderer": "mobile",
+	"schema": "reef.creature_route_caller_audit/1",
+	"scope_limits": "Current source-route/checkpoint andforced API dispatch diagnostics only. Do not inferactorpixelvisibility/all-gameunreachability/normalroutecoverage/human/device/QA11/artacceptance fromnodes/counters/source absence. Originalproduction/art unchanged;newgeneration0. Existinglegacy3D builders invokedonlyforisolatedsource audit,noproductiondebt added.",
+	"source_revision": "ccbe6d60e4021977c520844797d4d36086ad6e73",
+	"states": [
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 6,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": -1,
+					"path": "/root/Main/SkyLagoonCanvasLayer",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [],
+			"Studio": {
+				"nodes": [],
+				"present": false
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [],
+				"present": false
+			},
+			"camera3D": {
+				"current": false,
+				"global_position": "",
+				"path": "",
+				"present": false
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "CURRENT_AUTHORED_ROUTE_CHECKPOINT",
+			"detail": "Existing entryowner;normal Canvasdispatch,notnaturalplaycompletion",
+			"follow_context_predicate": true,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-1.93513, 27.2203, -4.685292)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					}
+				],
+				"present": true
+			},
+			"game": "level2",
+			"id": "promenade_idle",
+			"image": {
+				"bytes": 1724888,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "promenade_idle.png",
+				"sha256": "f1a940a4b6e681d1c79f4540c8ba1eafe1c90da875f523db3ea649e75e1b6b88"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "promenade",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_follow_ctx": 25,
+				"_stuffie_cutout": 1,
+				"_tick_follower": 8,
+				"creature_for": 1,
+				"make_creature": 1,
+				"tick": 8,
+				"tick_canvas_care": 71
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 10218
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		},
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 26,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": -1,
+					"path": "/root/Main/SkyLagoonCanvasLayer",
+					"visible": true
+				},
+				{
+					"layer": 25,
+					"path": "/root/Main/@CanvasLayer@367",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/@ColorRect@369",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (38.0, 24.0), S: (1204.0, 672.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieCareShell",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (582.0, 2.0), S: (116.0, 82.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieCareShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (57.0, 46.0), S: (18.0, 18.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieCarePearlTL",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1205.0, 46.0), S: (18.0, 18.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieCarePearlTR",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (63.0, 659.0), S: (14.0, 14.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieCarePearlBL",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1203.0, 659.0), S: (14.0, 14.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieCarePearlBR",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (72.0, 42.0), S: (720.0, 70.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/@Label@371",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (72.0, 138.0), S: (350.0, 360.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/@Panel@372",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (88.0, 154.0), S: (318.0, 512.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/@Panel@372/@TextureRect@373",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/characters/companions/baby_eagle.png",
+					"texture_size": "(290.0, 512.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (72.0, 496.0), S: (350.0, 50.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieGrowthPips",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (72.0, 536.0), S: (350.0, 44.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieHeartProgress",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": true,
+					"global_rect": "[P: (92.0, 576.0), S: (310.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieSwitchButton",
+					"text": "🎨  CHANGE",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (466.0, 138.0), S: (698.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/@Panel@374",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (486.0, 150.0), S: (658.0, 152.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/@Panel@374/StuffieCurrentNeed",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (466.0, 344.0), S: (126.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieCareAction_feed",
+					"text": "🍎",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (606.0, 344.0), S: (126.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieCareAction_nap",
+					"text": "💤",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (746.0, 344.0), S: (126.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieCareAction_bath",
+					"text": "🫧",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (886.0, 344.0), S: (126.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieCareAction_cuddle",
+					"text": "❤",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (1026.0, 344.0), S: (126.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/StuffieCareAction_play",
+					"text": "🎾",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (466.0, 500.0), S: (698.0, 66.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/@Label@375",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (466.0, 584.0), S: (698.0, 70.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/@Control@368/StorybookStage/@Label@376",
+					"z_index": 0
+				}
+			],
+			"Studio": {
+				"nodes": [],
+				"present": false
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [],
+				"present": false
+			},
+			"camera3D": {
+				"current": false,
+				"global_position": "",
+				"path": "",
+				"present": false
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "CURRENT_AUTHORED_ROUTE_CHECKPOINT",
+			"detail": "Existing guardedcaremenu;source-renderer unchanged",
+			"follow_context_predicate": true,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-1.93513, 27.2203, -4.685292)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					}
+				],
+				"present": true
+			},
+			"game": "level2",
+			"id": "promenade_care",
+			"image": {
+				"bytes": 377573,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "promenade_care.png",
+				"sha256": "6654dae8a38b2665c8ac88a43d0df3edd2925d0e5c3dfea09396079a131ef32f"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "promenade",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_add_creature_preview": 1,
+				"_follow_ctx": 27,
+				"_stuffie_cutout": 1,
+				"_tick_follower": 8,
+				"creature_for": 1,
+				"make_creature": 1,
+				"tick": 8,
+				"tick_canvas_care": 77
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "normal_source_owner_entry",
+					"detail": "eagle",
+					"game": "level2",
+					"method": "_add_creature_preview",
+					"phase": "promenade",
+					"ticks_msec": 12015
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		},
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": false
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 15,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 16,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 14,
+					"path": "/root/Main/@CanvasLayer@377",
+					"visible": true
+				},
+				{
+					"layer": 27,
+					"path": "/root/Main/CastleVoiceCaptionLayer",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld",
+					"z_index": -1000
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_sleepy_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+					"z_index": 265
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_shell_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+					"z_index": 305
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (313.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard",
+					"z_index": 221
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (313.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard/CompanionArt_0",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/characters/companions/baby_eagle.png",
+					"texture_size": "(290.0, 512.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_family_gallery",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_opera_hall",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_library",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_kitchen",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/MoonflowerConservatoryDoor",
+					"source_asset_path": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"texture": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"z_index": 70
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.24, 0.25, 0.48, 0.58)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanContactShadow",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/rooms/room_actor_shadow.png",
+					"z_index": 216
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanCutout",
+					"source_asset_path": "",
+					"texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"z_index": 220
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchablePropEffects",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/TouchablePropHotspots",
+					"z_index": 24
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/MainHallDoorHotspots",
+					"z_index": 25
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (160.7656, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_family_gallery",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (669.8564, 137.799), S: (229.6651, 325.3589)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_opera_hall",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (290.9091, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_library",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (417.2249, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_kitchen",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+					"z_index": 46
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@377/CastleRooms25D/StorybookStage/ComfyGamesCastleLayer",
+					"z_index": 28
+				}
+			],
+			"Studio": {
+				"nodes": [],
+				"present": false
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [],
+				"present": false
+			},
+			"camera3D": {
+				"current": true,
+				"global_position": "(500.0, -1285.65, -1.031662)",
+				"path": "/root/Main/@Camera3D@336",
+				"present": true
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "CURRENT_AUTHORED_ROUTE_CHECKPOINT",
+			"detail": "Observe normalhall dispatch;do notforceStudio orfollower",
+			"follow_context_predicate": false,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-1.93513, 27.2203, -4.685292)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					}
+				],
+				"present": true
+			},
+			"game": "level2",
+			"id": "Castle_idle",
+			"image": {
+				"bytes": 1524067,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "Castle_idle.png",
+				"sha256": "1536bb2adcd12fec32c5927bd188f7fdffdb15df551e555c0ca6d91efc1af568"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "hall",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_add_creature_preview": 1,
+				"_follow_ctx": 242,
+				"_stuffie_cutout": 1,
+				"_tick_follower": 79,
+				"creature_for": 1,
+				"make_creature": 1,
+				"tick": 79,
+				"tick_canvas_care": 82
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "normal_source_owner_entry",
+					"detail": "eagle",
+					"game": "level2",
+					"method": "_add_creature_preview",
+					"phase": "promenade",
+					"ticks_msec": 12015
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		},
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 6,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": -1,
+					"path": "/root/Main/SkyLagoonCanvasLayer",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [],
+			"Studio": {
+				"nodes": [],
+				"present": false
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [],
+				"present": false
+			},
+			"camera3D": {
+				"current": false,
+				"global_position": "",
+				"path": "",
+				"present": false
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "CURRENT_AUTHORED_ROUTE_CHECKPOINT",
+			"detail": "Actual productionexit callback",
+			"follow_context_predicate": true,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-1.93513, 27.2203, -4.685292)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					}
+				],
+				"present": true
+			},
+			"game": "level2",
+			"id": "Castle_exit_to_promenade",
+			"image": {
+				"bytes": 1725026,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "Castle_exit_to_promenade.png",
+				"sha256": "a0ddc0d8cfcd143cc5861b2032b57dd9ad97f6d8a9fe984513a6594d435b3eaf"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "promenade",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_add_creature_preview": 1,
+				"_follow_ctx": 243,
+				"_stuffie_cutout": 1,
+				"_tick_follower": 79,
+				"creature_for": 1,
+				"make_creature": 1,
+				"tick": 79,
+				"tick_canvas_care": 127
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "normal_source_owner_entry",
+					"detail": "eagle",
+					"game": "level2",
+					"method": "_add_creature_preview",
+					"phase": "promenade",
+					"ticks_msec": 12015
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		},
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": false
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 6,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": -1,
+					"path": "/root/Main/SkyLagoonCanvasLayer",
+					"visible": true
+				},
+				{
+					"layer": 14,
+					"path": "/root/Main/@Node3D@403/@CanvasLayer@408",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [],
+			"Studio": {
+				"nodes": [],
+				"present": false
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(0.0, 0.0, 0.0)",
+						"name": "@Node3D@403",
+						"path": "/root/Main/@Node3D@403",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "DirectionalLight3D",
+						"global_position": "(0.0, 0.0, 0.0)",
+						"name": "@DirectionalLight3D@404",
+						"path": "/root/Main/@Node3D@403/@DirectionalLight3D@404",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(0.0, -2400.0, 0.0)",
+						"name": "MissingDungeonArt_arena",
+						"path": "/root/Main/@Node3D@403/MissingDungeonArt_arena",
+						"position": "(0.0, -2400.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(0.0, -2400.0, 0.0)",
+						"name": "DungeonArena",
+						"path": "/root/Main/@Node3D@403/MissingDungeonArt_arena/DungeonArena",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(0.0, -2388.0, 0.0)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback",
+						"path": "/root/Main/@Node3D@403/MissingDungeonArt_arena/DungeonArena/Tint_Fallback",
+						"position": "(0.0, 12.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(0.0, -2388.0, 0.0)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback2",
+						"path": "/root/Main/@Node3D@403/MissingDungeonArt_arena/DungeonArena/Tint_Fallback2",
+						"position": "(0.0, 12.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(0.0, -2398.657, 9.0)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/@Node3D@403/StuffieCutout_eagle",
+						"position": "(0.0, -2398.657, 9.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(0.0, -2398.657, 9.0)",
+						"name": "StorybookBob",
+						"path": "/root/Main/@Node3D@403/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(0.0, -2398.657, 9.0)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/@Node3D@403/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Camera3D",
+						"current": true,
+						"fov": 58.0,
+						"global_position": "(0.0, -2372.0, 30.0)",
+						"name": "@Camera3D@407",
+						"path": "/root/Main/@Node3D@403/@Camera3D@407",
+						"position": "(0.0, -2372.0, 30.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "CanvasLayer",
+						"name": "@CanvasLayer@408",
+						"path": "/root/Main/@Node3D@403/@CanvasLayer@408"
+					},
+					{
+						"class": "Panel",
+						"name": "StuffieBattleObjectiveCard",
+						"path": "/root/Main/@Node3D@403/@CanvasLayer@408/StuffieBattleObjectiveCard"
+					},
+					{
+						"class": "Label",
+						"name": "@Label@410",
+						"path": "/root/Main/@Node3D@403/@CanvasLayer@408/StuffieBattleObjectiveCard/@Label@410"
+					},
+					{
+						"class": "Panel",
+						"name": "StuffieBattleProgressCard",
+						"path": "/root/Main/@Node3D@403/@CanvasLayer@408/StuffieBattleProgressCard"
+					},
+					{
+						"class": "Label",
+						"name": "@Label@412",
+						"path": "/root/Main/@Node3D@403/@CanvasLayer@408/StuffieBattleProgressCard/@Label@412"
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(-0.796795, -2391.371, 14.67888)",
+						"name": "@Label3D@413",
+						"path": "/root/Main/@Node3D@403/@Label3D@413",
+						"position": "(-0.796795, -2391.371, 14.67888)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(1.019264, -2399.203, -12.92703)",
+						"name": "@Node3D@414",
+						"path": "/root/Main/@Node3D@403/@Node3D@414",
+						"position": "(1.019264, -2399.203, -12.92703)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(1.019264, -2399.203, -12.92703)",
+						"name": "MissingDungeonArt_imp",
+						"path": "/root/Main/@Node3D@403/@Node3D@414/MissingDungeonArt_imp",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(1.019264, -2399.203, -12.92703)",
+						"name": "Imp",
+						"path": "/root/Main/@Node3D@403/@Node3D@414/MissingDungeonArt_imp/Imp",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(1.019264, -2397.603, -12.92703)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback",
+						"path": "/root/Main/@Node3D@403/@Node3D@414/MissingDungeonArt_imp/Imp/Tint_Fallback",
+						"position": "(0.0, 1.6, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(1.019264, -2397.603, -12.92703)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback2",
+						"path": "/root/Main/@Node3D@403/@Node3D@414/MissingDungeonArt_imp/Imp/Tint_Fallback2",
+						"position": "(0.0, 1.6, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-0.796795, -2398.797, 14.67888)",
+						"name": "@Node3D@417",
+						"path": "/root/Main/@Node3D@403/@Node3D@417",
+						"position": "(-0.796795, -2398.797, 14.67888)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-0.796795, -2398.797, 14.67888)",
+						"name": "MissingDungeonArt_imp",
+						"path": "/root/Main/@Node3D@403/@Node3D@417/MissingDungeonArt_imp",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-0.796795, -2398.797, 14.67888)",
+						"name": "Imp",
+						"path": "/root/Main/@Node3D@403/@Node3D@417/MissingDungeonArt_imp/Imp",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(-0.796795, -2397.197, 14.67888)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback",
+						"path": "/root/Main/@Node3D@403/@Node3D@417/MissingDungeonArt_imp/Imp/Tint_Fallback",
+						"position": "(0.0, 1.6, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(-0.796795, -2397.197, 14.67888)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback2",
+						"path": "/root/Main/@Node3D@403/@Node3D@417/MissingDungeonArt_imp/Imp/Tint_Fallback2",
+						"position": "(0.0, 1.6, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					}
+				],
+				"present": true
+			},
+			"camera3D": {
+				"current": true,
+				"global_position": "(0.0, -2372.0, 30.0)",
+				"path": "/root/Main/@Node3D@403/@Camera3D@407",
+				"present": true
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "FORCED_PRIVATE_API_ONLY",
+			"detail": "No named productionentrycurrentlyboundbyscan;do nothideCanvas oraddcamera toforcevisibility",
+			"follow_context_predicate": false,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-1.93513, 27.2203, -4.685292)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					}
+				],
+				"present": true
+			},
+			"game": "stuffie",
+			"id": "forced_battle_start",
+			"image": {
+				"bytes": 1716928,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "forced_battle_start.png",
+				"sha256": "7da3cc3852eeabf4f2e4b1d8d2b5493d87cebf46ebc14fa522bbfbdce1e984a9"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "promenade",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_add_creature_preview": 1,
+				"_follow_ctx": 281,
+				"_stuffie_cutout": 2,
+				"_tick_follower": 91,
+				"creature_for": 2,
+				"make_creature": 2,
+				"tick": 91,
+				"tick_canvas_care": 127
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "normal_source_owner_entry",
+					"detail": "eagle",
+					"game": "level2",
+					"method": "_add_creature_preview",
+					"phase": "promenade",
+					"ticks_msec": 12015
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "",
+					"game": "stuffie",
+					"method": "make_creature",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle",
+					"game": "stuffie",
+					"method": "creature_for",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle:3.8",
+					"game": "stuffie",
+					"method": "_stuffie_cutout",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		},
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": false
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 6,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": -1,
+					"path": "/root/Main/SkyLagoonCanvasLayer",
+					"visible": true
+				},
+				{
+					"layer": 14,
+					"path": "/root/Main/@Node3D@403/@CanvasLayer@408",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [],
+			"Studio": {
+				"nodes": [],
+				"present": false
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(0.0, 0.0, 0.0)",
+						"name": "@Node3D@403",
+						"path": "/root/Main/@Node3D@403",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "DirectionalLight3D",
+						"global_position": "(0.0, 0.0, 0.0)",
+						"name": "@DirectionalLight3D@404",
+						"path": "/root/Main/@Node3D@403/@DirectionalLight3D@404",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(0.0, -2400.0, 0.0)",
+						"name": "MissingDungeonArt_arena",
+						"path": "/root/Main/@Node3D@403/MissingDungeonArt_arena",
+						"position": "(0.0, -2400.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(0.0, -2400.0, 0.0)",
+						"name": "DungeonArena",
+						"path": "/root/Main/@Node3D@403/MissingDungeonArt_arena/DungeonArena",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(0.0, -2388.0, 0.0)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback",
+						"path": "/root/Main/@Node3D@403/MissingDungeonArt_arena/DungeonArena/Tint_Fallback",
+						"position": "(0.0, 12.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(0.0, -2388.0, 0.0)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback2",
+						"path": "/root/Main/@Node3D@403/MissingDungeonArt_arena/DungeonArena/Tint_Fallback2",
+						"position": "(0.0, 12.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(0.0, -2398.943, 9.0)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/@Node3D@403/StuffieCutout_eagle",
+						"position": "(0.0, -2398.943, 9.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(0.0, -2398.943, 9.0)",
+						"name": "StorybookBob",
+						"path": "/root/Main/@Node3D@403/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(0.0, -2398.943, 9.0)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/@Node3D@403/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Camera3D",
+						"current": true,
+						"fov": 58.0,
+						"global_position": "(0.0, -2372.0, 30.0)",
+						"name": "@Camera3D@407",
+						"path": "/root/Main/@Node3D@403/@Camera3D@407",
+						"position": "(0.0, -2372.0, 30.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "CanvasLayer",
+						"name": "@CanvasLayer@408",
+						"path": "/root/Main/@Node3D@403/@CanvasLayer@408"
+					},
+					{
+						"class": "Panel",
+						"name": "StuffieBattleObjectiveCard",
+						"path": "/root/Main/@Node3D@403/@CanvasLayer@408/StuffieBattleObjectiveCard"
+					},
+					{
+						"class": "Label",
+						"name": "@Label@410",
+						"path": "/root/Main/@Node3D@403/@CanvasLayer@408/StuffieBattleObjectiveCard/@Label@410"
+					},
+					{
+						"class": "Panel",
+						"name": "StuffieBattleProgressCard",
+						"path": "/root/Main/@Node3D@403/@CanvasLayer@408/StuffieBattleProgressCard"
+					},
+					{
+						"class": "Label",
+						"name": "@Label@412",
+						"path": "/root/Main/@Node3D@403/@CanvasLayer@408/StuffieBattleProgressCard/@Label@412"
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(-3.03467, -2392.228, 14.74811)",
+						"name": "@Label3D@413",
+						"path": "/root/Main/@Node3D@403/@Label3D@413",
+						"position": "(-3.03467, -2392.228, 14.74811)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(3.731203, -2398.853, -9.450993)",
+						"name": "@Node3D@414",
+						"path": "/root/Main/@Node3D@403/@Node3D@414",
+						"position": "(3.731203, -2398.853, -9.450993)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(3.731203, -2398.853, -9.450993)",
+						"name": "MissingDungeonArt_imp",
+						"path": "/root/Main/@Node3D@403/@Node3D@414/MissingDungeonArt_imp",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(3.731203, -2398.853, -9.450993)",
+						"name": "Imp",
+						"path": "/root/Main/@Node3D@403/@Node3D@414/MissingDungeonArt_imp/Imp",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(3.731203, -2397.253, -9.450993)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback",
+						"path": "/root/Main/@Node3D@403/@Node3D@414/MissingDungeonArt_imp/Imp/Tint_Fallback",
+						"position": "(0.0, 1.6, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(3.731203, -2397.253, -9.450993)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback2",
+						"path": "/root/Main/@Node3D@403/@Node3D@414/MissingDungeonArt_imp/Imp/Tint_Fallback2",
+						"position": "(0.0, 1.6, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-3.03467, -2399.147, 14.74811)",
+						"name": "@Node3D@417",
+						"path": "/root/Main/@Node3D@403/@Node3D@417",
+						"position": "(-3.03467, -2399.147, 14.74811)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-3.03467, -2399.147, 14.74811)",
+						"name": "MissingDungeonArt_imp",
+						"path": "/root/Main/@Node3D@403/@Node3D@417/MissingDungeonArt_imp",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-3.03467, -2399.147, 14.74811)",
+						"name": "Imp",
+						"path": "/root/Main/@Node3D@403/@Node3D@417/MissingDungeonArt_imp/Imp",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(-3.03467, -2397.547, 14.74811)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback",
+						"path": "/root/Main/@Node3D@403/@Node3D@417/MissingDungeonArt_imp/Imp/Tint_Fallback",
+						"position": "(0.0, 1.6, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "MeshInstance3D",
+						"global_position": "(-3.03467, -2397.547, 14.74811)",
+						"mesh_class": "QuadMesh",
+						"name": "Tint_Fallback2",
+						"path": "/root/Main/@Node3D@403/@Node3D@417/MissingDungeonArt_imp/Imp/Tint_Fallback2",
+						"position": "(0.0, 1.6, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					}
+				],
+				"present": true
+			},
+			"camera3D": {
+				"current": true,
+				"global_position": "(0.0, -2372.0, 30.0)",
+				"path": "/root/Main/@Node3D@403/@Camera3D@407",
+				"present": true
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "FORCED_PRIVATE_API_ONLY",
+			"detail": "Passivefewframes;notbattleaction/route/acceptance",
+			"follow_context_predicate": false,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-1.93513, 27.2203, -4.685292)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					}
+				],
+				"present": true
+			},
+			"game": "stuffie",
+			"id": "forced_battle_wait",
+			"image": {
+				"bytes": 1716944,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "forced_battle_wait.png",
+				"sha256": "60cef1f661b79c3b0fe76ae6061d73f139111571de2ed2cc08756005152793e8"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "promenade",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_add_creature_preview": 1,
+				"_follow_ctx": 387,
+				"_stuffie_cutout": 2,
+				"_tick_follower": 126,
+				"creature_for": 2,
+				"make_creature": 2,
+				"tick": 126,
+				"tick_canvas_care": 127
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "normal_source_owner_entry",
+					"detail": "eagle",
+					"game": "level2",
+					"method": "_add_creature_preview",
+					"phase": "promenade",
+					"ticks_msec": 12015
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "",
+					"game": "stuffie",
+					"method": "make_creature",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle",
+					"game": "stuffie",
+					"method": "creature_for",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle:3.8",
+					"game": "stuffie",
+					"method": "_stuffie_cutout",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		},
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 6,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": -1,
+					"path": "/root/Main/SkyLagoonCanvasLayer",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [],
+			"Studio": {
+				"nodes": [],
+				"present": false
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [],
+				"present": false
+			},
+			"camera3D": {
+				"current": false,
+				"global_position": "",
+				"path": "",
+				"present": false
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "FORCED_PRIVATE_API_ONLY",
+			"detail": "Actual retainedengine cancellationcallback;no victoryfabrication",
+			"follow_context_predicate": true,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-1.93513, 27.2203, -4.685292)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					}
+				],
+				"present": true
+			},
+			"game": "level2",
+			"id": "forced_battle_cancel",
+			"image": {
+				"bytes": 1717680,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "forced_battle_cancel.png",
+				"sha256": "ae1e1fc3ed7d334ac933f463523cb80a558251ce9fd22add291764ebe4de0f95"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "promenade",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_add_creature_preview": 1,
+				"_follow_ctx": 388,
+				"_stuffie_cutout": 2,
+				"_tick_follower": 126,
+				"creature_for": 2,
+				"make_creature": 2,
+				"tick": 126,
+				"tick_canvas_care": 162
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "normal_source_owner_entry",
+					"detail": "eagle",
+					"game": "level2",
+					"method": "_add_creature_preview",
+					"phase": "promenade",
+					"ticks_msec": 12015
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "",
+					"game": "stuffie",
+					"method": "make_creature",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle",
+					"game": "stuffie",
+					"method": "creature_for",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle:3.8",
+					"game": "stuffie",
+					"method": "_stuffie_cutout",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		},
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": false
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 15,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 16,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 14,
+					"path": "/root/Main/@CanvasLayer@443",
+					"visible": true
+				},
+				{
+					"layer": 27,
+					"path": "/root/Main/CastleVoiceCaptionLayer",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld",
+					"z_index": -1000
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_sleepy_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+					"z_index": 265
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_shell_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+					"z_index": 305
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (313.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard",
+					"z_index": 221
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (313.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard/CompanionArt_0",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/characters/companions/baby_eagle.png",
+					"texture_size": "(290.0, 512.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_family_gallery",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_opera_hall",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_library",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_kitchen",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/MoonflowerConservatoryDoor",
+					"source_asset_path": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"texture": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"z_index": 70
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.24, 0.25, 0.48, 0.58)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanContactShadow",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/rooms/room_actor_shadow.png",
+					"z_index": 216
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanCutout",
+					"source_asset_path": "",
+					"texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"z_index": 220
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchablePropEffects",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/TouchablePropHotspots",
+					"z_index": 24
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots",
+					"z_index": 25
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (160.7656, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_family_gallery",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (669.8564, 137.799), S: (229.6651, 325.3589)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_opera_hall",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (290.9091, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_library",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (417.2249, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_kitchen",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+					"z_index": 46
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/ComfyGamesCastleLayer",
+					"z_index": 28
+				}
+			],
+			"Studio": {
+				"nodes": [],
+				"present": false
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [],
+				"present": false
+			},
+			"camera3D": {
+				"current": true,
+				"global_position": "(500.0, -1287.773, -1.040136)",
+				"path": "/root/Main/@Camera3D@336",
+				"present": true
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "CURRENT_AUTHORED_ROUTE_CHECKPOINT",
+			"detail": "Sourceowner reentry afterexistingAPIcancel",
+			"follow_context_predicate": false,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-1.93513, 27.2203, -4.685292)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					}
+				],
+				"present": true
+			},
+			"game": "level2",
+			"id": "Castle_reentry",
+			"image": {
+				"bytes": 1524366,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "Castle_reentry.png",
+				"sha256": "d603e4bc8a62d929e141b477e3d4e35ff30e1116f3671522a1767234807657a6"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "hall",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_add_creature_preview": 1,
+				"_follow_ctx": 453,
+				"_stuffie_cutout": 2,
+				"_tick_follower": 147,
+				"creature_for": 2,
+				"make_creature": 2,
+				"tick": 147,
+				"tick_canvas_care": 177
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "normal_source_owner_entry",
+					"detail": "eagle",
+					"game": "level2",
+					"method": "_add_creature_preview",
+					"phase": "promenade",
+					"ticks_msec": 12015
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "",
+					"game": "stuffie",
+					"method": "make_creature",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle",
+					"game": "stuffie",
+					"method": "creature_for",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle:3.8",
+					"game": "stuffie",
+					"method": "_stuffie_cutout",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		},
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": false
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 15,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 16,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 14,
+					"path": "/root/Main/@CanvasLayer@443",
+					"visible": true
+				},
+				{
+					"layer": 27,
+					"path": "/root/Main/CastleVoiceCaptionLayer",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld",
+					"z_index": -1000
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_sleepy_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+					"z_index": 265
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_shell_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+					"z_index": 305
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (313.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard",
+					"z_index": 221
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (313.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard/CompanionArt_0",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/characters/companions/baby_eagle.png",
+					"texture_size": "(290.0, 512.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_family_gallery",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_opera_hall",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_library",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_kitchen",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/MoonflowerConservatoryDoor",
+					"source_asset_path": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"texture": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"z_index": 70
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.24, 0.25, 0.48, 0.58)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanContactShadow",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/rooms/room_actor_shadow.png",
+					"z_index": 216
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanCutout",
+					"source_asset_path": "",
+					"texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"z_index": 220
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchablePropEffects",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/TouchablePropHotspots",
+					"z_index": 24
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots",
+					"z_index": 25
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (160.7656, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_family_gallery",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (669.8564, 137.799), S: (229.6651, 325.3589)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_opera_hall",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (290.9091, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_library",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (417.2249, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_kitchen",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+					"z_index": 46
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/ComfyGamesCastleLayer",
+					"z_index": 28
+				}
+			],
+			"Studio": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(450.6, -1250.4, -44.0)",
+						"name": "StuffieStudioRoom",
+						"path": "/root/Main/StuffieStudioRoom",
+						"position": "(450.6, -1250.4, -44.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(447.8, -1244.0, -44.0)",
+						"name": "StuffieSixCubbyDisplay",
+						"path": "/root/Main/StuffieStudioRoom/StuffieSixCubbyDisplay",
+						"pixel_size": 0.0128906248137355,
+						"position": "(-2.8, 6.4, 0.0)",
+						"render_priority": 0,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/sprites/stuffie_studio/display_shelf.png",
+						"texture_size": "(1024.0, 1024.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(450.2, -1247.65, -53.0)",
+						"name": "StuffieUpgradeTable",
+						"path": "/root/Main/StuffieStudioRoom/StuffieUpgradeTable",
+						"pixel_size": 0.00775988306850195,
+						"position": "(-0.4, 2.75, -9.0)",
+						"render_priority": 0,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/sprites/stuffie_studio/worktable.png",
+						"texture_size": "(1024.0, 683.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(450.2, -1247.5, -35.0)",
+						"name": "StuffieActiveToyChest",
+						"path": "/root/Main/StuffieStudioRoom/StuffieActiveToyChest",
+						"pixel_size": 0.00566406268626451,
+						"position": "(-0.4, 2.9, 9.0)",
+						"render_priority": 0,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/sprites/stuffie_studio/toy_chest.png",
+						"texture_size": "(934.0, 1024.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.2, -1237.3, -44.0)",
+						"name": "@Label3D@445",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@445",
+						"position": "(-2.4, 13.1, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(451.6, -1248.4, -53.0)",
+						"name": "StuffieTableAnchor",
+						"path": "/root/Main/StuffieStudioRoom/StuffieTableAnchor",
+						"position": "(1.0, 2.0, -9.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(451.6, -1248.4, -35.0)",
+						"name": "StuffieChestAnchor",
+						"path": "/root/Main/StuffieStudioRoom/StuffieChestAnchor",
+						"position": "(1.0, 2.0, 9.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(451.0, -1244.0, -53.0)",
+						"name": "StuffieTablePointer",
+						"path": "/root/Main/StuffieStudioRoom/StuffieTablePointer",
+						"position": "(0.4, 6.4, -9.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(451.0, -1243.8, -35.0)",
+						"name": "StuffieChestPointer",
+						"path": "/root/Main/StuffieStudioRoom/StuffieChestPointer",
+						"position": "(0.4, 6.6, 9.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.15, -1243.45, -47.2)",
+						"name": "StuffieShelfSlot1",
+						"path": "/root/Main/StuffieStudioRoom/StuffieShelfSlot1",
+						"position": "(-2.45, 6.95, -3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.27, -1243.5, -47.2)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieStudioRoom/StuffieCutout_eagle",
+						"position": "(-2.33, 6.9, -3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.27, -1243.5, -47.2)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieStudioRoom/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(448.27, -1243.5, -47.2)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieStudioRoom/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00468750018626451,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.35, -1244.7, -47.2)",
+						"name": "@Label3D@446",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@446",
+						"position": "(-2.25, 5.7, -3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1242.27, -47.2)",
+						"name": "@Label3D@447",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@447",
+						"position": "(-2.2, 8.13, -3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1242.27, -47.2)",
+						"name": "@Label3D@448",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@448",
+						"position": "(-2.2, 8.13, -3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.15, -1243.45, -44.0)",
+						"name": "StuffieShelfSlot2",
+						"path": "/root/Main/StuffieStudioRoom/StuffieShelfSlot2",
+						"position": "(-2.45, 6.95, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.27, -1243.5, -44.0)",
+						"name": "StuffieCutout_mewsha",
+						"path": "/root/Main/StuffieStudioRoom/StuffieCutout_mewsha",
+						"position": "(-2.33, 6.9, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.27, -1243.5, -44.0)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieStudioRoom/StuffieCutout_mewsha/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(448.27, -1243.5, -44.0)",
+						"name": "StorybookLayer_0",
+						"path": "/root/Main/StuffieStudioRoom/StuffieCutout_mewsha/StorybookBob/StorybookLayer_0",
+						"pixel_size": 0.00461538461968303,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 0,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/mg/cat_body.png",
+						"texture_size": "(340.0, 520.0)",
+						"tint": "(0.95, 0.7, 0.85, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(448.27, -1243.5, -44.0)",
+						"name": "StorybookLayer_1",
+						"path": "/root/Main/StuffieStudioRoom/StuffieCutout_mewsha/StorybookBob/StorybookLayer_1",
+						"pixel_size": 0.00461538461968303,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 1,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/mg/cat_accent.png",
+						"texture_size": "(340.0, 520.0)",
+						"tint": "(0.6, 0.4, 0.9, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(448.27, -1243.5, -44.0)",
+						"name": "StorybookLayer_2",
+						"path": "/root/Main/StuffieStudioRoom/StuffieCutout_mewsha/StorybookBob/StorybookLayer_2",
+						"pixel_size": 0.00461538461968303,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/mg/cat_line.png",
+						"texture_size": "(8.0, 8.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.35, -1244.7, -44.0)",
+						"name": "@Label3D@449",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@449",
+						"position": "(-2.25, 5.7, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1242.27, -44.0)",
+						"name": "@Label3D@450",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@450",
+						"position": "(-2.2, 8.13, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1242.27, -44.0)",
+						"name": "@Label3D@451",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@451",
+						"position": "(-2.2, 8.13, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.15, -1243.45, -40.8)",
+						"name": "StuffieShelfSlot3",
+						"path": "/root/Main/StuffieStudioRoom/StuffieShelfSlot3",
+						"position": "(-2.45, 6.95, 3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.27, -1243.5, -40.8)",
+						"name": "StuffieCutout_lamma",
+						"path": "/root/Main/StuffieStudioRoom/StuffieCutout_lamma",
+						"position": "(-2.33, 6.9, 3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.27, -1243.5, -40.8)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieStudioRoom/StuffieCutout_lamma/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(448.27, -1243.5, -40.8)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieStudioRoom/StuffieCutout_lamma/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00234375009313226,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/sprites/stuffie_studio/lamma.png",
+						"texture_size": "(949.0, 1024.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.35, -1244.7, -40.8)",
+						"name": "@Label3D@452",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@452",
+						"position": "(-2.25, 5.7, 3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1242.27, -40.8)",
+						"name": "@Label3D@453",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@453",
+						"position": "(-2.2, 8.13, 3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1242.27, -40.8)",
+						"name": "@Label3D@454",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@454",
+						"position": "(-2.2, 8.13, 3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.15, -1246.8, -47.2)",
+						"name": "StuffieShelfSlot4",
+						"path": "/root/Main/StuffieStudioRoom/StuffieShelfSlot4",
+						"position": "(-2.45, 3.6, -3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.15, -1246.8, -47.2)",
+						"name": "@Label3D@455",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@455",
+						"position": "(-2.45, 3.6, -3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1245.62, -47.2)",
+						"name": "@Label3D@456",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@456",
+						"position": "(-2.2, 4.78, -3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1245.62, -47.2)",
+						"name": "@Label3D@457",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@457",
+						"position": "(-2.2, 4.78, -3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.15, -1246.8, -44.0)",
+						"name": "StuffieShelfSlot5",
+						"path": "/root/Main/StuffieStudioRoom/StuffieShelfSlot5",
+						"position": "(-2.45, 3.6, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.15, -1246.8, -44.0)",
+						"name": "@Label3D@458",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@458",
+						"position": "(-2.45, 3.6, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1245.62, -44.0)",
+						"name": "@Label3D@459",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@459",
+						"position": "(-2.2, 4.78, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1245.62, -44.0)",
+						"name": "@Label3D@460",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@460",
+						"position": "(-2.2, 4.78, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(448.15, -1246.8, -40.8)",
+						"name": "StuffieShelfSlot6",
+						"path": "/root/Main/StuffieStudioRoom/StuffieShelfSlot6",
+						"position": "(-2.45, 3.6, 3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.15, -1246.8, -40.8)",
+						"name": "@Label3D@461",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@461",
+						"position": "(-2.45, 3.6, 3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1245.62, -40.8)",
+						"name": "@Label3D@462",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@462",
+						"position": "(-2.2, 4.78, 3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Label3D",
+						"global_position": "(448.4, -1245.62, -40.8)",
+						"name": "@Label3D@463",
+						"path": "/root/Main/StuffieStudioRoom/@Label3D@463",
+						"position": "(-2.2, 4.78, 3.2)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					}
+				],
+				"present": true
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [],
+				"present": false
+			},
+			"camera3D": {
+				"current": true,
+				"global_position": "(500.0, -1288.178, -1.128975)",
+				"path": "/root/Main/@Camera3D@336",
+				"present": true
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "FORCED_PRIVATE_API_ONLY",
+			"detail": "Direct existingconstructor,notlegitimate entry;keepopaqueCanvas/cameraownership unchanged",
+			"follow_context_predicate": false,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-1.93513, 27.2203, -4.685292)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					}
+				],
+				"present": true
+			},
+			"game": "level2",
+			"id": "forced_Studio_build",
+			"image": {
+				"bytes": 1524245,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "forced_Studio_build.png",
+				"sha256": "b91034c3f3bc41bf476c77362992d91b2d5e8df3d105160b22e662ab70332649"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "hall",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_add_creature_preview": 1,
+				"_build_room": 1,
+				"_follow_ctx": 472,
+				"_stuffie_cutout": 5,
+				"_tick_follower": 153,
+				"creature_for": 2,
+				"make_creature": 2,
+				"tick": 153,
+				"tick_canvas_care": 177
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "normal_source_owner_entry",
+					"detail": "eagle",
+					"game": "level2",
+					"method": "_add_creature_preview",
+					"phase": "promenade",
+					"ticks_msec": 12015
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "",
+					"game": "stuffie",
+					"method": "make_creature",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle",
+					"game": "stuffie",
+					"method": "creature_for",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle:3.8",
+					"game": "stuffie",
+					"method": "_stuffie_cutout",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "",
+					"game": "level2",
+					"method": "_build_room",
+					"phase": "hall",
+					"ticks_msec": 20036
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "eagle:2.4",
+					"game": "level2",
+					"method": "_stuffie_cutout",
+					"phase": "hall",
+					"ticks_msec": 20074
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "mewsha:2.4",
+					"game": "level2",
+					"method": "_stuffie_cutout",
+					"phase": "hall",
+					"ticks_msec": 20075
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "lamma:2.4",
+					"game": "level2",
+					"method": "_stuffie_cutout",
+					"phase": "hall",
+					"ticks_msec": 20087
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		},
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": false
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 15,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 16,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 14,
+					"path": "/root/Main/@CanvasLayer@443",
+					"visible": true
+				},
+				{
+					"layer": 27,
+					"path": "/root/Main/CastleVoiceCaptionLayer",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld",
+					"z_index": -1000
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_sleepy_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+					"z_index": 265
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_shell_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+					"z_index": 305
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (313.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard",
+					"z_index": 221
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (313.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard/CompanionArt_0",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/characters/companions/baby_eagle.png",
+					"texture_size": "(290.0, 512.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_family_gallery",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_opera_hall",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_library",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_kitchen",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/MoonflowerConservatoryDoor",
+					"source_asset_path": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"texture": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"z_index": 70
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.24, 0.25, 0.48, 0.58)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanContactShadow",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/rooms/room_actor_shadow.png",
+					"z_index": 216
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanCutout",
+					"source_asset_path": "",
+					"texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"z_index": 220
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchablePropEffects",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/TouchablePropHotspots",
+					"z_index": 24
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots",
+					"z_index": 25
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (160.7656, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_family_gallery",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (669.8564, 137.799), S: (229.6651, 325.3589)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_opera_hall",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (290.9091, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_library",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (417.2249, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_kitchen",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+					"z_index": 46
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@443/CastleRooms25D/StorybookStage/ComfyGamesCastleLayer",
+					"z_index": 28
+				}
+			],
+			"Studio": {
+				"nodes": [],
+				"present": false
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [],
+				"present": false
+			},
+			"camera3D": {
+				"current": true,
+				"global_position": "(500.0, -1288.498, -1.125317)",
+				"path": "/root/Main/@Camera3D@336",
+				"present": true
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "FORCED_PRIVATE_API_ONLY",
+			"detail": "Freeonly owneddiagnosticroom exactly;othereditor untouched",
+			"follow_context_predicate": false,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-1.93513, 27.2203, -4.685292)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					}
+				],
+				"present": true
+			},
+			"game": "level2",
+			"id": "forced_Studio_cleanup",
+			"image": {
+				"bytes": 1524166,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "forced_Studio_cleanup.png",
+				"sha256": "ca0a15b6ec667a83b9dd70ecbd15474503510fdb7b017c543fdcfa2254fb874b"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "hall",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_add_creature_preview": 1,
+				"_build_room": 1,
+				"_follow_ctx": 491,
+				"_stuffie_cutout": 5,
+				"_tick_follower": 159,
+				"creature_for": 2,
+				"make_creature": 2,
+				"tick": 159,
+				"tick_canvas_care": 177
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "normal_source_owner_entry",
+					"detail": "eagle",
+					"game": "level2",
+					"method": "_add_creature_preview",
+					"phase": "promenade",
+					"ticks_msec": 12015
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "",
+					"game": "stuffie",
+					"method": "make_creature",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle",
+					"game": "stuffie",
+					"method": "creature_for",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle:3.8",
+					"game": "stuffie",
+					"method": "_stuffie_cutout",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "",
+					"game": "level2",
+					"method": "_build_room",
+					"phase": "hall",
+					"ticks_msec": 20036
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "eagle:2.4",
+					"game": "level2",
+					"method": "_stuffie_cutout",
+					"phase": "hall",
+					"ticks_msec": 20074
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "mewsha:2.4",
+					"game": "level2",
+					"method": "_stuffie_cutout",
+					"phase": "hall",
+					"ticks_msec": 20075
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "lamma:2.4",
+					"game": "level2",
+					"method": "_stuffie_cutout",
+					"phase": "hall",
+					"ticks_msec": 20087
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		},
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 6,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": -1,
+					"path": "/root/Main/SkyLagoonCanvasLayer",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [],
+			"Studio": {
+				"nodes": [],
+				"present": false
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [],
+				"present": false
+			},
+			"camera3D": {
+				"current": false,
+				"global_position": "",
+				"path": "",
+				"present": false
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "CURRENT_AUTHORED_ROUTE_CHECKPOINT",
+			"detail": "Record actual target-ignored authoredCanvas return;notlegacyreefcoverage",
+			"follow_context_predicate": true,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-1.93513, 27.2203, -4.685292)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": false,
+						"visible_in_tree_flag": false
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-1.93513, 27.2203, -4.685292)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": false
+					}
+				],
+				"present": true
+			},
+			"game": "level2",
+			"id": "retained_exit_requests_reef",
+			"image": {
+				"bytes": 1724346,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "retained_exit_requests_reef.png",
+				"sha256": "0e8d8dfb829e628e5b9c58f5fc4920681cb3df84c82ec13925a762f8cdcd5853"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "promenade",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_add_creature_preview": 1,
+				"_build_room": 1,
+				"_follow_ctx": 492,
+				"_stuffie_cutout": 5,
+				"_tick_follower": 159,
+				"creature_for": 2,
+				"make_creature": 2,
+				"tick": 159,
+				"tick_canvas_care": 212
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 10218
+				},
+				{
+					"audit_phase": "normal_source_owner_entry",
+					"detail": "eagle",
+					"game": "level2",
+					"method": "_add_creature_preview",
+					"phase": "promenade",
+					"ticks_msec": 12015
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "",
+					"game": "stuffie",
+					"method": "make_creature",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle",
+					"game": "stuffie",
+					"method": "creature_for",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_sparring_API",
+					"detail": "eagle:3.8",
+					"game": "stuffie",
+					"method": "_stuffie_cutout",
+					"phase": "promenade",
+					"ticks_msec": 16008
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "",
+					"game": "level2",
+					"method": "_build_room",
+					"phase": "hall",
+					"ticks_msec": 20036
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "eagle:2.4",
+					"game": "level2",
+					"method": "_stuffie_cutout",
+					"phase": "hall",
+					"ticks_msec": 20074
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "mewsha:2.4",
+					"game": "level2",
+					"method": "_stuffie_cutout",
+					"phase": "hall",
+					"ticks_msec": 20075
+				},
+				{
+					"audit_phase": "forced_Studio_constructor",
+					"detail": "lamma:2.4",
+					"game": "level2",
+					"method": "_stuffie_cutout",
+					"phase": "hall",
+					"ticks_msec": 20087
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		},
+		{
+			"Canvas_layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@501",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@510",
+					"visible": true
+				},
+				{
+					"layer": 6,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": true
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@522",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@526",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@796",
+					"visible": true
+				},
+				{
+					"layer": -1,
+					"path": "/root/Main/SkyLagoonCanvasLayer",
+					"visible": true
+				}
+			],
+			"Canvas_nodes": [],
+			"Studio": {
+				"nodes": [],
+				"present": false
+			},
+			"actual_child_data": false,
+			"art_context_credit": false,
+			"authored_world_session": false,
+			"battle": {
+				"nodes": [],
+				"present": false
+			},
+			"camera3D": {
+				"current": false,
+				"global_position": "",
+				"path": "",
+				"present": false
+			},
+			"care_points": 8,
+			"companion_colors": [],
+			"companion_id": "eagle",
+			"context_class": "CURRENT_AUTHORED_ROUTE_CHECKPOINT",
+			"detail": "Fresh originalMain/SaveState;notnormalchildsave orroutecompletion",
+			"follow_context_predicate": true,
+			"follower": {
+				"nodes": [
+					{
+						"class": "Node3D",
+						"global_position": "(-2.358967, 26.67845, -4.830796)",
+						"name": "StuffieCutout_eagle",
+						"path": "/root/Main/StuffieCutout_eagle",
+						"position": "(-2.358967, 26.67845, -4.830796)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"class": "Node3D",
+						"global_position": "(-2.358967, 26.67845, -4.830796)",
+						"name": "StorybookBob",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob",
+						"position": "(0.0, 0.0, 0.0)",
+						"scale": "(1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					},
+					{
+						"billboard": 1,
+						"class": "Sprite3D",
+						"global_position": "(-2.358967, 26.67845, -4.830796)",
+						"name": "StorybookSprite",
+						"path": "/root/Main/StuffieCutout_eagle/StorybookBob/StorybookSprite",
+						"pixel_size": 0.00742187490686774,
+						"position": "(0.0, 0.0, 0.0)",
+						"render_priority": 2,
+						"scale": "(1.0, 1.0, 1.0)",
+						"texture": "res://assets/characters/companions/baby_eagle.png",
+						"texture_size": "(290.0, 512.0)",
+						"tint": "(1.0, 1.0, 1.0, 1.0)",
+						"visible_flag": true,
+						"visible_in_tree_flag": true
+					}
+				],
+				"present": true
+			},
+			"game": "level2",
+			"id": "private_reload_promenade",
+			"image": {
+				"bytes": 1539533,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "private_reload_promenade.png",
+				"sha256": "136bc1ee1095fced8378e9b6e67fe9f8a9cc8e15c1d3c446a9d4799b7e22a5b8"
+			},
+			"normal_save_hashes": {
+				"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+				".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+				".bak.old": "absent",
+				".bak.tmp": "absent",
+				".old": "absent",
+				".tmp": "absent",
+				".tmp0": "absent",
+				".tmp1": "absent"
+			},
+			"phase": "promenade",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"scope": "Source/dispatch/camera/constructed-resource diagnostic;no normalroute/uniqueartwork/visibility/QA11/device/child/owner/acceptedremoval credit.",
+			"source_calls": {
+				"_follow_ctx": 58,
+				"_stuffie_cutout": 1,
+				"_tick_follower": 19,
+				"creature_for": 1,
+				"make_creature": 1,
+				"tick": 19,
+				"tick_canvas_care": 31
+			},
+			"source_events": [
+				{
+					"audit_phase": "boot",
+					"detail": "",
+					"game": "",
+					"method": "make_creature",
+					"phase": "",
+					"ticks_msec": 22706
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle",
+					"game": "",
+					"method": "creature_for",
+					"phase": "",
+					"ticks_msec": 22706
+				},
+				{
+					"audit_phase": "boot",
+					"detail": "eagle:3.8",
+					"game": "",
+					"method": "_stuffie_cutout",
+					"phase": "",
+					"ticks_msec": 22706
+				}
+			],
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			}
+		}
+	],
+	"synthetic_seed": {
+		"care_points": 8,
+		"companion": "eagle",
+		"companion_colors": [],
+		"crafts": {},
+		"custom_fish": [
+			[
+				0.9,
+				0.3,
+				0.3,
+				1.0,
+				0.8,
+				0.2
+			],
+			[
+				0.2,
+				0.7,
+				0.8,
+				0.9,
+				0.3,
+				0.4,
+				1,
+				0
+			]
+		],
+		"custom_friends": [
+			[
+				"cat",
+				0.95,
+				0.7,
+				0.85,
+				0.6,
+				0.4,
+				0.9
+			],
+			[
+				"bird",
+				1.0,
+				0.85,
+				0.3,
+				0.3,
+				0.8,
+				0.9,
+				0,
+				1
+			],
+			[
+				"cat",
+				0.95,
+				0.7,
+				0.85,
+				0.6,
+				0.4,
+				0.9,
+				1,
+				0,
+				0.97,
+				0.96,
+				0.93
+			]
+		],
+		"found": {},
+		"mic": false,
+		"music": false,
+		"pearls": 23,
+		"pearls_ever": 23,
+		"plays": 0,
+		"quality": "speedy",
+		"schema_version": 1,
+		"stickers": {},
+		"stuffie_wins": {
+			"friend_lamma": true,
+			"rescued_eagle": true
+		},
+		"won": {}
+	}
+}

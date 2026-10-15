@@ -1,0 +1,5 @@
+{
+  "status": "ASSEMBLER_ASSERTION_CORRECTED_NO_NATIVE_RERUN",
+  "failed_assumption": "Black/white third-input sampled accent tints would be identical after three frames. Existing _layer_fx uses an autonomous pulse; observed accent tints differ between these non-simultaneous observations.",
+  "current_limit": "Compare resource/layer/body/line records; retain every sampled accent tint without asserting accent/pixel invariance or attributing difference to third input. Exact fallback source omits third from its tree_entered callback binding. Six native cases passed; this was an analysis assertion, not an engine/test failure."
+}

@@ -1,6 +1,12 @@
-Current canonical evidence: [R43 whole Mewsha trial](r43_mewsha_whole_trial/README.md), [registry](r43_mewsha_whole_trial/per_piece.json), [coverage](r43_mewsha_whole_trial/scene_coverage.json), [tally](r43_mewsha_whole_trial/tally.json).
+Current canonical evidence: [R44 creature route/caller audit](r44_creature_route_caller_audit/README.md), [registry](r44_creature_route_caller_audit/per_piece.json), [coverage](r44_creature_route_caller_audit/scene_coverage.json), [tally](r44_creature_route_caller_audit/tally.json).
 
-# Current R43 whole-image Mewsha trial
+# Current R44 creature route and caller audit
+
+Six actual source-bound cases distinguish Canvas dispatch from retained3D API constructors.73 diagnostic views add no art-context or route credit.230roles/31families,3unaccepted source samples,0accepted removals/global unknown. Production unchanged.
+
+Historical R43 evidence: [R43 whole Mewsha trial](r43_mewsha_whole_trial/README.md), [registry](r43_mewsha_whole_trial/per_piece.json), [coverage](r43_mewsha_whole_trial/scene_coverage.json), [tally](r43_mewsha_whole_trial/tally.json).
+
+# Historical R43 whole-image Mewsha trial
 
 One painted source candidate/three saved palette slots work in ignored consumers;art QC and all acceptance remain open.230 roles/31 families,3 unaccepted source samples,0 accepted removals/global total unknown. Production unchanged.
 
