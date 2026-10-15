@@ -20,7 +20,7 @@
     "INACTIVE_ARCHIVE"
   ],
   "mission_status": "ACTIVE; zero-vector removal NOT achieved",
-  "phase": "R67 bounded painted gate reuse trial; no production adoption or removal credit",
+  "phase": "R67 painted gate cue reuse trial published;4 cases54 checks20 native frames;production unchanged,acceptance/removal open",
   "named_piece_records": 224,
   "named_family_count": 29,
   "named_status_counts": {
@@ -1593,8 +1593,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "state": "PAYLOAD_PREPARED_NOT_YET_REMOTE_VERIFIED",
-    "branch": "codex/flat-vector-r6-20261012"
+    "state": "PUBLISHED_PAYLOAD_ANONYMOUSLY_VERIFIED",
+    "payload_revision": "ceda23cfb6a65d8685906b3599f97ddb28044e68",
+    "manifest_sha256": "a22a905f09807bbf7b95880b0770f5938c370c2a379d282638c8519c8ab937c5",
+    "payload_sha256": "68fde8fc38c6040147bfbe5e1685b61470a5e98e212efd2ebc996e0ae00480dc",
+    "required_files": 174,
+    "required_bytes": 85775245,
+    "checked_at_utc": "2026-10-15T23:12:50.346601+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "creative_acceptance": false,
+    "production_adoption": false,
+    "accepted_removed": 0
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -4924,7 +4933,41 @@
     "summary": "SUMMARY.json",
     "review": "REVIEW.json",
     "captures": "CAPTURE_INDEX.json",
-    "candidate": "painted_gate.gd"
+    "candidate": "painted_gate.gd",
+    "current_ci_snapshot": {
+      "checked_at_utc": "2026-10-15T23:13:25.886661+00:00",
+      "runs": [
+        {
+          "conclusion": "",
+          "databaseId": 38822185337,
+          "headSha": "ceda23cfb6a65d8685906b3599f97ddb28044e68",
+          "status": "pending",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38822185337"
+        },
+        {
+          "conclusion": "",
+          "databaseId": 38818760940,
+          "headSha": "858436a8697b06ba1dc8cfa012d5879a218afc20",
+          "status": "in_progress",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38818760940"
+        },
+        {
+          "conclusion": "cancelled",
+          "databaseId": 38818420441,
+          "headSha": "3a3611e2ee1805ef1cdb8c8102530a8f9bd32f87",
+          "status": "completed",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38818420441"
+        },
+        {
+          "conclusion": "cancelled",
+          "databaseId": 38817994429,
+          "headSha": "6f836230c3badcf734d33446b628e56d0c692a89",
+          "status": "completed",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38817994429"
+        }
+      ],
+      "scope": "Observed exact heads only; pending/cancelled is not green or acceptance."
+    }
   },
   "inherited_r66_reference_base": {
     "payload": "6f836230c3badcf734d33446b628e56d0c692a89",
