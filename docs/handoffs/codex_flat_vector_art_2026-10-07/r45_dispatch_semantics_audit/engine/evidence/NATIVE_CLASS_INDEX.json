@@ -1,0 +1,775 @@
+{
+	"art_captures": 0,
+	"classes": [
+		{
+			"bytes": 11640,
+			"class_name": "AnimatedSprite2D",
+			"file": "native_classes/class_7509e117963792df.json",
+			"sha256": "b8ebc80934f199ad0e75bb498478ba8c21e60e1d58492a25d34794f5e361dce9"
+		},
+		{
+			"bytes": 11954,
+			"class_name": "AnimatedSprite3D",
+			"file": "native_classes/class_21f69c727487e7bd.json",
+			"sha256": "6b0a03040b256fe08c80bbe09c8afbfd3b9410b5b323c2d40c22c57bec4509d2"
+		},
+		{
+			"bytes": 9816,
+			"class_name": "AnimationPlayer",
+			"file": "native_classes/class_e195693f70e0dcf1.json",
+			"sha256": "ffbe01b9582619c2e64b12102facf47a7c0d36b07ad92488166ec40562e31075"
+		},
+		{
+			"bytes": 4779,
+			"class_name": "ArrayMesh",
+			"file": "native_classes/class_4d1584850a5a251f.json",
+			"sha256": "b65ad66c0e993bb20eeb7d414b9ed82eec77764a117b8532b7e57499a9b985d6"
+		},
+		{
+			"bytes": 17940,
+			"class_name": "AspectRatioContainer",
+			"file": "native_classes/class_5818e6cd4010475e.json",
+			"sha256": "c3dc6dd5888d840c7d56ca67c7e979f66250a5a92ad3f989c05be6bc4547963c"
+		},
+		{
+			"bytes": 3515,
+			"class_name": "AtlasTexture",
+			"file": "native_classes/class_8eba973a2faf4e4f.json",
+			"sha256": "48c62e223e417937272891d37c36a6a79790243601e5060eac8fdf39c59a355d"
+		},
+		{
+			"bytes": 2125,
+			"class_name": "AudioEffectSpectrumAnalyzerInstance",
+			"file": "native_classes/class_6119916c7c6b0aa8.json",
+			"sha256": "36eee23b92a9580b9089a3771e19b52d748c8bcee0544665342459adcaf24a14"
+		},
+		{
+			"bytes": 3210,
+			"class_name": "AudioStream",
+			"file": "native_classes/class_fafc831c0805ded4.json",
+			"sha256": "b2304562218ba50a8bf7cc65a5c5b430788635e2e878ac3ab0a562910a917923"
+		},
+		{
+			"bytes": 2780,
+			"class_name": "AudioStreamGeneratorPlayback",
+			"file": "native_classes/class_0b514a2b7591b9cc.json",
+			"sha256": "8a15cf7031856dac057960cc9647f2dda65a73fa8106aa2afba70ab0eeb28897"
+		},
+		{
+			"bytes": 7164,
+			"class_name": "AudioStreamPlayer",
+			"file": "native_classes/class_6066999dfd07013b.json",
+			"sha256": "7a54e16d09e0671d305a4125246e521dbbbedb340d2b41efa1f7120fb4637807"
+		},
+		{
+			"bytes": 10186,
+			"class_name": "AudioStreamPlayer3D",
+			"file": "native_classes/class_9757290478bb3626.json",
+			"sha256": "80d7bca09907c3e2ec012fd8bb7fbc636108e650fd226dab0b8a03464e93d568"
+		},
+		{
+			"bytes": 18125,
+			"class_name": "BaseButton",
+			"file": "native_classes/class_7d0f0d566b7e8226.json",
+			"sha256": "15e9f27a5df538eaae6f0e1c789b2687e455a72390e72a59932f195c35cd08f0"
+		},
+		{
+			"bytes": 8811,
+			"class_name": "BaseMaterial3D",
+			"file": "native_classes/class_71f0f1934e482e10.json",
+			"sha256": "d5564025768aaec8dd0a754578d53cf1a448aa8895114208acfdbbfb502e871f"
+		},
+		{
+			"bytes": 4345,
+			"class_name": "BoxMesh",
+			"file": "native_classes/class_8f07fddbabc06a3f.json",
+			"sha256": "5fc369abe836b069d8ffafbd7c8560b5b488724f995feafc74805094333fb4d4"
+		},
+		{
+			"bytes": 19037,
+			"class_name": "Button",
+			"file": "native_classes/class_707eab0c23ecbf6e.json",
+			"sha256": "d378bb2c179c246f5029288ac2b73110d746721b9d81ee9deb97c8da95d04791"
+		},
+		{
+			"bytes": 13163,
+			"class_name": "CPUParticles3D",
+			"file": "native_classes/class_526fbb6791e70831.json",
+			"sha256": "ee10b5cf5f598b6113cb84e3af907ad95ffd58f82bdf31b59f0f3e9ee72c43a1"
+		},
+		{
+			"bytes": 12806,
+			"class_name": "Camera2D",
+			"file": "native_classes/class_bc0fba32095b9a1a.json",
+			"sha256": "3b42ed4ce84f3c673bd0548269ab1538b0070448dc20553446d913dbcddd9f8b"
+		},
+		{
+			"bytes": 10011,
+			"class_name": "Camera3D",
+			"file": "native_classes/class_acaa801be1b498b3.json",
+			"sha256": "aeff5a202d1584f02b3d98439e65f05a7b4c733d90ef224eee82bc1352dbf677"
+		},
+		{
+			"bytes": 3841,
+			"class_name": "CameraAttributesPractical",
+			"file": "native_classes/class_0a31cef18f579da1.json",
+			"sha256": "289db64f2b975fe062043f7d4dc622c3510ff6d8c06ab6729e27abde5e26fbd4"
+		},
+		{
+			"bytes": 9961,
+			"class_name": "CanvasItem",
+			"file": "native_classes/class_8edf9aaab2baa8e5.json",
+			"sha256": "4bb067bc89ba65bcb0995ee107b1980ea2c6c35d4d4099d2eb8826f8c9a7992b"
+		},
+		{
+			"bytes": 6938,
+			"class_name": "CanvasLayer",
+			"file": "native_classes/class_338f335e8b55024f.json",
+			"sha256": "6b73da61cbd4d95dbe83127148af03e64700a2e2df003e06abc8219b6eca21c6"
+		},
+		{
+			"bytes": 17389,
+			"class_name": "ColorRect",
+			"file": "native_classes/class_2fd9e9bee5c31620.json",
+			"sha256": "fdeb9246521cb99ca4d27f8549316287f7d6e2d8ea8daa12a6d62d6eaf8ee35b"
+		},
+		{
+			"bytes": 17344,
+			"class_name": "Control",
+			"file": "native_classes/class_32d7e82082479b8c.json",
+			"sha256": "7e4cdba93beded19f03eef6e8e996d5af2feaaef2a3cc7fd7d02412702edf730"
+		},
+		{
+			"bytes": 4486,
+			"class_name": "CylinderMesh",
+			"file": "native_classes/class_5d45a01a99373992.json",
+			"sha256": "6235280ce5f65f5af7b4491ba0d84032e17987e4fa56dc4e71e38510adfb6a04"
+		},
+		{
+			"bytes": 10099,
+			"class_name": "DirectionalLight3D",
+			"file": "native_classes/class_17cd5154e717d57d.json",
+			"sha256": "337f7e40ed7b6d38b69439248c926d77a773c3d67781338d1006729d545d4ec3"
+		},
+		{
+			"bytes": 9387,
+			"class_name": "Environment",
+			"file": "native_classes/class_9e471951a1b4106e.json",
+			"sha256": "7a06c0eac2e806af42a6847c4223f7cda84e0098f44f45f4039c61b2fcf874da"
+		},
+		{
+			"bytes": 3941,
+			"class_name": "FileAccess",
+			"file": "native_classes/class_9807a719e8322cd9.json",
+			"sha256": "59b39f750492fac66fa203e75ef7a14dd3b6b8ac0c50ef6b753df7638c25347f"
+		},
+		{
+			"bytes": 3909,
+			"class_name": "Font",
+			"file": "native_classes/class_64d0b3adcd2dbe33.json",
+			"sha256": "2961ae84b57178975e33cfd64ce22191b3fabe1c93b7c4d9a27cbcc65fcd2e27"
+		},
+		{
+			"bytes": 3330,
+			"class_name": "GDScript",
+			"file": "native_classes/class_768df6670a86c4d4.json",
+			"sha256": "15fcbdc7f49e4f69dabd60247212826cfdf6bc7dbf3d38a72f40bf4d7d642563"
+		},
+		{
+			"bytes": 12348,
+			"class_name": "GPUParticles3D",
+			"file": "native_classes/class_11a2af949ff84f4d.json",
+			"sha256": "099db58738b7dcb442888785b8400e85be04ea3634b2be264125f912f924a605"
+		},
+		{
+			"bytes": 3239,
+			"class_name": "Gradient",
+			"file": "native_classes/class_2523561c32e9d8df.json",
+			"sha256": "c7657c888afa5bd73fd0424762d881c3253fb9720ba3a0b2a55a1501ba0aca97"
+		},
+		{
+			"bytes": 17749,
+			"class_name": "HBoxContainer",
+			"file": "native_classes/class_9b7620641f0783b4.json",
+			"sha256": "7a71d3fa5166782a1daf793dd831afd170ae361d5ffdda9c971d159700be51fb"
+		},
+		{
+			"bytes": 4904,
+			"class_name": "Image",
+			"file": "native_classes/class_1aa4cb0bcca76e92.json",
+			"sha256": "5952102718835f565a776730499d5321f77a0c20a4c78f279f7ed3d335fdb3a5"
+		},
+		{
+			"bytes": 3445,
+			"class_name": "ImageTexture",
+			"file": "native_classes/class_6c30d0c5c5806df3.json",
+			"sha256": "eddfacd534fe1a1701112c9a06d2c76b3b133707f48da3320fcbafb7d20200df"
+		},
+		{
+			"bytes": 4028,
+			"class_name": "ImmediateMesh",
+			"file": "native_classes/class_d57ffba09f3cad78.json",
+			"sha256": "c1b0c2fe280d8261adc81fb3e3727799a0cf5b402b1b96f0eb50eb3b38b2f492"
+		},
+		{
+			"bytes": 3104,
+			"class_name": "InputEvent",
+			"file": "native_classes/class_ce55f738196b227d.json",
+			"sha256": "dfdba3dbad073433a2fe7436590bd02db0eef4990f06ffaa321313892f2170bd"
+		},
+		{
+			"bytes": 3993,
+			"class_name": "InputEventMouseButton",
+			"file": "native_classes/class_73b82f42acd132f6.json",
+			"sha256": "f3bbf332a6ad543a2f73bfedb3585c75ca08e97d05d1ef95ba896ec085f6880a"
+		},
+		{
+			"bytes": 4173,
+			"class_name": "InputEventMouseMotion",
+			"file": "native_classes/class_72b4db44553e1682.json",
+			"sha256": "ce0e69fe3cf240c10e8f25c3a7f6257a7a9f7fc78fa177c7ce4ec4a5fa649aeb"
+		},
+		{
+			"bytes": 3677,
+			"class_name": "InputEventScreenDrag",
+			"file": "native_classes/class_a48a2c1297092c8b.json",
+			"sha256": "cea0bbe3f64f6e973a9469d530e8a541138b235b1c5e951e9dfbdbbd1aea64c0"
+		},
+		{
+			"bytes": 3380,
+			"class_name": "InputEventScreenTouch",
+			"file": "native_classes/class_9844670eb2962afa.json",
+			"sha256": "27d4621f00f6b748057a90a06ffc9f1d554550d16e71110afde6d3e6ec78a941"
+		},
+		{
+			"bytes": 2959,
+			"class_name": "JSON",
+			"file": "native_classes/class_db1a21a0bc2ef8fb.json",
+			"sha256": "da9a615283d3344b062e010009a78b45e8ef950c7f9cdc021261119c2b930e8c"
+		},
+		{
+			"bytes": 19219,
+			"class_name": "Label",
+			"file": "native_classes/class_0e66373f45dcf3dd.json",
+			"sha256": "49d15168cfa81bef251fcc1dadbd5012c3bcc73829d145293cd30a918a985ba7"
+		},
+		{
+			"bytes": 12487,
+			"class_name": "Label3D",
+			"file": "native_classes/class_bdefd5b4577b0d75.json",
+			"sha256": "f40e56d132d64239b8f00580d806cbe59e790eefbbd19ce33f991b00e508da0e"
+		},
+		{
+			"bytes": 9876,
+			"class_name": "Light3D",
+			"file": "native_classes/class_032a7667cfe18757.json",
+			"sha256": "53c7cf1f6058ff92dd41ec06f359e7b2dc5fb46fc01b031bab0a37ec22ee113c"
+		},
+		{
+			"bytes": 11928,
+			"class_name": "Line2D",
+			"file": "native_classes/class_f83d3a3c6728cb5f.json",
+			"sha256": "f6adcccf2c225127abb0cbd1bfb38aef6996d8167a88ef146cf348756769b23f"
+		},
+		{
+			"bytes": 3044,
+			"class_name": "Material",
+			"file": "native_classes/class_616cb218a65b982f.json",
+			"sha256": "4d516f6c911f25d41344de053b2d71d95115219d10e799caba94b56382ad0d31"
+		},
+		{
+			"bytes": 3733,
+			"class_name": "Mesh",
+			"file": "native_classes/class_f2b783e561284d41.json",
+			"sha256": "46bf23f473b406e6c8f4d56229ca92b660b70f9ee16df72ac56c506514e27c89"
+		},
+		{
+			"bytes": 11053,
+			"class_name": "MeshInstance3D",
+			"file": "native_classes/class_aa7c06e6f7cf61f4.json",
+			"sha256": "5ee1faef23b82732c58276c6f77619706cba41974152bcc44bddbc3107ae10be"
+		},
+		{
+			"bytes": 6324,
+			"class_name": "Node",
+			"file": "native_classes/class_e93372533f323b2f.json",
+			"sha256": "788e5e0d2930db6390f3f0956ba1049b5e5f9bc81b396093787d60ddff1f964f"
+		},
+		{
+			"bytes": 10919,
+			"class_name": "Node2D",
+			"file": "native_classes/class_2ae3fef53766cef0.json",
+			"sha256": "ae767916be509804fa538993d9f3e4a65fca047bf47d2cd178ae5199abc673a6"
+		},
+		{
+			"bytes": 8519,
+			"class_name": "Node3D",
+			"file": "native_classes/class_6d008b25d837c9c2.json",
+			"sha256": "f9b20e6c6ab8eaebb9b1bec6d58f531504ccbcfa1008df050b316da6fc766c43"
+		},
+		{
+			"bytes": 1874,
+			"class_name": "Object",
+			"file": "native_classes/class_62a6da8735c18e2d.json",
+			"sha256": "bb1735be0cd327da5f0b0c83b18d9300f94018984dea89315fa08b6b0c6294cb"
+		},
+		{
+			"bytes": 9946,
+			"class_name": "OmniLight3D",
+			"file": "native_classes/class_023b828fea36d61e.json",
+			"sha256": "19b32bee681c32d8bd9f9f6608d36b4167b913fb9a601d29f0054a52ebecf8a5"
+		},
+		{
+			"bytes": 2888,
+			"class_name": "PackedScene",
+			"file": "native_classes/class_02b9f530c4c7d497.json",
+			"sha256": "26be59d478cdaaeee612391566811c84257ae9a7f089dd57eafa5fe0d524ac1d"
+		},
+		{
+			"bytes": 17339,
+			"class_name": "Panel",
+			"file": "native_classes/class_d0d91173008b6f83.json",
+			"sha256": "aedf8b2bf018815e27b7cc3329cd0e4fb7713c243ae59ec051383df6df76b5ec"
+		},
+		{
+			"bytes": 7383,
+			"class_name": "ParticleProcessMaterial",
+			"file": "native_classes/class_73370591ec19589e.json",
+			"sha256": "5d75a433b7540ade7a69a93d59b5baa57fba8aba7804753ed1645cdfda7acb5b"
+		},
+		{
+			"bytes": 12093,
+			"class_name": "Polygon2D",
+			"file": "native_classes/class_48ba59ebb6f3efd2.json",
+			"sha256": "a889077da7412562895b0c2ca89b437756985e860ba23affd1b1070603377d95"
+		},
+		{
+			"bytes": 3992,
+			"class_name": "ProceduralSkyMaterial",
+			"file": "native_classes/class_2ccd43f0124416a4.json",
+			"sha256": "a770dc5475fde0f402a480da2d9609d1e8af81190a1113705ec46c63e6a4dfdb"
+		},
+		{
+			"bytes": 18231,
+			"class_name": "ProgressBar",
+			"file": "native_classes/class_e5e8341142ea9086.json",
+			"sha256": "c75807e4a865cf2f0bb4601735be1fc054f7d6423632d67380c797917e230fad"
+		},
+		{
+			"bytes": 4414,
+			"class_name": "QuadMesh",
+			"file": "native_classes/class_9dd2ec2d3faba93e.json",
+			"sha256": "1963babc4d55e83ad44f375e2b131fb783d519945b60ad16ed46fb9e4265ee32"
+		},
+		{
+			"bytes": 2244,
+			"class_name": "RandomNumberGenerator",
+			"file": "native_classes/class_fde715ed5db5e6b0.json",
+			"sha256": "81ad47303366b3ec93646716aa06d12f7d3ff2d04f3e59464259d78f2fbbd1d8"
+		},
+		{
+			"bytes": 1986,
+			"class_name": "RefCounted",
+			"file": "native_classes/class_d30956b05ec61af2.json",
+			"sha256": "5396f17a628dc2d138ed887b4219d5fb887674ab43dee6d11541d3872f621daf"
+		},
+		{
+			"bytes": 2716,
+			"class_name": "Resource",
+			"file": "native_classes/class_eb7a842ff958c49c.json",
+			"sha256": "8440456c146ec8efd3cece1465c652447b29f64c6c395d102090912a057aa9a2"
+		},
+		{
+			"bytes": 12090,
+			"class_name": "RigidBody3D",
+			"file": "native_classes/class_0cd927e4b2600853.json",
+			"sha256": "3c17d4e8174d617218b4a8888e623a666745b7a80062dbe9c4e1287c7b868ad3"
+		},
+		{
+			"bytes": 3512,
+			"class_name": "SceneTree",
+			"file": "native_classes/class_132b3bb8ce914409.json",
+			"sha256": "debad4fc7933095ba6b1fb22a183e9e8d4b3f7532988d1edf75522aa8358e4f8"
+		},
+		{
+			"bytes": 3314,
+			"class_name": "Script",
+			"file": "native_classes/class_102acc10e67a297d.json",
+			"sha256": "2c8712c418d22b04219b381c44635d08ce5fceb07402cefb0bb46da8707989da"
+		},
+		{
+			"bytes": 2951,
+			"class_name": "Shader",
+			"file": "native_classes/class_c2385aa66c95026c.json",
+			"sha256": "8f0c5f9ff9f2ff665fcb2c76ceeda5a9fbdf36219278bee386f6a50c6e142095"
+		},
+		{
+			"bytes": 3165,
+			"class_name": "ShaderMaterial",
+			"file": "native_classes/class_99371be776c5be78.json",
+			"sha256": "e12c9f04bfdf403a959b97b9df31e978e7961b9497b895a1fda83bbfb2994be4"
+		},
+		{
+			"bytes": 10538,
+			"class_name": "Skeleton3D",
+			"file": "native_classes/class_3d8c1e9564b4f243.json",
+			"sha256": "48e48794e4b76c00d9cd85a171ae195bce96aadc91ee0c9ef0dc6b50c813c224"
+		},
+		{
+			"bytes": 3007,
+			"class_name": "Skin",
+			"file": "native_classes/class_1fc91201eedbfcb7.json",
+			"sha256": "fb9934a8923ca178814227a2f129b6f578602fd95c968235c1bab4dec3a4f835"
+		},
+		{
+			"bytes": 2907,
+			"class_name": "Sky",
+			"file": "native_classes/class_b72804afefc37b62.json",
+			"sha256": "fe2265f37da16055ed30778c2381bd64fd3fdcc7e0504da9d8545644c641f294"
+		},
+		{
+			"bytes": 4373,
+			"class_name": "SphereMesh",
+			"file": "native_classes/class_da798bb0874aad08.json",
+			"sha256": "e293f057cec66622829e62dfabce245b6e92867de4527971d9b04a297121e278"
+		},
+		{
+			"bytes": 9871,
+			"class_name": "SpotLight3D",
+			"file": "native_classes/class_0b10946de847bc9b.json",
+			"sha256": "c274cbda185914df32d5357bc086a6cb37442c67cd2228427572c2b1139b384c"
+		},
+		{
+			"bytes": 11630,
+			"class_name": "Sprite2D",
+			"file": "native_classes/class_67cc9788e3ad1c6b.json",
+			"sha256": "d22c8ec73ac67789dfeca43a2f2cd6f99de4fc9c4e994752d92bf0037fdbe147"
+		},
+		{
+			"bytes": 11781,
+			"class_name": "Sprite3D",
+			"file": "native_classes/class_ea594fc3566f194e.json",
+			"sha256": "612d1bb0347379e373b5979c926aa8c5521af9ebfd08c5bbb80039c833bd9344"
+		},
+		{
+			"bytes": 11414,
+			"class_name": "SpriteBase3D",
+			"file": "native_classes/class_c21eaa5b6b4623de.json",
+			"sha256": "3da70038989680a4d8103ebb45fdb9318d98d4733ac272171f23548d4157a486"
+		},
+		{
+			"bytes": 3390,
+			"class_name": "SpriteFrames",
+			"file": "native_classes/class_b7a52e32005e980f.json",
+			"sha256": "2f9eefdc927149858388219ccd94e6e7db038c0abd4de5143e4110ce868dfe45"
+		},
+		{
+			"bytes": 8821,
+			"class_name": "StandardMaterial3D",
+			"file": "native_classes/class_cce6d33085eee3cc.json",
+			"sha256": "d7cceb3de211a670f9cb4e74c05304c587b25de2d608aef5f396a8a8c20745c9"
+		},
+		{
+			"bytes": 3085,
+			"class_name": "StyleBox",
+			"file": "native_classes/class_1409c9caacd6c190.json",
+			"sha256": "00c187cede4695f906b987dec1cf1755fe16f41da2ff2d547f3bcbe4bdcc7ec6"
+		},
+		{
+			"bytes": 4032,
+			"class_name": "StyleBoxFlat",
+			"file": "native_classes/class_87953cbe3885ac12.json",
+			"sha256": "b22f101183e72e87e8c9b91a263ef5947b59211b500a13de51b4e70ddb22509c"
+		},
+		{
+			"bytes": 11675,
+			"class_name": "SubViewport",
+			"file": "native_classes/class_18661526417a85fe.json",
+			"sha256": "6d4b8388fc3743113e13dd53c28dacb733c933990e7dcd94bb935e5cd66d98d6"
+		},
+		{
+			"bytes": 2918,
+			"class_name": "SurfaceTool",
+			"file": "native_classes/class_eb8471ce886aaacd.json",
+			"sha256": "2156184a289dae03ce1efb8b03b4c75c954d102a6a69b674f40e8786a0a1707f"
+		},
+		{
+			"bytes": 3307,
+			"class_name": "Texture2D",
+			"file": "native_classes/class_17120aa45b8707f2.json",
+			"sha256": "f1b6742635c29d85a90abd0e6a3932298c06bdbe07dcfd49a63a36b69e4712ad"
+		},
+		{
+			"bytes": 18785,
+			"class_name": "TextureButton",
+			"file": "native_classes/class_929aeb2bab8f64d7.json",
+			"sha256": "18aa6da061bd6cabd28fcaf6477a608e19383b8152ffd76bdc4926b456484529"
+		},
+		{
+			"bytes": 17650,
+			"class_name": "TextureRect",
+			"file": "native_classes/class_9480c49c4c780982.json",
+			"sha256": "4af557135bd859b25277f0652afca220e7a08fee31fea4a31c59f9eafe0b243d"
+		},
+		{
+			"bytes": 2174,
+			"class_name": "Thread",
+			"file": "native_classes/class_5373c7f8a5a69019.json",
+			"sha256": "139ca2612c26101d30febd462ee1152771dc7da62b7f4050d59ed14f74d80844"
+		},
+		{
+			"bytes": 6784,
+			"class_name": "Timer",
+			"file": "native_classes/class_cdeec2b374c18dd4.json",
+			"sha256": "454ae8a69c16dc4b554c7760ea554c2c83c0ed05fe61c8d43fa45c4349c892c3"
+		},
+		{
+			"bytes": 4331,
+			"class_name": "TorusMesh",
+			"file": "native_classes/class_76ed69f145b3a5aa.json",
+			"sha256": "a8f187b6b41531a2b11999cc49ca8c0d4de80ab388f77d52c1c4f16e605c82df"
+		},
+		{
+			"bytes": 2760,
+			"class_name": "Tween",
+			"file": "native_classes/class_6ee8bf1a7cafdce3.json",
+			"sha256": "8a1d7e9ab4b0e38fdd831d9471ff7bd716d836b573cbc79ef8558ddfc10a4388"
+		},
+		{
+			"bytes": 17749,
+			"class_name": "VBoxContainer",
+			"file": "native_classes/class_fde8d67560d1c663.json",
+			"sha256": "b711064c53aa594018d7330992d00ddfe597859550237c780f591e83bd189780"
+		},
+		{
+			"bytes": 2812,
+			"class_name": "VideoStream",
+			"file": "native_classes/class_28229cfa4c12e045.json",
+			"sha256": "4a7cfa82be1207b1cb371aa5aa817824a8057179c3e158047c52192f07873fc6"
+		},
+		{
+			"bytes": 18140,
+			"class_name": "VideoStreamPlayer",
+			"file": "native_classes/class_6f8854c81d3a254d.json",
+			"sha256": "d9e015f4ee3d3e52ff73aad48aac42015bdaf2c40fd096a7c081dba887c62a0a"
+		},
+		{
+			"bytes": 11259,
+			"class_name": "Viewport",
+			"file": "native_classes/class_91e53b9065718a3c.json",
+			"sha256": "0831221186d7a3025e2eeed17860a52031e1d377cce4f76ed915e19fb4c39a05"
+		},
+		{
+			"bytes": 3398,
+			"class_name": "ViewportTexture",
+			"file": "native_classes/class_fbeaab16abb84dc5.json",
+			"sha256": "7a9c87a0bc044d7bef00eda90f3633da8ff1f2bd70b4d4254e4ca9c57353392d"
+		},
+		{
+			"bytes": 2007,
+			"class_name": "WeakRef",
+			"file": "native_classes/class_b93b6a17390ad660.json",
+			"sha256": "89a53a2cf4177433ce5f9a74ef53350857c4e8171a777536de5aa0e5ceab0dd4"
+		},
+		{
+			"bytes": 15817,
+			"class_name": "Window",
+			"file": "native_classes/class_19734a1b58cabc22.json",
+			"sha256": "e29bd8085383c405a5a77d3f04946b782258d3feadf47108eff9a2b976e31118"
+		},
+		{
+			"bytes": 6540,
+			"class_name": "WorldEnvironment",
+			"file": "native_classes/class_22147c93b07fdc02.json",
+			"sha256": "feef53d4515c75e6f6fd94bad547693167fc0375400c83cceaae08b231336021"
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"game_instantiated": false,
+	"input_sha256": "633b2b51ccc578201921643412336cbe41aa05a2839e7f90669d136c1c0bbf5f",
+	"not_native_registered": [
+		"AABB",
+		"Array",
+		"AttackChoice",
+		"AttackCustomizer",
+		"AudioDirector",
+		"Body",
+		"Body2D",
+		"BossEncounter2D",
+		"BossSplash2D",
+		"BrawlGame",
+		"Callable",
+		"CastleCareerRoutes",
+		"CastleDoorCue",
+		"CastleFixtureRigs",
+		"CastleLogoStudio",
+		"CastleRooms25D",
+		"ChapterTwoDirector",
+		"ChapterTwoEmberEncounter",
+		"ChapterTwoGiantCake2D",
+		"ChapterTwoLawnFinale2D",
+		"ChapterTwoPartyTable2D",
+		"ChapterTwoRainbowCandle2D",
+		"ChapterTwoRoomPlot",
+		"CollectionSystem",
+		"Color",
+		"CombatArena",
+		"CombatTutorial",
+		"ComfyGames",
+		"CompanionSystem",
+		"CountingAudioDirector",
+		"CourtyardTrain",
+		"CraftStudio",
+		"DanceEngine",
+		"DayOneArtStudio",
+		"DayOneBathroomCleaning",
+		"DayOneBathroomCleanup",
+		"DayOneBathroomMovieHandoff",
+		"DayOneBathroomToilet",
+		"DayOneCastleDressing",
+		"DayOneCastleGrime",
+		"DayOneContactAction2D",
+		"DayOneDirector",
+		"DayOneDustBunnySwimmer",
+		"DayOneFlow",
+		"DayOnePoolCleanup",
+		"DayOneStoryClips",
+		"Dictionary",
+		"DollsNurserySurface",
+		"DungeonLevel",
+		"DungeonPuzzleRoom",
+		"DustBossGame",
+		"DustBossLesson2D",
+		"DustBossTelegraph2D",
+		"DustBunnyAI",
+		"DustBunnyBossSprite",
+		"DustBunnySprite",
+		"EmberFortressLevel",
+		"EncounterAttack2D",
+		"EncounterGestureGuide2D",
+		"EncounterNavigation2D",
+		"EncounterPatterns2D",
+		"EncounterPhase2D",
+		"EncounterProfile2D",
+		"EncounterTelegraph2D",
+		"Error",
+		"FairyConservatoryHandoff2D",
+		"FairyRestorationPrototype",
+		"FashionDressingInput",
+		"FashionSkinCatalog",
+		"FashionWardrobe",
+		"FishStageTrimCanvas",
+		"FishSteerCueCanvas",
+		"FootlightsCanvas",
+		"FxWater",
+		"GalaxyLevel",
+		"GestureGuide",
+		"HitEngine",
+		"ImpAI",
+		"InteractionDirector",
+		"IntroOverlay",
+		"JoyAxis",
+		"JoyButton",
+		"KartGame",
+		"Key",
+		"LightRig",
+		"LivingWorldCanvas",
+		"LivingWorldDirector",
+		"LogoPreview",
+		"MedalSystem",
+		"Medium",
+		"MelodyGame",
+		"MicInput",
+		"MouseButton",
+		"MouseButtonMask",
+		"Navigation",
+		"NavigationController",
+		"NorthernKingdom",
+		"OctagonStage",
+		"OperaAct",
+		"OperaBoxingSurface",
+		"OperaCareerWorld2D",
+		"OperaCompetition",
+		"OperaGestureSurface",
+		"OperaHouse",
+		"OperaHouseVenue2D",
+		"OperaJobPlaytestMenu",
+		"OperaNurseryCatch",
+		"OperaPerformanceOverlay",
+		"OperaRacerSurface",
+		"OperaRoshanActor",
+		"OperaTreeBookTest",
+		"OperaWorldBackdrop2D",
+		"OperaWorldHotspot2D",
+		"PackedByteArray",
+		"PackedFloat32Array",
+		"PackedInt32Array",
+		"PackedStringArray",
+		"PackedVector2Array",
+		"PackedVector3Array",
+		"PainterDocument",
+		"PainterFloodFill",
+		"PainterStudio",
+		"PainterTemplate",
+		"PartnerAssist",
+		"PauseMenu",
+		"PictureGames",
+		"PointerCanvas",
+		"PoolSeahorseRescueActivity",
+		"PoolSkimmerActivity",
+		"PoolWaterfallActivity",
+		"ProgressPipCanvas",
+		"ProsceniumCanvas",
+		"RainbowFriendFollower",
+		"RainbowNoteCanvas",
+		"Rect2",
+		"Rect2i",
+		"ReefDistricts",
+		"ReefMain",
+		"RoshanSpriteLoop",
+		"SaveFixture",
+		"SaveState",
+		"SeekAtlasActor",
+		"SeekMeadowSurface",
+		"Shape",
+		"SideScrollStage",
+		"SkyLagoon",
+		"SkyLagoonPromenade",
+		"SlideRaceGame",
+		"StageNavigation",
+		"StageStarCanvas",
+		"StartMenu",
+		"State",
+		"String",
+		"StringName",
+		"StuffieBattle",
+		"TapMoveDirector",
+		"TestMain",
+		"TimingZoneCanvas",
+		"Transform2D",
+		"Transform3D",
+		"Variant",
+		"Vector2",
+		"Vector2i",
+		"Vector3",
+		"WardrobeUI",
+		"World",
+		"bool",
+		"float",
+		"int"
+	],
+	"queried_classes_instantiated": 0,
+	"query_count": 266,
+	"schema": "reef.native_classdb_query_index/1",
+	"source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1"
+}

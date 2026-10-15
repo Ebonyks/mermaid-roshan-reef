@@ -1,0 +1,1510 @@
+{
+  "schema": "reef.callback_port_inventory/1",
+  "baseline": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+  "unresolved_invocation_sites": 57,
+  "structural_receiver_declaration_groups": 39,
+  "ports": [
+    {
+      "id": "FVP-011B18393BE4",
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/arena/castle_fixture_rigs.gd/_add_water_layer@697:1",
+          "name": "to_world",
+          "kind": "func_arg_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 699,
+          "source_excerpt": "\t\tto_world: Callable) -> void:",
+          "full_source_excerpt_sha256": "045815eab3040b72c66af4c749b926614f1761b75399dcb86577367f90da6020"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-F37A2627BE51",
+          "function": "_add_water_layer",
+          "line": 711,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-3680CAF6BEB5",
+          "function": "_add_water_layer",
+          "line": 712,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-791EC7F49EA7",
+          "function": "_add_water_layer",
+          "line": 715,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-53B3EDEDCC98",
+          "function": "_add_water_layer",
+          "line": 718,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-A54597E1AFA7",
+          "function": "_add_water_layer",
+          "line": 721,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-6D7212465D2E",
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/arena/castle_fixture_rigs.gd/_update_polygon_water_for_frame@812:1",
+          "name": "to_world",
+          "kind": "func_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 837,
+          "source_excerpt": "\tvar to_world: Callable = water.get(\"to_world\") as Callable",
+          "full_source_excerpt_sha256": "99db13f7b50797d681643263e21d3ad449f14b9a43bf6cac47e8fb20c695d164"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-AE174CF6EC84",
+          "function": "_update_polygon_water_for_frame",
+          "line": 840,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-4F362E9C6923",
+          "function": "_update_polygon_water_for_frame",
+          "line": 841,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-DD46D471A49A",
+          "function": "_update_polygon_water_for_frame",
+          "line": 844,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-72513AF9FD1B",
+          "function": "_update_polygon_water_for_frame",
+          "line": 847,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-E58AC70F1FDB",
+          "function": "_update_polygon_water_for_frame",
+          "line": 849,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-6C8FCE485C50",
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/arena/castle_fixture_rigs.gd/_position_water_for_frame@935:1",
+          "name": "to_world",
+          "kind": "func_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 948,
+          "source_excerpt": "\tvar to_world: Callable = water.get(\"to_world\") as Callable",
+          "full_source_excerpt_sha256": "99db13f7b50797d681643263e21d3ad449f14b9a43bf6cac47e8fb20c695d164"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-5517E6EB2E24",
+          "function": "_position_water_for_frame",
+          "line": 952,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-49723C90EF60",
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/arena/castle_fixture_rigs.gd/_add_spring_driver@994:1",
+          "name": "to_world",
+          "kind": "func_arg_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 995,
+          "source_excerpt": "\t\tplacement_size: Vector2, depth_z: float, to_world: Callable) -> void:",
+          "full_source_excerpt_sha256": "8262136f99aaf641de70e1af34583f402b566ddc096fb556abc6179e751ec877"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-B92F16463225",
+          "function": "_add_spring_driver",
+          "line": 1005,
+          "receiver_AST": "getattr\n  to_world\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-5FA6C9E6E469",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/arena/castle_rooms_25d.gd/_activate_royal_hall_event@5413:1/match_branch@5450:3",
+          "name": "entry",
+          "kind": "func_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 5451,
+          "source_excerpt": "\t\t\tvar entry: Callable = m.castle_royal_hall_event_entry",
+          "full_source_excerpt_sha256": "c974a0e22a365373a06f4634991380112c6032d5e133bc089e4f414818dc4d83"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-63B3AE65BF2E",
+          "function": "_activate_royal_hall_event",
+          "line": 5456,
+          "receiver_AST": "getattr\n  entry\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-AAD6F8EE7F36",
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/arena/fairy_conservatory_handoff_2d.gd",
+          "name": "_finish_cb",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 43,
+          "source_excerpt": "var _finish_cb: Callable",
+          "full_source_excerpt_sha256": "f02c2b3c2ef403303bad6905736cbfca8ac0862276157d0fd1772c1bf8a1b6d5"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 66,
+          "scope": "script:scripts/arena/fairy_conservatory_handoff_2d.gd/start@62:1",
+          "symbol": "_finish_cb",
+          "source_excerpt": "\t_finish_cb = finish_cb",
+          "full_source_excerpt_sha256": "61122b17d7308aa76243fa67479fa964af1732ed358ce4d48eb5a2e883962ac0"
+        },
+        {
+          "line": 136,
+          "scope": "script:scripts/arena/fairy_conservatory_handoff_2d.gd/teardown@119:1",
+          "symbol": "_finish_cb",
+          "source_excerpt": "\t_finish_cb = Callable()",
+          "full_source_excerpt_sha256": "6a058a303667fe71cd303af7a2453935651fcdde734b4018787f53f8f1ff059d"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-BEBE7FD163A0",
+          "function": "_finish",
+          "line": 409,
+          "receiver_AST": "getattr\n  _finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-6CAB9E5B460F",
+      "path": "scripts/attack_customizer.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/attack_customizer.gd/close@124:1/if_branch@130:2",
+          "name": "callback",
+          "kind": "func_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 131,
+          "source_excerpt": "\t\tvar callback: Callable = _on_confirm",
+          "full_source_excerpt_sha256": "53db76e7d2c5ac8da17cabd6f10f2dadbd96191538a53e20807ace6b2de99ca2"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-BA6701AAFE7A",
+          "function": "close",
+          "line": 133,
+          "receiver_AST": "getattr\n  callback\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-796159CE1147",
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/chapter_two_lawn_finale_2d.gd",
+          "name": "on_exit",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 55,
+          "source_excerpt": "var on_exit: Callable",
+          "full_source_excerpt_sha256": "8c19938958b91f043580148afb31f6de862ad53e11019b4c133923e2e0b605c4"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 61,
+          "scope": "script:scripts/chapter_two_lawn_finale_2d.gd/setup@58:1",
+          "symbol": "on_exit",
+          "source_excerpt": "\ton_exit = exit_callback",
+          "full_source_excerpt_sha256": "93b7215017fcab7f86ce44c93a0c6e2408c3beb503647b7b7848139ca5fb8282"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-61628A561FE7",
+          "function": "_advance_story",
+          "line": 377,
+          "receiver_AST": "getattr\n  on_exit\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-6E9B996730D4",
+          "function": "_point_event",
+          "line": 538,
+          "receiver_AST": "getattr\n  on_exit\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-FBBD577CCD8C",
+      "path": "scripts/combat_arena.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/combat_arena.gd",
+          "name": "finish_cb",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 15,
+          "source_excerpt": "var finish_cb: Callable",
+          "full_source_excerpt_sha256": "4ed0d712517f2f694b689a5e0b4cc730e5c8703f6c4f3172f4b2d85925fef37b"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 53,
+          "scope": "script:scripts/combat_arena.gd/start@50:1",
+          "symbol": "finish_cb",
+          "source_excerpt": "\tfinish_cb = done_cb",
+          "full_source_excerpt_sha256": "8d1dafa90e0730dbf5e901eb185c716526683cd78e722830f26a13d8d14c67e3"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-856517E46A1E",
+          "function": "_finish",
+          "line": 1129,
+          "receiver_AST": "getattr\n  finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-F7F7F606D4C9",
+          "function": "cancel",
+          "line": 1150,
+          "receiver_AST": "getattr\n  finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-C4B4C41FC314",
+      "path": "scripts/combat_tutorial.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/combat_tutorial.gd",
+          "name": "finish_cb",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 35,
+          "source_excerpt": "var finish_cb: Callable",
+          "full_source_excerpt_sha256": "4ed0d712517f2f694b689a5e0b4cc730e5c8703f6c4f3172f4b2d85925fef37b"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 62,
+          "scope": "script:scripts/combat_tutorial.gd/start@59:1",
+          "symbol": "finish_cb",
+          "source_excerpt": "\tfinish_cb = done_cb",
+          "full_source_excerpt_sha256": "8d1dafa90e0730dbf5e901eb185c716526683cd78e722830f26a13d8d14c67e3"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-F08BF4290D19",
+          "function": "_finish",
+          "line": 317,
+          "receiver_AST": "getattr\n  finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-4EDE82DB3B08",
+          "function": "cancel",
+          "line": 339,
+          "receiver_AST": "getattr\n  finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-552925F6C8E7",
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/day_one_bathroom_movie_handoff.gd",
+          "name": "_save_writer",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 34,
+          "source_excerpt": "var _save_writer: Callable = Callable()",
+          "full_source_excerpt_sha256": "6aee6d0a105f2a094c7de395c27a4b14897f9042778a61bcccee24be2a341134"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 80,
+          "scope": "script:scripts/day_one_bathroom_movie_handoff.gd/set_save_writer@79:1",
+          "symbol": "_save_writer",
+          "source_excerpt": "\t_save_writer = writer",
+          "full_source_excerpt_sha256": "820f5b50fa23a4dc3e5a833615b516941e5588d0bcd9962e257e05ee87d6440d"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-FF4D7FA70FB1",
+          "function": "_flush_save",
+          "line": 173,
+          "receiver_AST": "getattr\n  _save_writer\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-D9C7BD9DE419",
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/day_one_contact_action_2d.gd/_process@97:1/if_branch@106:2",
+          "name": "callback",
+          "kind": "func_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 107,
+          "source_excerpt": "\t\tvar callback: Callable = done",
+          "full_source_excerpt_sha256": "cfe9fec45c174b8b7d14d17caa64a67bf8437ba907fced831ed0176003ec22b3"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-2269F092E723",
+          "function": "_process",
+          "line": 109,
+          "receiver_AST": "getattr\n  callback\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-B098FE96296E",
+      "path": "scripts/dev_mode.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/dev_mode.gd/_slider@1081:1",
+          "name": "fn",
+          "kind": "func_arg_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 1081,
+          "source_excerpt": "func _slider(key: String, txt: String, mn: float, mx: float, step: float, val: float, fn: Callable) -> void:",
+          "full_source_excerpt_sha256": "9ac3b7d2b83ad951b2eee1d42ec53ef27b15cd4114686f1207f60c149f97ffc7"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-1D73253D7E9A",
+          "function": "_slider",
+          "line": 1106,
+          "receiver_AST": "getattr\n  fn\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-6CF31D86DBA2",
+      "path": "scripts/dungeon_level.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/dungeon_level.gd",
+          "name": "finish_cb",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 23,
+          "source_excerpt": "var finish_cb: Callable",
+          "full_source_excerpt_sha256": "4ed0d712517f2f694b689a5e0b4cc730e5c8703f6c4f3172f4b2d85925fef37b"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 40,
+          "scope": "script:scripts/dungeon_level.gd/start@37:1",
+          "symbol": "finish_cb",
+          "source_excerpt": "\tfinish_cb = done_cb",
+          "full_source_excerpt_sha256": "8d1dafa90e0730dbf5e901eb185c716526683cd78e722830f26a13d8d14c67e3"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-1F9353EAEF8F",
+          "function": "_finish",
+          "line": 186,
+          "receiver_AST": "getattr\n  finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-67D5079E3488",
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/dungeon_puzzle_room.gd",
+          "name": "finish_cb",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 13,
+          "source_excerpt": "var finish_cb: Callable",
+          "full_source_excerpt_sha256": "4ed0d712517f2f694b689a5e0b4cc730e5c8703f6c4f3172f4b2d85925fef37b"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 50,
+          "scope": "script:scripts/dungeon_puzzle_room.gd/start@47:1",
+          "symbol": "finish_cb",
+          "source_excerpt": "\tfinish_cb = done_cb",
+          "full_source_excerpt_sha256": "8d1dafa90e0730dbf5e901eb185c716526683cd78e722830f26a13d8d14c67e3"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-FB13513F1B78",
+          "function": "_finish",
+          "line": 599,
+          "receiver_AST": "getattr\n  finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-3691DCCA9D49",
+      "path": "scripts/ember_fortress.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/ember_fortress.gd",
+          "name": "_finish_cb",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 121,
+          "source_excerpt": "var _finish_cb: Callable",
+          "full_source_excerpt_sha256": "f02c2b3c2ef403303bad6905736cbfca8ac0862276157d0fd1772c1bf8a1b6d5"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 189,
+          "scope": "script:scripts/ember_fortress.gd/start@187:1",
+          "symbol": "_finish_cb",
+          "source_excerpt": "\t_finish_cb = finish_cb",
+          "full_source_excerpt_sha256": "61122b17d7308aa76243fa67479fa964af1732ed358ce4d48eb5a2e883962ac0"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-7C4AF87E4076",
+          "function": "_teardown",
+          "line": 1222,
+          "receiver_AST": "getattr\n  _finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-6F51EEF1983A",
+      "path": "scripts/galaxy.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/galaxy.gd",
+          "name": "_finish_cb",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 50,
+          "source_excerpt": "var _finish_cb: Callable",
+          "full_source_excerpt_sha256": "f02c2b3c2ef403303bad6905736cbfca8ac0862276157d0fd1772c1bf8a1b6d5"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 180,
+          "scope": "script:scripts/galaxy.gd/start@178:1",
+          "symbol": "_finish_cb",
+          "source_excerpt": "\t_finish_cb = finish_cb",
+          "full_source_excerpt_sha256": "61122b17d7308aa76243fa67479fa964af1732ed358ce4d48eb5a2e883962ac0"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-10A6B1F307A9",
+          "function": "_teardown",
+          "line": 1762,
+          "receiver_AST": "getattr\n  _finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-623EF08BC85F",
+      "path": "scripts/hit_engine.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/hit_engine.gd",
+          "name": "on_hit",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 100,
+          "source_excerpt": "var on_hit: Callable = Callable()       # func(enemy, damage: int, source: String)",
+          "full_source_excerpt_sha256": "541b4116d1d3599a82836a9b6ebaace4feb5862144c8010dbe9775f1455e09a1"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-C6597DB3F86E",
+          "function": "hit",
+          "line": 609,
+          "receiver_AST": "getattr\n  on_hit\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-D43861FEA8DE",
+      "path": "scripts/hit_engine.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/hit_engine.gd",
+          "name": "on_defeated",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 101,
+          "source_excerpt": "var on_defeated: Callable = Callable()  # func(enemy) \u2014 fires as a death begins",
+          "full_source_excerpt_sha256": "3c7bcbdb5e6e69272394b22f276c289bf96d271c885b1b4ea4925155d660d27f"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-6E8299349ECB",
+          "function": "play_death",
+          "line": 740,
+          "receiver_AST": "getattr\n  on_defeated\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-F8FFC2C5EA4F",
+      "path": "scripts/kart.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "621bf52117af06641285b25a046fe0462c581889fcb53b899c0fb101be88f2bf",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/kart.gd",
+          "name": "_finish_cb",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 217,
+          "source_excerpt": "var _finish_cb: Callable",
+          "full_source_excerpt_sha256": "f02c2b3c2ef403303bad6905736cbfca8ac0862276157d0fd1772c1bf8a1b6d5"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 478,
+          "scope": "script:scripts/kart.gd/start@473:1",
+          "symbol": "_finish_cb",
+          "source_excerpt": "\t_finish_cb = finish_cb",
+          "full_source_excerpt_sha256": "61122b17d7308aa76243fa67479fa964af1732ed358ce4d48eb5a2e883962ac0"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-6499C3BE3DAF",
+          "function": "_teardown",
+          "line": 3230,
+          "receiver_AST": "getattr\n  _finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-CF2823FFAE7D",
+      "path": "scripts/main.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/main.gd/_fade_cut@3032:1",
+          "name": "cb",
+          "kind": "func_arg_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 3032,
+          "source_excerpt": "func _fade_cut(cb: Callable) -> void:",
+          "full_source_excerpt_sha256": "156e4bc8a5358e668fb5f076968778a5da86ae99314dad18a445e05a6c5621ba"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-5D6A7682E237",
+          "function": "_fade_cut",
+          "line": 3040,
+          "receiver_AST": "getattr\n  cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-FF1229B68D73",
+          "function": "_fade_cut",
+          "line": 3045,
+          "receiver_AST": "getattr\n  cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-4147C49DBB0C",
+      "path": "scripts/navigation_controller.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/navigation_controller.gd/press@61:1/if_branch@72:2",
+          "name": "close_action",
+          "kind": "func_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 74,
+          "source_excerpt": "\t\tvar close_action: Callable = route.get(\"close\", Callable()) as Callable",
+          "full_source_excerpt_sha256": "f213f554acecfc1cdcc56bbe66418c8b40b553413cfd74c95465e1060ddf727a"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-E8B2904A3675",
+          "function": "press",
+          "line": 76,
+          "receiver_AST": "getattr\n  close_action\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-1DEEFE91BF11",
+      "path": "scripts/opera_act.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "7a8db71dfd827efabeee50a348d7849ea646d2693c2ec2b6930c80938d2517b0",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/opera_act.gd/_finish@169:1",
+          "name": "completed_cb",
+          "kind": "func_var_inf",
+          "type": null,
+          "static_inference": true,
+          "constant": false,
+          "line": 175,
+          "source_excerpt": "\tvar completed_cb := finish_cb",
+          "full_source_excerpt_sha256": "1b88d1bff8249e75b29ab310b9223b67f0f6483f7bb9659fc61ed0aa38431986"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-BEAD793A7E63",
+          "function": "_finish",
+          "line": 178,
+          "receiver_AST": "getattr\n  completed_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-37A0A2B1863C",
+      "path": "scripts/opera_career_world_2d.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "2195e137800fd840e4a813a83e6ac9b393a9e7851fd80ca84ca51fb964232702",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/opera_career_world_2d.gd/_adapter_hook@786:1",
+          "name": "callback",
+          "kind": "func_var_typed_assgnd",
+          "type": "Variant",
+          "static_inference": false,
+          "constant": false,
+          "line": 789,
+          "source_excerpt": "\tvar callback: Variant = adapter_callbacks.get(event, Callable())",
+          "full_source_excerpt_sha256": "1ec01b5dad52ae31404e30720d5c9e81a206256552a05e49b2828a8fc5d9d29b"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 791,
+          "scope": "script:scripts/opera_career_world_2d.gd/_adapter_hook@786:1/if_branch@790:2",
+          "symbol": "callback",
+          "source_excerpt": "\t\tcallback = scene_adapter.get(event, Callable())",
+          "full_source_excerpt_sha256": "9ed618e3bb96a141600cd9a7a343f1cc1a816aa9f43ea1e9981124e9f396cf6d"
+        },
+        {
+          "line": 793,
+          "scope": "script:scripts/opera_career_world_2d.gd/_adapter_hook@786:1/if_branch@792:2",
+          "symbol": "callback",
+          "source_excerpt": "\t\tcallback = adapter_callbacks.get(\"on_%s\" % event, Callable())",
+          "full_source_excerpt_sha256": "f4821e18e5f73f1847c77eea468a48daf12804dac6994461fee7114cd5515323"
+        },
+        {
+          "line": 795,
+          "scope": "script:scripts/opera_career_world_2d.gd/_adapter_hook@786:1/if_branch@794:2",
+          "symbol": "callback",
+          "source_excerpt": "\t\tcallback = scene_adapter.get(\"on_%s\" % event, Callable())",
+          "full_source_excerpt_sha256": "655699b34dbe2d6e23aafbe733ce36380cc20c12788e5688b087fe11ded433b3"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-15C795B42FCF",
+          "function": "_adapter_hook",
+          "line": 797,
+          "receiver_AST": "getattr\n  par_expr\n    actual_type_cast\n      callback\n      as\n      Callable\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-E892C9F91FB7",
+      "path": "scripts/opera_career_world_2d.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "2195e137800fd840e4a813a83e6ac9b393a9e7851fd80ca84ca51fb964232702",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/opera_career_world_2d.gd",
+          "name": "win_callback",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 468,
+          "source_excerpt": "var win_callback: Callable",
+          "full_source_excerpt_sha256": "31f36b2df1d80e9f09527a8e29896b872d1f31f7b9b65c76dab84ed5a7c62777"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 657,
+          "scope": "script:scripts/opera_career_world_2d.gd/setup@650:1",
+          "symbol": "win_callback",
+          "source_excerpt": "\twin_callback = on_win",
+          "full_source_excerpt_sha256": "0ff6864102df1ee8cbdb7e75b3b5496445979cafdc9039ecafbb658393349ac0"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-477881648F51",
+          "function": "_arm_phase",
+          "line": 2458,
+          "receiver_AST": "getattr\n  win_callback\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-48A9994B91E2",
+      "path": "scripts/opera_house.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/opera_house.gd/_finish@326:1",
+          "name": "completed_cb",
+          "kind": "func_var_inf",
+          "type": null,
+          "static_inference": true,
+          "constant": false,
+          "line": 331,
+          "source_excerpt": "\tvar completed_cb := finish_cb",
+          "full_source_excerpt_sha256": "1b88d1bff8249e75b29ab310b9223b67f0f6483f7bb9659fc61ed0aa38431986"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-B66E0EA20DDA",
+          "function": "_finish",
+          "line": 334,
+          "receiver_AST": "getattr\n  completed_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-144E4F0EF7C4",
+      "path": "scripts/opera_house_venue_2d.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/opera_house_venue_2d.gd",
+          "name": "launch_career",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 49,
+          "source_excerpt": "var launch_career: Callable",
+          "full_source_excerpt_sha256": "3689c4adb8cbbf05ce8aaa5333aa84a392a9a4601e46124c0b3ba2d113d62417"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 71,
+          "scope": "script:scripts/opera_house_venue_2d.gd/setup@69:1",
+          "symbol": "launch_career",
+          "source_excerpt": "\tlaunch_career = launch_callback",
+          "full_source_excerpt_sha256": "bbb399ae9d2eb822e33a88b10531c398dd8d98bcd0c54a0246241b6cf682177e"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-964D7BF40BF0",
+          "function": "_launch_selected",
+          "line": 425,
+          "receiver_AST": "getattr\n  launch_career\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-EE329DB72453",
+      "path": "scripts/painter/vendor/painter_flood_fill.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/painter/vendor/painter_flood_fill.gd/flood_fill@35:1",
+          "name": "callable",
+          "kind": "func_arg_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 36,
+          "source_excerpt": "\tpos: Vector2i, source_image: Image, target_image: Image, callable: Callable",
+          "full_source_excerpt_sha256": "832d7e0a4e8a6f1d62609d30f2e7256e40b6e190063fefc461bb1c02cf5d03d9"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-BF9F5E66E5F6",
+          "function": "flood_fill",
+          "line": 47,
+          "receiver_AST": "getattr\n  callable\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-DA2E12E8F9BE",
+      "path": "scripts/partner_assist.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/partner_assist.gd",
+          "name": "on_super",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 29,
+          "source_excerpt": "var on_super: Callable = Callable()",
+          "full_source_excerpt_sha256": "c74ec80953fca6d68b7e9134245a104063e1fe13afd9392189e90ba4862f28f9"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 40,
+          "scope": "script:scripts/partner_assist.gd/attach@35:1",
+          "symbol": "on_super",
+          "source_excerpt": "\ton_super = super_cb",
+          "full_source_excerpt_sha256": "18f511ad37835f6c5c24f2987293708d2ed54c3e6663d3b8aa28ae0119b3919f"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-17DFBC4EAAF8",
+          "function": "activate",
+          "line": 91,
+          "receiver_AST": "getattr\n  on_super\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-AC6692E21F11",
+      "path": "scripts/physics.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "39a8a3ecf72e79ff797d2f6eb067ad3d186626a282d044af6f8ce64a57a78cce",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/physics.gd::World",
+          "name": "floor_fn",
+          "kind": "class_var_inf",
+          "type": null,
+          "static_inference": true,
+          "constant": false,
+          "line": 71,
+          "source_excerpt": "\tvar floor_fn := Callable()      # (x, z) -> ground height; unset = flat floor_y",
+          "full_source_excerpt_sha256": "93f2293a60c62e7bea2a231ae75f4a4e73217433399ca55d54b6de0385015f55"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-2CBB062E6A1A",
+          "function": "ground_at",
+          "line": 82,
+          "receiver_AST": "getattr\n  floor_fn\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-61EDDAC58B49",
+      "path": "scripts/stuffie_battle.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/stuffie_battle.gd",
+          "name": "finish_cb",
+          "kind": "class_var_typed",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 36,
+          "source_excerpt": "var finish_cb: Callable",
+          "full_source_excerpt_sha256": "4ed0d712517f2f694b689a5e0b4cc730e5c8703f6c4f3172f4b2d85925fef37b"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 76,
+          "scope": "script:scripts/stuffie_battle.gd/start@74:1",
+          "symbol": "finish_cb",
+          "source_excerpt": "\tfinish_cb = done_cb",
+          "full_source_excerpt_sha256": "8d1dafa90e0730dbf5e901eb185c716526683cd78e722830f26a13d8d14c67e3"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-6733B7448E4B",
+          "function": "_finish",
+          "line": 647,
+          "receiver_AST": "getattr\n  finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-FA4D60EB3BFC",
+          "function": "cancel",
+          "line": 662,
+          "receiver_AST": "getattr\n  finish_cb\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-7790A08CB7C7",
+      "path": "scripts/touch_ui.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/touch_ui.gd",
+          "name": "encounter_cancel",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 33,
+          "source_excerpt": "var encounter_cancel: Callable = Callable()",
+          "full_source_excerpt_sha256": "c5b4b7ac1d6154f55fc476d8b59a9c8cfb5971008b247cf4aa894e8c655cabb6"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 558,
+          "scope": "script:scripts/touch_ui.gd/set_encounter_controls@554:1",
+          "symbol": "encounter_cancel",
+          "source_excerpt": "\tencounter_cancel = cancel",
+          "full_source_excerpt_sha256": "c1bbfdc9c54bdac9a671fd17af05bf9ae60601a7155d1322a80a1bf368d27de5"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-98FDB9ECE230",
+          "function": "_clear_touch_state",
+          "line": 517,
+          "receiver_AST": "getattr\n  encounter_cancel\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-CFA9A07B6CE2",
+      "path": "scripts/touch_ui.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/touch_ui.gd",
+          "name": "world_press_cancel",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 70,
+          "source_excerpt": "var world_press_cancel: Callable = Callable()",
+          "full_source_excerpt_sha256": "dad833555a34473aa5ecdbf3a1271c9b338c7c16d4227c6efed0ea966c10f3c3"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-8C0B365D7CE9",
+          "function": "_clear_touch_state",
+          "line": 519,
+          "receiver_AST": "getattr\n  world_press_cancel\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-B89567729BAE",
+      "path": "scripts/touch_ui.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/touch_ui.gd",
+          "name": "world_press_release",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 58,
+          "source_excerpt": "var world_press_release: Callable = Callable()",
+          "full_source_excerpt_sha256": "bf52798886dbcd1291ab48013df6c21df792e543fdd34172b89df59047d05c35"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-898DF0BC7B99",
+          "function": "_clear_touch_state",
+          "line": 521,
+          "receiver_AST": "getattr\n  world_press_release\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-BC833AC084EC",
+          "function": "_hybrid_unhandled_input",
+          "line": 719,
+          "receiver_AST": "getattr\n  world_press_release\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-07F706108658",
+          "function": "_hybrid_unhandled_input",
+          "line": 773,
+          "receiver_AST": "getattr\n  world_press_release\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-309CA50D4DB5",
+      "path": "scripts/touch_ui.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/touch_ui.gd",
+          "name": "encounter_motion",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 34,
+          "source_excerpt": "var encounter_motion: Callable = Callable()",
+          "full_source_excerpt_sha256": "65b77635db2451327257d587fca62bd31e9ab383a68d7d23682a3eef564af422"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 559,
+          "scope": "script:scripts/touch_ui.gd/set_encounter_controls@554:1",
+          "symbol": "encounter_motion",
+          "source_excerpt": "\tencounter_motion = motion",
+          "full_source_excerpt_sha256": "b127d687cf0254fe9ea1a1053fa9e6ed7b5e66d7097f9941f8c7cd72e436b000"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-A255FBD2CA5C",
+          "function": "_encounter_unhandled_input",
+          "line": 566,
+          "receiver_AST": "getattr\n  encounter_motion\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-B14BF80BE11C",
+          "function": "_encounter_unhandled_input",
+          "line": 573,
+          "receiver_AST": "getattr\n  encounter_motion\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-E09CA2E303CF",
+      "path": "scripts/touch_ui.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/touch_ui.gd",
+          "name": "encounter_press",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 32,
+          "source_excerpt": "var encounter_press: Callable = Callable()",
+          "full_source_excerpt_sha256": "441210bc6d3e6715cf6c32a44e639d5e801c39bb14742c4b24f4c3aac7d01cd2"
+        }
+      ],
+      "source_assignment_candidates": [
+        {
+          "line": 557,
+          "scope": "script:scripts/touch_ui.gd/set_encounter_controls@554:1",
+          "symbol": "encounter_press",
+          "source_excerpt": "\tencounter_press = press",
+          "full_source_excerpt_sha256": "9cd0ef9796d48fe42bf1ee399e78f140547a4660c9871150f384e50e4d837f3e"
+        }
+      ],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-670083E248DC",
+          "function": "_encounter_unhandled_input",
+          "line": 596,
+          "receiver_AST": "getattr\n  encounter_press\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-3049DAEF898B",
+      "path": "scripts/touch_ui.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/touch_ui.gd",
+          "name": "world_press_probe",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 55,
+          "source_excerpt": "var world_press_probe: Callable = Callable()",
+          "full_source_excerpt_sha256": "f60e8e404e02adb58ebb218d2b7c6549b1c5092d2854cc64a579c1310bad012d"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-DD12A02E7B0E",
+          "function": "_hybrid_unhandled_input",
+          "line": 704,
+          "receiver_AST": "getattr\n  world_press_probe\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-65AF9D2BB726",
+          "function": "_hybrid_unhandled_input",
+          "line": 758,
+          "receiver_AST": "getattr\n  world_press_probe\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-A9A347158707",
+      "path": "scripts/touch_ui.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/touch_ui.gd",
+          "name": "world_press_drag",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 65,
+          "source_excerpt": "var world_press_drag: Callable = Callable()",
+          "full_source_excerpt_sha256": "6bef36cc8618e38ad8a12575af4833940e574bee8c41fcfa3b937a0e5c99e4f4"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-8BD10C7A998F",
+          "function": "_hybrid_unhandled_input",
+          "line": 738,
+          "receiver_AST": "getattr\n  world_press_drag\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        },
+        {
+          "binding_id": "FVC-E91A4B7657E7",
+          "function": "_hybrid_unhandled_input",
+          "line": 789,
+          "receiver_AST": "getattr\n  world_press_drag\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    },
+    {
+      "id": "FVP-6B3111116611",
+      "path": "scripts/touch_ui.gd",
+      "source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "source_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "receiver_declarations": [
+        {
+          "scope": "script:scripts/touch_ui.gd",
+          "name": "world_drag_end",
+          "kind": "class_var_typed_assgnd",
+          "type": "Callable",
+          "static_inference": false,
+          "constant": false,
+          "line": 66,
+          "source_excerpt": "var world_drag_end: Callable = Callable()",
+          "full_source_excerpt_sha256": "7690b921f140eb4e6a2c5769079f3a0a6f9eca2d4e82a4f7acdd22fa00448336"
+        }
+      ],
+      "source_assignment_candidates": [],
+      "invocation_sites": [
+        {
+          "binding_id": "FVC-C224A6F65CB1",
+          "function": "_world_swipe",
+          "line": 803,
+          "receiver_AST": "getattr\n  world_drag_end\n  .\n  call",
+          "arguments_scope": "Callable payload arguments; first literal does not identify target"
+        }
+      ],
+      "complete_write_caller_value_closure": false,
+      "scope": "Structural scoped receiver-declaration group. Aliases may share values; this is not a count of unique callbacks, routes or artwork. Assignment snippets are candidates, not a closed target domain."
+    }
+  ],
+  "limits": "All-write/caller/value domains and scene/resource/external bindings remain open. No normal route/full compositor closure or art acceptance from static selector semantics.",
+  "accepted_removed": 0
+}

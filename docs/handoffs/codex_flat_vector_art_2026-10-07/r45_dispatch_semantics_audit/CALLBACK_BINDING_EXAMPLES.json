@@ -1,0 +1,77 @@
+{
+  "baseline": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+  "examples": [
+    {
+      "id": "FVE-2FF7E8A075A4",
+      "callee_source": {
+        "path": "scripts/stuffie_battle.gd",
+        "revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+        "bytes": 24254,
+        "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+        "role": "Exact source evidence; no route/art acceptance"
+      },
+      "main_source": {
+        "path": "scripts/main.gd",
+        "revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+        "bytes": 370822,
+        "sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "role": "Exact source evidence; no route/art acceptance"
+      },
+      "standard_Main_entry": "_start_stuffie_battle",
+      "Main_field": "stuffie_game",
+      "constructed_class": "StuffieBattle",
+      "start_call": {
+        "line": 2493,
+        "source_excerpt": "\tstuffie_game.start(self, ladder_index, Callable(self, \"_end_stuffie_battle\"))",
+        "full_source_excerpt_sha256": "42bd53dddd3081bfaaefcf681fe80ca5a17e92394e182d1791fd773768d6a904"
+      },
+      "callee_assignment": {
+        "scope": "script:scripts/stuffie_battle.gd/start@74:1",
+        "line": 76,
+        "source": "\tfinish_cb = done_cb"
+      },
+      "candidate_callback_method": "_end_stuffie_battle",
+      "cancel_binding_id": "FVC-FA4D60EB3BFC",
+      "cancel_payload": "",
+      "evidence_scope": "Exact standard Main API construction binds this callback. Empty cancellation string is payload. This does not prove normal navigation, all mutations/external callers, globally closed callback target domains or visible art.57 general invocation sites remain pending complete caller/write closure.",
+      "global_closure_credit": false
+    },
+    {
+      "id": "FVE-DD0D9D76FBC5",
+      "callee_source": {
+        "path": "scripts/combat_arena.gd",
+        "revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+        "bytes": 44298,
+        "sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+        "role": "Exact source evidence; no route/art acceptance"
+      },
+      "main_source": {
+        "path": "scripts/main.gd",
+        "revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+        "bytes": 370822,
+        "sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "role": "Exact source evidence; no route/art acceptance"
+      },
+      "standard_Main_entry": "_start_combat",
+      "Main_field": "combat_game",
+      "constructed_class": "CombatArena",
+      "start_call": {
+        "line": 2432,
+        "source_excerpt": "\tcombat_game.start(self, battle_kind, Callable(self, \"_end_combat\"))",
+        "full_source_excerpt_sha256": "4d7ebe531331ebffe752db9e10d1d357832f3b24fa65e16d833e5f5048d5161b"
+      },
+      "callee_assignment": {
+        "scope": "script:scripts/combat_arena.gd/start@50:1",
+        "line": 53,
+        "source": "\tfinish_cb = done_cb"
+      },
+      "candidate_callback_method": "_end_combat",
+      "cancel_binding_id": "FVC-F7F7F606D4C9",
+      "cancel_payload": "",
+      "evidence_scope": "Exact standard Main API construction binds this callback. Empty cancellation string is payload. This does not prove normal navigation, all mutations/external callers, globally closed callback target domains or visible art.57 general invocation sites remain pending complete caller/write closure.",
+      "global_closure_credit": false
+    }
+  ],
+  "source_art_runtime_changes": [],
+  "accepted_removed": 0
+}

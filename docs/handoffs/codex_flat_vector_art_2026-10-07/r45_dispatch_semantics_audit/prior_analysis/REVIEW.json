@@ -1,0 +1,5 @@
+{
+  "status": "PROVISIONAL_CLASSIFICATION_SUPERSEDED_BEFORE_PUBLICATION",
+  "limits": "Initial receiver pass did not yet handle implicit self for standalone call_deferred, and untyped-parameter shadowing was tightened afterward. Raw493 IDs/spans remain exact. No current selector/caller/route/acceptance count is taken from this provisional pass; native engine probe was unaffected and not rerun.",
+  "correction": "Use scoped implicit-self semantics, block/iterator/lambda/parameter guards and adversarial tests; rerun final classifier with its exact module SHA bound before accepting counts."
+}

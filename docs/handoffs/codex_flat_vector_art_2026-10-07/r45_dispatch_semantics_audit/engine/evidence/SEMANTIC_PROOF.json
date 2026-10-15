@@ -1,0 +1,183 @@
+{
+	"accepted_removed": 0,
+	"art_captures": 0,
+	"checks": [
+		{
+			"evidence": {
+				"payload_count": 0,
+				"valid": false
+			},
+			"id": "empty_constructor_is_not_invocation",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"payload_count": 0,
+				"valid": true
+			},
+			"id": "named_constructor_binds_without_invoking",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"payloads": [
+					"object_selector_data"
+				]
+			},
+			"id": "Object_StringName_first_argument_is_selector",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"payloads": [
+					"object_selector_data",
+					"_start_stuffie_battle"
+				]
+			},
+			"id": "Callable_first_literal_is_payload_not_selector",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"payload_count": 2
+			},
+			"id": "bind_does_not_invoke",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"payloads": [
+					"object_selector_data",
+					"_start_stuffie_battle",
+					"bound_data"
+				]
+			},
+			"id": "bound_arguments_delivered_on_invocation",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"local_count": 0,
+				"target_count": 3
+			},
+			"id": "deferred_calls_are_not_immediate",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"payloads": [
+					"record"
+				]
+			},
+			"id": "lambda_literal_is_payload",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"native_class": "RefCounted"
+			},
+			"id": "default_script_class_is_RefCounted",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"payloads": [
+					"object_selector_data",
+					"_start_stuffie_battle",
+					"bound_data",
+					"member_deferred_data",
+					"object_deferred_data"
+				]
+			},
+			"id": "Object_and_bound_Callable_deferred_delivery",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"payloads": [
+					"local_method_deferred_data"
+				]
+			},
+			"id": "unqualified_method_reference_is_Callable",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"native_class_count": 97,
+				"not_registered_count": 169
+			},
+			"id": "Native_ClassDB_evidence_collected",
+			"pass": true
+		},
+		{
+			"evidence": {
+				"after": {
+					"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+					".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+					".bak.old": "absent",
+					".bak.tmp": "absent",
+					".old": "absent",
+					".tmp": "absent",
+					".tmp0": "absent",
+					".tmp1": "absent"
+				},
+				"before": {
+					"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+					".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+					".bak.old": "absent",
+					".bak.tmp": "absent",
+					".old": "absent",
+					".tmp": "absent",
+					".tmp0": "absent",
+					".tmp1": "absent"
+				}
+			},
+			"id": "normal_save_suffix_hashes_unchanged",
+			"pass": true
+		}
+	],
+	"display": "headless",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [],
+	"fixture_sha256": "5e5971131aa0510f0e7686b493072515c62f1fb38e73ae615729b68985cacc73",
+	"game_instantiated": false,
+	"input_sha256": "633b2b51ccc578201921643412336cbe41aa05a2839e7f90669d136c1c0bbf5f",
+	"mission_complete": false,
+	"new_generation_calls": 0,
+	"normal_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_save_base": "C:/Users/Peter/AppData/Roaming/Godot/app_userdata/Mermaid Roshan Reef of Light/reef_save.json",
+	"renderer_reported": "mobile",
+	"renderer_requested": "mobile",
+	"schema": "reef.dispatch_engine_semantics/1",
+	"scope": "Headless engine/language semantics, not a rendered Mobile scene/gameplay/art/QA11/device/child/owner pass.",
+	"source_revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1"
+}

@@ -1,0 +1,132 @@
+{
+  "schema": "reef.dispatch_source_review/1",
+  "baseline": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+  "reviewer": "Codex exact-source/engine semantics review; no new art/visual/human acceptance review",
+  "source_references": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/REVIEW.json",
+      "revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "bytes": 14909,
+      "sha256": "5ad131acf64bb3c1c178aa7bb00089572c78524eb05e8901cd0997fc4c54df40",
+      "role": "Retained R44 eight native-view/same-scene comparison with exact source hashes; no new visual review"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/DISPATCH_AND_FALLBACK_PROOF.json",
+      "revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "bytes": 14771,
+      "sha256": "f107fcc55625b2307781d65d4e84fbfbf18a3c388b994b347ce22662a6875aa6",
+      "role": "Retained source/native checkpoint/API limits"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/CAPTURE_INDEX.json",
+      "revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "bytes": 67293,
+      "sha256": "70dc0ec568b58a0fa32087579596d24bdd59f5dbd9f7f406503a85639232feec",
+      "role": "Retained73 excluded source diagnostic frames; no new captures"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "bytes": 370822,
+      "sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "role": "Exact source evidence; no route/art acceptance"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "bytes": 24254,
+      "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "role": "Exact source evidence; no route/art acceptance"
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "revision": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
+      "bytes": 44298,
+      "sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+      "role": "Exact source evidence; no route/art acceptance"
+    }
+  ],
+  "semantic_summary": {
+    "non_test_candidates": {
+      "raw_expressions": 257,
+      "categories": {
+        "CALLABLE_INVOCATION": 57,
+        "CONSTRUCTOR_NAMED_BINDING": 63,
+        "CONSTRUCTOR_EMPTY": 37,
+        "OBJECT_LITERAL_DISPATCH": 98,
+        "CALLABLE_DEFERRED_INVOCATION": 2
+      },
+      "constructor_expressions": 100,
+      "invocation_expressions": 157,
+      "invocations_with_unresolved_selector_or_receiver": 57,
+      "invocations_with_known_selector": 100
+    },
+    "probe_or_test": {
+      "raw_expressions": 236,
+      "categories": {
+        "CALLABLE_INVOCATION": 58,
+        "OBJECT_LITERAL_DISPATCH": 121,
+        "UNKNOWN_RECEIVER_DISPATCH": 1,
+        "CONSTRUCTOR_EMPTY": 37,
+        "CONSTRUCTOR_NAMED_BINDING": 18,
+        "OBJECT_COMPUTED_DISPATCH": 1
+      },
+      "constructor_expressions": 55,
+      "invocation_expressions": 181,
+      "invocations_with_unresolved_selector_or_receiver": 60,
+      "invocations_with_known_selector": 121
+    },
+    "r44_raw95_reconciliation": {
+      "raw_rows": 95,
+      "categories": {
+        "CALLABLE_INVOCATION": 55,
+        "CONSTRUCTOR_EMPTY": 37,
+        "CALLABLE_DEFERRED_INVOCATION": 2,
+        "OBJECT_LITERAL_DISPATCH": 1
+      },
+      "literal_rows_reclassified_as_callable_data": [
+        "FVC-F7F7F606D4C9",
+        "FVC-FA4D60EB3BFC"
+      ]
+    }
+  },
+  "structural_receiver_groups": 39,
+  "known_standard_binding_examples": 2,
+  "corrections": [
+    {
+      "id": "FVO-R45-CONSTRUCTOR-VS-INVOCATION",
+      "raw_r44_non_test_rows": 257,
+      "constructor_bindings_or_defaults": 100,
+      "actual_invocation_expressions": 157,
+      "scope": "Constructors do not execute their bound target; preserve named binding selectors separately."
+    },
+    {
+      "id": "FVO-R45-CALLABLE-CANCEL-PAYLOAD",
+      "binding_ids": [
+        "FVC-FA4D60EB3BFC",
+        "FVC-F7F7F606D4C9"
+      ],
+      "scope": "Two empty cancellation strings are data delivered to Callable ports, not empty Object method names."
+    },
+    {
+      "id": "FVO-R45-RAW95-SEMANTIC-SCOPE",
+      "raw95_categories": {
+        "CALLABLE_INVOCATION": 55,
+        "CONSTRUCTOR_EMPTY": 37,
+        "CALLABLE_DEFERRED_INVOCATION": 2,
+        "OBJECT_LITERAL_DISPATCH": 1
+      },
+      "effective_unresolved_invocation_sites": 57,
+      "scope": "57 scoped invocation sites require complete callback write/caller/value closure; not57 unique callbacks or artwork."
+    }
+  ],
+  "visual_context_scope": "No new rendering or visual review. Production/source art bytes unchanged; R44/R43 actual context and ten-axis QC gaps remain separately blocking. Known selectors do not prove normal routes, visibility, source retirement or compositor runtime closure.",
+  "new_art_context_credits": 0,
+  "new_route_credits": 0,
+  "full_compositor_runtime_closures_added": 0,
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_replacement": 0,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

@@ -1,6 +1,12 @@
-Current canonical evidence: [R44 creature route/caller audit](r44_creature_route_caller_audit/README.md), [registry](r44_creature_route_caller_audit/per_piece.json), [coverage](r44_creature_route_caller_audit/scene_coverage.json), [tally](r44_creature_route_caller_audit/tally.json).
+Current canonical evidence: [R45 dispatch semantics audit](r45_dispatch_semantics_audit/README.md), [registry](r45_dispatch_semantics_audit/per_piece.json), [coverage](r45_dispatch_semantics_audit/scene_coverage.json), [tally](r45_dispatch_semantics_audit/tally.json).
 
-# Current R44 creature route and caller audit
+# Current R45 dispatch semantics audit
+
+493 preserved expression records separate bindings from invocations.157 non-test source-candidate invocations contain57 callback target gaps in39 scoped declaration groups. No new rendered game captures, art/route credit or production changes.230 roles/31 families,0 accepted removals/global total unknown.
+
+Historical R44 evidence: [R44 creature route/caller audit](r44_creature_route_caller_audit/README.md), [registry](r44_creature_route_caller_audit/per_piece.json), [coverage](r44_creature_route_caller_audit/scene_coverage.json), [tally](r44_creature_route_caller_audit/tally.json).
+
+# Historical R44 creature route and caller audit
 
 Six actual source-bound cases distinguish Canvas dispatch from retained3D API constructors.73 diagnostic views add no art-context or route credit.230roles/31families,3unaccepted source samples,0accepted removals/global unknown. Production unchanged.
 
