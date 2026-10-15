@@ -2257,3 +2257,12 @@ CHG-056 freshness amendment: origin/dev advanced from831d0bbb to `5120b6d59885dd
 - Rollback: inspect additive CHG-057 evidence/navigation on dedicated `codex/rollback-chg-057`; preserve immutable history,protected sources and later work. No dev/master integration or runtime rollback.
 
 CHG-057 published payload `f83bd2028f343e4bb6ddf30e0008c40429aca059`:all15282 required files/5432876919 bytes anonymously verified at `2026-10-15T08:13:58.603532+00:00`. ManifestSHA `57afb6cb42ab3362add0bf28bc1d0fb92ad075a9c649d8b3c2643f39d4c1f489`,payloadSHA `ce37f4716fa88fc979759bb9363fbe9f7a56ad1ace669682c0beea69623e87ed`.312 source scripts/1510inputs/369frozen functions rebound/825additional source candidates.25 changed scripts/137 qualified function changes/9top-level delta files;506dispatch/927mutation records,57callback runtime domains open.4420runtime-root paths/18JSON catalogues;no engine/game/scene runs,new art/capture/route credit.240 roles/32families,0 accepted/globalunknown/allacceptance open.
+
+<a id="farmer-current-context-chg-058"></a>
+## CHG-058 — Farmer current-context audit (2026-10-15)
+
+- Scope: [R51 plan/review/manifest](../docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/README.md); [impact](../design/audit_impacts/flat-vector-farmer-context-20261015.json). Audit branch801b36a5 remains production-source unchanged;runtime native source5120b6d5 uses separate clean managed checkout.
+- Two continuous original viewport cases complete gather5/fill5/drag delivery;private synthetic post-boss/startup room seams are explicit. Original private reload case fails after gathering:disk completion64 precedes fill/delivery;this is not fixed by continuous success. Normal saves andall4420source/4041initialized sidecar bytes unchanged.
+-120native files add96bounded/24excluded;totals4099bounded/5850retained/1751excluded. Stable240role records/32families retained;83partial catalogue entries/93without/0complete;global artwork/screens/regressions unknown,0accepted. Six point-by-point observations attach exact sources andsame-scene comparison;no new generation orruntime code/adoption.
+- Machine/document/2D signatures andpublication receipts remain separately evidenced;they do not accept art,natural journey,QA11 ordevice/child/owner lanes. Existing finding lifecycles remain unchanged.
+- Rollback: inspect additive CHG-058 audit/navigation on a dedicated codex rollback branch,preserving frozen history andlater changes. No runtime rollback orrelease authority.

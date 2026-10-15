@@ -1,0 +1,13 @@
+{
+  "failures": [
+    {
+      "evidence": "gates_attempt1.log",
+      "scope": "Evidence validator wrongly assumed engine display string uses dots; actual structured major/minor/patch/status/build/hash exactlyapproved4.7.2. Corrected validator fields; no source orruntimechange."
+    },
+    {
+      "evidence": "gates_attempt2.log",
+      "scope": "Document authority found not-yet-built MANIFEST link. Build actual manifest before rerun; no missing target waiver orchanged audit rules."
+    }
+  ],
+  "runtime_failure_separate": "SAVE_REGRESSION.json retains actual Farmer intermediate cold-resume failure."
+}

@@ -1,0 +1,43 @@
+{
+  "fixture_sha256": "1872aae62d5b7e313df033ee56545991389737710d28d4330f4e967a8cd36717",
+  "executed_copy_sha256": "1872aae62d5b7e313df033ee56545991389737710d28d4330f4e967a8cd36717",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r51_farmer_context\\capture_farmer.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "checked_at_utc": "2026-10-15T08:47:19.985272+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r51_farmer_context\\capture_farmer.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "checked_at_utc": "2026-10-15T08:47:20.194989+00:00"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r51/capture_farmer.gd"
+      ],
+      "exit_code": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n",
+      "checked_at_utc": "2026-10-15T08:47:30.360885+00:00"
+    }
+  ]
+}

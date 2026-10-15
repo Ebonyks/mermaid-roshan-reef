@@ -1,0 +1,1616 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "new_retained_native": 120,
+  "new_bounded": 96,
+  "new_excluded": 24,
+  "unique_png_byte_hashes": 120,
+  "cases": [
+    {
+      "case": "attempt1_farmer_1280",
+      "states": 18,
+      "events": 20,
+      "errors": [
+        "original Farmer DiningRoom picture unavailable"
+      ],
+      "report_sha256": "0f49d3813bbe69254324dedcf9f135cb9387248427b23c48faaca02b38b201a5",
+      "fixture_sha256": "1872aae62d5b7e313df033ee56545991389737710d28d4330f4e967a8cd36717",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "normal_saves_exact": true,
+      "runtime_files_exact": 4420,
+      "sidecars_exact": 4041,
+      "exit_code": 1,
+      "scope": "Private synthetic checkpoint + startup room API seam; original viewport touches. No natural route/device/child/owner/QA11/art acceptance."
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "states": 51,
+      "events": 132,
+      "errors": [],
+      "report_sha256": "1ccf75fc863caa0f06588b26637b1d98873895de10a236819d15dab86e020c1f",
+      "fixture_sha256": "e9b576d5809abdf7d35ea34f51e1450229ea867e45dfeefa8c4632f6dcac97cf",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "normal_saves_exact": true,
+      "runtime_files_exact": 4420,
+      "sidecars_exact": 4041,
+      "exit_code": 0,
+      "scope": "Private synthetic checkpoint + startup room API seam; original viewport touches. No natural route/device/child/owner/QA11/art acceptance."
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "states": 51,
+      "events": 132,
+      "errors": [],
+      "report_sha256": "01fda0e069859864c26084a8a973055e1a51c6ba7f9b058dfb6d1f3e7c6f4a04",
+      "fixture_sha256": "e9b576d5809abdf7d35ea34f51e1450229ea867e45dfeefa8c4632f6dcac97cf",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "normal_saves_exact": true,
+      "runtime_files_exact": 4420,
+      "sidecars_exact": 4041,
+      "exit_code": 0,
+      "scope": "Private synthetic checkpoint + startup room API seam; original viewport touches. No natural route/device/child/owner/QA11/art acceptance."
+    }
+  ],
+  "captures": [
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "first_dining_room",
+      "path": "native/attempt1_farmer_1280/first_dining_room.png",
+      "sha256": "2ede3bcd7c58f3f1e45fbaa8d48b694f96e6cfe0a3fa460de4af520959a01e45",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "first_world",
+      "path": "native/attempt1_farmer_1280/first_world.png",
+      "sha256": "94e6a557ca236864b8d82fb848e799c32bbaaab0b1e7fcf67ab6294aec14157a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_invitation",
+      "path": "native/attempt1_farmer_1280/gather_invitation.png",
+      "sha256": "0311c1b85fb0330700e0886f3d3ccbe45ed2a8514aef99a0942d32d5f37563a8",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_ready",
+      "path": "native/attempt1_farmer_1280/gather_ready.png",
+      "sha256": "f422a810e0083e1438381fec092bb3d7fd3ab12dc85815d7052cabd428d77c67",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_passive",
+      "path": "native/attempt1_farmer_1280/gather_passive.png",
+      "sha256": "a37ad301ebff7d37009459756f19b1a1b7463b333b61fd610a421386dd29bbed",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_0_pressed",
+      "path": "native/attempt1_farmer_1280/gather_0_pressed.png",
+      "sha256": "f9c6aeb08209aa358693912449b8fa361c85c5f211754df681020cc05ed25895",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_0_released",
+      "path": "native/attempt1_farmer_1280/gather_0_released.png",
+      "sha256": "93a53a063b7f01055f7880a3c999036a46cf202274a914e6964321cf063c4f3b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_1_pressed",
+      "path": "native/attempt1_farmer_1280/gather_1_pressed.png",
+      "sha256": "d8e4f1fd55dda0fc13d91c66556ed581eb687720eb8cadd049b123c8e800a96c",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_1_released",
+      "path": "native/attempt1_farmer_1280/gather_1_released.png",
+      "sha256": "7aa71005203eb497987ca824e473f59ea5d29d9b0d465cfcc2607c7cc92905db",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_2_pressed",
+      "path": "native/attempt1_farmer_1280/gather_2_pressed.png",
+      "sha256": "5f9b8a6c160beab0d73a8138a210155e66117e54124505a4401c7e4facc62bce",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_2_released",
+      "path": "native/attempt1_farmer_1280/gather_2_released.png",
+      "sha256": "da86279b26a50a7b0221f491c3c1cea0e3c4990df27b08ff7fefb354ef4d0d89",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_3_pressed",
+      "path": "native/attempt1_farmer_1280/gather_3_pressed.png",
+      "sha256": "450e92e56435b58ba30a67c2d5c1f1f08d79fe4460ffcfb17aba32a0b160d601",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_3_released",
+      "path": "native/attempt1_farmer_1280/gather_3_released.png",
+      "sha256": "70fbbb8a99f34768e4482a7312529e1116b9ea676349fe6ca6fc101bc3a370c9",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_4_pressed",
+      "path": "native/attempt1_farmer_1280/gather_4_pressed.png",
+      "sha256": "3bb807d5deada1882e8036a202f36882927a631b75a8485140a3dbf1d3557e36",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "gather_4_released",
+      "path": "native/attempt1_farmer_1280/gather_4_released.png",
+      "sha256": "2bbc86f55c8d4b4fcddc8422a721de2a729eb7e11d433770cd41606536aac51c",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "fill_first_invitation",
+      "path": "native/attempt1_farmer_1280/fill_first_invitation.png",
+      "sha256": "7059e8672188e0ed2ccaf7b34b30ecb561b9261084d171e443c8de4aacc85610",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "fill_first_ready",
+      "path": "native/attempt1_farmer_1280/fill_first_ready.png",
+      "sha256": "f7859f492bacf8b3cfe2132bede79f31487ffee3af9a19b7b522024eea187a43",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt1_farmer_1280",
+      "id": "fill_before_private_reload",
+      "path": "native/attempt1_farmer_1280/fill_before_private_reload.png",
+      "sha256": "25a414b759ca78fc068c753096dbbe995d22b820de557f45d4ce799dd9a78cc9",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Failed intermediate reload case; no duplicate artwork credit",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "first_dining_room",
+      "path": "native/attempt2_farmer_1280/first_dining_room.png",
+      "sha256": "5ccb7b2c76ba65fa64f0faaa2114e74e9aab4ec3c0e13f7739a8eb18049842f2",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "EXCLUDED_ROOM_ENTRY_DIAGNOSTIC",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "first_world",
+      "path": "native/attempt2_farmer_1280/first_world.png",
+      "sha256": "f8fd94e7cc5135e26a632e3ac4f47f67e4a0ce1f298573235f8431ed87267c39",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_invitation",
+      "path": "native/attempt2_farmer_1280/gather_invitation.png",
+      "sha256": "2d5e945cc712fa1a25e40bd10dd96b151fd2dbe06450ad5bb8b38d0bd0ad1bdf",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_early",
+      "path": "native/attempt2_farmer_1280/gather_early.png",
+      "sha256": "26f012860e0ff533d38374c441893fca904dc58681bf9fe4d09c4ff858e1181a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_ready",
+      "path": "native/attempt2_farmer_1280/gather_ready.png",
+      "sha256": "1e0db060e1000d334286bc48bdb1fcf56e06ab81db801dc10b96efe9a70649ca",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_passive",
+      "path": "native/attempt2_farmer_1280/gather_passive.png",
+      "sha256": "6f3c05c2cd98397d2fc8b96560cfe3fdaa81355d74e9b0bbc706052215c7c6c3",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_0_pressed",
+      "path": "native/attempt2_farmer_1280/gather_0_pressed.png",
+      "sha256": "a4890ad669d1db9022b63dbff2fb7e48a40c58bebbe113013c5055531d899399",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_0_released",
+      "path": "native/attempt2_farmer_1280/gather_0_released.png",
+      "sha256": "2875eb77464645f1434669db69bbec5c6ba8a019b4a5deb254f76b13e115f8db",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_1_pressed",
+      "path": "native/attempt2_farmer_1280/gather_1_pressed.png",
+      "sha256": "e61af96600f04609f6c99bd5300065903fbd78e406bb0c98e792cc51bb0ca30e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_1_released",
+      "path": "native/attempt2_farmer_1280/gather_1_released.png",
+      "sha256": "e331a4d7884db936601bde3b12b3b78009eb993063ba8490d54c60e1d8a699ca",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_2_pressed",
+      "path": "native/attempt2_farmer_1280/gather_2_pressed.png",
+      "sha256": "d0de444aceeb4f2aa7c522ef4b7bdb83013227b7aa5272f833fe52e321cc4619",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_2_released",
+      "path": "native/attempt2_farmer_1280/gather_2_released.png",
+      "sha256": "3e7dad796f7da20a3c540b525bd51a9ae00616a0009f092c3bb7fc4d0b91f9bf",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_3_pressed",
+      "path": "native/attempt2_farmer_1280/gather_3_pressed.png",
+      "sha256": "e626254d1ed22e11048ff85a69b2b1b9066f0fe20adb5763867a35aa3cd5a695",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_3_released",
+      "path": "native/attempt2_farmer_1280/gather_3_released.png",
+      "sha256": "ed25006cd87786fdf4826d0befa2d85cc68a872e6b021a3eef1e221476cf3ad1",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_4_pressed",
+      "path": "native/attempt2_farmer_1280/gather_4_pressed.png",
+      "sha256": "f3699ef24a6631c1596fa9557c7f1c0d2af14b70795743e103fc4e64044ce880",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "gather_4_released",
+      "path": "native/attempt2_farmer_1280/gather_4_released.png",
+      "sha256": "02409f87c103761aebc8cf57ff6991b4305b75629fb94eae1cde8bf5f3634ab3",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_first_invitation",
+      "path": "native/attempt2_farmer_1280/fill_first_invitation.png",
+      "sha256": "2e27cb0671b5d54bb4ce193dd634c1ccd8be64e635734a81a796be8b2d301246",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_first_early",
+      "path": "native/attempt2_farmer_1280/fill_first_early.png",
+      "sha256": "25f80f196ddd2fcc861991f8bb32a226adc8dc6bc82472fe6539a28d2419bbaa",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_first_ready",
+      "path": "native/attempt2_farmer_1280/fill_first_ready.png",
+      "sha256": "8dccce049a78e1e60775b9ebbd9509bf92015f39c674a73e1ad0779aea9c9499",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_continuous_checkpoint",
+      "path": "native/attempt2_farmer_1280/fill_continuous_checkpoint.png",
+      "sha256": "bfad3207f50f95c7549a779a48426f243b720fca33c287a5dcb01b42411c70e3",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_off_target_pressed",
+      "path": "native/attempt2_farmer_1280/fill_off_target_pressed.png",
+      "sha256": "442625801eae0b1d7f6c707e5de2f30c81caa3b8d69597880eca2af83973cd04",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_off_target_released",
+      "path": "native/attempt2_farmer_1280/fill_off_target_released.png",
+      "sha256": "f63f63ff0ac89d342ef7f1855d44a5d70354152f2984b4465266c862b84593ee",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_passive",
+      "path": "native/attempt2_farmer_1280/fill_passive.png",
+      "sha256": "68d2d3067e6deffc9ce464f295ee04762cc1ef4ea66ed4b4facfe2034bf22eae",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_0_pressed",
+      "path": "native/attempt2_farmer_1280/fill_0_pressed.png",
+      "sha256": "8eb8ad62d81c6e3576ba0a7104721c81b8c735ff0247488622ac39ceb7e0dca2",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_0_released",
+      "path": "native/attempt2_farmer_1280/fill_0_released.png",
+      "sha256": "37a44f02559065aa1f05465a2170cefbac0ff5e3bbdac34f294556975b97afd4",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_1_pressed",
+      "path": "native/attempt2_farmer_1280/fill_1_pressed.png",
+      "sha256": "24933acde201e081870943436ff46a74b6cd607b73da166fc79adddc7d7437eb",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_1_released",
+      "path": "native/attempt2_farmer_1280/fill_1_released.png",
+      "sha256": "9b37d35a6acc85142f37d2fcc2e689cd275b3148c27e268a362540103829e9ad",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_pause",
+      "path": "native/attempt2_farmer_1280/fill_pause.png",
+      "sha256": "e32fe15845bb20fb249aa1c7d27111ff9a69212395476de97307bcfa91327ef9",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "EXCLUDED_PAUSE_DIAGNOSTIC",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_resumed",
+      "path": "native/attempt2_farmer_1280/fill_resumed.png",
+      "sha256": "1faf4d73c09683f46319d6cfb73105d29698354661020220aa3ae904886a6142",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_2_pressed",
+      "path": "native/attempt2_farmer_1280/fill_2_pressed.png",
+      "sha256": "f35c7cd558de430d66bbdf65af2a63b7f681f29dcbe17977aa582eb8c45c1395",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_2_released",
+      "path": "native/attempt2_farmer_1280/fill_2_released.png",
+      "sha256": "f29f4782b0427547fa118a46ed815aa32b2b576fc4103388cd508117c82db260",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_3_pressed",
+      "path": "native/attempt2_farmer_1280/fill_3_pressed.png",
+      "sha256": "7ad839aa734ce7d6d24e4618c8d268f8d72baa66a19e6df122ff9088f427e629",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_3_released",
+      "path": "native/attempt2_farmer_1280/fill_3_released.png",
+      "sha256": "4d0f73c76984ad7c65dc4af88052538fb719c07ef2d84d802824613c49ea4c01",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_4_pressed",
+      "path": "native/attempt2_farmer_1280/fill_4_pressed.png",
+      "sha256": "f876e058270ad1d30c6b67fa7825aa1e524866dfd92f8a8f6aff5ea32ce31240",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_4_released",
+      "path": "native/attempt2_farmer_1280/fill_4_released.png",
+      "sha256": "65a00c37e47c9ce354b16f6ed00a0789d9e9021b63ba07b77a286303a1c1707c",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "fill_full_settle",
+      "path": "native/attempt2_farmer_1280/fill_full_settle.png",
+      "sha256": "7032ca520de236e4ee1b7faf035c61ea207724f1388c6e47c583ffdf91bc7b2f",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_invitation",
+      "path": "native/attempt2_farmer_1280/delivery_invitation.png",
+      "sha256": "8ea305c1a615f1d21e1618fe5b4e9b21841b0ef72a8a526df921153d896438a8",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_early",
+      "path": "native/attempt2_farmer_1280/delivery_early.png",
+      "sha256": "aa29f48201cf99bb9004c90bfe719ae9fdbeb6bfcf204d835039a66e5e91ccd3",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_ready",
+      "path": "native/attempt2_farmer_1280/delivery_ready.png",
+      "sha256": "27c8d0ade6d989c5389687512eb7072804c0e8380b2f1670cc4823bfaee92608",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_passive",
+      "path": "native/attempt2_farmer_1280/delivery_passive.png",
+      "sha256": "24ccb77082162af0e73f0ff043be8f6f18077e94ccb29e858bab3a2f0c306629",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_pressed",
+      "path": "native/attempt2_farmer_1280/delivery_pressed.png",
+      "sha256": "1c3f8aafbd39a0bb2612a0ba6030601fd88213e848876b8fbc07bde5144b2b9e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_drag_8",
+      "path": "native/attempt2_farmer_1280/delivery_drag_8.png",
+      "sha256": "58443e89adb53c50e18d441d2c4ded776f5b49b32fc2e1ca9d29f3a874653129",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_drag_16",
+      "path": "native/attempt2_farmer_1280/delivery_drag_16.png",
+      "sha256": "b8bc0d3a7a1b64fb7ccd80f3d9350de13b52666eb9d5340ee8f47bc4403fc5dd",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_drag_32",
+      "path": "native/attempt2_farmer_1280/delivery_drag_32.png",
+      "sha256": "673fa70a77772816bfad6967fdffe4acc122cbfe45052790d36fe9f2f046c3ba",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_partial_released",
+      "path": "native/attempt2_farmer_1280/delivery_partial_released.png",
+      "sha256": "956de66c03e35c5c0999581bb59e49de7895ba5a5df90f9f2e9a82f2ff02ee89",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_finish_drag_16",
+      "path": "native/attempt2_farmer_1280/delivery_finish_drag_16.png",
+      "sha256": "2aa03cca47f7e356089de2f6ad4607a2fded6b3ce8a6ee64f4ddcf2fe38e2887",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_finish_drag_32",
+      "path": "native/attempt2_farmer_1280/delivery_finish_drag_32.png",
+      "sha256": "0271c6dbee0e1ea3f7227ee8a16f631ca5b0a713efeb412bcae96bf4f232f6a0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_finish_drag_48",
+      "path": "native/attempt2_farmer_1280/delivery_finish_drag_48.png",
+      "sha256": "990278720e8fddbc3fd01839b97beb368453a6fe9adf4e99da8c25901ff1535b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_finish_drag_63",
+      "path": "native/attempt2_farmer_1280/delivery_finish_drag_63.png",
+      "sha256": "b6f28384451304abe2bd806951aa3304ba4e4504ce7aa32576a4b32bf6220d8f",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "delivery_endpoint_released",
+      "path": "native/attempt2_farmer_1280/delivery_endpoint_released.png",
+      "sha256": "31e7561913bb584ac954d952ce771c5a7674d729d1aa48b91a289d2524d930b6",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1280",
+      "id": "farmer_result_return",
+      "path": "native/attempt2_farmer_1280/farmer_result_return.png",
+      "sha256": "567bb34d8fe180d3bf356c208ccbd494682eed0a9156c1e0b3c4224e6a46594b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "EXCLUDED_RETURN_DIAGNOSTIC",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "first_dining_room",
+      "path": "native/attempt2_farmer_1600/first_dining_room.png",
+      "sha256": "68fc1aff43d49582b67f4b6502223ae67a9c2c2dcc5af929240cbafd1812857a",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "EXCLUDED_ROOM_ENTRY_DIAGNOSTIC",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "first_world",
+      "path": "native/attempt2_farmer_1600/first_world.png",
+      "sha256": "492d9880aaf999849a6fb39659be9e63e9ab18e49d34ab097385be2c3d41926b",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_invitation",
+      "path": "native/attempt2_farmer_1600/gather_invitation.png",
+      "sha256": "8031c862a139ab8e4ff639fca70d2dd7528ce38df4869118619e3d76d9381ad5",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_early",
+      "path": "native/attempt2_farmer_1600/gather_early.png",
+      "sha256": "4d58efad12c3663a5fd5bec349fd7e95262bd215546cf000333873c381d0770f",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_ready",
+      "path": "native/attempt2_farmer_1600/gather_ready.png",
+      "sha256": "62a3fa73d751754611bc26401eaa1700e2e6f54ac491b08668f41c7a52ba57c9",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_passive",
+      "path": "native/attempt2_farmer_1600/gather_passive.png",
+      "sha256": "7c63bcd377c9e96cb808ca1ba9f704d37ac57b92266b03aef2d737d5fca45535",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_0_pressed",
+      "path": "native/attempt2_farmer_1600/gather_0_pressed.png",
+      "sha256": "57d0ab78afdec35dacf4222735d17eec79411d4a9addf0d54f43caec602d304a",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_0_released",
+      "path": "native/attempt2_farmer_1600/gather_0_released.png",
+      "sha256": "d77fad27eea96abffdd207b5188560e2d68610cd1a2b81a958e9166aef5ed7da",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_1_pressed",
+      "path": "native/attempt2_farmer_1600/gather_1_pressed.png",
+      "sha256": "4123cc43c1636d33cd844c7cd8696bfb7a2f4580b46f02c5f6ec9db352800ded",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_1_released",
+      "path": "native/attempt2_farmer_1600/gather_1_released.png",
+      "sha256": "15b3b0a9ad50e5da9b039e146148d34d4bac2c511c4b29c676bafe8b9fda7899",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_2_pressed",
+      "path": "native/attempt2_farmer_1600/gather_2_pressed.png",
+      "sha256": "eece4eddb3c1080ad723aaca4b4386666d9330fd2238d13ed13a92767d00ff24",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_2_released",
+      "path": "native/attempt2_farmer_1600/gather_2_released.png",
+      "sha256": "3d7e74cf13c9ead898a93e82dc091b71c1d71ad9aa5c989be03cd57f64d4af95",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_3_pressed",
+      "path": "native/attempt2_farmer_1600/gather_3_pressed.png",
+      "sha256": "0fd5945339fcdc2054ec6bc53cd127cd3cc9135110f2cbbd488c90cbdf9c609e",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_3_released",
+      "path": "native/attempt2_farmer_1600/gather_3_released.png",
+      "sha256": "2044c4e8982e2a72d24926da105616517cb31b07ab70e0e557af37c2e50b2962",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_4_pressed",
+      "path": "native/attempt2_farmer_1600/gather_4_pressed.png",
+      "sha256": "e039cced7af91a8faa6ee48be0e2f62763e6ae36b82b2c23bb8ce31733e3fafa",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "gather_4_released",
+      "path": "native/attempt2_farmer_1600/gather_4_released.png",
+      "sha256": "7c155d4416ff884c83c6ad860e3a4a8e4e8f0191f8768f1e5f9b1736fe74891b",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_first_invitation",
+      "path": "native/attempt2_farmer_1600/fill_first_invitation.png",
+      "sha256": "1aa1b16572860e2657c38b55c2701129b3573ec89322b9f337633f5d81085f6f",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_first_early",
+      "path": "native/attempt2_farmer_1600/fill_first_early.png",
+      "sha256": "b3dc918c7912e06020dc5270a5d6ab8e53a09489f192f93fd46d7b93c37f5b35",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_first_ready",
+      "path": "native/attempt2_farmer_1600/fill_first_ready.png",
+      "sha256": "11c84f0482755119aa7a60c97e726b2718128e55f6ddc2dbfaf08d6e2005a7cf",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_continuous_checkpoint",
+      "path": "native/attempt2_farmer_1600/fill_continuous_checkpoint.png",
+      "sha256": "7eebffbd37e4e5f1934c0ec5faa4520230eaeb4d2ddff0cc809d6854e6517e78",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_off_target_pressed",
+      "path": "native/attempt2_farmer_1600/fill_off_target_pressed.png",
+      "sha256": "650dc55ff6859d7b1530f2e27fcc9ef98a17d8f5b4f40f78a2db3d911bab4ea4",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_off_target_released",
+      "path": "native/attempt2_farmer_1600/fill_off_target_released.png",
+      "sha256": "dad0e448adafce6303b853e42c5753fc22eb0e5a9c18c1706a5581c7b1ddf76d",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_passive",
+      "path": "native/attempt2_farmer_1600/fill_passive.png",
+      "sha256": "b70136121481153619f691de93f0cc6c54a167c0886532c6a79eb6dba122103c",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_0_pressed",
+      "path": "native/attempt2_farmer_1600/fill_0_pressed.png",
+      "sha256": "1894fdbb4a102c1617887d940eb56947722ae994e512481c1be88fbb6ae66fb7",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_0_released",
+      "path": "native/attempt2_farmer_1600/fill_0_released.png",
+      "sha256": "7a21808108761f18820de2a386a13128b909626db3bd91331f757f87afcde80c",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_1_pressed",
+      "path": "native/attempt2_farmer_1600/fill_1_pressed.png",
+      "sha256": "bd4280c1fa846b25cb2593d030ada5c99594459af4344f0c1ad67aed48288af5",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_1_released",
+      "path": "native/attempt2_farmer_1600/fill_1_released.png",
+      "sha256": "02bde04820105a1047d37c94cacd5c9ad1eb6673895e6f5699d2701668f0c063",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_pause",
+      "path": "native/attempt2_farmer_1600/fill_pause.png",
+      "sha256": "7398f5b0cf335970c7a1bbdaa5c6e140a9d4ffefc0894b5dca8e6c3450e56e3c",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "EXCLUDED_PAUSE_DIAGNOSTIC",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_resumed",
+      "path": "native/attempt2_farmer_1600/fill_resumed.png",
+      "sha256": "a92291d42b4884cfea8cf070e7dc6de4def5da6bc37e80058f4d1e702e78a108",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_2_pressed",
+      "path": "native/attempt2_farmer_1600/fill_2_pressed.png",
+      "sha256": "2a113a91673f4628464b0cb1b7d3697f1a36db2c8ef3344017102cd4acf87f24",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_2_released",
+      "path": "native/attempt2_farmer_1600/fill_2_released.png",
+      "sha256": "5fc009af54fed254cb157094dd0b9e5bc9d3ebf50f13bc035da0bb3b7a0b7232",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_3_pressed",
+      "path": "native/attempt2_farmer_1600/fill_3_pressed.png",
+      "sha256": "6d6c68f934bf4b86da51ff6b59edd17c236dbf4d5cc69b4957b46b59797e6127",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_3_released",
+      "path": "native/attempt2_farmer_1600/fill_3_released.png",
+      "sha256": "14814c92f7fbe3bed7683bdb025bb9ca9002d196209f253187d35d07f507c764",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_4_pressed",
+      "path": "native/attempt2_farmer_1600/fill_4_pressed.png",
+      "sha256": "5a41b855b6f8b79c718a53fbcf4720def8ff4c8c3f0a6bf34cf808d953976d9a",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_4_released",
+      "path": "native/attempt2_farmer_1600/fill_4_released.png",
+      "sha256": "ecdc535727fadc839f645ddbf8cb32d1789e23bb073bf48fb26296d90769172c",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "fill_full_settle",
+      "path": "native/attempt2_farmer_1600/fill_full_settle.png",
+      "sha256": "5122e65c315be869e08ee1f498e388316012a60dd2b64c6d46ddada35f8139e8",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_invitation",
+      "path": "native/attempt2_farmer_1600/delivery_invitation.png",
+      "sha256": "03e0bcae40c708fa3dfc0f0f1fd9f0a36f7a83116880e89fa774313e94ccdece",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_early",
+      "path": "native/attempt2_farmer_1600/delivery_early.png",
+      "sha256": "a807ab5fea8b0ca9e01633bfaa224c1aa19a413423d1964a2bead117e5f77366",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_ready",
+      "path": "native/attempt2_farmer_1600/delivery_ready.png",
+      "sha256": "85bec87d613c8e80c8be16a984e66187399ae154ec59b7f0e5f4c6df87a7b9a2",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_passive",
+      "path": "native/attempt2_farmer_1600/delivery_passive.png",
+      "sha256": "290129dfca1fd580f40e9501394afbf60cdfe301bcd330f8a34980da2df7a41a",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_pressed",
+      "path": "native/attempt2_farmer_1600/delivery_pressed.png",
+      "sha256": "8de1c2aae326a16fe3b210f279ecbbf2e2d469c6d2f32d27abeef424dae5a718",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_drag_8",
+      "path": "native/attempt2_farmer_1600/delivery_drag_8.png",
+      "sha256": "f74b767e23b7964ed0b9a744a5be50057252474d2e136fdcc4aa3019df67192f",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_drag_16",
+      "path": "native/attempt2_farmer_1600/delivery_drag_16.png",
+      "sha256": "2c7f51bf342bdcef91e5641ee1b309e427ae996477dc9137386bf62cc8a3b787",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_drag_32",
+      "path": "native/attempt2_farmer_1600/delivery_drag_32.png",
+      "sha256": "733f6ff242b5c239a939dcf64bd59eb08f0c9a9792a3a278f988deb797c4dafd",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_partial_released",
+      "path": "native/attempt2_farmer_1600/delivery_partial_released.png",
+      "sha256": "d855a099e24af24b8751a5652ab14838fd753b9ce709814019eb29f9d1bb50aa",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_finish_drag_16",
+      "path": "native/attempt2_farmer_1600/delivery_finish_drag_16.png",
+      "sha256": "092e92cd70440e99e95c23f1f30899fe407d6e5018140a14ede85fdcafa135e2",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_finish_drag_32",
+      "path": "native/attempt2_farmer_1600/delivery_finish_drag_32.png",
+      "sha256": "64be36777b2d85a965ba3457fcb7d9fbfb98b11a0c01d3c3db0efab554023eb8",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_finish_drag_48",
+      "path": "native/attempt2_farmer_1600/delivery_finish_drag_48.png",
+      "sha256": "c9215a7b8edc59ede300da785cb118233c95345ec6dc30e665ebd0a710eaeb27",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_finish_drag_63",
+      "path": "native/attempt2_farmer_1600/delivery_finish_drag_63.png",
+      "sha256": "ce59ea1a485a2c5287abc647196ae6dbc6f7975bd16d1d7d0e3c5298392a9380",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "delivery_endpoint_released",
+      "path": "native/attempt2_farmer_1600/delivery_endpoint_released.png",
+      "sha256": "51aa007d844f54aabac3f9049171266ce63856b6733fca85c460f156b2d13184",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "BOUNDED_CURRENT_CONTEXT",
+      "reason": "CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    },
+    {
+      "case": "attempt2_farmer_1600",
+      "id": "farmer_result_return",
+      "path": "native/attempt2_farmer_1600/farmer_result_return.png",
+      "sha256": "ac604aaeb7c43b3afe82261fe149b1c13e3df630a30c7d44ff0ed667261a223c",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "lane": "EXCLUDED_DIAGNOSTIC",
+      "reason": "EXCLUDED_RETURN_DIAGNOSTIC",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+    }
+  ],
+  "count_unit": "Capture files, not unique artwork/screens/authored frames. Failed18 plus successful room/pause/return6 excluded; no whole-route closure."
+}

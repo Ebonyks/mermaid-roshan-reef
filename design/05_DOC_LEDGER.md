@@ -1281,3 +1281,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Authority and scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/README.md` | 🔵 | `SUPPORTING_CURRENT`; immutable origin/dev5120b6d5 source-only audit:312 parsed scripts/369 frozen functions rebound/825 additional source candidates,25 changed scripts/137 changed qualified functions/9 top-level delta files.4420 runtime-root paths/18 JSON files,57 unresolved non-test callbacks/full runtime domains. No new art/captures,disposition,route/context or acceptance credit;240 roles/32 families,0 accepted/global unknown. |
+
+## Farmer current-context audit — 2026-10-15 R51
+
+| Document | State | Authority and scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; source5120b6d5 actual Mobile/Speedy Farmer context at two widths,120native/96bounded/24excluded;harvest-only private-save completion regression reproduced;crop/basket/destination/guide/wide-aspect weaknesses unrepaired.240roles/32families,0accepted/globalunknown;no runtime/art/source change ordevice/child/owner acceptance. |

@@ -221,3 +221,5 @@ Publish this current-context revision before the first fully source-bound named 
 Local machine verification uses Godot **4.7.2.stable.official.ed1daf0bf**. The [full validation record](FULL_VALIDATION.json) establishes all 82 trusted probes through the permitted probe-by-probe lane. The original Bash run exited 1 after four probe exits of 127; all four exact same-source native retries passed. The original failure and unknown cause remain recorded. Syntax, type and engine checks for diagnostic harnesses establish compilation only. Green machine checks do not grant visual or art acceptance.
 
 R49 freshness: newer origin/dev5120b6d5 has23 incoming product paths; [upstream comparison](r49_callback_value_domains/UPSTREAM_RECONCILIATION.json) records18 unchanged selected method bodies and a pending full inventory/context refresh.
+
+R51 [current Farmer context](r51_farmer_context/README.md):two actual Mobile/Speedy continuous cases,120native files/96bounded contexts,6point-by-point observations including verified harvest-only save normalization failure. No new art,source changes,unique artwork count oracceptance.

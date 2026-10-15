@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\r51_farmer_context\validate.py", line 42, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\r51_farmer_context\validate.py", line 13, in main
+    p=P/'native'/c['case'];report=rd(p/'capture_manifest.json');result=rd(p/'RESULT.json');assert report['source_revision']==D and report['engine']['string'].startswith('4.7.2.stable.official')and report['renderer']=='mobile'and report['time_scale']==1
+                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

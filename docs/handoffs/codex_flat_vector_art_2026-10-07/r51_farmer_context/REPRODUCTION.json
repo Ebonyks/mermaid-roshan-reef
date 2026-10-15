@@ -1,0 +1,27 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "runtime_byte_baseline": "RUNTIME_BYTE_BASELINE.json",
+  "runtime_worktree": "RUNTIME_WORKTREE.json",
+  "original_failed_fixture": "native/attempt1_farmer_1280/fixture_source.gd",
+  "continuous_fixture": "capture_farmer.gd",
+  "wrappers": [
+    "run_first_native.py",
+    "run_continuous_native.py"
+  ],
+  "wrapper_path_limit": "Historical wrappers preserve exact run paths. For reproduction choose a new owned source-exact worktree/private Temp output and copy the chosen archived fixture into its ignored export/flat_vector_r51 path before checking parser/inference/exactengine. Rebind only wrapper staging paths,nevernormal saves/source/gameplay state. Original first wrapper against current continuous fixture is not an exact failed-case reproduction.",
+  "aspects": [
+    [
+      1280,
+      720
+    ],
+    [
+      1600,
+      720
+    ]
+  ],
+  "input": "Original viewport ScreenTouch/Drag index71 with source anchor oracle; startup room API/postboss syntheticseed explicit;notnatural-childroute.",
+  "privacy": "Private synthetic profile only;normal8 suffixes hashguarded,nevercopied orseeded.",
+  "new_art_or_runtime_changes": false,
+  "current_save_regression_repaired": false
+}

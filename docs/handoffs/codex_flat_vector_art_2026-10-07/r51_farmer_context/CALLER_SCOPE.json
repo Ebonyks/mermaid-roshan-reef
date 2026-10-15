@@ -1,0 +1,53 @@
+{
+  "runtime_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "act_id": 6,
+  "room": "dining_room",
+  "phases": [
+    "gather_strawberries",
+    "fill_basket",
+    "deliver_to_kitchen"
+  ],
+  "draw_callers": [
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_sky_lagoon_farmer",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "37a9bf06e2c2b777086543ca48fb54b3634ccc8d5a1620a6f03668e6dff0e740",
+      "body_sha256": "3000ebb0065827e107a2b72149b92f9cdc127e5a341525fc41bfb785a12895cd",
+      "start_line": 141,
+      "end_line": 168
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_target_subject",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "body_sha256": "43f2678c169eb43840bb1a95681e64cc0263b92c880ca86919cb5d2aa947d6bb",
+      "start_line": 3043,
+      "end_line": 3057
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_chapter2_basket_delivery",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "body_sha256": "d1a7237eaf38df56bb76905f1e7b46ee95042a9d88d836e503933a2730fe25f2",
+      "start_line": 1689,
+      "end_line": 1710
+    }
+  ],
+  "entry": "Synthetic post-boss checkpoint,original Main/Continue plus declared startup level2/room mount API; original DiningRoom picture and viewport control actions. Not a natural earned DayOne journey.",
+  "observed_source_draw_routes": [
+    "chapter2_basket_fill",
+    "push:chapter2_basket_delivery"
+  ],
+  "state_mutation_scope": "Only fixture seed at new private path and declared startup room routing; no gameplay phase/progress/target/hit/clock/geometry changes. Continuous cases do not reset failed resume masks.",
+  "teardown": "Original application-paused notification then scene free; each wrapper independently guards4420runtime files,4041 initialized sidecars andnormal8save suffixes.",
+  "acceptance_limits": [
+    "Current native desktop Mobile/Speedy only;phone GPU/performance not tested",
+    "All alternate/cancel/hit/fallback/resource/native aliases andothercareers remain open",
+    "Full authored motion/support/contact not reviewed from sparseframes",
+    "Intermediate cold-resume FAIL preserved;continuous success does not override it",
+    "QA11/device/child/owner/global inventory remain open"
+  ]
+}
