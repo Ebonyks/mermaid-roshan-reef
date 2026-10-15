@@ -1321,3 +1321,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/README.md` | 🔵 | `SUPPORTING_CURRENT`; source5120b6d5 catalogue meaning/176labels/312scripts and pure selector144queries87assertions. Zero new visible/route/art credit; all prior histories/finding floors and unknown denominator remain. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; source5120b6d5 real Pause Critters/tabs/Back/private reload,2Mobile aspects+passive10s;59checks110native71bounded39excluded.9native2source assistant views confirm1px text/flat material/transient caption weaknesses. No new alias/art/acceptance credit; global unknown. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; source5120b6d5 bounded isolated Critter Book layout/painted reuse trial2Mobile aspects104checks340native128bounded212excluded;68book204button observations; exact source recipe. Unapproved/production unchanged;0art/alias/removal, global unknown. |

@@ -1,0 +1,7 @@
+{
+  "native_launches_from_failed_preflight": 0,
+  "frames": 0,
+  "cause": "A broad reused job-name replacement also changed evidence-folder constant. Missing base-source path failed before any job directory/process was created.",
+  "repair": "Set exact evidence path r59_critter_book_reuse; job naming remains separate. Native fixture bytes and analyzer results unchanged.",
+  "lesson": "Construct evidence/source/job paths independently; never globally replace shared directory substrings in a runner."
+}

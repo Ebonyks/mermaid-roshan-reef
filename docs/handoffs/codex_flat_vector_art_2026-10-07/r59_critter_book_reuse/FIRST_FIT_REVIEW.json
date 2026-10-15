@@ -1,0 +1,45 @@
+{
+  "case": "native/attempt1_critter_reuse_painted_1280",
+  "checks": 26,
+  "native_frames": 34,
+  "status": "VISUALLY_REJECTED_LAYOUT",
+  "inspected": [
+    "fish_ready.png",
+    "bird_settled.png"
+  ],
+  "observations": [
+    "Title floats outside painted frame",
+    "Habitat text intersects card lower rim",
+    "Footer on bottom rim; selected/nonselected painted shapes need coherent spacing"
+  ],
+  "repair": "Asset-interior reflow and source-alpha-aware patch mapping, retaining original control identities and callbacks while honestly declaring moved hit rectangles.",
+  "source_alpha_analysis": [
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+      "size": [
+        1024,
+        566
+      ],
+      "nonzero_alpha_bbox": [
+        0,
+        0,
+        1024,
+        557
+      ]
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "size": [
+        236,
+        256
+      ],
+      "nonzero_alpha_bbox": [
+        9,
+        8,
+        232,
+        232
+      ]
+    }
+  ],
+  "accepted_removed": 0
+}

@@ -1,3 +1,9 @@
+Current canonical evidence: [R59 Critter Book layout/reuse candidate](r59_critter_book_reuse/README.md), [registry](r59_critter_book_reuse/per_piece.json), [coverage](r59_critter_book_reuse/scene_coverage.json), [tally](r59_critter_book_reuse/tally.json).
+
+Unapproved ignored fixture only:104checks/340native128bounded212excluded; positive text bounds, painted source reuse and source-bound redraw ornament hiding.0new art/adoption/approval/removal.240roles32families/85partial91without0complete/global unknown.
+
+## Historical entry text retained below
+
 Current canonical evidence: [R58 current Critter Book context](r58_critter_book_context/README.md), [registry](r58_critter_book_context/per_piece.json), [coverage](r58_critter_book_context/scene_coverage.json), [tally](r58_critter_book_context/tally.json).
 
 Original Menu→Critters/tabs/Back and private reload at2Mobile widths plus passive10s:59checks/110native71bounded39excluded. Typography1px widths/material/overlay weaknesses open; no new alias/art credit.240roles32families/85partial91without0complete/accepted0/global unknown.

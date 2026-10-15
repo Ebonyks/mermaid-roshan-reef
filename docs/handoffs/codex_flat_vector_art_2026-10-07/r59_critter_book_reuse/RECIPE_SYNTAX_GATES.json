@@ -1,0 +1,40 @@
+{
+  "status": "PASS_BEFORE_COMPONENT",
+  "fixture_sha256": "d5da67f24621474550b79378ba975f6cda0a6e80cc04ec94f9ec9bfd1425cd39",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\verify_frame_recipe.gd"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\verify_frame_recipe.gd"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:/Users/Peter/.codex/worktrees/flat-vector-dev-context-20261015/mermaid-roshan-reef",
+        "--rendering-method",
+        "mobile",
+        "--script",
+        "res://export/flat_vector_r59/verify_frame_recipe.gd",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "status": "PASS_CRITTER_BOOK_REUSE_CANDIDATE_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\base_capture_critter.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\capture_reuse.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\historical_base_capture_critter.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\verify_frame_recipe.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt1_critter_reuse_painted_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt2_critter_reuse_painted_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt3_critter_reuse_layout_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt3_critter_reuse_layout_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt3_critter_reuse_painted_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt3_critter_reuse_painted_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt4_critter_reuse_layout_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt4_critter_reuse_layout_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt4_critter_reuse_painted_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt4_critter_reuse_painted_1600\\fixture_source.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-15T15:46:56.005277+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\base_capture_critter.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\capture_reuse.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\historical_base_capture_critter.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\verify_frame_recipe.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt1_critter_reuse_painted_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt2_critter_reuse_painted_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt3_critter_reuse_layout_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt3_critter_reuse_layout_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt3_critter_reuse_painted_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt3_critter_reuse_painted_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt4_critter_reuse_layout_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt4_critter_reuse_layout_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt4_critter_reuse_painted_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\native\\attempt4_critter_reuse_painted_1600\\fixture_source.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-15T15:46:56.856616+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "f8214aa397d705004e6623ef0b749967fb03844178b41eacc1f44009f9519872",
+      "checked_at_utc": "2026-10-15T15:46:58.900049+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "660f69a48b9525839ca4a82fc00d2b633f48adf57192118e937df78bed4f84e4",
+      "checked_at_utc": "2026-10-15T15:47:08.817442+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T15:47:14.722815+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "sha256": "ea53de49487a099fe922a723ad2327cb0137d12e54f6ff72a166606c6fdf512c",
+      "checked_at_utc": "2026-10-15T15:47:23.598076+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-15T15:47:24.577834+00:00"
+    }
+  ],
+  "raw_log_sha256": "ef000a021656e829dcc96d5a1462be7712a63f9404c0c3b2099283e212682fd5",
+  "scope": "Final4native cases104checks/340files128bounded212excluded;68book204button observations; source recipe exact.54document tests/6stress. Isolated unapproved reuse candidate; no production adoption/QA11/device/child/owner/art acceptance.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "f8214aa397d705004e6623ef0b749967fb03844178b41eacc1f44009f9519872",
+      "output": "R59_VALIDATED 340native128bounded212excluded104checks;68book204buttons;recipe exact;0art/adoption/alias/global unknown\r\n",
+      "checked_at_utc": "2026-10-15T15:47:57.881722+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "660f69a48b9525839ca4a82fc00d2b633f48adf57192118e937df78bed4f84e4",
+      "output": "DOCAUTH|INVENTORY=762|LEDGER=762|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T15:48:07.297623+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T15:48:13.025293+00:00"
+    }
+  ]
+}

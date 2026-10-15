@@ -1,0 +1,42 @@
+{
+	"display": "headless",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failures": 0,
+	"method": "Current source trim/Lanczos padded=false recipe replay in memory. Source export writer never executed. No PNG/source writes; one JSON evidence output only. Approval/provider revision/owner/device remain unresolved.",
+	"rows": [
+		{
+			"actual_rgba8_sha256": "6a67c41e7521726325f5d15f444116c0817a4c60f947da7dfaa5a03f0a042bf2",
+			"actual_size": "(1024, 566)",
+			"decoded_rgba8_exact": true,
+			"expected_rgba8_sha256": "6a67c41e7521726325f5d15f444116c0817a4c60f947da7dfaa5a03f0a042bf2",
+			"expected_size": "(1024, 566)",
+			"key": "wardrobe_panel",
+			"native_file_sha256": "c25dd53475668208eb662944964b0198a44afbf8e392d8255d30c7fb70f7375c",
+			"native_path": "res://assets_src/fashion_designer/skin_engine_v2/native/wardrobe_panel.png",
+			"runtime_file_sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+			"runtime_path": "res://assets/fashion/skin_engine_v2/ui/wardrobe_panel.png"
+		},
+		{
+			"actual_rgba8_sha256": "4a3b15468e2d2e17bb51a59e596a136b22059779cc232879a392eff39c92590e",
+			"actual_size": "(236, 256)",
+			"decoded_rgba8_exact": true,
+			"expected_rgba8_sha256": "4a3b15468e2d2e17bb51a59e596a136b22059779cc232879a392eff39c92590e",
+			"expected_size": "(236, 256)",
+			"key": "wardrobe_card",
+			"native_file_sha256": "9848c5b057285cd86e74ed16748cc124ad81e52b7d83105b0241585dda40ef88",
+			"native_path": "res://assets_src/fashion_designer/skin_engine_v2/native/wardrobe_card.png",
+			"runtime_file_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+			"runtime_path": "res://assets/fashion/skin_engine_v2/ui/wardrobe_card.png"
+		}
+	]
+}

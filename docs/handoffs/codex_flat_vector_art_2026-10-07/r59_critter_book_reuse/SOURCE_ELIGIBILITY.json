@@ -1,0 +1,16 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "license_rows": [
+    "| `assets/fashion/skin_engine_v2/ui/wardrobe_card.png` | Approved character sources plus painted garments; skin_engine_v2/derivations.json and generation_briefs.json | Project-owned source derivation; original source licensing retained, generated clothing under applicable OpenAI terms | `assets_src/fashion_designer/skin_engine_v2/generation_briefs.json` | Lossless separate assembled texture; pose/frame geometry preserved; Daddy clean-alpha exception declared |",
+    "| `assets/fashion/skin_engine_v2/ui/wardrobe_panel.png` | Approved character sources plus painted garments; skin_engine_v2/derivations.json and generation_briefs.json | Project-owned source derivation; original source licensing retained, generated clothing under applicable OpenAI terms | `assets_src/fashion_designer/skin_engine_v2/generation_briefs.json` | Lossless separate assembled texture; pose/frame geometry preserved; Daddy clean-alpha exception declared |"
+  ],
+  "acceptance_scope": "Native generation metadata and source-license rows explicitly say CANDIDATE / owner and device gates pending. Runtime rows use generic character/garment provenance wording; they do not grant UI/new Critter Book approval. This is ignored exploratory reuse only.",
+  "new_generation_calls": 0,
+  "new_source_pixels": 0,
+  "approved": 0,
+  "native_source_license_rows": [
+    "| `assets_src/fashion_designer/skin_engine_v2/native/wardrobe_card.png` | Built-in OpenAI ImageGen; generation_briefs.json exact prompt/hash | OpenAI-generated output under applicable terms; provisional project candidate | `assets_src/fashion_designer/skin_engine_v2/generation_briefs.json` | Native transparent painted source; original preserved |",
+    "| `assets_src/fashion_designer/skin_engine_v2/native/wardrobe_panel.png` | Built-in OpenAI ImageGen; generation_briefs.json exact prompt/hash | OpenAI-generated output under applicable terms; provisional project candidate | `assets_src/fashion_designer/skin_engine_v2/generation_briefs.json` | Native transparent painted source; original preserved |"
+  ],
+  "metadata_source": "assets_src/fashion_designer/skin_engine_v2/generation_briefs.json"
+}

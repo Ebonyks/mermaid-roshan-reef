@@ -1,0 +1,109 @@
+{
+  "revision": "FV-AUDIT-20261015-R59",
+  "change_id": "CHG-066",
+  "baseline": "431c165647f4dcca4aec0e4ccada517534ead513",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "previous_goal_turn_classification": "PROGRESS:R58 actual Menu Critters context/source/reuse inventory published. Payload022c49f5/receiptd21be5f6/final431c1656;553files117295847B anonymous byte verified;110native71bounded39excluded59checks;title/help1px and flat materials/transient caption overlap;no acceptance/alias credits.",
+  "scope": "Isolated context-bound Critter Book layout and existing painted UI-frame reuse trial after R58 publication. Two explicit modes(layout-only and painted reuse) at1280/1600 Mobile/Speedy. Retain source Menu/tabs/Back/category/saves and original Control identities/callbacks/sizes with explicitly declared tab movement to y196; correct title/help/Card text bounds, promote only book CanvasLayer25->28 above original Castle caption27 but below Back29, preserving caption timer/text/visibility and source voice. Painted mode uniformly fits unchanged existing wardrobe_panel RGBA to original main panel, replaces flat backing with empty functional Panel style and noninteractive picture, hides old code-drawn book ornaments whose artwork is already in source frame; nine-slices wardrobe_card for cards, tests selected tab silhouette through existing shell atlas badge and painted-card source and pressed/focus raster-frame geometry without size/input-owner changes beyond the declared tab translation. No new pixels/drawings/generation/production/game-state or protected edits. Full unknown inventory/alias/native/caught/card identity/device/child/owner/QA11/strict2D remain open; candidate not adoption.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-04",
+    "DL-MED-05",
+    "DL-MED-09",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-09",
+    "DL-QA-10",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-DOC-007",
+    "MA-2D-002"
+  ],
+  "piece_ids": [
+    "FV-E9E82E0C6703",
+    "FV-2ABD73BAFFE0",
+    "FV-AB474EF3699E"
+  ],
+  "observation_ids": [
+    "FVOBS-CRITTERBOOK-TEXT-BOUNDS",
+    "FVOBS-CRITTERBOOK-FLAT-MATERIALS",
+    "FVOBS-CRITTERBOOK-CAPTION-OVERLAP"
+  ],
+  "required_evidence": [
+    "Exact public R58 current scene/context/reference hashes/canonical data and current source+asset bytes before new trial",
+    "Same original Control identities/callbacks/sizes/input owner preserved; exact declared moved tab rectangles recorded. No collection/category/progress writes around measured UI.",
+    "Exact4.7.2stable official hash/mobile/actualSpeedy/time_scale1 native two widths for both modes, raw captures/events/real category+Back+reload; painted actual pictures/style retirement/shape/readability/input observations separately from machine checks",
+    "Main frame uniform full-source mapping and card9-slice mapping declared; authored colors/light preserved; source panel/card acceptance scope and original source hashes retained; pressed/selected/focus/disabled gaps explicit",
+    "Comparison contour/material/palette/light/perspective/scale/contact/occlusion/readability/action-state against exact current same-scene images; no invented scores/human review or zero-game claim",
+    "Runtime4420/sidecars4041/normal8hashes/frozen5JSON exact;role/family/alias/generation caps unchanged;new native counts only event files not unique screens/art",
+    "Applicable parser/inference/exactengine/document/development/54tests/6stress and staged/committed2D; material packet/receipt/finalmetadata published+anonymously verified on same durable topic"
+  ],
+  "delivery": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/flat-vector-r6-20261012",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse",
+    "access_mode": "Anonymous public immutable HTTPS"
+  },
+  "started_at_utc": "2026-10-15T15:05:22.270935+00:00",
+  "generation_calls": 0,
+  "new_drawing_samples": 0,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "scope_updates": [
+    {
+      "reason": "First painted fit input checks pass but title sits outside paper, footer and habitat labels overlap painted rims. Refine actual layout to asset interior rather than lower typography quality to keep old positions.",
+      "scope_change": "Same original category Buttons retain242x110 size/callbacks/input owner but move to y196; record exact source and candidate rectangles and target transformed expected rectangles. Reflow noninteractive cards/title/help inside paper, use declared nonzero-alpha source region in nine-patch if suitable; no PNG/source edits or progress writes.",
+      "prior_claim_retained": "First34native event files keep original geometry checks but are visually rejected/excluded; no candidate acceptance or replacement credit.",
+      "rules_rechecked": [
+        "DL-UI-03",
+        "DL-UI-04",
+        "DL-MED-05",
+        "DL-READ-01",
+        "DL-READ-02",
+        "DL-QA-02",
+        "DL-QA-03",
+        "DL-QA-11"
+      ]
+    },
+    {
+      "reason": "Intermediate fit repairs main header/footer but card text touches rims and smaller selected-frame body is weak.",
+      "change": "Final margin refinement and42x32 selected shell badge via existing panel atlas crop[430,0,165,116]; identical painted card body all tabs. No hit rect change beyond declared y196, no new pixels/semantic/state/callback change.",
+      "remaining": "Phone-size selected/focus/disabled readability and source-new-use acceptance unproved; do not count art removal."
+    },
+    {
+      "reason": "UI license rows use generic garment wording; actual native generation metadata says candidate/owner+device pending, and derivations.json has no UI output rows. Current build source does define native alpha-trim/Lanczos export.",
+      "addition": "One exact4.7.2 headless in-memory replay of that source-owned trim/resize recipe against decoded current runtime panel/card; no source builder execution, PNG writes or altered runtime image. Keep existing master acceptance pending regardless of match."
+    },
+    {
+      "reason": "Direct pressed-state inspection revealed source ornaments retain auto-generated names after same-frame queued redraw. Name-only hide misses newly rebuilt shell/pearls; not merely a transient frame.",
+      "repair": "Bind shell by exact original script+source rectangle and four pearls by original class/source rectangles. Keep original controls/geometry; hide only these five original visible artwork nodes in painted trial. Record ornament binding/visibility in every native book snapshot.",
+      "historical": "All six earlier cases204frames remain retained/excluded from final matrix; their input passes and inaccurate base scope wording about unchanged tab rect are historical only. Final attempt4 four cases uses corrected honest moved-rectangle scope and same current fixture."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "status": "PASS_BEFORE_NATIVE_LAUNCH",
+  "files": [
+    {
+      "path": "base_capture_critter.gd",
+      "sha256": "5d6aa8a8e4ed595447697cb450ed6058b60029205560edde8a7a95ff14aca19c"
+    },
+    {
+      "path": "capture_reuse.gd",
+      "sha256": "07c597d74d7ed08e87c1ffe39f11eb160c33142379e20197a32f9a43c6081d9a"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\base_capture_critter.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\capture_reuse.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "checked_at_utc": "2026-10-15T15:11:02.367429+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\base_capture_critter.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r59_critter_book_reuse\\capture_reuse.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "checked_at_utc": "2026-10-15T15:11:02.463287+00:00"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--rendering-method",
+        "mobile",
+        "--script",
+        "res://export/flat_vector_r59/capture_reuse.gd",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n",
+      "checked_at_utc": "2026-10-15T15:11:08.783164+00:00"
+    }
+  ]
+}
