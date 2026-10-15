@@ -2309,3 +2309,7 @@ No later state is added without its required evidence.
 ## Farmer current-context evidence (2026-10-15 R51)
 
 [CHG-058](MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#farmer-current-context-chg-058) publishes [actual current-source Farmer evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/README.md). Two continuous source5120b6d5 Mobile/Speedy cases reach gathering/filling/delivery;intermediate private save/reload skips unfinished Farmer after harvesting. Point-by-point crop,occlusion,scale/contact,guide andwide-aspect weaknesses remain unrepaired. This adds bounded observations,not finding closure,natural journey/device/child/owner/QA11 orart-removal acceptance;whole-game UNSATISFIED.
+
+## Farmer panorama reuse fit (2026-10-15 R52)
+
+[CHG-059](MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#farmer-panorama-reuse-chg-059) records [two approved-source crop trials](../docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/README.md). Onecentered mapping loses thepath andisrejected;lower-preserving mapping retains460800exactlowerpixels whileclosingthesource-rowgap.81native/74bounded includes44nonruntimecandidate captures separatelyfrom30currentcontrols. Production/sourceart unchanged;0accepted/globalunknown/strictCanvasandallhumanacceptanceopen.

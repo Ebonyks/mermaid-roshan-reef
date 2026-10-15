@@ -1,0 +1,13 @@
+{
+  "schema": "reef.exact_executed_source_text/1",
+  "encoding": "UTF-8",
+  "sha256": "f609ed09330dce3b5f02f23f681f0d26799a72f905682d780ad6c783b3ec0d07",
+  "bytes": 1820,
+  "utf8_text": "extends \"res://scripts/opera_world_backdrop_2d.gd\"\n## R52 NONRUNTIME VISUAL FIT ONLY. Approved source bytes untouched.\nvar trial_mode := \"preserve_lower\"\nvar mapping_rows: Array[Dictionary] = []\n\nfunc _draw_sky_lagoon_farmer() -> void:\n\tif trial_mode == \"original\":\n\t\tsuper._draw_sky_lagoon_farmer()\n\t\treturn\n\tif sky_lagoon_tiles.size() != 4:\n\t\treturn\n\tvar half_width := size.x * 0.5\n\tvar source_y := 448.0 if trial_mode == \"centered\" else 672.0\n\tvar native_scale := size.x / 2048.0\n\tmapping_rows.clear()\n\tfor row: int in range(2):\n\t\tvar global_top := maxf(source_y, float(row) * 1024.0)\n\t\tvar global_bottom := minf(source_y + 1152.0, float(row + 1) * 1024.0)\n\t\tif global_bottom <= global_top:\n\t\t\tcontinue\n\t\tvar source := Rect2(0.0, global_top - float(row) * 1024.0,\n\t\t\t1024.0, global_bottom - global_top)\n\t\tfor column: int in range(2):\n\t\t\tvar destination := Rect2(float(column) * half_width,\n\t\t\t\t(global_top - source_y) * native_scale,\n\t\t\t\thalf_width, source.size.y * native_scale)\n\t\t\tdraw_texture_rect_region(sky_lagoon_tiles[row * 2 + column], destination, source)\n\t\t\tmapping_rows.append({\"row\": row, \"column\": column, \"source\": str(source), \"destination\": str(destination)})\n\t# Reuse the approved empty shell basket; preserve its source pixels and\n\t# avoid introducing a pig/corn/barn destination into the strawberry job.\n\tif farmer_basket_texture != null:\n\t\tvar bounds := Rect2(983, 560, 114, 120)\n\t\tvar source_size := farmer_basket_texture.get_size()\n\t\tvar factor := minf(bounds.size.x / source_size.x, bounds.size.y / source_size.y)\n\t\tvar drawn := source_size * factor\n\t\t# Preserve the existing ground support at bottom-center (1040, 680).\n\t\tvar destination := Rect2(Vector2(bounds.get_center().x - drawn.x * 0.5,\n\t\t\tbounds.end.y - drawn.y), drawn)\n\t\tdraw_texture_rect(farmer_basket_texture, destination, false)\n\n",
+  "reconstruction": "UTF8encode utf8_text;exactoriginal bytesincludingtrailingblanklines. Thisisactualexecutedcandidateforthebothnativecases. Readable.gdcopiesarenewline-normalizedderivatives,notexactoriginalbyteclaims.",
+  "original_paths": [
+    "candidate_backdrop.gd",
+    "native/attempt1_panorama_1280/candidate_source.gd",
+    "native/attempt1_panorama_1600/candidate_source.gd"
+  ]
+}

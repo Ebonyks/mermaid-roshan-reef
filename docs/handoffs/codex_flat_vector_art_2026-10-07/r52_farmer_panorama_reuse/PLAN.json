@@ -1,0 +1,144 @@
+{
+  "revision": "FV-AUDIT-20261015-R52",
+  "change_id": "CHG-059",
+  "baseline": "65adbc4ace23d5988b0c444c269f43142a7127e3",
+  "runtime_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "previous_goal_turn_classification": "PROGRESS: R51 payload8cdf8df7/receipt1a86a9ce/final65adbc4a published and remotely verified;257 direct dependencies/218477317B,120native/96bounded,12native+5source images inspected,6weaknesses including actual intermediate Farmer cold-resume failure. Runtime/protected files unchanged;0accepted/globalunknown.",
+  "scope": "Named FVOBS-FARMER-BACKDROP-CROP from published current actual scene. Nonruntime approved-pixel panorama reuse fit trial in actual unchanged source5120b6d5 Farmer Main/viewport controls at1280x720 and1600x720. Keep original baseline,compare centered continuous crop y448..1600 versus lower-playfield-preserving continuous y672..1824,restore original. New ignored fixture subclass only changes backdrop draw mapping while selected;production scripts/assets/imports/protected originals untouched. No new art/generation/painted source edits,game phase/progress/clock/target/hit/geometry writes. Synthetic private postboss/startup room API seams remain explicit. Two continuous actual native gather/fill/delivery cases;capture original/candidates/restore at invitation,fill/full,delivery/mid/end. Preserve failed/intermediate save evidence;do not reset masks orclaimfix. No adoption,accepted removals orfull context/QA11/device/child/owner acceptance.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MED-01",
+    "DL-MED-04",
+    "DL-MED-05",
+    "DL-MED-09",
+    "DL-SAVE-01",
+    "DL-QA-01",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-09",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15",
+    "DL-VIS-06",
+    "DL-MED-03",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-INT-05",
+    "DL-INT-06",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-READ-04",
+    "DL-READ-05",
+    "DL-READ-06",
+    "DL-LAY-01",
+    "DL-LAY-02",
+    "DL-LAY-03",
+    "DL-LAY-04",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-QA-10",
+    "DL-QA-12",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-LAY-08",
+    "DL-MED-02"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-DOC-007",
+    "MA-2D-002"
+  ],
+  "source_observation_id": "FVOBS-FARMER-BACKDROP-CROP",
+  "historical_related_role": "FV-505320403D11",
+  "source_reuse": {
+    "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+    "tiles": [
+      "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+      "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+      "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+      "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+    ],
+    "source_rects": {
+      "original_row_local_y": [
+        [
+          224,
+          800
+        ],
+        [
+          224,
+          800
+        ]
+      ],
+      "centered_continuous": [
+        [
+          448,
+          1024
+        ],
+        [
+          0,
+          576
+        ]
+      ],
+      "preserve_lower_playfield": [
+        [
+          672,
+          1024
+        ],
+        [
+          0,
+          800
+        ]
+      ]
+    },
+    "native_to_canvas_scale": 0.625,
+    "preserve_lower_math": "Original lower source global1248..1824 maps canvas360..720. Continuous crop global672..1824 at0.625 maps the sameglobal1248..1824 exactlyto360..720. Tile seam moves from360 to220 with no source rowgap. Centered crop omits originalpath near global1644.",
+    "source_native_coverage_limit": "Four unchanged1024tiles reconstruct2048x2048 central source;visible crop2048x1152. Full6144x2048master/per-screen/native-quality acceptance isnotestablished solelyby this trial.",
+    "failed_reuse_gap": false,
+    "new_generation_calls": 0
+  },
+  "required_evidence": [
+    "Published actual R51 context/source/hash prerequisites reverified beforefixturecode",
+    "Exact4.7.2-stable Mobile/Speedy/native dimensions/timescale1 andoriginalcontrols,privateprofile normal8save/runtime4420/initialized4041sidecar byte guards",
+    "Declare visual-only candidate subclass,exact archive/runner hashes;baseline/candidate/restoration source/draw/geometry states for everycapture",
+    "Direct in-context andfourtile/source comparison contour/material/palette/light/perspective/scale/contact/occlusion/readability/action-state;reject losses ratherthanaccept seammetric alone",
+    "Frozen IDs/history/full unresolved denoms preserved,newcandidatecaptures separatedfromcurrent/diagnostic contexts",
+    "Parser/inference/exactengine,source/art/native/canonical integrity,documentauthority/development/54tests/6stress andall staged/committed2D beforepushes",
+    "Same durable public topic;verify everydirect dependency andreceipt/finalproof metadata exactremote bytes"
+  ],
+  "delivery": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/flat-vector-r6-20261012",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse",
+    "access_mode": "Anonymous public immutable HTTPS"
+  },
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_replacements": 0,
+  "accepted_removed": 0,
+  "all_game_artwork_total": null,
+  "mission_complete": false,
+  "started_at_utc": "2026-10-15T09:33:42.336995+00:00"
+}

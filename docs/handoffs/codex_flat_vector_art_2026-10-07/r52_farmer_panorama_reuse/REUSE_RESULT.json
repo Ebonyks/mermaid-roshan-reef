@@ -1,0 +1,26 @@
+{
+  "observation_id": "FVOBS-FARMER-BACKDROP-CROP",
+  "source_mapping_candidate": "FVREUSE-FARMER-PANORAMA-LOWER672",
+  "status": "BOUNDED_NONRUNTIME_REUSE_FIT_WITH_OPEN_ACCEPTANCE",
+  "source_pixel_edits": 0,
+  "generation_calls": 0,
+  "new_drawing_samples": 0,
+  "failed_reuse_gap": false,
+  "source_interval": [
+    672,
+    1824
+  ],
+  "source_scale": 0.625,
+  "retained_lower_pixel_count": 460800,
+  "rejected_alternative": "FVREUSE-FARMER-PANORAMA-CENTER448",
+  "production_adoption": false,
+  "no_new_ready_global_role_claim": true,
+  "source_coverage_limit": "Full4tile2048squarecentral source isavailable; displayed2048x1152slice andexistingnative6x2master do notestablishallper-screen/native-qualityacceptance.",
+  "remaining_weaknesses": [
+    "Upperreadability/neighborhierarchy andallcallers/variants",
+    "Farmer basketinterior/destination/contact/duplicateprops/visibleguides",
+    "Wideaspectdarkmargins",
+    "R51harvest-onlycold-resumefailure",
+    "Globalunknowninventory,zeroaccepted/QA11/device/child/owner"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "failures": [
+    {
+      "evidence": "gates_attempt1.log",
+      "scope": "Validator used absent top-level approved field;existingcanonical approval lane iscurrent_context_sample_lanes.approved. Corrected fieldpath;no tallyvalue/rule/gate/native/sourcechange."
+    },
+    {
+      "command": "git diff --cached --check",
+      "scope": "TrailingblanklineatEOF in3readablecandidatecopies. ExactexecutedUTF8bytesretainedinEXECUTED_CANDIDATE_SOURCE.json withoriginalSHA/reconstruction;readablecopiesonlytrimEOFblanklines.Nativecapture/report/log/launchbytesunchanged. Gitchecknotdisabledorwaived."
+    }
+  ],
+  "native_trials_pass": true,
+  "creative_acceptance": false
+}

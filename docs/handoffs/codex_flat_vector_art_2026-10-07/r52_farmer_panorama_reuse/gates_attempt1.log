@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\r52_farmer_panorama_reuse\validate.py", line 39, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\r52_farmer_panorama_reuse\validate.py", line 31, in main
+    assert d['historical_totals'][:-1]==old['historical_totals']and d['historical_totals'][-1]['immutable_final_byte_proof_revision']==B;assert d['current_context_sample_lanes']==old['current_context_sample_lanes']and d['current_partial_context_counts']==old['current_partial_context_counts'];assert(d['current_context']['exact_capture_count'],d['current_context']['retained_native_capture_count'],d['current_context']['excluded_diagnostic_native_count'])==(4173,5931,1758);assert d['approved']==d['accepted_removed']==d['integrated']==d['runtime_verified']==0 and d['all_game_individual_piece_total']is None and d['regression_count']is None
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ~^^^^^^^^^^^^
+KeyError: 'approved'

@@ -2268,3 +2268,12 @@ CHG-057 published payload `f83bd2028f343e4bb6ddf30e0008c40429aca059`:all15282 re
 - Rollback: inspect additive CHG-058 audit/navigation on a dedicated codex rollback branch,preserving frozen history andlater changes. No runtime rollback orrelease authority.
 
 CHG-058 payload `8cdf8df7373615d827357e9cfa8ecce4aa373e05`: all 257 direct R51/source/canonical files (218477317 bytes) anonymously verified at `2026-10-15T09:22:52.966440+00:00`. ManifestSHA `eddfd9ce98718d4e543892aa4632ac0e456c03141d5fbc6a64ff56544fae7d97`, payloadSHA `7595ed8a2c8eae0bcf6e1c616633e336cdd0c20814396f291ab1086645b874df`. Historical R50 transitive verification retains its immutable receipt/time. Two continuous cases pass; harvest-only cold resume fails; 120 native/96 bounded/24 excluded, 0 replacements accepted and global totals unknown.
+
+<a id="farmer-panorama-reuse-chg-059"></a>
+## CHG-059 — Farmer panorama reuse fit (2026-10-15)
+
+- [R52 plan/review/native/manifest](../docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/README.md); [impact](../design/audit_impacts/flat-vector-farmer-panorama-reuse-20261015.json). Topicbaseline65adbc4a,actualruntime5120b6d5;allproduction/protected bytesunchanged. CurrentR51context59selectedreferencesverifiedpublicbeforefixturework.
+- Twoactual Mobile/Speedy cases useoriginal gather/fill/deliverycontrols. Ignoredvisual-onlyclasscomparesoriginal,center448,lower672andrestore;40story/phase/progress/root/surfacechecks unchanged. Center448losespathandisrejected. Lower672closes448rowgapandpreservesall460800lowercomponentpixels;retainedforfurtherreview,notadopted/approved.
+-81native=30unchangedsourcecontrols+44nonruntimecandidatecaptures+7diagnostics;74bounded. Totals4173bounded/5931retained/1758excluded;240roles/32families,83partial/93without/0complete,0accepted/globalunknown. No newdrawings/generation;source reuse/candidate andcurrentproductionlanesseparate. Nativecoverage,upperhierarchy,allcallers/fullmotion/QA11/device/child/owner remainopen;R51otherweaknessesandsavefailureunrepaired.
+- Allnewphysicalfiles needimpactcoverage,documentauthority/development gatesandactualstaged/committed2D beforepushes;publicationreceiptsbindexactremote bytes separatelyfromacceptance.
+- Rollback: inspect additiveCHG-059 audit/navigation on dedicatedcodexrollbackbranch,preserving frozenhistoryandlaterchanges. No productionrollbackorreleaseauthority.

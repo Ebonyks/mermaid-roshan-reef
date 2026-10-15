@@ -223,3 +223,5 @@ Local machine verification uses Godot **4.7.2.stable.official.ed1daf0bf**. The [
 R49 freshness: newer origin/dev5120b6d5 has23 incoming product paths; [upstream comparison](r49_callback_value_domains/UPSTREAM_RECONCILIATION.json) records18 unchanged selected method bodies and a pending full inventory/context refresh.
 
 R51 [current Farmer context](r51_farmer_context/README.md):two actual Mobile/Speedy continuous cases,120native files/96bounded contexts,6point-by-point observations including verified harvest-only save normalization failure. No new art,source changes,unique artwork count oracceptance.
+
+[R52 panorama reuse fit](r52_farmer_panorama_reuse/README.md) retains one nonruntime lower-preserving crop and rejects a centered path-loss alternative. Two actual Mobile/Speedy cases,40unchanged state/geometry comparisons and460800identical lower component pixels;81native/74bounded,0accepted/globalunknown.

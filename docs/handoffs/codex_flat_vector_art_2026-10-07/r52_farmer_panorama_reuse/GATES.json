@@ -1,0 +1,100 @@
+{
+  "status": "PASS_NONRUNTIME_PANORAMA_REUSE_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r52_farmer_panorama_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "08ec8d763d05d494a9f489f97c0d68f81ee3bdf13b32ecb48e202c684a2c8d2c",
+      "checked_at_utc": "2026-10-15T09:53:03.111697+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "50e5816a2e9859cec4ca3336607f04ac20963cc1c9e0133f88619248006c9348",
+      "checked_at_utc": "2026-10-15T09:53:13.269308+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T09:53:18.707913+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "78e5f782f9b7324b0bb6823c65d7a3862bf18b6bfbb7947387665f8b7be4326a",
+      "checked_at_utc": "2026-10-15T09:53:28.132141+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-15T09:53:29.237528+00:00"
+    }
+  ],
+  "raw_log_sha256": "54d00164150c8757cd7dee21742eecbdc61c21ae22bd581bce63765750f317e0",
+  "scope": "Bothnativevisual-onlyreusecasespass;40unchangedstatechecks/460800exactlowerpixels;54audit tests/6stress. No adoption,full82,art/QA11/device/child/owner acceptance. Actualallstaged/committed2D beforeeverypush follows.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r52_farmer_panorama_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "08ec8d763d05d494a9f489f97c0d68f81ee3bdf13b32ecb48e202c684a2c8d2c",
+      "output": "R52_INTEGRITY_PASS 81native/74bounded/7excluded=30controls+44candidates+7diagnostics;40unchangedstatechecks/460800exactlowerpixels;2aspects/59exactrefs;frozen/runtimeunchanged;0accepted/globalunknown\r\n",
+      "checked_at_utc": "2026-10-15T09:54:20.713853+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "50e5816a2e9859cec4ca3336607f04ac20963cc1c9e0133f88619248006c9348",
+      "output": "DOCAUTH|INVENTORY=755|LEDGER=755|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T09:54:30.321865+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T09:54:36.103098+00:00"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r52_farmer_panorama_reuse\\candidate_backdrop.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r52_farmer_panorama_reuse\\capture_panorama.gd"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r52_farmer_panorama_reuse\\candidate_backdrop.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r52_farmer_panorama_reuse\\capture_panorama.gd"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r52/capture_panorama.gd"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "candidate_backdrop.gd",
+      "sha256": "f609ed09330dce3b5f02f23f681f0d26799a72f905682d780ad6c783b3ec0d07"
+    },
+    {
+      "path": "capture_panorama.gd",
+      "sha256": "208f47393e8dfe9ce9c0cbe8218da6c0479cca4b086d6ad00c0f08582f6a71b9"
+    }
+  ],
+  "original_candidate_sha256": "f609ed09330dce3b5f02f23f681f0d26799a72f905682d780ad6c783b3ec0d07",
+  "original_source_archive": "EXECUTED_CANDIDATE_SOURCE.json",
+  "readable_candidate_sha256": "2f44ae07eadd085a3237d0b91869ba0327c894b8a7a264ae0331d56ec39af149",
+  "normalization": "Onlytrailingblanklines;allnativecapture/report/log/launchbytesretainoriginalexecution. Newcanonicalparser/inference/check-only follows.",
+  "normalized_readable_source_checks": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r52_farmer_panorama_reuse\\candidate_backdrop.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r52_farmer_panorama_reuse\\capture_panorama.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r52_farmer_panorama_reuse\\candidate_backdrop.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r52_farmer_panorama_reuse\\capture_panorama.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r52/capture_panorama.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    }
+  ]
+}

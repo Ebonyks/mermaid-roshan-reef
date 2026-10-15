@@ -1287,3 +1287,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Authority and scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; source5120b6d5 actual Mobile/Speedy Farmer context at two widths,120native/96bounded/24excluded;harvest-only private-save completion regression reproduced;crop/basket/destination/guide/wide-aspect weaknesses unrepaired.240roles/32families,0accepted/globalunknown;no runtime/art/source change ordevice/child/owner acceptance. |
+
+## Farmer panorama reuse fit — 2026-10-15 R52
+
+| Document | State | Authority and scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; exactsource5120b6d5 nonruntime approved-pixel panorama mapping comparison at2aspects. Onepath-lossreject/onelower-preservingcandidate,460800exactlowerpixels,40unchangedstate/geometrychecks;81native/74bounded/7excluded. Noart/source change,adoption,newdrawing,generationoracceptance;240roles/32families,0accepted/globalunknown. |
