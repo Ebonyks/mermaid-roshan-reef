@@ -65,6 +65,15 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/PRIOR_R48_CI.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/README.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/REMOTE_VERIFICATION.fragment0001.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/REMOTE_VERIFICATION.fragment0002.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/REMOTE_VERIFICATION.fragment0003.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/REMOTE_VERIFICATION.fragment0004.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/REMOTE_VERIFICATION.fragment0005.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/REMOTE_VERIFICATION.fragment0006.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/REMOTE_VERIFICATION.fragment0007.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/REMOTE_VERIFICATION.fragment0008.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/REMOTE_VERIFICATION.fragment0009.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/RESOURCE_SYMBOL_SCAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/REUSE_INVENTORY.json",
@@ -105,8 +114,8 @@
     },
     {
       "command": "Exact anonymous payload/allrequired files/final receipt verification",
-      "result": "PENDING",
-      "evidence": "Same durable topic; no local-only handoff"
+      "result": "PASS",
+      "evidence": "Exact payload 3f191462fddfa7052587eb1e2a16fba8e0722708:all13419 required files/5276583739 bytes anonymous GET/SHA256 at2026-10-15T07:13:31.050635+00:00. Manifest6abc58ec4a22c3fff333b30cdb3ba99649b8742aa46ad31b20c15c30d69fcfa7,payload5ef37493a93aeb0c070be7cafac93e5b9c12d815cdbc2cae994ce6bf068d20f7. Final metadata/allreceiptparts/ownproof separately verified;publication not creative acceptance."
     }
   ],
   "acceptance_gaps": "All full callback/native/dynamic/resource/route domains,351primitive scopes,5compositor closures,unknown global totals,zero-vector/strictCanvas/QA11/device/child/owner remain open. No art/runtime source change."
