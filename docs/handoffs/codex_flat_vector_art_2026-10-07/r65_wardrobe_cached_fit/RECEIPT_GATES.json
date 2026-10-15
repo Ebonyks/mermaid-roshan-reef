@@ -1,0 +1,51 @@
+{
+  "status": "PASS_CURRENT_CONTEXT_METADATA_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r65_wardrobe_cached_fit\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "898dc319b65c12f21492f0fa8a7e434fcb5397fc9450f2ab7f10378207d9152d",
+      "checked_at_utc": "2026-10-15T21:36:59.335707+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "a90aa3b65e32e1f7d44fbee791411ccb7caa3c6ee59062ee9d4e45cb98138cb9",
+      "checked_at_utc": "2026-10-15T21:37:09.467101+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T21:37:16.088946+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "checked_at_utc": "2026-10-15T21:38:28.294471+00:00",
+      "scope": "All receipt files staged. NO_REGRESSION is not strict-zero satisfaction."
+    }
+  ],
+  "raw_log_sha256": "7e8e52ac83487ab6af4b7f51a93f173ccf9c3865519e2e6081c08838a76acf9f",
+  "creative_acceptance": false
+}
