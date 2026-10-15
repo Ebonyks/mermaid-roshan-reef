@@ -1,4 +1,73 @@
 {
-  "status": "PENDING_EXACT_PUBLICATION_OR_FINAL_BYTE_VERIFICATION",
-  "creative_acceptance": false
+  "schema": "reef.bounded_audit_json_index/1",
+  "logical_schema": "reef.flat_vector_delta_receipt/1",
+  "logical_bytes": 8387072,
+  "logical_sha256": "e824dcba9f779457197ac2cb9665a7e9e1c4b02a3aeea5ec3b53b848fec4d89a",
+  "fragment_count": 9,
+  "fragments": [
+    {
+      "path": "REMOTE_VERIFICATION.fragment0001.json",
+      "bytes": 1068293,
+      "sha256": "82a55a4d17d9a0744c0ef31d1e7bf0335f0d9cec0bbacc973e4a19c260cc8748",
+      "text_bytes": 1000000,
+      "text_sha256": "94b61346de3e20165cd7bdf0717475a323bc4db3371a9546a5d59cf51d901c98"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0002.json",
+      "bytes": 1049911,
+      "sha256": "7bcc384888eeab92325fcc77826228963d505751b210a09ca8a5e1409b5dee49",
+      "text_bytes": 1000000,
+      "text_sha256": "16e3a6fb23c2a7af9a6c1951ddf46c0bde95a8281f30084e2ee4452a0e988724"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0003.json",
+      "bytes": 1060198,
+      "sha256": "e98c26f931614ab89634e25500fb8b980297c0c33f0e8b5ec9ad2aea845fc091",
+      "text_bytes": 1000000,
+      "text_sha256": "c0301969d6926e8c4a84ed399ae56b3a388c27a1156c7a563fb532cb2c2de281"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0004.json",
+      "bytes": 1057686,
+      "sha256": "65eb569ae4e80bb090a6da974166a4b96e9c9d3fb57ac98ef5154d645da373a7",
+      "text_bytes": 1000000,
+      "text_sha256": "5ad2820dc30be8ec0291b26f221f7487bb1eae275e32bcba0be64dd771a7b749"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0005.json",
+      "bytes": 1059614,
+      "sha256": "fce810a57ef319a488dfbfe3f5e87c557cca44593684672fc7ff4e5b88e01012",
+      "text_bytes": 1000000,
+      "text_sha256": "df17f87f398d1f16072f2c1e14b613a31a1ebb1e5ccae0af9c2b462d978aa59c"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0006.json",
+      "bytes": 1057991,
+      "sha256": "f758e67f6871c25d6c7f19ba698fce326f5dae4c430f1eec1f8dc63742cd9a24",
+      "text_bytes": 1000000,
+      "text_sha256": "e671a60b70770a758848803c108623d1d4ce9af7d3b2ec5220b95529532c7266"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0007.json",
+      "bytes": 1059917,
+      "sha256": "8775493388a8f7c2de0d8be266a81bd3e449009d41e05f0dd208d1020fe64308",
+      "text_bytes": 1000000,
+      "text_sha256": "385d22df6e40f022b8849d4c85f0bf2acafc3a50fdbc08083b657407b67063ce"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0008.json",
+      "bytes": 1056128,
+      "sha256": "10a364e3be35a8ed52f32ec22588c32628d1084e9d96dafaae5269d94af775ad",
+      "text_bytes": 1000000,
+      "text_sha256": "5e4a7ed6fd6592d8fa56a58f1ff340c96bc9458097a0ce34fdd0c342f36026be"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0009.json",
+      "bytes": 410960,
+      "sha256": "38f4060fa044aae1c003ae81a30c6ed568c57b26ac11315482d79cac24208a72",
+      "text_bytes": 387072,
+      "text_sha256": "230c65bee1bb030eea279e93f255f6f5013ad51e11793b66a7e67b8145c1585e"
+    }
+  ],
+  "scope": "Nonruntime source-audit text evidence;everypart scanned/hashed. LogicalJSON bytes preserved;no runtime/model/creative acceptance orauditor waiver."
 }
