@@ -1,0 +1,14 @@
+{
+  "base": {
+    "source": "r60_critter_saved_context/capture_critter_saved.gd",
+    "source_sha256": "b535f8347498b2f53c2858ced77902196fa7dd5f3c0e8add930e5834f12407c8",
+    "edits": "R61 environment/report namespace and declared candidate presentation scope only; original UI exercise/seed/state checks retained."
+  },
+  "legacy": {
+    "source": "r59_critter_book_reuse/capture_reuse.gd",
+    "source_sha256": "fc53fabe68d3a297751f3a149c31b67a7e5b93e556e7bcbd281ecfa36a455dca",
+    "body_exact_beyond_extends": true,
+    "edits": "Only extends dependency relocated to R61 saved-context base; visual behavior body unchanged. Separate source-role observation cache does not change legacy rendering."
+  },
+  "saved_base_edits_scope": "R61namespace/declaredvisualscope/reportcandidate_metrics and case_mode metadata only; original saved inputs/seed/35checks unchanged."
+}

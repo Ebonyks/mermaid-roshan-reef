@@ -1,0 +1,24 @@
+{
+  "baseline": {
+    "revision": "2db770402f9ec00c332b8def6a83aada9ccc6bd9",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/RUNTIME_BYTE_BASELINE.json",
+    "sha256": "60e556d68dcd3e826407e7a4f15341a52e2b7fa5216c67907ca68d521de335e7",
+    "actual_staging_raw_exact": true
+  },
+  "fixtures": [
+    {
+      "path": "capture_critter_saved.gd",
+      "sha256": "0e9e75dfa106143ce64b19fa49b5e583dad55b19e8d2c27444aa22acdb2cd736"
+    },
+    {
+      "path": "legacy_visual.gd",
+      "sha256": "03fd06920a3d7fe0c56d3d66212f93e31f712bb91d78da5dc8303eeb095de66f"
+    },
+    {
+      "path": "capture_reuse.gd",
+      "sha256": "c6b5f9ea983f2feadffe546eadf4194433c99ec313a615764b5f4a7c28545def"
+    }
+  ],
+  "setup": "Exact source5120b6d5, initialized4420runtime/4041sidecars/normal8hash baseline and official4.7.2. Copy3fixtures to ignored export/flat_vector_r61 and baseline to staging POST_IMPORT_BASELINE.json. Native Windows Mobile Speedy time1 Dummy audio. ENV R61_CASE_MODE legacy/fixed/insect, R61_COLLECTION_MODE partial/full,R61_TEST_WIDTH1280/1600,R61_TEST_ATTEMPT1; unique output dirs. Runner setsR59_MODEpainted. Legacy/fixed full1280 controls,4insect cases. Seed private6/18before originalMain ready, actual original inputs thereafter. Source-role cache precedes display change; no catch/category/progress/clock writes around measured inputs. Fresh same-engineMain is not freshOS.",
+  "limits": "No generation/PNG edits/source acceptance/production adoption/device/human/child/owner/QA11 or zero2D/art satisfaction."
+}

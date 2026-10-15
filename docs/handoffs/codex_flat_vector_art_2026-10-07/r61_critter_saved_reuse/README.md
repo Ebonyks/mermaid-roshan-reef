@@ -1,0 +1,15 @@
+# R61 — caught-card layout and painted insect category candidate
+
+The saved-state trial confirms the old R59 candidate overlaps caught icons, names and habitats. This ignored fixture repairs those roles structurally, retaining original label instances/text and native Button callbacks. It then reuses the unchanged current painted `assets/mg/butterfly.png` for the **insect category symbol** in the tab and caught-insect cards. Unknown `?` status remains visible. No production code, source PNG or saved keys changed; no new art was generated.
+
+[Review](REVIEW.json) · [captures](CAPTURE_INDEX.json) · [source roles/pictures](SOURCE_ROLE_AND_PICTURE_BINDINGS.json) · [source eligibility](SOURCE_ELIGIBILITY.json) · [image identity](SOURCE_IMAGE_IDENTITY.json) · [registry](per_piece.json) · [coverage](scene_coverage.json) · [tally](tally.json) · [backlog](CONGRUENCY_BACKLOG.json).
+
+The source-bound negative renders120 role collisions across20book states; all37negative event files remain excluded. One fixed-layout control passes43checks. Four final insect cases pass172checks (140original source checks plus32candidate checks), partial6/full18synthetic saved profiles at1280×720 and1600×720, exact Godot4.7.2 Mobile/actualSpeedy. They cover original Menu, tabs, same-category repeat, Back/reopen, application notifications and same-engine Main reload. These are saved consumer tests, not a natural catch journey, device performance or freshOS lifecycle proof.
+
+Final80book states bind240button/480card/1440label observations; control20states separate.222new native event files=175bounded+47excluded. Current4420runtime/4041sidecars/normal8hashes unchanged. The current butterfly retains its authored1024×657aspect; older1024×512art35 is flattened and earlierGEN2 remains flat-style. No old3D builder ran. Exact normalization/provider metadata is missing; source/new-purpose/creative approval is not inferred from historical license wording.
+
+The butterfly's painted wing detail and lilac/gold palette relate to the reused UI frame, but small dense detail, saturation, dark fringe/alpha and child category recognition remain review risks. Fish/bird/habitat/title/help glyphs remain flat-art candidates. Existing frame/current-source/new-use authority, focus/disabled, actual shaped font fallback, QA11/device/child/owner evidence remain open. Source category semantics do not authorize18species portraits.
+
+240known roles/32families;74partial existing roles/15families plus16supplemental roles.85catalogue aliases partial/91without current slice/0complete. Cumulative5097bounded+2594excluded=7691native event files, not unique art/screens. All whole-game denominators remain unknown; approved/integrated/runtime-verified replacements/accepted removed0. Frozen original registries/caps/reject history remain exact.
+
+[Plan](PLAN.json) · [guards](SOURCE_PARITY.json) · [reproduction](REPRODUCTION_INPUTS.json) · [next work](WORK_IN_PROGRESS.json) · [gates](GATES.json) · [manifest](MANIFEST.json) · [remote receipt](REMOTE_VERIFICATION.json) · [final proof](FINAL_BYTE_RECEIPT.json). Mission remains open.

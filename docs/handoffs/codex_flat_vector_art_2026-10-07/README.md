@@ -1,3 +1,9 @@
+Current canonical evidence: [R61 caught-role and painted insect category candidate](r61_critter_saved_reuse/README.md), [registry](r61_critter_saved_reuse/per_piece.json), [coverage](r61_critter_saved_reuse/scene_coverage.json), [tally](r61_critter_saved_reuse/tally.json).
+
+Ignored candidate only:172final checks/control43/excluded negative36.222native175bounded47excluded;0new art/adoption/removal/global unknown. Source/current-new-use/phone/device/child/owner acceptance open.
+
+## Historical entry text retained below
+
 Current canonical evidence: [R60 original saved Critter Book context](r60_critter_saved_context/README.md), [registry](r60_critter_saved_context/per_piece.json), [coverage](r60_critter_saved_context/scene_coverage.json), [tally](r60_critter_saved_context/tally.json).
 
 Saved partial6/full18 profiles,2Mobile aspects140checks148native140bounded8excluded;16pure queries312script caller facts. Existing animal reuse shortlist; source/new-purpose acceptance pending,0art/adoption/removal. CURRENT metadata synchronized;240roles32families85partial91without0complete/global unknown.
