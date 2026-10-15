@@ -1,5 +1,58 @@
 {
-  "status": "PENDING_REQUIRED_GATES_OR_PUBLICATION",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "status": "PASS_SOURCE_ONLY_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r43_mewsha_whole_trial\\validate.py"
+      ],
+      "started_at_utc": "2026-10-15T00:44:25.861551+00:00",
+      "checked_at_utc": "2026-10-15T00:44:35.565049+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-15T00:44:35.565132+00:00",
+      "checked_at_utc": "2026-10-15T00:44:45.978763+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-15T00:44:45.978817+00:00",
+      "checked_at_utc": "2026-10-15T00:44:50.870872+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-15T00:44:53.046124+00:00",
+      "checked_at_utc": "2026-10-15T00:46:03.121882+00:00",
+      "exit_code": 0,
+      "execution": "FRESH_ALL_RECEIPT_PARTS_STAGED",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "d92c6e997bd63e3abf0ca3e48a44019d785e9f5447d98b8bd840f92f897d88a9",
+  "scope": "3freshsource/document/impact checks+actualfresh2D complete stagedreceipt index/allparts scan. No new engine execution in this metadata gate. R43 six supported GUI diagnostics and retained prior full82 remain separate; no visual acceptance."
 }
