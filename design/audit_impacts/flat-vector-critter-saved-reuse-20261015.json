@@ -58,6 +58,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/CONTEXT_PREREQUISITE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/CURRENT_PARTIAL_CONTEXT_UNION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/DELIVERY_SOURCE_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/DELIVERY_TRANSPORT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/FIXTURE_LINEAGE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/FIXTURE_SYNTAX_GATES.json",
@@ -67,6 +68,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/PREFLIGHT_REPAIR_HISTORY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/REPRODUCTION_INPUTS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/REVIEW.json",
@@ -348,6 +350,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/native/attempt1_critter_reuse_legacy_full_1280/same_category_repeat_released.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/native/attempt1_critter_reuse_legacy_full_1280/same_category_repeat_settled.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/tally.json",
@@ -367,8 +370,8 @@
     },
     {
       "command": "Payload/dependencies/receipt/final exact anonymous bytes",
-      "result": "PENDING",
-      "evidence": "Same established public durable topic, no runtime adoption."
+      "result": "PASS",
+      "evidence": "Exact payload 27071494a36b401e304cf5d15d3f29282639bc6e: all 809 direct R61/source/canonical dependencies / 308992779 bytes anonymously verified at 2026-10-15T17:41:18.939939+00:00; manifestSHA b8216db81d6df8a9ae0425b22816c7640097dd0ce5c9f5c5cdddf0ba4b119f84. Historical parent transitive verification retains its exact prior receipt/time. Final metadata verified separately; no creative or mission acceptance."
     }
   ],
   "acceptance_gaps": "Current source/new-purpose/frame/style/phone/overdraw/focus/disabled/glyph/native/caller/route and full QA11/device/child/owner evidence, full inventory/unknown denominator and strict2D/art. No production changes in phase1."

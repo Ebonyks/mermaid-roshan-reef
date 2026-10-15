@@ -1,0 +1,51 @@
+{
+  "status": "PASS_CURRENT_CONTEXT_METADATA_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r61_critter_saved_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "709ea1adc2055666c2517d5defc56f25a163ae51bec75a2f69cdd5ab8392437f",
+      "checked_at_utc": "2026-10-15T17:41:50.922267+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "2befae9580e60abd7e5664575cba6e0b1ce99f4655c02e508dc73b8938cd6fe7",
+      "checked_at_utc": "2026-10-15T17:42:00.755066+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T17:42:08.228343+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "checked_at_utc": "2026-10-15T17:43:20.630695+00:00",
+      "scope": "All receipt files staged. NO_REGRESSION is not strict-zero satisfaction."
+    }
+  ],
+  "raw_log_sha256": "23fc344a947123cb82533406377322ef75145c72ef13e076b6e17af1b83fc4e1",
+  "creative_acceptance": false
+}
