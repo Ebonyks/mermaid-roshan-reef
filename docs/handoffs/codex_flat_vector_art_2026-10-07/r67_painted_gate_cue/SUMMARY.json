@@ -1,0 +1,741 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "stable_id": "FVR-42846B2A5A82",
+  "native_cases": 4,
+  "native_frames": 20,
+  "passing_checks": 54,
+  "candidate_frames": 10,
+  "control_frames": 10,
+  "new_roles": 0,
+  "new_families": 0,
+  "new_alias_credits": 0,
+  "known_roles": 241,
+  "families": 33,
+  "catalogue_partial": 89,
+  "catalogue_without_current_slice": 87,
+  "catalogue_complete": 0,
+  "retained_bounded": 5888,
+  "retained_excluded": 2949,
+  "retained_native_events": 8837,
+  "generation_calls": 0,
+  "new_drawing_samples": 0,
+  "new_runtime_assets": 0,
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_replacements": 0,
+  "accepted_removed": 0,
+  "all_game_artwork_total": null,
+  "distinct_screen_total": null,
+  "regression_total": null,
+  "mission_complete": false,
+  "candidate_status": "MACHINE_TRIAL_PASS_NEW_USE_VISUAL_ACCEPTANCE_PENDING",
+  "known_legacy_policy_status": "FAIL_LEGACY_SOURCE_CONTRACT_UNFIXED",
+  "gaps": [
+    "Missing-texture negative trial not executed; constructor fail-closed is source evidence only",
+    "Return/reentry and remaining callers, all targets/fallbacks not closed",
+    "Full QA11, fresh OS, phone performance/audio, child and owner acceptance missing",
+    "Whole-game denominator and route/state coverage unknown; strict2D unsatisfied"
+  ],
+  "cases": [
+    {
+      "case": "attempt1_control_1280",
+      "mode": "control",
+      "aspect": [
+        1280,
+        720
+      ],
+      "checks": 13,
+      "passed": true,
+      "native_frames": 5,
+      "manifest_sha256": "33873658c94536f86de040d0dcd1f0af5994789739489fd8fa0748c0f2732e75",
+      "result": "native/attempt1_control_1280/RESULT.json",
+      "gate_states": [
+        {
+          "gate": {
+            "alpha": 0.948900580406189,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167369510317,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 0.18, 0.22, 0.9489)",
+            "payload": "",
+            "point": "(972.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              0.180000007152557,
+              0.219999998807907
+            ],
+            "scale": "(1.166667, 1.166667)",
+            "source_helper_script": "res://scripts/arena/sky_lagoon_promenade.gd",
+            "target_count": 4,
+            "texture": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "castle_gate",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.449999988079071,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167369510317,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 0.08, 0.14, 0.45)",
+            "payload": "",
+            "point": "(972.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              0.0799999982118607,
+              0.140000000596046
+            ],
+            "scale": "(1.166667, 1.166667)",
+            "source_helper_script": "res://scripts/arena/sky_lagoon_promenade.gd",
+            "target_count": 4,
+            "texture": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": true,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.449999988079071,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167369510317,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 0.08, 0.14, 0.45)",
+            "payload": "",
+            "point": "(972.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              0.0799999982118607,
+              0.140000000596046
+            ],
+            "scale": "(1.166667, 1.166667)",
+            "source_helper_script": "res://scripts/arena/sky_lagoon_promenade.gd",
+            "target_count": 4,
+            "texture": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.988803088665009,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167369510317,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 0.18, 0.22, 0.9888)",
+            "payload": "",
+            "point": "(972.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              0.180000007152557,
+              0.219999998807907
+            ],
+            "scale": "(1.166667, 1.166667)",
+            "source_helper_script": "res://scripts/arena/sky_lagoon_promenade.gd",
+            "target_count": 4,
+            "texture": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "castle_gate",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {},
+          "route": {
+            "day_one_last_event": "grok_video_2",
+            "day_one_media_request": "grok_dirty_castle_video_2",
+            "lagoon_promenade_focus": "",
+            "phase": "hall"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        }
+      ]
+    },
+    {
+      "case": "attempt1_candidate_1280",
+      "mode": "candidate",
+      "aspect": [
+        1280,
+        720
+      ],
+      "checks": 14,
+      "passed": true,
+      "native_frames": 5,
+      "manifest_sha256": "11706e54e6c07df651bd88d419d1df09e2a1707e2f5490351812b02a763e714a",
+      "result": "native/attempt1_candidate_1280/RESULT.json",
+      "gate_states": [
+        {
+          "gate": {
+            "alpha": 0.948891758918762,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167386287533,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 1.0, 1.0, 0.9489)",
+            "payload": "",
+            "point": "(972.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "scale": "(1.53125, 1.53125)",
+            "source_helper_script": "res://export/flat_vector_r67/painted_gate.gd",
+            "target_count": 4,
+            "texture": "res://assets/opera/worlds/props/fx_stolen_sparkle.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "castle_gate",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.449999988079071,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167386287533,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 1.0, 1.0, 0.45)",
+            "payload": "",
+            "point": "(972.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "scale": "(1.53125, 1.53125)",
+            "source_helper_script": "res://export/flat_vector_r67/painted_gate.gd",
+            "target_count": 4,
+            "texture": "res://assets/opera/worlds/props/fx_stolen_sparkle.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": true,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.449999988079071,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167386287533,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 1.0, 1.0, 0.45)",
+            "payload": "",
+            "point": "(972.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "scale": "(1.53125, 1.53125)",
+            "source_helper_script": "res://export/flat_vector_r67/painted_gate.gd",
+            "target_count": 4,
+            "texture": "res://assets/opera/worlds/props/fx_stolen_sparkle.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.988802850246429,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167386287533,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 1.0, 1.0, 0.9888)",
+            "payload": "",
+            "point": "(972.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "scale": "(1.53125, 1.53125)",
+            "source_helper_script": "res://export/flat_vector_r67/painted_gate.gd",
+            "target_count": 4,
+            "texture": "res://assets/opera/worlds/props/fx_stolen_sparkle.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "castle_gate",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {},
+          "route": {
+            "day_one_last_event": "grok_video_2",
+            "day_one_media_request": "grok_dirty_castle_video_2",
+            "lagoon_promenade_focus": "",
+            "phase": "hall"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        }
+      ]
+    },
+    {
+      "case": "attempt1_control_1600",
+      "mode": "control",
+      "aspect": [
+        1600,
+        720
+      ],
+      "checks": 13,
+      "passed": true,
+      "native_frames": 5,
+      "manifest_sha256": "29c264edb6a6a54fcca3988ecbf5ae40be2565be96f83c387e5e3d785b982162",
+      "result": "native/attempt1_control_1600/RESULT.json",
+      "gate_states": [
+        {
+          "gate": {
+            "alpha": 0.948890507221222,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167369510317,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 0.18, 0.22, 0.9489)",
+            "payload": "",
+            "point": "(1292.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              0.180000007152557,
+              0.219999998807907
+            ],
+            "scale": "(1.166667, 1.166667)",
+            "source_helper_script": "res://scripts/arena/sky_lagoon_promenade.gd",
+            "target_count": 4,
+            "texture": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "castle_gate",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.449999988079071,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167369510317,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 0.08, 0.14, 0.45)",
+            "payload": "",
+            "point": "(1292.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              0.0799999982118607,
+              0.140000000596046
+            ],
+            "scale": "(1.166667, 1.166667)",
+            "source_helper_script": "res://scripts/arena/sky_lagoon_promenade.gd",
+            "target_count": 4,
+            "texture": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": true,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.449999988079071,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167369510317,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 0.08, 0.14, 0.45)",
+            "payload": "",
+            "point": "(1292.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              0.0799999982118607,
+              0.140000000596046
+            ],
+            "scale": "(1.166667, 1.166667)",
+            "source_helper_script": "res://scripts/arena/sky_lagoon_promenade.gd",
+            "target_count": 4,
+            "texture": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.988803565502167,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167369510317,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 0.18, 0.22, 0.9888)",
+            "payload": "",
+            "point": "(1292.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              0.180000007152557,
+              0.219999998807907
+            ],
+            "scale": "(1.166667, 1.166667)",
+            "source_helper_script": "res://scripts/arena/sky_lagoon_promenade.gd",
+            "target_count": 4,
+            "texture": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "castle_gate",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {},
+          "route": {
+            "day_one_last_event": "grok_video_2",
+            "day_one_media_request": "grok_dirty_castle_video_2",
+            "lagoon_promenade_focus": "",
+            "phase": "hall"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        }
+      ]
+    },
+    {
+      "case": "attempt1_candidate_1600",
+      "mode": "candidate",
+      "aspect": [
+        1600,
+        720
+      ],
+      "checks": 14,
+      "passed": true,
+      "native_frames": 5,
+      "manifest_sha256": "fe1a09a0a6590b680c2d0dd2ea9cfd2d0e4f2d799ebd9d32a103c2adb441b089",
+      "result": "native/attempt1_candidate_1600/RESULT.json",
+      "gate_states": [
+        {
+          "gate": {
+            "alpha": 0.948900580406189,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167386287533,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 1.0, 1.0, 0.9489)",
+            "payload": "",
+            "point": "(1292.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "scale": "(1.53125, 1.53125)",
+            "source_helper_script": "res://export/flat_vector_r67/painted_gate.gd",
+            "target_count": 4,
+            "texture": "res://assets/opera/worlds/props/fx_stolen_sparkle.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "castle_gate",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.449999988079071,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167386287533,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 1.0, 1.0, 0.45)",
+            "payload": "",
+            "point": "(1292.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "scale": "(1.53125, 1.53125)",
+            "source_helper_script": "res://export/flat_vector_r67/painted_gate.gd",
+            "target_count": 4,
+            "texture": "res://assets/opera/worlds/props/fx_stolen_sparkle.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": true,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.449999988079071,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167386287533,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 1.0, 1.0, 0.45)",
+            "payload": "",
+            "point": "(1292.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "scale": "(1.53125, 1.53125)",
+            "source_helper_script": "res://export/flat_vector_r67/painted_gate.gd",
+            "target_count": 4,
+            "texture": "res://assets/opera/worlds/props/fx_stolen_sparkle.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {
+            "alpha": 0.988803207874298,
+            "anchor_class": "Node2D",
+            "anchor_id": 167352733100,
+            "anchor_position": "(5270.665, 1147.402)",
+            "anchor_source_owned": true,
+            "glow_id": 167386287533,
+            "glow_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "id": "castle_gate",
+            "kind": "castle",
+            "modulate": "(1.0, 1.0, 1.0, 0.9888)",
+            "payload": "",
+            "point": "(1292.968, 403.3834)",
+            "radius_px": 128.0,
+            "rgb": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "scale": "(1.53125, 1.53125)",
+            "source_helper_script": "res://export/flat_vector_r67/painted_gate.gd",
+            "target_count": 4,
+            "texture": "res://assets/opera/worlds/props/fx_stolen_sparkle.png",
+            "visible": true,
+            "z_index": 4
+          },
+          "route": {
+            "day_one_last_event": "arrival_plane_media",
+            "day_one_media_request": "d1_opening",
+            "lagoon_promenade_focus": "castle_gate",
+            "phase": "promenade"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        },
+        {
+          "gate": {},
+          "route": {
+            "day_one_last_event": "grok_video_2",
+            "day_one_media_request": "grok_dirty_castle_video_2",
+            "lagoon_promenade_focus": "",
+            "phase": "hall"
+          },
+          "castle_room": "main_hall",
+          "tree_paused": false,
+          "quality": "speedy"
+        }
+      ]
+    }
+  ]
+}

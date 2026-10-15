@@ -1345,3 +1345,6 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r66_display_entry_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; originaldisplayentry6cases60checks/private-reload3pass;2legacycases retainsourcepolicyFAIL.126native70bounded56excluded; newnamedvisiblegatemask/241roles33families/89partial87without0complete. No production/newart/acceptance/removal. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r66_display_entry_context/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; exact2fixture/privatepreReadydependency/actualNewGame reload and normal11guards; legacyFAIL andSparklydiagnostics preserved. No QA11/freshOS/device/creative/child/owner acceptance. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/README.md` | 🔵 | `SUPPORTING_CURRENT`; source-reuse gate candidate,4 trials/54 checks/20 raw frames; production unchanged,0 accepted removals. Ten-axis review keeps new-use material/entrance semantics and device/child/owner acceptance open. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; exact4.7.2 Mobile/Speedy private native control/candidate,4420 runtime/4041 sidecar/11 normal save hash guards. Missing-art/return/caller and QA11/device/child/owner remain open. |

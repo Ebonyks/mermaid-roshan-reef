@@ -1,0 +1,114 @@
+{
+  "stable_id": "FVR-42846B2A5A82",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "reviewer": "Codex bounded current-scene observation",
+  "status": "PARTIAL_REUSE_FIT_NEW_USE_ACCEPTANCE_OPEN",
+  "viewed_native_frames": [
+    {
+      "path": "native/attempt1_control_1280/01_focused.png",
+      "sha256": "818eebf10881c6b6008543ce12be4499f84c0af748809ce9284e0cd9a3b69d66"
+    },
+    {
+      "path": "native/attempt1_candidate_1280/01_focused.png",
+      "sha256": "40b25a69699c506e44bce081aa0b1069beb38518dab75f26c69c7810f4d71caf"
+    },
+    {
+      "path": "native/attempt1_candidate_1280/03_idle_after_resume.png",
+      "sha256": "f578d87ea4fbf04389872c676e037c602aaffbfac2f4b77d3979940de36f81fe"
+    },
+    {
+      "path": "native/attempt1_candidate_1280/04_reselected.png",
+      "sha256": "257d70c390e0e4062781a59a52f4aea2a2a3ed737e7f73868ad5c4dc4edffc78"
+    },
+    {
+      "path": "native/attempt1_candidate_1280/05_castle_after_activation.png",
+      "sha256": "b47cb8239fbb97c3243f9d00daba28c6ff5490f5c86155dd09fb4d0c025c2e62"
+    },
+    {
+      "path": "native/attempt1_control_1600/01_focused.png",
+      "sha256": "d01396a293f99205392f3978f0e2e878c8e2f5311175c61e659fd34b20696ca5"
+    },
+    {
+      "path": "native/attempt1_candidate_1600/01_focused.png",
+      "sha256": "d1613ab2a09a860b095ec5f5448061657e3186beca4d676060d48b44ff0b9224"
+    },
+    {
+      "path": "native/attempt1_candidate_1600/03_idle_after_resume.png",
+      "sha256": "0e2ca15ef77afc0fa83068e751aae0164f434839e7197fec24e7038977c2bf0d"
+    },
+    {
+      "path": "native/attempt1_candidate_1280/02_original_pause.png",
+      "sha256": "3ace0ceaf57ac7aa7af6ffe1b3b5a0a05a1ded15c45e9329714c6329e02f693d"
+    }
+  ],
+  "view_count": 9,
+  "axes": {
+    "contour": "Five-point gold/violet source contour retained with uniform scaling. Unlike the red door silhouette, it leaves the arched door perimeter and wood panels visible. Simple star silhouette remains more iconic than neighboring carved fixtures; material/style acceptance is open.",
+    "material": "Existing gold highlight/shading/violet edge survives whole-star reuse. Native sample is softer and smoother than the door wood grain and sculpted shell finials. This is a plausible source, not proof of the final painted quality bar.",
+    "palette": "Gold/yellow highlights and violet edge repeat same-scene castle trim and bridge hardware; candidate retains authored RGB. No red source tint or relighting.",
+    "light": "Source upper/front gold highlight fits the bright daylight composition broadly; no new light/shader. Exact scene-specific light/finish acceptance remains open.",
+    "perspective": "Cue is an intentionally symbolic front-facing interaction overlay centered at the source door anchor, not a claimed physical fixture. It is not warped into the receding bridge perspective.",
+    "scale": "196 master-unit square canvas becomes about68.9 screen pixels at720high, with transparent padding. A single cue stays inside the gate region at both observed widths. It does not change the128-screen-pixel touch radius. Device-sized readability is not measured.",
+    "contact": "Overlay position remains the exact source invisible door anchor. No physical contact, mounted prop, shadow or geometry is invented; source bridge/door contact stays visible.",
+    "occlusion": "Gold cue covers a smaller central door region than the opaque full red mask. The source z_index4 remains; door edges, railings, approach and Roshan are visible. No independent alpha-aware/compositor proof is claimed.",
+    "readability": "The star is distinct in desktop selected frames and quieter at source idlealpha0.45. A star can imply a reward or collectible rather than ENTER; this is an unresolved new-use semantic/child-readability risk. Existing spoken/caption prompt is unchanged; Dummy audio is not listening evidence.",
+    "action_state": "Original auto-focus, pause clear, resume idle, first-touch reselect and second-touch castle activation pass. Candidate preserves source alpha/pulse timing and all other target logic. Full pulse cycle, return/reentry, all inputs/callers and missing-art negative are not closed."
+  },
+  "same_scene_reference_hashes_file": "DELIVERY_SOURCE_REFERENCES.json",
+  "reference_targets": [
+    "SkyLagoonCastleFourTower",
+    "SkyLagoonRoshan",
+    "SkyLagoonRoshanContactShadow",
+    "source panorama cards and playground textures observed in native hierarchy"
+  ],
+  "reuse_inventory": [
+    {
+      "asset": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+      "decision": "TRIAL_SOURCE",
+      "reason": "Existing licensed128square whole-star uniform derivative; gold/violet source preserved; low decoded texture cost; new use remains open."
+    },
+    {
+      "asset": "assets/mg/star.png",
+      "decision": "PROVENANCE_MASTER",
+      "reason": "Approved existing original role; native derivative avoids decoding a1024wide image for one small cue."
+    },
+    {
+      "asset": "assets/opera/worlds/widgets/widget_push_shared_arrow_down.png",
+      "decision": "REJECT_FOR_THIS_REPAIR",
+      "reason": "Flat yellow arrow does not resolve the style defect."
+    },
+    {
+      "asset": "assets/art35/cards/mg/star_star.png",
+      "decision": "REJECT_FOR_THIS_REPAIR",
+      "reason": "Squashed whole-star proportions; uniform whole-star derivative preferred."
+    },
+    {
+      "asset": "assets/flats/castle/main_hall_2screen/castle_sconce_glow_reuse.png",
+      "decision": "REJECT_FOR_THIS_REPAIR",
+      "reason": "Whole sconce fixture has the wrong object/function role."
+    },
+    {
+      "asset": "assets/flats/castle/rooms/room_opera_hall_item_stage_star.png",
+      "decision": "REJECT_FOR_THIS_REPAIR",
+      "reason": "Stage badge/fixture composite has the wrong context."
+    }
+  ],
+  "provenance": "Exact current D ASSET_LICENSES row declares whole-star uniform resize/padding from assets/mg/star.png to128x128, no generated pixels. Source approval does not grant this gate new-use acceptance. No image transformation or generation was performed.",
+  "lane_status": {
+    "candidate_machine": "PASS_4_CASES_54_CHECKS",
+    "agent_visual": "PARTIAL_FIT_WITH_OPEN_STYLE_AND_SEMANTICS",
+    "owner_creative": "PENDING",
+    "production_integration": "NOT_DONE",
+    "runtime_QA11": "NOT_DONE",
+    "actual_device": "PENDING",
+    "child": "PENDING",
+    "owner_final": "PENDING",
+    "accepted_removed": 0
+  },
+  "unresolved": [
+    "Missing-texture negative trial not executed; constructor fail-closed is source evidence only",
+    "Return/reentry and remaining callers, all targets/fallbacks not closed",
+    "Full QA11, fresh OS, phone performance/audio, child and owner acceptance missing",
+    "Whole-game denominator and route/state coverage unknown; strict2D unsatisfied"
+  ]
+}

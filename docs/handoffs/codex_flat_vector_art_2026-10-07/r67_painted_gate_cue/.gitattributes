@@ -1,0 +1,6 @@
+*.gd -text
+*.log -text
+# Preserve exact executed fixture bytes, including source-derived blank EOF.
+painted_gate.gd whitespace=-blank-at-eof
+native/*/painted_gate.gd whitespace=-blank-at-eof
+run_native.py whitespace=-blank-at-eof

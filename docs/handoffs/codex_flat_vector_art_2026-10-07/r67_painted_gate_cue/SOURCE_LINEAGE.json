@@ -1,0 +1,73 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "source_file_sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+  "original_methods": [
+    {
+      "method": "_register_target",
+      "start_line": 714,
+      "end_line": 768,
+      "sha256": "f509b40fd831b08716108414595907968eae277855594b44913dddd1819be9fd",
+      "body": "func _register_target(id: String, node: Node2D, kind: String, payload: String,\n\t\tradius_px: float, highlight_scale: float, highlight_path: String = \"\",\n\t\thighlight_height: float = 0.0) -> void:\n\tvar affordance_kind: String = Affordance.PLOT if kind == \"castle\" \\\n\t\telse Affordance.ANIMATION\n\tvar glow := Sprite2D.new()\n\tglow.name = \"SkyLagoonFocus_%s\" % id\n\tif kind == \"playground\":\n\t\t# A neutral procedural ring plus arrow names the object without cloning\n\t\t# any of its pixels. At the full-height phone scale the selected composite\n\t\t# remains over 64 px and its tip lands on the source card's top edge.\n\t\tglow.texture = _affordance_diamond_texture()\n\t\tglow.scale = Vector2.ONE * highlight_scale\n\t\tvar pointer_tip := Vector2(0.0, 128.0)\n\t\t_add_affordance_pointer(glow, pointer_tip)\n\t\tvar visible_top_y: float = _sprite_alpha_top_master(node as Sprite2D) \\\n\t\t\tif node is Sprite2D else node.position.y\n\t\tglow.position = Vector2(node.position.x,\n\t\t\tvisible_top_y - pointer_tip.y * highlight_scale)\n\t\tglow.set_meta(\"focus_cue_role\", \"procedural_ring_pointer\")\n\t\tglow.set_meta(\"pointer_tip_local\", pointer_tip)\n\t\tglow.set_meta(\"focus_cue_nominal_master_size\", Vector2(192.0, 256.0))\n\telif not highlight_path.is_empty():\n\t\tglow.texture = load(highlight_path) as Texture2D\n\t\tif glow.texture != null and highlight_height > 0.0:\n\t\t\tglow.scale = Vector2.ONE * (highlight_height / glow.texture.get_height())\n\telif node is Sprite2D:\n\t\tvar source := node as Sprite2D\n\t\tglow.texture = source.texture\n\t\tglow.scale = source.scale\n\tif kind != \"playground\":\n\t\tglow.position = node.position\n\tvar idle_tint: Color = Affordance.color(affordance_kind, false)\n\t# A complete duplicate object is never the affordance. Idle animation targets\n\t# use a nearly invisible shimmer; selection raises the same pixels briefly.\n\tidle_tint.a = minf(idle_tint.a,\n\t\t0.055 if kind == \"playground\" else 0.10)\n\tglow.modulate = idle_tint\n\tglow.visible = true\n\tglow.z_index = node.z_index + 4\n\tglow.set_meta(\"canvas_layer_role\", \"interaction_affordance\")\n\tglow.set_meta(\"interaction_id\", id)\n\tglow.set_meta(\"affordance_base_scale\", glow.scale)\n\t(m.g.get(\"lagoon_interactive_layer\") as Node2D).add_child(glow)\n\tnode.set_meta(\"interaction_id\", id)\n\tnode.set_meta(\"touch_footprint_px\", radius_px * 2.0)\n\tnode.set_meta(\"canvas_layer_role\", \"interactive\")\n\tvar targets: Array = m.g.get(\"lagoon_promenade_targets\", []) as Array\n\ttargets.append({\n\t\t\"id\": id, \"node\": node, \"kind\": kind, \"payload\": payload,\n\t\t\"radius_px\": radius_px, \"affordance_kind\": affordance_kind,\n\t\t\"highlight\": glow, \"highlight_scale\": highlight_scale,\n\t})\n\tm.g[\"lagoon_promenade_targets\"] = targets\n\n"
+    },
+    {
+      "method": "_tick_target_affordances",
+      "start_line": 829,
+      "end_line": 860,
+      "sha256": "4ec7c0f7c1680c92899fbd686ae6df84899385ec781a05ddfc4904836f164848",
+      "body": "func _tick_target_affordances(focus_id: String, focus_t: float) -> void:\n\tfor value: Variant in m.g.get(\"lagoon_promenade_targets\", []) as Array:\n\t\tvar target: Dictionary = value as Dictionary\n\t\tvar glow: Sprite2D = target.get(\"highlight\") as Sprite2D\n\t\tif glow == null or not is_instance_valid(glow):\n\t\t\tcontinue\n\t\tvar selected: bool = String(target.get(\"id\", \"\")) == focus_id\n\t\tglow.visible = true\n\t\tvar kind: String = String(target.get(\"affordance_kind\", Affordance.INTERACTION))\n\t\tvar wave: float = sin(focus_t * Affordance.pulse_speed(kind, selected))\n\t\tvar tint: Color = Affordance.color(kind, selected)\n\t\tif selected:\n\t\t\ttint.a = lerpf(0.82, 1.0, wave * 0.5 + 0.5)\n\t\telse:\n\t\t\t# Day One's castle gate is the route anchor. It must remain a readable\n\t\t\t# idle cue after focus is cleared; the generic promenade cap would make\n\t\t\t# the only safe destination effectively disappear.\n\t\t\tif m.day_one_is_active() and String(target.get(\"id\", \"\")) == \"castle_gate\":\n\t\t\t\ttint.a = maxf(tint.a, 0.45)\n\t\t\telse:\n\t\t\t\ttint.a = minf(tint.a, 0.055)\n\t\tglow.modulate = tint\n\t\tvar pulse: float = 1.0 + wave * Affordance.pulse_amount(kind, selected)\n\t\tvar base_scale: float = float(target.get(\"highlight_scale\", 1.0))\n\t\tif String(glow.get_meta(\"focus_cue_role\", \"\")) \\\n\t\t\t\t== \"procedural_ring_pointer\":\n\t\t\tglow.scale = Vector2.ONE * base_scale * pulse\n\t\telif String(target.get(\"id\", \"\")) != \"castle_gate\":\n\t\t\tvar node: Node2D = target.get(\"node\") as Node2D\n\t\t\tif node is Sprite2D:\n\t\t\t\tglow.scale = (node as Sprite2D).scale * base_scale * pulse\n\n"
+    },
+    {
+      "method": "_focus",
+      "start_line": 820,
+      "end_line": 824,
+      "sha256": "e7bfaf4902b02643f93c9ee59c5ac894f16b5ea5d0d8723bf915cf0f22c70279",
+      "body": "func _focus(target: Dictionary) -> void:\n\tm.g[\"lagoon_promenade_focus\"] = String(target.get(\"id\", \"\"))\n\tm.g[\"lagoon_promenade_focus_t\"] = 0.0\n\t_tick_target_affordances(String(target.get(\"id\", \"\")), 0.0)\n\n"
+    },
+    {
+      "method": "_clear_focus",
+      "start_line": 825,
+      "end_line": 828,
+      "sha256": "2765d341ee761889323da74e1d729e8313adc5657b2da5703b3f008857ac4c8f",
+      "body": "func _clear_focus() -> void:\n\tm.g[\"lagoon_promenade_focus\"] = \"\"\n\t_tick_target_affordances(\"\", float(m.g.get(\"lagoon_promenade_focus_t\", 0.0)))\n\n"
+    },
+    {
+      "method": "handle_touch",
+      "start_line": 344,
+      "end_line": 364,
+      "sha256": "723204a8a127ba0acd0d645ee254a47668bc31a240fa32ae16051acfdee334d9",
+      "body": "func handle_touch(screen_pos: Vector2) -> bool:\n\tif not (m.g.get(\"lagoon_play_anim\", {}) as Dictionary).is_empty():\n\t\treturn true\n\tvar animal: Dictionary = _animal_at(screen_pos)\n\tif not animal.is_empty():\n\t\t_startle_animal(animal)\n\t\treturn true\n\tvar target: Dictionary = _target_at(screen_pos)\n\tif target.is_empty():\n\t\t_clear_focus()\n\t\t_set_walk_goal(screen_pos)\n\t\treturn true\n\tm.g[\"lagoon_walk_goal_master\"] = null\n\tvar target_id: String = String(target.get(\"id\", \"\"))\n\tif String(m.g.get(\"lagoon_promenade_focus\", \"\")) == target_id:\n\t\t_activate(target)\n\t\t_clear_focus()\n\telse:\n\t\t_focus(target)\n\treturn true\n\n"
+    },
+    {
+      "method": "_activate",
+      "start_line": 861,
+      "end_line": 867,
+      "sha256": "082656bba7d9ee19f33a03f381eaf1a7585d2c74464f2021d8ce49660f35720d",
+      "body": "func _activate(target: Dictionary) -> void:\n\tmatch String(target.get(\"kind\", \"\")):\n\t\t\"playground\":\n\t\t\t_start_playground_animation(String(target.get(\"payload\", \"\")), target.get(\"node\") as Node2D)\n\t\t\"castle\":\n\t\t\tm._enter_castle_interior()\n\n"
+    },
+    {
+      "method": "cancel_navigation",
+      "start_line": 372,
+      "end_line": 380,
+      "sha256": "ebca996e3d6fc48fcb0df6c96bccb186dd0cb2c525a391baf0218c611fcf225e",
+      "body": "func cancel_navigation() -> void:\n\t# One cancellation seam owns every child-visible route promise. Manual stick\n\t# or keyboard movement, pause/focus loss and overlay transitions all use it so\n\t# no off-screen PLAY/ENTER focus or old autowalk can resume later.\n\tm.g[\"lagoon_walk_goal_master\"] = null\n\tm.g[\"lagoon_press_t\"] = 0.0\n\tm.g.erase(\"lagoon_press_position\")\n\t_clear_focus()\n\n"
+    },
+    {
+      "method": "teardown",
+      "start_line": 296,
+      "end_line": 321,
+      "sha256": "b362a8fbbf4192d48a0fa89b36d90e4fba03beabaf224c84339856d4a1e6cd14",
+      "body": "func teardown() -> void:\n\tvar layer: CanvasLayer = root()\n\tif layer != null and is_instance_valid(layer):\n\t\tif layer.get_parent() != null:\n\t\t\tlayer.get_parent().remove_child(layer)\n\t\tlayer.free()\n\tfor key: String in [\n\t\t\"lagoon_canvas_layer\", \"lagoon_canvas_root\", \"lagoon_master_space\",\n\t\t\"lagoon_camera_2d\", \"lagoon_base_layer\", \"lagoon_rear_layer\",\n\t\t\"lagoon_rear_geography_layer\",\n\t\t\"lagoon_landmark_layer\", \"lagoon_interactive_layer\", \"lagoon_actor_layer\",\n\t\t\"lagoon_foreground_geography_layer\", \"lagoon_foreground_layer\",\n\t\t\"lagoon_roshan_card\", \"lagoon_animal_actor\",\n\t\t\"lagoon_plane_card\", \"lagoon_reef_route_card\", \"lagoon_castle_card\",\n\t\t\"lagoon_castle_door_focus\", \"lagoon_night_fireflies\",\n\t\t\"lagoon_ambient_cards\", \"lagoon_animals\", \"lagoon_animal_cycles\",\n\t\t\"lagoon_promenade_targets\", \"lagoon_promenade_focus\",\n\t\t\"lagoon_promenade_focus_t\", \"lagoon_walk_goal_master\",\n\t\t\"lagoon_play_anim\", \"lagoon_reef_guidance_pending\", \"lagoon_castle_armed\",\n\t\t\"lagoon_master_x\", \"lagoon_master_y\", \"lagoon_route_t\",\n\t\t\"lagoon_camera_x\", \"lagoon_plane_t\", \"lagoon_hop_t\",\n\t\t\"lagoon_roshan_anim_t\", \"lagoon_roshan_frame\", \"lagoon_ambient_t\",\n\t\t\"lagoon_press_t\", \"lagoon_press_position\",\n\t]:\n\t\tm.g.erase(key)\n\n"
+    }
+  ],
+  "candidate_sha256": "19965e6f98bdf0bccfe57665fd3c5ce73985839707b2ecbeb128802728b738ac",
+  "declared_changes": [
+    "Castle-only constructor bypasses super white-mask branch and loads existing whole-star derivative; same anchor/radius/payload/target registration",
+    "Uniform196 master-unit cue; source castle scale remains fixed",
+    "Castle-only modulate RGB white; exact source alpha/pulse and all other target ticks preserved"
+  ],
+  "not_proven": [
+    "Missing-art native negative",
+    "All callers and source adoption",
+    "QA11/device/child/owner"
+  ]
+}

@@ -1,3 +1,7 @@
+# Current R67 gate cue reuse trial
+
+[Open the R67 review](r67_painted_gate_cue/README.md). Four source/candidate trials passed54 checks; production and accepted removals are unchanged. New-use style and entrance semantics, missing-art/caller closure and device/child/owner acceptance remain open.
+
 Current canonical evidence: [R66 original display entry and gate-mask inventory](r66_display_entry_context/README.md), [registry](r66_display_entry_context/per_piece.json), [coverage](r66_display_entry_context/scene_coverage.json), [tally](r66_display_entry_context/tally.json).
 
 Sixoriginalcases60checks/preflight3pass; bothlegacycases retainsourcepolicyFAIL.126native70bounded56excluded; newvisiblemaskrole,241roles33families/89partial87without0complete.0production/newart/removal/globalunknown.

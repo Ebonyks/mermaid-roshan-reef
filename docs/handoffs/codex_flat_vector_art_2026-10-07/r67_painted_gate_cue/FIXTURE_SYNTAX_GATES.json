@@ -1,0 +1,72 @@
+{
+  "status": "PASS_BEFORE_NATIVE",
+  "checked_at_utc": "2026-10-15T22:54:37.485613+00:00",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r67_painted_gate_cue\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r67_painted_gate_cue\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r67_painted_gate_cue\\painted_gate.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r67_painted_gate_cue\\capture_gate.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "script_errors": false
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r67_painted_gate_cue\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r67_painted_gate_cue\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r67_painted_gate_cue\\painted_gate.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r67_painted_gate_cue\\capture_gate.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "script_errors": false
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--rendering-method",
+        "mobile",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r67/capture_gate.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n",
+      "stderr": "",
+      "script_errors": false
+    }
+  ],
+  "fixture_files": [
+    {
+      "path": "base_capture.gd",
+      "sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83"
+    },
+    {
+      "path": "capture_entry.gd",
+      "sha256": "bc1b11eed800f200c554b6d98cc7d165096ad1d7be7614b44ce060d7991375de"
+    },
+    {
+      "path": "painted_gate.gd",
+      "sha256": "19965e6f98bdf0bccfe57665fd3c5ce73985839707b2ecbeb128802728b738ac"
+    },
+    {
+      "path": "capture_gate.gd",
+      "sha256": "ff064ca1ca45b989b642bc66f073324a733579e11f4012e7b132632919297a24"
+    }
+  ]
+}
