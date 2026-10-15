@@ -1,5 +1,51 @@
 {
-  "status": "PENDING_ACTUAL_EXECUTION_OR_REMOTE_VERIFICATION",
-  "record": "RECEIPT_GATES.json",
-  "mission_complete": false
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r46_melody_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "2bceb423b3e553f80ae0eaacfe9d88e752737889592ef2a0dc7e9b6f9316421d",
+      "checked_at_utc": "2026-10-15T04:18:01.630140+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "fc2db15c2ab1fe258c1c61e3a1edd106498f732575b0b4d53ffb6dc211a59dc7",
+      "checked_at_utc": "2026-10-15T04:18:12.393399+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T04:18:17.846990+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "checked_at_utc": "2026-10-15T04:19:33.891839+00:00",
+      "scope": "Every new receipt part staged; NO_REGRESSION does not satisfy strict zero debt"
+    }
+  ],
+  "raw_log_sha256": "f02b906d3be17f0f54d9d0defd6e4357c61dc4e13cd2bde65cdc9e180005e538",
+  "creative_acceptance": false
 }

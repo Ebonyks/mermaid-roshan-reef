@@ -1212,8 +1212,19 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_R46_PUBLICATION_AND_ANONYMOUS_ALL_FILE_VERIFICATION",
-    "accepted_removed": 0
+    "status": "PAYLOAD_AND_ALL_DECLARED_DEPENDENCIES_ANONYMOUSLY_VERIFIED",
+    "payload_revision": "ac874448d128b09e21e9a3511bc883ff0f0799bb",
+    "required_file_count": 12238,
+    "required_bytes": 4705880740,
+    "manifest_sha256": "db27d300ab2e9bb2ae65f6e9502824868e7cefc5c6121bccd28dc844dfcedce8",
+    "payload_sha256": "840ab4a5de25df690c8be58ebc4eccc139cb1526f69e73da441297cee252b6fc",
+    "checked_at_utc": "2026-10-15T04:17:02.613014+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "manifest": "MANIFEST.json",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "receipt_fragment_count": 8,
+    "receipt_logical_sha256": "9aa960eeba2c77e5e3600631bde3e71c9b885f090b8417573cbdd660022568fb",
+    "final_metadata_status": "FINAL_BYTE_RECEIPT separately binds exact receipt index/allparts and final canonical metadata"
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -2048,7 +2059,8 @@
   "change_record": {
     "id": "CHG-053",
     "impact": "design/audit_impacts/flat-vector-melody-context-20261015.json",
-    "source_payload_pending": true
+    "source_payload_pending": false,
+    "payload_revision": "ac874448d128b09e21e9a3511bc883ff0f0799bb"
   },
   "teacher_pointer_reuse": {
     "revision": "FV-AUDIT-20261014-R28",
@@ -2180,38 +2192,38 @@
     "scope": "Actualprior exacthead CI state; pending/cancellednotgreen. NewR29exacthead pending;unchangedproduction/R16native evidence separate."
   },
   "current_ci_snapshot": {
-    "checked_at_utc": "2026-10-15T03:28:15.022421+00:00",
+    "checked_at_utc": "2026-10-15T04:17:57.278947+00:00",
     "runs": [
       {
         "conclusion": "",
+        "databaseId": 38680190651,
+        "headSha": "ac874448d128b09e21e9a3511bc883ff0f0799bb",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38680190651"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38677180046,
+        "headSha": "7cdb9bf63bd8f3846b34b17cce74b065747aae92",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38677180046"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38676864174,
+        "headSha": "1ada2bac1d6015b296369c665b835fee0a01c7ae",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38676864174"
+      },
+      {
+        "conclusion": "cancelled",
         "databaseId": 38675826163,
         "headSha": "57f6e1b07e1cb5ad3087b30caf53851e3d4f657a",
-        "status": "in_progress",
+        "status": "completed",
         "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38675826163"
-      },
-      {
-        "conclusion": "success",
-        "databaseId": 38669444459,
-        "headSha": "e17c929d22fdf749fffb1ad2acdaeff7059c21a1",
-        "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38669444459"
-      },
-      {
-        "conclusion": "cancelled",
-        "databaseId": 38669254696,
-        "headSha": "68361f9d3f56baf0de291df2547e5bf792d21f67",
-        "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38669254696"
-      },
-      {
-        "conclusion": "cancelled",
-        "databaseId": 38667871694,
-        "headSha": "79ff8a0134b4cd58d96131d4d51aab12a4fa3d71",
-        "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38667871694"
       }
     ],
-    "scope": "Observed exactheads only;pending/cancelled notgreen/artacceptance. PriorR32actualfull82/R35CI retainedatbyteidenticalproduction,not a newfull-suite execution;R45native source/dispatch diagnostics separately evidenced. Source/capture/role counts separate; downstream runtime and acceptance open."
+    "scope": "Observed exact heads only;pending/cancelled are not green. No new local full82 or human/visual/device/child/owner acceptance from workflow results."
   },
   "inherited_r29_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fdf41220b8cfe16f129741e364b2ea75f4e5e7f1/docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context",
   "startup_ambience_retirement": {
