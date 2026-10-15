@@ -1,6 +1,12 @@
-Current canonical evidence: [R42 companion fit trial](r42_companion_preview_fit/README.md), [registry](r42_companion_preview_fit/per_piece.json), [coverage](r42_companion_preview_fit/scene_coverage.json), [tally](r42_companion_preview_fit/tally.json).
+Current canonical evidence: [R43 whole Mewsha trial](r43_mewsha_whole_trial/README.md), [registry](r43_mewsha_whole_trial/per_piece.json), [coverage](r43_mewsha_whole_trial/scene_coverage.json), [tally](r43_mewsha_whole_trial/tally.json).
 
-# Current R42 companion fit trial
+# Current R43 whole-image Mewsha trial
+
+One painted source candidate/three saved palette slots work in ignored consumers;art QC and all acceptance remain open.230 roles/31 families,3 unaccepted source samples,0 accepted removals/global total unknown. Production unchanged.
+
+Historical R42 evidence: [R42 companion fit trial](r42_companion_preview_fit/README.md), [registry](r42_companion_preview_fit/per_piece.json), [coverage](r42_companion_preview_fit/scene_coverage.json), [tally](r42_companion_preview_fit/tally.json).
+
+# Historical R42 companion fit trial
 
 Six supported isolated cases/40 exact live boxes pass;original production/art unchanged.230roles/31families,0accepted removals/globalunknown. Third-color/title/style/contact/ambient and inventory/acceptance lanes remainopen.
 

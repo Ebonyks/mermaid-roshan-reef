@@ -1,0 +1,40 @@
+{
+  "job_id": "R43-MEWSHA-WHOLE-MATERIAL-001",
+  "method": "built-in image_gen edit",
+  "call_index": 1,
+  "call_cap_total": 1,
+  "status": "INVOKING_SINGLE_BOUNDED_CALL",
+  "requested_at_utc": "2026-10-15T00:03:28.240085+00:00",
+  "prompt_path": "assets_src/flat_vector_r43_mewsha_whole_20261015/PROMPT.txt",
+  "prompt_sha256": "c189e3fff816c8e69b55adc894d232595694c40c6f70ed59ed050f139b5ee89e",
+  "inputs": [
+    {
+      "path": "assets/mg/cat_body.png",
+      "revision": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+      "sha256": "6011c4e2debce40e92f55812d91f5e28f918748abf472f05f1ea70b456f224ed",
+      "role": "edit_target_identity_silhouette"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r42_companion_preview_fit/native/native_fit_1280_mewsha/captures/picker_default.png",
+      "revision": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+      "sha256": "40a03c5003b881415e5a7b4bfba4bfd59aa4f614ef196b832edabbfc9c35d8ec",
+      "role": "current_colored_picker_context_only_no_UI_pixels"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r42_companion_preview_fit/native/native_fit_1600_mewsha/captures/castle_card_default_colors.png",
+      "revision": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+      "sha256": "7249043eca46ecb91ee98d1d444cbd944a2920488007d3b5b3a92b5ed7e9d79e",
+      "role": "current_Castle_context_only_no_scene_pixels"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+      "revision": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+      "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
+      "role": "same_scene_painted_material_reference_no_anatomy_copy"
+    }
+  ],
+  "transparent_background": true,
+  "reported_usage": "Not yet exposed; count1call and preserve reported output metadata when available.",
+  "production_adoption": false,
+  "approved": false
+}

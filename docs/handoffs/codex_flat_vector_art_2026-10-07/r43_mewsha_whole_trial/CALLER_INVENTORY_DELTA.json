@@ -1,0 +1,170 @@
+{
+  "baseline": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+  "current_exact_source_caller_files": [
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+      "sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "probe": false,
+      "hits": [
+        {
+          "line": 2810,
+          "text": "sync_castle_companion_card()"
+        },
+        {
+          "line": 2868,
+          "text": "sync_castle_companion_card()"
+        },
+        {
+          "line": 4698,
+          "text": "sync_castle_companion_card()"
+        },
+        {
+          "line": 5029,
+          "text": "func sync_castle_companion_card() -> void:"
+        }
+      ]
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "revision": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+      "sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395",
+      "probe": false,
+      "hits": [
+        {
+          "line": 665,
+          "text": "var frn = m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]), body_rb, acc_rb, c3)"
+        }
+      ]
+    },
+    {
+      "path": "scripts/companion.gd",
+      "revision": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+      "sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "probe": false,
+      "hits": [
+        {
+          "line": 128,
+          "text": "func creature_for(d: Dictionary, c: Array[Color]) -> Node3D:"
+        },
+        {
+          "line": 131,
+          "text": "return _stuffie_cutout(d, c, 3.8)"
+        },
+        {
+          "line": 134,
+          "text": "return creature_for(active_def(), colors())"
+        },
+        {
+          "line": 146,
+          "text": "func _stuffie_cutout(d: Dictionary, c: Array[Color], target_height: float) -> Node3D:"
+        },
+        {
+          "line": 312,
+          "text": "_add_creature_preview(preview, d, Vector2(16, 16), Vector2(318, 328), current_colors[0], current_colors[1])"
+        },
+        {
+          "line": 740,
+          "text": "m._castle_rooms_ref().sync_castle_companion_card()"
+        },
+        {
+          "line": 790,
+          "text": "_add_creature_preview(card, d, Vector2(12, 12), Vector2(150, step - 50.0),"
+        },
+        {
+          "line": 813,
+          "text": "_add_creature_preview(preview_panel, pick_def, Vector2(14, 14), Vector2(302, 302), pc0, pc1)"
+        },
+        {
+          "line": 920,
+          "text": "func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box_size: Vector2, body: Color, accent: Color) -> void:"
+        },
+        {
+          "line": 950,
+          "text": "var draw_order: Array = [1, 0, 2]   # body, accent, line (matches _make_creature_node)"
+        },
+        {
+          "line": 1150,
+          "text": "display_creature = _stuffie_cutout(d, _room_colors(id), 2.4)"
+        }
+      ]
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "revision": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+      "sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "probe": false,
+      "hits": [
+        {
+          "line": 155,
+          "text": "var pet: Node3D = m._make_creature_node(\"fish\","
+        }
+      ]
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+      "sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "probe": false,
+      "hits": [
+        {
+          "line": 1799,
+          "text": "var card := _make_creature_node(\"fish\", AQ_COLORS.get(model, Color(0.4, 0.75, 0.7)),"
+        },
+        {
+          "line": 7168,
+          "text": "func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool = false, acc_rb: bool = false, third: Color = Color(0, 0, 0, 0)) -> Node3D:"
+        }
+      ]
+    },
+    {
+      "path": "scripts/probe_creatures.gd",
+      "revision": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+      "sha256": "1c8456acf2f44413c109ffc67714959e7d900c8fdaeaac3b4c461522d94af033",
+      "probe": true,
+      "hits": [
+        {
+          "line": 32,
+          "text": "var fish: Node3D = main._make_creature_node(\"fish\", Color(0.4, 0.7, 1.0), Color(1.0, 0.6, 0.2))"
+        },
+        {
+          "line": 33,
+          "text": "var fish_rb: Node3D = main._make_creature_node(\"fish\", Color(1, 1, 1), Color(1.0, 0.9, 0.3), true, false)"
+        },
+        {
+          "line": 34,
+          "text": "var cat: Node3D = main._make_creature_node(\"cat\", Color(0.95, 0.7, 0.85), Color(0.6, 0.4, 0.9))"
+        },
+        {
+          "line": 35,
+          "text": "var bird: Node3D = main._make_creature_node(\"bird\", Color(1.0, 0.85, 0.3), Color(0.3, 0.8, 0.9))"
+        }
+      ]
+    },
+    {
+      "path": "scripts/probe_stuffie.gd",
+      "revision": "1ca647a57943dc4b6a645f7cffb85a9be600f173",
+      "sha256": "6a70cad9c8b4a992061af670a4d75c7db1afab671a7a1f6b2ecea9d0ea899286",
+      "probe": true,
+      "hits": [
+        {
+          "line": 336,
+          "text": "var lamma_cutout: Node3D = comp.creature_for(lamma, lamma_colors)"
+        }
+      ]
+    }
+  ],
+  "unit_ids": [
+    "FVT-CCF43BC8DE55",
+    "FVT-318E934BB0DA",
+    "FVT-70C480B97686",
+    "FVT-E9042EE6F8BF",
+    "FVT-060E5952E2B5"
+  ],
+  "full_runtime_closures": 0,
+  "remaining_full_units": 5,
+  "legacy_limit": "Main CRAFT_RIGGED/GEN2 andCompanionNode3D/Sprite3D/battle/follower/Studio remainmeasuredunaccepteddebt andneed actualguards/route/stateclosure. Currentroot has0modelresources;UV/masks are notwholeCanvas counterparts. R43 candidateonlytargets twoexistingCanvas consumers,not these remainingcallers. No archives restored/revived.",
+  "named_role_count_added": 0,
+  "primitive_dispositions_added": 0,
+  "accepted_removed": 0
+}

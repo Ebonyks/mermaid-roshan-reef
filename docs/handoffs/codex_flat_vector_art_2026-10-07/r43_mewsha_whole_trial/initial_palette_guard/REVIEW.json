@@ -1,0 +1,52 @@
+{
+  "status": "TERMINAL_NATIVE_PASS_VISUAL_GUARD_FAIL_ARCHIVED_BEFORE_SHADER_REPAIR",
+  "checked_at_utc": "2026-10-15T00:14:22.671214+00:00",
+  "native_job": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-mewsha-whole-20261015\\native_whole_1280_mewsha",
+  "native_exit_code": 0,
+  "captures": 32,
+  "actual_file_binding_timing": "Archived after terminal result before any shader edit; source files have been unchanged through that job. The original LAUNCH bound only the capture fixture; this limitation is explicit.",
+  "source_bindings": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/capture_mewsha_whole.gd",
+      "sha256": "a0575ff9f45658255d95247009e32187d68eed3a32e62438a63c4c38e98aeb9d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/castle_mewsha.gd",
+      "sha256": "16cb75fb7a017d58e782b18cb51db1525f0c83fdaef66d364be9f82ba51d802f"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/companion_mewsha.gd",
+      "sha256": "393d79d9561856329d38eda8dae3dd82c00807adae202382a53450b61a67ed0c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/whole_mewsha.gd",
+      "sha256": "a0dc1948cf754e00e14cea8272c23126de6c498aea491d28ce29712c2a96539e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/mewsha_palette.gdshader",
+      "sha256": "f42e03877275295cac5ef58436c216e34d7e178505c8eac5093e9fce24946574"
+    }
+  ],
+  "visual_failures": [
+    "Broad protected-eye ellipse leaves obvious pink-fur halos onwhitebodychoice.",
+    "Heartdefault near-white clipping flattens paintedvaluevariation.",
+    "Nativegenerator boundary/glitter/catchlight/heart deviations remain separatelyopen;no generation retry."
+  ],
+  "corrective_scope": "Tighten existing invisibleeye eligibility bysource luma/eyebounds anduseadditivevalue shift insteadofdivision clipping. No source image/pixel edit ornew art.",
+  "context_credit": false,
+  "dark_pixel_ROI_bounds_pixels_including_other_contours": [
+    [
+      256,
+      400,
+      491,
+      604
+    ],
+    [
+      483,
+      346,
+      716,
+      563
+    ]
+  ],
+  "eye_boundary_limit": "Thresholded ROI bounds include other dark contours; they are not isolated eye connected-component masks or acceptance evidence."
+}

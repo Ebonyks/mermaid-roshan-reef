@@ -1,0 +1,159 @@
+{
+  "status": "PASS_IGNORED_CANDIDATE_ART_QC_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/capture_mewsha_whole.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/castle_mewsha.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/companion_mewsha.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/capture_mewsha_whole.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/castle_mewsha.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/companion_mewsha.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/whole_mewsha.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/whole_mewsha.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T00:26:52.011803+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/capture_mewsha_whole.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/castle_mewsha.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/companion_mewsha.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/capture_mewsha_whole.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/castle_mewsha.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/companion_mewsha.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/initial_palette_guard/whole_mewsha.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/whole_mewsha.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T00:26:52.968970+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r43_mewsha_whole_trial/capture_mewsha_whole.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T00:27:00.711132+00:00",
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r43_mewsha_whole_trial\\validate.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T00:27:09.826093+00:00",
+      "stdout_sha256": "0d378f44b26b89d5698ed23046629177fb893db4e890801e60fcfe2279574aa8",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T00:27:20.577662+00:00",
+      "stdout_sha256": "f3e665edcda73cef2fb657dc9bf46a2381986c7cfa261c18f85e5df1c8e17308",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T00:27:26.383955+00:00",
+      "stdout_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T00:27:38.326344+00:00",
+      "stdout_sha256": "298b895c2ac1ea4b81ebca2dbe481eae4ebe57e31271f81807e51b5433cb90f9",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "15b0c4750eb06d0c25387fa806464b4562ba8945236db623ad90448c824c9974",
+  "scope": "Seven fresh commands: parser andinference onallcurrent/archivedignored GDScripts, exactofficialGodot4.7.2 fixtureanalysis, independentactualcapture/pixel/master/cap/frozen-history/source/counter validator,documentauthority,developmentcoverage and54audit unit tests (6/6stress). Six actualcurrentnativecases andonepriorvisualfail areseparate retained evidence. No newfull82suite orart/human/QA11 acceptance.",
+  "verified_aseprite_version": {
+    "command": [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "Aseprite 1.3.18.4-x64",
+    "scope": "Directread-onlyversioncheck;actualbridge/master proofs separatelybound."
+  },
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r43_mewsha_whole_trial\\validate.py"
+      ],
+      "checked_at_utc": "2026-10-15T00:29:32.223127+00:00",
+      "exit_code": 0,
+      "sha256": "0d378f44b26b89d5698ed23046629177fb893db4e890801e60fcfe2279574aa8",
+      "output": "R43_VALIDATE_PASS: actual3slot-pixels/save/onewhole-image/identityguards/native/ASEPRITE/sourcecap/frozenhistory/counters; artQC/globalacceptance open\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "checked_at_utc": "2026-10-15T00:29:44.129953+00:00",
+      "exit_code": 0,
+      "sha256": "f3e665edcda73cef2fb657dc9bf46a2381986c7cfa261c18f85e5df1c8e17308",
+      "output": "DOCAUTH|INVENTORY=746|LEDGER=746|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "checked_at_utc": "2026-10-15T00:29:49.473263+00:00",
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    }
+  ]
+}
