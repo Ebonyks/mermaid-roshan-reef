@@ -1,0 +1,257 @@
+{
+  "revision": "FV-AUDIT-20261015-R63",
+  "bindings": [
+    {
+      "id": "game.wardrobe",
+      "original_origin": {
+        "id": "game.wardrobe",
+        "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+        "origin_path": "design/reference/games.json",
+        "catalogue_index": 59,
+        "catalogue_id": "wardrobe",
+        "declared_name": "Royal Bedroom wardrobe",
+        "declared_family": "system",
+        "declared_sources": [
+          "scripts/wardrobe_ui.gd"
+        ],
+        "declared_hosts": [
+          "scripts/arena/castle_rooms_25d.gd",
+          "scripts/main.gd"
+        ],
+        "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+      },
+      "current_catalogue_row": {
+        "id": "wardrobe",
+        "name": "Royal Bedroom wardrobe",
+        "family": "system",
+        "state": "live",
+        "route": "After Day One: Dream House Wing, Royal Bedroom, tap the shell wardrobe.",
+        "sources": [
+          "scripts/wardrobe_ui.gd"
+        ],
+        "host": [
+          "scripts/arena/castle_rooms_25d.gd",
+          "scripts/main.gd"
+        ],
+        "probes": [
+          "probe_ui_system"
+        ],
+        "findings": [],
+        "scores": {
+          "C1": {
+            "score": 2,
+            "note": "Diegetic entry after Day One."
+          },
+          "C2": {
+            "score": 2,
+            "note": "Canvas UI; the twirl plays on the hidden 3D player."
+          },
+          "C3": {
+            "score": 1,
+            "note": "Generic opening line whose caption promises choices that do not exist; no pointer."
+          },
+          "C4": {
+            "score": 2,
+            "note": "Buttons 480x110 and 330x132."
+          },
+          "C5": {
+            "score": 2,
+            "note": "No fail."
+          },
+          "C6": {
+            "score": 1,
+            "note": "The twirl cannot be seen."
+          },
+          "C7": {
+            "score": 1,
+            "note": "The Huluu look turns Roshan into a protected friend portrait."
+          },
+          "C8": {
+            "score": 2,
+            "note": "Bounded sparkle, chime and cheer."
+          },
+          "C9": {
+            "score": 2,
+            "note": "Feedback tween stopped on close; the skin key has a default."
+          },
+          "C10": {
+            "score": 1,
+            "note": "Signal-level presses."
+          }
+        },
+        "strengths": [],
+        "defects": [],
+        "acceptance": {
+          "device": null,
+          "child": null,
+          "owner": null
+        },
+        "evidence": [
+          {
+            "path": "scripts/wardrobe_ui.gd",
+            "sha256": "eab02b46ac3d322f295c09c68847ccbecc776378ac4cc15835f4df4f16b215a6"
+          }
+        ]
+      },
+      "current_catalogue_sha256": "dfdab83a5590d791f6409b9502b2516649c02ecb75cc8b1b7da440eacae358df",
+      "native_cases": [
+        "attempt1_wardrobe_locked_1600",
+        "attempt1_wardrobe_teardown_locked_1280",
+        "attempt1_wardrobe_unlocked_1280",
+        "attempt1_wardrobe_unlocked_1600",
+        "attempt2_wardrobe_locked_1280"
+      ],
+      "proved_partial_subset": "Original full-skin Wardrobe consumer from actual Royal Bedroom item, locked/unlocked selections, feedback, save/reload/close and Fashion entry only",
+      "accepted_removed": 0,
+      "complete": false
+    },
+    {
+      "id": "game.pearl_castle",
+      "original_origin": {
+        "id": "game.pearl_castle",
+        "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+        "origin_path": "design/reference/games.json",
+        "catalogue_index": 42,
+        "catalogue_id": "pearl_castle",
+        "declared_name": "Pearl Castle rooms",
+        "declared_family": "world",
+        "declared_sources": [
+          "scripts/arena/castle_rooms_25d.gd",
+          "scripts/arena/castle_fixture_rigs.gd",
+          "scripts/castle_door_language.gd",
+          "scripts/castle_door_cue.gd",
+          "scripts/stage_navigation_2d.gd"
+        ],
+        "declared_hosts": [
+          "scripts/main.gd",
+          "scripts/navigation_controller.gd",
+          "scripts/arena/sky_lagoon.gd",
+          "scripts/arena/day_one_castle_dressing.gd",
+          "scripts/arena/day_one_castle_grime.gd"
+        ],
+        "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+      },
+      "current_catalogue_row": {
+        "id": "pearl_castle",
+        "name": "Pearl Castle rooms",
+        "family": "world",
+        "state": "live",
+        "route": "Sky Lagoon castle doorstep or door, then CastleRooms25D.open; Back walks room, parent room, courtyard.",
+        "sources": [
+          "scripts/arena/castle_rooms_25d.gd",
+          "scripts/arena/castle_fixture_rigs.gd",
+          "scripts/castle_door_language.gd",
+          "scripts/castle_door_cue.gd",
+          "scripts/stage_navigation_2d.gd"
+        ],
+        "host": [
+          "scripts/main.gd",
+          "scripts/navigation_controller.gd",
+          "scripts/arena/sky_lagoon.gd",
+          "scripts/arena/day_one_castle_dressing.gd",
+          "scripts/arena/day_one_castle_grime.gd"
+        ],
+        "probes": [
+          "probe_throne",
+          "probe_bathroom_integration",
+          "probe_interaction",
+          "probe_crown",
+          "probe_castle_door_language",
+          "probe_castle_pearl_art"
+        ],
+        "findings": [
+          "MA-SAVE-001",
+          "MA-OPERA-012",
+          "MA-TOUCH-003"
+        ],
+        "scores": {
+          "C1": {
+            "score": 2,
+            "note": "Reached from the Sky Lagoon on every save."
+          },
+          "C2": {
+            "score": 2,
+            "note": "Canvas castle files; but its per-frame tick still runs through the old 3D lagoon code."
+          },
+          "C3": {
+            "score": 2,
+            "note": "Every castle objective has an exact recorded line and a live gold door cue; since 2026-10-04 the touring prop halo only marks props whose hotspots are visible in the tree, so a suspended room never shows an invitation it cannot answer (MA-TOUCH-003)."
+          },
+          "C4": {
+            "score": 2,
+            "note": "Floor taps snap to authored lanes; prop and door targets at least 110 px; one finger owns one route."
+          },
+          "C5": {
+            "score": 2,
+            "note": "No timers or fail; a busy check stops mashing."
+          },
+          "C6": {
+            "score": 2,
+            "note": "Roshan walks to each prop's standing spot and the painted object itself animates."
+          },
+          "C7": {
+            "score": 1,
+            "note": "roshan_base anchor and approved panorama; the hall pans one flat layer and foreground cards always draw over Roshan. Since 2026-10-04 the safe-frame backdrop fills only the letterbox or pillarbox bands the fitted stage leaves, not a full-screen layer hidden under the room tiles."
+          },
+          "C8": {
+            "score": 2,
+            "note": "Each prop plays its own synced sound."
+          },
+          "C9": {
+            "score": 1,
+            "note": "Open, close, suspend and resume are thorough, but nothing handles focus loss and prop sound plays under pause."
+          },
+          "C10": {
+            "score": 1,
+            "note": "probe_throne sends real mouse events; no zero-input leg, no touch-screen prop taps, Day One off in most castle probes."
+          }
+        },
+        "strengths": [
+          "Walk to the object, then act",
+          "Required-voice list that refuses a generic fallback",
+          "Door-state vocabulary"
+        ],
+        "defects": [],
+        "acceptance": {
+          "device": null,
+          "child": null,
+          "owner": null
+        },
+        "evidence": [
+          {
+            "path": "scripts/arena/castle_rooms_25d.gd",
+            "sha256": "c0df908d401ff8a3e000135b83c20780e104d284b11c795945710a349b96fa9f"
+          },
+          {
+            "path": "scripts/castle_door_language.gd",
+            "sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f"
+          },
+          {
+            "path": "scripts/stage_navigation_2d.gd",
+            "sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b"
+          }
+        ],
+        "august_rating": 3,
+        "assessed_head": "356afeb94bef803f3d1d2268adfed3f1405143b7"
+      },
+      "current_catalogue_sha256": "dfdab83a5590d791f6409b9502b2516649c02ecb75cc8b1b7da440eacae358df",
+      "native_cases": [
+        "attempt1_wardrobe_locked_1600",
+        "attempt1_wardrobe_teardown_locked_1280",
+        "attempt1_wardrobe_unlocked_1280",
+        "attempt1_wardrobe_unlocked_1600",
+        "attempt2_wardrobe_locked_1280"
+      ],
+      "proved_partial_subset": "Original CastleRooms MainHall/DreamHouseWing/RoyalBedroom interior subset reached after declared private Castle bootstrap, with source props/door/UI item; no courtyard/lagoon/ordinary launch/full-room route claim",
+      "accepted_removed": 0,
+      "complete": false
+    }
+  ],
+  "retained_overlapping_ids": [
+    "ui.wardrobe",
+    "overlay.wardrobe"
+  ],
+  "standalone.main": "Not credited: private bootstrap does not prove unforced project-entry path.",
+  "no_historical_score_refresh": true,
+  "no_unique_screen_or_art_credit": true
+}

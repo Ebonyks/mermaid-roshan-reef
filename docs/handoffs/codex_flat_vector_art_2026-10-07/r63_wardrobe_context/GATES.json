@@ -1,0 +1,144 @@
+{
+  "status": "PASS_WARDROBE_CONTEXT_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\capture_teardown.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\capture_wardrobe.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_locked_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_locked_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_teardown_locked_1280\\base_fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_teardown_locked_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_unlocked_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_unlocked_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt2_wardrobe_locked_1280\\fixture_source.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-15T19:09:39.144420+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\capture_teardown.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\capture_wardrobe.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_locked_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_locked_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_teardown_locked_1280\\base_fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_teardown_locked_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_unlocked_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt1_wardrobe_unlocked_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\native\\attempt2_wardrobe_locked_1280\\fixture_source.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-15T19:09:40.065595+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "dd02acfc3000b3b1fb21bc76c52efa69ceeb5ca5cd072c9414c8b8ed2073eb24",
+      "checked_at_utc": "2026-10-15T19:09:51.898025+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "fb129f1962a48fb395f52c4591597b4c0205e582e7d66b21ba58d3a0678d0286",
+      "checked_at_utc": "2026-10-15T19:10:02.167021+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T19:10:08.910188+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "sha256": "30b21017d5253f556feefc379ed8770285db7904726b0e5bd0143e2bf1f1f9e8",
+      "checked_at_utc": "2026-10-15T19:10:18.655084+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-15T19:10:19.715370+00:00"
+    }
+  ],
+  "raw_log_sha256": "1b6b70844ad00212230db0112579f7f25fa07a367286aa01cc73e8551cb7c397",
+  "exact_engine_preflight": [
+    "FIXTURE_PRECHECK_ATTEMPT1.json",
+    "FIXTURE_SYNTAX_GATES_AFTER_READER_FIX.json",
+    "EARLY_CLOSE_FIXTURE_SYNTAX_GATES.json"
+  ],
+  "scope": "Native5cases147checks plus all copied-GDparser/inference,294originalPNGpixelhash/source/profile/callback/lifecycle/frozen/history validator,mandatory54document tests/6stress. Exact prechecked4.7.2Mobile/Speedy captures are not full82probes,QA11/device/child/owner/creative/strict2D satisfaction. Actual staged+committed2D beforeeachpush.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r63_wardrobe_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "dd02acfc3000b3b1fb21bc76c52efa69ceeb5ca5cd072c9414c8b8ed2073eb24",
+      "output": "R63_VALIDATION_PASS:294originalPNG/pixelhashes,5cases147checks,63excluded,70currentrefs,explicit2partialIDs88/88/0,frozen5/history/source/save/acceptance preserved\r\n",
+      "checked_at_utc": "2026-10-15T19:17:21.470930+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "fb129f1962a48fb395f52c4591597b4c0205e582e7d66b21ba58d3a0678d0286",
+      "output": "DOCAUTH|INVENTORY=767|LEDGER=767|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T19:17:31.009800+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T19:17:37.257199+00:00"
+    }
+  ]
+}

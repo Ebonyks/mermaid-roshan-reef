@@ -1,0 +1,73 @@
+{
+  "baseline": "db43af9e46f0b7f718225ffc03dd40206b8cc2de",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "source_before_after_guards": [
+    {
+      "case": "attempt1_wardrobe_locked_1280",
+      "result": "native/attempt1_wardrobe_locked_1280/RESULT.json",
+      "runtime_files": 4420,
+      "sidecars": 4041,
+      "normal_names": 8
+    },
+    {
+      "case": "attempt1_wardrobe_locked_1600",
+      "result": "native/attempt1_wardrobe_locked_1600/RESULT.json",
+      "runtime_files": 4420,
+      "sidecars": 4041,
+      "normal_names": 8
+    },
+    {
+      "case": "attempt1_wardrobe_teardown_locked_1280",
+      "result": "native/attempt1_wardrobe_teardown_locked_1280/RESULT.json",
+      "runtime_files": 4420,
+      "sidecars": 4041,
+      "normal_names": 8
+    },
+    {
+      "case": "attempt1_wardrobe_unlocked_1280",
+      "result": "native/attempt1_wardrobe_unlocked_1280/RESULT.json",
+      "runtime_files": 4420,
+      "sidecars": 4041,
+      "normal_names": 8
+    },
+    {
+      "case": "attempt1_wardrobe_unlocked_1600",
+      "result": "native/attempt1_wardrobe_unlocked_1600/RESULT.json",
+      "runtime_files": 4420,
+      "sidecars": 4041,
+      "normal_names": 8
+    },
+    {
+      "case": "attempt2_wardrobe_locked_1280",
+      "result": "native/attempt2_wardrobe_locked_1280/RESULT.json",
+      "runtime_files": 4420,
+      "sidecars": 4041,
+      "normal_names": 8
+    }
+  ],
+  "historical_helper_source": "R55capture_comfy.gd at immutableB;20helper bodies copied, _go_room RoyalBedroom branch extension and read-only_disk skin/fairyskin additions declared. First54frames reader-error retained/excluded. No production change.",
+  "current_fixture_sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+  "teardown_fixture_sha256": "8022f888431e35d474726471343da51f0e79326c7df992833696bcfef79f792e",
+  "frozen5": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json",
+      "sha256": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "sha256": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json",
+      "sha256": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/source_scopes.json",
+      "sha256": "a1aca7b3bacc6124a1d0938f126803b6ea022b8f8de1ee224ef78ab5a8ef6951"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/glyph_inventory.json",
+      "sha256": "19f3e0335f9b3af55b8c83f541eed52336107807c9b073057f412897ca2fcaa9"
+    }
+  ]
+}

@@ -1,3 +1,9 @@
+Current canonical evidence: [R63 original Royal Bedroom wardrobe context](r63_wardrobe_context/README.md), [registry](r63_wardrobe_context/per_piece.json), [coverage](r63_wardrobe_context/scene_coverage.json), [tally](r63_wardrobe_context/tally.json).
+
+5native cases147checks;294native231bounded63excluded;88partial88without0complete, all176incomplete. Current layout/material/portrait-use/feedback weaknesses recorded;0newart/adoption/removal/global unknown.
+
+## Historical entry text retained below
+
 Current canonical evidence: [R62 catalogue origins and explicit Critter Book binding](r62_catalogue_origin/README.md), [registry](r62_catalogue_origin/per_piece.json), [coverage](r62_catalogue_origin/scene_coverage.json), [tally](r62_catalogue_origin/tally.json).
 
 176IDs reconstructed from original published collector;60game-prefixed labels are reference-catalogue IDs, not guaranteedMain.game values. Explicit original/current source and existing R60saved consumer bind game.critters partially:86partial90without0complete.0newnative/art/adoption/removal/global unknown.

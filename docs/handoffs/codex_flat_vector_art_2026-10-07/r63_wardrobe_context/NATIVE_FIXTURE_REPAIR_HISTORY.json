@@ -1,0 +1,16 @@
+{
+  "first_case": "native/attempt1_wardrobe_locked_1280",
+  "classification": "EXCLUDED_FIXTURE_OBSERVATION_READER_ERROR_NOT_PRODUCT_REGRESSION",
+  "native_frames": 54,
+  "checks": 33,
+  "failed_checks": [
+    "existing Huluu option selected via originalUI only",
+    "source notifications retain private look/unlock",
+    "originalUI restores classic/saves without unlock change"
+  ],
+  "cause": "Copied original Comfy-only _disk return omitted skin/fairyskin despite current private file fields. Memory state/source UI and freshMain look restore were observed; do not retroactively pass missing disk observations.",
+  "repair": "Add only two read-only actual private JSON fields to _disk. Same original inputs/profiles/33checks/geometry/rendering retained; no product edits/clock/progress/skin assignment by fixture. Retain whole first run excluded.",
+  "before_fixture_sha256": "2ad1bc9608a712c56bbc62db88967cab45d19914bdd35ab07b286fb5d029159f",
+  "after_fixture_sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+  "normal_source_sidecar_guards_passed": true
+}

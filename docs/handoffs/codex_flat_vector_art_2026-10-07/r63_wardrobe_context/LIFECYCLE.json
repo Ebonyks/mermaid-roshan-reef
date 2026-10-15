@@ -1,0 +1,173 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "full_matrix_checks": 132,
+  "early_close_checks": 15,
+  "early_close_marks": [
+    {
+      "before_burst_count": 1,
+      "id": "back_during_huluu_burst",
+      "old_burst_id": 214479932527,
+      "old_burst_valid_after": false,
+      "source_closed": true,
+      "source_tween_valid_after": false,
+      "source_tween_valid_before": true,
+      "use_done": false,
+      "wardrobe_block_after": false
+    },
+    {
+      "before_burst_count": 1,
+      "id": "done_during_classic_burst",
+      "old_burst_id": 231022267408,
+      "old_burst_valid_after": false,
+      "source_closed": true,
+      "source_tween_valid_after": false,
+      "source_tween_valid_before": true,
+      "use_done": true,
+      "wardrobe_block_after": false
+    }
+  ],
+  "case_records": [
+    {
+      "case": "attempt1_wardrobe_locked_1280",
+      "manifest": "native/attempt1_wardrobe_locked_1280/capture_manifest.json",
+      "manifest_sha256": "56ee5d392585dec2b43c83843bb5604575fd2c1c1db22ea620f97602986f00e6",
+      "launch": "native/attempt1_wardrobe_locked_1280/LAUNCH.json",
+      "result": "native/attempt1_wardrobe_locked_1280/RESULT.json",
+      "fixture_sha256": "2ad1bc9608a712c56bbc62db88967cab45d19914bdd35ab07b286fb5d029159f",
+      "aspect": [
+        1280,
+        720
+      ],
+      "fairy_unlocked_profile": false,
+      "checks": 33,
+      "failed_checks": [
+        "existing Huluu option selected via originalUI only",
+        "source notifications retain private look/unlock",
+        "originalUI restores classic/saves without unlock change"
+      ],
+      "exit_code": 1,
+      "counts": {
+        "native": 54,
+        "bounded": 0,
+        "excluded": 54
+      },
+      "scope": "Excluded whole first reader-error run"
+    },
+    {
+      "case": "attempt1_wardrobe_locked_1600",
+      "manifest": "native/attempt1_wardrobe_locked_1600/capture_manifest.json",
+      "manifest_sha256": "55183f3bedc3a7fe459df9cb64f2dcea66de76a557ea8521d0ecfcf09fee7366",
+      "launch": "native/attempt1_wardrobe_locked_1600/LAUNCH.json",
+      "result": "native/attempt1_wardrobe_locked_1600/RESULT.json",
+      "fixture_sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+      "aspect": [
+        1600,
+        720
+      ],
+      "fairy_unlocked_profile": false,
+      "checks": 33,
+      "failed_checks": [],
+      "exit_code": 0,
+      "counts": {
+        "native": 54,
+        "bounded": 52,
+        "excluded": 2
+      },
+      "scope": "Original full-skin native inputs plus same-engine reload and Fashion entry/Back only"
+    },
+    {
+      "case": "attempt1_wardrobe_teardown_locked_1280",
+      "manifest": "native/attempt1_wardrobe_teardown_locked_1280/capture_manifest.json",
+      "manifest_sha256": "e884631903be9bd136268b6b3816dacf964cb8a2d408859c47d7d5c541356aa7",
+      "launch": "native/attempt1_wardrobe_teardown_locked_1280/LAUNCH.json",
+      "result": "native/attempt1_wardrobe_teardown_locked_1280/RESULT.json",
+      "fixture_sha256": "8022f888431e35d474726471343da51f0e79326c7df992833696bcfef79f792e",
+      "aspect": [
+        1280,
+        720
+      ],
+      "fairy_unlocked_profile": false,
+      "checks": 15,
+      "failed_checks": [],
+      "exit_code": 0,
+      "counts": {
+        "native": 24,
+        "bounded": 23,
+        "excluded": 1
+      },
+      "scope": "Original full-skin native inputs; earlyclose adjunct only"
+    },
+    {
+      "case": "attempt1_wardrobe_unlocked_1280",
+      "manifest": "native/attempt1_wardrobe_unlocked_1280/capture_manifest.json",
+      "manifest_sha256": "0f9475cf37c6c4b7d12f297064d3d377dcc34e53d872a759390bbc1c50afb90d",
+      "launch": "native/attempt1_wardrobe_unlocked_1280/LAUNCH.json",
+      "result": "native/attempt1_wardrobe_unlocked_1280/RESULT.json",
+      "fixture_sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+      "aspect": [
+        1280,
+        720
+      ],
+      "fairy_unlocked_profile": true,
+      "checks": 33,
+      "failed_checks": [],
+      "exit_code": 0,
+      "counts": {
+        "native": 54,
+        "bounded": 52,
+        "excluded": 2
+      },
+      "scope": "Original full-skin native inputs plus same-engine reload and Fashion entry/Back only"
+    },
+    {
+      "case": "attempt1_wardrobe_unlocked_1600",
+      "manifest": "native/attempt1_wardrobe_unlocked_1600/capture_manifest.json",
+      "manifest_sha256": "fd648e8bbe40a53991d02c3e8c5b089f7488e3faa81fea547f350ae61a438da9",
+      "launch": "native/attempt1_wardrobe_unlocked_1600/LAUNCH.json",
+      "result": "native/attempt1_wardrobe_unlocked_1600/RESULT.json",
+      "fixture_sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+      "aspect": [
+        1600,
+        720
+      ],
+      "fairy_unlocked_profile": true,
+      "checks": 33,
+      "failed_checks": [],
+      "exit_code": 0,
+      "counts": {
+        "native": 54,
+        "bounded": 52,
+        "excluded": 2
+      },
+      "scope": "Original full-skin native inputs plus same-engine reload and Fashion entry/Back only"
+    },
+    {
+      "case": "attempt2_wardrobe_locked_1280",
+      "manifest": "native/attempt2_wardrobe_locked_1280/capture_manifest.json",
+      "manifest_sha256": "2c43a8f69b49cdecfd973d23e67c298fb5a88f1977ce6a2b784987881176c58b",
+      "launch": "native/attempt2_wardrobe_locked_1280/LAUNCH.json",
+      "result": "native/attempt2_wardrobe_locked_1280/RESULT.json",
+      "fixture_sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+      "aspect": [
+        1280,
+        720
+      ],
+      "fairy_unlocked_profile": false,
+      "checks": 33,
+      "failed_checks": [],
+      "exit_code": 0,
+      "counts": {
+        "native": 54,
+        "bounded": 52,
+        "excluded": 2
+      },
+      "scope": "Original full-skin native inputs plus same-engine reload and Fashion entry/Back only"
+    }
+  ],
+  "normal_save_access": "8names hash-only; actual child data never parsed/copied/seeded",
+  "runtime_file_count": 4420,
+  "initialized_sidecar_count": 4041,
+  "source_byte_changes": [],
+  "native_scope": "Exact approved4.7.2 Windows Forward Mobile, actualSpeedy,time1,Dummy audio/maxfps30. Private originalSaveState; same-engine freshMain reload/application notifications, not fresh OS/real platform pause/QA11/device performance/audio/child/owner.",
+  "historical_import_limit": "R51 historical1102trackedLFCRLF rewrites restored/2043ignored created; current4041before/after exact. No claim of zero historical import writes."
+}

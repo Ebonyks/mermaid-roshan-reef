@@ -1,0 +1,1858 @@
+{
+  "revision": "FV-AUDIT-20261015-R63",
+  "scope_ids": [
+    "FVF-7AC498FF9C39",
+    "FVF-8C02E5F13D1D"
+  ],
+  "glyph_site_ids": [
+    "FVG-004EFF0A139A",
+    "FVG-0E44873FBE9E",
+    "FVG-0132C9B6CDD2"
+  ],
+  "shared_piece_ids": [
+    "FV-E9E82E0C6703",
+    "FV-2ABD73BAFFE0",
+    "FV-AB474EF3699E"
+  ],
+  "comparisons": [
+    {
+      "stable_id": "FV-E9E82E0C6703",
+      "role": "Shared parent panel material",
+      "count_credit": 0,
+      "same_scene_reference_hashes": [
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+          "bytes": 164693,
+          "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.063558+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+          "bytes": 210083,
+          "sha256": "b3fbe139d79ba9567213afeb70a25bd986d90230052be7a9b320802a65613293",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.098851+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+          "bytes": 186294,
+          "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.086423+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/friends/huluu.png",
+          "bytes": 612525,
+          "sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/friends/huluu.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.063815+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            640,
+            1039
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "bytes": 50051,
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_base.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.060162+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "bytes": 396741,
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.442030+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+          "bytes": 685193,
+          "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_swim_front.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.544433+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/skins/fairy_mermaid.png",
+          "bytes": 596226,
+          "sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/skins/fairy_mermaid.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.455304+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            707
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/party_dress_garment.png",
+          "bytes": 145486,
+          "sha256": "e7d3d9a9ba1e6f47ee1d1092992d264cc131af655ab86fae95480320dbd57d07",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/party_dress_garment.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.358878+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+          "bytes": 69345,
+          "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.404052+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            236,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+          "bytes": 686645,
+          "sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.567544+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            566
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/bedside_table.png",
+          "bytes": 60047,
+          "sha256": "7a0bc979eb464f01f8ecc4440dfe607c86772cfc22b67c954267766585547415",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/bedside_table.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.679567+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            218,
+            233
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/canopy_bed.png",
+          "bytes": 135210,
+          "sha256": "5750aace0300c65ac27d03e99e0768c9e07911f0ea887f1a548bcee8d261df4a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/canopy_bed.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.691215+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            296,
+            272
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_dining.png",
+          "bytes": 269136,
+          "sha256": "45ac409e09db698811c7dc9dd16099525f78c61e4924333a586180981055d1cb",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_dining.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.874358+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            379,
+            484
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+          "bytes": 242240,
+          "sha256": "325ef4a1fbf2f75fbf88e8d8e6b1235c21c113767e36a62545880e5ba1c8d12f",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.897680+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            351,
+            464
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+          "bytes": 262000,
+          "sha256": "a9dd6f48a97cd2429362235b6c975c474ed4a1dce8eacc221cdb05436f62422a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.835983+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            371,
+            488
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+          "bytes": 237201,
+          "sha256": "02b25afe4f5eb18619a451d0273ac0fb0c4e1d35b4cda7051deb56cf80a8d7b2",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.908000+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            345,
+            465
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/shell_wardrobe.png",
+          "bytes": 82384,
+          "sha256": "a6b3c4c13aa86f92300f7f732be18626a8ffbd3a88bce705d578d1249b03ecc1",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/shell_wardrobe.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.937113+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            227,
+            273
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/story_cushion.png",
+          "bytes": 95714,
+          "sha256": "107e0be63fbd62df28085ea11ff10b1cf37c7233bc6450362db617721e80f0c9",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/story_cushion.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.961201+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            287,
+            223
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c0.png",
+          "bytes": 211695,
+          "sha256": "170896f9a9a8e1138929473d44ba987254c5dcb67312e3982c55d10445b72a2d",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c0.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.102059+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c1.png",
+          "bytes": 211568,
+          "sha256": "ffb8b21a91c1cb4aa17034709cd0a375d4e8779fd6c9da72f25b9e8064ce504f",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.148180+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c0.png",
+          "bytes": 256895,
+          "sha256": "1e95c3ca74c44b32852820c4dc665c3a725147a4f2531ba86cda2802d75a77da",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c0.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.200092+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c1.png",
+          "bytes": 258238,
+          "sha256": "7b2146283405e1844ebacca8b812a9c041304035d10c23d5906d2a84cff3fc08",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.270812+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/room_royal_bedroom_background.png",
+          "bytes": 266866,
+          "sha256": "e9bfff9bdc1f351c558e01ca05dce3bb324a2dee03c39282fc28fa3f03544ad5",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/room_royal_bedroom_background.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.273823+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        }
+      ],
+      "current_capture_hashes": [
+        {
+          "path": "native/attempt1_wardrobe_locked_1600/royal_bedroom_before_wardrobe.png",
+          "sha256": "ca308ec96103b427a35c69ffb39fefaaaba7f7ea76d43c6f7b092fee02dde804",
+          "pixel_sha256": "04d38bfbec817961119d6d9dd8817e67572782454632d40c721e58f21339e97c"
+        },
+        {
+          "path": "native/attempt1_wardrobe_locked_1600/initial_opened.png",
+          "sha256": "e876927ebac582cb0c673de2805b2f8cdfd074dd9cc956f36cd6bf76d8ccb9f2",
+          "pixel_sha256": "4806eda98f6860eacfb723734396a40b472d72badd444f030b3891340dd9c1b2"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/back_during_huluu_burst_feedback_live_before_close.png",
+          "sha256": "2f5556a0fe483059f4471413047282a87dbf0002cf1649fc04998a360426e9e0",
+          "pixel_sha256": "245c8369a06a13f1ade695f65b47f2129432fd60f20d0546cf51a85ce9f72459"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/back_during_huluu_burst_source_disposed.png",
+          "sha256": "eff44e8c80d95887e44feaae03cd209fa5bd10c61b2e0f62b7ce576174ae4f73",
+          "pixel_sha256": "6efa0ad3969af9d02aaf4abf7c27719762b08067061910856b39b0f96816d3b2"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/done_during_classic_burst_feedback_live_before_close.png",
+          "sha256": "8d446ccb6d4046b7e5f0abc3489a5f7d3fe8607e8f19910079e2daa30b2850e0",
+          "pixel_sha256": "009b89fd1eba31350b2be84873ab91af48d3d2a4836de0fea5e0cd1bcc394858"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/done_during_classic_burst_source_disposed.png",
+          "sha256": "0a8cbbab20ffcb02288b51f91a550b1fcc7ccd357c5f8aaea48b60dda4001658",
+          "pixel_sha256": "356ede72d2b9053733c06886a407d8f242790b871a9aff89723133ab683771f3"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1280/fairy_choice_early.png",
+          "sha256": "f6d2bfd2c8d7691bf179ef3e36f13572ace2c6271d9b51926b0b5a6d3e672bbe",
+          "pixel_sha256": "7026883dd664d09777ad66894c614cd3faa06f9f338969b9776bd3e3e19b5e8a"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1280/fairy_choice_settled.png",
+          "sha256": "76994395dc29736fc2d82b7d69c2d2bd5ded910b4a0c40e7e4166785dd5a9d07",
+          "pixel_sha256": "3d3bf41b4ed3dfeaaf41a2916d4b93702d11c20ea99f7e9269ca0de920eaaa4f"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/huluu_choice_early.png",
+          "sha256": "4db09503c657602b26d97e7fa63513931efeb1ac805b4c67487bd6c8e70a3669",
+          "pixel_sha256": "1baa982aec97e975d15e3b82d9c20156e6b9504af98fdae6269a687846c130c0"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/reload_caption_settled.png",
+          "sha256": "2798dbc123048be10ba31b008eb10f92c8f97ab572577d6bf3b640fd43942305",
+          "pixel_sha256": "54c3fcbacd65f6e5204500b4594d75e9a7d23287f7ebfc8365056dff21fb5961"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/fashion_child_entry_only.png",
+          "sha256": "0e51dace829dae9882f99456541e656cdb3811626a91aef7450e9081bc66f782",
+          "pixel_sha256": "c0207b5492e173111b5daf9108f95065e731214f1d2c519a78cc593bee348cba"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/final_royal_bedroom_classic.png",
+          "sha256": "a097704271a89028c8cd54bf75cd585b544d4eb67097bb5c48eaaa535fda7f15",
+          "pixel_sha256": "6f8ad27d8084af6391ef8c574eb75518e68f34108b12dd5ad9f5fd6938fdd03c"
+        },
+        {
+          "path": "native/attempt2_wardrobe_locked_1280/initial_caption_settled.png",
+          "sha256": "31c3c388e1b0fe6d993acc6a969ea23d79676bafaccf88421ba62c13fbcc58cb",
+          "pixel_sha256": "94c6b693d2bff4402ec319cc71b0126d529ca6043731afc2ada343f4410dd472"
+        },
+        {
+          "path": "native/attempt2_wardrobe_locked_1280/fairy_choice_early.png",
+          "sha256": "7310a3d7fe17dc5654fd7b8505af4688f01ace39806cdaeabe519bac70f8e7cc",
+          "pixel_sha256": "238f60d742bc2a3406324703a6aafe5d3488f9703622577b9813ad4d9a4f0ca3"
+        }
+      ],
+      "comparison": {
+        "contour": "Uniform rounded parent edges and geometric shell/stars contrast with irregular painted wardrobe/bed and Fashion frame contours.",
+        "material": "Parent flat fills lack the wood/gold/pearl/paper variation shown in same-room props and nested source frame.",
+        "palette": "Lilac/gold/cream room references partly align; large cool blue/green parent fills and grey lock state require in-context palette approval.",
+        "light": "Room/source cutouts retain painted highlights/shadows; flat parent fills and uniform shadow are not equivalent authored material light.",
+        "perspective": "Front-on UI may be appropriate, but no volume/perspective match is established by source reuse; room props/flat background remain separate.",
+        "scale": "Native preview440x530 and sourceClassic256x256/Fairy512x707/Huluu630x1024 recorded; controls480x110/Done330x132; actual-device legibility remains open.",
+        "contact": "UI preview is a floating portrait; no world contact/action proof from burst. Room foot/support and protected portrait world reuse require separate review.",
+        "occlusion": "Original caption obscures Done early; title behind preview; no full occluder/caller layer closure. Source tween close proven narrowly.",
+        "readability": "Portraits present; collapsed title and clipped lock toast observed; words/lock/check/Fashion navigation glyphs not established non-reader acceptance.",
+        "action_state": "Original press/release/selected/locked/unlocked/repeat/onset/settle/reopen/reload/close sampled; focus/disabled/missing resources/Fashion variants/device/QA11 remain open."
+      },
+      "candidate": null,
+      "integration": null,
+      "runtime_verified_replacement": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": false,
+      "status": "PARTIAL_CURRENT_CONTEXT_OBSERVATIONS_ONLY"
+    },
+    {
+      "stable_id": "FV-2ABD73BAFFE0",
+      "role": "Shared look/Done button material",
+      "count_credit": 0,
+      "same_scene_reference_hashes": [
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+          "bytes": 164693,
+          "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.063558+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+          "bytes": 210083,
+          "sha256": "b3fbe139d79ba9567213afeb70a25bd986d90230052be7a9b320802a65613293",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.098851+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+          "bytes": 186294,
+          "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.086423+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/friends/huluu.png",
+          "bytes": 612525,
+          "sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/friends/huluu.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.063815+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            640,
+            1039
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "bytes": 50051,
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_base.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.060162+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "bytes": 396741,
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.442030+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+          "bytes": 685193,
+          "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_swim_front.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.544433+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/skins/fairy_mermaid.png",
+          "bytes": 596226,
+          "sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/skins/fairy_mermaid.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.455304+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            707
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/party_dress_garment.png",
+          "bytes": 145486,
+          "sha256": "e7d3d9a9ba1e6f47ee1d1092992d264cc131af655ab86fae95480320dbd57d07",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/party_dress_garment.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.358878+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+          "bytes": 69345,
+          "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.404052+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            236,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+          "bytes": 686645,
+          "sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.567544+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            566
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/bedside_table.png",
+          "bytes": 60047,
+          "sha256": "7a0bc979eb464f01f8ecc4440dfe607c86772cfc22b67c954267766585547415",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/bedside_table.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.679567+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            218,
+            233
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/canopy_bed.png",
+          "bytes": 135210,
+          "sha256": "5750aace0300c65ac27d03e99e0768c9e07911f0ea887f1a548bcee8d261df4a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/canopy_bed.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.691215+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            296,
+            272
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_dining.png",
+          "bytes": 269136,
+          "sha256": "45ac409e09db698811c7dc9dd16099525f78c61e4924333a586180981055d1cb",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_dining.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.874358+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            379,
+            484
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+          "bytes": 242240,
+          "sha256": "325ef4a1fbf2f75fbf88e8d8e6b1235c21c113767e36a62545880e5ba1c8d12f",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.897680+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            351,
+            464
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+          "bytes": 262000,
+          "sha256": "a9dd6f48a97cd2429362235b6c975c474ed4a1dce8eacc221cdb05436f62422a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.835983+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            371,
+            488
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+          "bytes": 237201,
+          "sha256": "02b25afe4f5eb18619a451d0273ac0fb0c4e1d35b4cda7051deb56cf80a8d7b2",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.908000+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            345,
+            465
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/shell_wardrobe.png",
+          "bytes": 82384,
+          "sha256": "a6b3c4c13aa86f92300f7f732be18626a8ffbd3a88bce705d578d1249b03ecc1",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/shell_wardrobe.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.937113+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            227,
+            273
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/story_cushion.png",
+          "bytes": 95714,
+          "sha256": "107e0be63fbd62df28085ea11ff10b1cf37c7233bc6450362db617721e80f0c9",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/story_cushion.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.961201+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            287,
+            223
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c0.png",
+          "bytes": 211695,
+          "sha256": "170896f9a9a8e1138929473d44ba987254c5dcb67312e3982c55d10445b72a2d",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c0.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.102059+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c1.png",
+          "bytes": 211568,
+          "sha256": "ffb8b21a91c1cb4aa17034709cd0a375d4e8779fd6c9da72f25b9e8064ce504f",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.148180+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c0.png",
+          "bytes": 256895,
+          "sha256": "1e95c3ca74c44b32852820c4dc665c3a725147a4f2531ba86cda2802d75a77da",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c0.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.200092+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c1.png",
+          "bytes": 258238,
+          "sha256": "7b2146283405e1844ebacca8b812a9c041304035d10c23d5906d2a84cff3fc08",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.270812+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/room_royal_bedroom_background.png",
+          "bytes": 266866,
+          "sha256": "e9bfff9bdc1f351c558e01ca05dce3bb324a2dee03c39282fc28fa3f03544ad5",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/room_royal_bedroom_background.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.273823+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        }
+      ],
+      "current_capture_hashes": [
+        {
+          "path": "native/attempt1_wardrobe_locked_1600/royal_bedroom_before_wardrobe.png",
+          "sha256": "ca308ec96103b427a35c69ffb39fefaaaba7f7ea76d43c6f7b092fee02dde804",
+          "pixel_sha256": "04d38bfbec817961119d6d9dd8817e67572782454632d40c721e58f21339e97c"
+        },
+        {
+          "path": "native/attempt1_wardrobe_locked_1600/initial_opened.png",
+          "sha256": "e876927ebac582cb0c673de2805b2f8cdfd074dd9cc956f36cd6bf76d8ccb9f2",
+          "pixel_sha256": "4806eda98f6860eacfb723734396a40b472d72badd444f030b3891340dd9c1b2"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/back_during_huluu_burst_feedback_live_before_close.png",
+          "sha256": "2f5556a0fe483059f4471413047282a87dbf0002cf1649fc04998a360426e9e0",
+          "pixel_sha256": "245c8369a06a13f1ade695f65b47f2129432fd60f20d0546cf51a85ce9f72459"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/back_during_huluu_burst_source_disposed.png",
+          "sha256": "eff44e8c80d95887e44feaae03cd209fa5bd10c61b2e0f62b7ce576174ae4f73",
+          "pixel_sha256": "6efa0ad3969af9d02aaf4abf7c27719762b08067061910856b39b0f96816d3b2"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/done_during_classic_burst_feedback_live_before_close.png",
+          "sha256": "8d446ccb6d4046b7e5f0abc3489a5f7d3fe8607e8f19910079e2daa30b2850e0",
+          "pixel_sha256": "009b89fd1eba31350b2be84873ab91af48d3d2a4836de0fea5e0cd1bcc394858"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/done_during_classic_burst_source_disposed.png",
+          "sha256": "0a8cbbab20ffcb02288b51f91a550b1fcc7ccd357c5f8aaea48b60dda4001658",
+          "pixel_sha256": "356ede72d2b9053733c06886a407d8f242790b871a9aff89723133ab683771f3"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1280/fairy_choice_early.png",
+          "sha256": "f6d2bfd2c8d7691bf179ef3e36f13572ace2c6271d9b51926b0b5a6d3e672bbe",
+          "pixel_sha256": "7026883dd664d09777ad66894c614cd3faa06f9f338969b9776bd3e3e19b5e8a"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1280/fairy_choice_settled.png",
+          "sha256": "76994395dc29736fc2d82b7d69c2d2bd5ded910b4a0c40e7e4166785dd5a9d07",
+          "pixel_sha256": "3d3bf41b4ed3dfeaaf41a2916d4b93702d11c20ea99f7e9269ca0de920eaaa4f"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/huluu_choice_early.png",
+          "sha256": "4db09503c657602b26d97e7fa63513931efeb1ac805b4c67487bd6c8e70a3669",
+          "pixel_sha256": "1baa982aec97e975d15e3b82d9c20156e6b9504af98fdae6269a687846c130c0"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/reload_caption_settled.png",
+          "sha256": "2798dbc123048be10ba31b008eb10f92c8f97ab572577d6bf3b640fd43942305",
+          "pixel_sha256": "54c3fcbacd65f6e5204500b4594d75e9a7d23287f7ebfc8365056dff21fb5961"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/fashion_child_entry_only.png",
+          "sha256": "0e51dace829dae9882f99456541e656cdb3811626a91aef7450e9081bc66f782",
+          "pixel_sha256": "c0207b5492e173111b5daf9108f95065e731214f1d2c519a78cc593bee348cba"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/final_royal_bedroom_classic.png",
+          "sha256": "a097704271a89028c8cd54bf75cd585b544d4eb67097bb5c48eaaa535fda7f15",
+          "pixel_sha256": "6f8ad27d8084af6391ef8c574eb75518e68f34108b12dd5ad9f5fd6938fdd03c"
+        },
+        {
+          "path": "native/attempt2_wardrobe_locked_1280/initial_caption_settled.png",
+          "sha256": "31c3c388e1b0fe6d993acc6a969ea23d79676bafaccf88421ba62c13fbcc58cb",
+          "pixel_sha256": "94c6b693d2bff4402ec319cc71b0126d529ca6043731afc2ada343f4410dd472"
+        },
+        {
+          "path": "native/attempt2_wardrobe_locked_1280/fairy_choice_early.png",
+          "sha256": "7310a3d7fe17dc5654fd7b8505af4688f01ace39806cdaeabe519bac70f8e7cc",
+          "pixel_sha256": "238f60d742bc2a3406324703a6aafe5d3488f9703622577b9813ad4d9a4f0ca3"
+        }
+      ],
+      "comparison": {
+        "contour": "Uniform rounded parent edges and geometric shell/stars contrast with irregular painted wardrobe/bed and Fashion frame contours.",
+        "material": "Parent flat fills lack the wood/gold/pearl/paper variation shown in same-room props and nested source frame.",
+        "palette": "Lilac/gold/cream room references partly align; large cool blue/green parent fills and grey lock state require in-context palette approval.",
+        "light": "Room/source cutouts retain painted highlights/shadows; flat parent fills and uniform shadow are not equivalent authored material light.",
+        "perspective": "Front-on UI may be appropriate, but no volume/perspective match is established by source reuse; room props/flat background remain separate.",
+        "scale": "Native preview440x530 and sourceClassic256x256/Fairy512x707/Huluu630x1024 recorded; controls480x110/Done330x132; actual-device legibility remains open.",
+        "contact": "UI preview is a floating portrait; no world contact/action proof from burst. Room foot/support and protected portrait world reuse require separate review.",
+        "occlusion": "Original caption obscures Done early; title behind preview; no full occluder/caller layer closure. Source tween close proven narrowly.",
+        "readability": "Portraits present; collapsed title and clipped lock toast observed; words/lock/check/Fashion navigation glyphs not established non-reader acceptance.",
+        "action_state": "Original press/release/selected/locked/unlocked/repeat/onset/settle/reopen/reload/close sampled; focus/disabled/missing resources/Fashion variants/device/QA11 remain open."
+      },
+      "candidate": null,
+      "integration": null,
+      "runtime_verified_replacement": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": false,
+      "status": "PARTIAL_CURRENT_CONTEXT_OBSERVATIONS_ONLY"
+    },
+    {
+      "stable_id": "FV-AB474EF3699E",
+      "role": "Shared shell ornament",
+      "count_credit": 0,
+      "same_scene_reference_hashes": [
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+          "bytes": 164693,
+          "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.063558+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+          "bytes": 210083,
+          "sha256": "b3fbe139d79ba9567213afeb70a25bd986d90230052be7a9b320802a65613293",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.098851+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+          "bytes": 186294,
+          "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.086423+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/friends/huluu.png",
+          "bytes": 612525,
+          "sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/friends/huluu.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.063815+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            640,
+            1039
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "bytes": 50051,
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_base.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.060162+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "bytes": 396741,
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.442030+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+          "bytes": 685193,
+          "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_swim_front.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.544433+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/skins/fairy_mermaid.png",
+          "bytes": 596226,
+          "sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/skins/fairy_mermaid.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.455304+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            707
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/party_dress_garment.png",
+          "bytes": 145486,
+          "sha256": "e7d3d9a9ba1e6f47ee1d1092992d264cc131af655ab86fae95480320dbd57d07",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/party_dress_garment.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.358878+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+          "bytes": 69345,
+          "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.404052+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            236,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+          "bytes": 686645,
+          "sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.567544+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            566
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/bedside_table.png",
+          "bytes": 60047,
+          "sha256": "7a0bc979eb464f01f8ecc4440dfe607c86772cfc22b67c954267766585547415",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/bedside_table.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.679567+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            218,
+            233
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/canopy_bed.png",
+          "bytes": 135210,
+          "sha256": "5750aace0300c65ac27d03e99e0768c9e07911f0ea887f1a548bcee8d261df4a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/canopy_bed.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.691215+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            296,
+            272
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_dining.png",
+          "bytes": 269136,
+          "sha256": "45ac409e09db698811c7dc9dd16099525f78c61e4924333a586180981055d1cb",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_dining.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.874358+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            379,
+            484
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+          "bytes": 242240,
+          "sha256": "325ef4a1fbf2f75fbf88e8d8e6b1235c21c113767e36a62545880e5ba1c8d12f",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.897680+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            351,
+            464
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+          "bytes": 262000,
+          "sha256": "a9dd6f48a97cd2429362235b6c975c474ed4a1dce8eacc221cdb05436f62422a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.835983+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            371,
+            488
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+          "bytes": 237201,
+          "sha256": "02b25afe4f5eb18619a451d0273ac0fb0c4e1d35b4cda7051deb56cf80a8d7b2",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.908000+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            345,
+            465
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/shell_wardrobe.png",
+          "bytes": 82384,
+          "sha256": "a6b3c4c13aa86f92300f7f732be18626a8ffbd3a88bce705d578d1249b03ecc1",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/shell_wardrobe.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.937113+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            227,
+            273
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/story_cushion.png",
+          "bytes": 95714,
+          "sha256": "107e0be63fbd62df28085ea11ff10b1cf37c7233bc6450362db617721e80f0c9",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/story_cushion.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.961201+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            287,
+            223
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c0.png",
+          "bytes": 211695,
+          "sha256": "170896f9a9a8e1138929473d44ba987254c5dcb67312e3982c55d10445b72a2d",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c0.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.102059+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c1.png",
+          "bytes": 211568,
+          "sha256": "ffb8b21a91c1cb4aa17034709cd0a375d4e8779fd6c9da72f25b9e8064ce504f",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.148180+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c0.png",
+          "bytes": 256895,
+          "sha256": "1e95c3ca74c44b32852820c4dc665c3a725147a4f2531ba86cda2802d75a77da",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c0.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.200092+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c1.png",
+          "bytes": 258238,
+          "sha256": "7b2146283405e1844ebacca8b812a9c041304035d10c23d5906d2a84cff3fc08",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.270812+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/room_royal_bedroom_background.png",
+          "bytes": 266866,
+          "sha256": "e9bfff9bdc1f351c558e01ca05dce3bb324a2dee03c39282fc28fa3f03544ad5",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/room_royal_bedroom_background.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.273823+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        }
+      ],
+      "current_capture_hashes": [
+        {
+          "path": "native/attempt1_wardrobe_locked_1600/royal_bedroom_before_wardrobe.png",
+          "sha256": "ca308ec96103b427a35c69ffb39fefaaaba7f7ea76d43c6f7b092fee02dde804",
+          "pixel_sha256": "04d38bfbec817961119d6d9dd8817e67572782454632d40c721e58f21339e97c"
+        },
+        {
+          "path": "native/attempt1_wardrobe_locked_1600/initial_opened.png",
+          "sha256": "e876927ebac582cb0c673de2805b2f8cdfd074dd9cc956f36cd6bf76d8ccb9f2",
+          "pixel_sha256": "4806eda98f6860eacfb723734396a40b472d72badd444f030b3891340dd9c1b2"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/back_during_huluu_burst_feedback_live_before_close.png",
+          "sha256": "2f5556a0fe483059f4471413047282a87dbf0002cf1649fc04998a360426e9e0",
+          "pixel_sha256": "245c8369a06a13f1ade695f65b47f2129432fd60f20d0546cf51a85ce9f72459"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/back_during_huluu_burst_source_disposed.png",
+          "sha256": "eff44e8c80d95887e44feaae03cd209fa5bd10c61b2e0f62b7ce576174ae4f73",
+          "pixel_sha256": "6efa0ad3969af9d02aaf4abf7c27719762b08067061910856b39b0f96816d3b2"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/done_during_classic_burst_feedback_live_before_close.png",
+          "sha256": "8d446ccb6d4046b7e5f0abc3489a5f7d3fe8607e8f19910079e2daa30b2850e0",
+          "pixel_sha256": "009b89fd1eba31350b2be84873ab91af48d3d2a4836de0fea5e0cd1bcc394858"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/done_during_classic_burst_source_disposed.png",
+          "sha256": "0a8cbbab20ffcb02288b51f91a550b1fcc7ccd357c5f8aaea48b60dda4001658",
+          "pixel_sha256": "356ede72d2b9053733c06886a407d8f242790b871a9aff89723133ab683771f3"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1280/fairy_choice_early.png",
+          "sha256": "f6d2bfd2c8d7691bf179ef3e36f13572ace2c6271d9b51926b0b5a6d3e672bbe",
+          "pixel_sha256": "7026883dd664d09777ad66894c614cd3faa06f9f338969b9776bd3e3e19b5e8a"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1280/fairy_choice_settled.png",
+          "sha256": "76994395dc29736fc2d82b7d69c2d2bd5ded910b4a0c40e7e4166785dd5a9d07",
+          "pixel_sha256": "3d3bf41b4ed3dfeaaf41a2916d4b93702d11c20ea99f7e9269ca0de920eaaa4f"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/huluu_choice_early.png",
+          "sha256": "4db09503c657602b26d97e7fa63513931efeb1ac805b4c67487bd6c8e70a3669",
+          "pixel_sha256": "1baa982aec97e975d15e3b82d9c20156e6b9504af98fdae6269a687846c130c0"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/reload_caption_settled.png",
+          "sha256": "2798dbc123048be10ba31b008eb10f92c8f97ab572577d6bf3b640fd43942305",
+          "pixel_sha256": "54c3fcbacd65f6e5204500b4594d75e9a7d23287f7ebfc8365056dff21fb5961"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/fashion_child_entry_only.png",
+          "sha256": "0e51dace829dae9882f99456541e656cdb3811626a91aef7450e9081bc66f782",
+          "pixel_sha256": "c0207b5492e173111b5daf9108f95065e731214f1d2c519a78cc593bee348cba"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/final_royal_bedroom_classic.png",
+          "sha256": "a097704271a89028c8cd54bf75cd585b544d4eb67097bb5c48eaaa535fda7f15",
+          "pixel_sha256": "6f8ad27d8084af6391ef8c574eb75518e68f34108b12dd5ad9f5fd6938fdd03c"
+        },
+        {
+          "path": "native/attempt2_wardrobe_locked_1280/initial_caption_settled.png",
+          "sha256": "31c3c388e1b0fe6d993acc6a969ea23d79676bafaccf88421ba62c13fbcc58cb",
+          "pixel_sha256": "94c6b693d2bff4402ec319cc71b0126d529ca6043731afc2ada343f4410dd472"
+        },
+        {
+          "path": "native/attempt2_wardrobe_locked_1280/fairy_choice_early.png",
+          "sha256": "7310a3d7fe17dc5654fd7b8505af4688f01ace39806cdaeabe519bac70f8e7cc",
+          "pixel_sha256": "238f60d742bc2a3406324703a6aafe5d3488f9703622577b9813ad4d9a4f0ca3"
+        }
+      ],
+      "comparison": {
+        "contour": "Uniform rounded parent edges and geometric shell/stars contrast with irregular painted wardrobe/bed and Fashion frame contours.",
+        "material": "Parent flat fills lack the wood/gold/pearl/paper variation shown in same-room props and nested source frame.",
+        "palette": "Lilac/gold/cream room references partly align; large cool blue/green parent fills and grey lock state require in-context palette approval.",
+        "light": "Room/source cutouts retain painted highlights/shadows; flat parent fills and uniform shadow are not equivalent authored material light.",
+        "perspective": "Front-on UI may be appropriate, but no volume/perspective match is established by source reuse; room props/flat background remain separate.",
+        "scale": "Native preview440x530 and sourceClassic256x256/Fairy512x707/Huluu630x1024 recorded; controls480x110/Done330x132; actual-device legibility remains open.",
+        "contact": "UI preview is a floating portrait; no world contact/action proof from burst. Room foot/support and protected portrait world reuse require separate review.",
+        "occlusion": "Original caption obscures Done early; title behind preview; no full occluder/caller layer closure. Source tween close proven narrowly.",
+        "readability": "Portraits present; collapsed title and clipped lock toast observed; words/lock/check/Fashion navigation glyphs not established non-reader acceptance.",
+        "action_state": "Original press/release/selected/locked/unlocked/repeat/onset/settle/reopen/reload/close sampled; focus/disabled/missing resources/Fashion variants/device/QA11 remain open."
+      },
+      "candidate": null,
+      "integration": null,
+      "runtime_verified_replacement": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": false,
+      "status": "PARTIAL_CURRENT_CONTEXT_OBSERVATIONS_ONLY"
+    },
+    {
+      "stable_id": "FVF-8C02E5F13D1D",
+      "role": "Wardrobe feedback procedural scope",
+      "count_credit": 0,
+      "same_scene_reference_hashes": [
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+          "bytes": 164693,
+          "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.063558+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+          "bytes": 210083,
+          "sha256": "b3fbe139d79ba9567213afeb70a25bd986d90230052be7a9b320802a65613293",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.098851+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+          "bytes": 186294,
+          "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.086423+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/friends/huluu.png",
+          "bytes": 612525,
+          "sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/friends/huluu.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.063815+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            640,
+            1039
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "bytes": 50051,
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_base.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.060162+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "bytes": 396741,
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.442030+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+          "bytes": 685193,
+          "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_swim_front.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.544433+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/skins/fairy_mermaid.png",
+          "bytes": 596226,
+          "sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/skins/fairy_mermaid.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.455304+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            707
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/party_dress_garment.png",
+          "bytes": 145486,
+          "sha256": "e7d3d9a9ba1e6f47ee1d1092992d264cc131af655ab86fae95480320dbd57d07",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/party_dress_garment.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.358878+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+          "bytes": 69345,
+          "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.404052+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            236,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+          "bytes": 686645,
+          "sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.567544+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            566
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/bedside_table.png",
+          "bytes": 60047,
+          "sha256": "7a0bc979eb464f01f8ecc4440dfe607c86772cfc22b67c954267766585547415",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/bedside_table.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.679567+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            218,
+            233
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/canopy_bed.png",
+          "bytes": 135210,
+          "sha256": "5750aace0300c65ac27d03e99e0768c9e07911f0ea887f1a548bcee8d261df4a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/canopy_bed.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.691215+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            296,
+            272
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_dining.png",
+          "bytes": 269136,
+          "sha256": "45ac409e09db698811c7dc9dd16099525f78c61e4924333a586180981055d1cb",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_dining.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.874358+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            379,
+            484
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+          "bytes": 242240,
+          "sha256": "325ef4a1fbf2f75fbf88e8d8e6b1235c21c113767e36a62545880e5ba1c8d12f",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.897680+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            351,
+            464
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+          "bytes": 262000,
+          "sha256": "a9dd6f48a97cd2429362235b6c975c474ed4a1dce8eacc221cdb05436f62422a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.835983+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            371,
+            488
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+          "bytes": 237201,
+          "sha256": "02b25afe4f5eb18619a451d0273ac0fb0c4e1d35b4cda7051deb56cf80a8d7b2",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.908000+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            345,
+            465
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/shell_wardrobe.png",
+          "bytes": 82384,
+          "sha256": "a6b3c4c13aa86f92300f7f732be18626a8ffbd3a88bce705d578d1249b03ecc1",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/shell_wardrobe.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.937113+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            227,
+            273
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/dream_house/story_cushion.png",
+          "bytes": 95714,
+          "sha256": "107e0be63fbd62df28085ea11ff10b1cf37c7233bc6450362db617721e80f0c9",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/story_cushion.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:26.961201+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            287,
+            223
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c0.png",
+          "bytes": 211695,
+          "sha256": "170896f9a9a8e1138929473d44ba987254c5dcb67312e3982c55d10445b72a2d",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c0.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.102059+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c1.png",
+          "bytes": 211568,
+          "sha256": "ffb8b21a91c1cb4aa17034709cd0a375d4e8779fd6c9da72f25b9e8064ce504f",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r0_c1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.148180+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c0.png",
+          "bytes": 256895,
+          "sha256": "1e95c3ca74c44b32852820c4dc665c3a725147a4f2531ba86cda2802d75a77da",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c0.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.200092+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c1.png",
+          "bytes": 258238,
+          "sha256": "7b2146283405e1844ebacca8b812a9c041304035d10c23d5906d2a84cff3fc08",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.270812+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/flats/castle/rooms/room_royal_bedroom_background.png",
+          "bytes": 266866,
+          "sha256": "e9bfff9bdc1f351c558e01ca05dce3bb324a2dee03c39282fc28fa3f03544ad5",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/rooms/room_royal_bedroom_background.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T19:02:27.273823+00:00",
+          "role": "Exact current source/same-scene or immutable canonical dependency; source inclusion grants no new-use acceptance",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "mode": "RGB"
+        }
+      ],
+      "current_capture_hashes": [
+        {
+          "path": "native/attempt1_wardrobe_locked_1600/royal_bedroom_before_wardrobe.png",
+          "sha256": "ca308ec96103b427a35c69ffb39fefaaaba7f7ea76d43c6f7b092fee02dde804",
+          "pixel_sha256": "04d38bfbec817961119d6d9dd8817e67572782454632d40c721e58f21339e97c"
+        },
+        {
+          "path": "native/attempt1_wardrobe_locked_1600/initial_opened.png",
+          "sha256": "e876927ebac582cb0c673de2805b2f8cdfd074dd9cc956f36cd6bf76d8ccb9f2",
+          "pixel_sha256": "4806eda98f6860eacfb723734396a40b472d72badd444f030b3891340dd9c1b2"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/back_during_huluu_burst_feedback_live_before_close.png",
+          "sha256": "2f5556a0fe483059f4471413047282a87dbf0002cf1649fc04998a360426e9e0",
+          "pixel_sha256": "245c8369a06a13f1ade695f65b47f2129432fd60f20d0546cf51a85ce9f72459"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/back_during_huluu_burst_source_disposed.png",
+          "sha256": "eff44e8c80d95887e44feaae03cd209fa5bd10c61b2e0f62b7ce576174ae4f73",
+          "pixel_sha256": "6efa0ad3969af9d02aaf4abf7c27719762b08067061910856b39b0f96816d3b2"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/done_during_classic_burst_feedback_live_before_close.png",
+          "sha256": "8d446ccb6d4046b7e5f0abc3489a5f7d3fe8607e8f19910079e2daa30b2850e0",
+          "pixel_sha256": "009b89fd1eba31350b2be84873ab91af48d3d2a4836de0fea5e0cd1bcc394858"
+        },
+        {
+          "path": "native/attempt1_wardrobe_teardown_locked_1280/done_during_classic_burst_source_disposed.png",
+          "sha256": "0a8cbbab20ffcb02288b51f91a550b1fcc7ccd357c5f8aaea48b60dda4001658",
+          "pixel_sha256": "356ede72d2b9053733c06886a407d8f242790b871a9aff89723133ab683771f3"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1280/fairy_choice_early.png",
+          "sha256": "f6d2bfd2c8d7691bf179ef3e36f13572ace2c6271d9b51926b0b5a6d3e672bbe",
+          "pixel_sha256": "7026883dd664d09777ad66894c614cd3faa06f9f338969b9776bd3e3e19b5e8a"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1280/fairy_choice_settled.png",
+          "sha256": "76994395dc29736fc2d82b7d69c2d2bd5ded910b4a0c40e7e4166785dd5a9d07",
+          "pixel_sha256": "3d3bf41b4ed3dfeaaf41a2916d4b93702d11c20ea99f7e9269ca0de920eaaa4f"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/huluu_choice_early.png",
+          "sha256": "4db09503c657602b26d97e7fa63513931efeb1ac805b4c67487bd6c8e70a3669",
+          "pixel_sha256": "1baa982aec97e975d15e3b82d9c20156e6b9504af98fdae6269a687846c130c0"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/reload_caption_settled.png",
+          "sha256": "2798dbc123048be10ba31b008eb10f92c8f97ab572577d6bf3b640fd43942305",
+          "pixel_sha256": "54c3fcbacd65f6e5204500b4594d75e9a7d23287f7ebfc8365056dff21fb5961"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/fashion_child_entry_only.png",
+          "sha256": "0e51dace829dae9882f99456541e656cdb3811626a91aef7450e9081bc66f782",
+          "pixel_sha256": "c0207b5492e173111b5daf9108f95065e731214f1d2c519a78cc593bee348cba"
+        },
+        {
+          "path": "native/attempt1_wardrobe_unlocked_1600/final_royal_bedroom_classic.png",
+          "sha256": "a097704271a89028c8cd54bf75cd585b544d4eb67097bb5c48eaaa535fda7f15",
+          "pixel_sha256": "6f8ad27d8084af6391ef8c574eb75518e68f34108b12dd5ad9f5fd6938fdd03c"
+        },
+        {
+          "path": "native/attempt2_wardrobe_locked_1280/initial_caption_settled.png",
+          "sha256": "31c3c388e1b0fe6d993acc6a969ea23d79676bafaccf88421ba62c13fbcc58cb",
+          "pixel_sha256": "94c6b693d2bff4402ec319cc71b0126d529ca6043731afc2ada343f4410dd472"
+        },
+        {
+          "path": "native/attempt2_wardrobe_locked_1280/fairy_choice_early.png",
+          "sha256": "7310a3d7fe17dc5654fd7b8505af4688f01ace39806cdaeabe519bac70f8e7cc",
+          "pixel_sha256": "238f60d742bc2a3406324703a6aafe5d3488f9703622577b9813ad4d9a4f0ca3"
+        }
+      ],
+      "comparison": {
+        "contour": "Uniform rounded parent edges and geometric shell/stars contrast with irregular painted wardrobe/bed and Fashion frame contours.",
+        "material": "Parent flat fills lack the wood/gold/pearl/paper variation shown in same-room props and nested source frame.",
+        "palette": "Lilac/gold/cream room references partly align; large cool blue/green parent fills and grey lock state require in-context palette approval.",
+        "light": "Room/source cutouts retain painted highlights/shadows; flat parent fills and uniform shadow are not equivalent authored material light.",
+        "perspective": "Front-on UI may be appropriate, but no volume/perspective match is established by source reuse; room props/flat background remain separate.",
+        "scale": "Native preview440x530 and sourceClassic256x256/Fairy512x707/Huluu630x1024 recorded; controls480x110/Done330x132; actual-device legibility remains open.",
+        "contact": "UI preview is a floating portrait; no world contact/action proof from burst. Room foot/support and protected portrait world reuse require separate review.",
+        "occlusion": "Original caption obscures Done early; title behind preview; no full occluder/caller layer closure. Source tween close proven narrowly.",
+        "readability": "Portraits present; collapsed title and clipped lock toast observed; words/lock/check/Fashion navigation glyphs not established non-reader acceptance.",
+        "action_state": "Original press/release/selected/locked/unlocked/repeat/onset/settle/reopen/reload/close sampled; focus/disabled/missing resources/Fashion variants/device/QA11 remain open."
+      },
+      "candidate": null,
+      "integration": null,
+      "runtime_verified_replacement": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": false,
+      "status": "PARTIAL_CURRENT_CONTEXT_OBSERVATIONS_ONLY"
+    }
+  ],
+  "piece_partial_union": "Unchanged exact prior CURRENT_PARTIAL_CONTEXT_UNION.json; no new named piece/family/context-review status credit. Native event count separate from design counts.",
+  "unresolved_feedback_design_partition": "One known source scope with14repeated star instances; no new standalone piece design count invented.",
+  "invisible_geometry": "Room hotspots/foot positions/control-block/touch rectangles retained functional invisible geometry, not visible artwork removal."
+}

@@ -1,0 +1,8 @@
+{
+  "status": "RESOLVED_RAW_EVIDENCE_WHITESPACE_ONLY",
+  "precheck": "git diff --cached --check exited2 before any commit or push",
+  "exact_issue": "fixture_precheck_1.log:2: new blank line at EOF.",
+  "repair": "File-specific whitespace=cr-at-eol,-blank-at-eof retains native raw CRLF and final blank line. Other files and whitespace errors remain checked; raw hash unchanged. Re-seal final bytes before publication.",
+  "raw_log_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+  "second_precheck": "File-specific blank-at-eof override also required explicit cr-at-eol for this preserved CRLF raw log; Git flagged its unchanged carriage returns as trailing whitespace. No commit or push occurred."
+}

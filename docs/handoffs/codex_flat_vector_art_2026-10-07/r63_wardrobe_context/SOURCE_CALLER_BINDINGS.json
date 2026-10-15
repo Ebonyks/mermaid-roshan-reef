@@ -1,0 +1,162 @@
+{
+  "revision": "FV-AUDIT-20261015-R63",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "functions": [
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/wardrobe_ui.gd",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "function": "_open_wardrobe_shell",
+      "line": 42,
+      "body": "func _open_wardrobe_shell() -> bool:\n\tif m.wardrobe_layer != null:\n\t\treturn false\n\tm._navigation_push(\"wardrobe\", self,\n\t\tCallable(self, \"_close_wardrobe\"))\n\tm._set_world_controls_enabled(false, \"wardrobe\")\n\tm.wardrobe_layer = CanvasLayer.new(); m.wardrobe_layer.layer = 18; m.add_child(m.wardrobe_layer)\n\tvar root := Control.new(); root.set_anchors_preset(Control.PRESET_FULL_RECT); m.wardrobe_layer.add_child(root)\n\tvar vp: Vector2 = m.get_viewport().get_visible_rect().size\n\tvar bg := ColorRect.new(); bg.color = StorybookUI.DIM; bg.set_anchors_preset(Control.PRESET_FULL_RECT); root.add_child(bg)\n\tvar stage := StorybookUI.add_stage(root, vp)\n\tm.wd[\"stage\"] = stage\n\treturn true\n\n",
+      "body_sha256": "eccc7c889b24892cae7aefeedd75a28fadebc9be9a87608f2b6449b0d8a06a33"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/wardrobe_ui.gd",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "function": "_open_wardrobe",
+      "line": 56,
+      "body": "func _open_wardrobe() -> void:\n\tif not _open_wardrobe_shell():\n\t\treturn\n\tvar stage: Control = m.wd[\"stage\"] as Control\n\tvar wardrobe_rect := Rect2(28, 18, 1224, 684)\n\tvar wardrobe_panel := StorybookUI.add_panel(stage, wardrobe_rect,\n\t\tStorybookUI.PURPLE, Color(0.91, 0.96, 1.0, 0.99), 52)\n\twardrobe_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\tStorybookUI.adorn_panel(stage, wardrobe_rect, \"Wardrobe\")\n\tvar title := Label.new(); title.text = \"Pick your look!\"\n\tStorybookUI.style_label(title, 48, StorybookUI.INK, 4)\n\ttitle.position = Vector2(60, 18); stage.add_child(title)\n\t# ---- preview of the selected skin ----\n\tvar frame := Panel.new(); frame.position = Vector2(110, 110); frame.size = Vector2(470, 560)\n\tvar fsb := StorybookUI.panel_style(StorybookUI.GOLD, Color(0.92, 0.96, 1.0, 0.98), 42, 8)\n\tframe.add_theme_stylebox_override(\"panel\", fsb); stage.add_child(frame)\n\tvar preview := TextureRect.new()\n\tpreview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE\n\tpreview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED\n\tpreview.position = Vector2(125, 125); preview.size = Vector2(440, 530)\n\tstage.add_child(preview)\n\tm.wd[\"preview\"] = preview\n\t# Short-lived try-on feedback stays with the overlay and cannot accumulate\n\t# when a child taps several looks quickly.\n\tvar feedback_layer := Control.new()\n\tfeedback_layer.name = \"WardrobeFeedbackLayer\"\n\tfeedback_layer.size = stage.size\n\tfeedback_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\tfeedback_layer.z_index = 20\n\tstage.add_child(feedback_layer)\n\tm.wd[\"feedback_layer\"] = feedback_layer\n\t# ---- one button per skin (mutually exclusive) ----\n\tm.wd[\"btns\"] = []\n\tfor si in range(m.SKINS.size()):\n\t\tvar entry: Dictionary = m.SKINS[si]\n\t\tvar id: String = String(entry[\"id\"])\n\t\tvar b := Button.new()\n\t\tb.name = \"WardrobeLook_\" + id\n\t\tb.position = Vector2(640, 150.0 + float(si) * 124.0)\n\t\tb.custom_minimum_size = Vector2(480, 110)\n\t\tb.size = Vector2(480, 110)\n\t\tStorybookUI.style_picture_button(b, StorybookUI.PAPER,\n\t\t\tStorybookUI.PURPLE, 28, StorybookUI.ROLE_CHILD_CONTROL, 28)\n\t\t# Reserve the portrait's 96px column while keeping every current label,\n\t\t# including the locked hint, on one readable line at the child floor.\n\t\tb.alignment = HORIZONTAL_ALIGNMENT_RIGHT\n\t\tvar portrait := TextureRect.new()\n\t\tportrait.name = \"WardrobeLookPreview_\" + id\n\t\tportrait.texture = FashionOutfitRenderer.portrait(m, \"roshan\") if id == \"classic\" else load(String(entry[\"preview\"]))\n\t\tportrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE\n\t\tportrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED\n\t\tportrait.position = Vector2(10, 8)\n\t\tportrait.size = Vector2(96, 94)\n\t\tportrait.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\t\tb.add_child(portrait)\n\t\tb.pressed.connect(func(): _wardrobe_pick(id))\n\t\tstage.add_child(b)\n\t\t(m.wd[\"btns\"] as Array).append({\"btn\": b, \"id\": id})\n\t# ---- Done ----\n\tvar done := Button.new(); done.name = \"WardrobeFinishButton\"; done.text = \"✦  WEAR IT!\"\n\tdone.position = Vector2(700, 548); done.custom_minimum_size = Vector2(330, 132)\n\tStorybookUI.style_button(done, \"primary\", 38, 38)\n\tdone.pressed.connect(_wardrobe_done); stage.add_child(done)\n\tvar clothes := Button.new()\n\tclothes.name = \"FashionWardrobeButton\"\n\tclothes.text = \"\"\n\tclothes.position = Vector2(1080, 548)\n\tclothes.custom_minimum_size = Vector2(132, 132)\n\tStorybookUI.style_button(clothes, \"primary\", 42, 42)\n\tclothes.pressed.connect(func(): FashionWardrobe.new(m).open())\n\tvar clothing_picture := TextureRect.new()\n\tclothing_picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE\n\tclothing_picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED\n\tclothing_picture.texture = load(\"res://assets/fashion/party_dress_garment.png\") as Texture2D\n\tclothing_picture.position = Vector2(10, 10)\n\tclothing_picture.size = Vector2(112, 112)\n\tclothing_picture.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\tclothes.add_child(clothing_picture)\n\tstage.add_child(clothes)\n\t_wardrobe_refresh()\n\n",
+      "body_sha256": "6a7e000c2eeb58ed80d78da3e4bfdc9fa7af8966e83d101eead965581596beff"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/wardrobe_ui.gd",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "function": "_wardrobe_refresh",
+      "line": 140,
+      "body": "func _wardrobe_refresh() -> void:\n\tif m.wardrobe_layer == null:\n\t\treturn\n\tif m.wd.has(\"preview\"):\n\t\t(m.wd[\"preview\"] as TextureRect).texture = FashionOutfitRenderer.portrait(m, \"roshan\") if m.skin_id == \"classic\" else load(String(m._skin_def(m.skin_id)[\"preview\"]))\n\tfor entry in m.wd.get(\"btns\", []):\n\t\tvar sel: bool = String(entry[\"id\"]) == m.skin_id\n\t\tvar eid := String(entry[\"id\"])\n\t\tvar locked: bool = eid.begins_with(\"fairy\") and not m.fairy_skin_unlocked\n\t\tvar bt: Button = entry[\"btn\"]\n\t\tStorybookUI.style_picture_button(bt,\n\t\t\tColor(0.74, 0.76, 0.84, 0.96) if locked else (\n\t\t\t\tStorybookUI.PAPER_COOL if sel else StorybookUI.PAPER),\n\t\t\tStorybookUI.GOLD if sel else StorybookUI.PURPLE, 28,\n\t\t\tStorybookUI.ROLE_CHILD_CONTROL, 28)\n\t\tbt.alignment = HORIZONTAL_ALIGNMENT_RIGHT\n\t\tbt.set_meta(\"selected\", sel)\n\t\tbt.set_meta(\"locked\", locked)\n\t\tbt.text = \"🔒 \" + String(m._skin_def(eid)[\"label\"]) if locked else (\"✔ \" if sel else \"    \") + String(m._skin_def(eid)[\"label\"])\n\t\tbt.modulate = Color(0.75, 0.75, 0.8) if locked else Color.WHITE\n\n",
+      "body_sha256": "57748a530aee53648d4b4852a51af25963d1f011a70263de450bfa8358a1e104"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/wardrobe_ui.gd",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "function": "_wardrobe_pick",
+      "line": 216,
+      "body": "func _wardrobe_pick(id: String) -> void:\n\tif id.begins_with(\"fairy\") and not m.fairy_skin_unlocked:\n\t\t# the Butterfly World prize — tease it, don't grant it\n\t\tif m.chime != null:\n\t\t\tm.chime.pitch_scale = 0.5\n\t\t\tm.chime.play()\n\t\t_wardrobe_toast(\"🦋 Save the Butterfly World to unlock Fairy Roshan!\")\n\t\treturn\n\tm.skin_id = id\n\tm._apply_skin()\n\tm._write_save()\n\t_wardrobe_refresh()\n\tif m.chime != null:\n\t\tm.chime.pitch_scale = 1.3; m.chime.play()\n\t# Magic-moment: the selected preview gets one bounded sparkle swirl.\n\t_wardrobe_feedback_burst()\n\tm.player.play_verb(\"twirl\")   # R2-C: she shows off the new look\n\n",
+      "body_sha256": "fd1356b146e00676ab3dc18d9a23c270efbc05f6b6c210a371f1d87039306904"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/wardrobe_ui.gd",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "function": "_wardrobe_feedback_burst",
+      "line": 161,
+      "body": "func _wardrobe_feedback_burst() -> void:\n\tvar preview: TextureRect = m.wd.get(\"preview\") as TextureRect\n\tvar feedback_layer: Control = m.wd.get(\"feedback_layer\") as Control\n\tif preview == null or not is_instance_valid(preview) \\\n\t\t\tor feedback_layer == null or not is_instance_valid(feedback_layer):\n\t\treturn\n\tvar previous_tween: Tween = m.wd.get(\"feedback_tween\") as Tween\n\tif previous_tween != null and previous_tween.is_valid():\n\t\tprevious_tween.kill()\n\tfor child_value in feedback_layer.get_children():\n\t\tvar previous_burst := child_value as Control\n\t\tif previous_burst != null:\n\t\t\tprevious_burst.visible = false\n\t\t\tfeedback_layer.remove_child(previous_burst)\n\t\t\tprevious_burst.queue_free()\n\tvar burst := Control.new()\n\tburst.name = \"WardrobePreviewFeedbackBurst\"\n\tburst.position = preview.position + preview.size * 0.5\n\tburst.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\tburst.set_meta(\"feedback_kind\", \"look_pick\")\n\tburst.set_meta(\"visible_elements\", WARDROBE_FEEDBACK_ELEMENTS)\n\tfeedback_layer.add_child(burst)\n\tvar star_points := PackedVector2Array([\n\t\tVector2(0, -14), Vector2(4, -4), Vector2(14, 0), Vector2(4, 4),\n\t\tVector2(0, 14), Vector2(-4, 4), Vector2(-14, 0), Vector2(-4, -4)])\n\tvar palette: Array[Color] = [\n\t\tStorybookUI.GOLD, StorybookUI.PEARL_BLUE,\n\t\tColor(1.0, 0.62, 0.88), StorybookUI.PEARL]\n\tfor i in range(WARDROBE_FEEDBACK_ELEMENTS):\n\t\tvar angle := TAU * float(i) / float(WARDROBE_FEEDBACK_ELEMENTS) \\\n\t\t\t+ 0.09 * float(i % 2)\n\t\tvar direction := Vector2(cos(angle), sin(angle))\n\t\tvar sparkle := Polygon2D.new()\n\t\tsparkle.polygon = star_points\n\t\tsparkle.color = palette[i % palette.size()]\n\t\tsparkle.position = direction * 10.0\n\t\tsparkle.rotation = angle\n\t\tsparkle.scale = Vector2.ONE * (0.78 + 0.10 * float(i % 3))\n\t\tsparkle.set_meta(\"feedback_endpoint\",\n\t\t\tdirection * (174.0 + 16.0 * float(i % 3)))\n\t\tburst.add_child(sparkle)\n\tvar feedback_tween := burst.create_tween()\n\tfeedback_tween.set_parallel(true)\n\tfor child_value in burst.get_children():\n\t\tvar sparkle := child_value as Polygon2D\n\t\tif sparkle == null:\n\t\t\tcontinue\n\t\tvar endpoint: Vector2 = sparkle.get_meta(\"feedback_endpoint\", Vector2.ZERO)\n\t\tfeedback_tween.tween_property(sparkle, \"position\", endpoint, 0.68) \\\n\t\t\t.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)\n\t\tfeedback_tween.tween_property(sparkle, \"scale\", Vector2(0.18, 0.18), 0.68)\n\t\tfeedback_tween.tween_property(sparkle, \"modulate:a\", 0.0, 0.68)\n\tfeedback_tween.chain().tween_callback(burst.queue_free)\n\tm.wd[\"feedback_tween\"] = feedback_tween\n\n",
+      "body_sha256": "f911efa4c2cb9657618bea186c2f4f29531329f8c4f5a4338721a3ddcd99477e"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/wardrobe_ui.gd",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "function": "_wardrobe_done",
+      "line": 309,
+      "body": "func _wardrobe_done() -> void:\n\tm._write_save()\n\tif m.voice != null:\n\t\tm.voice.pitch_scale = 1.15\n\t\tm._play_success_yay(m.voice.pitch_scale)\n\t_close_wardrobe()\n\n",
+      "body_sha256": "f9b304064a585b375eeac496d80ae83e1e9740729f27e15049404c4aa201031c"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/wardrobe_ui.gd",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "function": "_wardrobe_toast",
+      "line": 293,
+      "body": "func _wardrobe_toast(txt: String) -> void:\n\tif not m.wd.has(\"stage\"):\n\t\treturn\n\tvar t := Label.new()\n\tt.text = txt\n\tt.add_theme_font_size_override(\"font_size\", 34)\n\tt.add_theme_color_override(\"font_color\", Color(1.0, 0.85, 0.5))\n\tt.add_theme_color_override(\"font_outline_color\", Color(0.08, 0.05, 0.15))\n\tt.add_theme_constant_override(\"outline_size\", 10)\n\tt.position = Vector2(110, 682)\n\t(m.wd[\"stage\"] as Control).add_child(t)\n\tvar tw := t.create_tween()\n\ttw.tween_interval(2.2)\n\ttw.tween_property(t, \"modulate:a\", 0.0, 0.6)\n\ttw.tween_callback(t.queue_free)\n\n",
+      "body_sha256": "891fc46877af9a58e9880d4abf072233ea17a84d57c58e16af2dcef8c802c117"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/wardrobe_ui.gd",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "function": "_close_wardrobe",
+      "line": 316,
+      "body": "func _close_wardrobe() -> void:\n\tif m.wd.has(FashionWardrobe.PERSON):\n\t\tm._audio_ref()._stop_active_speech()\n\tm._navigation_remove(\"wardrobe\")\n\tvar feedback_tween: Tween = m.wd.get(\"feedback_tween\") as Tween\n\tif feedback_tween != null and feedback_tween.is_valid():\n\t\tfeedback_tween.kill()\n\tif m.wardrobe_layer != null and is_instance_valid(m.wardrobe_layer):\n\t\tm.wardrobe_layer.queue_free()\n\tm.wardrobe_layer = null\n\tm.wd = {}\n\tm.mg_cool = 8.0\n\tm._set_world_controls_enabled(true, \"wardrobe\")\n",
+      "body_sha256": "bfab92faa866bf083f27487052e477375db8863745782d5aaeb364be7ee47b10"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/wardrobe_ui.gd",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "function": "_apply_skin",
+      "line": 20,
+      "body": "func _apply_skin() -> void:\n\t# swap Roshan's whole appearance to the chosen skin (classic = 2.5D atlas)\n\tif m.player == null:\n\t\treturn\n\tvar s := _skin_def(m.skin_id)\n\tm.skin_id = String(s[\"id\"])   # normalise any stale/removed skin id back to a valid one\n\tm.player.set_skin(m.skin_id, String(s[\"sprite\"]))\n\tm.player.classic_sprite_sheet = \"\"\n\tif m._castle_rooms_25d != null and m._castle_rooms_25d.is_open():\n\t\tm._castle_rooms_25d.refresh_player_skin()\n\n",
+      "body_sha256": "daef77e12a8dc9e2046126bd1683d048d652ef771db68ee12e02abfe8062d9c8"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/wardrobe_ui.gd",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "function": "skin_sprite_path",
+      "line": 31,
+      "body": "func skin_sprite_path() -> String:\n\t# the flat art matching the wardrobe skin — used by the kart driver and\n\t# the 2D minigame mermaid so the chosen look follows Roshan into every\n\t# game, not just the ocean (the Dolls Canvas catcher uses this path too)\n\tif m.skin_id == \"huluu\":\n\t\treturn \"res://assets/characters/friends/huluu.png\"\n\tif m.skin_id == \"fairy\":\n\t\treturn \"res://assets/characters/skins/fairy_mermaid.png\"\n\treturn FashionOutfitRenderer.path(m, \"res://assets/characters/roshan_25d/roshan_base.png\")\n\n# ---------------- DRESS-UP WARDROBE (full-skin picker) ----------------\n",
+      "body_sha256": "28da7b6e50bf647031ff94ff176e8bbcb361f602114947b498643dc0e16fea74"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/main.gd",
+      "source_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "function": "_wardrobe_ref",
+      "line": 7319,
+      "body": "func _wardrobe_ref() -> WardrobeUI:\n\tif _wardrobe_ui == null:\n\t\t_wardrobe_ui = WardrobeUI.new(self)\n\treturn _wardrobe_ui\n\n",
+      "body_sha256": "afbc62e31574fd2420d295e9784517017a664fa715fdcff27c2f4af6c878dbca"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/main.gd",
+      "source_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "function": "_open_wardrobe",
+      "line": 7324,
+      "body": "func _open_wardrobe() -> void:\n\t_wardrobe_ref()._open_wardrobe()\n\n",
+      "body_sha256": "6a317b9db429e1d1209c2c410d10376e355bedf16070a189d4f0eb9a0fd42a8d"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "source_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "function": "_activate_room_item",
+      "line": 3522,
+      "body": "func _activate_room_item(item_id: String,\n\t\tallow_chapter2_plot_route: bool = true) -> void:\n\tif _fridge_close_is_blocked():\n\t\treturn\n\tvar record: Dictionary = m.castle_room_item_sprites.get(item_id, {})\n\tif record.is_empty():\n\t\treturn\n\tvar sprite: Sprite2D = record.get(\"sprite\") as Sprite2D\n\tvar item_data: Dictionary = record.get(\"data\", {})\n\tif sprite == null or bool(sprite.get_meta(\"busy\", false)):\n\t\treturn\n\tif allow_chapter2_plot_route:\n\t\tvar plot_action := m._chapter_two_ref().room_plot_action(\n\t\t\tm.castle_room_id)\n\t\tvar is_plot_prop := \\\n\t\t\t(m.castle_room_id == \"library\" and item_id == \"magic_book\" \\\n\t\t\t\tand plot_action == ChapterTwoDirector.ACTION_DETECTIVE_SEARCH) \\\n\t\t\tor (m.castle_room_id == \"playroom\" and item_id == \"stuffie_nook\" \\\n\t\t\t\tand plot_action == ChapterTwoDirector.ACTION_STUFFIE_BALLET)\n\t\tif is_plot_prop and m.chapter2_activate_room_plot(\n\t\t\t\tm.castle_room_id, plot_action):\n\t\t\treturn\n\tif m.castle_room_id == \"playroom\" and item_id == \"stuffie_nook\":\n\t\t# The painted toy nook replaces the removed room-wide Stuffies button.\n\t\tactivate_current_room()\n\t\treturn\n\tvar visual: Dictionary = item_data.get(\"v2_visual\", {}) as Dictionary\n\tvar is_native_authored_states: bool = \\\n\t\tString(visual.get(\"pack\", \"\")) == \"v4_native\"\n\tif m.castle_room_id == \"kitchen\" and item_id == \"fridge\":\n\t\t_say_day_one_context(\"day1_fridge_open\",\n\t\t\t\"Peek inside the royal fridge!\", 0, false)\n\t# Native V4 props always play their item-specific authored states. This route\n\t# deliberately precedes the older roleplay/light helpers, several of which\n\t# use whole-card bounce or a hard-coded eight-frame light transform.\n\tif is_native_authored_states and not item_data.has(\"room_destination\"):\n\t\tvar native_interaction_key := String(\n\t\t\tsprite.get_meta(\"source_object_id\", \"\"))\n\t\tfixture_rigs.activate(native_interaction_key)\n\t\tvar native_launch_activity: String = String(item_data.get(\n\t\t\t\"launch_activity\", \"\"))\n\t\tif native_launch_activity != \"\":\n\t\t\tsprite.set_meta(\n\t\t\t\t\"launch_activity_after_sequence\", native_launch_activity)\n\t\t_play_sprite_atlas_sequence(sprite, item_data, true,\n\t\t\tm.castle_room_id == \"kitchen\" and item_id == \"fridge\")\n\t\treturn\n\tif item_data.has(\"light_cluster\") and not is_native_authored_states:\n\t\t_toggle_hall_sconce(item_id, sprite, item_data)\n\t\treturn\n\tvar roleplay_action: String = String(item_data.get(\n\t\t\"roleplay_action\", \"\"))\n\tif roleplay_action != \"\":\n\t\t_activate_roleplay_item(\n\t\t\troleplay_action, item_id, sprite, item_data)\n\t\treturn\n\tvar hotspot_group: String = String(item_data.get(\"hotspot_group\", \"\"))\n\tif hotspot_group != \"\":\n\t\t_activate_item_group(hotspot_group, item_id)\n\t\treturn\n\tvar interaction_key := String(sprite.get_meta(\"source_object_id\", \"\"))\n\tfixture_rigs.activate(interaction_key)\n\tvar launch_activity: String = String(item_data.get(\"launch_activity\", \"\"))\n\tif launch_activity != \"\":\n\t\tsprite.set_meta(\"launch_activity_after_sequence\", launch_activity)\n\t_play_sprite_atlas_sequence(sprite, item_data, true,\n\t\tm.castle_room_id == \"kitchen\" and item_id == \"fridge\")\n\n\n",
+      "body_sha256": "595c99071d4f058a75112b20c6e3c6cb20bbd4262b325d2b428ac1ab73a21528"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "source_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "function": "_open_roleplay_wardrobe",
+      "line": 4088,
+      "body": "func _open_roleplay_wardrobe(sprite: Sprite2D,\n\t\titem_data: Dictionary) -> void:\n\tif sprite == null or not is_instance_valid(sprite) \\\n\t\t\tor bool(sprite.get_meta(\"busy\", false)) \\\n\t\t\tor m.wardrobe_layer != null:\n\t\treturn\n\tsprite.set_meta(\"busy\", true)\n\tsprite.set_meta(\"roleplay_state_count\", 4)\n\tsprite.set_meta(\n\t\t\"normalized_use_animation\", \"wardrobe_glint_then_real_picker\")\n\t_play_item_sfx(String(item_data.get(\"sound\", \"ui_tap.ogg\")),\n\t\tfloat(item_data.get(\"pitch\", 1.0)))\n\tvar original_modulate: Color = sprite.modulate\n\tvar pearl_glint := Color(\n\t\tminf(original_modulate.r * 1.10, 1.25),\n\t\tminf(original_modulate.g * 1.06, 1.20),\n\t\tminf(original_modulate.b * 1.14, 1.25), original_modulate.a)\n\tvar open_sequence := sprite.create_tween()\n\topen_sequence.tween_property(sprite, \"modulate\", pearl_glint, 0.075)\n\topen_sequence.tween_property(\n\t\tsprite, \"modulate\", original_modulate.lerp(pearl_glint, 0.42), 0.075)\n\topen_sequence.tween_property(sprite, \"modulate\", pearl_glint, 0.075)\n\topen_sequence.tween_property(sprite, \"modulate\", original_modulate, 0.075)\n\topen_sequence.tween_callback(_finish_open_roleplay_wardrobe.bind(\n\t\tsprite, original_modulate))\n\n",
+      "body_sha256": "67cd42d3112d85177e52af6afdd00a3e668e67f926d3095d6b4117e79f012955"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "source_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "function": "_finish_open_roleplay_wardrobe",
+      "line": 4114,
+      "body": "func _finish_open_roleplay_wardrobe(sprite: Sprite2D,\n\t\toriginal_modulate: Color) -> void:\n\tif sprite == null or not is_instance_valid(sprite):\n\t\treturn\n\tsprite.modulate = original_modulate\n\tsprite.set_meta(\"busy\", false)\n\t_item_burst(sprite.position, Color(1.0, 0.67, 0.82), 8)\n\tm.show_msg(\"Roshan\",\n\t\t\"Pretend dress-up time! A crown, a cape, or both!\", \"talk\")\n\tm._open_wardrobe()\n\n",
+      "body_sha256": "e6cd402d1fce87ae3d4631daf432df20f636349536c8d70b41b810bceb96e0b2"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "source_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "function": "_enter_gallery_room",
+      "line": 3680,
+      "body": "func _enter_gallery_room(item_id: String, sprite: Sprite2D,\n\t\titem_data: Dictionary) -> void:\n\tif sprite == null or not is_instance_valid(sprite) \\\n\t\t\tor bool(sprite.get_meta(\"busy\", false)):\n\t\treturn\n\tvar destination: String = String(item_data.get(\"room_destination\", \"\"))\n\tif _room(destination).is_empty():\n\t\treturn\n\tvar authored_roleplay_foot: Vector2 = item_data.get(\n\t\t\"roleplay_foot\", Vector2(640.0, 620.0)) as Vector2\n\tvar roleplay_foot := _reachable_item_foot(\n\t\titem_id, authored_roleplay_foot)\n\tvar current_foot: Vector2 = m.castle_room_player_sprite.get_meta(\n\t\t\"current_stage_foot\", Vector2.INF) as Vector2\n\tif current_foot.distance_to(roleplay_foot) > 1.0:\n\t\t_begin_room_route(roleplay_foot, item_id)\n\t\treturn\n\tsprite.set_meta(\"busy\", true)\n\tfor hotspot_node: Node in m.castle_room_item_hotspot_layer.get_children():\n\t\tvar door_hotspot: Button = hotspot_node as Button\n\t\tif door_hotspot != null:\n\t\t\tdoor_hotspot.disabled = true\n\t_play_item_sfx(String(item_data.get(\"sound\", \"ui_tap.ogg\")),\n\t\tfloat(item_data.get(\"pitch\", 1.0)))\n\tvar transition_generation := _begin_room_transition()\n\t_item_burst(sprite.position,\n\t\tColor(item_data.get(\"color\", StorybookUI.GOLD)), 8)\n\t_room_transition_tween = m.create_tween()\n\t_room_transition_tween.tween_interval(0.04)\n\t_room_transition_tween.tween_callback(\n\t\t_finish_gallery_room_transition.bind(\n\t\t\tdestination, transition_generation))\n\n\n",
+      "body_sha256": "f2942af82f7ff88edf760c56f3e098ab32c88b878f1f70a33b7525f274b7b67b"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/fashion_wardrobe.gd",
+      "source_sha256": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59",
+      "function": "open",
+      "line": 17,
+      "body": "func open(party: bool = false) -> void:\n\tm._wardrobe_ref()._close_wardrobe()\n\tm._wardrobe_ref()._open_wardrobe_shell()\n\tm.wardrobe_layer.set_meta(\"fashion_fixed_preview\", true)\n\tFashionDesigner.refresh_unlocks(m)\n\tm.wd[PERSON] = \"roshan\"\n\tm.wd[PAGE] = 0\n\tm.wd[SLOT] = \"body\"\n\tm.wd[PARTY] = party\n\tm.wd[PRACTICE] = false\n\t_build()\n\t_cue(\"party_dress\" if party else \"choose\")\n\n",
+      "body_sha256": "c41319c7ce53569a70b99f3de07d76c0bfcce739713b29fc77a09649ec52a3d7"
+    }
+  ],
+  "route": "Declared private originalSaveState beforeMain + actual Continue, private Castle bootstrap; original HallDoor_family_gallery -> gallery_royal_bedroom_door -> current shell_wardrobe roleplay dress_up with native_pack empty/source glint -> Main._open_wardrobe -> WardrobeUI original shell/picker. Native touch original Button callbacks; no direct callback emission.",
+  "fallback_limits": "Current loaded texture paths and original callbacks only; missing texture, native override/value domains, all callers/resources/ordinary launch/full routes and other Fashion variants remain open.",
+  "functional_geometry": "Touch rectangles, target positions, player foot and control blocking are invisible functional geometry, separately retained; no visible-flat exemption inferred."
+}
