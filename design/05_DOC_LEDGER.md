@@ -1299,3 +1299,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Authority and scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r53_castle_logo_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; exact source5120b6d5 original paint-table/crest controls, 48 combinations per aspect and private save/cancel/room copies. 280 retained /140 bounded /140 excluded fixture diagnostics; two current cases pass136 checks. 12 native/3 source views identify flat backing and selector identity mismatch. No runtime/art change, generation or acceptance;240 roles/32 families,0 accepted/global unknown. |
+
+## Castle crest motif reuse — 2026-10-15 R54
+
+| Document | State | Authority and scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; exact source5120b6d5 nonruntime eight-motif selector/status reuse at two aspects.252 checks/116 unchanged local-layout/state comparisons;372 native/118 bounded/254 excluded comparisons.15 native/8 source direct views. No new art, production adoption or acceptance;240 roles/32 families,0 accepted/global unknown. |

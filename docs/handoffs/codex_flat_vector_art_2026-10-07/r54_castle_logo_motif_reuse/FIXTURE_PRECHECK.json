@@ -1,0 +1,39 @@
+{
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r54_castle_logo_motif_reuse\\capture_motif.gd"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r54_castle_logo_motif_reuse\\capture_motif.gd"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r54/capture_motif.gd"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    }
+  ],
+  "fixture_sha256": "6a09801a1111745ccb5dc8f37f3954aaacaaa7eb0fe1c136750cfe2f2acdd883",
+  "source_copied_exact": true,
+  "pre_native_bound_update": "Before any native execution, restrict redundant node inventories to named controls/preview/status/helpers/global Back and retain full original signature plus exact candidate/restored signature hashes. No cap/readers weakened and full-frame PNGs remain."
+}

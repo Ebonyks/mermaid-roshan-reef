@@ -1,0 +1,92 @@
+{
+  "audited_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "baseline": "../r51_farmer_context/RUNTIME_BYTE_BASELINE.json at 97ab587f5c34594a8ed13b765338aff781a2934a",
+  "runtime_root_tracked_files_checked": 4420,
+  "initialized_sidecars_checked": 4041,
+  "cases": [
+    {
+      "case": "attempt1_motif_1280",
+      "report_sha256": "c0a36df0b4391fd93514a1a24a9c536501d41bfd92e82c41bc4da419f916a085",
+      "fixture_sha256": "6a09801a1111745ccb5dc8f37f3954aaacaaa7eb0fe1c136750cfe2f2acdd883",
+      "exit_code": 0,
+      "checks": 126,
+      "comparisons": 58,
+      "report_bytes": 3897902,
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T11:07:16.438561+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "bec6b51558f3c3fb93327004583576d2bc0406e04c3499c77949c8e4ca98c156",
+        "script_or_shader_errors": false
+      }
+    },
+    {
+      "case": "attempt1_motif_1600",
+      "report_sha256": "8ff59d5063090d3a0fbc8472558c3ea0125185a2e1872044b8fa82c6087bc9b5",
+      "fixture_sha256": "6a09801a1111745ccb5dc8f37f3954aaacaaa7eb0fe1c136750cfe2f2acdd883",
+      "exit_code": 0,
+      "checks": 126,
+      "comparisons": 58,
+      "report_bytes": 3898130,
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T11:08:27.811809+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "bec6b51558f3c3fb93327004583576d2bc0406e04c3499c77949c8e4ca98c156",
+        "script_or_shader_errors": false
+      }
+    }
+  ],
+  "production_art_code_changes": [],
+  "scope": "Both runs keep runtime raw bytes, all initialized sidecars and normal eight save suffix hashes exact. Existing import history retains its original R51 scope."
+}

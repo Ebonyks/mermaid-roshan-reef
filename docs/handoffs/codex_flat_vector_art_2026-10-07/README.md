@@ -227,3 +227,5 @@ R51 [current Farmer context](r51_farmer_context/README.md):two actual Mobile/Spe
 [R52 panorama reuse fit](r52_farmer_panorama_reuse/README.md) retains one nonruntime lower-preserving crop and rejects a centered path-loss alternative. Two actual Mobile/Speedy cases,40unchanged state/geometry comparisons and460800identical lower component pixels;81native/74bounded,0accepted/globalunknown.
 
 Current R53: [Castle crest studio context](r53_castle_logo_context/README.md), with exact choices/save/room-copy evidence and selector-versus-preview weaknesses. Runtime unchanged; accepted removals zero and global denominator unknown.
+
+Current R54: [Castle crest motif reuse](r54_castle_logo_motif_reuse/README.md), an isolated exact-source selector/status fit.252 checks/116 comparisons; no production adoption, new art or accepted removal.

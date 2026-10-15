@@ -1,0 +1,29 @@
+{
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r54_castle_logo_motif_reuse\\capture_motif.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r54_castle_logo_motif_reuse\\native\\attempt1_motif_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r54_castle_logo_motif_reuse\\native\\attempt1_motif_1600\\fixture_source.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r54_castle_logo_motif_reuse\\capture_motif.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r54_castle_logo_motif_reuse\\native\\attempt1_motif_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r54_castle_logo_motif_reuse\\native\\attempt1_motif_1600\\fixture_source.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "files": 3,
+  "scope": "Every added fixture GDScript parses; actual exact engine top-level precheck/native execution separately bound. No production code changes."
+}
