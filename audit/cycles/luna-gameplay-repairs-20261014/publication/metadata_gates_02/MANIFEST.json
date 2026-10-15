@@ -1,0 +1,36 @@
+{
+  "schema": "reef.immutable-evidence-archive-manifest.v1",
+  "files": [
+    {
+      "path": "authority.log",
+      "sha256": "bfab5b02811a9d42abcb49976135a5ec8094abe4138106ac95cba8430715fb65",
+      "bytes": 78,
+      "role": "native_terminal_gate_log"
+    },
+    {
+      "path": "coverage.log",
+      "sha256": "d1d37b462cf9e7b5bd479271c2af6184585d30ddf43d1f00aa844c5575932d9b",
+      "bytes": 80,
+      "role": "native_terminal_gate_log"
+    },
+    {
+      "path": "diff.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "native_terminal_gate_log"
+    },
+    {
+      "path": "poststamp_coverage.log",
+      "sha256": "d1d37b462cf9e7b5bd479271c2af6184585d30ddf43d1f00aa844c5575932d9b",
+      "bytes": 80,
+      "role": "native_terminal_gate_log"
+    },
+    {
+      "path": "RECEIPT.json",
+      "sha256": "1603d77aa15857e76ae30c891209647e7cedacb98854924131e6211207cd34f2",
+      "bytes": 1547,
+      "role": "derived_process_returncode_receipt"
+    }
+  ],
+  "scope": "Terminal final metadata gate logs; precreated paths ensure complete impact coverage, then actual receipt/hash manifest filled without source changes."
+}

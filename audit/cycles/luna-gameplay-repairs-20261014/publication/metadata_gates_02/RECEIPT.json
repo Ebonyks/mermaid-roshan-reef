@@ -1,0 +1,56 @@
+{
+  "schema": "reef.metadata-only-final-gates.v1",
+  "completed_utc": "2026-10-15T05:28:48.168668+00:00",
+  "implementation_source_commit": "1af25a20115561ebe659b5337f9a48a45cec105f",
+  "metadata_head_at_run": "1af25a20115561ebe659b5337f9a48a45cec105f",
+  "topic_diff_baseline": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "topic_project_files": 665,
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "authority.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "coverage.log"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "log": "diff.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "poststamp_coverage.log",
+      "scope": "Revalidate final impact PASS stamp; file inventory unchanged"
+    }
+  ],
+  "result": "PASS",
+  "runtime_diff_from_verified_source_commit": [],
+  "source_pin_sha256": "786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388",
+  "acceptance": "Metadata validation only; exact published-head CI/integration and prior external/freshsave/contact/device/child/owner limits remain separate."
+}

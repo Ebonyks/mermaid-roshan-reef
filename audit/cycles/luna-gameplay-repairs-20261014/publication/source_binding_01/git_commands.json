@@ -1,0 +1,577 @@
+[
+  {
+    "argv": [
+      "git",
+      "-C",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+      "check-ignore",
+      "-q",
+      "--",
+      "tmp/luna_repair_20261014/post_commit_v8_01.json"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+      "check-ignore",
+      "-q",
+      "--",
+      "tmp/luna_repair_20261014/post_commit_verifications/private.index"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "--show-toplevel"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 83,
+    "stdout_sha256": "8e3755054d90ef5a5a46f1c29ce9740dc3c0a20805a573a8ff59954af4016e5b"
+  },
+  {
+    "argv": [
+      "git",
+      "cat-file",
+      "-t",
+      "1af25a20115561ebe659b5337f9a48a45cec105f"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 7,
+    "stdout_sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "--verify",
+      "1af25a20115561ebe659b5337f9a48a45cec105f^{commit}"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 41,
+    "stdout_sha256": "d19b20b577cf883c456537785f71650926c0e9d320621def0a2b89c21b6552f2"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "--absolute-git-dir"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 81,
+    "stdout_sha256": "cb806af444fae2c3f522b49d64dc3ff1f700e0fb370e08f5dbf15c228264a411"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "--path-format=absolute",
+      "--git-common-dir"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 50,
+    "stdout_sha256": "ac3a317a68fb0417d2b5470118423bdf754d83808ac0ba317558e3aa1177432c"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "--path-format=absolute",
+      "--git-path",
+      "index"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 87,
+    "stdout_sha256": "a83d275f73237473eff5a8fa7814797d588a3caf59e602a54c966aba88285db1"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "--shared-index-path"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "status",
+      "--porcelain=v1",
+      "-z",
+      "--untracked-files=all"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 41,
+    "stdout_sha256": "d19b20b577cf883c456537785f71650926c0e9d320621def0a2b89c21b6552f2"
+  },
+  {
+    "argv": [
+      "git",
+      "symbolic-ref",
+      "--short",
+      "-q",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 37,
+    "stdout_sha256": "34bbb045dc722dc87bdb4e1f10f9935b0d8704be9a6c0d9ce513488e8ce76128"
+  },
+  {
+    "argv": [
+      "git",
+      "config",
+      "--get",
+      "core.autocrlf"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 5,
+    "stdout_sha256": "a17fcf0a2f50e2d495e4f90ce263410edc183add6c62699a2facbccf60410f74"
+  },
+  {
+    "argv": [
+      "git",
+      "config",
+      "--get",
+      "core.eol"
+    ],
+    "exit_code": 1,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "merge-base",
+      "--is-ancestor",
+      "1af25a20115561ebe659b5337f9a48a45cec105f",
+      "1af25a20115561ebe659b5337f9a48a45cec105f"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "ls-tree",
+      "-r",
+      "-z",
+      "--full-tree",
+      "1af25a20115561ebe659b5337f9a48a45cec105f"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 3326830,
+    "stdout_sha256": "2ec689b894cbda6fab3cbacd3fdfb6cff9ff2f93eba886fc199366596d95a30d"
+  },
+  {
+    "argv": [
+      "git",
+      "ls-files",
+      "--stage",
+      "-z"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 3250966,
+    "stdout_sha256": "f8ecb949421e23c13b72fb690482819c6560e6a41004558bc201e6a09c673030"
+  },
+  {
+    "argv": [
+      "git",
+      "check-attr",
+      "-z",
+      "--stdin",
+      "text",
+      "eol",
+      "filter",
+      "working-tree-encoding",
+      "ident"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 353522,
+    "stdin_sha256": "be082b8593734dc66924e5caf91ea12615964b72664bca742d3e327e0eed6b4a",
+    "stdout_bytes": 2415049,
+    "stdout_sha256": "ee812a3e1637940c89220f969d94c8a7da66cbac12ad2d645bf49f1fc1aa541c"
+  },
+  {
+    "argv": [
+      "git",
+      "check-attr",
+      "-z",
+      "--stdin",
+      "--cached",
+      "text",
+      "eol",
+      "filter",
+      "working-tree-encoding",
+      "ident"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 353522,
+    "stdin_sha256": "be082b8593734dc66924e5caf91ea12615964b72664bca742d3e327e0eed6b4a",
+    "stdout_bytes": 2415049,
+    "stdout_sha256": "ee812a3e1637940c89220f969d94c8a7da66cbac12ad2d645bf49f1fc1aa541c"
+  },
+  {
+    "argv": [
+      "git",
+      "check-attr",
+      "-z",
+      "--stdin",
+      "--source=1af25a20115561ebe659b5337f9a48a45cec105f",
+      "text",
+      "eol",
+      "filter",
+      "working-tree-encoding",
+      "ident"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 353522,
+    "stdin_sha256": "be082b8593734dc66924e5caf91ea12615964b72664bca742d3e327e0eed6b4a",
+    "stdout_bytes": 2415049,
+    "stdout_sha256": "ee812a3e1637940c89220f969d94c8a7da66cbac12ad2d645bf49f1fc1aa541c"
+  },
+  {
+    "argv": [
+      "git",
+      "hash-object",
+      "--stdin-paths"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 353522,
+    "stdin_sha256": "2d006ba716b260d0a357dfeb0ef41a7e167deb093edbb2648aa61b2f78636bab",
+    "stdout_bytes": 256701,
+    "stdout_sha256": "c77326ae3a94c2af32c20824990a663ff037b998fb59fece233c0eabfb5e7716"
+  },
+  {
+    "argv": [
+      "git",
+      "cat-file",
+      "--batch"
+    ],
+    "exit_code": 0,
+    "payload_handling": "SHA256 streaming only; no blob payload exports",
+    "stderr": "",
+    "unique_blob_count": 5808
+  },
+  {
+    "argv": [
+      "git",
+      "--git-dir=C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.git\\worktrees\\mermaid-roshan-reef4",
+      "--work-tree=C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\partial_checkout",
+      "-c",
+      "core.autocrlf=true",
+      "-c",
+      "core.splitIndex=false",
+      "-c",
+      "core.sparseCheckout=false",
+      "read-tree",
+      "--no-sparse-checkout",
+      "1af25a20115561ebe659b5337f9a48a45cec105f"
+    ],
+    "exit_code": 0,
+    "private_index": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\private.index",
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "--git-dir=C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.git\\worktrees\\mermaid-roshan-reef4",
+      "--work-tree=C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\partial_checkout",
+      "-c",
+      "core.autocrlf=true",
+      "-c",
+      "core.splitIndex=false",
+      "-c",
+      "core.sparseCheckout=false",
+      "checkout-index",
+      "--",
+      ".gitattributes"
+    ],
+    "exit_code": 0,
+    "private_index": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\private.index",
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "--work-tree=C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\partial_checkout",
+      "check-attr",
+      "-z",
+      "--stdin",
+      "text",
+      "eol",
+      "filter",
+      "working-tree-encoding",
+      "ident"
+    ],
+    "exit_code": 0,
+    "private_index": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\private.index",
+    "stderr": "",
+    "stdin_bytes": 63737,
+    "stdin_sha256": "81a114e9f807b3c15cf36fe532fc5a9e3e7b8c779b8e8ec9608765a95456e2ae",
+    "stdout_bytes": 378269,
+    "stdout_sha256": "03badf24d3eb12f5f6dfea19f7fea610bf8ddda6002f37a4cfad95b337b77493"
+  },
+  {
+    "argv": [
+      "git",
+      "--git-dir=C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.git\\worktrees\\mermaid-roshan-reef4",
+      "--work-tree=C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\partial_checkout",
+      "-c",
+      "core.autocrlf=true",
+      "-c",
+      "core.splitIndex=false",
+      "-c",
+      "core.sparseCheckout=false",
+      "checkout-index",
+      "-z",
+      "--stdin"
+    ],
+    "exit_code": 0,
+    "private_index": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\private.index",
+    "stderr": "",
+    "stdin_bytes": 63737,
+    "stdin_sha256": "81a114e9f807b3c15cf36fe532fc5a9e3e7b8c779b8e8ec9608765a95456e2ae",
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "--absolute-git-dir"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 81,
+    "stdout_sha256": "cb806af444fae2c3f522b49d64dc3ff1f700e0fb370e08f5dbf15c228264a411"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "--path-format=absolute",
+      "--git-common-dir"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 50,
+    "stdout_sha256": "ac3a317a68fb0417d2b5470118423bdf754d83808ac0ba317558e3aa1177432c"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "--path-format=absolute",
+      "--git-path",
+      "index"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 87,
+    "stdout_sha256": "a83d275f73237473eff5a8fa7814797d588a3caf59e602a54c966aba88285db1"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "--shared-index-path"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "status",
+      "--porcelain=v1",
+      "-z",
+      "--untracked-files=all"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 41,
+    "stdout_sha256": "d19b20b577cf883c456537785f71650926c0e9d320621def0a2b89c21b6552f2"
+  },
+  {
+    "argv": [
+      "git",
+      "symbolic-ref",
+      "--short",
+      "-q",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 37,
+    "stdout_sha256": "34bbb045dc722dc87bdb4e1f10f9935b0d8704be9a6c0d9ce513488e8ce76128"
+  },
+  {
+    "argv": [
+      "git",
+      "config",
+      "--get",
+      "core.autocrlf"
+    ],
+    "exit_code": 0,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 5,
+    "stdout_sha256": "a17fcf0a2f50e2d495e4f90ce263410edc183add6c62699a2facbccf60410f74"
+  },
+  {
+    "argv": [
+      "git",
+      "config",
+      "--get",
+      "core.eol"
+    ],
+    "exit_code": 1,
+    "private_index": null,
+    "stderr": "",
+    "stdin_bytes": 0,
+    "stdin_sha256": null,
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

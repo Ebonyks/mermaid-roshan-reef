@@ -1,0 +1,80 @@
+{
+  "schema": "reef.immutable-evidence-archive-manifest.v1",
+  "created_utc": "2026-10-15T05:26:35.453630+00:00",
+  "source_commit": "1af25a20115561ebe659b5337f9a48a45cec105f",
+  "files": [
+    {
+      "path": "SOURCE_BINDING.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_v8_01.json",
+      "sha256": "2f90efb4be6b4e602eebc56983fc991e58c7e6f399ca69079df0941328717ecc",
+      "bytes": 8712,
+      "role": "native_exact_commit_blob_and_isolated_checkout_proof",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "runtime_blob_mapping.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\runtime_blob_mapping.json",
+      "sha256": "56c59be01bbadf897d9ee53667f3124fe5d7a62888443f65584e5c7276930df0",
+      "bytes": 5644446,
+      "role": "native_binding_sidecar",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "literal_blob_mapping.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\literal_blob_mapping.json",
+      "sha256": "233dfbae9f750eb9400691a963954fd5dba8f8124d651721ad9e19c6fc7ac471",
+      "bytes": 387359,
+      "role": "native_binding_sidecar",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "attributes.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\attributes.json",
+      "sha256": "b7ee107ece167334aa6d1b2568a148dbc770b34dd3e58b32c7d58e223af5a3d5",
+      "bytes": 1382885,
+      "role": "native_binding_sidecar",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "git_commands.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_verifications\\v8_1af25a201155_n0rk_tzg\\git_commands.json",
+      "sha256": "bb74c618571886df264c9c33daf9cc77a560ed238aadfa4fc7ab34fadad4a0b8",
+      "bytes": 14519,
+      "role": "native_binding_sidecar",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "implementation_commit.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\implementation-commit-01.json",
+      "sha256": "12c3c8277152fbc7e3fb2226905ddb50043329593ab0963795fec5e55393175f",
+      "bytes": 146862,
+      "role": "native_source_commit_command_receipt",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "index_lock_recovery.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\index-lock-recovery-01.json",
+      "sha256": "14fdca374359815e75750034c4f4ea5f0f78493d155ac542d6a55f8c2afc9088",
+      "bytes": 675,
+      "role": "native_verified_stale_empty_lock_recovery",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "preserved_stale_index_lock.empty",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\index.lock.stale_20261015_0521",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "exact_empty_stale_lock_not_index_content",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "staged_native_patch_whitespace_attempt01.log",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\staged-diff-check-01.log",
+      "sha256": "be5df6827959df9aa7c5d451a11c0c1e21568928f51bdae22e35b2d3103ec03e",
+      "bytes": 300315,
+      "role": "retained_prepackaging_staged_check_failure",
+      "exact_byte_copy": true
+    }
+  ],
+  "scope": "Exact sourcecommit1af raw/Git/native-byte binding; all source and literal paths existed at that commit. Later metadata files cannot verify themselves; their exact published-head CI remains separate. Partial checkout/private index retained only in ignored scratch; proof sidecars and reproducible verifier source are durable."
+}

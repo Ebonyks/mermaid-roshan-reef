@@ -634,6 +634,28 @@
     "audit/cycles/luna-gameplay-repairs-20261014/intake.json",
     "audit/cycles/luna-gameplay-repairs-20261014/owner_answers.json",
     "audit/cycles/luna-gameplay-repairs-20261014/owner_voice_instruction.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_01/MANIFEST.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_01/RECEIPT.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_01/authority.log",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_01/coverage.log",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_01/diff.log",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_01/poststamp_coverage.log",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_02/MANIFEST.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_02/RECEIPT.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_02/authority.log",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_02/coverage.log",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_02/diff.log",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_02/poststamp_coverage.log",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/MANIFEST.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/SOURCE_BINDING.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/attributes.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/git_commands.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/implementation_commit.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/index_lock_recovery.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/literal_blob_mapping.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/preserved_stale_index_lock.empty",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/runtime_blob_mapping.json",
+    "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/staged_native_patch_whitespace_attempt01.log",
     "audit/cycles/luna-gameplay-repairs-20261014/rescue-receipt.json",
     "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/application.json",
     "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/candidate-source-selection.json",
@@ -787,6 +809,21 @@
       "command": "Single unchanged exact Godot4.7.2 verbose audio shutdown followup after fullCI02",
       "result": "PASS",
       "evidence": "24/24 existing assertions, exit0/12.024s, frozenv8pin unchanged; logSHA2567ab85e072890f487e8e8a0bb314ec92dcb89334dc01785de4f338329c7494bed. The intermittent fullCI02 shutdown warnings were NOT_REPRODUCED and remain UNATTRIBUTED, not fixed. Native evidence and explicit limits in candidate/finalization_precommit/MANIFEST.json SHA256beb42701cca4443dff0098cedeaf328e10b1e9540d40768d2b234aaaec06d881. No newGuide resource loads in this probe; no in-session/device growth or production cause claimed."
+    },
+    {
+      "command": "Postcommit v8 raw/source Git-blob and literal-byte isolated checkout verification",
+      "result": "PASS",
+      "evidence": "Implementationcommit 1af25a20115561ebe659b5337f9a48a45cec105f; native SOURCE_BINDING.json SHA2562f90efb4be6b4e602eebc56983fc991e58c7e6f399ca69079df0941328717ecc in publication/source_binding_01/MANIFEST.json SHA256e2444b7430d3ff3e1add00e2614e7f10c3fb4361c64343dd2aa7756d3b3aef64. All5682 raw tested paths match v8pin;4915 blob-identical/767 explicit CRLF→GitLF mappings. All608 literalfiles match staged/committed/privatecore.autocrlf=true checkout bytes. No source/index/HEAD/status mutations. This proof precedes later metadata files and does not claim their own published-head result."
+    },
+    {
+      "command": "Final metadata-only authority gate attempt01 after sourcebinding",
+      "result": "FAIL",
+      "evidence": "Native publication/metadata_gates_01/MANIFEST.json SHA2568a1b2332956d34f30e487a66227d676bab570f52326b85b34cde900e66b20a0e retains DOC080 rejection of an external GitHub commit URL in required master navigation. Other commands NOT_RUN. Correction preserves plain sourcecommit identity and existing local durable proof links; checker and runtime untouched. Subsequent terminal gates required."
+    },
+    {
+      "command": "Final metadata-only document authority, full topic impact coverage and diff checks attempt02",
+      "result": "PASS",
+      "evidence": "Actual terminal logs in audit/cycles/luna-gameplay-repairs-20261014/publication/metadata_gates_02/; authority704/704/69/72 and exact665topicfiles pass against baseline831d0bbb. Prior authority01FAIL preserved. Runtime is identical to verified sourcecommit1af25a2 and rawv8pin. Final metadataHEAD GitHubCI/integration pending at this record."
     }
   ],
   "acceptance_gaps": "Required physical Android/M11 touch, audible-voice and performance checks, observed child comprehension and ordinary fresh-save progression, owner art/contact/identity review and authoritative visual-runtime acceptance remain unperformed. The route fixture's injected post-Grand-Puff prerequisites do not establish fresh-save game-wide reachability. No master-audit or strict-zero-2D satisfaction is claimed. Preserve broader finding scopes and historical failures. Non-gating fullCI02 exit-time resource warnings remain unattributed; one unchanged verbose audio followup did not reproduce them. No clean-shutdown or growing device-memory claim.",
@@ -845,12 +882,12 @@
       "write_back": "design/reference/owner_decisions.json via tools/record_owner_decision.py; exact routing/provenance tests and separate audible/device/child/owner review."
     }
   ],
-  "implementation_state": "APPLIED; recorded v7 route06 production/input and six-resume scope unchanged. Revision8 corrected sibling/analyzer and20-script parser/inference PASS. Terminal full localCI02 PASS:82 ordered zero exits at pin786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388. First fullCI01 FAIL81/82 retained. Final canonical-document/coverage checks, implementation source commit, exact-head GitHubCI and integration remain pending until their own receipts. No external acceptance.",
+  "implementation_state": "IMPLEMENTED; implementation sourcecommit 1af25a20115561ebe659b5337f9a48a45cec105f bound to tested v8pin786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388. Local82/82 fullsuite,20-script static/scoped gates and exact source/native-byte binding PASS. Final metadata-only document/coverage gates PASS; metadata commit, exact published-head GitHubCI and reconciled dev integration pending at this record. HistoricalPENDING/FAIL and all external/freshsave/visual/device/child/owner gaps remain.",
   "architecture_scope_review": {
     "source_baseline": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
     "existing_helper_state": "AudioDirector required voice queue, active required key and context/speaker caches predate this change; no unrelated migration is claimed.",
     "new_state": "Only the active Guide mode flag is newly introduced. It is a typed Main-owned transient field, with AudioDirector retaining logic only for this addition.",
-    "scope_status": "Applied in source revision5: typed Main-owned flag and five mechanical receiver qualifications. Exact Main analyzer, voice, Seek and Dolls pass at pin98a00104fad42997e135a681fd2fae2ed8ff9db8dee3f43fcbcd09f79f227c30; final combined revision8 full localCI02 PASS (82 ordered zero exits; logSHA256 0f910fe429949007a5fd72e22dfeb3318418f580f4d6f6cb1dd8d20e993a211a). Exact source-commit/published-head/integration binding and broader architecture acceptance remain pending.",
+    "scope_status": "Applied in source revision5: typed Main-owned flag and five mechanical receiver qualifications. Exact Main analyzer, voice, Seek and Dolls pass at pin98a00104fad42997e135a681fd2fae2ed8ff9db8dee3f43fcbcd09f79f227c30; final combined revision8 full localCI02 PASS (82 ordered zero exits; logSHA256 0f910fe429949007a5fd72e22dfeb3318418f580f4d6f6cb1dd8d20e993a211a). Exact source-commit/published-head/integration binding and broader architecture acceptance remain pending. Sourcecommit1af25a2 raw/Git binding now passes; broader architecture acceptance remains open.",
     "related_findings": "MA-CODE-001/002/004 are scope/waiver references only. This bounded flag relocation claims no closure of their broader architecture findings."
   },
   "scoped_waivers": [
