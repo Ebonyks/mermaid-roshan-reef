@@ -63,6 +63,15 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/REMOTE_VERIFICATION.fragment0001.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/REMOTE_VERIFICATION.fragment0002.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/REMOTE_VERIFICATION.fragment0003.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/REMOTE_VERIFICATION.fragment0004.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/REMOTE_VERIFICATION.fragment0005.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/REMOTE_VERIFICATION.fragment0006.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/REMOTE_VERIFICATION.fragment0007.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/REMOTE_VERIFICATION.fragment0008.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/SIDECAR_GUARD.json",
@@ -193,6 +202,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/prior_validation/impact_before_prose_spacing_correction.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/prior_validation/staged_2d_document_token_failure.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/prior_validation/staged_2d_document_token_failure_result.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/scan_source_calls.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/tally.json",
@@ -212,8 +222,8 @@
     },
     {
       "command": "GitHubexactbytes/allboundedmanifestandreceiptparts/finalproof",
-      "result": "PENDING",
-      "evidence": "Mandatory separatepublicationverification"
+      "result": "PASS",
+      "evidence": "Exact payload 79ff8a0134b4cd58d96131d4d51aab12a4fa3d71/11347 required/4460874152 bytes anonymous GET verified at 2026-10-15T01:55:59.169681+00:00; manifestSHA 93f1399f325282b205eb974659cd7801e6f845634291b8b5c475883432d446c6,payloadSHA 5406cfb0895e4a8617c597b8d536a5f62c00a44a026e2285b4a61b5ace44c645. Final receipt index/all parts/proof separately required; publication not creative acceptance."
     },
     {
       "command": "Unchanged scanner token classification of corrected documentation-only impact",

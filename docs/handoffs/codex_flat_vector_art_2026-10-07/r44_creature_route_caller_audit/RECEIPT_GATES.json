@@ -1,0 +1,82 @@
+{
+  "status": "PASS_SOURCE_ONLY_ACCEPTANCE_OPEN",
+  "previous_failed_attempt": {
+    "status": "FAILED_COVERAGE_THEN_REPAIRED_BEFORE_RECEIPT_PUBLICATION",
+    "command": [
+      "python",
+      "-B",
+      "tools/audit_development.py",
+      "--base",
+      "auto"
+    ],
+    "exit_code": 1,
+    "raw_bytes": 508,
+    "raw_sha256": "547443619912577eeb4535b9e2288c497fce250391b74736eca092a5d43a9a92",
+    "raw_utf8": "R44 PASS:6actual source-bound Mobile cases,73excluded captures,312ASTfiles/49calls/95unresolved dynamictargets;source/save/frozen history parity,230roles31families3samples0accepted/globalunknown\r\nDOCAUTH|INVENTORY=747|LEDGER=747|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\nAUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|FAIL|no changed audit-impact record covers docs/handoffs/codex_flat_vector_art_2026-10-07/r44_creature_route_caller_audit/receipt_gates.log\r\nAUDITDEV|RESULT|1 ISSUE(S)\r\n",
+    "cause": "New receipt_gates.log was created after the impact file list was computed. Add both physical receipt-gate records to coverage before rerun. No gate, source or acceptance change."
+  },
+  "previous_staging_attempt": {
+    "status": "RAW_LOG_STAGE_PARITY_FAILURE_BEFORE_2D_OR_COMMIT",
+    "working_bytes": 354,
+    "working_sha256": "b5f06a750daa6aca7ecf6f49d9247965cb4680b0880d2d1f020c3e8f205a122a",
+    "working_raw_utf8": "R44 PASS:6actual source-bound Mobile cases,73excluded captures,312ASTfiles/49calls/95unresolved dynamictargets;source/save/frozen history parity,230roles31families3samples0accepted/globalunknown\r\nDOCAUTH|INVENTORY=747|LEDGER=747|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\nAUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+    "staged_bytes": 0,
+    "staged_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repair": "Close the raw-log writer before Git staging and force refresh of this exact raw-log entry under existing -text attributes; retain exact byte assertion. No source/native rerun or gate weakening."
+  },
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r44_creature_route_caller_audit\\validate.py"
+      ],
+      "started_at_utc": "2026-10-15T02:03:30.460365+00:00",
+      "checked_at_utc": "2026-10-15T02:03:52.324000+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-15T02:03:52.324063+00:00",
+      "checked_at_utc": "2026-10-15T02:04:02.404091+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-15T02:04:02.404141+00:00",
+      "checked_at_utc": "2026-10-15T02:04:07.330036+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-15T02:04:09.683927+00:00",
+      "checked_at_utc": "2026-10-15T02:05:15.717004+00:00",
+      "exit_code": 0,
+      "execution": "FRESH_ALL_RECEIPT_PARTS_STAGED",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "80904bcc0ccb3e6be7ac9275e674184019fe5653eb0bc5fa9ec952bd4d4e803e",
+  "scope": "Three fresh source/document/impact checks and actual fresh 2D scan of all staged receipt parts. Writer closed before exact raw-log staging. No new engine execution or creative acceptance."
+}
