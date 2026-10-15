@@ -1,0 +1,44 @@
+{
+  "day2_castle_hide_and_seek": {
+    "accepted": true,
+    "completed": true,
+    "found": {
+      "baby_eagle": true,
+      "daddy_mermaid": true,
+      "rumi": true
+    }
+  },
+  "day2_family_comfy_evening": {
+    "accepted": true,
+    "bedtime": {
+      "completed": false,
+      "tucked_in": {
+        "baby_eagle": false,
+        "daddy_mermaid": false,
+        "roshan": false,
+        "rumi": false
+      }
+    },
+    "completed": false,
+    "dinner": {
+      "completed": false,
+      "ingredients": {
+        "apple": true,
+        "carrot": true,
+        "strawberry": true
+      },
+      "pot_stirred": false
+    },
+    "movie": {
+      "completed": false,
+      "scenes_watched": 0
+    },
+    "reward": {
+      "id": "comfy_evening_mystery_reward",
+      "introduced": false,
+      "unlocked": false,
+      "verified": false
+    }
+  },
+  "version": 2
+}

@@ -1,0 +1,294 @@
+{
+  "runtime_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "raw_runtime_files": 4420,
+  "initialized_sidecars": 4041,
+  "cases": [
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "exit_code": 0,
+      "fixture_sha256": "af28c1f0312f4fb36ba3710a4f15742f7950b907d5cf278dee56ec2136206de6",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:40:33.365008+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "350b7bf03922bc6e5ca0237f33d974bd95d8621c077c41e5aa33290957bdd571",
+        "script_or_shader_errors": false
+      },
+      "native": 14,
+      "checks": 12,
+      "report_sha256": "36df98c8f8bf55052afe96127759f81cb73c8e30e70cb2e954852b6739a871a5",
+      "scope": "original_ownership"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "exit_code": 0,
+      "fixture_sha256": "af28c1f0312f4fb36ba3710a4f15742f7950b907d5cf278dee56ec2136206de6",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:41:37.429647+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "350b7bf03922bc6e5ca0237f33d974bd95d8621c077c41e5aa33290957bdd571",
+        "script_or_shader_errors": false
+      },
+      "native": 14,
+      "checks": 12,
+      "report_sha256": "20ffd7c3ff80f05a4335026e31111504411201bcb630328be91aa7b59dd79207",
+      "scope": "original_ownership"
+    },
+    {
+      "case": "attempt2_pot_ownership_1280",
+      "exit_code": 1,
+      "fixture_sha256": "f69f0b5c945dc270a397f422cc2562f2ea4ec92ebd8a30d2ec1212ac7732d764",
+      "guard": {
+        "exit_code": 1,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:47:51.272141+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "c8ba0d4c2c50496ef15d153477e771f2b4f5b97fb724784f0d48a9a04b2f2dab",
+        "script_or_shader_errors": true
+      },
+      "native": 0,
+      "checks": 0,
+      "scope": "Unnecessary parse-failed launch; no frames or gameplay"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "exit_code": 0,
+      "fixture_sha256": "dbae3b7d4706152392416d23cfe729e03a646433c74d8f8ae02624fd4be0a748",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:49:30.166960+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+        "script_or_shader_errors": false
+      },
+      "native": 19,
+      "checks": 16,
+      "report_sha256": "803bf8ef66694f43211e46c8c11ba5b1d31c23b5011a99a822320a725267ed4e",
+      "scope": "first_fit_contact_rejected"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "exit_code": 0,
+      "fixture_sha256": "dbae3b7d4706152392416d23cfe729e03a646433c74d8f8ae02624fd4be0a748",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:51:05.298250+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+        "script_or_shader_errors": false
+      },
+      "native": 19,
+      "checks": 16,
+      "report_sha256": "61b4b673355868a2daf8f708a8d0c07b1df2fda60653f9b3b5829fc2a7d9faa3",
+      "scope": "first_fit_contact_rejected"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "exit_code": 0,
+      "fixture_sha256": "dd9806ba8dcd7bbc8bf5cc144243139a11f6d739fae0ea97406978f35d1bf64d",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:53:29.697599+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+        "script_or_shader_errors": false
+      },
+      "native": 19,
+      "checks": 16,
+      "report_sha256": "b0294062430c664dfc33001d885442978f96837455693bbaca4be5d74273d0df",
+      "scope": "refined_fit"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "exit_code": 0,
+      "fixture_sha256": "dd9806ba8dcd7bbc8bf5cc144243139a11f6d739fae0ea97406978f35d1bf64d",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:55:03.789440+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+        "script_or_shader_errors": false
+      },
+      "native": 19,
+      "checks": 16,
+      "report_sha256": "e5a57a9715839b146b38da68311d07648d92419de315399f9676ff6fb6ac7189",
+      "scope": "refined_fit"
+    }
+  ],
+  "scope": "Every launch retains source bytes,sidecars and normal8 hashes. The one parse-failed launch has0 native frames; all prior raw sources/logs remain exact. No import or production/art change."
+}

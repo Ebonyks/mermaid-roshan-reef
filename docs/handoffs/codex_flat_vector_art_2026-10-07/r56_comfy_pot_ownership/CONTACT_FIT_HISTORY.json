@@ -1,0 +1,14 @@
+{
+  "status": "FIRST_FIT_VISUAL_CONTACT_REJECTED_REFINEMENT_PENDING",
+  "first_fit_cases": [
+    "native/attempt3_pot_ownership_1280",
+    "native/attempt3_pot_ownership_1600"
+  ],
+  "old_source_sha256": "dbae3b7d4706152392416d23cfe729e03a646433c74d8f8ae02624fd4be0a748",
+  "new_source_sha256": "dd9806ba8dcd7bbc8bf5cc144243139a11f6d739fae0ea97406978f35d1bf64d",
+  "reason": "Old anchor used oven frame0 alpha bbox top at image y6, which is not its supporting surface. Pot appeared above the stove despite <=1.1px matching of declared bbox anchors. No actual alpha/contact/QA11 acceptance follows from that metric.",
+  "refinement": "Declare oven source-frame support point(134,17), localSprite point(6,-111), eleven source pixels lower. Pot bbox reference remains(228,388) from443x443 firstcell. Source pulse scale continues; ignored fixture compensates position each process frame. Native visual review still required.",
+  "raw_field_clarification": "First-fit raw alpha_bottom_center and oven_top_center name bbox/declared points only, not opaque pixel contact. Preserved executed artifacts remain unchanged. New captures use alpha_bbox_bottom_center and declared_oven_support_point.",
+  "new_art_or_generation": 0,
+  "accepted_removed": 0
+}

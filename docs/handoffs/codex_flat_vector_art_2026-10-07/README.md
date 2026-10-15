@@ -231,3 +231,5 @@ Current R53: [Castle crest studio context](r53_castle_logo_context/README.md), w
 Current R54: [Castle crest motif reuse](r54_castle_logo_motif_reuse/README.md), an isolated exact-source selector/status fit.252 checks/116 comparisons; no production adoption, new art or accepted removal.
 
 Current R55: [Original Comfy room context](r55_comfy_room_context/README.md), two source-input journeys/88 checks and bounded pot/movie/staging/flat-room weaknesses. No art generation, production change or accepted removal.
+
+Current R56: [Pot ownership/scoped reuse fit](r56_comfy_pot_ownership/README.md), current healed-room ownership and static retained-source trial. No old rejection reversal, production adoption or accepted removal.

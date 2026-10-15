@@ -1,0 +1,1658 @@
+{
+  "cases": [
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "exit_code": 0,
+      "fixture_sha256": "af28c1f0312f4fb36ba3710a4f15742f7950b907d5cf278dee56ec2136206de6",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:40:33.365008+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "350b7bf03922bc6e5ca0237f33d974bd95d8621c077c41e5aa33290957bdd571",
+        "script_or_shader_errors": false
+      },
+      "native": 14,
+      "checks": 12,
+      "report_sha256": "36df98c8f8bf55052afe96127759f81cb73c8e30e70cb2e954852b6739a871a5",
+      "scope": "original_ownership"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "exit_code": 0,
+      "fixture_sha256": "af28c1f0312f4fb36ba3710a4f15742f7950b907d5cf278dee56ec2136206de6",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:41:37.429647+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "350b7bf03922bc6e5ca0237f33d974bd95d8621c077c41e5aa33290957bdd571",
+        "script_or_shader_errors": false
+      },
+      "native": 14,
+      "checks": 12,
+      "report_sha256": "20ffd7c3ff80f05a4335026e31111504411201bcb630328be91aa7b59dd79207",
+      "scope": "original_ownership"
+    },
+    {
+      "case": "attempt2_pot_ownership_1280",
+      "exit_code": 1,
+      "fixture_sha256": "f69f0b5c945dc270a397f422cc2562f2ea4ec92ebd8a30d2ec1212ac7732d764",
+      "guard": {
+        "exit_code": 1,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:47:51.272141+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "c8ba0d4c2c50496ef15d153477e771f2b4f5b97fb724784f0d48a9a04b2f2dab",
+        "script_or_shader_errors": true
+      },
+      "native": 0,
+      "checks": 0,
+      "scope": "Unnecessary parse-failed launch; no frames or gameplay"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "exit_code": 0,
+      "fixture_sha256": "dbae3b7d4706152392416d23cfe729e03a646433c74d8f8ae02624fd4be0a748",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:49:30.166960+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+        "script_or_shader_errors": false
+      },
+      "native": 19,
+      "checks": 16,
+      "report_sha256": "803bf8ef66694f43211e46c8c11ba5b1d31c23b5011a99a822320a725267ed4e",
+      "scope": "first_fit_contact_rejected"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "exit_code": 0,
+      "fixture_sha256": "dbae3b7d4706152392416d23cfe729e03a646433c74d8f8ae02624fd4be0a748",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:51:05.298250+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+        "script_or_shader_errors": false
+      },
+      "native": 19,
+      "checks": 16,
+      "report_sha256": "61b4b673355868a2daf8f708a8d0c07b1df2fda60653f9b3b5829fc2a7d9faa3",
+      "scope": "first_fit_contact_rejected"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "exit_code": 0,
+      "fixture_sha256": "dd9806ba8dcd7bbc8bf5cc144243139a11f6d739fae0ea97406978f35d1bf64d",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:53:29.697599+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+        "script_or_shader_errors": false
+      },
+      "native": 19,
+      "checks": 16,
+      "report_sha256": "b0294062430c664dfc33001d885442978f96837455693bbaca4be5d74273d0df",
+      "scope": "refined_fit"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "exit_code": 0,
+      "fixture_sha256": "dd9806ba8dcd7bbc8bf5cc144243139a11f6d739fae0ea97406978f35d1bf64d",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T12:55:03.789440+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+        "script_or_shader_errors": false
+      },
+      "native": 19,
+      "checks": 16,
+      "report_sha256": "e5a57a9715839b146b38da68311d07648d92419de315399f9676ff6fb6ac7189",
+      "scope": "refined_fit"
+    }
+  ],
+  "captures": [
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "main_hall_checkpoint",
+      "path": "native/attempt1_pot_ownership_1280/main_hall_checkpoint.png",
+      "sha256": "0366491f361da217b51a95f456974ce1ad7f028fffb65ef5a78b7b528198d155",
+      "bytes": 1524033,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "ORIGINAL_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "entered_kitchen_1",
+      "path": "native/attempt1_pot_ownership_1280/entered_kitchen_1.png",
+      "sha256": "21af7624e183854c09905ef262aee7fd53c421e9858bd187c70ccd05fe2dbcc9",
+      "bytes": 1351025,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "pot_original_owners",
+      "path": "native/attempt1_pot_ownership_1280/pot_original_owners.png",
+      "sha256": "30fafc7f7bc720e2c56441e6636abb14f151b30945066ac877634f75eb57dd31",
+      "bytes": 1349374,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "pot_original_passive",
+      "path": "native/attempt1_pot_ownership_1280/pot_original_passive.png",
+      "sha256": "375ea1993e010288cca4559f49b324fb8b8c502f7de666e35a441eff89e0c319",
+      "bytes": 1350415,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "pot_background",
+      "path": "native/attempt1_pot_ownership_1280/pot_background.png",
+      "sha256": "9a5fd4ebfb4de16541cb2cec12e62ace0d5ea50fb19a14be31b8e1b3a39400f5",
+      "bytes": 1351664,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "entered_kitchen_2",
+      "path": "native/attempt1_pot_ownership_1280/entered_kitchen_2.png",
+      "sha256": "bb473fa122e5f943174f74b446952fadee9cf2bad9f185cc44c146773db2ef5e",
+      "bytes": 1351436,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "pot_reloaded_owners",
+      "path": "native/attempt1_pot_ownership_1280/pot_reloaded_owners.png",
+      "sha256": "fa9e8fa58aed4c6778de651de16fd9ab722c84385d88b4c90dcd650c60a93965",
+      "bytes": 1350424,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "original_stir_before",
+      "path": "native/attempt1_pot_ownership_1280/original_stir_before.png",
+      "sha256": "747fa5430c1f5e5fda0d1b23ff45705983f43ef52ba1f8be2b50ab690fbadb15",
+      "bytes": 1349389,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "original_stir_pressed",
+      "path": "native/attempt1_pot_ownership_1280/original_stir_pressed.png",
+      "sha256": "33033e61b0c4eeae3888c762b8789186eb521dcea69ca5f4d4875e734c556b0b",
+      "bytes": 1350236,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "original_stir_released",
+      "path": "native/attempt1_pot_ownership_1280/original_stir_released.png",
+      "sha256": "31bf7299a9e54ba8ed9169d5688721d1cf5a26ea983ea87ca6d46c7db0dd70df",
+      "bytes": 1372020,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "completed_underlay_owners",
+      "path": "native/attempt1_pot_ownership_1280/completed_underlay_owners.png",
+      "sha256": "3b2b19d40e56e86b1202ed305f1caed1c03d4dfbc40461239df51d474193d5b9",
+      "bytes": 1372077,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "entered_library_4",
+      "path": "native/attempt1_pot_ownership_1280/entered_library_4.png",
+      "sha256": "6e250fb9389b2d84affda65a35676b407bcc59962a84f4143bbb9432f8af61f9",
+      "bytes": 1299791,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "entered_kitchen_6",
+      "path": "native/attempt1_pot_ownership_1280/entered_kitchen_6.png",
+      "sha256": "28211dff9a8af2ab8d2cb31eeb849d11f64594f15de6a3a68cf0e6401650cfb2",
+      "bytes": 1362009,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1280",
+      "id": "repeat_completed_underlay",
+      "path": "native/attempt1_pot_ownership_1280/repeat_completed_underlay.png",
+      "sha256": "f6acbdcd8e9d8ff65b8b4faca8f5f10e8d12b8775686d2b7ee067c65cef96c22",
+      "bytes": 1361462,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "main_hall_checkpoint",
+      "path": "native/attempt1_pot_ownership_1600/main_hall_checkpoint.png",
+      "sha256": "d4d7b17141a80eb0f6dde3ce6c2386352a2c4850d8d2f23282705455d6d873b2",
+      "bytes": 1755078,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "ORIGINAL_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "entered_kitchen_1",
+      "path": "native/attempt1_pot_ownership_1600/entered_kitchen_1.png",
+      "sha256": "5b7a3fedd9ab55cf737806e3a9bed29f392c854ccecc03daa4810a70b0c4cf0e",
+      "bytes": 1389457,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "pot_original_owners",
+      "path": "native/attempt1_pot_ownership_1600/pot_original_owners.png",
+      "sha256": "bb59766edf793107ed7084d00b8bf97820deea1b9d52be2389ab272ea3437c1a",
+      "bytes": 1388984,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "pot_original_passive",
+      "path": "native/attempt1_pot_ownership_1600/pot_original_passive.png",
+      "sha256": "061698d1ae1383f8360c77495ba1010bbed166441fc219a143ea8211c8535c12",
+      "bytes": 1388400,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "pot_background",
+      "path": "native/attempt1_pot_ownership_1600/pot_background.png",
+      "sha256": "8b66e39d382b0d7b91ee8e273bd718bb9bd724a9aaea4bff0f97a8965492639c",
+      "bytes": 1389382,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "entered_kitchen_2",
+      "path": "native/attempt1_pot_ownership_1600/entered_kitchen_2.png",
+      "sha256": "95d4d35c0e8689cd03acbb8b54790d6a7fced1887026ce94f485b8155e7ecf85",
+      "bytes": 1390058,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "pot_reloaded_owners",
+      "path": "native/attempt1_pot_ownership_1600/pot_reloaded_owners.png",
+      "sha256": "c52ab2bc317b1b96db420261ea813197d2015a740ded0c79b40169ad47fec1a3",
+      "bytes": 1389125,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "original_stir_before",
+      "path": "native/attempt1_pot_ownership_1600/original_stir_before.png",
+      "sha256": "91e75d997a8ba852e05c79474350e1678c3e977e4de863d5b2889cc29d3510e9",
+      "bytes": 1389068,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "original_stir_pressed",
+      "path": "native/attempt1_pot_ownership_1600/original_stir_pressed.png",
+      "sha256": "2a8f5c5c724349f91430f902558756a8bc03d0f418c16e76cecc0b3897b260cf",
+      "bytes": 1389666,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "original_stir_released",
+      "path": "native/attempt1_pot_ownership_1600/original_stir_released.png",
+      "sha256": "386efe5e8d351a2605e8302b3859c94c3054000cd4c42db7ac01b0e226b10753",
+      "bytes": 1411559,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "completed_underlay_owners",
+      "path": "native/attempt1_pot_ownership_1600/completed_underlay_owners.png",
+      "sha256": "32209a8ddc03d9addf8a0d326c28b76b32b09eadc3b9d6f87b1d58c21520c423",
+      "bytes": 1411830,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "entered_library_4",
+      "path": "native/attempt1_pot_ownership_1600/entered_library_4.png",
+      "sha256": "143a90d7a7d5cace2588488ccacca4119968cceed44e804669c43bc4c3541dd9",
+      "bytes": 1326331,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "entered_kitchen_6",
+      "path": "native/attempt1_pot_ownership_1600/entered_kitchen_6.png",
+      "sha256": "098c1ccd407fa0f566a93814bd7689c122e3dfaaaf95785e88f88c118a27679c",
+      "bytes": 1400494,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt1_pot_ownership_1600",
+      "id": "repeat_completed_underlay",
+      "path": "native/attempt1_pot_ownership_1600/repeat_completed_underlay.png",
+      "sha256": "d3ae67bfd07bb74b93de3041278e6ae50b7651bb159efecf8c9bf033773bae5f",
+      "bytes": 1399691,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "main_hall_checkpoint",
+      "path": "native/attempt3_pot_ownership_1280/main_hall_checkpoint.png",
+      "sha256": "994760a9bcdfac7f43131fc0135cb27166a76b12156e0dd4e840792267d2c6d3",
+      "bytes": 1524037,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "ORIGINAL_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "entered_kitchen_1",
+      "path": "native/attempt3_pot_ownership_1280/entered_kitchen_1.png",
+      "sha256": "7a46b6f207e0dbe8425555dba7fd08e40a64e4780a7de1b5353a63b0af1ea1dd",
+      "bytes": 1350798,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "pot_original_owners",
+      "path": "native/attempt3_pot_ownership_1280/pot_original_owners.png",
+      "sha256": "c0dc94fb6e80fca7a06cd4a2fce8fb9c57462f927e75306bf070407ff16d1c1c",
+      "bytes": 1349774,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "pot_original_passive",
+      "path": "native/attempt3_pot_ownership_1280/pot_original_passive.png",
+      "sha256": "94bf8ecd8a50723ddd083168f341d12d56df7f5cffff2e3e1bb59cac37b8666d",
+      "bytes": 1349959,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "pot_background",
+      "path": "native/attempt3_pot_ownership_1280/pot_background.png",
+      "sha256": "807cdcd0a27b636f5941f6ba467dbcbb6590281bdd38ec849a8143735db2f667",
+      "bytes": 1351051,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "entered_kitchen_2",
+      "path": "native/attempt3_pot_ownership_1280/entered_kitchen_2.png",
+      "sha256": "b63e54fb2c438ad82e777598b1bb03cc87e579ff6ce3a7fe51af6f5e299469ed",
+      "bytes": 1351503,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "pot_reloaded_owners",
+      "path": "native/attempt3_pot_ownership_1280/pot_reloaded_owners.png",
+      "sha256": "788e0046cf5b2b9fbe1efc696429d46e7edbb50c5cf7613498f50ba45fa7b42c",
+      "bytes": 1350475,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "pot_fit_original",
+      "path": "native/attempt3_pot_ownership_1280/pot_fit_original.png",
+      "sha256": "e106cb90b49ce37df6fc8ed15c62d3d52973f374939458b4f07865f9eef71782",
+      "bytes": 1350098,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "pot_fit_candidate",
+      "path": "native/attempt3_pot_ownership_1280/pot_fit_candidate.png",
+      "sha256": "190b4718992eeb41bf2a05ca72e5244f51334d570fc41e74f2860abc53fea4d4",
+      "bytes": 1369146,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "pot_fit_restored",
+      "path": "native/attempt3_pot_ownership_1280/pot_fit_restored.png",
+      "sha256": "adb2eb83b3e9ba4422627d5b139af6587d2cdd3e42df9497536aa8ebb8d8701b",
+      "bytes": 1352095,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "pot_fit_candidate_passive",
+      "path": "native/attempt3_pot_ownership_1280/pot_fit_candidate_passive.png",
+      "sha256": "6e5e597e023f18b0dca05d6be1a8501c6af9959ae4373488451c8d25052509f5",
+      "bytes": 1368987,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "pot_fit_candidate_background",
+      "path": "native/attempt3_pot_ownership_1280/pot_fit_candidate_background.png",
+      "sha256": "a889b2fc2a954192aeddfecd01fd61c55c49193544b9b6f1571f8b68baaecb21",
+      "bytes": 1368613,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "candidate_stir_before",
+      "path": "native/attempt3_pot_ownership_1280/candidate_stir_before.png",
+      "sha256": "b2e4cea89177bdfd00ba3c6545ce9deb203a54cf6887f2a3ddce86ae52c2356c",
+      "bytes": 1368781,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "candidate_stir_pressed",
+      "path": "native/attempt3_pot_ownership_1280/candidate_stir_pressed.png",
+      "sha256": "322f8c701d4ab6b14df0d4f88a0ebb854a452293c26bec012f7543a8465c1dc1",
+      "bytes": 1368748,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "candidate_stir_released",
+      "path": "native/attempt3_pot_ownership_1280/candidate_stir_released.png",
+      "sha256": "477dc0d538a351708e117bc6b33c8e5b93f5912b474da5bcf45ff18fdd8d9676",
+      "bytes": 1371915,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "completed_underlay_owners",
+      "path": "native/attempt3_pot_ownership_1280/completed_underlay_owners.png",
+      "sha256": "c7832f86b925936682121d427d0958b41038e77d91d4f2fcef066662631c6013",
+      "bytes": 1372000,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "entered_library_4",
+      "path": "native/attempt3_pot_ownership_1280/entered_library_4.png",
+      "sha256": "ade73a3ea540ebee2c2be1abe4f4ca60c2f90a12ef2dba6af7514ff5ce6bc4de",
+      "bytes": 1299719,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "entered_kitchen_6",
+      "path": "native/attempt3_pot_ownership_1280/entered_kitchen_6.png",
+      "sha256": "ad0d49615e8a363410bdf6a6b8b38e514ae86dca9dfb0ceb159f5e8ee2c62f2b",
+      "bytes": 1362070,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1280",
+      "id": "repeat_completed_underlay",
+      "path": "native/attempt3_pot_ownership_1280/repeat_completed_underlay.png",
+      "sha256": "ffcff4a29b0e6dc700c29ee0a852254031701f4625ddb0efa509dd2e99b975d6",
+      "bytes": 1361570,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "main_hall_checkpoint",
+      "path": "native/attempt3_pot_ownership_1600/main_hall_checkpoint.png",
+      "sha256": "897d6e851ca0773d80d6ed2b4d1526d1387e7966f0aa597ed049c6104d324717",
+      "bytes": 1755062,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "ORIGINAL_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "entered_kitchen_1",
+      "path": "native/attempt3_pot_ownership_1600/entered_kitchen_1.png",
+      "sha256": "498208732b5b2abed293791f021b39959303fb0f77d66ad4adb0fe7102c06650",
+      "bytes": 1389397,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "pot_original_owners",
+      "path": "native/attempt3_pot_ownership_1600/pot_original_owners.png",
+      "sha256": "17f546d82f8fd39e2872763e523f6fd0512c6ef5dd186de519781575caeca0d2",
+      "bytes": 1388618,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "pot_original_passive",
+      "path": "native/attempt3_pot_ownership_1600/pot_original_passive.png",
+      "sha256": "886c42dd4c447539547ccac61931fba3c5b5026ad2ffdab50e97f824b6a5d890",
+      "bytes": 1388459,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "pot_background",
+      "path": "native/attempt3_pot_ownership_1600/pot_background.png",
+      "sha256": "da0ac6632f47bb0290036a3ff77800e4f424191432a9d80ea9569fed985a4be4",
+      "bytes": 1389662,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "entered_kitchen_2",
+      "path": "native/attempt3_pot_ownership_1600/entered_kitchen_2.png",
+      "sha256": "74a65a553c744472695592c461575db05f8e1d4496507b115e903abc48891e4b",
+      "bytes": 1390133,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "pot_reloaded_owners",
+      "path": "native/attempt3_pot_ownership_1600/pot_reloaded_owners.png",
+      "sha256": "644049c6647ca9664ada61cd7969d43b157bdda5af4f054a34d10eb526b2b3c9",
+      "bytes": 1389102,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "pot_fit_original",
+      "path": "native/attempt3_pot_ownership_1600/pot_fit_original.png",
+      "sha256": "871f4938c7664377b6a8ea97ed6a4ddb181a3b31d7419e85eeaa97c79408c5f7",
+      "bytes": 1388878,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "pot_fit_candidate",
+      "path": "native/attempt3_pot_ownership_1600/pot_fit_candidate.png",
+      "sha256": "131217ba92aa949e1d5c97c05cab2f5c1543ad134afb1b68e5982a417a2eb5fe",
+      "bytes": 1407868,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "pot_fit_restored",
+      "path": "native/attempt3_pot_ownership_1600/pot_fit_restored.png",
+      "sha256": "602f1dcd6e4ad59927087bf253fb3bd67774ba3f163948bafb34062e1ac4263a",
+      "bytes": 1390206,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "pot_fit_candidate_passive",
+      "path": "native/attempt3_pot_ownership_1600/pot_fit_candidate_passive.png",
+      "sha256": "b2edc782510a7d8557a684a50869e4561587aa67b093d43ef2100441a183de16",
+      "bytes": 1407324,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "pot_fit_candidate_background",
+      "path": "native/attempt3_pot_ownership_1600/pot_fit_candidate_background.png",
+      "sha256": "b82a9669127a94e5b07b95cec59703ffeea9e5a80bd68971f25d2224a5821b28",
+      "bytes": 1407004,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "candidate_stir_before",
+      "path": "native/attempt3_pot_ownership_1600/candidate_stir_before.png",
+      "sha256": "57ac800760970a3b5c9e9a4271e23c7d3afb92ce9d9615cdcfda37fa12da81af",
+      "bytes": 1407362,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "candidate_stir_pressed",
+      "path": "native/attempt3_pot_ownership_1600/candidate_stir_pressed.png",
+      "sha256": "c5f826d6936b444282eff371d3946980407147eec54f72b1ed11eb635a13aadf",
+      "bytes": 1407474,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "candidate_stir_released",
+      "path": "native/attempt3_pot_ownership_1600/candidate_stir_released.png",
+      "sha256": "1efae6a7ec26a530a6e55def0123c20ba4d493125abe1d72a0bc9e69f3a219d4",
+      "bytes": 1411109,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "completed_underlay_owners",
+      "path": "native/attempt3_pot_ownership_1600/completed_underlay_owners.png",
+      "sha256": "d86b044271f07dced12e8cef757c3773b88c86338f79f5e22cafdf1d989de0b4",
+      "bytes": 1411224,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "entered_library_4",
+      "path": "native/attempt3_pot_ownership_1600/entered_library_4.png",
+      "sha256": "e2e3256bb4f0805404d0ef13b97d46eba32bd4fe63af28cff6ad6808020f7fe8",
+      "bytes": 1326456,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "entered_kitchen_6",
+      "path": "native/attempt3_pot_ownership_1600/entered_kitchen_6.png",
+      "sha256": "bd101c51aef04995010d3257bc3d1ffbb93a810b5c13cdb86f9427632160de6b",
+      "bytes": 1401231,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt3_pot_ownership_1600",
+      "id": "repeat_completed_underlay",
+      "path": "native/attempt3_pot_ownership_1600/repeat_completed_underlay.png",
+      "sha256": "c828de9dbfbe2c3a32952f6f2ed24ad15d2867370e96a286ffb9499608da3926",
+      "bytes": 1400254,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "main_hall_checkpoint",
+      "path": "native/attempt4_pot_ownership_1280/main_hall_checkpoint.png",
+      "sha256": "7364ab60b9d2054f3bc4ff350d2ffb391ad68aa234ed15ef1e7e7868a5c2130e",
+      "bytes": 1524001,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "ORIGINAL_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "entered_kitchen_1",
+      "path": "native/attempt4_pot_ownership_1280/entered_kitchen_1.png",
+      "sha256": "5ea7d6640fe6b1f07f97b26ba07b612284b12a10797a33bdc6499185f43bc2d5",
+      "bytes": 1350911,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "pot_original_owners",
+      "path": "native/attempt4_pot_ownership_1280/pot_original_owners.png",
+      "sha256": "63e00435369e5885015ddcff4e4f19fee700cbced7714a7fbb8eaff4e1658a78",
+      "bytes": 1350614,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "pot_original_passive",
+      "path": "native/attempt4_pot_ownership_1280/pot_original_passive.png",
+      "sha256": "18317c4a0cbac03c3563d66fff80de4be121df72fb479ae50ef9c095103b0278",
+      "bytes": 1349886,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "pot_background",
+      "path": "native/attempt4_pot_ownership_1280/pot_background.png",
+      "sha256": "caa4fd7c20a3f93c2a755c2b21dddce2302d2007caf814e37a8ca8006e0a16b2",
+      "bytes": 1351096,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "entered_kitchen_2",
+      "path": "native/attempt4_pot_ownership_1280/entered_kitchen_2.png",
+      "sha256": "837d61070800ff5371e93640cb02ad906ea967b7a2f712ab546503f0f3517178",
+      "bytes": 1351277,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "pot_reloaded_owners",
+      "path": "native/attempt4_pot_ownership_1280/pot_reloaded_owners.png",
+      "sha256": "311532c5b6473f4f4b669b3ae24a6787a3393a9e38375f4f8d3c8ef1fd561e7b",
+      "bytes": 1350515,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "pot_fit_original",
+      "path": "native/attempt4_pot_ownership_1280/pot_fit_original.png",
+      "sha256": "ae3e7347ca88f3cda9874b4680cd0ea3d4265affce1fb9b1de8418b48fdd5506",
+      "bytes": 1350153,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "pot_fit_candidate",
+      "path": "native/attempt4_pot_ownership_1280/pot_fit_candidate.png",
+      "sha256": "5a9b89f2f09d6263adc8046aec23a00ac1d0c1e4fc07a08aabf373ae96e8ed30",
+      "bytes": 1369509,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "pot_fit_restored",
+      "path": "native/attempt4_pot_ownership_1280/pot_fit_restored.png",
+      "sha256": "717649b852f7906297a6631c332b27df47707b538c5364a6d6c7c2311e727f8c",
+      "bytes": 1351912,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "pot_fit_candidate_passive",
+      "path": "native/attempt4_pot_ownership_1280/pot_fit_candidate_passive.png",
+      "sha256": "28b36e62529a62b62578d16bf7f2a59975220f0f28eb9fbfb30a8d2da4409334",
+      "bytes": 1368465,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "pot_fit_candidate_background",
+      "path": "native/attempt4_pot_ownership_1280/pot_fit_candidate_background.png",
+      "sha256": "bf90602bdb6973a8a3502e2c2340d92505d9b5a5358c420736ed7d6dfd4bf6ab",
+      "bytes": 1368863,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "candidate_stir_before",
+      "path": "native/attempt4_pot_ownership_1280/candidate_stir_before.png",
+      "sha256": "9552168163f8afdcfdb0d022f7e2d513c23b1fc849f5444270d07e4784f7b392",
+      "bytes": 1368860,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "candidate_stir_pressed",
+      "path": "native/attempt4_pot_ownership_1280/candidate_stir_pressed.png",
+      "sha256": "bcf16c7530f6ec66fd76be9c5bd7d86c271791b8df8d3af4aea32d495b7b2dca",
+      "bytes": 1368700,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "candidate_stir_released",
+      "path": "native/attempt4_pot_ownership_1280/candidate_stir_released.png",
+      "sha256": "5f841b51ad124e5d94597b87fe511d83e3a7de2ac1e0b0561d13dca58cf7dcf0",
+      "bytes": 1371870,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "completed_underlay_owners",
+      "path": "native/attempt4_pot_ownership_1280/completed_underlay_owners.png",
+      "sha256": "45bc45878dd17e271aa8596707f2e59b50f9a72b402434d1749d52aa6131bc81",
+      "bytes": 1372601,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "entered_library_4",
+      "path": "native/attempt4_pot_ownership_1280/entered_library_4.png",
+      "sha256": "b5e98ab36e910ea61bee9989dbee89ac8a77bc8abc0ab8e2ec510cb9580bc6b4",
+      "bytes": 1300779,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "entered_kitchen_6",
+      "path": "native/attempt4_pot_ownership_1280/entered_kitchen_6.png",
+      "sha256": "05dd1f37a9d27ef1a1de5215644c040ea51560cbae79b1883799099742622e8d",
+      "bytes": 1362176,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1280",
+      "id": "repeat_completed_underlay",
+      "path": "native/attempt4_pot_ownership_1280/repeat_completed_underlay.png",
+      "sha256": "a42cfa00f2719e9471ede54d2f17b898daa28ae7d467a354236261c3dc35a95e",
+      "bytes": 1361431,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "main_hall_checkpoint",
+      "path": "native/attempt4_pot_ownership_1600/main_hall_checkpoint.png",
+      "sha256": "92046c11b57ece5f7ff567720454d11bc6697c3e1048cd4302da2217ec688655",
+      "bytes": 1755084,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "ORIGINAL_ROUTE_DIAGNOSTIC",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "entered_kitchen_1",
+      "path": "native/attempt4_pot_ownership_1600/entered_kitchen_1.png",
+      "sha256": "f04bf8ec54533e6d6c3eb3ae89777bebd1072455700ede73739a42a7d890164c",
+      "bytes": 1389382,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "pot_original_owners",
+      "path": "native/attempt4_pot_ownership_1600/pot_original_owners.png",
+      "sha256": "9167d2db9b7e56fa9ed5143f72020f30e4dca1e1f694b5681634aac0f27b0df2",
+      "bytes": 1388577,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "pot_original_passive",
+      "path": "native/attempt4_pot_ownership_1600/pot_original_passive.png",
+      "sha256": "999371c4677e8487491b01ecbd2f21e71b51be594ba7accf8389742a033277e9",
+      "bytes": 1388526,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "pot_background",
+      "path": "native/attempt4_pot_ownership_1600/pot_background.png",
+      "sha256": "c7bc93b3231bfb8da913d385b473418757e648ab5ce00a3c4c7b28759372f7c1",
+      "bytes": 1390173,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "entered_kitchen_2",
+      "path": "native/attempt4_pot_ownership_1600/entered_kitchen_2.png",
+      "sha256": "d46fc62c5446e4cdf28890b54db4191b52d74658299b10cc13bfe58241be2bf8",
+      "bytes": 1390066,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "pot_reloaded_owners",
+      "path": "native/attempt4_pot_ownership_1600/pot_reloaded_owners.png",
+      "sha256": "76a2ba037f1e20e82c4d2e0b2d744bb8bef33704039029d3e32544aea7e9536a",
+      "bytes": 1389190,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "pot_fit_original",
+      "path": "native/attempt4_pot_ownership_1600/pot_fit_original.png",
+      "sha256": "a343cdd2160710aa9b6f9d62e4b293d80d471b0d5f784ac335a655407d47845f",
+      "bytes": 1388846,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "pot_fit_candidate",
+      "path": "native/attempt4_pot_ownership_1600/pot_fit_candidate.png",
+      "sha256": "1d5ec648276dee904493e31925a01950ad54d316924e09e08838234bc6061221",
+      "bytes": 1408213,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "pot_fit_restored",
+      "path": "native/attempt4_pot_ownership_1600/pot_fit_restored.png",
+      "sha256": "efdda9b4b8027d1489c9d84740d6ee60b41aa7848369021cf59d60231b9b3caa",
+      "bytes": 1390216,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "pot_fit_candidate_passive",
+      "path": "native/attempt4_pot_ownership_1600/pot_fit_candidate_passive.png",
+      "sha256": "c5fb052ee2f829c205bcf8b106e4793f599342eca7946008d9263a0ca60e360f",
+      "bytes": 1407199,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "pot_fit_candidate_background",
+      "path": "native/attempt4_pot_ownership_1600/pot_fit_candidate_background.png",
+      "sha256": "6ecee1104d9d8394bb1f306596d1cf82923304176e154ca6019753a2ee748ffd",
+      "bytes": 1407200,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "candidate_stir_before",
+      "path": "native/attempt4_pot_ownership_1600/candidate_stir_before.png",
+      "sha256": "b8418c3c4a15e992206a4e2224640faf898d1213ef1e0c1682892c3ebbfde444",
+      "bytes": 1407497,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "candidate_stir_pressed",
+      "path": "native/attempt4_pot_ownership_1600/candidate_stir_pressed.png",
+      "sha256": "65532a68a26224b369da32f1fcb2b254401e4df3c152938edec7726b8b552e07",
+      "bytes": 1407885,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "NONRUNTIME_SCOPED_REJECT_POT_FIT",
+      "lane": "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "candidate_stir_released",
+      "path": "native/attempt4_pot_ownership_1600/candidate_stir_released.png",
+      "sha256": "3a66db0fc0361a5264242852078f454648af396ecf24202a12bf87422d22eb85",
+      "bytes": 1411777,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "completed_underlay_owners",
+      "path": "native/attempt4_pot_ownership_1600/completed_underlay_owners.png",
+      "sha256": "5bddaf03a387e36de4fdc61c51a7ca80e2dc86e368dc4d78a9aa501d40a72570",
+      "bytes": 1411174,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "entered_library_4",
+      "path": "native/attempt4_pot_ownership_1600/entered_library_4.png",
+      "sha256": "df890e945546c2c028b5fc839d9c0a1846470c5c68f25a785b7483c793fc6fb1",
+      "bytes": 1326480,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "entered_kitchen_6",
+      "path": "native/attempt4_pot_ownership_1600/entered_kitchen_6.png",
+      "sha256": "56a91d7f8a01801e1350f792a9ac4bf3a3ba302b42886a283ef8d9dfde657a22",
+      "bytes": 1400756,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    },
+    {
+      "case": "attempt4_pot_ownership_1600",
+      "id": "repeat_completed_underlay",
+      "path": "native/attempt4_pot_ownership_1600/repeat_completed_underlay.png",
+      "sha256": "fde18a0bef5f195aca64c70c5b47c1ea9b227e903c7592f5f8508f19682d1a71",
+      "bytes": 1400180,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "role": "CURRENT_ORIGINAL_POT_OWNERSHIP_CONTEXT",
+      "lane": "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT"
+    }
+  ],
+  "lanes": {
+    "EXCLUDED_BOOT_COMPARISON_OR_REJECTED_CONTACT_FIT": 70,
+    "BOUNDED_CURRENT_OWNERSHIP_OR_REFINED_FIT": 34
+  },
+  "native": 104,
+  "bounded": 34,
+  "excluded": 70,
+  "original_ownership_checks": 24,
+  "refined_fit_checks": 32,
+  "first_fit_checks_visual_rejected": 32,
+  "all_successful_machine_checks": 88,
+  "parse_failed_launches": 1,
+  "parse_failure_native_frames": 0,
+  "credit_rule": "24 Kitchen source ownership event/state files and10 refined candidate files gain bounded context.4 initial hall/library diagnostics +all38 contact-rejected first-fit files +28 refined source/restored/lifecycle comparisons excluded. Ordered snapshots are not unique artwork/screens or authored acting frames."
+}

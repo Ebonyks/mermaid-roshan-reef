@@ -1,0 +1,11 @@
+{
+  "failed_case": "native/attempt2_pot_ownership_1280",
+  "failure": "Exact Godot analyzer could not infer a Boolean from Variant dictionary comparisons. The PowerShell caller failed to stop after precheck failure and unnecessarily launched the same invalid script.",
+  "native_frames": 0,
+  "exit_code": 1,
+  "script_error": true,
+  "source_and_normal8_unchanged": true,
+  "correction": "Explicit var restored_visual: bool. Future native launch dispatched separately only after authoritative precheck exit0. Preserve original source/log/result; no gameplay failure or production fix.",
+  "initial_source_sha256": "f69f0b5c945dc270a397f422cc2562f2ea4ec92ebd8a30d2ec1212ac7732d764",
+  "fixed_source_sha256": "dbae3b7d4706152392416d23cfe729e03a646433c74d8f8ae02624fd4be0a748"
+}

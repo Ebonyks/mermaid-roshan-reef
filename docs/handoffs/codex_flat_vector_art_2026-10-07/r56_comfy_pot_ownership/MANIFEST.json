@@ -1,0 +1,2867 @@
+{
+  "schema": "reef.flat_vector_delta_manifest/1",
+  "revision": "FV-AUDIT-20261015-R56",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/flat-vector-r6-20261012",
+  "audited_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "topic_baseline": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+  "files": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/glyph_inventory.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 136505,
+      "sha256": "19f3e0335f9b3af55b8c83f541eed52336107807c9b073057f412897ca2fcaa9",
+      "role": "Preserved frozen original registry"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 1103788,
+      "sha256": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9",
+      "role": "Preserved frozen original registry"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/RUNTIME_BYTE_BASELINE.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 1106570,
+      "sha256": "60e556d68dcd3e826407e7a4f15341a52e2b7fa5216c67907ca68d521de335e7",
+      "role": "Immutable initialized runtime/save/sidecar baseline"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/CAPTURE_INDEX.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 99849,
+      "sha256": "a641e89020e7f19d9d55b794e0127950b3329236050481e7abcbd98494f87317",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/CONGRUENCY_BACKLOG.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 172170,
+      "sha256": "edac3fd0cfddf4afddb03c62ee338838b159364e4f5555eae5ed5b1000fa50ff",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/CONSUMER_BINDINGS.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 241018,
+      "sha256": "be0235e085e60ebf19d8877e9ac739b74dcdf34e749e3e4b474fe4be62a46e9c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/FINAL_BYTE_RECEIPT.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 8169,
+      "sha256": "2dd70a40c71d881e8f9c0e50bc190bd78a696e4d716e44a66e61b41b4aa09c2b",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/LIFECYCLE_AND_ROUTE.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 18939,
+      "sha256": "fe698093348af175ce655e8d8463652b42e6a80c17a6eee7bb52fb8e14330c9b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/MANIFEST.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 144455,
+      "sha256": "1807c634744d13614ba2abae6ad399219bfb748f15093b7d465daaa8f2152aa9",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/PLAN.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 4772,
+      "sha256": "f4b43aa67ec182e035f30e01fa67a1e005a2fc2ad8eba54823a07354779c9500",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/README.md",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 5166,
+      "sha256": "d4c6e2eae814e7090c88bbd9c4706f86a71c5de2d815399ed4cc210c5e1d7347",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/REMOTE_VERIFICATION.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 274222,
+      "sha256": "b2595858edbb2daa5f560318e6cfd50720e6a59c2ad1dc857526a8fbcebcfe0c",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/REVIEW.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 18946,
+      "sha256": "e6c3ca416dede9a80dd052f2ab93d1a117a235e91e6b878d3c3a53ddadb6f7a8",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/SOURCE_REFERENCES.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 78681,
+      "sha256": "d22bbb5cf87d9702d65d392ec4a238ca410b1ab66bf68f007c0a78516e754310",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/WORK_IN_PROGRESS.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 768,
+      "sha256": "b1f338928005a49748c7b0c754642bb2c73063cbd453c309065a407c2592fecf",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/bounded_json.py",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 4089,
+      "sha256": "42d8c411b7cd752dc3abc2e09089a1d97a4302bcae15d145b6a515c57bbc83cd",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/capture_comfy.gd",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 21441,
+      "sha256": "07e2039f5329a6428320c85011a326b73a9220752776c0330796c30aeb2ba82b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/native/attempt3_comfy_1280/capture_manifest.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 352621,
+      "sha256": "c8be4e282e66730e4bd82b79bc10bf9e2bebae2d730534dd4296fbf438f8d3f2",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/native/attempt3_comfy_1280/dinner_apple_before.png",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 1384116,
+      "sha256": "d357129e3ed2df1abc405e07317bf921253ca71e4e2e0d2529965fc4fc6792b6",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/native/attempt3_comfy_1280/dinner_stir_before.png",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 1351478,
+      "sha256": "155718dbc7048da34f86360f5e4762ae0aae4652de56b54294e8163a040852ff",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/native/attempt3_comfy_1280/dinner_stir_released.png",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 1372106,
+      "sha256": "e45acd1a40a940af01eecdaf6cc1b1a7bde1e6c2a9913e091ac6592dd1d22426",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/native/attempt3_comfy_1600/dinner_stir_before.png",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 1389938,
+      "sha256": "4c143eb282e48f6d36b5cd3dc48a004c95f5ddffd67d7ad4b46b7f2f01b83fd2",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/native/attempt3_comfy_1600/dinner_stir_released.png",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 1411495,
+      "sha256": "8503da7419eb7b47fb7b5a5c5452a84cc3d8dd7c7378e6c558c5576c872d4008",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/per_piece.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 1221511,
+      "sha256": "95b668b808142c5aa43587fb3464a3c77f414c3e45d0053cee0c59e4c6a6e31f",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/scene_coverage.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 721464,
+      "sha256": "af3ce1048f255a8d22f69782900feb54e1215950c96c0fe6d05be5b3214ca888",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r55_comfy_room_context/tally.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 164358,
+      "sha256": "e46892eb94bcc747847f4ce75f281aab731eaac875004a0181faa48f3c81f3a9",
+      "role": "Immutable R55 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 438160,
+      "sha256": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f",
+      "role": "Preserved frozen original registry"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/source_scopes.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 306677,
+      "sha256": "a1aca7b3bacc6124a1d0938f126803b6ea022b8f8de1ee224ef78ab5a8ef6951",
+      "role": "Preserved frozen original registry"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json",
+      "revision": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "bytes": 7990,
+      "sha256": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a",
+      "role": "Preserved frozen original registry"
+    },
+    {
+      "path": "AGENTS.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 32943,
+      "sha256": "f95a3fb3c4fcf68dd7ac359bdca7fd8fdebfaffc81772f51e136fce7c5a9da4b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3682776,
+      "sha256": "78a40ae3815ada84dfa4b06bf76c678d8adb4e3570491bba6d3a995e80ea710b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "CASTLE_NATIVE_INTERACTIONS_V4_AUDIT_2026-08-04.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 30020,
+      "sha256": "4a07c4be5c17b448eec2f0542b157e686fd3e9875bfefaaf67ae5c64ebcdf4f2",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 665407,
+      "sha256": "3bef406012e9a5ec90e18d3709b361f0ad0f9926f0961e05aac67e3e0c454c5f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/characters/companions/baby_eagle.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 139462,
+      "sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/characters/friends/daddy.webp",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 538732,
+      "sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 50051,
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 396741,
+      "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 597242,
+      "sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/daddy_original.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1074423,
+      "sha256": "cdd19e21805e312f1ebefc6a4ece9f19f92e5bdcf49f1e771298e7985ac1fd4b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/catalog.tres",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 23041,
+      "sha256": "250279580460de47d6e1e9310d467ed0cd1a838800a473c26c0d07e1e6518c35",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 242240,
+      "sha256": "325ef4a1fbf2f75fbf88e8d8e6b1235c21c113767e36a62545880e5ba1c8d12f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 237201,
+      "sha256": "02b25afe4f5eb18619a451d0273ac0fb0c4e1d35b4cda7051deb56cf80a8d7b2",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/movie_screen_frame.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 123208,
+      "sha256": "091304e6b1e053b12d5774e76a710852680253e0b597089c05cb11f5c038ec4e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions/castle_interactions.json",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 75667,
+      "sha256": "a24480bcf43036543033be9acf2eacd46f31f13514baf726408b9ab99928c3b5",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions/kitchen_oven_atlas.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 160576,
+      "sha256": "80e099aa808a7b22b42d06f17bc5e131c3f9e146f5e8007d751cd99697e045f6",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 151611,
+      "sha256": "2193767bac34d5dd3e525b08f781ded9c6392f0a78c43d4bca2ac7439a485987",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 389544,
+      "sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 250515,
+      "sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 233560,
+      "sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 376553,
+      "sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 143077,
+      "sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 376480,
+      "sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 801000,
+      "sha256": "3c05ca73febc3baa99c40150b48764177223280b8647fb9d01fc4d9e669ad38b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 727818,
+      "sha256": "059e9d72f1329fe1259479d4c068a64fcd9d6afc109502f50779c99abcbac827",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 743587,
+      "sha256": "757c89aaf143d61d4d1e17f4f7c53ac23a2bc7c0fbf36c5bcd980568e1f7fb67",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 760161,
+      "sha256": "48dc74dc14c228cc68da4e512fe01a80726c614429c429bc14bffe74315e7123",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 691064,
+      "sha256": "46fa2db95b39365ed42e99dcc9defb9a775e7653f3e1027a6fc22e5d4139ba1f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 692228,
+      "sha256": "8a49cc80a4a0fcc78979056329398cd35a52ed9f42c912af2d21140a171f299c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 681117,
+      "sha256": "a47facda2e46320ec49959764a95f8385008f807e204a8119d41e455d3cf5f31",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 813206,
+      "sha256": "1da2cb9587a227f9351b0a456ad9fc6baa3a364cc6b7c26e1c28c3d018a8b724",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 684391,
+      "sha256": "e9af86a19c5ef9044ff3d11246040f254513a71f9d1c8b176c613cd6021a1b6b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 679610,
+      "sha256": "4e390845f8d5a3db4c5a937caa5de1ffb60c0347d2fbf340b9a189509fc13ef8",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 691189,
+      "sha256": "6c12ef5153102152f7582da654a09cac438d2c50bd0667bae56d2b59511e5cc4",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 692942,
+      "sha256": "0b9a5f3a00979db39da7caf8d8613d9b9bce340f274ef78ab29ca924c5b6dc5e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 839685,
+      "sha256": "d42f48eeb5d0177e1316043eee94e1a096614f45e1f42ce7205ecd573b4c4e74",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 844906,
+      "sha256": "c228066d86f9e3edc2714be1b257611219473d6086b89204e3423106d4d31e74",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 842872,
+      "sha256": "a440418326eb2511814838bcf29b530a95f39c4af05b2acda65ec89d857f3536",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 827066,
+      "sha256": "fedcd873d6519fbda9f79e50583c44a7ac51d0c6548898fa226c9b18e14b61ba",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 680068,
+      "sha256": "e87730bb1460e70fce1f5459116be4e5156405ecb288c511e6e41d17c7871c20",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 682029,
+      "sha256": "ec67c61df88bee4ce231a85358f57e3b1908c9dbb97eed5295e628707834cdcd",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 700238,
+      "sha256": "35359accb08f6c937492c0d2789355504cea90868faf521e9dc91097e68e5332",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 711237,
+      "sha256": "19e20c561b82e45b8bda12446b857699ee369fea8e1f064a7206a37a9b863c9c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 994948,
+      "sha256": "3d1827d3f83b0fbb515831d7bd34b78fe227817970896556a5e77b54ebb6090f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1071031,
+      "sha256": "8285d08df8d57095992f4c2c2ae404f3b1220c0365662e7b04e657a583f97516",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1089614,
+      "sha256": "746f17f2060b1e50bbfabf0369628f34cd782d533ff9e145c16839634eabe450",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1063443,
+      "sha256": "0295252d806fb02a5d16e362f45f8b79bc588bdfd49a45d1cbf8fdf5aeb9ef7c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 925636,
+      "sha256": "35d644cc44e22dccbf7cffd846fbecb07cdfb7bc62569074c574bfb948108885",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 937984,
+      "sha256": "6b8889b828b2e1062ebac7218f45aed0df579041c0567ed5cca9148d806ec693",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 944084,
+      "sha256": "cafa0e24d949d75c216fc22d6ab6c59025482424959a58759b809f7c586d735d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 932865,
+      "sha256": "1940861bf7d1e5e67fce5619d969eefb9e41940634260afa793f994be9cfd519",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 825449,
+      "sha256": "096488900a40cbf648a1d14bc47a0c12b7fed6581b59f3ae64438df68083281d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 782371,
+      "sha256": "6f4e4aba1b1088202e029c7789dd72ae3839973ad03188baba70bcf4dd04edee",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 772715,
+      "sha256": "6a53730b073147c28cf9d0592e8a671df9660a167e08e3522f8870caf585e05a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 815011,
+      "sha256": "843edda8aaa1167aa7f38b9ff0a7b3ce073e44137e8191f966b1dfa2b928268f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 658128,
+      "sha256": "e5d5044e76a9f542ad27229baa135862e4daf86b628b50bdee3a81eb85b4bca7",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 674120,
+      "sha256": "b03d79f00f8bf9848e8d42edfc6a6fbfa37e1ac6e8cebb0df5653c8611661f2a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 700229,
+      "sha256": "b971fbb842904377f5fdd3e91ea48284ba4ec563497d77656719e9e963e5ecdd",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 686053,
+      "sha256": "eb67c27e7d4dc2d0d304390cf83b58aa1be2347c4e466beb35eadd27ae82240f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/backgrounds/room_kitchen_background.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 942606,
+      "sha256": "b58bd03a394717ebff381d76e4cb7d03410a463b7b30d2a58065be5a4df8c065",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 177304,
+      "sha256": "ddfe44bdddfd6d3ee5a384b70399c3b7c71f1d9248b26d49f8e12dfb787a275e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 533792,
+      "sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1096542,
+      "sha256": "317cdef9249c73bae64d8b0e7c6590a78b5a4f71d3187a2c32e5fa435150c1cb",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1046054,
+      "sha256": "2584ed2636652871e5a7eeb3400243a61a2676cf966b9e9f652463f424467e22",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1077160,
+      "sha256": "ee46dfa20f4de0140c8dbfb56eacba2d59acdb8eff684c0c45422fd34862b892",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 945248,
+      "sha256": "802731a92762c849f9c0597b2e75a6dbc0336dbf60032ee9290867cd4ce7d1a1",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 996041,
+      "sha256": "9bfa44736244ae50fda10461c48cc0ee0cf35f195dd6e3b59364c6c9756cfc82",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c5.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1049188,
+      "sha256": "d1e4652e644bd5354c5bd779242f885cc58ad0f2a6adc61dff4105d7417fc0ae",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c6.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1022595,
+      "sha256": "17e74663ad7b95414453e106265258642f51b820001a99e0f1882352a96012da",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c7.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1088604,
+      "sha256": "0fa83e2c10c68d7c86e97b8d6a8ef19eebc7a01fa8f87a05aeb8a312037209b0",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1094261,
+      "sha256": "d1e3eab5aa9ce34c9b136343c03709b707e775883177c51244fe1b1dc56d74ec",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1110588,
+      "sha256": "e775495278b8fbcadca429dececa5445fe6dc5d8327f9758966ac4a5ae615129",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1093857,
+      "sha256": "c2abbd83f3fce093addd9250c1930ee57d86f4c21e170b2d454121d12b723ea5",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1035767,
+      "sha256": "3b5ba5dd85ba1bf5969be08a191957e2eb476e741b717aa0e7fb843eb0aee40d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1059965,
+      "sha256": "9e180247910d843b535998ad1167371b1990834279a26119714743af59a11203",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c5.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1101365,
+      "sha256": "31b6d8a5dfef47c575b63f953c98240c826f5007ef1fa406ef17a853630ff808",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c6.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1103927,
+      "sha256": "0068537a79a205fa50f3747b37735c591f876ceac92d685abaa3d6f57605c92c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c7.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1069770,
+      "sha256": "24a11eb0c82e09c3968f59c8f7418f9628e787ba0c0d1ab53b5ff4a282b98d41",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 40754,
+      "sha256": "79a218b4fe470b5b3228cfd1899734b3e1730dbd8f75ad783ea165aa7b9047dc",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 39825,
+      "sha256": "f9fecea95f04e79b18844aa3434892f89afc5975ee6788dd670ca50eba5bba32",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 90207,
+      "sha256": "717eb872ff8b1dfdd9bc4c7d66bcaea8fe6a3196bb18f41b0ecb4873ddf48130",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 95433,
+      "sha256": "fe1c01762027565046065239c6e1a3ca7a714edadcbc04086d31e3ffabea9089",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 801000,
+      "sha256": "3c05ca73febc3baa99c40150b48764177223280b8647fb9d01fc4d9e669ad38b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 727818,
+      "sha256": "059e9d72f1329fe1259479d4c068a64fcd9d6afc109502f50779c99abcbac827",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 743587,
+      "sha256": "757c89aaf143d61d4d1e17f4f7c53ac23a2bc7c0fbf36c5bcd980568e1f7fb67",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 760161,
+      "sha256": "48dc74dc14c228cc68da4e512fe01a80726c614429c429bc14bffe74315e7123",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 691064,
+      "sha256": "46fa2db95b39365ed42e99dcc9defb9a775e7653f3e1027a6fc22e5d4139ba1f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 692228,
+      "sha256": "8a49cc80a4a0fcc78979056329398cd35a52ed9f42c912af2d21140a171f299c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 681117,
+      "sha256": "a47facda2e46320ec49959764a95f8385008f807e204a8119d41e455d3cf5f31",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 813206,
+      "sha256": "1da2cb9587a227f9351b0a456ad9fc6baa3a364cc6b7c26e1c28c3d018a8b724",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 684391,
+      "sha256": "e9af86a19c5ef9044ff3d11246040f254513a71f9d1c8b176c613cd6021a1b6b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 679610,
+      "sha256": "4e390845f8d5a3db4c5a937caa5de1ffb60c0347d2fbf340b9a189509fc13ef8",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 691189,
+      "sha256": "6c12ef5153102152f7582da654a09cac438d2c50bd0667bae56d2b59511e5cc4",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 692942,
+      "sha256": "0b9a5f3a00979db39da7caf8d8613d9b9bce340f274ef78ab29ca924c5b6dc5e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 839685,
+      "sha256": "d42f48eeb5d0177e1316043eee94e1a096614f45e1f42ce7205ecd573b4c4e74",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 844906,
+      "sha256": "c228066d86f9e3edc2714be1b257611219473d6086b89204e3423106d4d31e74",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 842872,
+      "sha256": "a440418326eb2511814838bcf29b530a95f39c4af05b2acda65ec89d857f3536",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 827066,
+      "sha256": "fedcd873d6519fbda9f79e50583c44a7ac51d0c6548898fa226c9b18e14b61ba",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 680068,
+      "sha256": "e87730bb1460e70fce1f5459116be4e5156405ecb288c511e6e41d17c7871c20",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 682029,
+      "sha256": "ec67c61df88bee4ce231a85358f57e3b1908c9dbb97eed5295e628707834cdcd",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 700238,
+      "sha256": "35359accb08f6c937492c0d2789355504cea90868faf521e9dc91097e68e5332",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 711237,
+      "sha256": "19e20c561b82e45b8bda12446b857699ee369fea8e1f064a7206a37a9b863c9c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 994948,
+      "sha256": "3d1827d3f83b0fbb515831d7bd34b78fe227817970896556a5e77b54ebb6090f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1071031,
+      "sha256": "8285d08df8d57095992f4c2c2ae404f3b1220c0365662e7b04e657a583f97516",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1089614,
+      "sha256": "746f17f2060b1e50bbfabf0369628f34cd782d533ff9e145c16839634eabe450",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1063443,
+      "sha256": "0295252d806fb02a5d16e362f45f8b79bc588bdfd49a45d1cbf8fdf5aeb9ef7c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 925636,
+      "sha256": "35d644cc44e22dccbf7cffd846fbecb07cdfb7bc62569074c574bfb948108885",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 937984,
+      "sha256": "6b8889b828b2e1062ebac7218f45aed0df579041c0567ed5cca9148d806ec693",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 944084,
+      "sha256": "cafa0e24d949d75c216fc22d6ab6c59025482424959a58759b809f7c586d735d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 932865,
+      "sha256": "1940861bf7d1e5e67fce5619d969eefb9e41940634260afa793f994be9cfd519",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_movie_lounge_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 233493,
+      "sha256": "20622c31be27dedf1373db27b8b18082858f791158d5067b20d5417cd6f4973b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_movie_lounge_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 232523,
+      "sha256": "b79751daee585909b4b0a516e76c712e28c39bbd01c91b0c8f4c925bf4a3ecb4",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_movie_lounge_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 291584,
+      "sha256": "2b35ce0f8171643b855b416d71f23d7075eca1028c1e05acdbe4770b544d5f66",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_movie_lounge_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 292683,
+      "sha256": "381c0ad1c7bbc6829018507c269e8e9fe151bd149e340398e22343c6ea4491bd",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 825449,
+      "sha256": "096488900a40cbf648a1d14bc47a0c12b7fed6581b59f3ae64438df68083281d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 782371,
+      "sha256": "6f4e4aba1b1088202e029c7789dd72ae3839973ad03188baba70bcf4dd04edee",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 772715,
+      "sha256": "6a53730b073147c28cf9d0592e8a671df9660a167e08e3522f8870caf585e05a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 815011,
+      "sha256": "843edda8aaa1167aa7f38b9ff0a7b3ce073e44137e8191f966b1dfa2b928268f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 658128,
+      "sha256": "e5d5044e76a9f542ad27229baa135862e4daf86b628b50bdee3a81eb85b4bca7",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 674120,
+      "sha256": "b03d79f00f8bf9848e8d42edfc6a6fbfa37e1ac6e8cebb0df5653c8611661f2a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 700229,
+      "sha256": "b971fbb842904377f5fdd3e91ea48284ba4ec563497d77656719e9e963e5ecdd",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 686053,
+      "sha256": "eb67c27e7d4dc2d0d304390cf83b58aa1be2347c4e466beb35eadd27ae82240f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_sleepover_bedroom_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 79576,
+      "sha256": "737a2c12944c68332b48da6640271d9f992e352390cb1525dad5d7072294f427",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_sleepover_bedroom_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 79447,
+      "sha256": "a88026e272f93c3f6b4a18fa2ca8bdc195e1f1725c4ddd9fae06c0f24c4d2b47",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_sleepover_bedroom_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 241835,
+      "sha256": "dbe476e80252e6d2dfbc32e4366ec59404278f6956c923865b6d1e662256eb8b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_sleepover_bedroom_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 238787,
+      "sha256": "ea832a59391254efce305f037f212111dac4b363ea0c39cef82ff4f7b73a1f73",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_actor_shadow.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3083,
+      "sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_front_left.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 87840,
+      "sha256": "34801ba8733b3a193f1b2096ecbaae80ed7cf9adcb0c256078ab772fced1d1c0",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_front_right.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 80830,
+      "sha256": "838a5bfa86a1e6d9b5b659faae2098b99df3be3fcc415bc620f6bcb10d7183fa",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_item_oven.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 49466,
+      "sha256": "519fb694752a25121dfeaade574f2ba300372fed61252ba35f9fc927172fcab0",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_item_pan_1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 7856,
+      "sha256": "19f5a340485c9d29ef5a99cf8e2926ba021d4b5e652baea7e5adee0c043f9914",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_item_soup_pot.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 120134,
+      "sha256": "81238fd33252b6d03a400085c9fae3ce5c75d93b0db438a6b0d76f1a8246ce15",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_item_teapot.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 43226,
+      "sha256": "2c984e7b712a7d1cca3cbf35868432ce12f333d9c6a4e333f7859388e2c1e193",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 958648,
+      "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 885972,
+      "sha256": "78c666d2e87cc1cdcd2cde311c20e75a83ca86dae1366fe4aa9cacbee3e30566",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_candy.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 77501,
+      "sha256": "c187cc488f971484ddaaf4fa74a81a04853f583897e27bfb4d4830c9afd04855",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_chef.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 73746,
+      "sha256": "55ab3093ca9f7e9df0bfb5011980727b140648ce0f10974c6ee8392928f77288",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 52582,
+      "sha256": "9ec02fdd3e0ea6888ab3e3dce7f3a6436b752974798fd46fddf545a70f3e93dd",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/props/story/fruit_apple.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 390318,
+      "sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets/sprites/dust_bunnies/rainbow_friend.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 288378,
+      "sha256": "1cff185278d662b2fc049ffd1460848ca76aa7a57933dbc06279ae0a07747580",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets_src/blender/qa_art_pass35/kitchen_soup_pot.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 443591,
+      "sha256": "a15d491da6dc645e3a2641140a077204eede6e17638c5e353656463c41dbe140",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/derivations.json",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 46057,
+      "sha256": "8898512f689a6968ab0c1bb358913bc1dd807af7cb70b8fb445aa13d1f3e2183",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets_src/imagegen/castle_object_animations_v4/PROVENANCE.json",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 37027,
+      "sha256": "d39768e139c50adbb3932995bbbb8e9be68819d515bb9f9ddfe04989816ff8d2",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_sheet_alpha.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 963723,
+      "sha256": "504928531b4214b0762804dc5b08e8a920c37609f6bb7a04a01f95d1cdb45d23",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 300037,
+      "sha256": "23b2afc6fc73a081200bcc1b20cbe3da2416a0bde8a0a121b74849e453ab3b44",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 259980,
+      "sha256": "5eb2fec7df30dd7446ad61020485df00f2841e48e29a298d840e609240055aa1",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 216873,
+      "sha256": "dd9def7875d7deb9809209bc7abaf2b1ebf657fc7cce4ae01020fe7349525a8d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 104724,
+      "sha256": "8e240a56ace2e7174d528b0cb528c9ae85efdd5a8267789d5131693466db06d3",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 7602,
+      "sha256": "f2817f20cbf89b2b0da6d28b5d956ab0408239ecd9438f4b6a7057b45e9b5fd9",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 48767,
+      "sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 242528,
+      "sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 5639,
+      "sha256": "0932feb34209b3dbd3e2738b32a7dddf0ee99ab607251356bb4fbac9cc7f895d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 2664,
+      "sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 19430,
+      "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 25280,
+      "sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1096,
+      "sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 6931,
+      "sha256": "d5b440608b63510446196233ef5fb559c006b0a90c5dcee74516e84dba5e1cfc",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/fashion_skin_catalog.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 160,
+      "sha256": "c71d558cff766d25cd7835657f7e0e10ebe268d8e74a7b4c2e083b8b28adf548",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 7240,
+      "sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/interaction_affordance.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 4599,
+      "sha256": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 370863,
+      "sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3749,
+      "sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 13628,
+      "sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/probe_interaction.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 40701,
+      "sha256": "46c39f611758851372e904bf67200808ac884e42e8de205c588466f38151fb3f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/roshan_sprite_loop.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 11251,
+      "sha256": "73663a09ec2bf6f3f87d37596a7bcd1818346d744492deb109cac4a31e65362e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 46616,
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3261,
+      "sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 18908,
+      "sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 16107,
+      "sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": null,
+      "bytes": 297859,
+      "sha256": "1804d8f0b00839c8ef2153de7633fd43c96fe010dbbd123cdf8f78ad2148fb05",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": null,
+      "bytes": 212351,
+      "sha256": "5905a23875922d806ce27b9878542ccb9e020b575bc2ff8671ff99a71e365cf9",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": null,
+      "bytes": 294144,
+      "sha256": "ab20f8db23b60b62fbfc7d7516c658ce14c58f5c7a9c2514ea43e7986c852096",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": null,
+      "bytes": 246851,
+      "sha256": "06171fb2cbd95ca1732b33cb24abec363be29c1e3e38ca40cc853513fbbc0659",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-comfy-pot-ownership-20261015.json",
+      "revision": null,
+      "bytes": 28144,
+      "sha256": "609fca8ed3dbffbac4b976ef667caeb56e6144d4d607a369625d338cd231b393",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": null,
+      "bytes": 10177,
+      "sha256": "60df8de31fec58118762d0f411b994b81e0342192deb2cd2c700bd2a263e2f3d",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": null,
+      "bytes": 28319,
+      "sha256": "8fcf49896c3e08fbaf3eae79e1179432739c529a2ae38dbecfe372e31402ec09",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/.gdignore",
+      "revision": null,
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/.gitattributes",
+      "revision": null,
+      "bytes": 18,
+      "sha256": "9871ac5d7f5decf5c31ae260a4292e515c9207a52c5435fffdab87fe403f8bc2",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/ALL_FIXTURE_SYNTAX_GATES.json",
+      "revision": null,
+      "bytes": 4174,
+      "sha256": "2fae0ccd8b6e43a15684a89e27a8e654429a87320a6dffd972304cba7a4d2048",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/CANDIDATE_PRECHECK.json",
+      "revision": null,
+      "bytes": 1564,
+      "sha256": "3c1ca989ac53603774d2957ce0dd279695bd19348122e9c5944e8427bfdc21e2",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/CAPTURE_INDEX.json",
+      "revision": null,
+      "bytes": 58581,
+      "sha256": "540f085d1a584aed33ef108f3688741960a14aa61cce55456d18587960123e44",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/CONGRUENCY_BACKLOG.json",
+      "revision": null,
+      "bytes": 176384,
+      "sha256": "45f85df69fedc75e0566005c178ed1d2274b19ab8ceb9897ca25067465a569fb",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/CONTACT_FIT_HISTORY.json",
+      "revision": null,
+      "bytes": 1245,
+      "sha256": "d9b48484e60c87ef535589329a2c7e8df5ccc9a41db0e0b734ddb63aef75b167",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/CONTACT_PRECHECK.json",
+      "revision": null,
+      "bytes": 1409,
+      "sha256": "3269deadbafe1de3fc87962cf68f18515abf3de4cb215a2c59d3cfccc37dc76d",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/CONTEXT_PREREQUISITE.json",
+      "revision": null,
+      "bytes": 559,
+      "sha256": "c1aeb9245d2e07374c3211ec73abedc763af1d42dea4388b47cdf798a299e5a5",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/CURRENT_PARTIAL_CONTEXT_UNION.json",
+      "revision": null,
+      "bytes": 15865,
+      "sha256": "eab2cc3555a93929205817505c4546f2601403a882ea930f7278d89398183b15",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/FIXTURE_PRECHECK.json",
+      "revision": null,
+      "bytes": 1470,
+      "sha256": "42ec3f3673fca186485488251a9ca76af915f513cc022c8e095e1125f05bd5f2",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/FIXTURE_REPAIR_HISTORY.json",
+      "revision": null,
+      "bytes": 777,
+      "sha256": "66a4b03b36e1c413df8c8d85e5771322833ba4b2876e05ca2193d2f7a607114d",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/GATES.json",
+      "revision": null,
+      "bytes": 3620,
+      "sha256": "f11b9358ded5a9ad71897f24dfeffd4b4a565b7ebf071a29a9b33dfef5081e1a",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/MODE_COMPARISONS.json",
+      "revision": null,
+      "bytes": 23551,
+      "sha256": "a797df357ff6b982f6edd19b2055b4121aceff1056e3568699769c7aa8e3342c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/ORIGINAL_OWNERSHIP_PRECHECK.json",
+      "revision": null,
+      "bytes": 1470,
+      "sha256": "42ec3f3673fca186485488251a9ca76af915f513cc022c8e095e1125f05bd5f2",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/OWNERSHIP_AND_REUSE_RESULT.json",
+      "revision": null,
+      "bytes": 135653,
+      "sha256": "354242cea13175a90d71a46ad70b2cd5adcd2e85f270c687e153be65dcc99323",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/PLAN.json",
+      "revision": null,
+      "bytes": 5935,
+      "sha256": "30fc7187ce0ce4f5622c500e202f7bfd45616faf446112d7a77f96d57b430e47",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/README.md",
+      "revision": null,
+      "bytes": 5281,
+      "sha256": "b191a7cc245910d571097296fc8d0fddb0215a5f02dd83d8c913640527418465",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/REPRODUCTION.json",
+      "revision": null,
+      "bytes": 1376,
+      "sha256": "0ef741e9efa9c4c2c4ac0b5664147b7fe168cefb9884f66cad2a6deba6769f16",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/REVIEW.json",
+      "revision": null,
+      "bytes": 13414,
+      "sha256": "fc8160700bef938c8f9c0a998d7c1643cc90b6a03048090fcc9f1163b83d0aa8",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/SOURCE_ALPHA_BOUNDS.json",
+      "revision": null,
+      "bytes": 632,
+      "sha256": "202175b37b829354a8a22778d38c072909af7236ef892e10d1a79c78ff2f5b06",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/SOURCE_PARITY.json",
+      "revision": null,
+      "bytes": 11164,
+      "sha256": "11ff9930b1bdc2c08151ee85c89e791b98b6df82701f5a5549de1724acceffd6",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/SOURCE_REFERENCES.json",
+      "revision": null,
+      "bytes": 100372,
+      "sha256": "4aee66bd153e12a56781e5c61c0ac08096d5f9edd0e172a2691805c1471f43d8",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/WORK_IN_PROGRESS.json",
+      "revision": null,
+      "bytes": 638,
+      "sha256": "b41f890f7cddb1326654ce07e982ab80e208407d5ca23ab10bc8bb53ef811a42",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/bounded_json.py",
+      "revision": null,
+      "bytes": 4089,
+      "sha256": "42d8c411b7cd752dc3abc2e09089a1d97a4302bcae15d145b6a515c57bbc83cd",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/build_manifest.py",
+      "revision": null,
+      "bytes": 3909,
+      "sha256": "b11810b45ed19433caa61ddca06dff5e18cfb527ca7a7e86e6d59cb1b35d0397",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/candidate_fixed_precheck_0.log",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/candidate_fixed_precheck_1.log",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/candidate_fixed_precheck_2.log",
+      "revision": null,
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/candidate_precheck_0.log",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/candidate_precheck_1.log",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/candidate_precheck_2.log",
+      "revision": null,
+      "bytes": 459,
+      "sha256": "646b58c5127c6a5aefc37841049c7334239993e3ee52573866d9c5569b256bac",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/capture_pot_ownership.gd",
+      "revision": null,
+      "bytes": 25096,
+      "sha256": "dd9806ba8dcd7bbc8bf5cc144243139a11f6d739fae0ea97406978f35d1bf64d",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/contact_precheck_0.log",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/contact_precheck_1.log",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/contact_precheck_2.log",
+      "revision": null,
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/fixture_precheck_0.log",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/fixture_precheck_1.log",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/fixture_precheck_2.log",
+      "revision": null,
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/gates.log",
+      "revision": null,
+      "bytes": 549,
+      "sha256": "4cc7f2f69c4540462fdbd9af32013da9f805f1038bce1b3cb5f98eea9d891b0e",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/initial_candidate_analyzer_failure.log",
+      "revision": null,
+      "bytes": 459,
+      "sha256": "646b58c5127c6a5aefc37841049c7334239993e3ee52573866d9c5569b256bac",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1483,
+      "sha256": "3c3dfe11ee1ea805184efe637b1f850c6636bab174c29ec367116f3d52fee10f",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1011,
+      "sha256": "21d0acf0a8347620fdc7b30f755365c67a209fcc3163e0446a0934c301bbaf4a",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 855892,
+      "sha256": "36df98c8f8bf55052afe96127759f81cb73c8e30e70cb2e954852b6739a871a5",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/completed_underlay_owners.png",
+      "revision": null,
+      "bytes": 1372077,
+      "sha256": "3b2b19d40e56e86b1202ed305f1caed1c03d4dfbc40461239df51d474193d5b9",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/engine.log",
+      "revision": null,
+      "bytes": 682,
+      "sha256": "350b7bf03922bc6e5ca0237f33d974bd95d8621c077c41e5aa33290957bdd571",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/entered_kitchen_1.png",
+      "revision": null,
+      "bytes": 1351025,
+      "sha256": "21af7624e183854c09905ef262aee7fd53c421e9858bd187c70ccd05fe2dbcc9",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/entered_kitchen_2.png",
+      "revision": null,
+      "bytes": 1351436,
+      "sha256": "bb473fa122e5f943174f74b446952fadee9cf2bad9f185cc44c146773db2ef5e",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/entered_kitchen_6.png",
+      "revision": null,
+      "bytes": 1362009,
+      "sha256": "28211dff9a8af2ab8d2cb31eeb849d11f64594f15de6a3a68cf0e6401650cfb2",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/entered_library_4.png",
+      "revision": null,
+      "bytes": 1299791,
+      "sha256": "6e250fb9389b2d84affda65a35676b407bcc59962a84f4143bbb9432f8af61f9",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/fixture_source.gd",
+      "revision": null,
+      "bytes": 19709,
+      "sha256": "af28c1f0312f4fb36ba3710a4f15742f7950b907d5cf278dee56ec2136206de6",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/main_hall_checkpoint.png",
+      "revision": null,
+      "bytes": 1524033,
+      "sha256": "0366491f361da217b51a95f456974ce1ad7f028fffb65ef5a78b7b528198d155",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/original_stir_before.png",
+      "revision": null,
+      "bytes": 1349389,
+      "sha256": "747fa5430c1f5e5fda0d1b23ff45705983f43ef52ba1f8be2b50ab690fbadb15",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/original_stir_pressed.png",
+      "revision": null,
+      "bytes": 1350236,
+      "sha256": "33033e61b0c4eeae3888c762b8789186eb521dcea69ca5f4d4875e734c556b0b",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/original_stir_released.png",
+      "revision": null,
+      "bytes": 1372020,
+      "sha256": "31bf7299a9e54ba8ed9169d5688721d1cf5a26ea983ea87ca6d46c7db0dd70df",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/pot_background.png",
+      "revision": null,
+      "bytes": 1351664,
+      "sha256": "9a5fd4ebfb4de16541cb2cec12e62ace0d5ea50fb19a14be31b8e1b3a39400f5",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/pot_original_owners.png",
+      "revision": null,
+      "bytes": 1349374,
+      "sha256": "30fafc7f7bc720e2c56441e6636abb14f151b30945066ac877634f75eb57dd31",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/pot_original_passive.png",
+      "revision": null,
+      "bytes": 1350415,
+      "sha256": "375ea1993e010288cca4559f49b324fb8b8c502f7de666e35a441eff89e0c319",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/pot_reloaded_owners.png",
+      "revision": null,
+      "bytes": 1350424,
+      "sha256": "fa9e8fa58aed4c6778de651de16fd9ab722c84385d88b4c90dcd650c60a93965",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1280/repeat_completed_underlay.png",
+      "revision": null,
+      "bytes": 1361462,
+      "sha256": "f6acbdcd8e9d8ff65b8b4faca8f5f10e8d12b8775686d2b7ee067c65cef96c22",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/LAUNCH.json",
+      "revision": null,
+      "bytes": 1483,
+      "sha256": "41c507cfc648553cd794c86c033ea021728a582cf130962657e3203565ff5bbf",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/RESULT.json",
+      "revision": null,
+      "bytes": 1011,
+      "sha256": "850e929dd4185d1be1fea589e42421612088234bd9967f045adf927f71893b88",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/capture_manifest.json",
+      "revision": null,
+      "bytes": 856227,
+      "sha256": "20ffd7c3ff80f05a4335026e31111504411201bcb630328be91aa7b59dd79207",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/completed_underlay_owners.png",
+      "revision": null,
+      "bytes": 1411830,
+      "sha256": "32209a8ddc03d9addf8a0d326c28b76b32b09eadc3b9d6f87b1d58c21520c423",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/engine.log",
+      "revision": null,
+      "bytes": 682,
+      "sha256": "350b7bf03922bc6e5ca0237f33d974bd95d8621c077c41e5aa33290957bdd571",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/entered_kitchen_1.png",
+      "revision": null,
+      "bytes": 1389457,
+      "sha256": "5b7a3fedd9ab55cf737806e3a9bed29f392c854ccecc03daa4810a70b0c4cf0e",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/entered_kitchen_2.png",
+      "revision": null,
+      "bytes": 1390058,
+      "sha256": "95d4d35c0e8689cd03acbb8b54790d6a7fced1887026ce94f485b8155e7ecf85",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/entered_kitchen_6.png",
+      "revision": null,
+      "bytes": 1400494,
+      "sha256": "098c1ccd407fa0f566a93814bd7689c122e3dfaaaf95785e88f88c118a27679c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/entered_library_4.png",
+      "revision": null,
+      "bytes": 1326331,
+      "sha256": "143a90d7a7d5cace2588488ccacca4119968cceed44e804669c43bc4c3541dd9",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/fixture_source.gd",
+      "revision": null,
+      "bytes": 19709,
+      "sha256": "af28c1f0312f4fb36ba3710a4f15742f7950b907d5cf278dee56ec2136206de6",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/main_hall_checkpoint.png",
+      "revision": null,
+      "bytes": 1755078,
+      "sha256": "d4d7b17141a80eb0f6dde3ce6c2386352a2c4850d8d2f23282705455d6d873b2",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/original_stir_before.png",
+      "revision": null,
+      "bytes": 1389068,
+      "sha256": "91e75d997a8ba852e05c79474350e1678c3e977e4de863d5b2889cc29d3510e9",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/original_stir_pressed.png",
+      "revision": null,
+      "bytes": 1389666,
+      "sha256": "2a8f5c5c724349f91430f902558756a8bc03d0f418c16e76cecc0b3897b260cf",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/original_stir_released.png",
+      "revision": null,
+      "bytes": 1411559,
+      "sha256": "386efe5e8d351a2605e8302b3859c94c3054000cd4c42db7ac01b0e226b10753",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/pot_background.png",
+      "revision": null,
+      "bytes": 1389382,
+      "sha256": "8b66e39d382b0d7b91ee8e273bd718bb9bd724a9aaea4bff0f97a8965492639c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/pot_original_owners.png",
+      "revision": null,
+      "bytes": 1388984,
+      "sha256": "bb59766edf793107ed7084d00b8bf97820deea1b9d52be2389ab272ea3437c1a",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/pot_original_passive.png",
+      "revision": null,
+      "bytes": 1388400,
+      "sha256": "061698d1ae1383f8360c77495ba1010bbed166441fc219a143ea8211c8535c12",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/pot_reloaded_owners.png",
+      "revision": null,
+      "bytes": 1389125,
+      "sha256": "c52ab2bc317b1b96db420261ea813197d2015a740ded0c79b40169ad47fec1a3",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt1_pot_ownership_1600/repeat_completed_underlay.png",
+      "revision": null,
+      "bytes": 1399691,
+      "sha256": "d3ae67bfd07bb74b93de3041278e6ae50b7651bb159efecf8c9bf033773bae5f",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt2_pot_ownership_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1525,
+      "sha256": "5b958b4887c99ebb0e4fbc70fd86e08f81f9e150874f0e60ffb905ad056e4592",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt2_pot_ownership_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1010,
+      "sha256": "78b109462e44ca53650492b2a57d29a59565b6f2cf6ba90960dd2a0842761b95",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt2_pot_ownership_1280/engine.log",
+      "revision": null,
+      "bytes": 547,
+      "sha256": "c8ba0d4c2c50496ef15d153477e771f2b4f5b97fb724784f0d48a9a04b2f2dab",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt2_pot_ownership_1280/fixture_source.gd",
+      "revision": null,
+      "bytes": 25074,
+      "sha256": "f69f0b5c945dc270a397f422cc2562f2ea4ec92ebd8a30d2ec1212ac7732d764",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1525,
+      "sha256": "3b4b8d59496df4d1ed97ee586c54c23c10edb64da6786f16de930615fb1f2d4c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1011,
+      "sha256": "751cdd38fdd88a74daaa3972f95dcaa58063123775e4a51932019361910052c1",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/candidate_stir_before.png",
+      "revision": null,
+      "bytes": 1368781,
+      "sha256": "b2e4cea89177bdfd00ba3c6545ce9deb203a54cf6887f2a3ddce86ae52c2356c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/candidate_stir_pressed.png",
+      "revision": null,
+      "bytes": 1368748,
+      "sha256": "322f8c701d4ab6b14df0d4f88a0ebb854a452293c26bec012f7543a8465c1dc1",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/candidate_stir_released.png",
+      "revision": null,
+      "bytes": 1371915,
+      "sha256": "477dc0d538a351708e117bc6b33c8e5b93f5912b474da5bcf45ff18fdd8d9676",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 1183552,
+      "sha256": "803bf8ef66694f43211e46c8c11ba5b1d31c23b5011a99a822320a725267ed4e",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/completed_underlay_owners.png",
+      "revision": null,
+      "bytes": 1372000,
+      "sha256": "c7832f86b925936682121d427d0958b41038e77d91d4f2fcef066662631c6013",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/engine.log",
+      "revision": null,
+      "bytes": 867,
+      "sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/entered_kitchen_1.png",
+      "revision": null,
+      "bytes": 1350798,
+      "sha256": "7a46b6f207e0dbe8425555dba7fd08e40a64e4780a7de1b5353a63b0af1ea1dd",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/entered_kitchen_2.png",
+      "revision": null,
+      "bytes": 1351503,
+      "sha256": "b63e54fb2c438ad82e777598b1bb03cc87e579ff6ce3a7fe51af6f5e299469ed",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/entered_kitchen_6.png",
+      "revision": null,
+      "bytes": 1362070,
+      "sha256": "ad0d49615e8a363410bdf6a6b8b38e514ae86dca9dfb0ceb159f5e8ee2c62f2b",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/entered_library_4.png",
+      "revision": null,
+      "bytes": 1299719,
+      "sha256": "ade73a3ea540ebee2c2be1abe4f4ca60c2f90a12ef2dba6af7514ff5ce6bc4de",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/fixture_source.gd",
+      "revision": null,
+      "bytes": 25079,
+      "sha256": "dbae3b7d4706152392416d23cfe729e03a646433c74d8f8ae02624fd4be0a748",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/main_hall_checkpoint.png",
+      "revision": null,
+      "bytes": 1524037,
+      "sha256": "994760a9bcdfac7f43131fc0135cb27166a76b12156e0dd4e840792267d2c6d3",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/pot_background.png",
+      "revision": null,
+      "bytes": 1351051,
+      "sha256": "807cdcd0a27b636f5941f6ba467dbcbb6590281bdd38ec849a8143735db2f667",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/pot_fit_candidate.png",
+      "revision": null,
+      "bytes": 1369146,
+      "sha256": "190b4718992eeb41bf2a05ca72e5244f51334d570fc41e74f2860abc53fea4d4",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/pot_fit_candidate_background.png",
+      "revision": null,
+      "bytes": 1368613,
+      "sha256": "a889b2fc2a954192aeddfecd01fd61c55c49193544b9b6f1571f8b68baaecb21",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/pot_fit_candidate_passive.png",
+      "revision": null,
+      "bytes": 1368987,
+      "sha256": "6e5e597e023f18b0dca05d6be1a8501c6af9959ae4373488451c8d25052509f5",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/pot_fit_original.png",
+      "revision": null,
+      "bytes": 1350098,
+      "sha256": "e106cb90b49ce37df6fc8ed15c62d3d52973f374939458b4f07865f9eef71782",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/pot_fit_restored.png",
+      "revision": null,
+      "bytes": 1352095,
+      "sha256": "adb2eb83b3e9ba4422627d5b139af6587d2cdd3e42df9497536aa8ebb8d8701b",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/pot_original_owners.png",
+      "revision": null,
+      "bytes": 1349774,
+      "sha256": "c0dc94fb6e80fca7a06cd4a2fce8fb9c57462f927e75306bf070407ff16d1c1c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/pot_original_passive.png",
+      "revision": null,
+      "bytes": 1349959,
+      "sha256": "94bf8ecd8a50723ddd083168f341d12d56df7f5cffff2e3e1bb59cac37b8666d",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/pot_reloaded_owners.png",
+      "revision": null,
+      "bytes": 1350475,
+      "sha256": "788e0046cf5b2b9fbe1efc696429d46e7edbb50c5cf7613498f50ba45fa7b42c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1280/repeat_completed_underlay.png",
+      "revision": null,
+      "bytes": 1361570,
+      "sha256": "ffcff4a29b0e6dc700c29ee0a852254031701f4625ddb0efa509dd2e99b975d6",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/LAUNCH.json",
+      "revision": null,
+      "bytes": 1525,
+      "sha256": "854cbdf202b382aee0deec6d1eac6e7883d97e3063c97b046da70687284fc96f",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/RESULT.json",
+      "revision": null,
+      "bytes": 1011,
+      "sha256": "7658f070ccd57ff0d470d3aaeff7c816400a66b8d5715bc13160e98616519f32",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/candidate_stir_before.png",
+      "revision": null,
+      "bytes": 1407362,
+      "sha256": "57ac800760970a3b5c9e9a4271e23c7d3afb92ce9d9615cdcfda37fa12da81af",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/candidate_stir_pressed.png",
+      "revision": null,
+      "bytes": 1407474,
+      "sha256": "c5f826d6936b444282eff371d3946980407147eec54f72b1ed11eb635a13aadf",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/candidate_stir_released.png",
+      "revision": null,
+      "bytes": 1411109,
+      "sha256": "1efae6a7ec26a530a6e55def0123c20ba4d493125abe1d72a0bc9e69f3a219d4",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/capture_manifest.json",
+      "revision": null,
+      "bytes": 1185082,
+      "sha256": "61b4b673355868a2daf8f708a8d0c07b1df2fda60653f9b3b5829fc2a7d9faa3",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/completed_underlay_owners.png",
+      "revision": null,
+      "bytes": 1411224,
+      "sha256": "d86b044271f07dced12e8cef757c3773b88c86338f79f5e22cafdf1d989de0b4",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/engine.log",
+      "revision": null,
+      "bytes": 867,
+      "sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/entered_kitchen_1.png",
+      "revision": null,
+      "bytes": 1389397,
+      "sha256": "498208732b5b2abed293791f021b39959303fb0f77d66ad4adb0fe7102c06650",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/entered_kitchen_2.png",
+      "revision": null,
+      "bytes": 1390133,
+      "sha256": "74a65a553c744472695592c461575db05f8e1d4496507b115e903abc48891e4b",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/entered_kitchen_6.png",
+      "revision": null,
+      "bytes": 1401231,
+      "sha256": "bd101c51aef04995010d3257bc3d1ffbb93a810b5c13cdb86f9427632160de6b",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/entered_library_4.png",
+      "revision": null,
+      "bytes": 1326456,
+      "sha256": "e2e3256bb4f0805404d0ef13b97d46eba32bd4fe63af28cff6ad6808020f7fe8",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/fixture_source.gd",
+      "revision": null,
+      "bytes": 25079,
+      "sha256": "dbae3b7d4706152392416d23cfe729e03a646433c74d8f8ae02624fd4be0a748",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/main_hall_checkpoint.png",
+      "revision": null,
+      "bytes": 1755062,
+      "sha256": "897d6e851ca0773d80d6ed2b4d1526d1387e7966f0aa597ed049c6104d324717",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/pot_background.png",
+      "revision": null,
+      "bytes": 1389662,
+      "sha256": "da0ac6632f47bb0290036a3ff77800e4f424191432a9d80ea9569fed985a4be4",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/pot_fit_candidate.png",
+      "revision": null,
+      "bytes": 1407868,
+      "sha256": "131217ba92aa949e1d5c97c05cab2f5c1543ad134afb1b68e5982a417a2eb5fe",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/pot_fit_candidate_background.png",
+      "revision": null,
+      "bytes": 1407004,
+      "sha256": "b82a9669127a94e5b07b95cec59703ffeea9e5a80bd68971f25d2224a5821b28",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/pot_fit_candidate_passive.png",
+      "revision": null,
+      "bytes": 1407324,
+      "sha256": "b2edc782510a7d8557a684a50869e4561587aa67b093d43ef2100441a183de16",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/pot_fit_original.png",
+      "revision": null,
+      "bytes": 1388878,
+      "sha256": "871f4938c7664377b6a8ea97ed6a4ddb181a3b31d7419e85eeaa97c79408c5f7",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/pot_fit_restored.png",
+      "revision": null,
+      "bytes": 1390206,
+      "sha256": "602f1dcd6e4ad59927087bf253fb3bd67774ba3f163948bafb34062e1ac4263a",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/pot_original_owners.png",
+      "revision": null,
+      "bytes": 1388618,
+      "sha256": "17f546d82f8fd39e2872763e523f6fd0512c6ef5dd186de519781575caeca0d2",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/pot_original_passive.png",
+      "revision": null,
+      "bytes": 1388459,
+      "sha256": "886c42dd4c447539547ccac61931fba3c5b5026ad2ffdab50e97f824b6a5d890",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/pot_reloaded_owners.png",
+      "revision": null,
+      "bytes": 1389102,
+      "sha256": "644049c6647ca9664ada61cd7969d43b157bdda5af4f054a34d10eb526b2b3c9",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt3_pot_ownership_1600/repeat_completed_underlay.png",
+      "revision": null,
+      "bytes": 1400254,
+      "sha256": "c828de9dbfbe2c3a32952f6f2ed24ad15d2867370e96a286ffb9499608da3926",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1525,
+      "sha256": "0037dc1466fed347359d40f637ccc4ce8b28a015af7e9ac88ede89eb4b54f7f0",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1011,
+      "sha256": "95a1c65732431faa3a83cab35d215d031120e955bc7be2a158a60df8b541cf69",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/candidate_stir_before.png",
+      "revision": null,
+      "bytes": 1368860,
+      "sha256": "9552168163f8afdcfdb0d022f7e2d513c23b1fc849f5444270d07e4784f7b392",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/candidate_stir_pressed.png",
+      "revision": null,
+      "bytes": 1368700,
+      "sha256": "bcf16c7530f6ec66fd76be9c5bd7d86c271791b8df8d3af4aea32d495b7b2dca",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/candidate_stir_released.png",
+      "revision": null,
+      "bytes": 1371870,
+      "sha256": "5f841b51ad124e5d94597b87fe511d83e3a7de2ac1e0b0561d13dca58cf7dcf0",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 1183571,
+      "sha256": "b0294062430c664dfc33001d885442978f96837455693bbaca4be5d74273d0df",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/completed_underlay_owners.png",
+      "revision": null,
+      "bytes": 1372601,
+      "sha256": "45bc45878dd17e271aa8596707f2e59b50f9a72b402434d1749d52aa6131bc81",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/engine.log",
+      "revision": null,
+      "bytes": 867,
+      "sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/entered_kitchen_1.png",
+      "revision": null,
+      "bytes": 1350911,
+      "sha256": "5ea7d6640fe6b1f07f97b26ba07b612284b12a10797a33bdc6499185f43bc2d5",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/entered_kitchen_2.png",
+      "revision": null,
+      "bytes": 1351277,
+      "sha256": "837d61070800ff5371e93640cb02ad906ea967b7a2f712ab546503f0f3517178",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/entered_kitchen_6.png",
+      "revision": null,
+      "bytes": 1362176,
+      "sha256": "05dd1f37a9d27ef1a1de5215644c040ea51560cbae79b1883799099742622e8d",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/entered_library_4.png",
+      "revision": null,
+      "bytes": 1300779,
+      "sha256": "b5e98ab36e910ea61bee9989dbee89ac8a77bc8abc0ab8e2ec510cb9580bc6b4",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/fixture_source.gd",
+      "revision": null,
+      "bytes": 25096,
+      "sha256": "dd9806ba8dcd7bbc8bf5cc144243139a11f6d739fae0ea97406978f35d1bf64d",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/main_hall_checkpoint.png",
+      "revision": null,
+      "bytes": 1524001,
+      "sha256": "7364ab60b9d2054f3bc4ff350d2ffb391ad68aa234ed15ef1e7e7868a5c2130e",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/pot_background.png",
+      "revision": null,
+      "bytes": 1351096,
+      "sha256": "caa4fd7c20a3f93c2a755c2b21dddce2302d2007caf814e37a8ca8006e0a16b2",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/pot_fit_candidate.png",
+      "revision": null,
+      "bytes": 1369509,
+      "sha256": "5a9b89f2f09d6263adc8046aec23a00ac1d0c1e4fc07a08aabf373ae96e8ed30",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/pot_fit_candidate_background.png",
+      "revision": null,
+      "bytes": 1368863,
+      "sha256": "bf90602bdb6973a8a3502e2c2340d92505d9b5a5358c420736ed7d6dfd4bf6ab",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/pot_fit_candidate_passive.png",
+      "revision": null,
+      "bytes": 1368465,
+      "sha256": "28b36e62529a62b62578d16bf7f2a59975220f0f28eb9fbfb30a8d2da4409334",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/pot_fit_original.png",
+      "revision": null,
+      "bytes": 1350153,
+      "sha256": "ae3e7347ca88f3cda9874b4680cd0ea3d4265affce1fb9b1de8418b48fdd5506",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/pot_fit_restored.png",
+      "revision": null,
+      "bytes": 1351912,
+      "sha256": "717649b852f7906297a6631c332b27df47707b538c5364a6d6c7c2311e727f8c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/pot_original_owners.png",
+      "revision": null,
+      "bytes": 1350614,
+      "sha256": "63e00435369e5885015ddcff4e4f19fee700cbced7714a7fbb8eaff4e1658a78",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/pot_original_passive.png",
+      "revision": null,
+      "bytes": 1349886,
+      "sha256": "18317c4a0cbac03c3563d66fff80de4be121df72fb479ae50ef9c095103b0278",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/pot_reloaded_owners.png",
+      "revision": null,
+      "bytes": 1350515,
+      "sha256": "311532c5b6473f4f4b669b3ae24a6787a3393a9e38375f4f8d3c8ef1fd561e7b",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1280/repeat_completed_underlay.png",
+      "revision": null,
+      "bytes": 1361431,
+      "sha256": "a42cfa00f2719e9471ede54d2f17b898daa28ae7d467a354236261c3dc35a95e",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/LAUNCH.json",
+      "revision": null,
+      "bytes": 1525,
+      "sha256": "4d6cb160149cc4c6482b690a883a0b8f473d1ce4ca3d4e378d8ac1f3b8ff41ea",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/RESULT.json",
+      "revision": null,
+      "bytes": 1011,
+      "sha256": "8590d5a83e9094d4cdcb3a3f6e3654154ae9b46df6106c3de29e7f04e7f0ff33",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/candidate_stir_before.png",
+      "revision": null,
+      "bytes": 1407497,
+      "sha256": "b8418c3c4a15e992206a4e2224640faf898d1213ef1e0c1682892c3ebbfde444",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/candidate_stir_pressed.png",
+      "revision": null,
+      "bytes": 1407885,
+      "sha256": "65532a68a26224b369da32f1fcb2b254401e4df3c152938edec7726b8b552e07",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/candidate_stir_released.png",
+      "revision": null,
+      "bytes": 1411777,
+      "sha256": "3a66db0fc0361a5264242852078f454648af396ecf24202a12bf87422d22eb85",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/capture_manifest.json",
+      "revision": null,
+      "bytes": 1184195,
+      "sha256": "e5a57a9715839b146b38da68311d07648d92419de315399f9676ff6fb6ac7189",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/completed_underlay_owners.png",
+      "revision": null,
+      "bytes": 1411174,
+      "sha256": "5bddaf03a387e36de4fdc61c51a7ca80e2dc86e368dc4d78a9aa501d40a72570",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/engine.log",
+      "revision": null,
+      "bytes": 867,
+      "sha256": "451645b43ace33fd830de7201519d6eaa069aa9e6477d5d6a2a56d98c5362774",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/entered_kitchen_1.png",
+      "revision": null,
+      "bytes": 1389382,
+      "sha256": "f04bf8ec54533e6d6c3eb3ae89777bebd1072455700ede73739a42a7d890164c",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/entered_kitchen_2.png",
+      "revision": null,
+      "bytes": 1390066,
+      "sha256": "d46fc62c5446e4cdf28890b54db4191b52d74658299b10cc13bfe58241be2bf8",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/entered_kitchen_6.png",
+      "revision": null,
+      "bytes": 1400756,
+      "sha256": "56a91d7f8a01801e1350f792a9ac4bf3a3ba302b42886a283ef8d9dfde657a22",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/entered_library_4.png",
+      "revision": null,
+      "bytes": 1326480,
+      "sha256": "df890e945546c2c028b5fc839d9c0a1846470c5c68f25a785b7483c793fc6fb1",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/fixture_source.gd",
+      "revision": null,
+      "bytes": 25096,
+      "sha256": "dd9806ba8dcd7bbc8bf5cc144243139a11f6d739fae0ea97406978f35d1bf64d",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/main_hall_checkpoint.png",
+      "revision": null,
+      "bytes": 1755084,
+      "sha256": "92046c11b57ece5f7ff567720454d11bc6697c3e1048cd4302da2217ec688655",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/pot_background.png",
+      "revision": null,
+      "bytes": 1390173,
+      "sha256": "c7bc93b3231bfb8da913d385b473418757e648ab5ce00a3c4c7b28759372f7c1",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/pot_fit_candidate.png",
+      "revision": null,
+      "bytes": 1408213,
+      "sha256": "1d5ec648276dee904493e31925a01950ad54d316924e09e08838234bc6061221",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/pot_fit_candidate_background.png",
+      "revision": null,
+      "bytes": 1407200,
+      "sha256": "6ecee1104d9d8394bb1f306596d1cf82923304176e154ca6019753a2ee748ffd",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/pot_fit_candidate_passive.png",
+      "revision": null,
+      "bytes": 1407199,
+      "sha256": "c5fb052ee2f829c205bcf8b106e4793f599342eca7946008d9263a0ca60e360f",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/pot_fit_original.png",
+      "revision": null,
+      "bytes": 1388846,
+      "sha256": "a343cdd2160710aa9b6f9d62e4b293d80d471b0d5f784ac335a655407d47845f",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/pot_fit_restored.png",
+      "revision": null,
+      "bytes": 1390216,
+      "sha256": "efdda9b4b8027d1489c9d84740d6ee60b41aa7848369021cf59d60231b9b3caa",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/pot_original_owners.png",
+      "revision": null,
+      "bytes": 1388577,
+      "sha256": "9167d2db9b7e56fa9ed5143f72020f30e4dca1e1f694b5681634aac0f27b0df2",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/pot_original_passive.png",
+      "revision": null,
+      "bytes": 1388526,
+      "sha256": "999371c4677e8487491b01ecbd2f21e71b51be594ba7accf8389742a033277e9",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/pot_reloaded_owners.png",
+      "revision": null,
+      "bytes": 1389190,
+      "sha256": "76a2ba037f1e20e82c4d2e0b2d744bb8bef33704039029d3e32544aea7e9536a",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/repeat_completed_underlay.png",
+      "revision": null,
+      "bytes": 1400180,
+      "sha256": "fde18a0bef5f195aca64c70c5b47c1ea9b227e903c7592f5f8508f19682d1a71",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/per_piece.json",
+      "revision": null,
+      "bytes": 1223165,
+      "sha256": "f9addf3dd43a1dc15517fbdf2922ca6b0a0a26fa46fe30044ba039ca822431e8",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/pot_checkpoint.json",
+      "revision": null,
+      "bytes": 866,
+      "sha256": "b4e609cff6ea55d5d9ed106c2e9f2ab71a128c015ac362c73df6170afa3950fc",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/run_native.py",
+      "revision": null,
+      "bytes": 4252,
+      "sha256": "4462e735f6601bf8ae6ee9b52e7d0404c95917c5c09a54607073cd404e25530f",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/scene_coverage.json",
+      "revision": null,
+      "bytes": 722914,
+      "sha256": "0e61b42eff28b4f412dee04e1779996e559e21997bc712f56557fd2f7e450e08",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/tally.json",
+      "revision": null,
+      "bytes": 169007,
+      "sha256": "69827ef84a881c19bc1cab8084c45ebce6690d6128eacf822ca8ddd78948e8a1",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/validate.py",
+      "revision": null,
+      "bytes": 7391,
+      "sha256": "5380d8970f6d61e772d8332247f9725f3f0e1158e4fde2350b394587d8559b45",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/verify_remote.py",
+      "revision": null,
+      "bytes": 3368,
+      "sha256": "fa7c9e9df1013dbd3d56fe6a165eee24241168252191551aa13f8b2517861d64",
+      "role": "Current R56 audit evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/capture_day_one_rooms.gd",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 16467,
+      "sha256": "c254eb393020910a05b5a92ce7a91536eb791014c7be40c6aee0983432c5ec2f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/CONGRUENCY_BACKLOG.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 167284,
+      "sha256": "649899a27cbe301608f9f65f7f1bbd90a91a6dce1434c598e2ee38648573e59c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/CURRENT_PARTIAL_CONTEXT_UNION.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 15865,
+      "sha256": "eab2cc3555a93929205817505c4546f2601403a882ea930f7278d89398183b15",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/FINAL_BYTE_RECEIPT.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 10394,
+      "sha256": "dfd499dd6f25808d38976d2844a26ac5d686e9cb9d4649296858a348e4e9ad53",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/MANIFEST.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 186413,
+      "sha256": "3800bc3006dba2d3f65d1cb267fd040c76fa3acbff944175384e1d4e1bc54b80",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/README.md",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 4707,
+      "sha256": "48db0b930174b14123adbefd3f54ae268631136d1f8269c7a226d33a9e2df79a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/REMOTE_VERIFICATION.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 362095,
+      "sha256": "b7fc8c65fecfba9231c2c830d21cc2f31af468712c281e637674eca8fceac51c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/REVIEW.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 19921,
+      "sha256": "1f4a6e6a9856d29cf78026c70210e7b1283b20323211c8fe48a77ca35be64907",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/SOURCE_PARITY.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 3586,
+      "sha256": "736190c9e1ac012af207a7cd1859d051f7206a693fab28d6335d4831d617bec8",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/STARTUP_SEAM_CLARIFICATION.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 922,
+      "sha256": "92ef25a2cb6e94789bef1ba1d965cbcc4291cd3970817020610bce9501553b89",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/WORK_IN_PROGRESS.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 759,
+      "sha256": "010611822f393ad0d3164ef8f2e3f046c221c19e2590431cfc360077641006bc",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/per_piece.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 1219726,
+      "sha256": "bde4e58224e2e0524507baa48700e24046860c55562c0ae5bdca9317273c58b6",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/scene_coverage.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 719663,
+      "sha256": "79667ef0884ba0a97f90b487324a83890ae6a7fb2ee7759bb6dfcfc7864f7ee6",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r54_castle_logo_motif_reuse/tally.json",
+      "revision": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+      "bytes": 161002,
+      "sha256": "4aa7ecba3dc6a7ea94f9ff16516e75c173fbf0312d88ff9f12fbf6fbeb5c5019",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence"
+    }
+  ],
+  "required_file_count": 405,
+  "required_bytes": 265750754,
+  "payload_sha256": "85421066a32099bb491d091d2e1a7c9f030d97b3d06bff7e198581dc9c97b051",
+  "scope": "All new R56 evidence and exact direct source/canonical dependencies. Immutable R55 manifest/receipt index and parts preserve historical transitive verification; no fresh historical pixel review or global exhaustiveness claimed.",
+  "historical_parent": {
+    "payload": "02ebffa85fe2b1cd1fb01ad6382cfe27397e3038",
+    "receipt": "0ca59fadba2abb5a17833e3de4ecdfb15d145924",
+    "final_proof": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+    "historical_direct_required_file_count": 411,
+    "historical_direct_required_bytes": 299518934,
+    "freshly_reverified_transitive_payload": false
+  },
+  "post_publication_records": "Receipt/gates/final metadata separately bound to immutable commits to avoid recursive selfhash.",
+  "new_native_captures": 104,
+  "new_bounded_contexts": 34,
+  "original_ownership_captures": 28,
+  "refined_fit_captures": 38,
+  "rejected_contact_fit_captures": 38,
+  "parse_failure_captures": 0,
+  "new_generation_calls": 0,
+  "accepted_removed": 0,
+  "mission_complete": false
+}
