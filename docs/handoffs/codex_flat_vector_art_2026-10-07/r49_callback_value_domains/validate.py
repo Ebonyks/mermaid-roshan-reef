@@ -42,6 +42,8 @@ def main():
  for path in changed:
   assert not path.startswith(("scripts/","assets/","assets_src/","scenes/","shaders/","addons/")) and path!="project.godot",path
  for n in ["per_piece.json","scene_coverage.json","tally.json"]:assert (P.parent/n).read_bytes()==raw((P.parent/n).relative_to(R).as_posix())
+ u=rd(P/"UPSTREAM_RECONCILIATION.json");assert u["selected_method_bodies_identical"]==18 and len(u["source_comparison"])==312 and not u["current_upstream_inventory_review_complete"] and not u["merge_or_integration_performed"]
+ for x in u["anonymous_source_authority_product_checks"]:assert sha(raw(x["path"],x["revision"]))==x["sha256"]
  cur=rd(P.parent/"CURRENT.json");assert cur["current_tally"]==P.name+"/tally.json" and cur["revision"]==plan["revision"]
  assert not rd(P/"WORK_IN_PROGRESS.json")["mission_complete"] and not rd(P/"REVIEW.json")["mission_complete"]
  print("R49_INTEGRITY_PASS 312exact scripts/922rows/338IDs/9paths14sites/full57open;21headless checks;240roles32families;frozen/history/zeroacceptance preserved",flush=True)

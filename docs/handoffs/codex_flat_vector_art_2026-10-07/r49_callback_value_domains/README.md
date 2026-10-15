@@ -13,3 +13,7 @@ No artwork, runtime source, approved identity, protected original, save key, cap
 R48 same-scene visual comparisons, clipping and warning-occlusion weaknesses are retained at their exact revisions in the backlog. This source-only step adds no visual congruency acceptance. Three unaccepted drawings and their exhausted per-task caps remain unchanged. All five compositor closures, 351 unresolved primitive scopes, alternate callback mutations, unseen states and final acceptance lanes remain open.
 
 Delivery uses the established public topic branch `codex/flat-vector-r6-20261012`. Publication and exact anonymous-byte receipts are separate from creative acceptance. The mission remains open; no dev/master integration or release is claimed.
+
+Freshness amendment: `origin/dev` advanced to `5120b6d59885dd057937aaf284e73681d8eac9f5` during final verification. [Exact upstream comparison](UPSTREAM_RECONCILIATION.json) anonymously verifies the source/authority/product files and finds all18 selected callback/binding/owner method bodies unchanged. The incoming20 script edits and3 objective-audio files still require a fresh inventory, caller and runtime-context audit. R49 remains evidence for its recorded topic source; no current-upstream visual/route credit, regression count or integration is inferred.
+
+[Freshness amendment manifest](AMENDMENT_MANIFEST.json) binds the final canonical metadata and the exact new-upstream source references; the original payload manifest/receipt retain their immutable scope.

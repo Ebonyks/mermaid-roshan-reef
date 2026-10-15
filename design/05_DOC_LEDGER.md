@@ -1274,4 +1274,4 @@ release/device/child/owner authority retain precedence.
 
 | Document | State | Authority and scope |
 |---|---|---|
-| `docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/README.md` | 🔵 | `SUPPORTING_CURRENT`; baseline61d12c5b.312 scripts/922 AST rows,9 named source paths/14 invocation sites;all57 full runtime callback domains remain open.21 actual headless component checks,18 adversarial tests; no new game render/art/runtime change or acceptance.240 known roles/32 families,0 accepted/global unknown; frozen/history retained. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/README.md` | 🔵 | `SUPPORTING_CURRENT`; baseline61d12c5b.312 scripts/922 AST rows,9 named source paths/14 invocation sites;all57 full runtime callback domains remain open.21 actual headless component checks,18 adversarial tests; no new game render/art/runtime change or acceptance.240 known roles/32 families,0 accepted/global unknown; frozen/history retained. New origin/dev5120b6d5 compared;18 selected bodies exact,23 incoming product paths awaiting full inventory/context refresh. |
