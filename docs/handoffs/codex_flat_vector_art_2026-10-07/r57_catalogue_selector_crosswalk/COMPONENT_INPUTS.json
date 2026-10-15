@@ -1,0 +1,29 @@
+{
+  "recording_scope": "Post-run binding of exact original staging inputs to the public references and observed component query order; no fresh native run.",
+  "fixture": {
+    "path": "selector_component.gd",
+    "sha256": "f0250b85656c7df0742c9c3345f0ffd4f8c8e49aec486d99bf4bda5ce3ac4fa5"
+  },
+  "aliases": {
+    "path": "COMPONENT_ALIASES.json",
+    "staged_input_name": "ALIASES.json",
+    "sha256": "e047b8219d20acfaa24ef2dd8f20ba77fc980f31f6f8b07a1ac0decc24d0151e",
+    "bytes": 1108,
+    "count": 60,
+    "matches_observed_query_order": true
+  },
+  "baseline": {
+    "revision": "1e0589b3a99c0d4c0911d3e56304fa7a27a7f664",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/RUNTIME_BYTE_BASELINE.json",
+    "sha256": "60e556d68dcd3e826407e7a4f15341a52e2b7fa5216c67907ca68d521de335e7",
+    "staged_input_name": "POST_IMPORT_BASELINE.json",
+    "staged_sha256": "60e556d68dcd3e826407e7a4f15341a52e2b7fa5216c67907ca68d521de335e7",
+    "raw_exact": true,
+    "json_exact": true,
+    "runtime_files": 4420,
+    "sidecars": 4041,
+    "normal_suffix_hashes": 8
+  },
+  "reproduction": "Use clean exact source worktree5120b6d5, approved4.7.2 and initialized published sidecar baseline. Copy public fixture to ignored export/flat_vector_r57; stage aliases and baseline under runner S names. Use fresh output/archive paths, preserving recorded component/ files and never running/readying Main or seeding actual child saves. Parser/inference/check-only must exit0 before a new native component. run_component.py is the exact historical guarded runner; absolute staging paths are environment configuration, not delivery authority.",
+  "rendered_or_normal_route_credit": false
+}

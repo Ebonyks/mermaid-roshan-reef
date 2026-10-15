@@ -1317,3 +1317,5 @@ release/device/child/owner authority retain precedence.
 | Document | State | Authority and scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/README.md` | 🔵 | `SUPPORTING_CURRENT`; source5120b6d5 current12-tile Kitchen/V2 oven ownership and first-cell retained-reject nonruntime fit.24 original/32 refined checks; first-fit32 logic checks retain visual reject.104native34bounded70excluded;12native5source views. No rejection reversal/new art/production/acceptance;240roles32families/global unknown. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/README.md` | 🔵 | `SUPPORTING_CURRENT`; source5120b6d5 catalogue meaning/176labels/312scripts and pure selector144queries87assertions. Zero new visible/route/art credit; all prior histories/finding floors and unknown denominator remain. |

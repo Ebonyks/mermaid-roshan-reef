@@ -1,3 +1,9 @@
+Current canonical evidence: [R57 catalogue/selector crosswalk](r57_catalogue_selector_crosswalk/README.md), [registry](r57_catalogue_selector_crosswalk/per_piece.json), [coverage](r57_catalogue_selector_crosswalk/scene_coverage.json), [tally](r57_catalogue_selector_crosswalk/tally.json).
+
+Source5120b6d5;176retained labels100ambient60game12UI4standalone;312scripts/144pure component queries87assertions.85partial91without0complete;240roles32families/accepted0/global unknown. No new captured screen, natural-route or art credit.
+
+## Historical entry text retained below
+
 Current canonical evidence: [R50 upstream source inventory](r50_upstream_source_refresh/README.md), [registry](r50_upstream_source_refresh/per_piece.json), [coverage](r50_upstream_source_refresh/scene_coverage.json), [tally](r50_upstream_source_refresh/tally.json).
 
 All312 current-upstream scripts parsed;369 frozen functions rebound,825 additional candidate scopes. Current scene/state/native/dynamic review remains pending;240 known roles/32 families,0 accepted/global unknown.
@@ -233,3 +239,5 @@ Current R54: [Castle crest motif reuse](r54_castle_logo_motif_reuse/README.md), 
 Current R55: [Original Comfy room context](r55_comfy_room_context/README.md), two source-input journeys/88 checks and bounded pot/movie/staging/flat-room weaknesses. No art generation, production change or accepted removal.
 
 Current R56: [Pot ownership/scoped reuse fit](r56_comfy_pot_ownership/README.md), current healed-room ownership and static retained-source trial. No old rejection reversal, production adoption or accepted removal.
+
+Current R57: [Catalogue/selector crosswalk](r57_catalogue_selector_crosswalk/README.md), [tally](r57_catalogue_selector_crosswalk/tally.json).176retained IDs100ambient60game12UI4standalone;312scripts/144component queries87assertions.0new capture/route/art credit;85partial91without0complete/global unknown.

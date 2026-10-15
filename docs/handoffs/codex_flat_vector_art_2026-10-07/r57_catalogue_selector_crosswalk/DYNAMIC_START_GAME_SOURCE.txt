@@ -1,0 +1,79 @@
+func _start_game_now(fr: Dictionary) -> void:
+	game = String(fr["game"])
+	g = {"fr": fr, "t": 0.0, "timer": -1.0}
+	if game == "slide":
+		# _enter_arena must know the exact route before it decides whether to build
+		# and teleport into a spatial arena. Penguin chase remains mode="chase".
+		g["mode"] = String(fr.get("mode", "fish"))
+	_enter_arena(game)
+	if game == "melody":
+		# Its full-screen notes own the complete touch surface; hide the legacy
+		# swim stick/action bay while retaining the separately-owned pause corner.
+		_set_world_controls_enabled(false, "melody")
+	var origin: Vector3 = ARENA_POS
+	if game == "fetch":
+		_game_obj("fetch", FetchGame).build(fr, origin)
+	elif game == "dolls":
+		_game_obj("dolls", DollsGame).build(fr)
+	elif game == "brawl":
+		_game_obj("brawl", BrawlGame).build(fr, origin)
+	elif game == "dustboss":
+		_game_obj("dustboss", DustBossGame).build(fr, origin)
+	elif game == "seek":
+		_game_obj("seek", SeekGame).build(fr)
+	elif game == "race":
+		_game_obj("race", SlideRaceGame).build(fr, origin)
+	elif game == "shop":
+		_game_obj("shop", ShopGame).build(fr, origin)
+	elif game == "treasure":
+		_game_obj("treasure", TreasureGame).build(fr, origin)
+	elif game == "melody":
+		var melody: MelodyGame = _game_obj("melody", MelodyGame) as MelodyGame
+		melody.build(fr, origin)
+		for reason_value: Variant in _melody_input_context_losses.keys():
+			melody.on_input_context_lost(StringName(String(reason_value)))
+		melody.arm_entry_sources(_melody_held_sources.keys())
+	elif game == "slide":
+		var slide: SlideRaceGame = _game_obj("race", SlideRaceGame) as SlideRaceGame
+		var slide_canvas_route: bool = _slide_canvas_fish_route_active()
+		if slide_canvas_route:
+			# Clear the legacy router before build. Its cancellation callback is safe
+			# against the closed controller; build then establishes the authoritative
+			# fresh startup latch which remains intact through the reveal fade.
+			joy_ev_axis.clear()
+			joy_ev_btn.clear()
+			_slide_canvas_overlay_axis_wait_neutral = false
+			_slide_canvas_overlay_poll_neutral_frames = 0
+			var slide_canvas_return_camera := active_viewport_camera()
+			g["slide_canvas_return_camera"] = slide_canvas_return_camera
+			g["slide_canvas_camera_was_current"] = \
+				slide_canvas_return_camera != null
+			if player != null and player.cam != null:
+				g["slide_canvas_player_cam_transform"] = player.cam.transform
+				g["slide_canvas_player_cam_fov"] = player.cam.fov
+				g["slide_canvas_player_cam_orbit"] = player.cam_orbit
+				g["slide_canvas_player_cam_pitch"] = player.cam_pitch_off
+			if slide_canvas_return_camera != null:
+				slide_canvas_return_camera.clear_current(false)
+			if collection_button_layer != null:
+				g["slide_canvas_collection_was_visible"] = \
+					collection_button_layer.visible
+				collection_button_layer.visible = false
+			if living_layer != null:
+				g["slide_canvas_living_was_visible"] = living_layer.visible
+				living_layer.visible = false
+			_set_world_controls_enabled(false, "slide_canvas")
+			if player != null:
+				g["slide_canvas_player_was_visible"] = player.visible
+		slide.build_slide(fr, origin)
+		if slide_canvas_route:
+			# The fade still covers the fresh layer. Hide the spatial actor and seed
+			# every concrete source which was physically down before entry.
+			if player != null:
+				player.visible = false
+				player.vel *= 0.0
+			for reason_value: Variant in _slide_canvas_input_context_losses.keys():
+				slide.on_input_context_lost(StringName(String(reason_value)))
+			slide.arm_entry_sources(_slide_canvas_held_sources.keys())
+	elif game == "fairyshoot":
+		_game_obj("fairyshoot", FairyGame).build(fr, origin)
