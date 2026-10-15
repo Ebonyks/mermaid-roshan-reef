@@ -971,5 +971,11 @@
       "no_findings_reason": "Packaging archived patch data is not a runtime defect. Unified-diff context has one leading space before preserved authored GDScript tabs.",
       "state": "Staged diff-check01 flagged1436 space-before-tab lines, all inside this cycle .patch files, none in production or other files. Preserve native bytes; add a path/type-specific whitespace attribute for only audit/cycles/luna-gameplay-repairs-20261014/**/*.patch. Existing source whitespace checks retain their scopes. Earlier staged-check failure remains recorded in ignored scratch."
     }
-  ]
+  ],
+  "completion_summary_correction": {
+    "scope": "Correct two current master summary rows that still said local CI PENDING and append the later full-suite result to MA-CI-007 history. All dated PENDING/FAIL checkpoints remain unchanged.",
+    "evidence": "audit/cycles/luna-gameplay-repairs-20261014/candidate/full_local_ci_02/gate/candidate-full-ci-02.json",
+    "source_commit": "1af25a20115561ebe659b5337f9a48a45cec105f",
+    "limits": "Metadata only; no new runtime test result, lifecycle closure, exact-head CI, integration, device, child, owner or release claim."
+  }
 }
