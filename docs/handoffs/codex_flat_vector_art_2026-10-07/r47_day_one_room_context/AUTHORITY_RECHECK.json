@@ -1,0 +1,67 @@
+{
+  "baseline": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+  "checked_at_utc": "2026-10-15T04:53:00.430310+00:00",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MED-01",
+    "DL-MED-04",
+    "DL-MED-05",
+    "DL-MED-09",
+    "DL-SAVE-01",
+    "DL-QA-01",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-09",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15",
+    "DL-VIS-06",
+    "DL-MED-03",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-04",
+    "DL-AGE-06",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-05",
+    "DL-LAY-03",
+    "DL-LAY-04",
+    "DL-LAY-09",
+    "DL-VIS-10",
+    "DL-MOT-04"
+  ],
+  "finding_lifecycles": {
+    "MA-VIS-006": "CONFIRMED_OPEN",
+    "MA-VIS-008": "CONFIRMED_OPEN",
+    "MA-DOC-007": "CONFIRMED_OPEN",
+    "MA-2D-002": "IN_PROGRESS"
+  },
+  "domain_sources": [
+    {
+      "path": "audit/day_one_playthroughs_2026-09-02/run_14_stuffie_room.md",
+      "ledger_scope": "Modelled source flow,not executed child/runtime evidence"
+    },
+    {
+      "path": "audit/day_one_playthroughs_2026-09-02/run_15_art_room.md",
+      "ledger_scope": "Modelled source flow,not current runtime evidence;old hijack/completion claims cannot override actual current four-case results"
+    }
+  ],
+  "scope": "Planning/index/design/active findings/ledger consulted at start andexpanded when protected default-logo/margin/feedback sources emerged. No normative/source/lifecycle change."
+}

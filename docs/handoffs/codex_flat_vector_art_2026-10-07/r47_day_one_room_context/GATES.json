@@ -1,0 +1,137 @@
+{
+  "status": "PASS_CURRENT_SAVED_CHECKPOINT_CONTEXT_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/capture_day_one_rooms.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/prior_attempts/capture_day_one_rooms_attempt1.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T04:56:39.347494+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/capture_day_one_rooms.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/prior_attempts/capture_day_one_rooms_attempt1.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T04:56:40.360520+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/capture_day_one_rooms.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T04:56:47.529939+00:00",
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r47_day_one_room_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T04:56:55.701149+00:00",
+      "stdout_sha256": "f5eab7ef28be539ec24f48e2a734969780ff90f4c92b3f01c47ee12e0ce541d6",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T04:57:11.619996+00:00",
+      "stdout_sha256": "41b4e6607ae5a299597ba33c8cd723bf5a0f2787c68a83430907350c8ef84116",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T04:57:17.022368+00:00",
+      "stdout_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T04:57:26.662848+00:00",
+      "stdout_sha256": "4dd9a3b95659719efa794a30c2e56c71f13c2ab4976c67577778bf2cc6fba380",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "1f2c4dcc140d36e058b98a1fe4279c11e969c53b44ee59e3f92c7444f5725efa",
+  "scope": "Fresh parser/inference/exact4.7.2 current andprior ignored fixtures/108native artifact andsource integrity/frozen registry/docauthority/development/54audit tests. Four actual current GUI cases and12prior diagnostics separate;staged/committed2D follow. No newfull82 oracceptance claim.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r47_day_one_room_context\\validate.py"
+      ],
+      "checked_at_utc": "2026-10-15T04:58:28.799769+00:00",
+      "exit_code": 0,
+      "sha256": "f5eab7ef28be539ec24f48e2a734969780ff90f4c92b3f01c47ee12e0ce541d6",
+      "output": "R47_INTEGRITY_PASS 4currentcases 108retained78bounded30excluded 235roles31families 73existingpartial15families 82partial94without0complete 0accepted globalunknown\r\n",
+      "scope": "Fresh context, capture accounting, frozen IDs and current authority review"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "checked_at_utc": "2026-10-15T04:58:37.353479+00:00",
+      "exit_code": 0,
+      "sha256": "41b4e6607ae5a299597ba33c8cd723bf5a0f2787c68a83430907350c8ef84116",
+      "output": "DOCAUTH|INVENTORY=750|LEDGER=750|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "scope": "Fresh context, capture accounting, frozen IDs and current authority review"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "checked_at_utc": "2026-10-15T04:58:41.556864+00:00",
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "scope": "Fresh context, capture accounting, frozen IDs and current authority review"
+    }
+  ]
+}

@@ -1,0 +1,1587 @@
+{
+  "schema": "reef.day_one_room_capture_index/1",
+  "baseline": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+  "retained_native": 108,
+  "current_native": 96,
+  "prior_failed_native": 12,
+  "bounded_art_context_credits": 78,
+  "excluded_native": 30,
+  "unique_png_byte_hashes": 108,
+  "successful_cases": 4,
+  "reports": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/capture_manifest.json",
+      "sha256": "687b0124ced10645259ce9fa1cf87d6465333b5d1553927a521b5d54b743b4bc",
+      "case": "attempt1_rescue_1280",
+      "errors": [
+        "unavailable actual control StuffieCard_eagle"
+      ],
+      "normal_unchanged": true,
+      "aspect": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/capture_manifest.json",
+      "sha256": "365d0219931fc3f078ddb2a9730694bebeed10c7e4c82d3ac24e057c935c530a",
+      "case": "attempt2_art_1280",
+      "errors": [],
+      "normal_unchanged": true,
+      "aspect": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/capture_manifest.json",
+      "sha256": "a239e41b20975c3a849971d160ee990b55e723942308a89a0ca7972ef9d39061",
+      "case": "attempt2_art_1600",
+      "errors": [],
+      "normal_unchanged": true,
+      "aspect": [
+        1600,
+        720
+      ]
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/capture_manifest.json",
+      "sha256": "3ce1dcf398ce2b7b8396ee0b2326881c6a6adfa5ee1671f67f811bbb957ac8ca",
+      "case": "attempt2_rescue_1280",
+      "errors": [],
+      "normal_unchanged": true,
+      "aspect": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/capture_manifest.json",
+      "sha256": "025eca995d8138ffb9165bb6055fc194d5762ea44ef39be69aedbfba1743813b",
+      "case": "attempt2_rescue_1600",
+      "errors": [],
+      "normal_unchanged": true,
+      "aspect": [
+        1600,
+        720
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/hall_checkpoint.png",
+      "sha256": "bd640377c0c3c87d8b7476aa6ac9acc8e4c22022b12167508e63ba1412312bab",
+      "bytes": 1492061,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "hall_checkpoint",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/room_ready.png",
+      "sha256": "c0441b1f240fa2878f8fc6e4a06708b81e44d4dbdb94b3b8aea0a3d23dbf541d",
+      "bytes": 1142372,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_ready",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/room_passive.png",
+      "sha256": "2a11c2527674a1b2f378757e66ba7792cd0d1d4ef00b2dc510c46f3b750a4e83",
+      "bytes": 1141649,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_passive",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/room_pause.png",
+      "sha256": "62b5dc456d1bcbe73888f42f1a51b54cabb94bb00091e6a99ebd512d2f0bf6b8",
+      "bytes": 389518,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_pause",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/room_resumed.png",
+      "sha256": "9feec7eb5bc3cf61374e5a8bd2d8922737ecf429b1d3fb944853d8906ae03aa8",
+      "bytes": 1141315,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_resumed",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/eagle_pin_left_pressed.png",
+      "sha256": "a5c0f055d9f1d2a303066776d93b72aa9bfa7865d90a48c6ee4334038c774330",
+      "bytes": 1138972,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_left_pressed",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/eagle_pin_left_release.png",
+      "sha256": "5805706eda243856fb703863e44cb74681885467935250d461d5ea9b2619fd94",
+      "bytes": 1133967,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_left_release",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/eagle_pin_left_settle.png",
+      "sha256": "654829c3e4f0cfcc63c9b32c920f681e0ed939ac7f6e6ef931ee424907c26e5d",
+      "bytes": 1132800,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_left_settle",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/eagle_pin_right_pressed.png",
+      "sha256": "b38597ecff54ad611c3fb58bcde9faf6c0cc67530a7f8e93c72d2683db3f3cf1",
+      "bytes": 1178541,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_right_pressed",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/eagle_pin_right_release.png",
+      "sha256": "9a12b89a63bcb9171b8b30d8a557d8d2cbcb9feb4e11107930cb3d6be6182455",
+      "bytes": 1174382,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_right_release",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/eagle_pin_right_settle.png",
+      "sha256": "920e9db6f3109196f1ec1d4e389577be18d7dd150c802c5e0e8cd1c5c4117613",
+      "bytes": 1173982,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_right_settle",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt1_rescue_1280/rescue_offer.png",
+      "sha256": "f9c40ca44ce1aad2666dac1ff995b661bb013b502df7ac496dc597ac628fc2ef",
+      "bytes": 1166205,
+      "case": "attempt1_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "rescue_offer",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/hall_checkpoint.png",
+      "sha256": "798fe73079ea790e49d3ec1901be7d8cfab5c339fbfba82994e819d835741cc8",
+      "bytes": 1500838,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "hall_checkpoint",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/room_ready.png",
+      "sha256": "0074b4a44af0abe647a2e5085331e66d2da2bda2ef68af175276fa00962aa229",
+      "bytes": 1179802,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_ready",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/room_passive.png",
+      "sha256": "bfd2f515048dad0ea088399ea00663926775a0418d3b5b25a2d649233af7dc06",
+      "bytes": 1179304,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_passive",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/room_pause.png",
+      "sha256": "3edf9a82b58e42a1b681bcf75807bbd3923d6a031d68b9f9cbd098433ccc88c3",
+      "bytes": 401076,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_pause",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/room_resumed.png",
+      "sha256": "59702357809bf505445a6971934e05178da3a5bcc678501fe933bb2bf6c89baf",
+      "bytes": 1179386,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_resumed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_brushes_pressed.png",
+      "sha256": "c05bf7c6123dc27843cb316062e6538a84462c75e98caa8f76cbcccce71e4701",
+      "bytes": 1179688,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_brushes_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_brushes_contact.png",
+      "sha256": "58a219832eb2bd186cd8f45b8edac17a5505a6ad9932bb242793de6697c7c2f3",
+      "bytes": 1181524,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_brushes_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_brushes_changed.png",
+      "sha256": "cb3616f9a2d9a4c6ed39337d32ad332ff984007cc0e758dfe27961a3e39485b9",
+      "bytes": 1180130,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_brushes_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_pink_paint_pressed.png",
+      "sha256": "743e8baaae9d59229b638389ad7d5175800317d3f4fc3cbd4f104237d003ffb9",
+      "bytes": 1178956,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_pink_paint_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_pink_paint_contact.png",
+      "sha256": "ea7c6ee3ebd6859320dfcc5a1db1c9f079711bdffedc9348f02718aee8853ca1",
+      "bytes": 1177854,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_pink_paint_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_pink_paint_changed.png",
+      "sha256": "c2d2efef38de389a2d7a9d79275c5e8f3c1e551552ae80cb7599030a348cf086",
+      "bytes": 1174982,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_pink_paint_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_blue_paint_pressed.png",
+      "sha256": "49b4b7172142e14410cd0946a260a5fc2bb86f144b97baa22bd9a658c94c5691",
+      "bytes": 1175716,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_blue_paint_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_blue_paint_contact.png",
+      "sha256": "b802886d749047aef42522be59662913245a334b227b37c651b2484fc921f2ec",
+      "bytes": 1170190,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_blue_paint_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_blue_paint_changed.png",
+      "sha256": "accdf747af54e38441e0a759e51d1e88be7657cab643af11a10da10d0e1c00bd",
+      "bytes": 1176352,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_blue_paint_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_paint_cups_pressed.png",
+      "sha256": "6a4ff3b12e3001ca758657c9ea3084ff06046ba290b47f6a7e891cff10798c06",
+      "bytes": 1176688,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_paint_cups_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_paint_cups_contact.png",
+      "sha256": "caa65b18c0a05a7bf3d605ccec8b4f8100d7bfca32d0392b6600e4235a20e351",
+      "bytes": 1172193,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_paint_cups_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/material_paint_cups_changed.png",
+      "sha256": "3e9c23acc3e0826fcf0d88631f062f893d573744b84ba9d1ed65c74d5e8a802f",
+      "bytes": 1174999,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "material_paint_cups_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/grime_left_counter_pressed.png",
+      "sha256": "1bb58115d9d372e48772a765569b9981a20c32f49ca0c1ae24e6843795860516",
+      "bytes": 1174976,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "grime_left_counter_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/grime_left_counter_contact.png",
+      "sha256": "4361c0008f377c9c7174ce3bab79d68d419df5336ca6efadbfd9b9ce03c289c0",
+      "bytes": 1168360,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "grime_left_counter_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/grime_left_counter_changed.png",
+      "sha256": "204c15d722989e42a1e904cb6adbd0e17531df75b0045d40081df36638ed7c2b",
+      "bytes": 1164308,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "grime_left_counter_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/grime_desk_counter_pressed.png",
+      "sha256": "23e0d968916e8c3699b8e2620a3a68e63811b1002b1642f03d82757adbe52e13",
+      "bytes": 1164404,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "grime_desk_counter_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/grime_desk_counter_contact.png",
+      "sha256": "8829b27411de6c0f5f3e9e6cff05f8387fbb0262c92242cad076d8b35be7fc14",
+      "bytes": 1173724,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "grime_desk_counter_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/grime_desk_counter_changed.png",
+      "sha256": "932d67055b82e60578a4cab29979f63f93ac53c238e01a2117fbba2c9556a313",
+      "bytes": 1171514,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "grime_desk_counter_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/grime_right_counter_pressed.png",
+      "sha256": "8581a8a46992339f58905a95e365e3ab8e84402bc11af8f8dfcfd3fab38964b1",
+      "bytes": 1171240,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "grime_right_counter_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/grime_right_counter_contact.png",
+      "sha256": "1a4ac1f118e51674da90e354f45800cc4ff97e5ebb578809e4068f8845a6ebf4",
+      "bytes": 1170734,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "grime_right_counter_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/grime_right_counter_changed.png",
+      "sha256": "ad2d6bdf2c939281b0c20eb4795f2121c1d0626685c1b8d9ef645489dffc4f2d",
+      "bytes": 1173026,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "grime_right_counter_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/desk_unlocked.png",
+      "sha256": "c890b52e6d0d50c1fd6d123d2def635783e3d8ab1f81373e2b6ae41721d36ce9",
+      "bytes": 1170780,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "desk_unlocked",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/desk_customizer.png",
+      "sha256": "69371fb10182226d1d37a0e3c6be95b617bdf32a7741c21754e8553552dd12a0",
+      "bytes": 456420,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "desk_customizer",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/art_complete_room.png",
+      "sha256": "168e7e737a33c9df25c26e134855d83625a7d4bd0c69526da8e6048e34e72400",
+      "bytes": 1211868,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "art_complete_room",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/reload_hall.png",
+      "sha256": "971665c1d48b62ed699063d4911d8334a2055df58b71ae6502519d797698070f",
+      "bytes": 1508102,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "reload_hall",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1280/reload_reentry.png",
+      "sha256": "bb6a0e1e7ba94717ef97c18b60b53bdcd27389e780eb2cc2d78952739154f761",
+      "bytes": 1212101,
+      "case": "attempt2_art_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "reload_reentry",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/hall_checkpoint.png",
+      "sha256": "87337c272d018cc36f029bea454730f6943be009e8ca637284ddc44105ebd751",
+      "bytes": 1903618,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "hall_checkpoint",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/room_ready.png",
+      "sha256": "ee604a895d4984fa442e40c590e4dcdb47dc37abd166b6561c2daf24207dd093",
+      "bytes": 1212988,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "room_ready",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/room_passive.png",
+      "sha256": "f9940917949ea30d87d7f378160f59206335f10139929b32ee93c125edb4a7df",
+      "bytes": 1211214,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "room_passive",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/room_pause.png",
+      "sha256": "dc24c96cce2cd90cbb78f63954bd80b7d7dcf4dd7acbc26e81ce92db3c578622",
+      "bytes": 433669,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "room_pause",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/room_resumed.png",
+      "sha256": "9f2493acde0af7cd18c45d0b826c4dd80b91b4e7548b6c76ed2960fd183bae28",
+      "bytes": 1210411,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "room_resumed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_brushes_pressed.png",
+      "sha256": "fe577ec0ca6ad5d499d475fb35ec3e6cc80f4d155dfed16ed7a7c086e3b2cf99",
+      "bytes": 1211054,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_brushes_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_brushes_contact.png",
+      "sha256": "35c6850277c2315b32993cd8985278a5e9f9538c1048516f1d65b14693c91793",
+      "bytes": 1213324,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_brushes_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_brushes_changed.png",
+      "sha256": "05810c3a6a1f24a5c29402838b92defee514cf7ba5be3c87e9c508b9944e824d",
+      "bytes": 1211166,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_brushes_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_pink_paint_pressed.png",
+      "sha256": "874971f31b56f23ef68a3ff4947a52f2c1003ea78b2a0a1b9530694b2ac781ac",
+      "bytes": 1210557,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_pink_paint_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_pink_paint_contact.png",
+      "sha256": "87f8be50957e529e8a0f7f1b60c1c9ab998d55289ed565afad000c14e809fb02",
+      "bytes": 1211456,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_pink_paint_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_pink_paint_changed.png",
+      "sha256": "4be03db9ad190e618826f42b559f5fb41c7507037a727b78b4a653d257f03731",
+      "bytes": 1207427,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_pink_paint_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_blue_paint_pressed.png",
+      "sha256": "907aa7a0b53a373c5aed54eed1626d0487b268423eb90f2f03cd6e17d5bf1610",
+      "bytes": 1207627,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_blue_paint_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_blue_paint_contact.png",
+      "sha256": "631029165e08f6a1bb347ba4ff0e956bf0a7f6937f47362564ec384772c14907",
+      "bytes": 1203040,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_blue_paint_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_blue_paint_changed.png",
+      "sha256": "46e3425fe8d812122dc29c99d8b86e6295c870084004d7011004e177145c4e58",
+      "bytes": 1209969,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_blue_paint_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_paint_cups_pressed.png",
+      "sha256": "81d8f8ca2989dd58bc2318c5b3da885014cd5caffe31767a596c6f64423f7e1e",
+      "bytes": 1208185,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_paint_cups_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_paint_cups_contact.png",
+      "sha256": "c7353f535e4648c5457a15e5e3b22c8c905c4938defaa00259403111bc66500e",
+      "bytes": 1205990,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_paint_cups_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/material_paint_cups_changed.png",
+      "sha256": "9d742c9da3d6fe8a6a91a50bdaffd916adca646fd69dfcc47a1aca1859d579e8",
+      "bytes": 1208197,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "material_paint_cups_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/grime_left_counter_pressed.png",
+      "sha256": "7f654d79ebf6233c29341b4ab50a876f3a19dc83af9373660d3a6038187aa6e1",
+      "bytes": 1208674,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "grime_left_counter_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/grime_left_counter_contact.png",
+      "sha256": "2b0679045afb47f018bbc885d172609d50c17f6b2bd0daec9c6a69746264e88d",
+      "bytes": 1202041,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "grime_left_counter_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/grime_left_counter_changed.png",
+      "sha256": "ed78a23fc24eba38b2c28ac3388af9798f26861b6b55ad7f0932e8547b7387cb",
+      "bytes": 1197600,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "grime_left_counter_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/grime_desk_counter_pressed.png",
+      "sha256": "9060e27f12f1a31338cd5cedf3a270e862c5078b79cfe4caaa83f9b951cd2c81",
+      "bytes": 1197710,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "grime_desk_counter_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/grime_desk_counter_contact.png",
+      "sha256": "e7ae6e849c82a6b1e99204112e9df6d7ead7fc42e2d9158ca8b825dda43f95f3",
+      "bytes": 1207927,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "grime_desk_counter_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/grime_desk_counter_changed.png",
+      "sha256": "af25d12fa89806c204b7cfd14d09765a6f1f36d1049aad9ee534d17483977f81",
+      "bytes": 1205186,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "grime_desk_counter_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/grime_right_counter_pressed.png",
+      "sha256": "f843ec2a637310928ad5f634f43197bb551ff672ce1f2c01744c21cb14b66b99",
+      "bytes": 1205105,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "grime_right_counter_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/grime_right_counter_contact.png",
+      "sha256": "ee189fd6b24e60a0af347715b974e182d2b6b3811e639e6c242a993ca6099ab0",
+      "bytes": 1203224,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "grime_right_counter_contact",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/grime_right_counter_changed.png",
+      "sha256": "da7fb774133bc84a1ca66c00f1f9abc1965dbea2cabfaab68e32db62b13bafb5",
+      "bytes": 1205756,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "grime_right_counter_changed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/desk_unlocked.png",
+      "sha256": "694c40b0f9be6b2ba610487b31cb0f10b93f7ae108586cd90367b7f630a7a53f",
+      "bytes": 1205122,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "desk_unlocked",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/desk_customizer.png",
+      "sha256": "6a867bd3c4bf8bba172fa3ce50c182ba7098bd7e1828a38dd6538c7a2f44b1cf",
+      "bytes": 494268,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "desk_customizer",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/art_complete_room.png",
+      "sha256": "09da12a27ca0830dab4ebed71de881be4f27f8b333a7d87c2582cf677e534afc",
+      "bytes": 1245435,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "art_complete_room",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/reload_hall.png",
+      "sha256": "7d2ba34e942d739e657136b9204faa3529ab85fd6342bdcafb9867c205559388",
+      "bytes": 1779207,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "reload_hall",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_art_1600/reload_reentry.png",
+      "sha256": "52e53906d52d6daa88a2ad8674330d041402871530a212751755ad3b48b9d1bc",
+      "bytes": 1246552,
+      "case": "attempt2_art_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "reload_reentry",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/hall_checkpoint.png",
+      "sha256": "bf9ddbc0073a8e39ca06b6121f5f1351ca5064bbd142b8c41fcdd62f0a29a5f0",
+      "bytes": 1492198,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "hall_checkpoint",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/room_ready.png",
+      "sha256": "8bfbf65853f2c92c0c0de72522ec7f2e31c8973ac7e5a72cb3b5e5a3543f6103",
+      "bytes": 1142551,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_ready",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/room_passive.png",
+      "sha256": "52c9b64f021e4f29d0bd9ae722c047b4339d313314b9e40b8b2bb1656ab29184",
+      "bytes": 1141229,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_passive",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/room_pause.png",
+      "sha256": "06a9bcbc49e3fbdf3a7afbbac379b2cd96c75ec59e689289cc38b239ce6f68ee",
+      "bytes": 389688,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_pause",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/room_resumed.png",
+      "sha256": "3a4f4d2af561c48125b10456cf0df360998c0a54bfc9eb254ed99742cdc6f03d",
+      "bytes": 1141042,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "room_resumed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/eagle_pin_left_pressed.png",
+      "sha256": "e9f8aa371ed914a79a244a6b1ce33ac5b4624edbfb09576550fc2b0320f3b43a",
+      "bytes": 1138440,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_left_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/eagle_pin_left_release.png",
+      "sha256": "0a66c7cdc574d19813ec00b9ee5971bd7fddf069243d363df573bd22221c4924",
+      "bytes": 1133601,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_left_release",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/eagle_pin_left_settle.png",
+      "sha256": "316cf357c2eeb24662a682c0af1f88cce9b636e96d0e6dc354510fc933a8a5ad",
+      "bytes": 1132450,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_left_settle",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/eagle_pin_right_pressed.png",
+      "sha256": "a8f60013c4f55f18dc32093330ac3658e18a772f514aedba2f37fbe3e87aa439",
+      "bytes": 1178853,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_right_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/eagle_pin_right_release.png",
+      "sha256": "cf7283e9cb1e45d1e67d23461997b3d40803ed150bf54cf5d7b81338a628fc80",
+      "bytes": 1174209,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_right_release",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/eagle_pin_right_settle.png",
+      "sha256": "eaa2edb94d20301e0a3dd6455087c83d5affceb94c510e62654febe55322e6ab",
+      "bytes": 1173153,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_pin_right_settle",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/rescue_offer.png",
+      "sha256": "309df7ebe3383d6b96ac8548e204219a821a8ef0d1055013ebfdf60aa5c2ada8",
+      "bytes": 270362,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "rescue_offer",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/eagle_choice.png",
+      "sha256": "156ef9250aab55a7915961138daea978b8c1f2096bb7fef83f0853c0fc8436af",
+      "bytes": 271594,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "eagle_choice",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/adopted_checkpoint.png",
+      "sha256": "b6d903707c99f9db22084403a9dc214fc982d4d9252f2512f54d40c16946b011",
+      "bytes": 1177219,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "adopted_checkpoint",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/rescue_room_after_offer.png",
+      "sha256": "2bf5d9ace026c2a6b506f2b297326bc225e5d8535d83dcefcaeee1b21cb07160",
+      "bytes": 1177218,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "rescue_room_after_offer",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/reload_hall.png",
+      "sha256": "7e4615a4cc594ed083445848e4be1fd3b0b12e86c17c0d719bb8d2bd4d594468",
+      "bytes": 1500431,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "reload_hall",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1280/reload_reentry.png",
+      "sha256": "23554b43047493e4c419277345d39a7475eb810a9c2db1bebfb507ec4f4aec77",
+      "bytes": 1176003,
+      "case": "attempt2_rescue_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "state_id": "reload_reentry",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/hall_checkpoint.png",
+      "sha256": "f0236eb4a9243c445f758977331335ddcaee8b85c95af5046f04e8df3f1ebf7b",
+      "bytes": 1864791,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "hall_checkpoint",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/room_ready.png",
+      "sha256": "11539c3f72af7f581be511ed051e875e73ccc1bd66250870abd04b9fc4df3448",
+      "bytes": 1187353,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "room_ready",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/room_passive.png",
+      "sha256": "891e9b94b43ed8c54978dbebd87fd5433cc7132e55e701bece1299a7944b5ae0",
+      "bytes": 1186787,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "room_passive",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/room_pause.png",
+      "sha256": "dde076a8c5ab67b5964ed45eb20c5533c1adb7298fab36e0c1092a035e90a8ca",
+      "bytes": 410045,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "room_pause",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/room_resumed.png",
+      "sha256": "b228bb1c6d0fc725d05a87f324b036acfe1e115b6a4a0c3275b7a5a516f10091",
+      "bytes": 1186630,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "room_resumed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/eagle_pin_left_pressed.png",
+      "sha256": "2a09b0c47d689c28dff54cac8e864dab113dbd983ab777fcfee23ec355a5bfb8",
+      "bytes": 1183697,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "eagle_pin_left_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/eagle_pin_left_release.png",
+      "sha256": "0aab6d4749cfd091b8ab3236c46a0505c0c3ac664dfd4a3e9097cbe420ab5b88",
+      "bytes": 1178751,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "eagle_pin_left_release",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/eagle_pin_left_settle.png",
+      "sha256": "c6dd7a90e71c0174c0c0805743778504f8b687ea56280efec7cba72e5e9cafa0",
+      "bytes": 1177606,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "eagle_pin_left_settle",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/eagle_pin_right_pressed.png",
+      "sha256": "6d4c3d57a2e066064630bce6b5e0d0827ed774497007aae0f3ea9955a3c78016",
+      "bytes": 1224325,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "eagle_pin_right_pressed",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/eagle_pin_right_release.png",
+      "sha256": "2fdc6d40c5460773d25d4ef4ffe2c4294b9b2febe584fb1d8af501fa05a6c0a7",
+      "bytes": 1220261,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "eagle_pin_right_release",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/eagle_pin_right_settle.png",
+      "sha256": "28da8d5c297f759506d4c61e0e3fd428c267c345ba49a6ac2298a2eb51e622d7",
+      "bytes": 1219687,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "eagle_pin_right_settle",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/rescue_offer.png",
+      "sha256": "4d839813be480bddbf46fdc0900833b31d15ca21ff2a8e159a73880313032012",
+      "bytes": 276732,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "rescue_offer",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/eagle_choice.png",
+      "sha256": "5b791a69c124dcbece8301963b30cbac671fdd13d98b23d82af330951ec4f25e",
+      "bytes": 278703,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "eagle_choice",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/adopted_checkpoint.png",
+      "sha256": "d9fdd6079e6b0e1cac21a92f961911e58906bb14ed17ba10a92ca7f772796d43",
+      "bytes": 1223291,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "adopted_checkpoint",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/rescue_room_after_offer.png",
+      "sha256": "8cdaf410beea4aae444e2e1ff1fbdefbc00e8281e908eb4be4b96b03150c51f1",
+      "bytes": 1223259,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "rescue_room_after_offer",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/reload_hall.png",
+      "sha256": "273219ee27bc39207f3ec0ededde0fcb175fbd9faccfc7e95af4df665547a075",
+      "bytes": 1903092,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "reload_hall",
+      "art_context_credit": false,
+      "role": "EXCLUDED_PRIOR_FAILURE_ENTRY_PAUSE_OR_OVERLAY_DIAGNOSTIC",
+      "full_natural_journey_proved": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r47_day_one_room_context/native/attempt2_rescue_1600/reload_reentry.png",
+      "sha256": "0658877ef7297e4e9088f02159e206cbd5229c759cd343ab39a55a8c8b4e353c",
+      "bytes": 1221130,
+      "case": "attempt2_rescue_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "state_id": "reload_reentry",
+      "art_context_credit": true,
+      "role": "CURRENT_SAVED_CHECKPOINT_ROOM_CONTEXT",
+      "full_natural_journey_proved": false
+    }
+  ],
+  "credit_rule": "78 current clear room-action state files;exclude12first-attempt readiness diagnostics and18current entry,pause,reload-hall,picker andcustomizer views. Bounded state files are not unique scenes,pieces or accepted artwork.",
+  "accepted_removed": 0,
+  "mission_complete": false
+}

@@ -1,6 +1,12 @@
-Current canonical evidence: [R46 Melody context](r46_melody_context/README.md), [registry](r46_melody_context/per_piece.json), [coverage](r46_melody_context/scene_coverage.json), [tally](r46_melody_context/tally.json).
+Current canonical evidence: [R47 Day One room context](r47_day_one_room_context/README.md), [registry](r47_day_one_room_context/per_piece.json), [coverage](r47_day_one_room_context/scene_coverage.json), [tally](r47_day_one_room_context/tally.json).
 
-# Current R46 Melody source/API context
+# Current R47 Day One room context
+
+Four actual room-door/action/reload cases;108native/78bounded/30excluded. Five new named caller roles,235knownroles/31families,0accepted/global unknown;natural full journey andallacceptance remain open.
+
+Historical R46 evidence: [R46 Melody context](r46_melody_context/README.md), [registry](r46_melody_context/per_piece.json), [coverage](r46_melody_context/scene_coverage.json), [tally](r46_melody_context/tally.json).
+
+# Historical R46 Melody source/API context
 
 58 native captures/48 bounded contexts;ten existing visible Melody roles reviewed against painted neighbors. Natural entry remains unverified.230 known roles/31 families,0 accepted removals/global unknown.
 

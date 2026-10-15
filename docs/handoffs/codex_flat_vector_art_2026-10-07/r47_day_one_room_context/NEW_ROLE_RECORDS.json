@@ -1,0 +1,231 @@
+{
+  "baseline": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+  "records": [
+    {
+      "id": "FVR-34A861041002",
+      "stable_id_input": "scripts/day_one_art_studio.gd::_build_pointer::Art Room instructional hand",
+      "name": "Art Room instructional hand",
+      "family": "day_one",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_SAVED_CHECKPOINT_CONTEXT",
+      "source_revision": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+      "source": {
+        "path": "scripts/day_one_art_studio.gd",
+        "function": "_build_pointer",
+        "revision": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+        "file_sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+        "start_line": 285,
+        "end_line": 298,
+        "body_sha256": "916cc9d4cff9a3aa1644a1affd30d96d6e10ec709b8f6c2fa6e2fb690d50b905",
+        "hash_mode": "Exact Git LF source body and complete-file bytes"
+      },
+      "target_specific_observation": "A large yellow emoji hand with white rim floats above the source-painted brush bundle; it has a different silhouette/material treatment and dominates the small object it points toward.",
+      "review_log": [
+        "REVIEW.json"
+      ],
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "integration_sha": null,
+      "acceptance_evidence": {
+        "candidate": null,
+        "approved": null,
+        "integrated": 0,
+        "runtime_verified_replacement": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false,
+        "DL_QA_11": "NOT_ESTABLISHED"
+      },
+      "blocked_dependencies": [
+        "Approved reusable whole-image candidate or documented failed-reuse gap",
+        "All caller/action/contact/occlusion/fallback states",
+        "Natural full journey and actual device/child/owner/live-target evidence"
+      ]
+    },
+    {
+      "id": "FVR-E92D78F36156",
+      "stable_id_input": "scripts/day_one_art_studio.gd::_draw::Art Room desk star and halo invitation",
+      "name": "Art Room desk star and halo invitation",
+      "family": "day_one",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_SAVED_CHECKPOINT_CONTEXT",
+      "source_revision": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+      "source": {
+        "path": "scripts/day_one_art_studio.gd",
+        "function": "_draw",
+        "revision": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+        "file_sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+        "start_line": 173,
+        "end_line": 182,
+        "body_sha256": "e7376b95aab4742d492ffbce3141bf4f12a5c2ed5cd0a2743b17d04eb1d58559",
+        "hash_mode": "Exact Git LF source body and complete-file bytes"
+      },
+      "target_specific_observation": "Three broad uniform amber rings and a glyph star appear over the source-painted desk after seven real cleanup actions; they have no desk-material shading/contact and cross the room objects.",
+      "review_log": [
+        "REVIEW.json"
+      ],
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "integration_sha": null,
+      "acceptance_evidence": {
+        "candidate": null,
+        "approved": null,
+        "integrated": 0,
+        "runtime_verified_replacement": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false,
+        "DL_QA_11": "NOT_ESTABLISHED"
+      },
+      "blocked_dependencies": [
+        "Approved reusable whole-image candidate or documented failed-reuse gap",
+        "All caller/action/contact/occlusion/fallback states",
+        "Natural full journey and actual device/child/owner/live-target evidence"
+      ]
+    },
+    {
+      "id": "FVR-C524BBF930F9",
+      "stable_id_input": "scripts/day_one_art_studio.gd::_spawn_clean_sparkles::Art Room cleanup glyph sparkle burst",
+      "name": "Art Room cleanup glyph sparkle burst",
+      "family": "day_one",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_SAVED_CHECKPOINT_CONTEXT",
+      "source_revision": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+      "source": {
+        "path": "scripts/day_one_art_studio.gd",
+        "function": "_spawn_clean_sparkles",
+        "revision": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+        "file_sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+        "start_line": 542,
+        "end_line": 563,
+        "body_sha256": "35fa8ff32ee13194e314290b033fbdcd63ca4abc5e361fff82b990b5d42f8e0d",
+        "hash_mode": "Exact Git LF source body and complete-file bytes"
+      },
+      "target_specific_observation": "Seven code-created glyph stars animate around each completed cleanup; exact text glyph/constant color differs from the painted room. Captures sample this transient and do not review every frame.",
+      "review_log": [
+        "REVIEW.json"
+      ],
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "integration_sha": null,
+      "acceptance_evidence": {
+        "candidate": null,
+        "approved": null,
+        "integrated": 0,
+        "runtime_verified_replacement": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false,
+        "DL_QA_11": "NOT_ESTABLISHED"
+      },
+      "blocked_dependencies": [
+        "Approved reusable whole-image candidate or documented failed-reuse gap",
+        "All caller/action/contact/occlusion/fallback states",
+        "Natural full journey and actual device/child/owner/live-target evidence"
+      ]
+    },
+    {
+      "id": "FVR-02BF341E91E7",
+      "stable_id_input": "scripts/arena/castle_rooms_25d.gd::_add_playroom_rescue_pointer::Playroom rescue star pointer",
+      "name": "Playroom rescue star pointer",
+      "family": "day_one",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_SAVED_CHECKPOINT_CONTEXT",
+      "source_revision": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+      "source": {
+        "path": "scripts/arena/castle_rooms_25d.gd",
+        "function": "_add_playroom_rescue_pointer",
+        "revision": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+        "file_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+        "start_line": 4927,
+        "end_line": 4956,
+        "body_sha256": "73fcd0a9e78e373fc62c4da8e33d901cfad63f09f512a73e362c0ba76a7a80d6",
+        "hash_mode": "Exact Git LF source body and complete-file bytes"
+      },
+      "target_specific_observation": "The floating five-point gold raster star above the toy throne is visibly separate from the painted room; it requires a preserved whole-image storybook material/scale fit.",
+      "review_log": [
+        "REVIEW.json"
+      ],
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "integration_sha": null,
+      "acceptance_evidence": {
+        "candidate": null,
+        "approved": null,
+        "integrated": 0,
+        "runtime_verified_replacement": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false,
+        "DL_QA_11": "NOT_ESTABLISHED"
+      },
+      "blocked_dependencies": [
+        "Approved reusable whole-image candidate or documented failed-reuse gap",
+        "All caller/action/contact/occlusion/fallback states",
+        "Natural full journey and actual device/child/owner/live-target evidence"
+      ]
+    },
+    {
+      "id": "FVR-E0DB013924F9",
+      "stable_id_input": "scripts/arena/castle_rooms_25d.gd::_item_burst::Castle rescue and pop star motes",
+      "name": "Castle rescue and pop star motes",
+      "family": "day_one",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_SAVED_CHECKPOINT_CONTEXT",
+      "source_revision": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+      "source": {
+        "path": "scripts/arena/castle_rooms_25d.gd",
+        "function": "_item_burst",
+        "revision": "dca7e7ce8d712b2b16ab004b7fcd070d3133b8b7",
+        "file_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+        "start_line": 4446,
+        "end_line": 4496,
+        "body_sha256": "be5c08594d7691e10730b754fad792ba5480a1f591845af35240c10ca967d451",
+        "hash_mode": "Exact Git LF source body and complete-file bytes"
+      },
+      "target_specific_observation": "The same existing star PNG becomes multiple tinted burst sprites around a pin pop; viewed green/gold stars overlap Roshan and Eagle. It is a distinct caller role,not a second underlying drawing asset.",
+      "review_log": [
+        "REVIEW.json"
+      ],
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "integration_sha": null,
+      "acceptance_evidence": {
+        "candidate": null,
+        "approved": null,
+        "integrated": 0,
+        "runtime_verified_replacement": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false,
+        "DL_QA_11": "NOT_ESTABLISHED"
+      },
+      "blocked_dependencies": [
+        "Approved reusable whole-image candidate or documented failed-reuse gap",
+        "All caller/action/contact/occlusion/fallback states",
+        "Natural full journey and actual device/child/owner/live-target evidence"
+      ]
+    }
+  ],
+  "new_named_roles": 5,
+  "new_families": 0,
+  "count_unit": "Named caller/visual roles;rescue pointer andburst reuse one existing star asset. Not five new drawings,files or globally unique artwork pieces. Seven source-painted supply/grime textures remain references,not invented flat defects or replacement credits.",
+  "approved": 0,
+  "accepted_removed": 0,
+  "mission_complete": false
+}
