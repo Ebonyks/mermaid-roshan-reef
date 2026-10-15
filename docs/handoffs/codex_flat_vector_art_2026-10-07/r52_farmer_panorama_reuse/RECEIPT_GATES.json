@@ -1,4 +1,51 @@
 {
-  "status": "PENDING_EXACT_PUBLICATION_OR_FINAL_BYTE_VERIFICATION",
+  "status": "PASS_AUDIT_METADATA_SAVE_FAILURE_RETAINS_ITS_SCOPE",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r52_farmer_panorama_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "08ec8d763d05d494a9f489f97c0d68f81ee3bdf13b32ecb48e202c684a2c8d2c",
+      "checked_at_utc": "2026-10-15T10:02:22.298167+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "50e5816a2e9859cec4ca3336607f04ac20963cc1c9e0133f88619248006c9348",
+      "checked_at_utc": "2026-10-15T10:02:31.119195+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T10:02:35.886346+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "checked_at_utc": "2026-10-15T10:03:39.226466+00:00",
+      "scope": "All receipt files staged;NO_REGRESSION not strict-zero satisfaction"
+    }
+  ],
+  "raw_log_sha256": "802fab5d472f98ef25c76b90bc057b24857c3472a66ae1e80d0b6c9453bfe719",
   "creative_acceptance": false
 }

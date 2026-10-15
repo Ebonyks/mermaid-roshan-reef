@@ -81,6 +81,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/CAPTURE_INDEX.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/CONGRUENCY_BACKLOG.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/CONTEXT_PREREQUISITE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/DELIVERY_TRANSPORT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/EXECUTED_CANDIDATE_SOURCE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/FIXTURE_PRECHECK.json",
@@ -218,8 +219,8 @@
     },
     {
       "command": "Exact public payload/direct dependencies/metadata/finalproof remote verification",
-      "result": "PENDING",
-      "evidence": "Established same durable topic;no local-only handoff"
+      "result": "PASS",
+      "evidence": "Exact payload88711cc99993a69dabbfa9ffd3d61a3c40a56266:all205 direct R52/source/canonical dependencies/162713292 bytes anonymously verified at2026-10-15T10:01:08.195288+00:00. ManifestSHA6a5a10641b9ae3146e03dd9dc9e704e13c0aeb352fac911c196fb7ea20671be5;historicalR50 full closure keeps its original immutable receipt/time. Current final metadata verified separately;no art/adoption acceptance."
     }
   ],
   "acceptance_gaps": "Whole-game denominator/inventory/coverage/callers and0replacements accepted;native/per-screen/global/QA11/device/child/owner acceptance open. R51savefailure andfiveotherweaknesses remain unrepaired;no production adoption.",
