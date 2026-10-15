@@ -52,6 +52,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/CONTEXT_PREREQUISITE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/CURRENT_PARTIAL_CONTEXT_UNION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/DELIVERY_SOURCE_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/DELIVERY_TRANSPORT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/FIXTURE_REPAIR_HISTORY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/FIXTURE_SYNTAX_GATES.json",
@@ -63,6 +64,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/PASSIVE_FIXTURE_SYNTAX_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/REPRODUCTION_INPUTS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/REUSE_INVENTORY.json",
@@ -207,6 +209,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt3_critter_passive_1280/passive_menu_released.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt3_critter_passive_1280/passive_private_checkpoint.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/run_passive.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/scene_coverage.json",
@@ -227,8 +230,8 @@
     },
     {
       "command": "Payload/direct dependency/receipt/final exact public bytes",
-      "result": "PENDING",
-      "evidence": "Same durable topic; no art or mission acceptance from publication."
+      "result": "PASS",
+      "evidence": "Exact payload 022c49f55e02b2b8a2080f615b38ce008446b5b8: all 553 direct R58/source/canonical dependencies / 117295847 bytes anonymously verified at 2026-10-15T14:49:55.602761+00:00; manifestSHA f9ded1489695b0157f292e89cb574ec6ba025dbf7c9facb01ab2b17aa1e31a8e. Historical parent transitive verification retains its exact prior receipt/time. Final metadata verified separately; no creative or mission acceptance."
     }
   ],
   "acceptance_gaps": "Full18critter catch/source reachability, caught/partial/full book/suspension variants, all57callback/native domains and whole-game denominator; QA11/freshOS/device/child/owner strict2D remain open. No runtime replacement authorized in phase1."
