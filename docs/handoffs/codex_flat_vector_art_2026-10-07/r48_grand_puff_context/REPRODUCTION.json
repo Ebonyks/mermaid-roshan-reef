@@ -1,0 +1,22 @@
+{
+  "fixture": "capture_grand_puff.gd",
+  "wrapper": "run_capture.py",
+  "baseline": "677ee7b734c9c58dc2464c99f021715d347835db",
+  "actual_cases": 2,
+  "source_oracle": true,
+  "normal_save_suffixes_unchanged": 8,
+  "sidecars_unchanged": 4039,
+  "native_dimensions": [
+    [
+      1280,
+      720
+    ],
+    [
+      1600,
+      720
+    ]
+  ],
+  "private_seed": "Exact seeds in each report. All-room/clip/companion state synthetic; subsequent inputs use unmodified callbacks. Actual child data never seeded/changed.",
+  "engine": "4.7.2-stable official ed1daf0bf; Mobile/Speedy; real Vulkan viewport",
+  "new_art_or_runtime_changes": false
+}

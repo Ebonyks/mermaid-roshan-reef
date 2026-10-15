@@ -1,6 +1,12 @@
-Current canonical evidence: [R47 Day One room context](r47_day_one_room_context/README.md), [registry](r47_day_one_room_context/per_piece.json), [coverage](r47_day_one_room_context/scene_coverage.json), [tally](r47_day_one_room_context/tally.json).
+Current canonical evidence: [R48 Grand Puff context](r48_grand_puff_context/README.md), [registry](r48_grand_puff_context/per_piece.json), [coverage](r48_grand_puff_context/scene_coverage.json), [tally](r48_grand_puff_context/tally.json).
 
-# Current R47 Day One room context
+# Current R48 Grand Puff context
+
+Two actual source-assisted portal/encounter cases; 60 native / 56 bounded / 4 excluded. Five new caller roles, 240 known records / 32 families. 83 partial catalogue entries / 93 without / zero complete. Global totals and all acceptance remain open.
+
+Historical R47 evidence: [R47 Day One room context](r47_day_one_room_context/README.md), [registry](r47_day_one_room_context/per_piece.json), [coverage](r47_day_one_room_context/scene_coverage.json), [tally](r47_day_one_room_context/tally.json).
+
+# Historical R47 Day One room context
 
 Four actual room-door/action/reload cases;108native/78bounded/30excluded. Five new named caller roles,235knownroles/31families,0accepted/global unknown;natural full journey andallacceptance remain open.
 

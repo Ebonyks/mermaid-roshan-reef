@@ -1,0 +1,226 @@
+{
+  "baseline": "677ee7b734c9c58dc2464c99f021715d347835db",
+  "records": [
+    {
+      "id": "FVR-FD71955C4644",
+      "stable_id_input": "scripts/boss_splash_2d.gd::_build_name::Grand Puff splash nameplate",
+      "name": "Grand Puff splash nameplate",
+      "family": "grand_puff",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+      "source": {
+        "path": "scripts/boss_splash_2d.gd",
+        "function": "_build_name",
+        "revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+        "file_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+        "body_sha256": "0e0c02943412e3f6097ba59fa7f9b652bace871d98f3243c7bc9599c0a367dea",
+        "start_line": 166,
+        "end_line": 186,
+        "hash_mode": "Exact Git source file and contiguous function body bytes"
+      },
+      "target_specific_observation": "Uniform cream capsule and regular indigo rim/shadow differ from the painted stone/trim and boss contours. Shared panel parent remains FV-E9E82E0C6703; new ID names this caller, not a new unique drawing.",
+      "review_log": [
+        "REVIEW.json"
+      ],
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "integration_sha": null,
+      "acceptance_evidence": {
+        "candidate": null,
+        "approved": null,
+        "integrated": 0,
+        "runtime_verified_replacement": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false,
+        "DL_QA_11": "NOT_ESTABLISHED"
+      },
+      "blocked_dependencies": [
+        "Whole visual/compositing role disposition; approved reuse fit or documented failed-reuse gap",
+        "All callers/action/contact/occlusion/fallback/teardown/save variants",
+        "Natural journey, device/child/owner and independent live-target evidence"
+      ]
+    },
+    {
+      "id": "FVR-FF05EBC3386B",
+      "stable_id_input": "scripts/boss_splash_2d.gd::_build_character::Grand Puff splash ground shadow",
+      "name": "Grand Puff splash ground shadow",
+      "family": "grand_puff",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+      "source": {
+        "path": "scripts/boss_splash_2d.gd",
+        "function": "_build_character",
+        "revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+        "file_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+        "body_sha256": "5053884a0cc10334275d2a1f6bdfec849997ac66d5d4bf78f27c0d2e70d72bce",
+        "start_line": 113,
+        "end_line": 165,
+        "hash_mode": "Exact Git source file and contiguous function body bytes"
+      },
+      "target_specific_observation": "Rounded constant-alpha Panel shadow is a separate contact/compositing role under the painted boss. Contact/shape need all-frame review; source permission for contact shadows is not acceptance.",
+      "review_log": [
+        "REVIEW.json"
+      ],
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "integration_sha": null,
+      "acceptance_evidence": {
+        "candidate": null,
+        "approved": null,
+        "integrated": 0,
+        "runtime_verified_replacement": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false,
+        "DL_QA_11": "NOT_ESTABLISHED"
+      },
+      "blocked_dependencies": [
+        "Whole visual/compositing role disposition; approved reuse fit or documented failed-reuse gap",
+        "All callers/action/contact/occlusion/fallback/teardown/save variants",
+        "Natural journey, device/child/owner and independent live-target evidence"
+      ]
+    },
+    {
+      "id": "FVR-315C1D01B2DB",
+      "stable_id_input": "scripts/boss_splash_2d.gd::_build_backdrop::Grand Puff splash quiet veil",
+      "name": "Grand Puff splash quiet veil",
+      "family": "grand_puff",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+      "source": {
+        "path": "scripts/boss_splash_2d.gd",
+        "function": "_build_backdrop",
+        "revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+        "file_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+        "body_sha256": "320d0df4f399e2bb6d918094c4dfc308faed9a07f53bc7e5c9fe47c0b0fd9b47",
+        "start_line": 84,
+        "end_line": 112,
+        "hash_mode": "Exact Git source file and contiguous function body bytes"
+      },
+      "target_specific_observation": "Uniform pale veil and backdrop tint mute the painted attic. This may be functional compositing rather than an illustration; disposition remains pending, not confirmed flat artwork or an exemption.",
+      "review_log": [
+        "REVIEW.json"
+      ],
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "integration_sha": null,
+      "acceptance_evidence": {
+        "candidate": null,
+        "approved": null,
+        "integrated": 0,
+        "runtime_verified_replacement": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false,
+        "DL_QA_11": "NOT_ESTABLISHED"
+      },
+      "blocked_dependencies": [
+        "Whole visual/compositing role disposition; approved reuse fit or documented failed-reuse gap",
+        "All callers/action/contact/occlusion/fallback/teardown/save variants",
+        "Natural journey, device/child/owner and independent live-target evidence"
+      ]
+    },
+    {
+      "id": "FVR-01D728615CA1",
+      "stable_id_input": "scripts/dust_boss_telegraph_2d.gd::_draw_jump::Grand Puff landing warning composite",
+      "name": "Grand Puff landing warning composite",
+      "family": "grand_puff",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+      "source": {
+        "path": "scripts/dust_boss_telegraph_2d.gd",
+        "function": "_draw_jump",
+        "revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+        "file_sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+        "body_sha256": "c3b70ee8695b08446157210903ca82dbaa8295a28def666feb93280dd0152e2a",
+        "start_line": 137,
+        "end_line": 157,
+        "hash_mode": "Exact Git source file and contiguous function body bytes"
+      },
+      "target_specific_observation": "Source-painted vortex is projected with a regular code-drawn ellipse wash/outline. Preserve painted source and invisible danger geometry; review the whole marker, not one drawing per primitive.",
+      "review_log": [
+        "REVIEW.json"
+      ],
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "integration_sha": null,
+      "acceptance_evidence": {
+        "candidate": null,
+        "approved": null,
+        "integrated": 0,
+        "runtime_verified_replacement": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false,
+        "DL_QA_11": "NOT_ESTABLISHED"
+      },
+      "blocked_dependencies": [
+        "Whole visual/compositing role disposition; approved reuse fit or documented failed-reuse gap",
+        "All callers/action/contact/occlusion/fallback/teardown/save variants",
+        "Natural journey, device/child/owner and independent live-target evidence"
+      ]
+    },
+    {
+      "id": "FVR-0AE92244BF62",
+      "stable_id_input": "scripts/dust_boss_telegraph_2d.gd::_draw_charge::Grand Puff charge warning composite",
+      "name": "Grand Puff charge warning composite",
+      "family": "grand_puff",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_PRIVATE_CHECKPOINT_CONTEXT",
+      "source_revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+      "source": {
+        "path": "scripts/dust_boss_telegraph_2d.gd",
+        "function": "_draw_charge",
+        "revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+        "file_sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+        "body_sha256": "059207e941b5316498b336e63eca5516c177b9abdb716b70bb98a810aba21349",
+        "start_line": 161,
+        "end_line": 193,
+        "hash_mode": "Exact Git source file and contiguous function body bytes"
+      },
+      "target_specific_observation": "Final swept lane mixes textured ribbons/dust with straight polygon wash/contours; boss and Roshan obscure much of it in sampled states. One whole warning includes helper stroke/cloud functions.",
+      "review_log": [
+        "REVIEW.json"
+      ],
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "integration_sha": null,
+      "acceptance_evidence": {
+        "candidate": null,
+        "approved": null,
+        "integrated": 0,
+        "runtime_verified_replacement": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false,
+        "DL_QA_11": "NOT_ESTABLISHED"
+      },
+      "blocked_dependencies": [
+        "Whole visual/compositing role disposition; approved reuse fit or documented failed-reuse gap",
+        "All callers/action/contact/occlusion/fallback/teardown/save variants",
+        "Natural journey, device/child/owner and independent live-target evidence"
+      ]
+    }
+  ],
+  "count_unit": "Five caller/visual records, not five distinct drawings or confirmed flat-art defects. Veil functional-compositing disposition remains open; global artwork total unknown."
+}

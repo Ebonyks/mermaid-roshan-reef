@@ -1,0 +1,55 @@
+{
+  "baseline": "677ee7b734c9c58dc2464c99f021715d347835db",
+  "checked_at_utc": "2026-10-15T05:41:00.981986+00:00",
+  "planning_sources": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "684e67841fb2910d5e3706eaaa24d82694573fcde55375a057c12b195e11f5e3"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "a7cc48e3b5663d6d66d8c31ab350bb6f8ae0b113418e1273f89ea6b3616fcc40"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "sha256": "6c73d8ffc89ffa99b8dbf2972365a190003914a60fc6807df166c0056cbff6b8"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "ce65bc6039c6d512942fd3a9c23c509dedcd80cef233a4e4b0855ee4005d933a"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "6f913660ab98a6cb6c2fc4533f28deefba7c78601333fff52059a2454d58e864"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "sha256": "e2e97157a029efb6abfd123f9cf438f6dd5e777c6bcfac7ea4912aad64fcbd13"
+    }
+  ],
+  "domain_checks": [
+    {
+      "path": "design/BOSS_SPLASH_DESIGN_LANGUAGE.md",
+      "revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+      "sha256": "4f217c64b85c9e0ed70bdaf85429cc050138a2925dcbe595e260a79de6813237",
+      "bytes": 11273,
+      "authority_scope": "BINDING_DOMAIN; current Sep12/13 caller-specific real lessons and painted warning convention supersede generic rehearsal, panel/finger/geometric HUD. Old scores are historical candidate targets, not present acceptance.",
+      "access_mode": "Anonymous exact public HTTPS GET"
+    },
+    {
+      "path": "DUST_BUNNY_BOSS_2026-08-02.md",
+      "revision": "677ee7b734c9c58dc2464c99f021715d347835db",
+      "sha256": "8b5108d0e4c35fd491827458cf8e8a39453653e04bcfe052f9d866a146332b0b",
+      "bytes": 10992,
+      "authority_scope": "BINDING_DOMAIN only owner identity, gentle no-loss/obvious prompting/distinct semantics; dated placeholder, timings, hoarding-plot and spatial staging are superseded/current-source-reverified, not authority.",
+      "access_mode": "Anonymous exact public HTTPS GET"
+    }
+  ],
+  "finding_lifecycles": {
+    "MA-VIS-006": "CONFIRMED_OPEN",
+    "MA-VIS-008": "CONFIRMED_OPEN",
+    "MA-DOC-007": "CONFIRMED_OPEN",
+    "MA-2D-002": "IN_PROGRESS"
+  },
+  "scope": "Rechecked at source/caller review expansion. No current rating or lifecycle closure; no prior rejection overridden."
+}

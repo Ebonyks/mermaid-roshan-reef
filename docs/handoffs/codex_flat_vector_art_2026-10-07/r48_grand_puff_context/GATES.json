@@ -1,0 +1,135 @@
+{
+  "status": "PASS_CURRENT_SAVED_CHECKPOINT_CONTEXT_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r48_grand_puff_context/capture_grand_puff.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T05:42:50.368096+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r48_grand_puff_context/capture_grand_puff.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T05:42:51.263174+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r48_grand_puff_context/capture_grand_puff.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T05:42:59.052693+00:00",
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r48_grand_puff_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T05:43:07.143079+00:00",
+      "stdout_sha256": "b6e3ee77d170452fa46b72aac040487f6c76f8e126b7618b78230e708597126c",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T05:43:17.406081+00:00",
+      "stdout_sha256": "581f80d6ce9ae74a00ef373aac63c64e54c857d99b023128bcec1fd603e4b631",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T05:43:22.703170+00:00",
+      "stdout_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-15T05:43:33.078169+00:00",
+      "stdout_sha256": "942063ec416390b87a4cc2cf28a28269698ab9ad0e8ca6d91ae90ac53da5f82c",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "aa27a3c2be51df288c5702567801e25b60f09a7959ca0abed07bb1570206d713",
+  "scope": "Fresh parser/inference/exact4.7.2 current ignored fixture/60native artifact andsource integrity/frozen registry/docauthority/development/54audit tests. Two actual source-assisted portal/encounter cases separate;staged/committed2D follow. No newfull82 oracceptance claim.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r48_grand_puff_context\\validate.py"
+      ],
+      "checked_at_utc": "2026-10-15T05:44:30.064006+00:00",
+      "exit_code": 0,
+      "sha256": "b6e3ee77d170452fa46b72aac040487f6c76f8e126b7618b78230e708597126c",
+      "output": "R48_INTEGRITY_PASS 2sourceassistedportalruns60native56bounded4excluded 240roles32families 83partial93without0complete 0accepted globalunknown\r\n",
+      "scope": "Fresh context, capture accounting, frozen IDs and current authority review"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "checked_at_utc": "2026-10-15T05:44:38.923615+00:00",
+      "exit_code": 0,
+      "sha256": "581f80d6ce9ae74a00ef373aac63c64e54c857d99b023128bcec1fd603e4b631",
+      "output": "DOCAUTH|INVENTORY=751|LEDGER=751|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "scope": "Fresh context, capture accounting, frozen IDs and current authority review"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "checked_at_utc": "2026-10-15T05:44:43.334691+00:00",
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "scope": "Fresh context, capture accounting, frozen IDs and current authority review"
+    }
+  ]
+}
