@@ -71,6 +71,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/CURRENT_PARTIAL_CONTEXT_UNION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/DELIVERY_SOURCE_REFERENCES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/DELIVERY_TRANSPORT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/FIXTURE_SYNTAX_ATTEMPT1.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/FIXTURE_SYNTAX_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/GATES.json",
@@ -169,6 +170,11 @@
       "command": "Anonymous exact immutable payload manifest and every required file",
       "result": "PASS",
       "evidence": "Payloadceda23cfb6a65d8685906b3599f97ddb28044e68;174 files/85775245bytes;REMOTE_VERIFICATION.json;2026-10-15T23:12:50.346601+00:00;publication is not creative acceptance."
+    },
+    {
+      "command": "Anonymous receipt metadata plus fresh upstream reconciliation",
+      "result": "PASS",
+      "evidence": "Receiptf886b5fd530fe33125060dd7b845181cb3f19fc1;9 metadata files exact;FINAL_BYTE_RECEIPT.json;origin/dev5120b6d59885dd057937aaf284e73681d8eac9f5, runtime deltaempty. Finalproof self/IP pair verified separately after push."
     }
   ],
   "acceptance_gaps": "Candidate only; source PNGs and production unchanged. Material/collectible-versus-entrance semantics, missing-art native and functional-target preservation, return/reentry/all callers, QA11/freshOS/phone performance/audio/child/owner, strict2D and unknown whole-game inventory remain open. R66 legacy source-policy failure retained.0 accepted removals."
