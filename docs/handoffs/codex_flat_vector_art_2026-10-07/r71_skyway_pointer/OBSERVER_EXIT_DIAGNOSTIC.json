@@ -1,0 +1,42 @@
+{
+  "schema": "reef.r71_observer_exit_diagnostic/1",
+  "attempt2": "native/attempt2_source_1280/capture_manifest.json",
+  "terminal_status": "FAIL_ABORTED_BEFORE_FIRST_FULL_CYCLE",
+  "raw_route_label": "BOUNDED_RETURN_OBSERVED",
+  "interpretation": "Raw inherited label is overbroad; no route return credit. Final Main/source state is level2/main_hall with original cached hall visible, handoff null, only castle navigation. Cause unestablished. Add read-only input/navigation witness outside original Main and retain incomplete samples. No source repair or relaxed success assertion.",
+  "prior_files": [
+    {
+      "path": "capture_pointer_v2.gd",
+      "sha256": "8e4c374b5166a0e916c7696c6b7b5f03797da49a7ddb198a32094f001e09619b"
+    },
+    {
+      "path": "capture_fairy_v2.gd",
+      "sha256": "dd31e1ed90057384cb00733e633386335494657dcd14523837b7ae963441890e"
+    }
+  ],
+  "late_frame_sizes": [
+    {
+      "id": "07_skyway_passive",
+      "actual": [
+        2560,
+        1369
+      ],
+      "requested": [
+        1280,
+        720
+      ]
+    },
+    {
+      "id": "07_skyway_wrong_tap",
+      "actual": [
+        2560,
+        1369
+      ],
+      "requested": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "cause_limit": "Uncommanded window/aspect change observed; external input/window interference plausible, not proven. No source regression or return success inferred. Completed final runs have exact requested dimensions and no unexpected exit."
+}

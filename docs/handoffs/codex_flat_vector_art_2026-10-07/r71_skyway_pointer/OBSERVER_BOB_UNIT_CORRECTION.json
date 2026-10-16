@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-10-16T02:45:51.045092+00:00",
+  "attempt": "attempt1_source_1280",
+  "raw_frames_excluded": 23,
+  "failure": "Four observer full-cycle assertions compared source accumulated seconds directly with TAU radians, despite source sin(_pointer_phase*4). Source input miss assertions passed.",
+  "source_rule": "scripts/arena/fairy_conservatory_handoff_2d.gd: _pointer_phase+=delta; sin(_pointer_phase*4)*7",
+  "correction": "Compute observed radians=source phase seconds span*4, require >=TAU and record both units. No source time/phase/clock/geometry or cycle-coverage requirement changed.",
+  "v1_sha256": "35eea4f25580650d0d18e1363b2514889cab9d66506cab70b86f51061b9d701f",
+  "v2_sha256": "8e4c374b5166a0e916c7696c6b7b5f03797da49a7ddb198a32094f001e09619b",
+  "source_failures_retained": "Literal original fingertip misses all3waypoint targets; source gardenBack remains failed; not reclassified as an observer-caused game defect."
+}

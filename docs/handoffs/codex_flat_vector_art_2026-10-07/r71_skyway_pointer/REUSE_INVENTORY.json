@@ -1,0 +1,87 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "basename_candidate_count": 26,
+  "paths": [
+    "assets/castle/training/ghost_hand.png",
+    "assets/castle/training/verb_chip_tap.png",
+    "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/hand_comparison_2x_nearest.png",
+    "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/hand_comparison_native_crop.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/comparison/hand_closeups.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/parts/hand_open.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/parts/hand_rest.png",
+    "assets_src/cinematics/d1_c11_grand_puff_reveal_visual_v1/storyboards/rejected/SCENE_SHOT_BOARD_attempt02_hand_contact_angry_identity.png",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/references/D1-C11/storyboards/rejected/SCENE_SHOT_BOARD_attempt02_hand_contact_angry_identity.png",
+    "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C11/visuals/storyboards/rejected/SCENE_SHOT_BOARD_attempt02_hand_contact_angry_identity.png",
+    "assets_src/cinematics/ltx_registered_wave_20261004/environment/preflight_v1/clipped_hand_frame21.png",
+    "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_stage_states_match_pointer.png",
+    "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_boxer_stage_states_glove_pointer.png",
+    "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_candy_maker_stage_states_timing_pointer.png",
+    "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_stage_states_magnifier_pointer.png",
+    "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_stage_states_guidance_pointer.png",
+    "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_stage_states_toss_pointer.png",
+    "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_painter_stage_states_plum_pointer.png",
+    "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_stage_states_frosting_pointer.png",
+    "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pop_star_stage_states_microphone_pointer.png",
+    "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_candy_maker_stage_states_timing_pointer.png",
+    "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_job_detective_stage_states_magnifier_pointer.png",
+    "assets_src/imagegen/combat_tutorial_2026-08-01/ghost_hand_alpha_native.png",
+    "assets_src/imagegen/combat_tutorial_2026-08-01/ghost_hand_chroma_native.png",
+    "assets_src/imagegen/combat_tutorial_2026-08-01/verb_chip_tap_alpha_native.png",
+    "assets_src/imagegen/combat_tutorial_2026-08-01/verb_chip_tap_chroma_native.png"
+  ],
+  "query_limit": "Filename/source/provenance triage, not exhaustive all-image pixel/acceptance closure. Handoff/chandelier false positives excluded.",
+  "inspected_sources": [
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "size": [
+        512,
+        512
+      ],
+      "alpha64_bounds": [
+        113,
+        40,
+        380,
+        448
+      ],
+      "review": "Current flat cream fill/strong uniform outline/yellow fringe; downward index silhouette usable as shape reference, painted style gap remains.",
+      "tip_alpha64": [
+        217,
+        447
+      ]
+    },
+    {
+      "path": "assets_src/imagegen/combat_tutorial_2026-08-01/ghost_hand_alpha_native.png",
+      "sha256": "345972c6311edf6885ce81b2951f4d1b2322582573bf353ad3bd2c92c12da617",
+      "size": [
+        1254,
+        1254
+      ],
+      "review": "Same image/style as runtime at native resolution; larger source alone does not replace flat material."
+    },
+    {
+      "path": "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/parts/hand_open.png",
+      "size": [
+        256,
+        256
+      ],
+      "alpha64_extent": [
+        21,
+        25
+      ],
+      "review": "Viewed; open-palm gesture, tiny source content and rules-off-test derivative scope. Wrong gesture/quality/acceptance for downward instruction."
+    },
+    {
+      "path": "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/parts/hand_rest.png",
+      "alpha64_extent": [
+        15,
+        18
+      ],
+      "review": "Read alpha/provenance only, not visually accepted; relaxed gesture/tiny content/rules-off-test scope cannot justify standalone pointer reuse."
+    }
+  ],
+  "provenance": "ASSET_LICENSES.md: combat training project-original ImageGen2026-08-01; hand extracts rules-off-test only; concept/rejected/guide images not accepted delivery sources.",
+  "gap": "Original1254alpha master has same uniform outlined flat appearance; character hand extracts have open/relaxed gesture, tiny15x18/21x25 alpha extent and rules-off-test-only derivation scope. Flat opera concept cards/rejected boards are not approved standalone pointer art. No known suitable painted downward pointing-hand source found; other library exhaustiveness remains unclaimed.",
+  "generation_calls": 0,
+  "approved_reuse_candidate": null
+}

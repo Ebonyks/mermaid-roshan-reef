@@ -1,3 +1,7 @@
+# Current R71 Skyway hand registration and painted-art request
+
+[Open R71](r71_skyway_pointer/README.md). Original fingertip misses reproduced; local left-offset preview preserves original controls and pixels. Painted-hand export is blocked pending destination-specific owner approval. No production or removal credit. [Tally](r71_skyway_pointer/tally.json) and [routing/history](CURRENT.json) supersede older current labels below.
+
 # Current R70 existing-art Skyway reuse candidate
 
 [Open the R70 preview](r70_skyway_art_reuse/README.md). Existing art now renders in a nonproduction candidate at both aspects; source/control/foreground signatures stay exact.2 cases52 checks89 raw36 bounded53 excluded. Production source art and garden Back remain failed;0 accepted removals and unknown whole-game totals. [Current tally](r70_skyway_art_reuse/tally.json) and [routing/history](CURRENT.json) supersede older current labels below.

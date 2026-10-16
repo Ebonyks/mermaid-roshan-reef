@@ -1,0 +1,217 @@
+{
+  "revision": "FV-AUDIT-20261015-R71",
+  "stable_id": "FVR-47ADC102790E",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "native_cases": 8,
+  "final_cases": 4,
+  "final_checks": 178,
+  "new_native_frames": 163,
+  "new_bounded_contexts": 86,
+  "new_excluded_diagnostics": 77,
+  "retained_bounded": 6082,
+  "retained_excluded": 3121,
+  "retained_native_events": 9203,
+  "known_roles": 243,
+  "families": 34,
+  "existing_partial_roles": 75,
+  "existing_partial_families": 15,
+  "supplemental_partial_roles": 19,
+  "catalogue_partial": 92,
+  "catalogue_without_current_slice": 84,
+  "catalogue_complete": 0,
+  "new_roles": 0,
+  "new_families": 0,
+  "new_alias_credits": 0,
+  "generation_calls": 0,
+  "new_drawing_samples": 0,
+  "new_runtime_assets": 0,
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_replacements": 0,
+  "accepted_removed": 0,
+  "source_reuse_candidate_awaiting_review": 1,
+  "new_offset_candidate_awaiting_review": 1,
+  "new_art_export_requests_blocked": 1,
+  "all_game_artwork_total": null,
+  "distinct_screen_total": null,
+  "regression_total": null,
+  "mission_complete": false,
+  "candidate_status": "BOUNDED_TIP_REGISTRATION_PREVIEW_FLAT_ART_UNCHANGED_ACCEPTANCE_OPEN",
+  "source_status": "FINGERTIP_MISSES_REPRODUCED_ALL_THREE_WAYPOINTS_BOTH_ASPECTS",
+  "source_garden_return_status": "FAIL_SOURCE_RETURN_CONTRACT_UNFIXED",
+  "unexplained_aborted_capture": "attempt2_source_1280 exits to cached hall during sampling; cause not established; last2captures unexpectedly2560x1369, excluded, no source regression/return credit",
+  "gaps": [
+    "No new painted hand: external export rejected, and late atlas review identifies existing painted pointing pose to test before any new-art request.",
+    "Filename/source reuse triage is bounded; global approved source library not exhaustively visually reviewed",
+    "Centered numerical-success hand trial rejected for covering Roshan; left-offset candidate still needs phone squint/full-context/owner review",
+    "Flat hand and shared navigation remain; no missing-resource/fallback retirement, source garden Back/HUD remains failed",
+    "Wide crop/native source quality/contact/acting/voice/caller/QA11/freshOS/device/performance/child/owner/global inventory and strict2D remain open"
+  ],
+  "cases": [
+    {
+      "case": "attempt1_source_1280",
+      "classification": "EXCLUDED_OBSERVER_DIAGNOSTIC",
+      "hint_variant": "source",
+      "aspect": [
+        1280,
+        720
+      ],
+      "raw_exit_code": 1,
+      "observer_status": "FAIL",
+      "raw_source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "route_interpretation": "FAIL_SOURCE_RETURN_CONTRACT",
+      "errors": [
+        "full natural bob cycle observed 0",
+        "full natural bob cycle observed 1",
+        "full natural bob cycle observed 2",
+        "full natural bob cycle observed 3"
+      ],
+      "checks": 43,
+      "failed_checks": [
+        "full natural bob cycle observed 0",
+        "full natural bob cycle observed 1",
+        "full natural bob cycle observed 2",
+        "full natural bob cycle observed 3"
+      ],
+      "native_frames": 23,
+      "manifest_sha256": "97a64542956b4fba1eb66dc300434791d12b1568bbe3e706b6c8146e00ff5c04",
+      "hint_cycles_sha256": "4e4d95039759512c65370f16d87d67dbfdf8fcd34f6539aa0063409028509007"
+    },
+    {
+      "case": "attempt2_source_1280",
+      "classification": "EXCLUDED_OBSERVER_DIAGNOSTIC",
+      "hint_variant": "source",
+      "aspect": [
+        1280,
+        720
+      ],
+      "raw_exit_code": 1,
+      "observer_status": "FAIL",
+      "raw_source_route_status": "BOUNDED_RETURN_OBSERVED",
+      "route_interpretation": "ABORTED_NO_RETURN_CREDIT",
+      "errors": [
+        "source handoff disappeared during passive cue cycle"
+      ],
+      "checks": 22,
+      "failed_checks": [],
+      "native_frames": 14,
+      "manifest_sha256": "bcc67070351be20474b43e2c281c791d9e727d04cf02ae2ee6ea09b102e15418",
+      "hint_cycles_sha256": "09c2a5b90b59ece394a9fe6c29883d0300a49ad7841c602e25fae70c8b09c18c"
+    },
+    {
+      "case": "attempt3_registered_1280",
+      "classification": "EXCLUDED_CENTERED_OCCLUSION_TRIAL",
+      "hint_variant": "registered",
+      "aspect": [
+        1280,
+        720
+      ],
+      "raw_exit_code": 0,
+      "observer_status": "PASS",
+      "raw_source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "route_interpretation": "FAIL_SOURCE_RETURN_CONTRACT",
+      "errors": [],
+      "checks": 46,
+      "failed_checks": [],
+      "native_frames": 20,
+      "manifest_sha256": "b676c210565c0062df72abd1c6c34ff100df49f33425f1ee49ced0ab3a1e2089",
+      "hint_cycles_sha256": "619bbc523f66979bc84bc5829c45172158323003ebba3f9bb9e7ffb142d9e08a"
+    },
+    {
+      "case": "attempt3_registered_1600",
+      "classification": "EXCLUDED_CENTERED_OCCLUSION_TRIAL",
+      "hint_variant": "registered",
+      "aspect": [
+        1600,
+        720
+      ],
+      "raw_exit_code": 0,
+      "observer_status": "PASS",
+      "raw_source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "route_interpretation": "FAIL_SOURCE_RETURN_CONTRACT",
+      "errors": [],
+      "checks": 46,
+      "failed_checks": [],
+      "native_frames": 20,
+      "manifest_sha256": "246abe0ab5d418329fe8bc68f1807f450d791fd613c66ab83b977f7e52493c4d",
+      "hint_cycles_sha256": "52ec75ed612aae69ad6bd41f5988aaddc0a2bf91f34b2980272ddae27e5dc31b"
+    },
+    {
+      "case": "attempt3_source_1280",
+      "classification": "BOUNDED_SOURCE_BASELINE",
+      "hint_variant": "source",
+      "aspect": [
+        1280,
+        720
+      ],
+      "raw_exit_code": 0,
+      "observer_status": "PASS",
+      "raw_source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "route_interpretation": "FAIL_SOURCE_RETURN_CONTRACT",
+      "errors": [],
+      "checks": 43,
+      "failed_checks": [],
+      "native_frames": 23,
+      "manifest_sha256": "7e3b909fd8d75264f9940461f0a48b173c9fc123d50c627cb35e4105e94a4211",
+      "hint_cycles_sha256": "86988e76bb42d023c1983bad1e1df7ce458873a67c1b9d4bd998a756c4b59c5e"
+    },
+    {
+      "case": "attempt3_source_1600",
+      "classification": "BOUNDED_SOURCE_BASELINE",
+      "hint_variant": "source",
+      "aspect": [
+        1600,
+        720
+      ],
+      "raw_exit_code": 0,
+      "observer_status": "PASS",
+      "raw_source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "route_interpretation": "FAIL_SOURCE_RETURN_CONTRACT",
+      "errors": [],
+      "checks": 43,
+      "failed_checks": [],
+      "native_frames": 23,
+      "manifest_sha256": "587a749a3a3e2281be75a28245d75076704b2abf4d67396708d90f3fd7b54382",
+      "hint_cycles_sha256": "7f6ea8842a8c8e0b7bed90087a6e57be2373ed9280d618279cdf8d4bc5fe5aa2"
+    },
+    {
+      "case": "attempt4_registered_1280",
+      "classification": "BOUNDED_LEFT_OFFSET_CANDIDATE",
+      "hint_variant": "registered",
+      "aspect": [
+        1280,
+        720
+      ],
+      "raw_exit_code": 0,
+      "observer_status": "PASS",
+      "raw_source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "route_interpretation": "FAIL_SOURCE_RETURN_CONTRACT",
+      "errors": [],
+      "checks": 46,
+      "failed_checks": [],
+      "native_frames": 20,
+      "manifest_sha256": "1805eae83ae10ae6b27343bb9a91dc04ee70bfa52840b469f3bb3404a766d067",
+      "hint_cycles_sha256": "15c9b1e878ce95ce580228f46c2148a7c61fb792aef571f6ad9c467ad5658766"
+    },
+    {
+      "case": "attempt4_registered_1600",
+      "classification": "BOUNDED_LEFT_OFFSET_CANDIDATE",
+      "hint_variant": "registered",
+      "aspect": [
+        1600,
+        720
+      ],
+      "raw_exit_code": 0,
+      "observer_status": "PASS",
+      "raw_source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "route_interpretation": "FAIL_SOURCE_RETURN_CONTRACT",
+      "errors": [],
+      "checks": 46,
+      "failed_checks": [],
+      "native_frames": 20,
+      "manifest_sha256": "65bb76d175c2adeb39ccb1041e650252e9090bcf83826a7177efaba9363925f3",
+      "hint_cycles_sha256": "d57c27436dcd01004f4b3639786b76691caecd03f9ce4ec8fa237ed2362603b2"
+    }
+  ],
+  "new_art_request_status": "DEFERRED_APPROVED_POINTING_GESTURE_REUSE_TRIAL_FIRST"
+}

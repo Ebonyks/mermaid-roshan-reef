@@ -1,0 +1,140 @@
+extends "res://export/flat_vector_r71/capture_skyway.gd"
+const PointerRegistration = preload("res://export/flat_vector_r71/pointer_registration.gd")
+var tip_candidate: RefCounted
+var pointer_comparisons: Array[Dictionary] = []
+var hint_cycles: Array[Dictionary] = []
+var hint_inputs: Array[Dictionary] = []
+
+func _tip_state() -> Dictionary:
+	if not is_instance_valid(m) or m.fairy_conservatory_handoff == null:
+		return {}
+	var handoff: RefCounted = m.fairy_conservatory_handoff
+	var pointer: Sprite2D = handoff.get("_pointer") as Sprite2D
+	var world: Node2D = handoff.get("_world") as Node2D
+	if pointer == null or world == null:
+		return {}
+	var snap: Dictionary = handoff.call("audit_snapshot") as Dictionary
+	var source_point: Vector2 = Vector2(217.0, 447.0) - pointer.texture.get_size() * 0.5 + pointer.offset
+	var native_tip: Vector2 = pointer.get_global_transform_with_canvas() * source_point
+	var target: Vector2 = handoff.call("_next_waypoint") as Vector2
+	var native_target: Vector2 = world.get_global_transform_with_canvas() * target
+	var rect: Rect2
+	if str(snap["state"]) == "butterfly_house":
+		var button: Control = handoff.get("_house_button") as Control
+		rect = button.get_global_rect()
+	else:
+		var half: Vector2 = FairyConservatoryHandoff2D.MIN_TOUCH * 0.5
+		var top: Vector2 = world.get_global_transform_with_canvas() * (target - half)
+		var bottom: Vector2 = world.get_global_transform_with_canvas() * (target + half)
+		rect = Rect2(top, bottom - top)
+	return {"state": snap["state"], "index": snap["waypoint_index"], "phase": float(handoff.get("_pointer_phase")), "native_tip": _safe(native_tip), "native_target": _safe(native_target), "target_rect": [rect.position.x, rect.position.y, rect.size.x, rect.size.y], "inside": rect.has_point(native_tip), "pointer_position": _safe(pointer.position), "pointer_offset": _safe(pointer.offset), "pointer_scale": _safe(pointer.scale), "texture": _tex(pointer.texture), "ticks_msec": Time.get_ticks_msec()}
+
+func _store_hint_evidence() -> void:
+	var file: FileAccess = FileAccess.open(out_dir.path_join("hint_cycles.json"), FileAccess.WRITE)
+	file.store_string(JSON.stringify({"schema": "reef.pointer_hint_cycles/1", "variant": OS.get_environment("R71_HINT"), "source_revision": OS.get_environment("R71_REV"), "cycles": hint_cycles, "inputs": hint_inputs, "pointer_comparisons": pointer_comparisons, "source_tip_alpha64": [217, 447], "generation_calls": 0, "new_art_status": "AUTO_REVIEW_EXPORT_BLOCKED"}, "\t", true) + "\n")
+	file.close()
+
+func _sample_hint_cycle() -> bool:
+	var first: Dictionary = _tip_state()
+	if first.is_empty():
+		errors.append("source pointer absent before cue cycle")
+		return false
+	var samples: Array[Dictionary] = []
+	var start_phase: float = float(first["phase"])
+	for index: int in range(100):
+		var sample: Dictionary = _tip_state()
+		if sample.is_empty():
+			errors.append("source handoff disappeared during passive cue cycle")
+			return false
+		samples.append(sample)
+		if (float(sample["phase"]) - start_phase) * 4.0 >= TAU + 0.1:
+			break
+		await process_frame
+	var outside: int = 0
+	for sample: Dictionary in samples:
+		if not bool(sample["inside"]):
+			outside += 1
+	var span: float = float(samples[-1]["phase"]) - start_phase
+	var summary: Dictionary = {"state": first["state"], "index": first["index"], "phase_span": span, "phase_span_seconds": span, "bob_phase_span_radians": span * 4.0, "samples": samples, "outside_count": outside, "inside_count": samples.size() - outside, "registration_status": "FAIL_SOURCE_TIP_OUTSIDE_TOUCH_TARGET" if outside > 0 else "BOUNDED_TIP_INSIDE_TARGET", "artwork_status": "UNCHANGED_FLAT_HAND_GENERATION_BLOCKED"}
+	hint_cycles.append(summary)
+	_check("full natural bob cycle observed " + str(first["index"]), span * 4.0 >= TAU)
+	_check("zero-input cue cycle keeps source progress " + str(first["index"]), int((_tip_state())["index"]) == int(first["index"]))
+	if OS.get_environment("R71_HINT") == "registered":
+		_check("registered visual tip stays in original target " + str(first["index"]), outside == 0)
+	elif str(first["state"]) != "butterfly_house":
+		_check("source cycle reproduces cue registration weakness " + str(first["index"]), outside > 0)
+	_store_hint_evidence()
+	return true
+
+func _snapshot() -> Dictionary:
+	var result: Dictionary = super()
+	result["hint_variant"] = OS.get_environment("R71_HINT")
+	result["tip_state"] = _tip_state()
+	result["pointer_comparisons"] = pointer_comparisons.duplicate(true)
+	var summaries: Array[Dictionary] = []
+	for cycle: Dictionary in hint_cycles:
+		summaries.append({"state": cycle["state"], "index": cycle["index"], "phase_span_seconds": cycle["phase_span"], "bob_phase_span_radians": cycle["bob_phase_span_radians"], "sample_count": (cycle["samples"] as Array).size(), "outside_count": cycle["outside_count"], "registration_status": cycle["registration_status"]})
+	result["hint_cycle_summaries"] = summaries
+	result["pointer_registration"] = tip_candidate.call("audit_snapshot") if tip_candidate != null else {}
+	return result
+
+func _enter_handoff(prefix: String) -> bool:
+	if not await super(prefix):
+		return false
+	var before: Dictionary = _preserved_signature()
+	var pointer: Sprite2D = m.fairy_conservatory_handoff.get("_pointer") as Sprite2D
+	var original_offset: Vector2 = pointer.offset
+	if OS.get_environment("R71_HINT") == "registered":
+		tip_candidate = PointerRegistration.new()
+		var applied: bool = bool(tip_candidate.call("apply", m.fairy_conservatory_handoff))
+		_check("registration uses original hand and node " + prefix, applied)
+		if not applied:
+			return false
+	var after: Dictionary = _preserved_signature()
+	pointer_comparisons.append({"entry": prefix, "variant": OS.get_environment("R71_HINT"), "before": before, "after": after, "unchanged_except_declared_sprite_offset": before == after, "original_offset": _safe(original_offset), "new_offset": _safe(pointer.offset), "same_texture": _tex(pointer.texture)})
+	_check("pointer patch preserves source/controller/control/other geometry " + prefix, before == after)
+	await _frames(3)
+	await _capture(prefix + "_hint_" + OS.get_environment("R71_HINT"))
+	_store_hint_evidence()
+	return true
+
+func _waypoint_tap(returning: bool) -> bool:
+	if returning:
+		return await super(returning)
+	if not await _sample_hint_cycle():
+		return false
+	var before: Dictionary = _tip_state()
+	if OS.get_environment("R71_HINT") == "source":
+		if not await _wait(func() -> bool: return not bool(_tip_state().get("inside", true)), 3.0):
+			errors.append("source cue outside phase not observed")
+			return false
+		before = _tip_state()
+		var point: Array = before["native_tip"] as Array
+		hint_inputs.append({"role": "original_rendered_fingertip", "before": before, "expected": "NO_ADVANCE_OUTSIDE_SOURCE_TARGET"})
+		await _raw_tap(Vector2(float(point[0]), float(point[1])))
+		await _frames(4)
+		_check("source displayed-tip tap misses original target " + str(before["index"]), int((_tip_state())["index"]) == int(before["index"]))
+		await _capture("hint_source_miss_%02d" % int(before["index"]))
+		_store_hint_evidence()
+		return await super(returning)
+	var point: Array = before["native_tip"] as Array
+	hint_inputs.append({"role": "registered_rendered_fingertip", "before": before, "expected": "ADVANCE_ORIGINAL_TARGET"})
+	await _raw_tap(Vector2(float(point[0]), float(point[1])))
+	await _frames(4)
+	var after: Dictionary = _tip_state()
+	_check("registered rendered-tip input advances source " + str(before["index"]), not after.is_empty() and int(after["index"]) == int(before["index"]) + 1)
+	_store_hint_evidence()
+	return not after.is_empty()
+
+func _tap(control: Control, local_point: Vector2, id: String = "") -> void:
+	if control != null and str(control.name) == "ButterflyHouseHotspot":
+		if not await _sample_hint_cycle():
+			return
+		var tip: Dictionary = _tip_state()
+		_check("house displayed tip lies within original Button", bool(tip["inside"]))
+		var point: Array = tip["native_tip"] as Array
+		hint_inputs.append({"role": "rendered_fingertip_house_button", "before": tip, "expected": "ORIGINAL_HOUSE_BUTTON_CALLBACK"})
+		_store_hint_evidence()
+		await _raw_tap(Vector2(float(point[0]), float(point[1])))
+		return
+	await super(control, local_point, id)

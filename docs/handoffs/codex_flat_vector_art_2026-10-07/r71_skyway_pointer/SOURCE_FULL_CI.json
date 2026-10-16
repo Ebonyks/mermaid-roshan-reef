@@ -1,0 +1,39 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "scripts/ci.sh"
+  ],
+  "exit_code": 1,
+  "started_at_utc": "2026-10-16T03:10:08.401520+00:00",
+  "checked_at_utc": "2026-10-16T03:17:42.733523+00:00",
+  "raw_log_sha256": "5169efbe602f783b14825830f545f14efea4a742836b6c44a349a40d947ecfd2",
+  "scope": "Unmodified current source full CI; entire process uses own isolated synthetic user directories, no actual child profile. Runtime files unchanged. Any baseline failures remain open and cannot imply art/QA11/device/owner acceptance.",
+  "normal_before": {
+    "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+    ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent"
+  },
+  "normal_after": {
+    "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+    ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent"
+  },
+  "status": "STOPPED_DUPLICATE_AFTER_EXACT_SOURCE_REMOTE_CI_SUCCESS",
+  "stop_reason": "Exact unmodified source5120b6d has completed successful full remote probe suite38696740452 (two successful jobs), verified in EXACT_SOURCE_REMOTE_CI.json. Stop only owned duplicate local bash process and descendants after confirming exact parent Python task-path identity. No runtime/source changes; targeted R71 native+document+2D gates remain separate. Local exit1 is administrative termination, not claimed source PASS or source failure.",
+  "local_full_suite_pass_claimed": false,
+  "owned_process_ids": {
+    "python": 30480,
+    "bash": 51040
+  }
+}

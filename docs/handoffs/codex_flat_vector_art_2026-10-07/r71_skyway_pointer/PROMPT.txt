@@ -1,0 +1,7 @@
+Use case: style-transfer
+Asset type: one transparent pointing-hand sprite for a painted 2D storybook touch game.
+Primary request: repaint only the generic hand in IMAGE_1 to fit the painted material and contours of IMAGE_2. Preserve the same downward-pointing INDEX-finger gesture: thumb on the left, other three fingers curled, five digits total, wrist entering from above. Keep comparable simple readable proportions and silhouette.
+Input images: IMAGE_1 is the edit target and shape/gesture reference. IMAGE_2 is supporting scene style, palette and lighting context ONLY; do not reproduce its scene, UI, characters, path or architecture.
+Style/medium: polished hand-painted storybook illustration, soft authored brush shading, warm ivory-gold surface, subtle cool lavender reflected shadows, softly varied painted contour. It must read as a painted cutout beside the pearl/gold/glass artwork, rather than a flat vector icon. Keep a clear rounded fingertip at small display size.
+Composition/framing: one complete hand centered in a SQUARE1024x1024 RGBA canvas with transparent padding; downward index is the unique lowest silhouette point. No cast shadow outside the silhouette. Clean genuine alpha around all edges, no matte fringe.
+Constraints: no extra objects, jewelry, arm, second hand, character, text, border, background or scene. No thick uniform dark outline, neon/yellow halo, flat geometric fills, photoreal skin pores, plastic or CGI render. Do not alter any source file. Output only this one isolated painted hand on transparency.

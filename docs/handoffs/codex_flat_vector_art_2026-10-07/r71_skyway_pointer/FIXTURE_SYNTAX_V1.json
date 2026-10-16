@@ -1,0 +1,90 @@
+{
+  "status": "PASS_BEFORE_NATIVE",
+  "checked_at_utc": "2026-10-16T02:42:20.496564+00:00",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\capture_fairy.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\capture_skyway.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\skyway_reuse.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\pointer_registration.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\capture_pointer.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "script_errors": false
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\capture_fairy.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\capture_skyway.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\skyway_reuse.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\pointer_registration.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r71_skyway_pointer\\capture_pointer.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "script_errors": false
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--rendering-method",
+        "mobile",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r71/capture_pointer.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n",
+      "stderr": "",
+      "script_errors": false
+    }
+  ],
+  "fixture_files": [
+    {
+      "path": "base_capture.gd",
+      "sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83"
+    },
+    {
+      "path": "capture_entry.gd",
+      "sha256": "b60064ed86cd946420b8a618eedd30fed5d7b53eec235eb0a739acce56a1ecf8"
+    },
+    {
+      "path": "capture_fairy.gd",
+      "sha256": "dd31e1ed90057384cb00733e633386335494657dcd14523837b7ae963441890e"
+    },
+    {
+      "path": "capture_skyway.gd",
+      "sha256": "7273de37f0b9550d91c6c61019db82ec4a8ea5f78d481b98244932987850db66"
+    },
+    {
+      "path": "skyway_reuse.gd",
+      "sha256": "cdd079c6acc933b12efffd7d01a077948ce9907a24e9e697d33c6171ded3866c"
+    },
+    {
+      "path": "pointer_registration.gd",
+      "sha256": "bf695659f42e23e2a608ad078b6eb65be82b39e07158a33ae52bc7f8c540bc7b"
+    },
+    {
+      "path": "capture_pointer.gd",
+      "sha256": "35eea4f25580650d0d18e1363b2514889cab9d66506cab70b86f51061b9d701f"
+    }
+  ]
+}

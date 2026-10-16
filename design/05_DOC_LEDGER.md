@@ -1357,3 +1357,6 @@ release/device/child/owner authority retain precedence.
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; existing-art nonproduction Skyway reuse candidate.2 final cases52 checks89 raw36 bounded53 excluded; source/control/foreground identities preserved. Source defects and wide crop/nativequality/hand/fallback/device/child/owner/global gaps remain open;0 accepted removals. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; original input/private profiles, declared background-only delta, camera convergence correction, exact guards/source/pixels, retained gardenBack failure and publication gates. No QA11/device/child/owner/fullroute acceptance. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r71_skyway_pointer/README.md` | 🔵 | `SUPPORTING_CURRENT`; R71 source cue misses and nonproduction offset preview; painted hand export blocked. Existing art unchanged,0 accepted removals; unknown inventory and acceptance remain open. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r71_skyway_pointer/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; exact source/private runtime guard, natural bob/alpha-tip evidence, excluded diagnostics, original gardenBack failure and delivery gates. No QA11/device/child/owner acceptance. |

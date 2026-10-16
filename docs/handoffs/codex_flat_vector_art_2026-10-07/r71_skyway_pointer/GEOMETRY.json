@@ -1,0 +1,68 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "source_path": "assets/castle/training/ghost_hand.png",
+  "source_sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+  "size": [
+    512,
+    512
+  ],
+  "alpha_threshold": 64,
+  "alpha_bounds": [
+    113,
+    40,
+    380,
+    448
+  ],
+  "tip": [
+    217.0,
+    447
+  ],
+  "tip_definition": "Midpoint of bottommost alpha>=64 row; numerical endpoint for original downward index, no new pixel acceptance",
+  "source_waypoint_base_delta": [
+    -42,
+    -82
+  ],
+  "source_scale": 0.12,
+  "source_tip_delta": [
+    -46.68,
+    -59.08
+  ],
+  "source_bob_y_amplitude": 7,
+  "source_tip_y_range": [
+    -66.08,
+    -52.08
+  ],
+  "original_waypoint_target": [
+    112,
+    112
+  ],
+  "source_analytical_cycle_outside_fraction": 0.645,
+  "analytical_fraction_scope": "Approximation; native samples are exact case evidence",
+  "center_trial_tip_delta": [
+    0,
+    0
+  ],
+  "center_trial_status": "REJECTED_HERO_OCCLUSION",
+  "left_trial_tip_delta": [
+    -40,
+    0
+  ],
+  "left_trial_sprite_offset": [
+    55.6666666667,
+    492.3333333333
+  ],
+  "left_trial_tip_y_range": [
+    -7,
+    7
+  ],
+  "left_trial_target_margins": [
+    16,
+    49
+  ],
+  "house_trial_tip_delta": [
+    -42,
+    -6
+  ],
+  "functional_invisible_geometry": "Original112x112 waypoint touch regions and invisible280x300 houseButton unchanged; functional geometry, not removable art.",
+  "no_source_pixels_edited": true
+}

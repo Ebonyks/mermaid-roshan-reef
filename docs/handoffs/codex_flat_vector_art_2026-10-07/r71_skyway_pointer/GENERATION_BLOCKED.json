@@ -1,0 +1,16 @@
+{
+  "status": "AUTO_REVIEW_REJECTED_EXPORT_AUTHORIZATION_REQUIRED",
+  "checked_at_utc": "2026-10-16T02:35:39.158772+00:00",
+  "rejected_action": "Combined exact-prompt/input verification followed by built-in image_gen edit with existing hand and R70 scene capture",
+  "reason": "The combined action would send internal source artwork and a scene capture to an external image-generation service and create new art; the mission supports a documented candidate gap, but does not specifically authorize exporting those payloads to that destination.",
+  "rejection_stage": "Before exec_command started; no image_gen tool invocation ran",
+  "generation_calls": 0,
+  "provider_request_id": null,
+  "generated_outputs": [],
+  "cost_reported": null,
+  "workaround_or_cli_attempted": false,
+  "unaffected_work": "Local original-hand alpha/guide registration and original source-input tests, public GitHub review-request publication, current registry/tally reconciliation",
+  "required_owner_action": "Explicitly authorize sending the two bound public project images to built-in ImageGen for the documented painted-hand brief (one intended, up to two bounded takes).",
+  "skill_approval_requirement": "None inferred from skill; this block was automatic approval review, not a SKILL.md approval rule.",
+  "followup": "Safe path continues: approved painted gesture atlas contains a pointing pose; new-art request deferred until source-bound reuse test. No immediate owner approval requested by R71."
+}

@@ -1,0 +1,37 @@
+{
+  "id": "FVR-47ADC102790E-R71-PAINTED-HAND-EXPORT",
+  "status": "DEFERRED_PENDING_APPROVED_GESTURE_REUSE_TRIAL_AND_EXPORT_AUTHORIZATION",
+  "destination": "Built-in image_gen image-generation service; no CLI/API-key fallback",
+  "inputs": [
+    {
+      "label": "IMAGE_1",
+      "role": "edit_target_shape_gesture",
+      "path": "assets/castle/training/ghost_hand.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "immutable_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/training/ghost_hand.png",
+      "bytes": 123283
+    },
+    {
+      "label": "IMAGE_2",
+      "role": "scene_style_palette_context_only",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/04_reuse_visible.png",
+      "revision": "872b45515e27df6b833ea4b697755186563ed904",
+      "acceptance_scope": "Existing source painted art revealed by nonproduction R70; crop/quality and creative acceptance open, never scene delivery pixels for this hand.",
+      "immutable_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/872b45515e27df6b833ea4b697755186563ed904/docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/04_reuse_visible.png",
+      "sha256": "20d59224d09fd7f78f482bfae2f2f8880b05c435feed10ed1f4ca90fbcc20d70",
+      "bytes": 1644879
+    }
+  ],
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "6cabe330ff23de27718d986db25a5c3071c73b8a775e1a6f25bb86354c977e87",
+  "purpose": "One nonproduction painted downward-index hand for current Skyway context; preserve source originals and current game controls",
+  "maximum_total_takes": 2,
+  "intended_takes": 1,
+  "generation_calls": 0,
+  "source_game_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "art_adoption_accepted": false,
+  "actual_child_data_in_inputs": false,
+  "privacy_scope": "Project-original hand art and public native screenshot from own synthetic profile, containing the game scene/avatar/UI. This authorizes an additional hosted image-processing destination if approved. No actual child drawings/saves or protected-original edits are proposed.",
+  "reuse_precondition": "R71 late direct review found existing painted pointing gesture in approved combined atlas. Test source-bound non-destructive reuse and relevant masters before any new art/export request. Destination-specific owner approval required only if a documented gap remains."
+}
