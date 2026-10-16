@@ -1593,7 +1593,15 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "state": "PENDING_R82_PUBLICATION"
+    "state": "R82_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "f90b69eec617018691a8c62ffb1c22a2f6acf799",
+    "required_files": 514,
+    "required_bytes": 150703839,
+    "manifest_sha256": "80e7849c0a066a957c4984989b2bb3f397267a8c22d8eec51afd6cb725aa7936",
+    "checked_at_utc": "2026-10-16T13:20:49.255019+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final own changed metadata bytes/head checked after push separately, without recursive self hash."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -4375,7 +4383,7 @@
       {
         "id": "FVOBS-CATALOGUE-CRITTERS-BINDING",
         "status": "EXPLICIT_SAVED_BOOK_PARTIAL_BINDING_ONLY",
-        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton\u2192open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
+        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton→open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
         "evidence": "CRITTER_ALIAS_BINDING.json"
       },
       {

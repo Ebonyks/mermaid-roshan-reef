@@ -17212,9 +17212,9 @@
         "coverage_state": "COVERAGE_GAP",
         "geometry_expressions": [
           "var launch_rect := Rect2(252, 514, 776, 178)",
-          "stage, \"StartMenuContinueButton\", \"\u25b6  CONTINUE\", Rect2(290, 548, 340, 118),",
-          "stage, \"StartMenuNewGameButton\", \"\u2605  NEW GAME\", Rect2(650, 548, 340, 118),",
-          "stage, \"StartMenuOptionsTab\", \"\u2699  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
+          "stage, \"StartMenuContinueButton\", \"▶  CONTINUE\", Rect2(290, 548, 340, 118),",
+          "stage, \"StartMenuNewGameButton\", \"★  NEW GAME\", Rect2(650, 548, 340, 118),",
+          "stage, \"StartMenuOptionsTab\", \"⚙  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
           "button.size = rect.size",
           "button.custom_minimum_size = rect.size",
           "inset_style.set_corner_radius_all(30)",
@@ -17317,9 +17317,9 @@
         "coverage_state": "COVERAGE_GAP",
         "geometry_expressions": [
           "var launch_rect := Rect2(252, 514, 776, 178)",
-          "stage, \"StartMenuContinueButton\", \"\u25b6  CONTINUE\", Rect2(290, 548, 340, 118),",
-          "stage, \"StartMenuNewGameButton\", \"\u2605  NEW GAME\", Rect2(650, 548, 340, 118),",
-          "stage, \"StartMenuOptionsTab\", \"\u2699  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
+          "stage, \"StartMenuContinueButton\", \"▶  CONTINUE\", Rect2(290, 548, 340, 118),",
+          "stage, \"StartMenuNewGameButton\", \"★  NEW GAME\", Rect2(650, 548, 340, 118),",
+          "stage, \"StartMenuOptionsTab\", \"⚙  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
           "button.size = rect.size",
           "button.custom_minimum_size = rect.size",
           "inset_style.set_corner_radius_all(30)",
@@ -17422,9 +17422,9 @@
         "coverage_state": "COVERAGE_GAP",
         "geometry_expressions": [
           "var launch_rect := Rect2(252, 514, 776, 178)",
-          "stage, \"StartMenuContinueButton\", \"\u25b6  CONTINUE\", Rect2(290, 548, 340, 118),",
-          "stage, \"StartMenuNewGameButton\", \"\u2605  NEW GAME\", Rect2(650, 548, 340, 118),",
-          "stage, \"StartMenuOptionsTab\", \"\u2699  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
+          "stage, \"StartMenuContinueButton\", \"▶  CONTINUE\", Rect2(290, 548, 340, 118),",
+          "stage, \"StartMenuNewGameButton\", \"★  NEW GAME\", Rect2(650, 548, 340, 118),",
+          "stage, \"StartMenuOptionsTab\", \"⚙  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
           "button.size = rect.size",
           "button.custom_minimum_size = rect.size",
           "inset_style.set_corner_radius_all(30)",
@@ -21743,7 +21743,7 @@
           "var fl := _mg_label(\"ROLL UP THE SNOWBALLS!\", 52, Vector2(255, 146))",
           "fl.size = Vector2(770, 80)",
           "fl.pivot_offset = Vector2(385, 40)",
-          "var ar := _mg_label(\"\u21bb\", 84, Vector2(0, 0))",
+          "var ar := _mg_label(\"↻\", 84, Vector2(0, 0))",
           "ar.size = Vector2(110, 110)"
         ],
         "note": "Expressions are scope evidence, not measured per-piece screen bounds."
@@ -22604,7 +22604,7 @@
     },
     {
       "id": "FVR-0C5CD19F9292",
-      "name": "Lamb-a\u00e2\u20ac\u2122 companion whole cutout",
+      "name": "Lamb-aâ€™ companion whole cutout",
       "family": "stuffie_companions",
       "status": "NEEDS_CONTEXT_REVIEW",
       "evidence_level": "PARTIAL_CURRENT_CONTEXT",
@@ -24135,7 +24135,7 @@
       "literal_source_binding": {
         "selector": "WANTS.feed",
         "line": 63,
-        "exact_lf_line": "\t{\"id\": \"feed\", \"emoji\": \"\ud83c\udf4e\", \"ask\": \"%s is hungry! Tap your stuffie to share a snack!\", \"done\": \"Munch munch munch! Yummy!\"},\n",
+        "exact_lf_line": "\t{\"id\": \"feed\", \"emoji\": \"🍎\", \"ask\": \"%s is hungry! Tap your stuffie to share a snack!\", \"done\": \"Munch munch munch! Yummy!\"},\n",
         "sha256": "706af32aa1366d7c49255d4bced5f0fa24cffecda2c7389beda3588f6b8d4e53"
       }
     },
@@ -24292,7 +24292,7 @@
       "literal_source_binding": {
         "selector": "WANTS.nap",
         "line": 64,
-        "exact_lf_line": "\t{\"id\": \"nap\", \"emoji\": \"\ud83d\udca4\", \"ask\": \"%s is sleepy! Tap your stuffie for a little nap!\", \"done\": \"Zzz... what a cozy nap!\"},\n",
+        "exact_lf_line": "\t{\"id\": \"nap\", \"emoji\": \"💤\", \"ask\": \"%s is sleepy! Tap your stuffie for a little nap!\", \"done\": \"Zzz... what a cozy nap!\"},\n",
         "sha256": "e080e8268220d9b47375b8e79c762d507a37e80d2aac1d7daa02f448dbe119da"
       }
     },
@@ -24449,7 +24449,7 @@
       "literal_source_binding": {
         "selector": "WANTS.bath",
         "line": 65,
-        "exact_lf_line": "\t{\"id\": \"bath\", \"emoji\": \"\ud83e\udee7\", \"ask\": \"%s wants a bubble bath! Tap your stuffie to scrub-a-dub!\", \"done\": \"All clean and extra fluffy!\"},\n",
+        "exact_lf_line": "\t{\"id\": \"bath\", \"emoji\": \"🫧\", \"ask\": \"%s wants a bubble bath! Tap your stuffie to scrub-a-dub!\", \"done\": \"All clean and extra fluffy!\"},\n",
         "sha256": "052d919768be79ae95e52e847ef1fded1b8dd8848f40bced293d677fa8fb6ebf"
       }
     },
@@ -24606,7 +24606,7 @@
       "literal_source_binding": {
         "selector": "WANTS.cuddle",
         "line": 66,
-        "exact_lf_line": "\t{\"id\": \"cuddle\", \"emoji\": \"\u2764\", \"ask\": \"%s wants a cuddle! Tap your stuffie for a big hug!\", \"done\": \"Best. Hug. Ever!\"},\n",
+        "exact_lf_line": "\t{\"id\": \"cuddle\", \"emoji\": \"❤\", \"ask\": \"%s wants a cuddle! Tap your stuffie for a big hug!\", \"done\": \"Best. Hug. Ever!\"},\n",
         "sha256": "12bc77a6fea5de25162a7ed9f5f3a7274701fe4540c897fc404deb6923a00165"
       }
     },
@@ -24763,7 +24763,7 @@
       "literal_source_binding": {
         "selector": "WANTS.play",
         "line": 67,
-        "exact_lf_line": "\t{\"id\": \"play\", \"emoji\": \"\ud83c\udfbe\", \"ask\": \"%s wants to play! Tap your stuffie for zoomies!\", \"done\": \"Wheee! That was so fun!\"},\n",
+        "exact_lf_line": "\t{\"id\": \"play\", \"emoji\": \"🎾\", \"ask\": \"%s wants to play! Tap your stuffie for zoomies!\", \"done\": \"Wheee! That was so fun!\"},\n",
         "sha256": "f40a7ac4497b7bec0d4ad5e69eb2292eba988ae0bfbae31a24d39d4b8b70c422"
       }
     },
@@ -27233,7 +27233,7 @@
       {
         "id": "FVOBS-CATALOGUE-CRITTERS-BINDING",
         "status": "EXPLICIT_SAVED_BOOK_PARTIAL_BINDING_ONLY",
-        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton\u2192open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
+        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton→open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
         "evidence": "CRITTER_ALIAS_BINDING.json"
       },
       {
@@ -27756,7 +27756,15 @@
     "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r66_display_entry_context"
   },
   "publication": {
-    "state": "PENDING_R82_PUBLICATION"
+    "state": "R82_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "f90b69eec617018691a8c62ffb1c22a2f6acf799",
+    "required_files": 514,
+    "required_bytes": 150703839,
+    "manifest_sha256": "80e7849c0a066a957c4984989b2bb3f397267a8c22d8eec51afd6cb725aa7936",
+    "checked_at_utc": "2026-10-16T13:20:49.255019+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final own changed metadata bytes/head checked after push separately, without recursive self hash."
   },
   "gate_missing_art_repair": {
     "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
