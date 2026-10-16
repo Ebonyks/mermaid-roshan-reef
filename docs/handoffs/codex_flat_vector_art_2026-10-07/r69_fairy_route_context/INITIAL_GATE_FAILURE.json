@@ -1,0 +1,13 @@
+{
+  "checked_at_utc": "2026-10-16T00:59:23.326136+00:00",
+  "status": "FAILED_DOCUMENT_LINK_FIXED_FOR_RECHECK",
+  "failed_command": "python -B tools/audit_document_authority.py",
+  "issue": "DOC072 README line16 local link target FINAL_BYTE_RECEIPT.json not yet present",
+  "fix": "Create an explicitly pending post-publication placeholder so source links resolve before sealed payload; no delivery/verification accepted by placeholder. Exact final metadata replaces it after payload and receipt verification.",
+  "prior_passing_commands": [
+    "gdtoolkit.parser",
+    "tools/lint_inference.py",
+    "validate.py"
+  ],
+  "raw_log": "initial_gates.log"
+}

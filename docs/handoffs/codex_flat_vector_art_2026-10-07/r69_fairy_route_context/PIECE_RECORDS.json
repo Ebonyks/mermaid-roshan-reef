@@ -1,0 +1,66 @@
+{
+  "count_unit": "Two newly named design roles, not every repeated instance or whole-game artwork denominator",
+  "records": [
+    {
+      "id": "FVR-1031BA433A5D",
+      "stable_id_input": "scripts/arena/fairy_conservatory_handoff_2d.gd::start::HandoffBackdropFallback opaque field",
+      "name": "HandoffBackdropFallback opaque field",
+      "family": "fairy_conservatory",
+      "status": "PARTIAL_CURRENT_CONTEXT_REQUIRES_REPAIR_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "source": {
+        "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+        "function": "start",
+        "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+        "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34"
+      },
+      "current_capture_evidence": "PIXEL_EVIDENCE.json;REVIEW.json",
+      "named_gap": "Loaded approved background/walkway/house are hidden by opaque sibling draw order. Direct source reuse is sufficient to test; generation not justified.",
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "approved": 0,
+      "integrated": 0,
+      "runtime_verified_replacement": 0,
+      "device_acceptance": "PENDING",
+      "child_acceptance": "PENDING",
+      "owner_acceptance": "PENDING",
+      "accepted_removed": 0,
+      "full_context_review_complete": false,
+      "visible_fallback_retired": false
+    },
+    {
+      "id": "FVR-47ADC102790E",
+      "stable_id_input": "scripts/arena/fairy_conservatory_handoff_2d.gd::_make_sprite::HandoffPointer ghost_hand.png",
+      "name": "Skyway instructional ghost hand",
+      "family": "fairy_conservatory",
+      "status": "PARTIAL_CURRENT_CONTEXT_REQUIRES_REPAIR_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_CONTEXT",
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "source": {
+        "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+        "function": "_make_sprite",
+        "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+        "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34"
+      },
+      "current_capture_evidence": "PIXEL_EVIDENCE.json;REVIEW.json",
+      "named_gap": "Small cream flat raster pointer uses hard outlining/cuff beside painted Roshan. Exact same-scene destination composition is hidden; no suitable approved painted replacement fit established yet.",
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "approved": 0,
+      "integrated": 0,
+      "runtime_verified_replacement": 0,
+      "device_acceptance": "PENDING",
+      "child_acceptance": "PENDING",
+      "owner_acceptance": "PENDING",
+      "accepted_removed": 0,
+      "full_context_review_complete": false,
+      "visible_fallback_retired": false
+    }
+  ],
+  "new_family": "fairy_conservatory",
+  "approved": 0,
+  "accepted_removed": 0
+}

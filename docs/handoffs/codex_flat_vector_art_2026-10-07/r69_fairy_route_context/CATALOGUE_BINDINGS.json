@@ -1,0 +1,29 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "prior_crosswalk": "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/CATALOGUE_CROSSWALK.json",
+  "new_partial_ids": [
+    "game.fairy_conservatory",
+    "game.galaxy",
+    "galaxy.butterfly_garden"
+  ],
+  "bindings": [
+    {
+      "id": "game.fairy_conservatory",
+      "source_predicate": "Original Moonflower Button -> Main._start_fairy_conservatory_handoff -> game fairy_conservatory, source Handoff2D active;4entry/outbound states",
+      "evidence": "attempt3_revealed_1280/attempt3_opened_1600 Skyway snapshots; all art visibility and Back failure limitations retained"
+    },
+    {
+      "id": "game.galaxy",
+      "source_predicate": "Original ButterflyHouseHotspot -> Main._start_galaxy_from_fairy_conservatory -> _start_galaxy_now game galaxy, actual source scripts/galaxy.gd",
+      "evidence": "attempt3 garden entry/passive snapshots"
+    },
+    {
+      "id": "galaxy.butterfly_garden",
+      "source_predicate": "Crosswalk definition scripts/galaxy.gd:_build_planet/_build_decor; actual source GalaxyLevel._mode=planet",
+      "evidence": "Same snapshots, current original caller; no extra ambient-motif/tick or full garden closure credit"
+    }
+  ],
+  "complete_routes": 0,
+  "all_entries_still_incomplete": 176,
+  "unknown_distinct_screen_total": null
+}

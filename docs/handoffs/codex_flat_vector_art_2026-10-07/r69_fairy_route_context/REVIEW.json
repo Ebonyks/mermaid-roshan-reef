@@ -1,0 +1,125 @@
+{
+  "reviewer": "Codex direct visual inspection, not owner/child/human acceptance",
+  "scope": "12 displayed native frames:9 current bounded,3 earlier excluded diagnostic. No montage-only or source-scan quality acceptance.",
+  "direct_views": [
+    {
+      "case": "attempt2_revealed_1280",
+      "state": "03_door_framed",
+      "path": "native/attempt2_revealed_1280/03_door_framed.png",
+      "sha256": "96e47e5f7b835a04a2eca0e0ce9f221ac29b8910e450b29f0bab0eee65b9827a",
+      "classification": "EXCLUDED_DIAGNOSTIC"
+    },
+    {
+      "case": "attempt2_revealed_1280",
+      "state": "04_skyway_entry",
+      "path": "native/attempt2_revealed_1280/04_skyway_entry.png",
+      "sha256": "5963891f6f28fe24f14b3cc026e03700f40bb14439053b43fdc7c66b9aeb716c",
+      "classification": "EXCLUDED_DIAGNOSTIC"
+    },
+    {
+      "case": "attempt2_revealed_1280",
+      "state": "05_butterfly_world_entry",
+      "path": "native/attempt2_revealed_1280/05_butterfly_world_entry.png",
+      "sha256": "f526a26b870ca86b58fabdb99cf422d1553b35b010fab1eef1eeb5d65c3ad298",
+      "classification": "EXCLUDED_DIAGNOSTIC"
+    },
+    {
+      "case": "attempt3_revealed_1280",
+      "state": "04_skyway_entry",
+      "path": "native/attempt3_revealed_1280/04_skyway_entry.png",
+      "sha256": "93d79f572d6417a5a8c3de1a5f7b430e9f49cc6b9985bd15bef2884d80723c26",
+      "classification": "BOUNDED_PARTIAL_CURRENT_CONTEXT"
+    },
+    {
+      "case": "attempt3_revealed_1280",
+      "state": "05_outbound_03",
+      "path": "native/attempt3_revealed_1280/05_outbound_03.png",
+      "sha256": "1d85fd57f1054eb944d2f1247c4574472013a49f04088c778477f50eadadf06c",
+      "classification": "BOUNDED_PARTIAL_CURRENT_CONTEXT"
+    },
+    {
+      "case": "attempt3_revealed_1280",
+      "state": "05_back_source_failure",
+      "path": "native/attempt3_revealed_1280/05_back_source_failure.png",
+      "sha256": "b8ccb95c5aff3aa135e248e575fb56116bcaffc25411d46c41608d77f66590c9",
+      "classification": "BOUNDED_PARTIAL_CURRENT_CONTEXT"
+    },
+    {
+      "case": "attempt3_revealed_1280",
+      "state": "08_saved_open_door",
+      "path": "native/attempt3_revealed_1280/08_saved_open_door.png",
+      "sha256": "fae8aec700c81e8df189882185ef991eb3ae09e6664c6142efd85d687d1092e7",
+      "classification": "BOUNDED_PARTIAL_CURRENT_CONTEXT"
+    },
+    {
+      "case": "attempt3_dormant_1600",
+      "state": "03_door_framed",
+      "path": "native/attempt3_dormant_1600/03_door_framed.png",
+      "sha256": "b188109c0964b4c738bfaa6f1c1edf94995ea89f07193bf7e7cf2975b39abfa1",
+      "classification": "BOUNDED_PARTIAL_CURRENT_CONTEXT"
+    },
+    {
+      "case": "attempt3_opened_1600",
+      "state": "03_door_framed",
+      "path": "native/attempt3_opened_1600/03_door_framed.png",
+      "sha256": "71608157db6c030f1f012e6162c23097ed8f1098e3ba17e4eec018a45dbb1a06",
+      "classification": "BOUNDED_PARTIAL_CURRENT_CONTEXT"
+    },
+    {
+      "case": "attempt3_opened_1600",
+      "state": "04_skyway_entry",
+      "path": "native/attempt3_opened_1600/04_skyway_entry.png",
+      "sha256": "a061521e3352d21b77afaf42a7c8f2a06b965629b221685b6ddb2bb261754577",
+      "classification": "BOUNDED_PARTIAL_CURRENT_CONTEXT"
+    },
+    {
+      "case": "attempt3_opened_1600",
+      "state": "05_butterfly_world_passive",
+      "path": "native/attempt3_opened_1600/05_butterfly_world_passive.png",
+      "sha256": "1956b4a015516782f5e4980dcb37faeeecf22c628790f0d167e2e651f9671bec",
+      "classification": "BOUNDED_PARTIAL_CURRENT_CONTEXT"
+    },
+    {
+      "case": "attempt3_opened_1600",
+      "state": "05_back_source_failure",
+      "path": "native/attempt3_opened_1600/05_back_source_failure.png",
+      "sha256": "0d2ce75802f37f27aa9a2329a9d6cd47f30f6aaafbef1d393bb7b538a952117b",
+      "classification": "BOUNDED_PARTIAL_CURRENT_CONTEXT"
+    }
+  ],
+  "same_scene_references": "DELIVERY_SOURCE_REFERENCES.json; SOURCE_BINDINGS.json; selected_canvas_nodes in each raw native manifest",
+  "axes": {
+    "contour": "Visible hand uses hard uniform outlining and simple cuff against Roshan painted hair/tail. Hall shell/stained-glass contours suit neighboring picture doors in this limited view. Garden exposes angular plant planes and a curved spatial stage; identity/style acceptance absent.",
+    "material": "Skyway is an almost uniform opaque field; loaded painted images contribute no visible destination detail. Hand flat cream material differs from Roshan painted texture. Existing garden procedural/spatial material is migration debt.",
+    "palette": "Purple fallback alone removes the advertised rainbow/lily-pond context. Exact hand-versus-destination palette comparison is blocked while destination is hidden. Hall lavender/gold local consistency observed, not accepted.",
+    "light": "Roshan retains authored light; purple field and hand lack comparable volume/material response. Source garden applies spatial lighting; no approved source relighting or new light added.",
+    "perspective": "Skyway background/walkway/house hidden, so vanishing point cannot be verified from actual pixels. Roshan shrinks between source waypoints. Garden visibly curves a spatial planet, not accepted true2D.",
+    "scale": "Native near/far Roshan and hand are recorded. House/broad walkway and destination scale cannot be reviewed while occluded. Wide hall shows right-edge undercoverage requiring separate route framing closure.",
+    "contact": "Roshan floats against purple, no visible walkway/sill support in Skyway. Hall foot/shadow appearance has only partial static context; exact moving contact not reviewed.",
+    "occlusion": "Current fallbackz0 covers background-20/walkway-5/house-4; Roshan4/hand8 survive. PostBack Galaxy progress/hint HUD persists over promenade. Full compositor/projection closure is not claimed.",
+    "readability": "No visible Skyway destination or path. Pointer points into purple; source-coordinate guided automation reaching the house is not child-readability proof. GlobalBack overlaps Galaxy0/7 card at both aspects. Text cues/audioDummy do not establish nonreader/voice acceptance.",
+    "action_state": "Dormant scenery touch does not unlock; off-route/passive Skyway inputs do not advance;3 original projected waypoint touches reach source house, but visuals stay purple. Original house enters actual Galaxy planet. GlobalBack exits to promenade with live Galaxy/HUD/return flags. ReverseSkyway/exactcachedhall unobserved. Fresh original Main reload preserves opened door independently."
+  },
+  "functional_invisible_geometry": [
+    {
+      "role": "MoonflowerConservatoryHotspot",
+      "disposition": "FUNCTIONAL_INVISIBLE_CONTROL_NOT_ARTWORK",
+      "evidence": "source alpha0flatButton/pressedconnection plus original source input"
+    },
+    {
+      "role": "ButterflyHouseHotspot and logical sequential waypoint rectangles",
+      "disposition": "FUNCTIONAL_INVISIBLE_INPUT_GEOMETRY_NOT_ARTWORK",
+      "evidence": "Source current hit geometry/read-only projection and actual raw touches; source landmarks occluded, no readability acceptance"
+    }
+  ],
+  "visible_fallback": "Visible full-field flat backdrop remains a blocking named art role; not excused as invisible geometry or missing texture.",
+  "new_art_gap": "No new art justified for occlusion: existing textures load, first fix draw order in a separate bounded candidate. Pointer reuse/generation decision remains unbound to visible destination context.",
+  "not_reviewed": [
+    "Full destination contour/material/palette/light/perspective/contact because hidden",
+    "ReverseSkyway/cachedhall restoration because globalBack misroutes",
+    "Rescue7/fountain/StarHall/mission/fullcaller branches",
+    "Actual audio/phoneFPS/QA11/freshOS/child/owner/creative acceptance"
+  ],
+  "accepted_removed": 0,
+  "full_context_review_complete": false
+}

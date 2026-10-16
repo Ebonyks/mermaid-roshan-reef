@@ -1,0 +1,41 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 3060 Ti
+
+ENTRY66|CAPTURE|01_original_menu
+ENTRY66|CAPTURE|02_promenade
+ENTRY66|CAPTURE|02_hall_initial
+ENTRY66|CAPTURE|03_door_framed
+ENTRY66|CAPTURE|04_skyway_entry
+ENTRY66|CAPTURE|05_skyway_passive
+ENTRY66|CAPTURE|05_skyway_wrong_tap
+SCRIPT ERROR: Cannot call method 'get' on a null value.
+   at: _waypoint_tap (res://export/flat_vector_r69/capture_fairy.gd:176)
+   GDScript backtrace (most recent call first):
+       [0] _waypoint_tap (res://export/flat_vector_r69/capture_fairy.gd:176)
+       [1] _journey (res://export/flat_vector_r69/capture_fairy.gd:194)
+       [2] _capture (res://export/flat_vector_r69/capture_fairy.gd:109)
+       [3] _capture (res://export/flat_vector_r69/capture_entry.gd:80)
+ENTRY66|CAPTURE|05_outbound_01
+SCRIPT ERROR: Cannot call method 'get' on a null value.
+   at: _waypoint_tap (res://export/flat_vector_r69/capture_fairy.gd:176)
+   GDScript backtrace (most recent call first):
+       [0] _waypoint_tap (res://export/flat_vector_r69/capture_fairy.gd:176)
+       [1] _journey (res://export/flat_vector_r69/capture_fairy.gd:194)
+       [2] _capture (res://export/flat_vector_r69/capture_fairy.gd:109)
+       [3] _capture (res://export/flat_vector_r69/capture_entry.gd:80)
+ENTRY66|CAPTURE|05_outbound_02
+SCRIPT ERROR: Cannot call method 'get' on a null value.
+   at: _waypoint_tap (res://export/flat_vector_r69/capture_fairy.gd:176)
+   GDScript backtrace (most recent call first):
+       [0] _waypoint_tap (res://export/flat_vector_r69/capture_fairy.gd:176)
+       [1] _journey (res://export/flat_vector_r69/capture_fairy.gd:194)
+       [2] _capture (res://export/flat_vector_r69/capture_fairy.gd:109)
+       [3] _capture (res://export/flat_vector_r69/capture_entry.gd:80)
+ENTRY66|CAPTURE|05_outbound_03
+SCRIPT ERROR: Invalid access to property or key 'size' on a base object of type 'null instance'.
+   at: _journey (res://export/flat_vector_r69/capture_fairy.gd:200)
+   GDScript backtrace (most recent call first):
+       [0] _journey (res://export/flat_vector_r69/capture_fairy.gd:200)
+       [1] _capture (res://export/flat_vector_r69/capture_fairy.gd:109)
+       [2] _capture (res://export/flat_vector_r69/capture_entry.gd:80)
+FAIRY69|RESULT|FAIL|["source waypoint input advances 050", "source waypoint input advances 051", "source waypoint input advances 052", "source house becomes available only at endpoint 05"]

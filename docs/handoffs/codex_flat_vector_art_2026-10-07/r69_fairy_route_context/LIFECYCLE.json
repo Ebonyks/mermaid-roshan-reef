@@ -1,0 +1,142 @@
+{
+  "cases": [
+    {
+      "case": "attempt1_revealed_1280",
+      "classification": "EXCLUDED_OBSERVER_DIAGNOSTIC",
+      "mode": "revealed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "native_frames": 10,
+      "observer_status": "FAIL",
+      "source_route_status": "FAILED_OBSERVER_EXPECTATION",
+      "source_route_failures": [],
+      "checks": 14,
+      "raw_exit_code": 1,
+      "manifest_sha256": "c27751ca89f90e4267e67642101226989dc8e5261e0d69d3ce81a624d012ee1c"
+    },
+    {
+      "case": "attempt2_revealed_1280",
+      "classification": "EXCLUDED_OBSERVER_DIAGNOSTIC",
+      "mode": "revealed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "native_frames": 12,
+      "observer_status": "FAIL",
+      "source_route_status": "FAILED_OBSERVER_EXPECTATION",
+      "source_route_failures": [],
+      "checks": 18,
+      "raw_exit_code": 1,
+      "manifest_sha256": "4b3be7d2dc02fe3a1c23adf50394e193c8fc5fa414c0a5fb177b98ac1fa7490b"
+    },
+    {
+      "case": "attempt3_dormant_1280",
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT_WITH_OPEN_FAILURES",
+      "mode": "dormant",
+      "aspect": [
+        1280,
+        720
+      ],
+      "native_frames": 5,
+      "observer_status": "PASS",
+      "source_route_status": "DORMANT_NEGATIVE_ONLY",
+      "source_route_failures": [],
+      "checks": 7,
+      "raw_exit_code": 0,
+      "manifest_sha256": "95ce9eba27de277ad7b846f88e1034c4c87159cd70d8637c93df856faf6fad53"
+    },
+    {
+      "case": "attempt3_dormant_1600",
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT_WITH_OPEN_FAILURES",
+      "mode": "dormant",
+      "aspect": [
+        1600,
+        720
+      ],
+      "native_frames": 5,
+      "observer_status": "PASS",
+      "source_route_status": "DORMANT_NEGATIVE_ONLY",
+      "source_route_failures": [],
+      "checks": 7,
+      "raw_exit_code": 0,
+      "manifest_sha256": "b667538cdc81202a26ba72dd4b2d834f35269498d42bf232ae19e30988dbce1d"
+    },
+    {
+      "case": "attempt3_opened_1600",
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT_WITH_OPEN_FAILURES",
+      "mode": "opened",
+      "aspect": [
+        1600,
+        720
+      ],
+      "native_frames": 13,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "source_route_failures": [
+        {
+          "actual_game": "level2",
+          "actual_phase": "promenade",
+          "capture": "05_back_source_failure",
+          "expected": "fairy_conservatory/rainbow_return followed by exact cached main_hall",
+          "id": "R69-FAIRY-GARDEN-BACK",
+          "navigation": [],
+          "production_repair": false,
+          "return_flags": {
+            "fairy_conservatory": true,
+            "from": "fairy_conservatory",
+            "galaxy_instance_alive": true,
+            "return_set": true
+          },
+          "status": "FAIL_SOURCE_RETURN_CONTRACT"
+        }
+      ],
+      "checks": 18,
+      "raw_exit_code": 0,
+      "manifest_sha256": "f5129b73f3b476710511bc4445464ccf7807d40f0bc218b86513dda3fbee9bce"
+    },
+    {
+      "case": "attempt3_revealed_1280",
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT_WITH_OPEN_FAILURES",
+      "mode": "revealed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "native_frames": 17,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "source_route_failures": [
+        {
+          "actual_game": "level2",
+          "actual_phase": "promenade",
+          "capture": "05_back_source_failure",
+          "expected": "fairy_conservatory/rainbow_return followed by exact cached main_hall",
+          "id": "R69-FAIRY-GARDEN-BACK",
+          "navigation": [],
+          "production_repair": false,
+          "return_flags": {
+            "fairy_conservatory": true,
+            "from": "fairy_conservatory",
+            "galaxy_instance_alive": true,
+            "return_set": true
+          },
+          "status": "FAIL_SOURCE_RETURN_CONTRACT"
+        }
+      ],
+      "checks": 23,
+      "raw_exit_code": 0,
+      "manifest_sha256": "8f18dd778d3076750c38d0b667f419e42119fc9817067ad2081dda8579f981f0"
+    }
+  ],
+  "runtime_files": 4420,
+  "initialized_sidecars": 4041,
+  "normal_hash_names": 11,
+  "all_guards_pass": true,
+  "actual_child_documents_read": false,
+  "private_saved_load": "revealed1280:2 original Main bindings beforeReady; source openedflag persists via fresh originalContinue/hall. Same engine, not freshOS/QA11.",
+  "back_contract": "FAIL; no reverseSkyway/exactcachedhall claimed",
+  "source_assets_changed": []
+}

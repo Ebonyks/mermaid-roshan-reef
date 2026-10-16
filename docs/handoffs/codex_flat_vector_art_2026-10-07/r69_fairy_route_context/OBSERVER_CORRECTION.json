@@ -1,0 +1,13 @@
+{
+  "checked_at_utc": "2026-10-16T00:39:54.944401+00:00",
+  "scope": "Observer correction, no production change or source defect claim",
+  "attempt": "attempt1_revealed_1280",
+  "root_cause": "Wrong-tap logical(28,28) overlapped the original global Back Button at native18..130. Source correctly restored the hall. Observer retained the old RefCounted object and later dereferenced the now-absent source handoff/control.",
+  "raw_failure_preserved": true,
+  "baseline_frames_excluded": 10,
+  "new_input": "Logical(1160,100), with explicit source native-navigation exclusion check",
+  "new_guards": "Abort on changed game/handoff identity, finished controller or missing source world/house control instead of cascading null calls",
+  "v1_capture_sha256": "f5ebf9ca1e68c03a21754eb53b9167d298ece53a46faee98d2d6dd313f6cb4ef",
+  "v2_capture_sha256": "41ceaae1c3a21b07af0fce8c2c30b612ac1603d71ffae6925610c752f6990627",
+  "actual_source_result": "Back worked; no evidence of a source waypoint failure was established by this attempt."
+}

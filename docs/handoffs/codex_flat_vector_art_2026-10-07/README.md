@@ -1,3 +1,7 @@
+# Current R69 Fairy route context and source failures
+
+[Open R69](r69_fairy_route_context/README.md). Source Skyway art is occluded by its opaque fallback; garden Back misroutes and leaves Galaxy HUD/state alive. Both failures remain open. [Current registry](r69_fairy_route_context/per_piece.json), [coverage](r69_fairy_route_context/scene_coverage.json), [tally](r69_fairy_route_context/tally.json), [backlog](r69_fairy_route_context/CONGRUENCY_BACKLOG.json), and [routing/history](CURRENT.json) supersede older current labels below.243 named roles/34 families;92 partial/84 without/0 complete;0 accepted removals and unknown whole-game denominator. No production changes.
+
 # Current R68 gate direct-interaction repair and scope correction
 
 [Open R68](r68_gate_missing_art/README.md). Four repaired cases pass88 checks. Missing art previously removed direct target/focus, while source walking entry already survived. Production and accepted removals are unchanged; new-use and whole-game acceptance gaps remain open.

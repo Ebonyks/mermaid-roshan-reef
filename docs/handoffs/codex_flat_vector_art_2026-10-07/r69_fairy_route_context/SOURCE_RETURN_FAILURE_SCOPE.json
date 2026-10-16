@@ -1,0 +1,16 @@
+{
+  "revision": "FV-AUDIT-20261015-R69",
+  "checked_at_utc": "2026-10-16T00:47:35.260686+00:00",
+  "baseline_attempt": "attempt2_revealed_1280",
+  "baseline_exit": 1,
+  "baseline_observer_errors": [
+    "original garden Back did not return through Skyway"
+  ],
+  "baseline_frames_excluded": 12,
+  "baseline_fixture_sha256": "41ceaae1c3a21b07af0fce8c2c30b612ac1603d71ffae6925610c752f6990627",
+  "v3_fixture_sha256": "23d6ec4f40652997fde659680b39e9fb4f529902e86c2f3d4482b1c51d6d773a",
+  "source_cause": "Galaxy entry does not push its own navigation route. The underlying pearl_castle route remains top; global Back pops that route and exits to promenade rather than calling Galaxy teardown/Skyway return. Confirm with fresh source-only original-control cases; source failure stays separate from observer status.",
+  "scope_change": "Capture post-Back state and callback/return-object bindings. Preserve return-contract failure; no reverse Skyway/exact hall return claim or forced controller call. A fresh original Main private saved-load may still independently check door persistence.",
+  "no_production_changes": true,
+  "not_acceptance": true
+}

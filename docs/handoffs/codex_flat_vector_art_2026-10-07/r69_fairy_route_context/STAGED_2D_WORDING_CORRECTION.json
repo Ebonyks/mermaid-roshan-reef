@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-10-16T01:04:29.328276+00:00",
+  "status": "METADATA_LABEL_CORRECTED_RECHECK_REQUIRED",
+  "failed_gate": "tools/audit_game_2d.py --regression-gate",
+  "raw_log": "initial_staged_2d.log",
+  "cause": "The prose-only impact scope called the existing Galaxy renderer Galaxy3D. Its suffix matches the raw class-family token scanner, so the impact JSON was classified as an extra production API file. Galaxy3D is not a defined production class.",
+  "correction": "Describe it as existing Galaxy renderer transition debt. Exact source class/API bodies and native node inventories remain in docs SOURCE_BINDINGS and raw capture manifests.",
+  "runtime_or_asset_change": false,
+  "scanner_or_shrinking_manifest_change": false,
+  "actual_new_spatial_debt_added": false
+}

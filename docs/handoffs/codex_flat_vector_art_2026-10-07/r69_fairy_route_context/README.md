@@ -1,0 +1,16 @@
+# R69 — Fairy route context: hidden Skyway art and broken garden return
+
+At source `5120b6d59885dd057937aaf284e73681d8eac9f5`, the original Moonflower door reaches the 2D Skyway and the original house input reaches Butterfly World. Two current source failures remain open at both tested aspect ratios:
+
+- The Skyway displays a purple field. All eight background tiles, walkway and house textures load, but the opaque fallback at z0 covers their negative-z sprites. Roshan and the flat raster hand remain visible. Reuse the existing art first; this occlusion supplies no reason to generate artwork.
+- Garden global Back pops the underlying castle route, returns to the promenade and leaves the Galaxy instance, HUD and Fairy return flags alive. It does not traverse the reverse Skyway or restore the cached hall. No forced teardown or route write conceals the failure.
+
+[Source failures](SOURCE_FAILURES.json), [raw pixel identity](PIXEL_EVIDENCE.json), [same-scene ten-axis review](REVIEW.json), [exact source bodies](SOURCE_BINDINGS.json), and [reproduction](REPRODUCTION.md) retain separate evidence lanes. The source garden remains measured 3D migration debt observed through its original caller, without adding or reviving 3D resources.
+
+Four source-only observer cases pass 55 observer checks. That machine result does **not** pass the source art or return contract. The packet retains 62 native PNGs:40 bounded current contexts and22 excluded observer diagnostics. V1 accidentally touched global Back; V2 expected a Skyway return and omitted a post-Back frame. V3 preserves both failures and records the actual source result separately. A private fresh-Main load independently preserves the opened door; this is not fresh-OS or QA11 acceptance.
+
+The current [registry](per_piece.json), [coverage](scene_coverage.json), [tally](tally.json), [backlog](CONGRUENCY_BACKLOG.json), and [catalogue binding](CATALOGUE_BINDINGS.json) retain all previous history. Two newly named roles bring the lower bound to243 roles/34 families. Three source/mode-bound aliases bring coverage to92 partial/84 without current context/0 complete of176 overlapping catalogue entries. These are not distinct screens or an artwork denominator.75 existing roles/15 families and19 supplemental roles have partial context.5960 bounded+2991 excluded=8951 retained native images. **Accepted removals remain0; whole-game artwork/screen/regression totals remain unknown.**
+
+No production runtime, source pixels, protected originals, child drawings/save keys, art generation, candidate adoption, dev/master, release or external messages changed. Actual child documents were hash-only and never parsed/copied.4420 source bytes,4041 initialized sidecars and11 normal save/archive hashes stayed exact. Device, child, owner, audio/performance, strict2D, complete route/caller/fallback inventory and prior candidate gaps remain blocking.
+
+Delivery uses the established public repository and durable `codex/flat-vector-r6-20261012` branch. [Manifest](MANIFEST.json), [remote verification](REMOTE_VERIFICATION.json) and [final byte receipt](FINAL_BYTE_RECEIPT.json) name immutable revisions and anonymous recipient access; publication grants no creative acceptance. Use the current receipt metadata to distinguish a sealed snapshot from remotely delivered state.

@@ -1,0 +1,56 @@
+{
+  "art": {
+    "id": "R69-SKYWAY-OPAQUE-FALLBACK",
+    "status": "FAIL_VISIBLE_COMPOSITION",
+    "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+    "evidence": "PIXEL_EVIDENCE.json and native attempt3 Skyway frames at1280/1600",
+    "cause": "Opaque HandoffBackdropFallback ColorRect sibling has effective z0; background tiles z-20, walkway-5, house-4 render behind it. Roshan z4 and hand z8 remain visible. All8tiles/walkway/house load. This is draw-order occlusion, not missing source art.",
+    "repair_scope": "Reuse exactly the existing images first; bounded draw-order correction, recheck both aspect ratios and all route/action/fallback layers. No new drawing justified for this occlusion.",
+    "production_repair": false
+  },
+  "return": {
+    "id": "R69-FAIRY-GARDEN-BACK",
+    "status": "FAIL_SOURCE_RETURN_CONTRACT",
+    "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+    "evidence": [
+      {
+        "actual_game": "level2",
+        "actual_phase": "promenade",
+        "capture": "05_back_source_failure",
+        "expected": "fairy_conservatory/rainbow_return followed by exact cached main_hall",
+        "id": "R69-FAIRY-GARDEN-BACK",
+        "navigation": [],
+        "production_repair": false,
+        "return_flags": {
+          "fairy_conservatory": true,
+          "from": "fairy_conservatory",
+          "galaxy_instance_alive": true,
+          "return_set": true
+        },
+        "status": "FAIL_SOURCE_RETURN_CONTRACT"
+      },
+      {
+        "actual_game": "level2",
+        "actual_phase": "promenade",
+        "capture": "05_back_source_failure",
+        "expected": "fairy_conservatory/rainbow_return followed by exact cached main_hall",
+        "id": "R69-FAIRY-GARDEN-BACK",
+        "navigation": [],
+        "production_repair": false,
+        "return_flags": {
+          "fairy_conservatory": true,
+          "from": "fairy_conservatory",
+          "galaxy_instance_alive": true,
+          "return_set": true
+        },
+        "status": "FAIL_SOURCE_RETURN_CONTRACT"
+      }
+    ],
+    "cause": "_start_galaxy_now does not push Galaxy navigation; remaining pearl_castle close action wins. Back exits hall to promenade while galaxy_game remains alive and fairy_conservatory return flags stay set. Raw post-Back frame retains Galaxy HUD over promenade.",
+    "repair_scope": "Source-owned nested navigation/cancel/teardown symmetry; preserve saved progress/rewards and exact cached hall before adoption. No direct teardown/callback/phase override used to conceal failure.",
+    "production_repair": false
+  },
+  "not_new_master_findings": "Bounded reproduction evidence under existing open findings only; no severity/lifecycle fabrication.",
+  "regression_total": null,
+  "reason": "Newly observed current defects; no historical exact-state pass comparison establishing when introduced."
+}
