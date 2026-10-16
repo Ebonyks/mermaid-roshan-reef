@@ -11,23 +11,32 @@ const CAPTIONS: Array[String] = [
 	"What is wrong? Find the orange spots.",
 	"Orange spots need leaf spray. Find its bottle.",
 	"Let's take the spray to our tree.",
-	"Hold this leaf. Spray, spray!",
+	"Hold the spotted leaves. Spray, spray!",
 	"Our tree feels better!",
 ]
 const CUES: Array[String] = ["tree", "leaf", "medicine", "carry", "spray", "done"]
 const ORDERS := [[2, 0, 3, 1], [3, 2, 0, 1], [0, 1, 3, 2]]
 const ANSWERS := [0, 1, 1]
 const PATIENT_RECT := Rect2(900, 105, 310, 305)
-const LEAF_RECT := Rect2(701, 118, 142, 142)
+const LEAF_PREVIEW_RECT := Rect2(701, 118, 142, 142)
+# The touch target is the actual canopy, beside the authored bottle nozzle.
+const TREATMENT_TREE_RECT := Rect2(745, 135, 440, 490)
+const TREATMENT_ACTOR_RECT := Rect2(210, 175, 590, 500)
+const LEAF_RECT := Rect2(790, 215, 320, 180)
+const SPRAY_NOZZLE := Vector2(692, 392)
+const SPRAY_CONTACT := Vector2(850, 385)
 const BACK_RECT := Rect2(14, 14, 110, 110)
-const REPLAY_RECT := Rect2(455, 539, 150, 120)
-const SPRAY_SECONDS := 1.0
+const REPLAY_RECT := Rect2(90, 548, 110, 110)
+const SPRAY_SECONDS := 1.6
 # Measured native-cell rectangles, normalized at runtime. The right-hand
 # spray drops belong to cell 2; columns are deliberately not equal crops.
 const POSE_RECTS := [
 	Rect2(0, 0, 640, 606), Rect2(640, 0, 646, 606),
 	Rect2(0, 610, 705, 613), Rect2(705, 610, 581, 613),
 ]
+# Alpha >128 bounds measured in the unchanged logical 720x615 pose canvas.
+# Register the lower fin contour instead of snapping upward on spray/finish.
+const POSE_FOOT_Y := [591.41, 592.67, 544.95, 544.95]
 var m: ReefMain
 var stage := 0
 var treatment := 0.0
@@ -248,13 +257,33 @@ func advance(delta: float) -> void:
 		approach = minf(1.0, approach + delta / 1.1)
 		if approach >= 1.0:
 			_set_stage(4)
-	elif stage == 4 and pointer_id != -99 \
-			and LEAF_RECT.has_point(press_position) and LEAF_RECT.has_point(pointer_position):
+	elif spray_active():
 		treatment = minf(1.0, treatment + minf(delta, 0.1) / SPRAY_SECONDS)
 		checkpoint_changed.emit(progress_snapshot())
 		if treatment >= 1.0:
 			_set_stage(5)
 	queue_redraw()
+
+func spray_active() -> bool:
+	# Drawing and progress must agree: dragging in from another object cannot spray.
+	return stage == 4 and not suspended and not closing and is_visible_in_tree() \
+		and pointer_id != -99 and LEAF_RECT.has_point(press_position) \
+		and LEAF_RECT.has_point(pointer_position)
+
+func treatment_pose() -> int:
+	if stage == 5:
+		return 3
+	if stage == 4:
+		return 2 if spray_active() else 1
+	return 0
+
+func treatment_actor_rect() -> Rect2:
+	var rect := TREATMENT_ACTOR_RECT
+	var pose := treatment_pose()
+	rect.position.y += (POSE_FOOT_Y[1] - POSE_FOOT_Y[pose]) * rect.size.y / 615.0
+	if stage == 3:
+		rect.position += Vector2(-120, 50) * (1.0 - approach)
+	return rect
 
 func _set_stage(next: int) -> void:
 	stage = next
@@ -339,21 +368,21 @@ func _draw() -> void:
 	if textures.is_empty():
 		return
 	draw_rect(Rect2(0, 0, 1280, 720), Color("#e5f2e8"))
+	if stage >= 3:
+		_draw_treatment()
+		_draw_back()
+		return
 	_panel(Rect2(690, 101, 558, 590), Color("#f5f3df"), Color("#adcdb8"), 40)
 	draw_arc(Vector2(1090, 672), 450, PI, TAU, 60, Color("#d4e5ce"), 24, true)
 	_fit(_tex("book.png"), Rect2(18, 120, 660, 568))
-	if m == null:
-		_panel(BACK_RECT, Color("#fff6de"), Color("#7d9b99"))
-		draw_line(Vector2(92, 68), Vector2(44, 68), Color("#426878"), 8, true)
-		draw_polyline(PackedVector2Array([Vector2(63,47),Vector2(42,68),Vector2(63,89)]),
-			Color("#426878"),8,true)
+	_draw_back()
 	for step: int in range(3):
 		draw_circle(Vector2(579+step*44, 112), 12, Color("#e4b664") if stage > step else Color("#bdccc0"))
 	_fit(patient_texture(stage == 5), PATIENT_RECT)
 	if stage < 5:
-		draw_line(LEAF_RECT.get_center(),Vector2(1000,210),Color("#d6c6a0"),3,true)
-		_panel(LEAF_RECT, Color("#fffdf0"), Color("#daaa68"), 64)
-		_fit(leaf_texture(1), LEAF_RECT.grow(-12))
+		draw_line(LEAF_PREVIEW_RECT.get_center(),Vector2(1000,210),Color("#d6c6a0"),3,true)
+		_panel(LEAF_PREVIEW_RECT, Color("#fffdf0"), Color("#daaa68"), 64)
+		_fit(leaf_texture(1), LEAF_PREVIEW_RECT.grow(-12))
 	if stage < 2:
 		_fit(_tex("roshan_book.png"), Rect2(704, 359, 310, 330))
 	if stage < 3:
@@ -384,25 +413,36 @@ func _draw() -> void:
 		draw_polyline(PackedVector2Array([Vector2(344,312),Vector2(362,330),Vector2(344,348)]),Color("#da9d56"),7,true)
 		draw_string(font,Vector2(166,503),"Spots",HORIZONTAL_ALIGNMENT_LEFT,-1,28,Color("#4b6374"))
 		draw_string(font,Vector2(411,503),"Spray",HORIZONTAL_ALIGNMENT_LEFT,-1,28,Color("#4b6374"))
-	if stage >= 3:
-		var pose := 0
-		if stage == 4:
-			pose = 2 if pointer_id != -99 and LEAF_RECT.has_point(pointer_position) else 1
-		elif stage == 5:
-			pose = 3
-		var actor_x := lerpf(675,735,approach) if stage == 3 else 735.0
-		var actor_y := lerpf(340,100,approach) if stage == 3 else 100.0
-		_fit(pose_texture(pose),Rect2(actor_x,actor_y,350,350))
-		if stage == 4:
-			_fit(leaf_texture(1,true),Rect2(192,234,310,270))
-			draw_arc(LEAF_RECT.get_center(),80,-PI/2,-PI/2+TAU*treatment,48,Color("#57bba3"),10,true)
-			if help_level > 0:
-				_fit(hand,Rect2(LEAF_RECT.position+Vector2(80,78+sin(elapsed*3)*10),Vector2(95,95)))
-		elif stage == 3:
-			_fit(leaf_texture(1,true),Rect2(192,234,310,270))
+
+func _draw_back() -> void:
+	if m == null:
+		_panel(BACK_RECT, Color("#fff6de"), Color("#7d9b99"))
+		draw_line(Vector2(92, 68), Vector2(44, 68), Color("#426878"), 8, true)
+		draw_polyline(PackedVector2Array([Vector2(63,47),Vector2(42,68),Vector2(63,89)]),
+			Color("#426878"),8,true)
+
+func _draw_treatment() -> void:
+	_panel(Rect2(165, 130, 1060, 555), Color("#f5f3df"), Color("#adcdb8"), 40)
+	# Switch the authored patient at the earned endpoint; blending it ghosts the trunk.
+	_fit(patient_texture(stage == 5), TREATMENT_TREE_RECT)
+	_fit(pose_texture(treatment_pose()), treatment_actor_rect())
+	if stage == 4:
+		# Small travelling droplets extend the authored spray to the real leaves.
+		# They stop immediately on release/cancel; they never award progress.
+		if spray_active():
+			for drop: int in range(7):
+				var phase := fposmod(elapsed * 2.5 + float(drop) / 7.0, 1.0)
+				var point := SPRAY_NOZZLE.lerp(SPRAY_CONTACT, phase)
+				point.y += sin(phase * PI) * float((drop % 3) - 1) * 9.0
+				draw_circle(point, 3.0 + phase * 2.0, Color("#60cee2"))
 		else:
-			_panel(Rect2(169,227,327,286),Color("#fff7d0"),Color("#e0bd69"),54)
-			_fit(patient_texture(true),Rect2(194,244,275,250))
-			_panel(REPLAY_RECT,Color("#e7f0d3"),Color("#819d8c"))
-			draw_arc(REPLAY_RECT.get_center(),31,-PI*0.65,PI*0.88,32,Color("#527b73"),7,true)
-			draw_circle(REPLAY_RECT.get_center()+Vector2(-27,15),9,Color("#527b73"))
+			draw_arc(SPRAY_CONTACT, 43, 0, TAU, 48, Color("#daa955"), 4, true)
+			_fit(hand, Rect2(SPRAY_CONTACT - Vector2(25, 22 + sin(elapsed * 3) * 7), Vector2(85, 85)))
+		var meter := Rect2(805, 630, 320, 12)
+		draw_rect(meter, Color("#d3dfcb"))
+		meter.size.x *= treatment
+		draw_rect(meter, Color("#57bba3"))
+	elif stage == 5:
+		_panel(REPLAY_RECT, Color("#e7f0d3"), Color("#819d8c"))
+		draw_arc(REPLAY_RECT.get_center(), 31, -PI * 0.65, PI * 0.88, 32, Color("#527b73"), 7, true)
+		draw_circle(REPLAY_RECT.get_center() + Vector2(-27, 15), 9, Color("#527b73"))

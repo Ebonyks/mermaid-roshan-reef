@@ -15,8 +15,8 @@ The standalone scene quits on Back; the in-game entrance returns to the Opera Ho
 2. Match its diseased leaf to one of four leaf pictures.
 3. Read the picture equation: orange spots → orange-spotted spray bottle.
    Select one of four medicines on the right.
-4. Roshan carries the bottle toward the patient. Hold the enlarged spotty leaf to spray.
-5. The same patient blooms and its picture becomes a book sticker. The circular arrow repeats practice.
+4. Roshan carries the bottle toward the patient. The book gives way to a large treatment view. Hold the spotted leaves on the tree to spray; the nozzle and droplets meet that canopy. Releasing or leaving the canopy stops both spraying and healing, keeping the earned dose.
+5. The visible 1.6-second dose fills only while spraying. At completion, the same patient changes from orange spots to healthy leaves and flowers. Roshan settles with the bottle; the circular arrow repeats practice.
 
 Exact generated Roshan cues accompany each page, plus two gentle wrong-choice cues.
 Five idle seconds highlight the answer; ten show a moving hand. Neither makes a choice.
@@ -65,3 +65,24 @@ No MA finding is closed by this prototype.
 Reproduce controlled composition captures with `--rendering-method mobile --script tools/capture_tree_book_test.gd`; use isolated APPDATA/LOCALAPPDATA for review.
 
 Final focused validation: 49 standalone and 56 integrated checks pass. The full local run passed its static/import gates and 76 of 77 trusted probe executions; `probe_load` exited 127 without an assertion failure and passed an isolated rerun (exit 0). See [verification receipt](../assets_src/review/tree_book_test_20260930/VERIFICATION.json). A clean remote CI run is still required before integration.
+
+## Spraying comprehension repair — 2026-10-15
+
+The treatment view now shares one canopy region for touch, a moving hand, spray contact
+and progress. A press begun elsewhere cannot start spraying by dragging into the tree.
+The enlarged actor keeps the original measured atlas/padding and carry/aim/spray/finish
+poses, with measured lower-fin registration to prevent a vertical jump. The patient uses
+its authored sick/healthy endpoints; an initial alpha-blend trial was rejected for trunk ghosting. The original PNG and OGG bytes are reused unchanged. The existing spoken instruction
+("Hold this leaf. Spray, spray!") accompanies the canopy cue; the adult caption names the leaves.
+Version-1 stage and partial-dose checkpoints keep their existing meanings.
+
+[Scoped impact](audit_impacts/arborist-spray-20261015.json) separates implementation,
+focused/full regression evidence and remaining device/child/owner acceptance.
+Reproduce the new treatment and wide-touch captures with
+`--rendering-method mobile --script tools/capture_arborist_spray.gd` and disposable user data.
+The older review images and counts above describe the September 30 build only.
+
+October 15 machine verification:57 focused and64 integrated Tree Book checks pass;
+the full unchanged local suite completes82/82 ordered trusted probes with zero exits
+and no trusted failure markers. [Exact source/log/capture receipt](../assets_src/review/arborist_spray_20261015/VERIFICATION.json).
+Published-head CI is tracked separately from these local results.

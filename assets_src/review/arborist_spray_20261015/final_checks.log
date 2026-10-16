@@ -1,0 +1,27 @@
+COMMAND python -B -m gdtoolkit.parser scripts/opera_tree_book_test.gd scripts/tree_book_test_checks.gd tools/capture_arborist_spray.gd
+
+EXIT 0
+COMMAND python -B tools/lint_inference.py scripts/opera_tree_book_test.gd scripts/tree_book_test_checks.gd tools/capture_arborist_spray.gd
+
+EXIT 0
+COMMAND python -B tools/audit_document_authority.py
+DOCAUTH|INVENTORY=704|LEDGER=704|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+
+EXIT 0
+COMMAND python -B tools/audit_development.py --base auto
+AUDITDEV|BASE|5120b6d59885dd057937aaf284e73681d8eac9f5
+AUDITDEV|RESULT|ALL OK
+
+EXIT 0
+COMMAND git diff --check
+warning: in the working copy of 'ASSET_LICENSES.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'audit/MASTER_AUDIT_2026-08-09.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'audit/findings/ACTIVE_FINDINGS_2026-08-13.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'design/05_DOC_LEDGER.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'design/OPERA_TREE_BOOK_TEST_2026-09-30.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/opera_tree_book_test.gd', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/tree_book_test_checks.gd', LF will be replaced by CRLF the next time Git touches it
+
+EXIT 0

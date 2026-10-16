@@ -58,10 +58,41 @@ func run(host: Node, main: ReefMain = null) -> bool:
 	check("carry arrives without healing", level.stage == 4 and level.treatment == 0.0)
 	level.advance(60.0)
 	check("treatment also requires input", level.stage == 4 and level.treatment == 0.0)
-	touch(level,1,true,OperaTreeBookTest.LEAF_RECT.get_center())
+	check("treatment target belongs to the patient canopy",
+		OperaTreeBookTest.TREATMENT_TREE_RECT.encloses(OperaTreeBookTest.LEAF_RECT)
+		and OperaTreeBookTest.LEAF_RECT.has_point(OperaTreeBookTest.SPRAY_CONTACT))
+	var leaves := OperaTreeBookTest.LEAF_RECT.get_center()
+	var bottle := OperaTreeBookTest.SPRAY_NOZZLE
+	touch(level, 1, true, bottle)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 1
+	drag.position = leaves
+	level._gui_input(drag)
+	level.advance(0.1)
+	check("pressing elsewhere cannot pretend to spray after dragging in",
+		level.treatment == 0.0 and not level.spray_active() and level.treatment_pose() == 1)
+	touch(level, 1, false, leaves)
+	touch(level, 1, true, leaves)
+	check("owned leaf hold immediately shows the spray pose", level.spray_active() and level.treatment_pose() == 2)
 	for tick: int in range(4):
 		level.advance(0.1)
 	var partial := level.treatment
+	touch(level, 2, true, leaves)
+	touch(level, 2, false, leaves)
+	check("second finger cannot release another finger's spray", level.spray_active() and level.pointer_id == 1)
+	drag.position = bottle
+	level._gui_input(drag)
+	level.advance(0.1)
+	check("leaving the leaves stops both spray and healing",
+		not level.spray_active() and level.treatment_pose() == 1 and is_equal_approx(partial, level.treatment))
+	drag.position = leaves
+	level._gui_input(drag)
+	check("same owned hold can return to the leaves", level.spray_active())
+	touch(level, 1, false, leaves, true)
+	level.advance(1.0)
+	check("canceled spray preserves dose without a stale visual",
+		not level.spray_active() and is_equal_approx(partial, level.treatment))
+	touch(level, 1, true, leaves)
 	level._notification(Control.NOTIFICATION_PAUSED)
 	level.advance(1.0)
 	level._notification(Control.NOTIFICATION_APPLICATION_FOCUS_OUT)
@@ -73,8 +104,9 @@ func run(host: Node, main: ReefMain = null) -> bool:
 	var resume := level.progress_snapshot()
 	level.restore_progress(resume)
 	check("partial medicine survives resume", is_equal_approx(level.treatment,partial))
+	check("restoring a partial dose does not restore held input", not level.spray_active() and level.pointer_id == -99)
 	touch(level,1,true,OperaTreeBookTest.LEAF_RECT.get_center())
-	for tick: int in range(12):
+	for tick: int in range(18):
 		level.advance(0.1)
 	check("deliberate medicine heals same patient", level.stage == 5 and level.treatment == 1.0)
 	var completed := level.progress_snapshot()
