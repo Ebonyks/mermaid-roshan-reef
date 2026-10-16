@@ -9904,3 +9904,29 @@ Two owner-authorized neutral adult synthetic Guide instructions: Kokoro-82M ONNX
 | `assets/audio/objective_guides/guide_dolls_catch_three.ogg` | Project-authored neutral Guide instruction; locally synthesized with Kokoro-82M ONNX (model Apache-2.0) | https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX | Byte-identical final review export; 48 kHz mono Vorbis. Declared trim/resample/normalization; Dolls also has declared limiter/highpass. Listening/device/child/owner acceptance pending. SHA-256 `4a37bcb6189a5df94fc31d2e659af4b50c7391aeb6d73ed8cd90a7aa36832a02`. |
 | `assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json` | Project-authored routing and provenance metadata; constituent audio retains the upstream-model provenance below | https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX | Exact frozen runtime manifest; external acceptance remains open. SHA-256 `02e1de9358b7e1d32e7b4f293c09dc51b9c6ca9c6a9f586354891245503a8bfa`. |
 <!-- OBJECTIVE_GUIDES_20261014_END -->
+
+## Restored Castle door frame cues (2026-10-15)
+
+
+The following are non-destructive exact crops of the project-original approved
+`assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_7280x2048.png`;
+license: project original; URL: none. No protected original was modified and no
+third-party pixels were added. Runtime colour and motion are shader-derived.
+
+- `assets/flats/castle/door_cues/door_frame_small_exact.png` — 349×664 exact small-door family crop.
+- `assets/flats/castle/door_cues/door_frame_opera_exact.png` — 653×925 exact Opera-door family crop.
+- `assets/flats/castle/door_cues/door_frame_royal_exact.png` — 762×1023 exact Royal Hall family crop.
+
+Restored byte-for-byte from source commit `10ddff27`; current shader feedback and timing are documented in the restoration impact.
+
+## Doorframe restoration diagnostic screenshots (2026-10-15)
+
+Project-original game screenshots, captured locally with Godot 4.7.2 Mobile/Speedy; URL: none. Existing source art and protected originals remain unchanged. Diagnostic use only; no fresh-runtime, device, child or owner acceptance. Source hashes and crop/thumbnail/layout edits are in `audit/doorframe_restore_20261015.json`.
+
+- `assets_src/review/doorframe_restore_20261015/mermaid_pool-contact.png` — project original; labelled diagnostic contact sheet of engine screenshots.
+- `assets_src/review/doorframe_restore_20261015/mermaid_pool_plot_02.png` — project original; unchanged full-frame engine screenshot.
+- `assets_src/review/doorframe_restore_20261015/opera_hall-contact.png` — project original; labelled diagnostic contact sheet of engine screenshots.
+- `assets_src/review/doorframe_restore_20261015/opera_hall_plot_02.png` — project original; unchanged full-frame engine screenshot.
+- `assets_src/review/doorframe_restore_20261015/royal_hall-contact.png` — project original; labelled diagnostic contact sheet of engine screenshots.
+- `assets_src/review/doorframe_restore_20261015/royal_hall_plot_02.png` — project original; unchanged full-frame engine screenshot.
+- `assets_src/review/doorframe_restore_20261015/sequence-contact.png` — project original; labelled diagnostic contact sheet of engine screenshots.

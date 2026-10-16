@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "dd3f81565827c629563df9cf84bb82da80857985392426abe89faa622e3996d9",
+  "candidate_payload_sha256": "a569d56f51dc719620cd63372fd5977445662db20486d9d9c95e6c492a7a6bf4",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -328,5 +328,20 @@
     "evidence": "assets_src/fashion_designer/skin_engine_v2/prop_binding_revalidation.json",
     "owner_acceptance": "pending",
     "review_scope": "Existing 96 prop frames only; no new clothing/image/device acceptance"
+  },
+  "doorframe_restoration_binding_revalidation": {
+    "date": "2026-10-15",
+    "reviewer": "Codex source/evidence revalidation; original per-frame reviewer and approvals unchanged",
+    "reason": "Only hall door cues, their separate below-character layer and projected mask bounds change. Room layouts, fixture rigs, V4 manifest, room art, card z/alpha and all 96 interaction-frame render/occlusion records are unchanged. The hall-only cue layer is hidden in rooms and lifecycle-tested.",
+    "prior_candidate_payload_sha256": "dd3f81565827c629563df9cf84bb82da80857985392426abe89faa622e3996d9",
+    "candidate_payload_sha256": "a569d56f51dc719620cd63372fd5977445662db20486d9d9c95e6c492a7a6bf4",
+    "prior_runtime_layout_semantic_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+    "runtime_layout_semantic_sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "unchanged_reviewed_frames": 96,
+    "unchanged_asset_occlusion_records": 12,
+    "prior_payload_exactly_reproduced_by_restoring_layout_hash": true,
+    "owner_acceptance": "pending",
+    "limits": "No frame/pixel/occlusion approval or reviewer replacement. No new authoritative visual-runtime, device, child, owner or game-wide acceptance."
   }
 }

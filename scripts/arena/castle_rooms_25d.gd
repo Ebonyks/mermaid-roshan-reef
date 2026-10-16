@@ -85,6 +85,7 @@ const RUMI_POSE_ATLAS := \
 const RUMI_IDLE_SCALE := 0.96
 const RUMI_TAP_HIT_RECT := Rect2(530.0, 230.0, 240.0, 240.0)
 const HALL_SIGN_Z := 0.68
+const HALL_DOOR_GLOW_STAGE_Z := -950
 const HALL_LIGHT_Z := 7.0
 const PLAYER_STAGE_HEIGHT := 270.0
 const HALL_PLAYER_STAGE_HEIGHT := 190.0
@@ -164,38 +165,47 @@ const HALL_PORTALS: Array[Dictionary] = [
 	# visual footprint but never adds a second independent touch hotspot.
 	{"id": "family_gallery", "name": "Dream House Wing",
 		"rect": Rect2(210.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(290.0, 620.0), "sign_pos": Vector2(290.0, 340.0),
 		"sign_tex": "sign_family_gallery.png", "sign_scale": 1.0},
 	{"id": "opera_hall", "name": "Opera Hall",
 		"rect": Rect2(875.0, 180.0, 300.0, 425.0),
+		"frame_family": "opera",
 		"foot": Vector2(1025.0, 620.0), "sign_pos": Vector2(1025.0, 225.0),
 		"sign_tex": "sign_opera_hall.png", "sign_scale": 1.55},
 	{"id": "library", "name": "Royal Library",
 		"rect": Rect2(380.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(455.0, 620.0), "sign_pos": Vector2(455.0, 340.0),
 		"sign_tex": "sign_library.png", "sign_scale": 1.0},
 	{"id": "kitchen", "name": "Royal Kitchen",
 		"rect": Rect2(545.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(620.0, 620.0), "sign_pos": Vector2(620.0, 340.0),
 		"sign_tex": "sign_kitchen.png", "sign_scale": 1.0},
 	{"id": "playroom", "name": "Stuffie Playroom",
 		"rect": Rect2(1940.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(2015.0, 620.0), "sign_pos": Vector2(2015.0, 340.0),
 		"sign_tex": "sign_playroom.png", "sign_scale": 1.0},
 	{"id": "craft_room", "name": "Craft Room",
 		"rect": Rect2(2140.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(2215.0, 620.0), "sign_pos": Vector2(2215.0, 340.0),
 		"sign_tex": "sign_craft_room.png", "sign_scale": 1.0},
 	{"id": "mermaid_pool", "name": "Mermaid Pool",
 		"rect": Rect2(2340.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(2415.0, 620.0), "sign_pos": Vector2(2415.0, 340.0),
 		"sign_tex": "sign_mermaid_pool.png", "sign_scale": 1.0},
 	{"id": "bubble_bath", "name": "Bubble Bath",
 		"rect": Rect2(2540.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(2615.0, 620.0), "sign_pos": Vector2(2615.0, 340.0),
 		"sign_tex": "sign_bubble_bath.png", "sign_scale": 1.0},
 	{"id": "__royal_hall", "name": "Royal Hall",
 		"rect": Rect2(2870.0, 150.0, 350.0, 470.0),
+		"frame_family": "royal",
 		"foot": Vector2(3045.0, 620.0)},
 ]
 const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
@@ -1236,6 +1246,7 @@ func close() -> void:
 	_blocked_door_feedback_cool = 0.0
 	_blocked_door_last_tap.clear()
 	m.g.erase("castle_room_affordance")
+	m.g.erase("castle_room_door_visual_layer")
 	m.g.erase("castle_dust_bunnies_cleared")
 	m.g.erase("castle_dust_bunny_runner_time")
 	m.g.erase("castle_dining_plates")
@@ -1365,6 +1376,13 @@ func _build_stage() -> void:
 	m.castle_room_item_hotspot_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	m.castle_room_item_hotspot_layer.z_index = 24
 	stage.add_child(m.castle_room_item_hotspot_layer)
+	var door_visual_layer := Control.new()
+	door_visual_layer.name = "MainHallDoorGlowVisuals"
+	door_visual_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# Above the painted hall (-1000), below signs (-932), Roshan and input.
+	door_visual_layer.z_index = HALL_DOOR_GLOW_STAGE_Z
+	stage.add_child(door_visual_layer)
+	m.g["castle_room_door_visual_layer"] = door_visual_layer
 	m.castle_room_door_hotspot_layer = Control.new()
 	m.castle_room_door_hotspot_layer.name = "MainHallDoorHotspots"
 	m.castle_room_door_hotspot_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1518,6 +1536,9 @@ func _set_hall_background_visible(visible: bool,
 		m.castle_room_background.visible = not visible and not detail_tiles_ready
 	if m.castle_room_door_hotspot_layer != null:
 		m.castle_room_door_hotspot_layer.visible = visible
+	var door_visual_layer: Control = m.g.get("castle_room_door_visual_layer") as Control
+	if door_visual_layer != null:
+		door_visual_layer.visible = visible
 	_sync_hall_horizontal_culling()
 
 func _hall_horizontal_cull_span() -> Vector2:
@@ -1697,13 +1718,17 @@ func _build_room_background_tiles(room_id: String) -> bool:
 func _build_hall_portals() -> void:
 	if m.castle_room_door_hotspot_layer == null:
 		return
+	var door_visual_layer: Control = m.g.get("castle_room_door_visual_layer") as Control
+	if door_visual_layer == null:
+		return
 	m.castle_room_door_hotspots.clear()
 	for portal_data: Dictionary in HALL_PORTALS:
 		var portal_id: String = String(portal_data["id"])
 		var cue: CastleDoorCue = DoorCue.new() as CastleDoorCue
 		cue.name = "HallDoorCue_" + portal_id
 		cue.z_index = 0
-		m.castle_room_door_hotspot_layer.add_child(cue)
+		cue.configure_physical_frame(String(portal_data["frame_family"]))
+		door_visual_layer.add_child(cue)
 		var button := Button.new()
 		button.name = "HallDoor_" + portal_id
 		button.flat = true
@@ -1722,6 +1747,7 @@ func _build_hall_portals() -> void:
 			"data": portal_data,
 		})
 	m.castle_room_door_hotspot_layer.visible = false
+	door_visual_layer.visible = false
 
 func door_state(destination_id: String) -> String:
 	if m.day_one_is_active():
@@ -5277,6 +5303,9 @@ func _update_hall_portals() -> void:
 		return
 	var hall_visible: bool = _is_wide_hall() and is_open()
 	m.castle_room_door_hotspot_layer.visible = hall_visible
+	var door_visual_layer: Control = m.g.get("castle_room_door_visual_layer") as Control
+	if door_visual_layer != null:
+		door_visual_layer.visible = hall_visible
 	if not hall_visible or m.castle_room_world_root == null:
 		return
 	for record: Dictionary in m.castle_room_door_hotspots:
@@ -5306,10 +5335,9 @@ func _update_hall_portals() -> void:
 		var canvas_rect := Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)
 		button.visible = projected.intersects(canvas_rect)
 		if cue != null:
-			var cue_rect: Rect2 = projected.intersection(canvas_rect) \
-				if button.visible else Rect2()
-			cue.position = cue_rect.position
-			cue.size = cue_rect.size
+			# Only touch bounds are clipped; keep the complete painted silhouette.
+			cue.position = projected.position
+			cue.size = projected.size
 			cue.visible = button.visible and state != DoorLanguage.OPEN
 		if m.DAY_ONE_CASTLE_ROOM_IDS.has(portal_id) \
 				and m.day_one_castle_dressing != null \

@@ -97,6 +97,17 @@ func _run_probe() -> void:
 	_check("unified cue has no legacy keyhole child",
 		cue.find_child("*Keyhole*", true, false) == null
 		and cue.find_child("*LockIcon*", true, false) == null)
+	for family: String in ["small", "opera", "royal"]:
+		cue.call("configure_physical_frame", family)
+		var frame_texture: Texture2D = cue.get("frame_texture") as Texture2D
+		_check(family + " physical frame texture exists", frame_texture != null)
+		cue.call("set_door_state", DoorLanguage.PLOT)
+		_check(family + " plot uses painted-mask shader", cue.material is ShaderMaterial)
+		cue.call("pulse_plot_feedback")
+		cue.call("_process", 0.1)
+		var frame_material: ShaderMaterial = cue.material as ShaderMaterial
+		_check(family + " feedback reaches physical shader",
+			float(frame_material.get_shader_parameter("feedback_strength")) > 0.0)
 	cue.call("set_door_state", DoorLanguage.BLOCKED)
 	cue.call("pulse_blocked_feedback")
 	_check("blocked fog cue owns local feedback",
@@ -116,6 +127,11 @@ func _run_probe() -> void:
 	cue.call("_process", 1.0)
 	_check("ordinary open has no cue", not cue.visible)
 	cue.queue_free()
+	await _check_hall_frame_geometry()
+
+	var cue_source: String = FileAccess.get_file_as_string("res://scripts/castle_door_cue.gd")
+	_check("no synthetic frame tracing returns",
+		"_arch_points" not in cue_source and "draw_polyline" not in cue_source)
 
 	if failures == 0:
 		print("DOORLANGUAGE|ALL OK")
@@ -123,6 +139,67 @@ func _run_probe() -> void:
 	else:
 		print("DOORLANGUAGE|FAIL|%d" % failures)
 		quit(1)
+
+
+func _frames(count: int) -> void:
+	for _index: int in range(count):
+		await process_frame
+
+
+func _check_hall_frame_geometry() -> void:
+	var scene: PackedScene = load("res://scenes/main.tscn") as PackedScene
+	var main: Node = scene.instantiate()
+	root.add_child(main)
+	await _frames(3)
+	main.call("_skip_intro")
+	if bool(main.get("start_menu_active")):
+		var menu: RefCounted = main.call("_start_menu_ref") as RefCounted
+		menu.call("_dismiss_menu")
+	main.call("_enter_level2_now", true, false, false)
+	await _frames(4)
+	main.call("_enter_castle_interior_now", false)
+	await _frames(4)
+	var rooms: RefCounted = main.call("_castle_rooms_ref") as RefCounted
+	main.set("day_one_active", false)
+	rooms.call("show_room", "main_hall", false)
+	await _frames(4)
+	main.process_mode = Node.PROCESS_MODE_DISABLED
+	var world: Node2D = main.get("castle_room_world_root") as Node2D
+	var records: Array = main.get("castle_room_door_hotspots") as Array
+	var scratch: Dictionary = main.get("g") as Dictionary
+	var layer: Control = scratch.get("castle_room_door_visual_layer") as Control
+	_check("physical cues have a separate below-character layer",
+		layer != null and layer.z_index == -950)
+	_check("all nine painted doors are registered", records.size() == 9)
+	var origin_position: Vector2 = world.position
+	for record: Dictionary in records:
+		var data: Dictionary = record["data"] as Dictionary
+		var physical_cue: Control = record["cue"] as Control
+		var button: Button = record["button"] as Button
+		_check(String(data["id"]) + " uses its painted family below input",
+			physical_cue.get_parent() == layer and button.get_parent() != layer
+			and String(physical_cue.get("frame_family")) == String(data["frame_family"]))
+		world.position = origin_position
+		rooms.call("_update_hall_portals")
+		var full_size: Vector2 = physical_cue.size
+		# Put the door halfway across either viewport edge without moving input
+		# or the player. The old intersection/rescale path shrank this silhouette.
+		for edge: float in [0.0, 1280.0]:
+			world.position.x += edge - physical_cue.position.x - full_size.x * 0.5
+			rooms.call("_update_hall_portals")
+			_check(String(data["id"]) + " keeps full mask at edge " + str(edge),
+				physical_cue.size.is_equal_approx(full_size) and button.visible
+				and button.size.x >= 112.0 and button.size.y >= 112.0)
+	world.position = origin_position
+	rooms.call("show_room", "bubble_bath", false)
+	_check("hall mask layer hides in a room", not layer.visible)
+	rooms.call("show_room", "main_hall", false)
+	_check("hall mask layer returns with the hall", layer.visible)
+	rooms.call("close")
+	_check("teardown removes transient layer ownership",
+		not scratch.has("castle_room_door_visual_layer"))
+	main.queue_free()
+	await _frames(3)
 
 
 func _act_one_states(current_id: String, completed: Array[String],

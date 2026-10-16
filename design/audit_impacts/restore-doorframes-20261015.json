@@ -1,0 +1,103 @@
+{
+  "id": "restore-doorframes-20261015",
+  "scope": "Restore the unmerged painted-frame door cue correction from 10ddff27 on current dev, preserving later attention feedback, touch routing, saves and story sequencing. Revalidate the unchanged 96-frame interaction approval binding after proving the sole payload delta is the whole-file Castle script hash; preserve original per-frame approvals and owner-pending scope.",
+  "baseline": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-01",
+    "DL-INT-04",
+    "DL-READ-02",
+    "DL-READ-05",
+    "DL-LAY-01",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-14"
+  ],
+  "findings": [],
+  "no_findings_reason": "No canonical finding specifically records this unmerged correction. MA-PLAY-003 remains open for game-wide travel geometry; this visual restoration does not change arrival or touch behavior.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/flats/castle/door_cues/door_frame_opera_exact.png",
+    "assets/flats/castle/door_cues/door_frame_royal_exact.png",
+    "assets/flats/castle/door_cues/door_frame_small_exact.png",
+    "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+    "assets_src/review/doorframe_restore_20261015/mermaid_pool-contact.png",
+    "assets_src/review/doorframe_restore_20261015/mermaid_pool_plot_02.png",
+    "assets_src/review/doorframe_restore_20261015/opera_hall-contact.png",
+    "assets_src/review/doorframe_restore_20261015/opera_hall_plot_02.png",
+    "assets_src/review/doorframe_restore_20261015/royal_hall-contact.png",
+    "assets_src/review/doorframe_restore_20261015/royal_hall_plot_02.png",
+    "assets_src/review/doorframe_restore_20261015/sequence-contact.png",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/cycles/doorframe-restore-20261015/analyzer.log",
+    "audit/cycles/doorframe-restore-20261015/analyzer.log.gz",
+    "audit/cycles/doorframe-restore-20261015/focused.log",
+    "audit/cycles/doorframe-restore-20261015/focused.log.gz",
+    "audit/cycles/doorframe-restore-20261015/full-ci-initial-failed.log",
+    "audit/cycles/doorframe-restore-20261015/full-ci-initial-failed.log.gz",
+    "audit/cycles/doorframe-restore-20261015/full-ci.log",
+    "audit/cycles/doorframe-restore-20261015/full-ci.log.gz",
+    "audit/cycles/doorframe-restore-20261015/mobile-capture.log",
+    "audit/cycles/doorframe-restore-20261015/mobile-capture.log.gz",
+    "audit/doorframe_restore_20261015.json",
+    "design/05_DOC_LEDGER.md",
+    "design/07_CASTLE_DOOR_LANGUAGE.md",
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/castle_door_cue.gd",
+    "scripts/probe_castle_door_language.gd",
+    "scripts/probe_castle_door_visual_capture.gd",
+    "shaders/castle_door_frame_glow.gdshader"
+  ],
+  "validation": [
+    {
+      "command": "git merge-base --is-ancestor 10ddff27 origin/dev; inspect physical cue source",
+      "result": "FAIL",
+      "evidence": "5120b6d59885dd057937aaf284e73681d8eac9f5: missing correction is not in dev ancestry; current physical cue uses _arch_points and projected.intersection(canvas_rect), and renders with touch controls at z=25."
+    },
+    {
+      "command": "Exact Godot 4.7.2 --headless -s scripts/probe_castle_door_language.gd -- --touch --classic-touch-test (isolated APPDATA)",
+      "result": "PASS",
+      "evidence": "audit/cycles/doorframe-restore-20261015/focused.log SHA-256 8e71287378f0e83ab7e9726d14ad4d5ad52570fb509db3da7d99e41bc5b0012c; all nine family assignments, both viewport edges, 112px targets, feedback, hide/return and teardown assertions ALL OK."
+    },
+    {
+      "command": "Exact Godot 4.7.2 Mobile/Speedy 1280x720 scripts/probe_castle_door_visual_capture.gd (isolated APPDATA)",
+      "result": "PASS",
+      "evidence": "Diagnostic capture only: 42 full-frame PNGs, three frame families x three states x four times plus six overview/sequence views; no failures. Native screenshots, source hashes, rejected harness attempts and Codex review are in audit/doorframe_restore_20261015.json; published diagnostic sheets preserve their limited scope."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; changed GDScript parser/inference checks",
+      "result": "PASS",
+      "evidence": "Initial candidate authority 704/704, change coverage, parser and inference gates pass. Recheck after final evidence packaging."
+    },
+    {
+      "command": "scripts/ci.sh using exact approved Godot resolver and isolated saves",
+      "result": "PASS",
+      "evidence": "Complete unchanged scripts/ci.sh rerun exits 0 with 82/82 trusted zero-exit probes and all mandatory shared gates. audit/cycles/doorframe-restore-20261015/full-ci.log SHA-256 4d6ba5f7a3e0a45255bda1756d63376221b864131fa79fa18fe75dd91dc35a34. Native stdout gzip and runtime/probe hashes are bound in audit/doorframe_restore_20261015.json. Initial stale-binding failure remains separately preserved; no gate or frame approval was weakened."
+    },
+    {
+      "command": "Exact Godot 4.7.2 --headless --check-only --script on all four changed GDScripts",
+      "result": "PASS",
+      "evidence": "audit/cycles/doorframe-restore-20261015/analyzer.log SHA-256 b203cbb83ac08a32d5baa699b80049e069d93e4407d0150ce6fa9ca9304786e6; four zero exits, no script errors."
+    },
+    {
+      "command": "Independent 96-frame/12-asset-occlusion comparison and prior payload reconstruction",
+      "result": "PASS",
+      "evidence": "audit/doorframe_restore_20261015.json interaction_review_binding_revalidation: all frames and occlusion records unchanged; restoring only old layout hash reproduces the exact prior payload dd3f81565827c629563df9cf84bb82da80857985392426abe89faa622e3996d9. No frame approvals or original reviewer changed."
+    },
+    {
+      "command": "Initial scripts/ci.sh",
+      "result": "FAIL",
+      "evidence": "audit/cycles/doorframe-restore-20261015/full-ci-initial-failed.log stops before gameplay probes on the stale whole-file layout binding. All preceding gates pass; original failed evidence is preserved and no gate/floor/test changed."
+    }
+  ],
+  "acceptance_gaps": "Exact-head remote CI and dev integration pending. Diagnostic desktop visual review is complete; DL-QA-11 authoritative fresh-runtime proof, target-device, child and owner acceptance remain outstanding. No game-wide satisfaction or release claim."
+}
