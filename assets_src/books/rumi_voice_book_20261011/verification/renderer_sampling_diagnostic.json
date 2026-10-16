@@ -1,0 +1,52 @@
+{
+  "schema": "renderer_sampling_diagnostic_v1",
+  "source": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+  "native_rgb_sha256": "c0c81a579891d2a013c49eb6bda5f8829aa1a4415990a061e5239fe9bbe386ea",
+  "render_rgb_sha256": "d6652a6b78b96f7855540eef2f26e08a51eccb83ab7fded831690380baf6d057",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "changed_pixels": 1532113,
+  "total_pixels": 1572864,
+  "max_channel_difference": 218,
+  "mean_absolute_channel_difference": 10.439737319946289,
+  "mean_difference_by_rgb_channel": [
+    10.85655657450358,
+    11.461732228597006,
+    9.000923156738281
+  ],
+  "trials": [
+    {
+      "renderer": "pypdfium2",
+      "path": "tmp/pdfs/rumi_voice_book_20261011/page_01.png",
+      "result": "NON_EXACT"
+    },
+    {
+      "renderer": "Bundled Poppler pdftoppm 26.07.0",
+      "path": "tmp/pdfs/rumi_voice_book_20261011/diagnostic_poppler_page_01.png",
+      "result": "Same non-exact RGB hash"
+    },
+    {
+      "renderer": "Bundled Poppler, explicit /Interpolate false",
+      "pdf": "tmp/pdfs/rumi_voice_book_20261011/diagnostic_explicit_interpolate_false.pdf",
+      "path": "tmp/pdfs/rumi_voice_book_20261011/diagnostic_explicit_interpolate_false.png",
+      "result": "Same non-exact RGB hash"
+    },
+    {
+      "renderer": "Bundled Poppler, complete native image 1024x1536 points / 72 dpi",
+      "pdf": "tmp/pdfs/rumi_voice_book_20261011/diagnostic_full_native_72dpi.pdf",
+      "path": "tmp/pdfs/rumi_voice_book_20261011/diagnostic_full_native_72dpi.png",
+      "result": "Same non-exact RGB hash"
+    }
+  ],
+  "inference": "An in-memory numerical sampling model onto a 1025x1537 grid predicted the observed render substantially better (mean delta 0.88477) than a native grid (10.43974). This supports a renderer sampling explanation but does not prove a specific renderer implementation cause.",
+  "not_used_for_delivery": [
+    "diagnostic PDFs",
+    "diagnostic rendered PNGs",
+    "numerical sampling model"
+  ],
+  "delivery_native_pixels_altered": false,
+  "pdf_source_pixels_altered": false,
+  "exact_render_claim": false
+}

@@ -1,0 +1,37 @@
+{
+  "page": 32,
+  "take": 1,
+  "created_at_utc": "2026-10-12T08:27:29.022592+00:00",
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-100766d4-afe7-4540-a8c9-37c167d1a4ea.png",
+  "path": "assets_src/books/rumi_visual_detective_20261012/native/page_32_take1.png",
+  "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+  "provider_sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+  "rgb_pixel_sha256": "93053de0a60308a534433f9aebb7f5181518dfcf2bac748e43800a12763b3e76",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_page_sha256": "e2ef019812f3daa80c30fe90c0db889c8cf90f669654e5f0aabf4a232e9b4c5b",
+  "prompt": "Use case: text-localization. Edit the supplied complete native colour manga PAGE32. Preserve its whole 1024x1536 portrait canvas, all three original panels, framing, colours, finished native drawing, characters, hand/fin anatomy, expressions, lettering style, and every other word exactly. In the MIDDLE PANEL, change ONLY Roshan brown-haired small rainbow-mermaid's right-hand speech balloon from \"I have an idea. Can I tell you?\" to exactly \"I have an idea about our candle. Can I tell you?\". Expand that same balloon slightly as needed for comfortable readable lettering, keeping its short tail aimed clearly at Roshan. It is her dialogue, not Rumi's. No candle picture, new clue, title, page number or other addition. Keep upper narration, Rumi's question, bottom reply and ending narrator exactly unchanged. Return one complete lossless native RGB1024x1536 page; no crop or resize. Use crisp uniform black lettering matching the original. No chopped words, stray marks, blurred details or regenerated different scenery.",
+  "prompt_sha256": "bc902829be2117dd5cb3fb533bac3e4e597099c87a9b6aa176a1a5bd904964bc",
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_32_take1.txt",
+  "references": [
+    {
+      "role": "OWN PAGE EDIT TARGET - preserve full composition, exact cast/acting, change requested Roshan line only",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_32_take1.png",
+      "sha256": "6a6944574a2e20af92a4d7d1f164b4d09562c80cb14485d486b00a2451499dc8"
+    }
+  ],
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_32_take1_references.json",
+  "modifications": "Native provider PNG copied byte-identically; own-page generated corrections declared by exact prompt; no software crop/resize/sharpening/lettering overlay. Adjacent generated pixels may change.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original static-book candidate; existing project identity/setting/prop references retain terms; no film pixels/scene copy."
+}

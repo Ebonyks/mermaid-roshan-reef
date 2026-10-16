@@ -1,0 +1,37 @@
+{
+  "page": 20,
+  "take": 1,
+  "created_at_utc": "2026-10-12T08:19:21.370977+00:00",
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-c6547eb1-566b-4d1e-93fc-ee3fcf6fdace.png",
+  "path": "assets_src/books/rumi_visual_detective_20261012/native/page_20_take1.png",
+  "sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+  "provider_sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+  "rgb_pixel_sha256": "0323cd9a424725d7ebbf985b6cf34812fa160a728e7d8c490f058fa0fbadf270",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_page_sha256": "f8724db2138b4dbfa8f3160e3bf9e193fd756569d6677d5b3084f5599addbde5",
+  "prompt": "Use case: precise-object-edit / illustration-story. Produce ONE COMPLETE NATIVE 1024 x 1536 RGB portrait manga page. Image1 is the EDIT TARGET, the previous edition's own original complete page, not a collage source. This is a bounded own-page illustration repair for the new book. Preserve its polished 2D manga/storybook medium, thin square panel borders, efficient gutters, crisp face/hand/prop outlines, expressive child-safe acting and all unmentioned story facts. No crop, raster resize, software sharpening, text overlay, new page border or pasted panel. Return the WHOLE portrait page. Preserve every required word exactly and its correct speaker; don't print these instructions, labels or names. Keep Roshan small with brown waves/rainbow forelock, coral jacket and ONE iridescent rainbow tail; Rumi thick lavender braid/navy-gold costume and ONE cyan-lavender tail/pink fin; tall Hana copper hair/celadon clip/coral sleeves/ONE teal tail; shorter Nari navy bob/crescent clip/mint jacket/ONE lavender tail; Duri lavender turtle/mint floral shell/courier bag; costumed purple performer and navy-coated top-hatted magician with bare purple hands/trousers/shoes. The setting remains under Rumi's pool inside Pearl Castle. No rainbow candle, flame, wick, film character costume or copied movie scene. Keep distant background depth softness purposeful; don't add busy detail.\nMake the named action-contact repair in PANEL1 only: the GOLD STAR TIP of the magician's held wand visibly touches the rim of ONE stray bubble beside him, and the bubble is bursting at that exact contact, with a small broken rim and tiny water/bubble fragments. An intact bubble merely nearby is insufficient. Keep the magician's wand correctly connected through his purple hand and his complete arms; distinguish this small controlled pop from the large barrier that grows in panel2. Keep the existing opaque PURPLE/GOLD GLITTER FABRIC curtain separate from the transparent BUBBLE curtain. Preserve the microphone, shell-stage geography, audience, clear side aisle and lower two panels. Keep the bubble wall across the central microphone approach and the existing side aisle open. No new SFX words or candle.\nExact required lettering in reading order; speaker labels here are metadata, DO NOT print them:\nPanel 1:\nMagician: \"Then watch our BIGGEST trick!\"\nNarrator: \"With a tap of his wand, he popped a stray bubble.\"\nPanel 2:\nNarrator: \"Bubbles bulged. Foam stars flew. Nobody could reach the microphone.\"\nPanel 3:\nRoshan: \"I need you beside me. Let's keep a way through.\"\n",
+  "prompt_sha256": "dd46958c7a73ce1944716dcd406a2d105c01833e360d500323827fc233e69614",
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_20_take1_prompt.txt",
+  "references": [
+    {
+      "role": "edit_target_complete_native_page",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_20_take2.png",
+      "sha256": "8b0b0e5da21a6fe4f302f2b38e25a85be6c79da0ce075452b9ab4b7203b25d69"
+    }
+  ],
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_20_take1_references.json",
+  "modifications": "Native provider PNG copied byte-identically; own-page generated corrections declared by exact prompt; no software crop/resize/sharpening/lettering overlay. Adjacent generated pixels may change.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original static-book candidate; existing project identity/setting/prop references retain terms; no film pixels/scene copy."
+}

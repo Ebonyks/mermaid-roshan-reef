@@ -1,0 +1,197 @@
+{
+  "schema": "rumi_detective_root_actual_pdf_review_v1",
+  "reviewer": "Codex root",
+  "recorded_at_utc": "2026-10-12T09:55:40.419175+00:00",
+  "status": "AGENT_STATIC_BOOK_RENDER_REVIEW_PASS_WITH_RECORDED_SOURCE_LIMITS",
+  "pdf": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/output/pdf/Mermaid_Roshan_Here_I_Am_Detective_32_Pages.pdf",
+    "sha256": "f19669f0bd75517c9c6222d9da00a87d26d8cf84e7edc4e5ba2968d5fc2f8064",
+    "bytes": 101178692,
+    "actual_page_count": 32,
+    "page_dimensions_points": [
+      512.0,
+      768.0
+    ],
+    "physical_size_inches": [
+      7.111111111111111,
+      10.666666666666666
+    ],
+    "one_complete_native_image_per_page": true,
+    "selectable_story_text": false,
+    "lettering_source": "generated within native page art"
+  },
+  "selection": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/selected_art.json",
+    "sha256": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f"
+  },
+  "book_check": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/book_check.json",
+    "sha256": "cf0d2631a9cbfc7f58d851e7bf6b9f0f9687dbd574bb77380386087996cf1eff"
+  },
+  "independent_full_actual_render_reviews": [
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/pdf_render_review_pages_01_16.json",
+      "sha256": "4c896be5a430f0d7641173741e9c39f04ff320811c16c449dec4f3c8251ce509"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_render_review_pages_17_32.json",
+      "sha256": "7bac89406bb7508bad8e67764f9a29ea714ed7e136913bf2063e09cb5fbb2cc0"
+    }
+  ],
+  "root_inspection_scope": "Four actual-PDF contact sheets covering all32 pages plus the16 selected newly illustrated pages viewed individually using view_image detail=original. All32 native sources reviewed separately under the fixed rubric. Independent reviewers individually inspected all32 actual PDF renders.",
+  "root_actual_pdf_full_detail_pages": [
+    2,
+    3,
+    4,
+    7,
+    8,
+    10,
+    11,
+    16,
+    17,
+    20,
+    21,
+    22,
+    23,
+    25,
+    27,
+    32
+  ],
+  "root_qa_contacts": [
+    {
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/book_contact_01.png",
+      "sha256": "4c9e6a7ac48ba067d06c3940c8fb84301f8dffa535813af222aa44c710aa5197"
+    },
+    {
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/book_contact_02.png",
+      "sha256": "cbea0b4c3820b11129cb199e80344f3fa6bc78beea893d96553bfaa2afce6935"
+    },
+    {
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/book_contact_03.png",
+      "sha256": "2115a210d744c5077a7f2c0d987d22df14f6b31fd1e2b864bc63f5b92a603121"
+    },
+    {
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/book_contact_04.png",
+      "sha256": "221c180c2185a9e351b0af7de6e5d6704712a1e1a9b8a9cc7dca1e956503ba3d"
+    }
+  ],
+  "full_detail_observations": [
+    {
+      "number": 2,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_02.png",
+      "sha256": "7111d4ab72bcd5f5cdec116ec224dcc546da4291056ebd59c26cfa76c0df53fa",
+      "observations": "Hat retrieval, too-low brim gag and corrected fit read distinctly. The low brim intentionally obscures eyes. Candle absent.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 3,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_03.png",
+      "sha256": "257eaf7095adf1fe6d7db680f562929e532b5d9b80929918b5acdfd3970ef925",
+      "observations": "Ordinary lens observation and asking Rumi to watch precede the visible shadow/unshadow test. Both tools stowed before diving. Tailless Yes is adjacent to Rumi; light path is implied. Candle absent.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 4,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_04.png",
+      "sha256": "b314831895e2975aea14417c55d9d991b3041364326d2a806f79c545d9519c7f",
+      "observations": "Connected city panorama and Duri invitation/current warning/fan danger are readable. Route is compressed; both narrator captions match script.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 7,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_07.png",
+      "sha256": "c425eae4d00bb31abdf28c486931233397db9d74b7f42e724fba9008d344d555",
+      "observations": "Roshan stops the trio, repeats the specific observation and finishes her sentence. Clear hands and speaker order.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 8,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_08.png",
+      "sha256": "50dad221b03ec2c82e8398a4eb05e29c8f1d0dcb2cc38e447e38145ea003b4ef",
+      "observations": "Duri first, Rumi second call ordering and detached danger/fan-support staging remain readable in the corrected complete page.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 10,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_10.png",
+      "sha256": "0f848123f63aaa05ecdff201dd37fde2d62b20ab5cf38712bac7894837901a56",
+      "observations": "Distinct Hana support and Rumi grip, continuous arms and rescue contacts read at full-page detail.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 11,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_11.png",
+      "sha256": "b58180e00f086c041bb1b51c5b5fb2dd1bbf40a4c1590f4dc5a4fa3bb4a8868c",
+      "observations": "Rescue teamwork reads. The two blue-cuffed hands in the close view belong to off-panel Rumi; her later help request compresses acting chronology.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 16,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_16.png",
+      "sha256": "5a4f0ce1ff29742e502584a05a3e6446b6e475da4512b24cecdd620d4ff026d9",
+      "observations": "Bathhouse relaxation and speaking/listening transition retain complete framing and readable lettering.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 17,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_17.png",
+      "sha256": "da374e046710c4e71d7cc9962686cc497a02f4b9fc518fa1aa03d1c8ce8ec972",
+      "observations": "Large extravagant feast and couch relaxation are distinct from the interruption. Flat blue fabric does not depict a second tail; dense peripheral dishes/cups vary slightly.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 20,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_20.png",
+      "sha256": "186660d3bab9f1b47e5ccb377b63f7ea21a8c73beebc7405fafbef6822652a45",
+      "observations": "Playful imps visibly trigger bubble escalation and Roshan asks for support. Aisle geography is compressed but the blocked microphone and objective read.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 21,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_21.png",
+      "sha256": "cafacbe80063bbfba78d54a06f53379f662440928fac15f78015294cfa0e7cbd",
+      "observations": "Trio jobs, Duri final delivery and Roshan gap plan have clear speakers and gestures. Bell is briefly pink/red rather than the usual gold.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 22,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_22.png",
+      "sha256": "b4dee931496eee91226fcf4987beacd1dedb4b0969074d40a436db5f9464f641",
+      "observations": "Song cadence, swimming beat, caught star and ducking form separate readable instants. Shared singing balloon has multiple tips.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 23,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_23.png",
+      "sha256": "848ae23c52104fcbe60b8679d8aa5715ec5c892fc675d136ebc693493399244c",
+      "observations": "Interruption, Duri signal, explicit pause/request and underwater alternate route read clearly.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 25,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_25.png",
+      "sha256": "96d767e4992502afc6b3af6a29ea6d4c49d0ed55b23324da873f404f7d86ab73",
+      "observations": "Curtain tassel is connected to the snag and wand slip; distressed Magician and still-bowing Performer are distinct. Cloth handling is temporarily off-panel.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 27,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_27.png",
+      "sha256": "ebb924a41206d5fea6de5c4fb7c76e08e2056033dd45d526badb69da3caa020a",
+      "observations": "Both required Roshan instructions are present; catch cloth/support/pop/landing are readable. Catch balloon has redundant head/arm tips; the second imp grips the tie while asking.",
+      "introduced_pdf_clipping_or_material_defect": false
+    },
+    {
+      "number": 32,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_32.png",
+      "sha256": "e9174ab0285805de17276632d9ed588b9700612389d98c8e0d49c0bd1c5e230c",
+      "observations": "Return through Rumi pool, ordinary candle question and listening payoff read distinctly. Candle remains absent; turning fixture is implied outside the final compositions.",
+      "introduced_pdf_clipping_or_material_defect": false
+    }
+  ],
+  "pdf_authored_artwork_integrity": "All32 original native PNG compressed IDAT streams, decoded embedded RGB and whole-frame CTM/media/crop geometry pass the bound machine checker. No authoring crop, raster resize, software sharpening, collage or text overlay.",
+  "actual_render_sampling": "NON_EXACT versus native RGB due renderer sampling. This receipt does not equate render samples with authored PNG bytes.",
+  "quality_score_changed_by_this_review": false,
+  "introduced_pdf_blockers": [],
+  "acceptance_scope": "Static-book agent review only. Owner acceptance, child read-aloud and physical print review remain pending. No runtime/device/cinematic/global master-audit satisfaction."
+}

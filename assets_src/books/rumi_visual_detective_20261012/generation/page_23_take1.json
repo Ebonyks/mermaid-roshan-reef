@@ -1,0 +1,47 @@
+{
+  "page": 23,
+  "take": 1,
+  "created_at_utc": "2026-10-12T08:26:50.219360+00:00",
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-10dfa7b5-7df2-4fe0-a859-0bc7e8089812.png",
+  "path": "assets_src/books/rumi_visual_detective_20261012/native/page_23_take1.png",
+  "sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+  "provider_sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+  "rgb_pixel_sha256": "13bf84745e8b7b2e6314a1b7fc238509c3245c1d39138d9cd13c4d269b459d5e",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_page_sha256": "fa3f00abf699e0c175038945115552ddc59388c4608b44a3e8eeedd763cc5e13",
+  "prompt": "Use case: precise-object-edit / illustration-story. Produce ONE COMPLETE NATIVE 1024 x 1536 RGB portrait manga page. Image1 is the EDIT TARGET, the previous edition's own original complete page, not a collage source. This is a bounded own-page illustration repair for the new book. Preserve its polished 2D manga/storybook medium, thin square panel borders, efficient gutters, crisp face/hand/prop outlines, expressive child-safe acting and all unmentioned story facts. No crop, raster resize, software sharpening, text overlay, new page border or pasted panel. Return the WHOLE portrait page. Preserve every required word exactly and its correct speaker; don't print these instructions, labels or names. Keep Roshan small with brown waves/rainbow forelock, coral jacket and ONE iridescent rainbow tail; Rumi thick lavender braid/navy-gold costume and ONE cyan-lavender tail/pink fin; tall Hana copper hair/celadon clip/coral sleeves/ONE teal tail; shorter Nari navy bob/crescent clip/mint jacket/ONE lavender tail; Duri lavender turtle/mint floral shell/courier bag; costumed purple performer and navy-coated top-hatted magician with bare purple hands/trousers/shoes. The setting remains under Rumi's pool inside Pearl Castle. No rainbow candle, flame, wick, film character costume or copied movie scene. Keep distant background depth softness purposeful; don't add busy detail.\nMake two named prop-continuity repairs in PANEL2 (middle Pause reaction): Hana retains the SAME PALE CREAM cloth with ORANGE/PEACH SHELL motifs from Image3, FOLDED over and held by her hands/forearm so it is visibly with her while she asks for a turn; it must not vanish between catch and basket. Nari pauses with the SAME small shallow GOLD-RIM FRAME DRUM, CREAM membrane and PINK SHELL emblem from Image2; replace the deep purple cylinder with that exact shallow ring. Keep Duri's bell/DING to the left, then Roshan's Pause line, then Hana's request in clear order. Preserve the top performer curtain sweep, lower Roshan/Rumi current route, every word, actor identity, one tail per mermaid, and all other event staging. No extra speech, arrows, candle or costume changes.\nExact required lettering in reading order; speaker labels here are metadata, DO NOT print them:\nPanel 1:\nPerformer: \"You're missing our grand finish!\"\nPanel 2:\nSound: \"DING!\"\nRoshan: \"Pause! I need a different way.\"\nHana: \"Give us a turn. We'll watch yours too.\"\nPanel 3:\nRoshan: \"The current goes under. Rumi, come with me.\"\n",
+  "prompt_sha256": "246eeb4130bb08680b102453e594553e0b91086d6abb4ee0addee19861137933",
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_23_take1_prompt.txt",
+  "references": [
+    {
+      "role": "edit_target_complete_native_page",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_23_take2.png",
+      "sha256": "305a985d9d19707135936117e1dfdde4ed7c53348c735e4a18a51e5a7591cd24"
+    },
+    {
+      "role": "prop_only_Nari_same_frame_drum_no_scene_pixels",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1"
+    },
+    {
+      "role": "prop_only_same_cream_orange_shell_catchcloth_no_scene_pixels",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990"
+    }
+  ],
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_23_take1_references.json",
+  "modifications": "Native provider PNG copied byte-identically; own-page generated corrections declared by exact prompt; no software crop/resize/sharpening/lettering overlay. Adjacent generated pixels may change.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original static-book candidate; existing project identity/setting/prop references retain terms; no film pixels/scene copy."
+}

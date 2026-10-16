@@ -1,0 +1,388 @@
+{
+  "schema": "rumi_detective_independent_revised_four_page_review_v1",
+  "status": "AGENT_NATIVE_REVIEW_RECORDED_NO_SELECTED_HARD_FAILURE_GLOBAL_TARGET_NOT_CLAIMED",
+  "reviewer": "/root/story_editor",
+  "recorded_at_utc": "2026-10-12T08:59:13.683876+00:00",
+  "script_path": "assets_src/books/rumi_visual_detective_20261012/story_script.json",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "rubric_path": "assets_src/books/rumi_visual_detective_20261012/QUALITY_RUBRIC.txt",
+  "rubric_sha256": "3f83261db2c6ecca74e1f54020a61795d86ba8262463cbfecfe04a8cf0ffde2a",
+  "scope": "Independent full-native review of root revised pages2take1,3take2,4take2,32take1. No generation, edits, crops, resize, selection or PDF assembly by this review.",
+  "inspection": "Each exact complete1024x1536 native image viewed with view_image detail=original; every visible scripted word read manually, source stage compared, provider/prompt/reference/RGB hashes separately checked.",
+  "scoring_method": {
+    "category_names": [
+      "character_identity_anatomy",
+      "line_detail_completeness",
+      "action_contact_staging",
+      "balloon_text_clarity",
+      "manga_composition"
+    ],
+    "equal_weights": true,
+    "increments": 0.1,
+    "page_mean": "Unrounded arithmetic mean; each score tied to native observations, not adjusted to reach4.7.",
+    "final_book_method": "Root retains raw independent/root reviews and uses lower score in every category. This four-page range is not a full32-page target result.",
+    "category_5_scope": "Agent static-book rubric only; no owner/runtime5/5 acceptance underDL-VIS-07."
+  },
+  "summary": {
+    "pages": 4,
+    "selected_hard_failure_pages": [],
+    "minimum_page_score": 4.74,
+    "range_mean_unrounded": "4.785",
+    "book_score_not_computed": true,
+    "rainbow_candle_visible_pages": []
+  },
+  "pages": [
+    {
+      "number": 2,
+      "take": 1,
+      "image_path": "assets_src/books/rumi_visual_detective_20261012/native/page_02_take1.png",
+      "image_sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+      "rgb_pixel_sha256": "9b9ca595c2e01311e932d0c4215cedf25b4db5bc29cb6c950aa2005c6a44bca3",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "source_page_sha256": "4ae1a9f13e485240536bdea11233857c109cc751cf595d1093753b7233581e9c",
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_02_take1.json",
+        "sha256": "eb9c80f8f813825d56ef09c717ac19de42b5e8498899ae69a602ad9239bb18f5"
+      },
+      "provenance_checked": {
+        "provider_native_bytes_equal": true,
+        "literal_prompt_and_file_sha_match": true,
+        "role_reference_sha_matches": true,
+        "exact_final_script_page": true
+      },
+      "manual_lettering": {
+        "actual_literal_entries": [
+          "The castle candle was still missing. But tonight, a song was waiting beneath Rumi’s pool.",
+          "I want to sing the first line. All by myself.",
+          "Then let’s make that your turn.",
+          "What if my voice wobbles?",
+          "It can wobble. It’s still yours. I’ll be beside you, if you want.",
+          "Is that a rainbow under the bench?",
+          "My detective hat!",
+          "Too low.",
+          "Now I can see."
+        ],
+        "source_speakers_in_same_order": [
+          "Narrator",
+          "Roshan",
+          "Rumi",
+          "Roshan",
+          "Rumi",
+          "Roshan",
+          "Roshan",
+          "Roshan",
+          "Roshan"
+        ],
+        "source_word_punctuation_and_order_match": true,
+        "typographic_apostrophe_variants_explicit": true,
+        "not_machine_ocr": true,
+        "tails": "All speech allocations manually inspected at complete native size; no wrong speaker identified."
+      },
+      "scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "category_comments": {
+        "character_identity_anatomy": "Current Roshan/Rumi faces, long brown waves/rainbow forelock, coral coat, lavender braid and single attached tails remain distinct; hat adds a prop rather than replacing the outfit.",
+        "line_detail_completeness": "Finished foreground hands, shell medallions, hat contour and faces; distant decorative details remain intentionally subordinate.",
+        "action_contact_staging": "Retrieval, initially low brim and properly settled brim are three different physical states. The too-low frame completely covers eyes, more than the source requested; the following frame restores them clearly.",
+        "balloon_text_clarity": "All nine entries and their order match. Opening promise/reassurance receives large panels; later lines have nearby speaker allocation with no crossed attribution. Curly apostrophes are typographic variants.",
+        "manga_composition": "Two large conversation panels precede four smaller preparation moments. Glint, hat and face remain focal; rich costume/hair decoration adds a small amount of visual density."
+      },
+      "page_mean_unrounded": "4.82",
+      "page_mean": 4.82,
+      "page_floor_4_5_met": true,
+      "observations": [
+        "The small coloured patch under the bench is light with no candle silhouette, wax or flame.",
+        "Roshan retrieves the shell-medallion hat, places it too low, then settles it above her eyes.",
+        "No lens retrieval or candle conclusion is prematurely pictured on page2."
+      ],
+      "residual_limits": [
+        {
+          "panel": "p02.5",
+          "severity": "BOUNDED_VARIATION",
+          "description": "Hat covers both eyes during Too low, more completely than the production stage instruction; this is one transient gag before clear-eyed settlement, not a repeated obscured identity."
+        }
+      ],
+      "selected_hard_failure": false,
+      "actual_rainbow_candle_visible": false
+    },
+    {
+      "number": 3,
+      "take": 2,
+      "image_path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take2.png",
+      "image_sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+      "rgb_pixel_sha256": "cc2524ed5bb360b8b9574453e33a659fac0c23e88b49d00805f77a119d962171",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "source_page_sha256": "b0fe06e36ae4938b4cc22cba645dda0c2be4b1f7d5e4e5923fe84dec813e7481",
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_03_take2.json",
+        "sha256": "d3bcf0b39200779e5d26d6193730dbe6f4bebf8218d8fc884d1693ec1fe574bf"
+      },
+      "provenance_checked": {
+        "provider_native_bytes_equal": true,
+        "literal_prompt_and_file_sha_match": true,
+        "role_reference_sha_matches": true,
+        "exact_final_script_page": true
+      },
+      "manual_lettering": {
+        "actual_literal_entries": [
+          "I’ll look before I guess.",
+          "Could our candle be here?",
+          "Can you watch the glint?",
+          "Yes.",
+          "It’s moving with the rainbow.",
+          "It’s light. There’s no candle under here.",
+          "Ready for Song Night?",
+          "Yes. And I still want my first line."
+        ],
+        "source_speakers_in_same_order": [
+          "Roshan",
+          "Roshan",
+          "Roshan",
+          "Rumi",
+          "Rumi",
+          "Roshan",
+          "Rumi",
+          "Roshan"
+        ],
+        "source_word_punctuation_and_order_match": true,
+        "typographic_apostrophe_variants_explicit": true,
+        "not_machine_ocr": true,
+        "tails": "Page3 Yes is tailless but adjacent to open-mouthed Rumi; all other allocations inspected as nearby correct speakers. This record does not claim every line has a short tail."
+      },
+      "scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.6,
+        "manga_composition": 4.8
+      },
+      "category_comments": {
+        "character_identity_anatomy": "Same mermaid identities/ordinary coat remain, with one hat and one gold-rim/teal-handle lens. Both tools are visibly stowed by the final drawing.",
+        "line_detail_completeness": "Gold lens rim/teal grip, hands, stone floor and focal faces have finished contours; lens reflection is stylised rather than an actual optical measurement.",
+        "action_contact_staging": "Palming the light path produces dark bare stone in panel4; lifting palm restores the rainbow patch in panel5. Patch occupies the lower bench ledge/floor region rather than a consistently recessed cavity.",
+        "balloon_text_clarity": "Every word and correct reading order retained. Yes is a tailless oval immediately beside open-mouthed Rumi; context identifies her, but it is not an exact short-tail solution. Other speakers have clear nearby tails.",
+        "manga_composition": "Varied first-row scale, wide ask/watch panel, paired shade/unshade panels and wide tool-stow action provide a legible sequence with little unused space."
+      },
+      "page_mean_unrounded": "4.76",
+      "page_mean": 4.76,
+      "page_floor_4_5_met": true,
+      "observations": [
+        "All six scripted moments are separately drawn, not crop variants.",
+        "Panel4 is visibly dark stone under Roshan’s shading palm; panel5 restores a compact rainbow patch.",
+        "The test rules out this glint, not every possible candle location. No actual candle is found.",
+        "Final drawing shows Roshan bare-headed returning both hat and magnifier to the wardrobe before city arrival."
+      ],
+      "residual_limits": [
+        {
+          "panel": "p03.3",
+          "severity": "BOUNDED_ATTRIBUTION_LIMIT",
+          "description": "Yes lacks a speech tail. Its immediate placement beside Rumi’s open mouth and the Roshan-to-Rumi question makes the speaker readable, but no short tail is falsely claimed."
+        },
+        {
+          "panels": [
+            "p03.2",
+            "p03.4",
+            "p03.5"
+          ],
+          "severity": "BOUNDED_GEOMETRY_VARIATION",
+          "description": "The reflected patch lies on the lower bench ledge/floor, with a different perspective from page2’s recessed under-bench view. The same local light test and shade/unshade result remain readable."
+        }
+      ],
+      "selected_hard_failure": false,
+      "actual_rainbow_candle_visible": false
+    },
+    {
+      "number": 4,
+      "take": 2,
+      "image_path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take2.png",
+      "image_sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+      "rgb_pixel_sha256": "64ff6e302654f687ce678241e28422185ecf12faeebe0e8acf4dd073036a6205",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "source_page_sha256": "3572dee7ecd20c0335e2d11d9b1f2af5edc267a9982ea438763c0b5b07a947f0",
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_04_take2.json",
+        "sha256": "b7b515cae5340c80f838748d69c0e0e654bd1306e646ce657c43801d31260f62"
+      },
+      "provenance_checked": {
+        "provider_native_bytes_equal": true,
+        "literal_prompt_and_file_sha_match": true,
+        "role_reference_sha_matches": true,
+        "exact_final_script_page": true
+      },
+      "manual_lettering": {
+        "actual_literal_entries": [
+          "Under the pool lay a whole neighbourhood. Tonight, everyone would sing together.",
+          "The baker packed warm snacks. The tailor hung bright ribbons. Everyone had a song to bring.",
+          "Song Night! Bring your own voice! One last invitation for the bathhouse. Then I get a turn too!",
+          "The lanterns go up. The singing begins.",
+          "Stay beside me under the bridge. The tram stirs a strong current.",
+          "Our entrance will be HUGE!",
+          "That fan is hanging over my delivery path.",
+          "We’ll move it later. Come and clap!",
+          "But I need to get through now."
+        ],
+        "source_speakers_in_same_order": [
+          "Narrator",
+          "Narrator",
+          "Duri",
+          "Rumi",
+          "Rumi",
+          "Performer",
+          "Duri",
+          "Magician",
+          "Duri"
+        ],
+        "source_word_punctuation_and_order_match": true,
+        "typographic_apostrophe_variants_explicit": true,
+        "not_machine_ocr": true,
+        "tails": "All speech allocations manually inspected at complete native size; no wrong speaker identified."
+      },
+      "scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.5
+      },
+      "category_comments": {
+        "character_identity_anatomy": "Four distinct principal mermaids are visible: smallest rainbow Roshan, braided Rumi, taller copper-haired Hana and bob-haired Nari. Performer/magician retain separate costumes; the performer has no chef hat.",
+        "line_detail_completeness": "Foreground fan slats/base, courier invitation, main faces and food have finished detail. Smaller city performers/passengers are deliberate background depth.",
+        "action_contact_staging": "Five sequential arrival/warning states retain tram/current, weighted fan support and free Duri before the accident. Circular pool roof is not visibly framed in the crowded city panorama, although underwater setting and route are clear.",
+        "balloon_text_clarity": "Both narrator captions are frozen source text, not unscripted additions. All92 page words are present in source order; Duri, Rumi and imp balloons point to their own nearby speakers.",
+        "manga_composition": "The top city panorama packs stage, tram, merchants and four leads around two captions. It is readable but visually denser than the single focal actions in the following narrow panels."
+      },
+      "page_mean_unrounded": "4.74",
+      "page_mean": 4.74,
+      "page_floor_4_5_met": true,
+      "observations": [
+        "The city’s baker/tailor preparation is actual story content and both corresponding caption texts are required.",
+        "Duri hands over the invitation, names his last delivery and desire for a singing turn before needing rescue.",
+        "The tram visibly sweeps a leaf under the bridge before page11’s stronger rush.",
+        "One tall pleated purple/gold fan with shell-patterned weighted base remains precarious; Duri is not yet trapped.",
+        "Magician and performer leave while Duri’s protest continues."
+      ],
+      "residual_limits": [
+        {
+          "panel": "p04.1",
+          "severity": "BOUNDED_COMPOSITION_LIMIT",
+          "description": "Dense city panorama includes many small audience/market silhouettes; the circular castle pool opening is outside the framed view rather than explicitly shown as requested. No surface sky or new exterior journey is asserted."
+        }
+      ],
+      "selected_hard_failure": false,
+      "actual_rainbow_candle_visible": false
+    },
+    {
+      "number": 32,
+      "take": 1,
+      "image_path": "assets_src/books/rumi_visual_detective_20261012/native/page_32_take1.png",
+      "image_sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+      "rgb_pixel_sha256": "93053de0a60308a534433f9aebb7f5181518dfcf2bac748e43800a12763b3e76",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "source_page_sha256": "e2ef019812f3daa80c30fe90c0db889c8cf90f669654e5f0aabf4a232e9b4c5b",
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_32_take1.json",
+        "sha256": "c9361a637f67f76ce90c2a176898c651a0801368ee1523c53ff06c4f28c556e0"
+      },
+      "provenance_checked": {
+        "provider_native_bytes_equal": true,
+        "literal_prompt_and_file_sha_match": true,
+        "role_reference_sha_matches": true,
+        "exact_final_script_page": true
+      },
+      "manual_lettering": {
+        "actual_literal_entries": [
+          "They swam back up through Rumi’s pool. The rainbow was still turning.",
+          "What shall we do tomorrow?",
+          "I have an idea about our candle. Can I tell you?",
+          "I’m listening.",
+          "Roshan didn’t wait for her voice to be perfect. She began."
+        ],
+        "source_speakers_in_same_order": [
+          "Narrator",
+          "Rumi",
+          "Roshan",
+          "Rumi",
+          "Narrator"
+        ],
+        "source_word_punctuation_and_order_match": true,
+        "typographic_apostrophe_variants_explicit": true,
+        "not_machine_ocr": true,
+        "tails": "All speech allocations manually inspected at complete native size; no wrong speaker identified."
+      },
+      "scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "category_comments": {
+        "character_identity_anatomy": "Current Roshan/Rumi identity and single tails remain; Hana/Nari/Duri retain recognisable escort identities behind them.",
+        "line_detail_completeness": "Finished focal faces, hair, coat and ordinary listening gestures; background vault/fountain detail remains subordinate to the two leads.",
+        "action_contact_staging": "Upward swimming through the circular pool and home bench conversation read clearly. Hana/Nari/Duri joining the upward shot is an unscripted escort; the turning-rainbow mechanism is implied rather than visibly demonstrated in a still.",
+        "balloon_text_clarity": "All five entries, revised candle-idea sentence and natural order match. Short tails identify Rumi/Roshan; final narration is separated from speech and does not cover a face.",
+        "manga_composition": "Large ensemble return leads to ordinary two-person idea/listening panels. Roshan’s raised finger then close hopeful face distinguish the ending actions."
+      },
+      "page_mean_unrounded": "4.82",
+      "page_mean": 4.82,
+      "page_floor_4_5_met": true,
+      "observations": [
+        "No candle is revealed, recovered or given as a prize.",
+        "The revised sentence is exactly I have an idea about our candle. Can I tell you?",
+        "Rumi’s attentive response carries the voice lesson into an ordinary next-day idea."
+      ],
+      "residual_limits": [
+        {
+          "panel": "p32.1",
+          "severity": "BOUNDED_CAST_VARIATION",
+          "description": "Hana, Nari and Duri accompany the two leads below the opening; source return panel only specified Roshan/Rumi. This escort neither changes dialogue nor asserts a new residence for those friends."
+        },
+        {
+          "panel": "p32.1",
+          "severity": "BOUNDED_STILL_LIMIT",
+          "description": "Turning rainbow is narrated, with pool-room fountain/light context visible; motion of the established mechanism cannot be verified from this still alone."
+        }
+      ],
+      "selected_hard_failure": false,
+      "actual_rainbow_candle_visible": false
+    }
+  ],
+  "causality": [
+    "Ordinary singing wish and support remain before any investigation or rescue.",
+    "Hat retrieval/placement/settlement, lens check, asking Rumi, shade/unshade verification and storing both tools are distinct meaningful actions.",
+    "The local light hypothesis resolves without a real candle clue or recovery.",
+    "City preparation and unsafe fan warning connect to the unchanged bridge rescue.",
+    "Ending offers a next ordinary candle idea without revealing its content or solving the theft."
+  ],
+  "acceptance": {
+    "agent_static_native_review": "RECORDED",
+    "root_lower_of_category_reconciliation": "PENDING",
+    "owner": "PENDING",
+    "child": "PENDING",
+    "print": "PENDING",
+    "final_pdf": "PENDING",
+    "runtime": "NOT_INTEGRATED",
+    "master_audit_satisfaction": "NOT_CLAIMED"
+  }
+}

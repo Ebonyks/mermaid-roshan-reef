@@ -1,0 +1,55 @@
+{
+  "status": "COMPLETED_TWO_FRESH_CANDIDATES_PENDING_ROOT_REVIEW",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "diagnosis": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/local_repair_diagnosis_pages_08_10.json",
+    "sha256": "391e74c4b79e9866a46059679521f8e45b04e424a0931d8d269a49e0a5001703"
+  },
+  "previous_edition_calls": 54,
+  "current_assignment_completed_calls": 7,
+  "max_additional_calls": 2,
+  "cap_not_reset": true,
+  "pages": [
+    {
+      "page": 8,
+      "method_change_file": "assets_src/books/rumi_visual_detective_20261012/verification/page_08_take3_method_change.json",
+      "method_change_sha256": "c7ab8127c3f3e56f64767d8d5363e2e2fe3af0fa0c470103719648e3b834d02a",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_08_take3.txt",
+      "prompt_sha256": "9d0b106164431dbb9a62d0c79d572ff48aa3cdefcf4bdd056ea35bbeac8363e7",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_08_take3.json",
+      "references_sha256": "913b222247ca2cdeb7fd3ca030d049934d248163c6ab91822e1837e97cc4bfd2",
+      "max_additional_calls": 1,
+      "previous_local_calls": 2,
+      "maximum_cycle_calls": 3,
+      "status": "NATIVE_REVIEW_PASS_ROOT_PENDING",
+      "actual_additional_calls": 1,
+      "cycle_calls": 3,
+      "capture_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take3.json",
+      "capture_receipt_sha256": "b287005faabe25307d605be2e04f34a4fd046a65e81dabe64e7b5cd39da413d3",
+      "native_sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed"
+    },
+    {
+      "page": 10,
+      "method_change_file": "assets_src/books/rumi_visual_detective_20261012/verification/page_10_take3_method_change.json",
+      "method_change_sha256": "1fd95d87917e49481f4a482625c67f9b5d08dc3534f17529fef36c39b3862bf1",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_10_take3.txt",
+      "prompt_sha256": "6350b949c546a664850034ec531da55b87f9ded23e9a3da9dd772520193121a0",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_10_take3.json",
+      "references_sha256": "818dac4d7cf8b027fb797cc50e0efbef4abb4df9048f9f09f9f6df273799dcf0",
+      "max_additional_calls": 1,
+      "previous_local_calls": 2,
+      "maximum_cycle_calls": 3,
+      "status": "NATIVE_REVIEW_PASS_ROOT_PENDING",
+      "actual_additional_calls": 1,
+      "cycle_calls": 3,
+      "capture_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take3.json",
+      "capture_receipt_sha256": "b54dc740124f4b5a5f3dffb72201793b186976a443bb3d8b7c99781663d0f37b",
+      "native_sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74"
+    }
+  ],
+  "method_change_reason": "Actual two-take local lettering/arm repair failures; root explicitly authorizes one changed-layout generation each only.",
+  "actual_additional_calls": 2,
+  "current_assignment_total_calls": 9,
+  "final_review_file": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+  "final_review_sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+}

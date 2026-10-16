@@ -1,0 +1,90 @@
+FOCUSED ORIGINAL TEST COMMAND
+["C:/Program Files/Git/bin/bash.exe", "--noprofile", "--norc", "-c", "set -uo pipefail\ncd '/c/Users/Peter/Documents/mermaid-roshan-reef'\nexport PYTHONUTF8=1 PYTHONIOENCODING=utf-8\nexport TMPDIR=\"$PWD/tmp\"\n/c/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B -m unittest tools.tests.test_gold_star.FixtureTests.test_new_game_file_must_be_catalogued\n"]
+SHELL LITERAL
+set -uo pipefail
+cd '/c/Users/Peter/Documents/mermaid-roshan-reef'
+export PYTHONUTF8=1 PYTHONIOENCODING=utf-8
+export TMPDIR="$PWD/tmp"
+/c/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B -m unittest tools.tests.test_gold_star.FixtureTests.test_new_game_file_must_be_catalogued
+
+STDOUT
+
+STDERR
+F
+======================================================================
+FAIL: test_new_game_file_must_be_catalogued (tools.tests.test_gold_star.FixtureTests.test_new_game_file_must_be_catalogued)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\Documents\mermaid-roshan-reef\tools\tests\test_gold_star.py", line 222, in test_new_game_file_must_be_catalogued
+    self.assertTrue(any("scripts/games/gamma.gd" in error and "not in the catalogue" in error for error in errors))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.085s
+
+FAILED (failures=1)
+
+ACTUAL EXIT 1
+
+FIXTURE DIAGNOSTIC COMMAND
+["C:/Program Files/Git/bin/bash.exe", "--noprofile", "--norc", "-c", "set -uo pipefail\ncd '/c/Users/Peter/Documents/mermaid-roshan-reef'\nexport PYTHONUTF8=1 PYTHONIOENCODING=utf-8\nexport TMPDIR=\"$PWD/tmp\"\n/c/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B tmp/diagnose_rumi_gold_star_fixture_20261012.py --fixture-only\n"]
+STDOUT
+{
+  "python_executable": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+  "python_version": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+  "TMPDIR_environment": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp",
+  "tempfile_gettempdir": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp",
+  "fixture_root": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\tmpsdpwr8t4",
+  "fixture_inside_project": true,
+  "gamma_exists": true,
+  "gamma_fixture_relative_posix": "scripts/games/gamma.gd",
+  "git_discovery": {
+    "argv": [
+      "git",
+      "-C",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\tmpsdpwr8t4",
+      "ls-files",
+      "--cached",
+      "--others",
+      "--exclude-standard"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "git_top_level": {
+    "argv": [
+      "git",
+      "-C",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\tmpsdpwr8t4",
+      "rev-parse",
+      "--show-toplevel"
+    ],
+    "exit_code": 0,
+    "stdout": "C:/Users/Peter/Documents/mermaid-roshan-reef\n",
+    "stderr": ""
+  },
+  "git_ignore_diagnostic": {
+    "argv": [
+      "git",
+      "-C",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+      "check-ignore",
+      "-v",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\tmpsdpwr8t4\\scripts\\games\\gamma.gd"
+    ],
+    "exit_code": 0,
+    "stdout": ".gitignore:47:/tmp/*\t\"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\tmpsdpwr8t4\\\\scripts\\\\games\\\\gamma.gd\"\n",
+    "stderr": ""
+  },
+  "gold_star_git_files": [],
+  "gold_star_uncovered_files": [],
+  "gold_star_validate_errors": [],
+  "expected_diagnostic_present": false,
+  "filesystem_fallback_would_include_gamma": true
+}
+
+STDERR
+
+ACTUAL EXIT 0

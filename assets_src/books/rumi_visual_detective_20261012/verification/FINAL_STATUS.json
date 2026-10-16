@@ -1,0 +1,91 @@
+{
+  "schema": "rumi_static_book_final_status_v1",
+  "recorded_at_utc": "2026-10-12T10:16:36.906865+00:00",
+  "status": "BOOK_VISUAL_OBJECTIVE_MET_LOCAL_REVIEW_CANDIDATE_COMMIT_GATE_BLOCKED",
+  "owner_request": "Iterate32-page visuals to4.7/5, analyze blur/incomplete details, keep rainbow candle hidden and give detective-hat montage time.",
+  "book_objective": {
+    "agent_review_score_unrounded": 4.735,
+    "minimum_page_score": 4.6,
+    "fixed_conservative_baseline": 4.655,
+    "actual_pdf_pages": 32,
+    "unique_whole_native_page_images": 32,
+    "improved_selected_new_pages": 16,
+    "unchanged_unique_prior_pages_reused": 16,
+    "actual_new_generation_calls_including_rejects": 24,
+    "rejected_new_takes_retained": 8,
+    "hat_observation_sequence_pages": [
+      2,
+      3
+    ],
+    "rainbow_candle": "REMAINS_HIDDEN_NO_RECOVERY",
+    "remaining_source_limits": "Minor balloon tails, prop/towel continuity and compressed peripheral staging remain recorded; no selected hard failure. Subjective agent rubric, not objective perceptual benchmark or owner acceptance."
+  },
+  "book_deliverables": [
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/output/pdf/Mermaid_Roshan_Here_I_Am_Detective_32_Pages.pdf",
+      "sha256": "f19669f0bd75517c9c6222d9da00a87d26d8cf84e7edc4e5ba2968d5fc2f8064"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/MANUSCRIPT.txt",
+      "sha256": "38acb28035596b04f3f479f401cff7d407aaff90233ee6ade833bca186b12221"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/story_script.json",
+      "sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/selected_art.json",
+      "sha256": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/generation_manifest.json",
+      "sha256": "44f0189eb9d46523e7db0517345fdad85e108962431a170599d3d6209cc16c91"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/QUALITY_REVIEW.json",
+      "sha256": "f3f4fa74ab9b59766436b2aa05182173e99356bd1c6f10134d35551b573d7a60"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/quality_reconciliation_independent_receipt.json",
+      "sha256": "fddfd93718094c00bb24e8c9446598e76a686467e7dee9fca26986c6111ae09c"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/book_check.json",
+      "sha256": "cf0d2631a9cbfc7f58d851e7bf6b9f0f9687dbd574bb77380386087996cf1eff"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/root_pdf_review.json",
+      "sha256": "1604cb4891eb60715bb22f38be2ec7c1e1a81827e4d41937bf4109255badba71"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/documentary_review_corrections.json",
+      "sha256": "31d3d72525a1e9ae666a589481a0111558b27d71ca07264dcadad7aab5d77703"
+    }
+  ],
+  "machine_lanes": {
+    "native_art_provenance_and_original_pdf_idat_embedded_rgb_full_frame_geometry": "PASS",
+    "actual_pdf_render_sampling_vs_native": "NON_EXACT_RECORDED",
+    "independent_full_actual_pdf_visual_review_pages": 32,
+    "document_authority_coverage_owner_register_whitespace_unchanged_runtime": {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_document_gates.json",
+      "sha256": "b0aa2375364b600a2076b8b702871445f57bf941fe4f88e7463f26b33ec1fcab"
+    },
+    "full_game_regression": {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_system_temp_receipt.json",
+      "sha256": "e3597cc3b288dfd67925d0197144501ea42a67c7661bf89401e59c40d8754e05"
+    },
+    "full_game_regression_result": "FAIL_EXIT1_ALL82_PROBES_THREE_THRONE_ASSERTIONS",
+    "focused_throne_diagnostic": {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/throne_failure_diagnostic.json",
+      "sha256": "6e9816dde7893e349d09d4e5f4d6bfb91656808f0290f197f9934bf5cd10a0ca"
+    },
+    "isolated_baseline_execution": "NOT_PERFORMED_SOURCE_EQUALITY_LIMIT_RECORDED"
+  },
+  "commit_push_integration": "NOT_PERFORMED_REQUIRED_GREEN_REGRESSION_GATE_BLOCKS",
+  "acceptance_pending": [
+    "owner book acceptance",
+    "child read-aloud comprehension",
+    "physical print review"
+  ],
+  "scope_limits": "No runtime changes, external collaborator handoff, cinematic/game integration or release. Protected originals/prior books unchanged. No findings closed; global audit remains UNSATISFIED."
+}

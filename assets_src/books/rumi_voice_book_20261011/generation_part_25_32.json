@@ -1,0 +1,778 @@
+{
+  "schema": "rumi_voice_generation_part_v1",
+  "pages_owned": [
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "delivery_policy": "Every page native full drawing; no crops/resizing; generated in-image script lettering; preserve all takes",
+  "records": [
+    {
+      "page": 25,
+      "take": 1,
+      "method": "built-in image_gen",
+      "intent": "new complete page drawing; references appearance/setting only",
+      "prompt": "Use case: illustration-story. Create ONE brand-new complete portrait colour manga page, preferably 1024 x 1536 native pixels, a 2:3 portrait. This is an original child-friendly mermaid comic for reading aloud. Crisp expressive manga ink, variable contour line weight, clean cel colour with subtle painted light, energetic gestures and clear emotions, occasional speed lines and small screentone shadows. Vary panel proportions and diagonals to serve the action. Very narrow straight manga gutters and thin black panel rules. Art fills the page; NO huge rounded cards, generic white caption bands, empty panels, copy-pasted figures, photographic collage, zoom-crop panels or duplicated drawings. Draw every panel as a distinct new instant with its own acting and composition. English left-to-right, top-to-bottom.\nREFERENCE ROLES: the supplied cast sheet controls character appearance ONLY, city/pool controls setting ONLY, imp sources control imp identity ONLY. Do not copy any reference scene pixels, camera layout or character pose. All delivery artwork must be newly drawn for this page. Maintain this original book's characters, rather than any film characters.\nIDENTITIES: Roshan is the smallest young mermaid, brown eyes and long brown waves with a rainbow forelock, coral/cream ornate pop-star jacket, narrow blue/gold fabric waist ribbons, exactly ONE continuous iridescent rainbow tail and a rainbow fanfin. No ribbon that reads as another tail. Rumi taller, thick lavender braid, purple/navy/gold performance jacket and cyan-to-lavender single tail with pink fanfin. Hana tallest, loose copper waves half-up twisted crown/celadon shell clip, coral long-sleeve jacket/cream high-neck blouse, celadon/teal single tail. Nari shorter/younger than Rumi, navy chin-length bob/crescent clip, mint hooded jacket/peach collar, lavender single tail/peach fanfin. Duri is a lavender courier turtle, rigid mint floral shell, exactly four lavender flippers, small shoulder courier bag and shell invitation bell. Imps have purple skin, pointed ears, small horns, bare purple hands, trousers and shoes: performer purple glitter jacket/mint shirt; magician navy coat/cape, top hat/red bow/star wand. No invented white gloves. No weapons or injury.\nWORLD: every scene is UNDER Rumi's swimming pool INSIDE Pearl Castle. Already-magical water; no new portal, voice power or castle exterior journey. Korean-inspired underwater hanok lanes, dense pictogram shop fronts, tram on pearl bridge, tiled mint/cream bathhouse, coral/cream lounge and shell concert stage. Cyan, lavender, indigo, warm coral, pearl gold and restrained neon accents. Rich but quiet context around faces and action. No copied film shots, costumes, logos, characters or lyrics.\nLETTERING: Render ONLY the exact quoted text supplied below, with the punctuation and word order unchanged. Speaker names are attribution instructions, not text to print (except title/subtitle). Use distinct readable speech balloons with short tails pointing to the correct speaker and small cream narrator caption shapes. Tail direction must make multi-speaker conversations unambiguous. Use large clear English print, high contrast, never over eyes/hands/contact/tails. No invented letters, background writing or decorative nonsense. Shop signs use pictures only. Preserve natural read order within each panel. Do not add page headings, panel labels or page numbers. Original song lettering can include tiny music notes.\n\nBOOK PAGE 25. Story purpose (do not letter): The imps' own escalation creates the climax; objects and help call are set up before rescue.\nExactly 3 sequential newly drawn manga panels. Use dynamic panel sizes suited to these beats, not a repeated strip template.\n\nPANEL 1 art: Glitter curtain tassel catches wand tip, magician fumbles it. Wand clearly slips OUTSIDE new bubble toward Rumi.\nExact lettering in reading order:\nNarrator: \"The tassel snagged. The wand slipped.\"\n\nPANEL 2 art: Magician backs INTO giant bubble; translucent sphere closes around his body and nudges him toward broad stage arch. Feet, hands, hat intact, no suffocation or injury.\nExact lettering in reading order:\nMagician: \"Oh! This isn't the trick! Where's my wand? I can't reach it!\"\n\nPANEL 3 art: Inside bubble magician waves and calls. Performer faces audience in big bow, does NOT hear or see trapped friend; Rumi retrieves fallen wand.\nExact lettering in reading order:\nMagician: \"Help!\"\nNarrator: \"His friend was still bowing.\"\nPerformer: \"Ta-daaa!\"\n\nBUBBLE CONTINUITY: only Magician is enclosed in one giant translucent bubble; his wand slips OUTSIDE and Rumi retrieves it on25. Hana/Nari use their soft catch cloth directly beneath bubble on27. Performer secures curtain to fixed hook, NOT to bubble. Wand touch pops bubble gently into low cloth cradle. No flying fall.\n",
+      "prompt_sha256": "f133e3bebde6f1305b4628c1ab239b5e10987636a478c2dcf21bf4e19465c1d0",
+      "references": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "performer",
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+        },
+        {
+          "role": "magician",
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+        }
+      ],
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-be438c4c-ec7f-43d7-964a-316ff94d2e89.png",
+      "native_output": "assets_src/books/rumi_voice_book_20261011/native/page_25_take1.png",
+      "native_sha256": "e79ba3921c7d062edbf11cb56cf9dafb6148fe468c886c707d29d6b10f900582",
+      "native_dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "decoded_rgb_sha256": "d9198393775ff9b3dfa78894802f7ebc355a6a6647aa6113f5100b202ca96b29",
+      "copied_byte_identical": true,
+      "crop": false,
+      "resize": false,
+      "reused_delivery_pixels": false,
+      "provider_model": null,
+      "request_id": null,
+      "seed": null,
+      "reported_cost": null,
+      "not_exposed": [
+        "provider_model",
+        "request_id",
+        "seed",
+        "reported_cost"
+      ],
+      "calls": 1,
+      "recorded_utc": "2026-10-12T05:36:00.526975+00:00",
+      "selected": false,
+      "review_status": "RETAKE_REQUIRED",
+      "named_gaps": [
+        "Panel 3 retrieved wand wrongly assigned to Roshan instead of Rumi",
+        "Panel 3 speech reading order Ta-daaa before Help; frozen order Help, narration, Ta-daaa"
+      ],
+      "visual_review": {
+        "lettering": "All exact lines readable; panel 3 order rejected",
+        "acting_contact": "Bubble encloses only magician; wand outside; retrieval actor wrong",
+        "anatomy": "No obvious blocking topology failure",
+        "distinctness": "Three independently drawn changing states"
+      }
+    },
+    {
+      "page": 25,
+      "take": 2,
+      "method": "built-in image_gen.imagegen",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-45fe434d-ef4c-4618-9273-e400c2d26be9.png",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_25_take2.png",
+      "sha256": "a9c328c1bd1ad45a5378de3fcc1ddd86376fcbe4fb22b32d76322c1d8009a69e",
+      "provider_sha256": "a9c328c1bd1ad45a5378de3fcc1ddd86376fcbe4fb22b32d76322c1d8009a69e",
+      "rgb_pixel_sha256": "985f98cdc8ec86bcadc3def7beef495803074e2ef0ef67825caf6736880f8d5d",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "prompt": "Use case: illustration-story. Create ONE brand-new complete portrait colour manga page, preferably 1024 x 1536 native pixels, a 2:3 portrait. This is an original child-friendly mermaid comic for reading aloud. Crisp expressive manga ink, variable contour line weight, clean cel colour with subtle painted light, energetic gestures and clear emotions, occasional speed lines and small screentone shadows. Vary panel proportions and diagonals to serve the action. Very narrow straight manga gutters and thin black panel rules. Art fills the page; NO huge rounded cards, generic white caption bands, empty panels, copy-pasted figures, photographic collage, zoom-crop panels or duplicated drawings. Draw every panel as a distinct new instant with its own acting and composition. English left-to-right, top-to-bottom.\nREFERENCE ROLES: the supplied cast sheet controls character appearance ONLY, city/pool controls setting ONLY, imp sources control imp identity ONLY. Do not copy any reference scene pixels, camera layout or character pose. All delivery artwork must be newly drawn for this page. Maintain this original book's characters, rather than any film characters.\nIDENTITIES: Roshan is the smallest young mermaid, brown eyes and long brown waves with a rainbow forelock, coral/cream ornate pop-star jacket, narrow blue/gold fabric waist ribbons, exactly ONE continuous iridescent rainbow tail and a rainbow fanfin. No ribbon that reads as another tail. Rumi taller, thick lavender braid, purple/navy/gold performance jacket and cyan-to-lavender single tail with pink fanfin. Hana tallest, loose copper waves half-up twisted crown/celadon shell clip, coral long-sleeve jacket/cream high-neck blouse, celadon/teal single tail. Nari shorter/younger than Rumi, navy chin-length bob/crescent clip, mint hooded jacket/peach collar, lavender single tail/peach fanfin. Duri is a lavender courier turtle, rigid mint floral shell, exactly four lavender flippers, small shoulder courier bag and shell invitation bell. Imps have purple skin, pointed ears, small horns, bare purple hands, trousers and shoes: performer purple glitter jacket/mint shirt; magician navy coat/cape, top hat/red bow/star wand. No invented white gloves. No weapons or injury.\nWORLD: every scene is UNDER Rumi's swimming pool INSIDE Pearl Castle. Already-magical water; no new portal, voice power or castle exterior journey. Korean-inspired underwater hanok lanes, dense pictogram shop fronts, tram on pearl bridge, tiled mint/cream bathhouse, coral/cream lounge and shell concert stage. Cyan, lavender, indigo, warm coral, pearl gold and restrained neon accents. Rich but quiet context around faces and action. No copied film shots, costumes, logos, characters or lyrics.\nLETTERING: Render ONLY the exact quoted text supplied below, with the punctuation and word order unchanged. Speaker names are attribution instructions, not text to print (except title/subtitle). Use distinct readable speech balloons with short tails pointing to the correct speaker and small cream narrator caption shapes. Tail direction must make multi-speaker conversations unambiguous. Use large clear English print, high contrast, never over eyes/hands/contact/tails. No invented letters, background writing or decorative nonsense. Shop signs use pictures only. Preserve natural read order within each panel. Do not add page headings, panel labels or page numbers. Original song lettering can include tiny music notes.\n\nBOOK PAGE 25. Story purpose (do not letter): The imps' own escalation creates the climax; objects and help call are set up before rescue.\nExactly 3 sequential newly drawn manga panels. Use dynamic panel sizes suited to these beats, not a repeated strip template.\n\nPANEL 1 art: Glitter curtain tassel catches wand tip, magician fumbles it. Wand clearly slips OUTSIDE new bubble toward Rumi.\nExact lettering in reading order:\nNarrator: \"The tassel snagged. The wand slipped.\"\n\nPANEL 2 art: Magician backs INTO giant bubble; translucent sphere closes around his body and nudges him toward broad stage arch. Feet, hands, hat intact, no suffocation or injury.\nExact lettering in reading order:\nMagician: \"Oh! This isn't the trick! Where's my wand? I can't reach it!\"\n\nPANEL 3 art: Inside bubble magician waves and calls. Performer faces audience in big bow, does NOT hear or see trapped friend; Rumi retrieves fallen wand.\nExact lettering in reading order:\nMagician: \"Help!\"\nNarrator: \"His friend was still bowing.\"\nPerformer: \"Ta-daaa!\"\n\nBUBBLE CONTINUITY: only Magician is enclosed in one giant translucent bubble; his wand slips OUTSIDE and Rumi retrieves it on25. Hana/Nari use their soft catch cloth directly beneath bubble on27. Performer secures curtain to fixed hook, NOT to bubble. Wand touch pops bubble gently into low cloth cradle. No flying fall.\n\nBOUNDED RETAKE: Correct two actual first-take errors while drawing a wholly new complete page from these references. In PANEL 3, RUMI with thick lavender braid and purple jacket retrieves and holds the fallen star wand OUTSIDE the bubble; Roshan with brown hair/rainbow forelock does NOT hold the wand. Arrange PANEL 3 lettering in unambiguous English reading order: first Magician's 'Help!' at upper left near the bubble, then narrator 'His friend was still bowing.' in the middle, then Performer's 'Ta-daaa!' at right near his bow. All exact script lines and all three distinct sequential panels retained. These corrections are essential continuity and reading-order requirements, not changes to the story.",
+      "prompt_sha256": "21e7b68b66b5bac73b4eee9a464b61056add60466b0c4748069791e791e86117",
+      "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "references": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "performer",
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+        },
+        {
+          "role": "magician",
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+        }
+      ],
+      "modifications": "none; byte-identical copy; no crop, resize, overlay or JPEG conversion",
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "call_count": 1,
+      "selection": "REVIEW_PENDING",
+      "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels.",
+      "selected": true,
+      "review_status": "PASS_SOURCE_CANDIDATE",
+      "named_corrections": [
+        "Rumi retrieves and holds outside wand",
+        "Help then narrator then Ta-daaa reading order"
+      ],
+      "visual_review": {
+        "lettering": "All frozen page25 lines visually readable in exact panel reading order",
+        "speaker_tails": "Magician Help and long speech point toward magician; Ta-daaa points toward performer",
+        "acting_contact": "Wand outside bubble, retrieved by Rumi; only magician enclosed, performer bows",
+        "anatomy": "One continuous mermaid tail each; no obvious extra limbs",
+        "distinctness": "Three new sequential compositions; no source crop or reused delivery pixels"
+      },
+      "corrective_prompt_recording": "Exact prompt stored in orchestration before call and persisted verbatim to UTF-8 prompt file before capture"
+    },
+    {
+      "page": 26,
+      "take": 1,
+      "method": "built-in image_gen.imagegen",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-6cbf935b-e5db-4fe9-9462-9c5d909fa2a2.png",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "provider_sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "rgb_pixel_sha256": "5579dc777ba83803a6d038263ecde39183152b2eb47e6b9678a66cd107001850",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "prompt": "Use case: illustration-story. Create ONE brand-new complete portrait colour manga page, preferably 1024 x 1536 native pixels, a 2:3 portrait. This is an original child-friendly mermaid comic for reading aloud. Crisp expressive manga ink, variable contour line weight, clean cel colour with subtle painted light, energetic gestures and clear emotions, occasional speed lines and small screentone shadows. Vary panel proportions and diagonals to serve the action. Very narrow straight manga gutters and thin black panel rules. Art fills the page; NO huge rounded cards, generic white caption bands, empty panels, copy-pasted figures, photographic collage, zoom-crop panels or duplicated drawings. Draw every panel as a distinct new instant with its own acting and composition. English left-to-right, top-to-bottom.\nREFERENCE ROLES: the supplied cast sheet controls character appearance ONLY, city/pool controls setting ONLY, imp sources control imp identity ONLY. Do not copy any reference scene pixels, camera layout or character pose. All delivery artwork must be newly drawn for this page. Maintain this original book's characters, rather than any film characters.\nIDENTITIES: Roshan is the smallest young mermaid, brown eyes and long brown waves with a rainbow forelock, coral/cream ornate pop-star jacket, narrow blue/gold fabric waist ribbons, exactly ONE continuous iridescent rainbow tail and a rainbow fanfin. No ribbon that reads as another tail. Rumi taller, thick lavender braid, purple/navy/gold performance jacket and cyan-to-lavender single tail with pink fanfin. Hana tallest, loose copper waves half-up twisted crown/celadon shell clip, coral long-sleeve jacket/cream high-neck blouse, celadon/teal single tail. Nari shorter/younger than Rumi, navy chin-length bob/crescent clip, mint hooded jacket/peach collar, lavender single tail/peach fanfin. Duri is a lavender courier turtle, rigid mint floral shell, exactly four lavender flippers, small shoulder courier bag and shell invitation bell. Imps have purple skin, pointed ears, small horns, bare purple hands, trousers and shoes: performer purple glitter jacket/mint shirt; magician navy coat/cape, top hat/red bow/star wand. No invented white gloves. No weapons or injury.\nWORLD: every scene is UNDER Rumi's swimming pool INSIDE Pearl Castle. Already-magical water; no new portal, voice power or castle exterior journey. Korean-inspired underwater hanok lanes, dense pictogram shop fronts, tram on pearl bridge, tiled mint/cream bathhouse, coral/cream lounge and shell concert stage. Cyan, lavender, indigo, warm coral, pearl gold and restrained neon accents. Rich but quiet context around faces and action. No copied film shots, costumes, logos, characters or lyrics.\nLETTERING: Render ONLY the exact quoted text supplied below, with the punctuation and word order unchanged. Speaker names are attribution instructions, not text to print (except title/subtitle). Use distinct readable speech balloons with short tails pointing to the correct speaker and small cream narrator caption shapes. Tail direction must make multi-speaker conversations unambiguous. Use large clear English print, high contrast, never over eyes/hands/contact/tails. No invented letters, background writing or decorative nonsense. Shop signs use pictures only. Preserve natural read order within each panel. Do not add page headings, panel labels or page numbers. Original song lettering can include tiny music notes.\n\nBOOK PAGE 26. Story purpose (do not letter): Roshan sees and hears her opponent as a person; she states Stop again and the repaired friends immediately heed it.\nExactly 3 sequential newly drawn manga panels. Use dynamic panel sizes suited to these beats, not a repeated strip template.\n\nPANEL 1 art: Roshan sees magician's waving hands behind cloudy bubble. Loud spectacle contrasts his frightened face.\nExact lettering in reading order:\nRoshan: \"He's waving. He needs help!\"\n\nPANEL 2 art: Roshan plants open palm toward everyone. Hana halts cloth, Nari stops beat, performer finally turns.\nExact lettering in reading order:\nRoshan: \"Stop the show! Listen to him!\"\nNarrator: \"This time, nobody told her to wait.\"\n\nPANEL 3 art: Magician holds both hands flat against inside of bubble, now clearly audible; Roshan responds at eye level.\nExact lettering in reading order:\nMagician: \"I can't get out.\"\nRoshan: \"We hear you. We're here. We won't leave you.\"\n\nBUBBLE CONTINUITY: only Magician is enclosed in one giant translucent bubble; his wand slips OUTSIDE and Rumi retrieves it on25. Hana/Nari use their soft catch cloth directly beneath bubble on27. Performer secures curtain to fixed hook, NOT to bubble. Wand touch pops bubble gently into low cloth cradle. No flying fall.\n",
+      "prompt_sha256": "203b513b211be7df3c34951aea8d8cce573b501e16bda780d8961c2075db7590",
+      "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "references": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "performer",
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+        },
+        {
+          "role": "magician",
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+        }
+      ],
+      "modifications": "none; byte-identical copy; no crop, resize, overlay or JPEG conversion",
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "call_count": 1,
+      "selection": "REVIEW_PENDING",
+      "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels.",
+      "selected": true,
+      "review_status": "PASS_SOURCE_CANDIDATE",
+      "visual_review": {
+        "lettering": "Every frozen page26 line readable in source order; no added headings or background words",
+        "speaker_tails": "All speech balloons point to Roshan or Magician correctly",
+        "acting_contact": "Roshan observes waving then signals stop; cloth held still; final eye-level reassurance through bubble",
+        "anatomy": "No material extra-tail/limb or face obstruction found",
+        "distinctness": "New warning, halted ensemble, and intimate reassurance compositions"
+      }
+    },
+    {
+      "page": 27,
+      "take": 1,
+      "method": "built-in image_gen.imagegen",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-1eab957c-2537-482c-af0c-23f5c68bb26a.png",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take1.png",
+      "sha256": "f3f75c6973c8ab6be653c05617464d0410bcf20149f911e8f7ceb0c87c77cb95",
+      "provider_sha256": "f3f75c6973c8ab6be653c05617464d0410bcf20149f911e8f7ceb0c87c77cb95",
+      "rgb_pixel_sha256": "5cd0cd20edf018ee622bdc368c7644035b05f99d0fd0ae99f2de13dfec920c23",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "prompt": "Use case: illustration-story. Create ONE brand-new complete portrait colour manga page, preferably 1024 x 1536 native pixels, a 2:3 portrait. This is an original child-friendly mermaid comic for reading aloud. Crisp expressive manga ink, variable contour line weight, clean cel colour with subtle painted light, energetic gestures and clear emotions, occasional speed lines and small screentone shadows. Vary panel proportions and diagonals to serve the action. Very narrow straight manga gutters and thin black panel rules. Art fills the page; NO huge rounded cards, generic white caption bands, empty panels, copy-pasted figures, photographic collage, zoom-crop panels or duplicated drawings. Draw every panel as a distinct new instant with its own acting and composition. English left-to-right, top-to-bottom.\nREFERENCE ROLES: the supplied cast sheet controls character appearance ONLY, city/pool controls setting ONLY, imp sources control imp identity ONLY. Do not copy any reference scene pixels, camera layout or character pose. All delivery artwork must be newly drawn for this page. Maintain this original book's characters, rather than any film characters.\nIDENTITIES: Roshan is the smallest young mermaid, brown eyes and long brown waves with a rainbow forelock, coral/cream ornate pop-star jacket, narrow blue/gold fabric waist ribbons, exactly ONE continuous iridescent rainbow tail and a rainbow fanfin. No ribbon that reads as another tail. Rumi taller, thick lavender braid, purple/navy/gold performance jacket and cyan-to-lavender single tail with pink fanfin. Hana tallest, loose copper waves half-up twisted crown/celadon shell clip, coral long-sleeve jacket/cream high-neck blouse, celadon/teal single tail. Nari shorter/younger than Rumi, navy chin-length bob/crescent clip, mint hooded jacket/peach collar, lavender single tail/peach fanfin. Duri is a lavender courier turtle, rigid mint floral shell, exactly four lavender flippers, small shoulder courier bag and shell invitation bell. Imps have purple skin, pointed ears, small horns, bare purple hands, trousers and shoes: performer purple glitter jacket/mint shirt; magician navy coat/cape, top hat/red bow/star wand. No invented white gloves. No weapons or injury.\nWORLD: every scene is UNDER Rumi's swimming pool INSIDE Pearl Castle. Already-magical water; no new portal, voice power or castle exterior journey. Korean-inspired underwater hanok lanes, dense pictogram shop fronts, tram on pearl bridge, tiled mint/cream bathhouse, coral/cream lounge and shell concert stage. Cyan, lavender, indigo, warm coral, pearl gold and restrained neon accents. Rich but quiet context around faces and action. No copied film shots, costumes, logos, characters or lyrics.\nLETTERING: Render ONLY the exact quoted text supplied below, with the punctuation and word order unchanged. Speaker names are attribution instructions, not text to print (except title/subtitle). Use distinct readable speech balloons with short tails pointing to the correct speaker and small cream narrator caption shapes. Tail direction must make multi-speaker conversations unambiguous. Use large clear English print, high contrast, never over eyes/hands/contact/tails. No invented letters, background writing or decorative nonsense. Shop signs use pictures only. Preserve natural read order within each panel. Do not add page headings, panel labels or page numbers. Original song lettering can include tiny music notes.\n\nBOOK PAGE 27. Story purpose (do not letter): The team slows the bubble and rescues with explicit safe order; the performer must choose to help.\nExactly 3 sequential newly drawn manga panels. Use dynamic panel sizes suited to these beats, not a repeated strip template.\n\nPANEL 1 art: Bubble drifting sideways near wide stage arch; Hana/Nari catch sphere directly in their cloth, supporting it on low platform. Roshan directs performer toward fixed curtain hook outside the aisle.\nExact lettering in reading order:\nRoshan: \"Catch the bubble in the cloth!\"\nPerformer: \"What can I do?\"\nRoshan: \"Tie back the curtain!\"\n\nPANEL 2 art: Performer ties curtain back to fixed hook, opening approach. Hana/Nari cradle bubble directly in cloth on low stage platform. Rumi floats level outside with retrieved wand.\nExact lettering in reading order:\nRumi: \"Ready below?\"\nHana: \"Ready!\"\n\nPANEL 3 art: Rumi touches bubble with wand; one gentle pop, magician lands a short distance into padded cloth supported by Hana/Nari. Roshan steadies his forearm; no painful fall.\nExact lettering in reading order:\nSound: \"POP!\"\nMagician: \"Oof. Thank you.\"\n\nBUBBLE CONTINUITY: only Magician is enclosed in one giant translucent bubble; his wand slips OUTSIDE and Rumi retrieves it on25. Hana/Nari use their soft catch cloth directly beneath bubble on27. Performer secures curtain to fixed hook, NOT to bubble. Wand touch pops bubble gently into low cloth cradle. No flying fall.\n",
+      "prompt_sha256": "b005a88afb65de45af5f0d39c1cce7df58f1f2accb1564c0c5d42edd7a542c57",
+      "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "references": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "performer",
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+        },
+        {
+          "role": "magician",
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+        }
+      ],
+      "modifications": "none; byte-identical copy; no crop, resize, overlay or JPEG conversion",
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "call_count": 1,
+      "selection": "REVIEW_PENDING",
+      "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels.",
+      "selected": false,
+      "review_status": "RETAKE_REQUIRED",
+      "named_gaps": [
+        "Hana Ready reply tail points to Nari instead",
+        "Caught magician incorrectly wears purple glitter sleeves belonging to performer",
+        "Tie back curtain speech tail attribution unclear; extra divided frame"
+      ],
+      "visual_review": {
+        "lettering": "All frozen lines readable but Ready speaker attribution fails",
+        "acting_contact": "Low supported cloth cradle and gentle pop readable",
+        "anatomy": "No obvious additional-tail/limb defect",
+        "distinctness": "New capture, curtain tie, cradled bubble and supported pop states"
+      }
+    },
+    {
+      "page": 27,
+      "take": 2,
+      "method": "built-in image_gen.imagegen",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-edbc49cf-12c0-449e-8839-22f8d4d2041d.png",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take2.png",
+      "sha256": "8b743223fb2244e6261dab1fd6b500aae10df4493d1843934ce4e8bc31a30356",
+      "provider_sha256": "8b743223fb2244e6261dab1fd6b500aae10df4493d1843934ce4e8bc31a30356",
+      "rgb_pixel_sha256": "d1f478d3173520ff45006f83d5a2548e6808c6639f1df734e22ebf2472cc83cc",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "prompt": "Use case: illustration-story. Create ONE brand-new complete portrait colour manga page, preferably 1024 x 1536 native pixels, a 2:3 portrait. This is an original child-friendly mermaid comic for reading aloud. Crisp expressive manga ink, variable contour line weight, clean cel colour with subtle painted light, energetic gestures and clear emotions, occasional speed lines and small screentone shadows. Vary panel proportions and diagonals to serve the action. Very narrow straight manga gutters and thin black panel rules. Art fills the page; NO huge rounded cards, generic white caption bands, empty panels, copy-pasted figures, photographic collage, zoom-crop panels or duplicated drawings. Draw every panel as a distinct new instant with its own acting and composition. English left-to-right, top-to-bottom.\nREFERENCE ROLES: the supplied cast sheet controls character appearance ONLY, city/pool controls setting ONLY, imp sources control imp identity ONLY. Do not copy any reference scene pixels, camera layout or character pose. All delivery artwork must be newly drawn for this page. Maintain this original book's characters, rather than any film characters.\nIDENTITIES: Roshan is the smallest young mermaid, brown eyes and long brown waves with a rainbow forelock, coral/cream ornate pop-star jacket, narrow blue/gold fabric waist ribbons, exactly ONE continuous iridescent rainbow tail and a rainbow fanfin. No ribbon that reads as another tail. Rumi taller, thick lavender braid, purple/navy/gold performance jacket and cyan-to-lavender single tail with pink fanfin. Hana tallest, loose copper waves half-up twisted crown/celadon shell clip, coral long-sleeve jacket/cream high-neck blouse, celadon/teal single tail. Nari shorter/younger than Rumi, navy chin-length bob/crescent clip, mint hooded jacket/peach collar, lavender single tail/peach fanfin. Duri is a lavender courier turtle, rigid mint floral shell, exactly four lavender flippers, small shoulder courier bag and shell invitation bell. Imps have purple skin, pointed ears, small horns, bare purple hands, trousers and shoes: performer purple glitter jacket/mint shirt; magician navy coat/cape, top hat/red bow/star wand. No invented white gloves. No weapons or injury.\nWORLD: every scene is UNDER Rumi's swimming pool INSIDE Pearl Castle. Already-magical water; no new portal, voice power or castle exterior journey. Korean-inspired underwater hanok lanes, dense pictogram shop fronts, tram on pearl bridge, tiled mint/cream bathhouse, coral/cream lounge and shell concert stage. Cyan, lavender, indigo, warm coral, pearl gold and restrained neon accents. Rich but quiet context around faces and action. No copied film shots, costumes, logos, characters or lyrics.\nLETTERING: Render ONLY the exact quoted text supplied below, with the punctuation and word order unchanged. Speaker names are attribution instructions, not text to print (except title/subtitle). Use distinct readable speech balloons with short tails pointing to the correct speaker and small cream narrator caption shapes. Tail direction must make multi-speaker conversations unambiguous. Use large clear English print, high contrast, never over eyes/hands/contact/tails. No invented letters, background writing or decorative nonsense. Shop signs use pictures only. Preserve natural read order within each panel. Do not add page headings, panel labels or page numbers. Original song lettering can include tiny music notes.\n\nBOOK PAGE 27. Story purpose (do not letter): The team slows the bubble and rescues with explicit safe order; the performer must choose to help.\nExactly 3 sequential newly drawn manga panels. Use dynamic panel sizes suited to these beats, not a repeated strip template.\n\nPANEL 1 art: Bubble drifting sideways near wide stage arch; Hana/Nari catch sphere directly in their cloth, supporting it on low platform. Roshan directs performer toward fixed curtain hook outside the aisle.\nExact lettering in reading order:\nRoshan: \"Catch the bubble in the cloth!\"\nPerformer: \"What can I do?\"\nRoshan: \"Tie back the curtain!\"\n\nPANEL 2 art: Performer ties curtain back to fixed hook, opening approach. Hana/Nari cradle bubble directly in cloth on low stage platform. Rumi floats level outside with retrieved wand.\nExact lettering in reading order:\nRumi: \"Ready below?\"\nHana: \"Ready!\"\n\nPANEL 3 art: Rumi touches bubble with wand; one gentle pop, magician lands a short distance into padded cloth supported by Hana/Nari. Roshan steadies his forearm; no painful fall.\nExact lettering in reading order:\nSound: \"POP!\"\nMagician: \"Oof. Thank you.\"\n\nBUBBLE CONTINUITY: only Magician is enclosed in one giant translucent bubble; his wand slips OUTSIDE and Rumi retrieves it on25. Hana/Nari use their soft catch cloth directly beneath bubble on27. Performer secures curtain to fixed hook, NOT to bubble. Wand touch pops bubble gently into low cloth cradle. No flying fall.\n\nBOUNDED RETAKE FOR OBSERVED ERRORS: Draw a wholly new complete page from the same reference identities, with exactly THREE main panels. In PANEL 2 the short 'Ready!' reply belongs to HANA, the tallest copper-haired mermaid holding the LEFT side of the cloth; its short tail must point unmistakably to Hana's mouth, NEVER Nari's navy-bob face on the right. Rumi alone asks 'Ready below?' with her own short tail. In PANEL 3 the caught MAGician retains his NAVY coat/cape and red bow and navy top hat; he must NEVER change into the other imp's purple glitter jacket. The glitter jacket belongs only to PERFORMER, who ties the curtain in panel2. In PANEL 1 'Tie back the curtain!' is ROSHAN'S line, so point its tail clearly to small brown-haired Roshan, not the nearby performer. Keep all quoted script text exactly and in order, and all safe support/contact/bubble mechanics. No extra subdividing frame for the curtain-tie action; show it within the second main panel.",
+      "prompt_sha256": "e4320c0fb92b5cc9e678155864908d7252c7966d08145d611464bbd805d74e44",
+      "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "references": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "performer",
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+        },
+        {
+          "role": "magician",
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+        }
+      ],
+      "modifications": "none; byte-identical copy; no crop, resize, overlay or JPEG conversion",
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "call_count": 1,
+      "selection": "REVIEW_PENDING",
+      "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels.",
+      "selected": false,
+      "review_status": "SOURCE_CANDIDATE_CONTACT_REVIEW",
+      "named_corrections": [
+        "Ready tail now clearly points to copper-haired Hana",
+        "Caught magician retains navy outfit",
+        "Tie back instruction tail points to Roshan; three main panels"
+      ],
+      "visual_review": {
+        "lettering": "All frozen lines readable in proper reading order",
+        "speaker_tails": "Ready points to Hana; Ready below to Rumi; other speaker tails readable",
+        "acting_contact": "Curtain tied to fixed hook; final magician supported in low cloth, Roshan steadies forearm. Before pop bubble remains visibly above cloth rather than touching it, recorded for root contact review",
+        "anatomy": "No material topology failure found; magician navy identity retained",
+        "distinctness": "New full three-panel action page"
+      },
+      "remaining_review_note": "Pre-pop bubble-to-cloth gap: cloth positioned beneath, not literal direct contact. Two-take cap reached; no further call made."
+    },
+    {
+      "page": 28,
+      "take": 1,
+      "method": "built-in image_gen.imagegen",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-f75df69b-dff8-4abe-a561-2cc7e4d2deea.png",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "provider_sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "rgb_pixel_sha256": "09598016190b559bd091a675120257925d6aa22259a61f4a08f65852c9fbe575",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "prompt": "Use case: illustration-story. Create ONE brand-new complete portrait colour manga page, preferably 1024 x 1536 native pixels, a 2:3 portrait. This is an original child-friendly mermaid comic for reading aloud. Crisp expressive manga ink, variable contour line weight, clean cel colour with subtle painted light, energetic gestures and clear emotions, occasional speed lines and small screentone shadows. Vary panel proportions and diagonals to serve the action. Very narrow straight manga gutters and thin black panel rules. Art fills the page; NO huge rounded cards, generic white caption bands, empty panels, copy-pasted figures, photographic collage, zoom-crop panels or duplicated drawings. Draw every panel as a distinct new instant with its own acting and composition. English left-to-right, top-to-bottom.\nREFERENCE ROLES: the supplied cast sheet controls character appearance ONLY, city/pool controls setting ONLY, imp sources control imp identity ONLY. Do not copy any reference scene pixels, camera layout or character pose. All delivery artwork must be newly drawn for this page. Maintain this original book's characters, rather than any film characters.\nIDENTITIES: Roshan is the smallest young mermaid, brown eyes and long brown waves with a rainbow forelock, coral/cream ornate pop-star jacket, narrow blue/gold fabric waist ribbons, exactly ONE continuous iridescent rainbow tail and a rainbow fanfin. No ribbon that reads as another tail. Rumi taller, thick lavender braid, purple/navy/gold performance jacket and cyan-to-lavender single tail with pink fanfin. Hana tallest, loose copper waves half-up twisted crown/celadon shell clip, coral long-sleeve jacket/cream high-neck blouse, celadon/teal single tail. Nari shorter/younger than Rumi, navy chin-length bob/crescent clip, mint hooded jacket/peach collar, lavender single tail/peach fanfin. Duri is a lavender courier turtle, rigid mint floral shell, exactly four lavender flippers, small shoulder courier bag and shell invitation bell. Imps have purple skin, pointed ears, small horns, bare purple hands, trousers and shoes: performer purple glitter jacket/mint shirt; magician navy coat/cape, top hat/red bow/star wand. No invented white gloves. No weapons or injury.\nWORLD: every scene is UNDER Rumi's swimming pool INSIDE Pearl Castle. Already-magical water; no new portal, voice power or castle exterior journey. Korean-inspired underwater hanok lanes, dense pictogram shop fronts, tram on pearl bridge, tiled mint/cream bathhouse, coral/cream lounge and shell concert stage. Cyan, lavender, indigo, warm coral, pearl gold and restrained neon accents. Rich but quiet context around faces and action. No copied film shots, costumes, logos, characters or lyrics.\nLETTERING: Render ONLY the exact quoted text supplied below, with the punctuation and word order unchanged. Speaker names are attribution instructions, not text to print (except title/subtitle). Use distinct readable speech balloons with short tails pointing to the correct speaker and small cream narrator caption shapes. Tail direction must make multi-speaker conversations unambiguous. Use large clear English print, high contrast, never over eyes/hands/contact/tails. No invented letters, background writing or decorative nonsense. Shop signs use pictures only. Preserve natural read order within each panel. Do not add page headings, panel labels or page numbers. Original song lettering can include tiny music notes.\n\nBOOK PAGE 28. Story purpose (do not letter): The imp's change follows lived experience; Roshan need not perform or shout to deserve attention.\nExactly 3 sequential newly drawn manga panels. Use dynamic panel sizes suited to these beats, not a repeated strip template.\n\nPANEL 1 art: Magician seated safely in cloth, hat crooked, small serious face; Roshan beside him, eye contact.\nExact lettering in reading order:\nMagician: \"I called and called. Nobody heard me.\"\n\nPANEL 2 art: Duri moves beside Roshan. Performer sets entrance banner down and listens.\nExact lettering in reading order:\nDuri: \"That was how I felt under the bridge.\"\nRoshan: \"And when you talked over me.\"\n\nPANEL 3 art: Magician and performer face both Duri and Roshan with open hands, no instant generic smiling.\nExact lettering in reading order:\nMagician: \"I'm sorry. We should have listened.\"\nPerformer: \"I'm sorry I talked over you. I was afraid nobody would clap.\"\nRoshan: \"I was afraid too. I still wanted a turn.\"\n",
+      "prompt_sha256": "57b8649a74800a893c664060c26ea7e5b635540ac8b8d30115ff1ddc7036ea96",
+      "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "references": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "performer",
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+        },
+        {
+          "role": "magician",
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+        }
+      ],
+      "modifications": "none; byte-identical copy; no crop, resize, overlay or JPEG conversion",
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "call_count": 1,
+      "selection": "REVIEW_PENDING",
+      "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels.",
+      "selected": true,
+      "review_status": "PASS_SOURCE_CANDIDATE",
+      "visual_review": {
+        "lettering": "All frozen lines readable in source order, no extra background words",
+        "speaker_tails": "All five speakers correctly identified by short tails and clear nearby faces",
+        "acting_contact": "Quiet eye-contact/apology acting; magician safely seated on stage edge. Cloth under him is not visible, recorded as a continuity simplification",
+        "anatomy": "One rainbow tail/fin on Roshan; Duri has four flippers in group composition; no obvious extra limbs",
+        "distinctness": "Three newly drawn reflection, comparison and shared apology instants"
+      }
+    },
+    {
+      "page": 27,
+      "take": 3,
+      "method": "built-in image_gen.imagegen",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-d9e35d30-6b9d-423d-a594-42d4966ec66a.png",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take3.png",
+      "sha256": "ea02564120295261c078938b30dcb52bd3615723892f59e944ee54a2d926cf88",
+      "provider_sha256": "ea02564120295261c078938b30dcb52bd3615723892f59e944ee54a2d926cf88",
+      "rgb_pixel_sha256": "5544138b631d10fe3c49d4594356f7eb30bb698503a69434690e1be26c04c455",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "prompt": "Use case: precise-object-edit. Edit the supplied complete native portrait manga page27 take2 as a bounded local contact correction. Retain its full 1024x1536 frame, same three panels, all characters, faces, hands, sizes, poses, costumes, stage/curtain, every lettering word/balloon/tail and all of the final bottom panel unchanged. ONLY repair the catch cloth's middle in the FIRST TWO panels: lift the middle of the cloth up so the lower curved surface of the magician's translucent bubble visibly touches, nestles into and is cradled by the cloth. The cloth's endpoints stay in Hana's and Nari's existing hands; their hands and arms do not move. Shape a raised soft supporting cloth bowl around the sphere's lower surface, connected naturally to both held corners, without concealing the magician or adding straps. Close the visible air gap below the bubble in each of those two panels. Keep the bubble and magician exactly their existing size, location and pose; no lifting the magician, no added anatomy, no flying fall. The FINAL PANEL with the magician resting in cloth, Roshan steadying him and Rumi's wand pop stays unchanged. Do not change or re-letter any text, add a panel, crop, resize or alter the page borders. Delivery is the complete native page with ONLY these two small cloth contact areas repaired.",
+      "prompt_sha256": "33e2db9ab23e646ed2412e8f471cd8910d1f9c52952943207c30c062d0e52ebe",
+      "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "references": [
+        {
+          "role": "edit_target",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take2.png",
+          "sha256": "8b743223fb2244e6261dab1fd6b500aae10df4493d1843934ce4e8bc31a30356"
+        }
+      ],
+      "modifications": "Bounded local ImageGen repair on same page take2: raised cloth contact in first two panels; no crop/resize/lettering overlay or other-page pixel reuse. Provider also adjusted holder forearms/hands slightly and revealed supporting table surface; full final panel requires bytewise comparison.",
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "call_count": 1,
+      "selection": "REVIEW_PENDING",
+      "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels.",
+      "selected": true,
+      "review_status": "PASS_SOURCE_CANDIDATE",
+      "same_page_local_repair": true,
+      "other_page_delivery_pixel_reuse": false,
+      "named_corrections": [
+        "Bubble bottoms now visibly contact/cradle in cloth in first two panels"
+      ],
+      "visual_review": {
+        "lettering": "All frozen lines preserved and readable with correct tails",
+        "acting_contact": "Raised cloth now meets both spheres; final gentle pop/support/forearm contact visually intact",
+        "anatomy": "No new extra limbs/tails; holder hand/forearm positions moved slightly upward as collateral change",
+        "distinctness": "Bounded correction of this new unique page; no other-page source pixels"
+      },
+      "derivation_review": {
+        "target_take": 2,
+        "exact_final_panel_pixels_preserved": false,
+        "final_panel_diff_pixels": 528516,
+        "full_page_diff_pixels": 1561167,
+        "observed_collateral_changes": [
+          "Holder forearms/hands shifted upward",
+          "Supporting table surface introduced beneath raised cloth",
+          "Provider alters pixels throughout image; final panel visually equivalent but not byte-identical"
+        ],
+        "attempt_cap": "Authorised third/final call; no fourth call"
+      },
+      "remaining_review_note": "Owner/child/print acceptance remains separate.",
+      "root_review": "Root independently inspected native: contact passes; raised forearms/new little stage surface acceptable candidate staging; no pixel-lock claim"
+    },
+    {
+      "page": 29,
+      "take": 1,
+      "method": "built-in image_gen.imagegen",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-2d6e147f-7a17-4eb0-a274-bd3e51377089.png",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take1.png",
+      "sha256": "ededaa45d57b92a8b7080a693308995c86c0deee168d1d38fe21140771b25478",
+      "provider_sha256": "ededaa45d57b92a8b7080a693308995c86c0deee168d1d38fe21140771b25478",
+      "rgb_pixel_sha256": "5b947a911a33dc1cdfa619c4bd5c65a8fe9112493db50c676bca76cc19aaa58d",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "prompt": "Use case: illustration-story. Create ONE brand-new complete portrait colour manga page, preferably 1024 x 1536 native pixels, a 2:3 portrait. This is an original child-friendly mermaid comic for reading aloud. Crisp expressive manga ink, variable contour line weight, clean cel colour with subtle painted light, energetic gestures and clear emotions, occasional speed lines and small screentone shadows. Vary panel proportions and diagonals to serve the action. Very narrow straight manga gutters and thin black panel rules. Art fills the page; NO huge rounded cards, generic white caption bands, empty panels, copy-pasted figures, photographic collage, zoom-crop panels or duplicated drawings. Draw every panel as a distinct new instant with its own acting and composition. English left-to-right, top-to-bottom.\nREFERENCE ROLES: the supplied cast sheet controls character appearance ONLY, city/pool controls setting ONLY, imp sources control imp identity ONLY. Do not copy any reference scene pixels, camera layout or character pose. All delivery artwork must be newly drawn for this page. Maintain this original book's characters, rather than any film characters.\nIDENTITIES: Roshan is the smallest young mermaid, brown eyes and long brown waves with a rainbow forelock, coral/cream ornate pop-star jacket, narrow blue/gold fabric waist ribbons, exactly ONE continuous iridescent rainbow tail and a rainbow fanfin. No ribbon that reads as another tail. Rumi taller, thick lavender braid, purple/navy/gold performance jacket and cyan-to-lavender single tail with pink fanfin. Hana tallest, loose copper waves half-up twisted crown/celadon shell clip, coral long-sleeve jacket/cream high-neck blouse, celadon/teal single tail. Nari shorter/younger than Rumi, navy chin-length bob/crescent clip, mint hooded jacket/peach collar, lavender single tail/peach fanfin. Duri is a lavender courier turtle, rigid mint floral shell, exactly four lavender flippers, small shoulder courier bag and shell invitation bell. Imps have purple skin, pointed ears, small horns, bare purple hands, trousers and shoes: performer purple glitter jacket/mint shirt; magician navy coat/cape, top hat/red bow/star wand. No invented white gloves. No weapons or injury.\nWORLD: every scene is UNDER Rumi's swimming pool INSIDE Pearl Castle. Already-magical water; no new portal, voice power or castle exterior journey. Korean-inspired underwater hanok lanes, dense pictogram shop fronts, tram on pearl bridge, tiled mint/cream bathhouse, coral/cream lounge and shell concert stage. Cyan, lavender, indigo, warm coral, pearl gold and restrained neon accents. Rich but quiet context around faces and action. No copied film shots, costumes, logos, characters or lyrics.\nLETTERING: Render ONLY the exact quoted text supplied below, with the punctuation and word order unchanged. Speaker names are attribution instructions, not text to print (except title/subtitle). Use distinct readable speech balloons with short tails pointing to the correct speaker and small cream narrator caption shapes. Tail direction must make multi-speaker conversations unambiguous. Use large clear English print, high contrast, never over eyes/hands/contact/tails. No invented letters, background writing or decorative nonsense. Shop signs use pictures only. Preserve natural read order within each panel. Do not add page headings, panel labels or page numbers. Original song lettering can include tiny music notes.\n\nBOOK PAGE 29. Story purpose (do not letter): Amends are concrete, persistent and shared; the imps receive a fair turn without erasing Roshan's.\nExactly 3 sequential newly drawn manga panels. Use dynamic panel sizes suited to these beats, not a repeated strip template.\n\nPANEL 1 art: Curtain remains tied to the same hook from rescue. Performer folds the catch-cloth on side platform; magician puts wand/foam basket safely aside, opening microphone approach to neighbours.\nExact lettering in reading order:\nNarrator: \"They packed away the trick and opened the stage to everyone.\"\n\nPANEL 2 art: Magician addresses Duri directly; Duri points toward bridge, confident.\nExact lettering in reading order:\nMagician: \"After the song, we'll collect our fan.\"\nDuri: \"I'll show you the safe way to carry it.\"\n\nPANEL 3 art: Roshan reaches toward microphone in centre with friends behind; imps deliberately step aside.\nExact lettering in reading order:\nRoshan: \"I want the first line. Then you can have your turn.\"\nPerformer: \"All right. We're listening.\"\n",
+      "prompt_sha256": "afbc808a2ce49be4fc85ce8a37d459862a2f7d49396ecc943f9cfe8dd1c09f62",
+      "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "references": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "performer",
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+        },
+        {
+          "role": "magician",
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+        }
+      ],
+      "modifications": "none; byte-identical copy; no crop, resize, overlay or JPEG conversion",
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "call_count": 1,
+      "selection": "REVIEW_PENDING",
+      "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels.",
+      "selected": false,
+      "review_status": "RETAKE_REQUIRED",
+      "named_gaps": [
+        "Final Performer speech tail points at Magician instead"
+      ],
+      "visual_review": {
+        "lettering": "All exact lines readable",
+        "speaker_tails": "One final speech attribution error; all others clear",
+        "acting_contact": "Props packed at side, Duri points route, Roshan takes microphone space",
+        "anatomy": "No material topology/face obstruction",
+        "distinctness": "New cleanup, route offer and Roshan asserting turn scenes"
+      }
+    },
+    {
+      "page": 29,
+      "take": 2,
+      "method": "built-in image_gen.imagegen",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-0fff1e4b-5bd0-4fbe-9fb9-2f647cd5ce95.png",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "provider_sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "rgb_pixel_sha256": "5eda9ec40f885843800f14afb0d94bf1c2f18d50d474a440c36a193049bd4f79",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "prompt": "Use case: precise-object-edit. Apply ONLY one small speech-balloon tail correction to the supplied complete native portrait manga page29. In the FINAL BOTTOM PANEL the balloon with exact existing text 'All right. We're listening.' belongs to the PERFORMER, the purple imp in a PURPLE GLITTER jacket at the far RIGHT, not the Magician in NAVY top hat to his left. Move only that balloon's small tail so its tip points unmistakably to the purple glitter Performer's mouth/face on the right. Remove the old tail aimed at Magician. Retain the same exact words, typography, balloon body, its clear space above heads, all characters/poses/hands/fins/microphone, every other balloon and caption, and all of the first two panels. Keep the complete original 1024x1536 page frame, with no crop, resize, added labels or unrelated edits. Only the final balloon tail attribution changes.",
+      "prompt_sha256": "99f3a83e1126f4497b6b2fd7126625a970e922088a800cb517d80e6c919328e1",
+      "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "references": [
+        {
+          "role": "edit_target",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take1.png",
+          "sha256": "ededaa45d57b92a8b7080a693308995c86c0deee168d1d38fe21140771b25478"
+        }
+      ],
+      "modifications": "Bounded local ImageGen repair of same newly authored page: final All right speech tail now points only to Performer; preserve source words/full frame, no crop/resize/overlays or other-page pixel reuse. Provider edits may change colour samples outside target; no unchanged-pixel claim.",
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "call_count": 1,
+      "selection": "REVIEW_PENDING",
+      "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels.",
+      "selected": true,
+      "review_status": "PASS_SOURCE_CANDIDATE",
+      "same_page_local_repair": true,
+      "other_page_delivery_pixel_reuse": false,
+      "named_corrections": [
+        "Final All right balloon now single short tail to Performer"
+      ],
+      "visual_review": {
+        "lettering": "Every frozen page29 line readable with same wording/order",
+        "speaker_tails": "Final Performer line now attributed only to correct glitter-jacket imp; all other voices clear",
+        "acting_contact": "Practical packing, courier safe-route offer and Roshan asking first turn retained",
+        "anatomy": "One continuous mermaid tail each, no visible actor obstruction",
+        "distinctness": "Bounded tail repair of this uniquely authored page; no other-page delivery pixels"
+      }
+    },
+    {
+      "page": 30,
+      "take": 1,
+      "method": "built-in image_gen.imagegen",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-a889869a-dd33-48ae-ac06-7e8158bea9c1.png",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "provider_sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "rgb_pixel_sha256": "3250c0a2e1d41b42ebe0e8506f64afc521aaedbbaccefd849172e19bb3cf9d43",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "prompt": "Use case: illustration-story. Create ONE brand-new complete portrait colour manga page, preferably 1024 x 1536 native pixels, a 2:3 portrait. This is an original child-friendly mermaid comic for reading aloud. Crisp expressive manga ink, variable contour line weight, clean cel colour with subtle painted light, energetic gestures and clear emotions, occasional speed lines and small screentone shadows. Vary panel proportions and diagonals to serve the action. Very narrow straight manga gutters and thin black panel rules. Art fills the page; NO huge rounded cards, generic white caption bands, empty panels, copy-pasted figures, photographic collage, zoom-crop panels or duplicated drawings. Draw every panel as a distinct new instant with its own acting and composition. English left-to-right, top-to-bottom.\nREFERENCE ROLES: the supplied cast sheet controls character appearance ONLY, city/pool controls setting ONLY, imp sources control imp identity ONLY. Do not copy any reference scene pixels, camera layout or character pose. All delivery artwork must be newly drawn for this page. Maintain this original book's characters, rather than any film characters.\nIDENTITIES: Roshan is the smallest young mermaid, brown eyes and long brown waves with a rainbow forelock, coral/cream ornate pop-star jacket, narrow blue/gold fabric waist ribbons, exactly ONE continuous iridescent rainbow tail and a rainbow fanfin. No ribbon that reads as another tail. Rumi taller, thick lavender braid, purple/navy/gold performance jacket and cyan-to-lavender single tail with pink fanfin. Hana tallest, loose copper waves half-up twisted crown/celadon shell clip, coral long-sleeve jacket/cream high-neck blouse, celadon/teal single tail. Nari shorter/younger than Rumi, navy chin-length bob/crescent clip, mint hooded jacket/peach collar, lavender single tail/peach fanfin. Duri is a lavender courier turtle, rigid mint floral shell, exactly four lavender flippers, small shoulder courier bag and shell invitation bell. Imps have purple skin, pointed ears, small horns, bare purple hands, trousers and shoes: performer purple glitter jacket/mint shirt; magician navy coat/cape, top hat/red bow/star wand. No invented white gloves. No weapons or injury.\nWORLD: every scene is UNDER Rumi's swimming pool INSIDE Pearl Castle. Already-magical water; no new portal, voice power or castle exterior journey. Korean-inspired underwater hanok lanes, dense pictogram shop fronts, tram on pearl bridge, tiled mint/cream bathhouse, coral/cream lounge and shell concert stage. Cyan, lavender, indigo, warm coral, pearl gold and restrained neon accents. Rich but quiet context around faces and action. No copied film shots, costumes, logos, characters or lyrics.\nLETTERING: Render ONLY the exact quoted text supplied below, with the punctuation and word order unchanged. Speaker names are attribution instructions, not text to print (except title/subtitle). Use distinct readable speech balloons with short tails pointing to the correct speaker and small cream narrator caption shapes. Tail direction must make multi-speaker conversations unambiguous. Use large clear English print, high contrast, never over eyes/hands/contact/tails. No invented letters, background writing or decorative nonsense. Shop signs use pictures only. Preserve natural read order within each panel. Do not add page headings, panel labels or page numbers. Original song lettering can include tiny music notes.\n\nBOOK PAGE 30. Story purpose (do not letter): The opening wish is fulfilled unmistakably by Roshan alone, followed by a real community answer.\nExactly 3 sequential newly drawn manga panels. Use dynamic panel sizes suited to these beats, not a repeated strip template.\n\nPANEL 1 art: Large Roshan solo at shell microphone, mouth beginning three chosen words; smallest protagonist holds centre with one rainbow tail, everyone else waits.\nExact lettering in reading order:\nNarrator: \"Her voice wobbled a little. She sang anyway.\"\nRoshan, singing: \"Here I am!\"\n\nPANEL 2 art: Trio answer from their own stage places, smiling attentively, Duri rings invitation bell.\nExact lettering in reading order:\nRumi, Hana and Nari, singing: \"Here you are!\"\n\nPANEL 3 art: Neighbourhood audience from hanok lane, shops and bathhouse terraces answers; original broad community frame, no mirror of previous composition.\nExact lettering in reading order:\nEveryone, singing: \"Near or far, big or small, we make room for us all!\"\n",
+      "prompt_sha256": "bd8fe94779991fb1db348674ca8e5ef41491bff4eb81ac2826fafc724a5f11e4",
+      "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "references": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "performer",
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+        },
+        {
+          "role": "magician",
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+        }
+      ],
+      "modifications": "none; byte-identical copy; no crop, resize, overlay or JPEG conversion",
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "call_count": 1,
+      "selection": "REVIEW_PENDING",
+      "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels.",
+      "selected": true,
+      "review_status": "PASS_SOURCE_CANDIDATE",
+      "visual_review": {
+        "lettering": "All frozen narrator/solo/trio/community lines readable with exact words/order",
+        "speaker_tails": "Roshan alone sings first line; shared trio answer bubble has three correct tails; community answer intentionally shared",
+        "acting_contact": "Roshan owns microphone foreground; Duri rings invitation bell; audience responds across hanok shops/tram/bathhouse context",
+        "anatomy": "Single continuous Roshan tail with one two-lobed rainbow fanfin; trio identities retained",
+        "distinctness": "New solo portrait, three-friend answer and wide city-audience response"
+      }
+    },
+    {
+      "page": 31,
+      "take": 1,
+      "method": "built-in image_gen.imagegen",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-3d965c49-6584-4116-8b2a-291bb067c180.png",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "provider_sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "rgb_pixel_sha256": "a2fd4817ce7d954c5b0b9d0ccc466626daa2aa9fa662c6c2e6c8614c735cee67",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "prompt": "Use case: illustration-story. Create ONE brand-new complete portrait colour manga page, preferably 1024 x 1536 native pixels, a 2:3 portrait. This is an original child-friendly mermaid comic for reading aloud. Crisp expressive manga ink, variable contour line weight, clean cel colour with subtle painted light, energetic gestures and clear emotions, occasional speed lines and small screentone shadows. Vary panel proportions and diagonals to serve the action. Very narrow straight manga gutters and thin black panel rules. Art fills the page; NO huge rounded cards, generic white caption bands, empty panels, copy-pasted figures, photographic collage, zoom-crop panels or duplicated drawings. Draw every panel as a distinct new instant with its own acting and composition. English left-to-right, top-to-bottom.\nREFERENCE ROLES: the supplied cast sheet controls character appearance ONLY, city/pool controls setting ONLY, imp sources control imp identity ONLY. Do not copy any reference scene pixels, camera layout or character pose. All delivery artwork must be newly drawn for this page. Maintain this original book's characters, rather than any film characters.\nIDENTITIES: Roshan is the smallest young mermaid, brown eyes and long brown waves with a rainbow forelock, coral/cream ornate pop-star jacket, narrow blue/gold fabric waist ribbons, exactly ONE continuous iridescent rainbow tail and a rainbow fanfin. No ribbon that reads as another tail. Rumi taller, thick lavender braid, purple/navy/gold performance jacket and cyan-to-lavender single tail with pink fanfin. Hana tallest, loose copper waves half-up twisted crown/celadon shell clip, coral long-sleeve jacket/cream high-neck blouse, celadon/teal single tail. Nari shorter/younger than Rumi, navy chin-length bob/crescent clip, mint hooded jacket/peach collar, lavender single tail/peach fanfin. Duri is a lavender courier turtle, rigid mint floral shell, exactly four lavender flippers, small shoulder courier bag and shell invitation bell. Imps have purple skin, pointed ears, small horns, bare purple hands, trousers and shoes: performer purple glitter jacket/mint shirt; magician navy coat/cape, top hat/red bow/star wand. No invented white gloves. No weapons or injury.\nWORLD: every scene is UNDER Rumi's swimming pool INSIDE Pearl Castle. Already-magical water; no new portal, voice power or castle exterior journey. Korean-inspired underwater hanok lanes, dense pictogram shop fronts, tram on pearl bridge, tiled mint/cream bathhouse, coral/cream lounge and shell concert stage. Cyan, lavender, indigo, warm coral, pearl gold and restrained neon accents. Rich but quiet context around faces and action. No copied film shots, costumes, logos, characters or lyrics.\nLETTERING: Render ONLY the exact quoted text supplied below, with the punctuation and word order unchanged. Speaker names are attribution instructions, not text to print (except title/subtitle). Use distinct readable speech balloons with short tails pointing to the correct speaker and small cream narrator caption shapes. Tail direction must make multi-speaker conversations unambiguous. Use large clear English print, high contrast, never over eyes/hands/contact/tails. No invented letters, background writing or decorative nonsense. Shop signs use pictures only. Preserve natural read order within each panel. Do not add page headings, panel labels or page numbers. Original song lettering can include tiny music notes.\n\nBOOK PAGE 31. Story purpose (do not letter): Sharing means waiting and responding, not everybody overpowering Roshan's payoff; Duri finishes his work.\nExactly 3 sequential newly drawn manga panels. Use dynamic panel sizes suited to these beats, not a repeated strip template.\n\nPANEL 1 art: Imps perform small comic bow and gentle bubbles off to side during THEIR turn. Roshan applauds with trio, microphone shared deliberately.\nExact lettering in reading order:\nNarrator: \"The imps had a turn. Then the neighbours did. Nobody had to steal the song.\"\n\nPANEL 2 art: Duri at microphone during his own turn, empty courier bag beside him, mint floral shell and four flippers visible. Neighbours cheer encouragingly.\nExact lettering in reading order:\nDuri: \"My deliveries are done. My turn to sing!\"\n\nPANEL 3 art: Roshan and Nari trade little call-and-answer on stage while Hana/Rumi clap beat. One clear mutual choice.\nExact lettering in reading order:\nNari: \"Another line?\"\nRoshan: \"Yes. And then one of yours.\"\n",
+      "prompt_sha256": "f5b51c162e0e173d28f2b8c75f6e6abf8bdb0391c06a7f594975c2db23899249",
+      "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "references": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "performer",
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+        },
+        {
+          "role": "magician",
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+        }
+      ],
+      "modifications": "none; byte-identical copy; no crop, resize, overlay or JPEG conversion",
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "call_count": 1,
+      "selection": "REVIEW_PENDING",
+      "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels.",
+      "selected": true,
+      "review_status": "PASS_SOURCE_CANDIDATE",
+      "visual_review": {
+        "lettering": "All frozen lines readable in source order with punctuation and no extra background letters",
+        "speaker_tails": "Duri solo, Nari question and Roshan answer clearly attributed",
+        "acting_contact": "Imps bow on their turn; Duri sings with empty bag and four flippers; Roshan/Nari call-answer with attentive friends",
+        "anatomy": "Single continuous mermaid tail each, Duri four flippers visible, no material head/hand obstruction",
+        "distinctness": "New turn-sharing ensemble, courier solo and two-friend duet compositions"
+      }
+    },
+    {
+      "page": 32,
+      "take": 1,
+      "method": "built-in image_gen.imagegen",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-6d6bc105-66f3-4dce-8ba8-0327fa5e53b8.png",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_32_take1.png",
+      "sha256": "6a6944574a2e20af92a4d7d1f164b4d09562c80cb14485d486b00a2451499dc8",
+      "provider_sha256": "6a6944574a2e20af92a4d7d1f164b4d09562c80cb14485d486b00a2451499dc8",
+      "rgb_pixel_sha256": "000c6074b2b63c6885a78ddb2dd04f5a2b52312a6b75797565d3fb89fba8b5b7",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_mode": "RGB",
+      "prompt": "Use case: illustration-story. Create ONE brand-new complete portrait colour manga page, preferably 1024 x 1536 native pixels, a 2:3 portrait. This is an original child-friendly mermaid comic for reading aloud. Crisp expressive manga ink, variable contour line weight, clean cel colour with subtle painted light, energetic gestures and clear emotions, occasional speed lines and small screentone shadows. Vary panel proportions and diagonals to serve the action. Very narrow straight manga gutters and thin black panel rules. Art fills the page; NO huge rounded cards, generic white caption bands, empty panels, copy-pasted figures, photographic collage, zoom-crop panels or duplicated drawings. Draw every panel as a distinct new instant with its own acting and composition. English left-to-right, top-to-bottom.\nREFERENCE ROLES: the supplied cast sheet controls character appearance ONLY, city/pool controls setting ONLY, imp sources control imp identity ONLY. Do not copy any reference scene pixels, camera layout or character pose. All delivery artwork must be newly drawn for this page. Maintain this original book's characters, rather than any film characters.\nIDENTITIES: Roshan is the smallest young mermaid, brown eyes and long brown waves with a rainbow forelock, coral/cream ornate pop-star jacket, narrow blue/gold fabric waist ribbons, exactly ONE continuous iridescent rainbow tail and a rainbow fanfin. No ribbon that reads as another tail. Rumi taller, thick lavender braid, purple/navy/gold performance jacket and cyan-to-lavender single tail with pink fanfin. Hana tallest, loose copper waves half-up twisted crown/celadon shell clip, coral long-sleeve jacket/cream high-neck blouse, celadon/teal single tail. Nari shorter/younger than Rumi, navy chin-length bob/crescent clip, mint hooded jacket/peach collar, lavender single tail/peach fanfin. Duri is a lavender courier turtle, rigid mint floral shell, exactly four lavender flippers, small shoulder courier bag and shell invitation bell. Imps have purple skin, pointed ears, small horns, bare purple hands, trousers and shoes: performer purple glitter jacket/mint shirt; magician navy coat/cape, top hat/red bow/star wand. No invented white gloves. No weapons or injury.\nWORLD: every scene is UNDER Rumi's swimming pool INSIDE Pearl Castle. Already-magical water; no new portal, voice power or castle exterior journey. Korean-inspired underwater hanok lanes, dense pictogram shop fronts, tram on pearl bridge, tiled mint/cream bathhouse, coral/cream lounge and shell concert stage. Cyan, lavender, indigo, warm coral, pearl gold and restrained neon accents. Rich but quiet context around faces and action. No copied film shots, costumes, logos, characters or lyrics.\nLETTERING: Render ONLY the exact quoted text supplied below, with the punctuation and word order unchanged. Speaker names are attribution instructions, not text to print (except title/subtitle). Use distinct readable speech balloons with short tails pointing to the correct speaker and small cream narrator caption shapes. Tail direction must make multi-speaker conversations unambiguous. Use large clear English print, high contrast, never over eyes/hands/contact/tails. No invented letters, background writing or decorative nonsense. Shop signs use pictures only. Preserve natural read order within each panel. Do not add page headings, panel labels or page numbers. Original song lettering can include tiny music notes.\n\nBOOK PAGE 32. Story purpose (do not letter): The ending transfers agency to an ordinary castle moment, keeping unresolved candle canon intact.\nExactly 3 sequential newly drawn manga panels. Use dynamic panel sizes suited to these beats, not a repeated strip template.\n\nPANEL 1 art: Roshan and Rumi swim back up through circular pool opening; city below still inside castle, shell song lights fading gently. New upward perspective.\nExact lettering in reading order:\nNarrator: \"They swam back up through Rumi's pool. The rainbow was still turning.\"\n\nPANEL 2 art: Pool-room bench. Rumi listens while Roshan holds finger up to add an idea; no microphone or hero reward.\nExact lettering in reading order:\nRumi: \"What shall we do tomorrow?\"\nRoshan: \"I have an idea. Can I tell you?\"\n\nPANEL 3 art: Rumi sits beside her with attentive eyes. Small close on Roshan's hopeful face; leave no visual spotlight test or magic voice requirement.\nExact lettering in reading order:\nRumi: \"I'm listening.\"\nNarrator: \"Roshan didn't wait for her voice to be perfect. She began.\"\n",
+      "prompt_sha256": "9b92f576358655baa90407da8ba288b0f38dd76306298114a2fd80ac3b399496",
+      "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "references": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "pool",
+          "path": "assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v3_native.png",
+          "sha256": "2a4bd923c26d5f7980fc8a723576ecb573097e30bc94090f75437833fc3d55a5"
+        }
+      ],
+      "modifications": "none; byte-identical copy; no crop, resize, overlay or JPEG conversion",
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "call_count": 1,
+      "selection": "REVIEW_PENDING",
+      "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels.",
+      "selected": true,
+      "review_status": "PASS_SOURCE_CANDIDATE",
+      "visual_review": {
+        "lettering": "Every frozen ending line readable in exact sequence; no added letters/page headings",
+        "speaker_tails": "Rumi question/listening and Roshan request correctly attributed",
+        "acting_contact": "New upward pool perspective, ordinary attentive pool-room exchange, hopeful face; no magic-voice reward",
+        "anatomy": "One tail each in upward ensemble, whole faces clear in new close compositions",
+        "distinctness": "New upward swimming, pool-side idea, close listening/choosing-to-begin instants"
+      },
+      "staging_note": "Pool-room conversation rendered against shell bench/pool rail; trio and Duri follow below in upward frame, minor ensemble context."
+    }
+  ],
+  "selected_pages": {
+    "25": {
+      "take": 2,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_25_take2.png",
+      "sha256": "a9c328c1bd1ad45a5378de3fcc1ddd86376fcbe4fb22b32d76322c1d8009a69e",
+      "rgb_pixel_sha256": "985f98cdc8ec86bcadc3def7beef495803074e2ef0ef67825caf6736880f8d5d",
+      "status": "PASS_SOURCE_CANDIDATE"
+    },
+    "26": {
+      "take": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "rgb_pixel_sha256": "5579dc777ba83803a6d038263ecde39183152b2eb47e6b9678a66cd107001850",
+      "status": "PASS_SOURCE_CANDIDATE"
+    },
+    "27": {
+      "take": 3,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take3.png",
+      "sha256": "ea02564120295261c078938b30dcb52bd3615723892f59e944ee54a2d926cf88",
+      "rgb_pixel_sha256": "5544138b631d10fe3c49d4594356f7eb30bb698503a69434690e1be26c04c455",
+      "status": "PASS_SOURCE_CANDIDATE"
+    },
+    "28": {
+      "take": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "rgb_pixel_sha256": "09598016190b559bd091a675120257925d6aa22259a61f4a08f65852c9fbe575",
+      "status": "PASS_SOURCE_CANDIDATE"
+    },
+    "29": {
+      "take": 2,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "rgb_pixel_sha256": "5eda9ec40f885843800f14afb0d94bf1c2f18d50d474a440c36a193049bd4f79",
+      "status": "PASS_SOURCE_CANDIDATE"
+    },
+    "30": {
+      "take": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "rgb_pixel_sha256": "3250c0a2e1d41b42ebe0e8506f64afc521aaedbbaccefd849172e19bb3cf9d43",
+      "status": "PASS_SOURCE_CANDIDATE"
+    },
+    "31": {
+      "take": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "rgb_pixel_sha256": "a2fd4817ce7d954c5b0b9d0ccc466626daa2aa9fa662c6c2e6c8614c735cee67",
+      "status": "PASS_SOURCE_CANDIDATE"
+    },
+    "32": {
+      "take": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_32_take1.png",
+      "sha256": "6a6944574a2e20af92a4d7d1f164b4d09562c80cb14485d486b00a2451499dc8",
+      "rgb_pixel_sha256": "000c6074b2b63c6885a78ddb2dd04f5a2b52312a6b75797565d3fb89fba8b5b7",
+      "status": "PASS_SOURCE_CANDIDATE"
+    }
+  },
+  "total_calls": 12,
+  "status": "ALL_8_NATIVE_CANDIDATES_REVIEWED",
+  "initial_calls": 8,
+  "corrective_calls": 4,
+  "owner_child_print_acceptance": "pending",
+  "selected_unique_native_hashes": 8,
+  "selected_unique_rgb_hashes": 8
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "rumi_documentary_review_corrections_v1",
+  "recorded_at_utc": "2026-10-12T10:05:36.293412+00:00",
+  "source": "Independent page_review final read-only editorial/authority check",
+  "status": "CORRECTED_DOCUMENTARY_LABELS_NO_SOURCE_ART_SCORE_OR_PDF_CHANGE",
+  "aggregate_manifest": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/generation_manifest.json",
+    "before_sha256": "f21d1d68383967c5c7dafe68c5246ad2c79780eae6db0ae82a06d3a294d7da07",
+    "after_sha256": "44f0189eb9d46523e7db0517345fdad85e108962431a170599d3d6209cc16c91",
+    "preserved_before": "assets_src/books/rumi_visual_detective_20261012/verification/generation_manifest_before_capture_label_correction.json",
+    "correction": "Rename24 script hash keys from at_call to at_capture; all24 values equal unchanged actual capture receipts. Prompt planning and provider call timing are not inferred."
+  },
+  "root_pdf_review": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/root_pdf_review.json",
+    "before_sha256": "285628780711227c408cae6b4d98d8bfd828ed06946f5efb492b76bfb1e81eac",
+    "after_sha256": "1604cb4891eb60715bb22f38be2ec7c1e1a81827e4d41937bf4109255badba71",
+    "page": 25,
+    "before_note": "Curtain tassel is connected to the snag and wand slip; distressed performer and still-bowing friend are distinct. Cloth handling is temporarily off-panel.",
+    "after_note": "Curtain tassel is connected to the snag and wand slip; distressed Magician and still-bowing Performer are distinct. Cloth handling is temporarily off-panel.",
+    "correction": "Correct role naming only; no acting observation, score or image change."
+  },
+  "frozen_story_selection_quality_pdf_unchanged": {
+    "story_script.json": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+    "selected_art.json": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f",
+    "verification/QUALITY_REVIEW.json": "f3f4fa74ab9b59766436b2aa05182173e99356bd1c6f10134d35551b573d7a60",
+    "output/pdf/Mermaid_Roshan_Here_I_Am_Detective_32_Pages.pdf": "f19669f0bd75517c9c6222d9da00a87d26d8cf84e7edc4e5ba2968d5fc2f8064"
+  }
+}

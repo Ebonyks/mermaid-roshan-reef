@@ -1,0 +1,37 @@
+{
+  "page": 17,
+  "take": 1,
+  "created_at_utc": "2026-10-12T08:19:21.936944+00:00",
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-8edb77a6-b463-48ac-a278-aa916a55550a.png",
+  "path": "assets_src/books/rumi_visual_detective_20261012/native/page_17_take1.png",
+  "sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+  "provider_sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+  "rgb_pixel_sha256": "ad4180fd4e8a64c02b0cd33c29c325e9abadf8713c8193448b2a14da9e893b05",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_page_sha256": "b67b0a1eeae2543c5707ae7f452baf65ddf1a6f59a945981904c2a1dc8635624",
+  "prompt": "Use case: precise-object-edit / illustration-story. Produce ONE COMPLETE NATIVE 1024 x 1536 RGB portrait manga page. Image1 is the EDIT TARGET, the previous edition's own original complete page, not a collage source. This is a bounded own-page illustration repair for the new book. Preserve its polished 2D manga/storybook medium, thin square panel borders, efficient gutters, crisp face/hand/prop outlines, expressive child-safe acting and all unmentioned story facts. No crop, raster resize, software sharpening, text overlay, new page border or pasted panel. Return the WHOLE portrait page. Preserve every required word exactly and its correct speaker; don't print these instructions, labels or names. Keep Roshan small with brown waves/rainbow forelock, coral jacket and ONE iridescent rainbow tail; Rumi thick lavender braid/navy-gold costume and ONE cyan-lavender tail/pink fin; tall Hana copper hair/celadon clip/coral sleeves/ONE teal tail; shorter Nari navy bob/crescent clip/mint jacket/ONE lavender tail; Duri lavender turtle/mint floral shell/courier bag; costumed purple performer and navy-coated top-hatted magician with bare purple hands/trousers/shoes. The setting remains under Rumi's pool inside Pearl Castle. No rainbow candle, flame, wick, film character costume or copied movie scene. Keep distant background depth softness purposeful; don't add busy detail.\nMake ONE narrow own-page costume repair. In PANEL3 (bottom) the broad pink loop/streamer curling down the LEFT of Roshan's hip resembles an extra fin. Replace only that streamer with a THIN FLAT BLUE-GOLD FABRIC ribbon, visibly narrow, with flat squared or tapered CLOTH ends and the same gold-edged costume motifs. It must not be scaly, iridescent or fin-shaped. Roshan's ACTUAL continuous scaled rainbow tail still curves down/right into the ONE rainbow fan fin: preserve it intact. Check the other two panels for the same unambiguous single-tail anatomy; keep all original feast, cast positions, expressions, food, couch, bunny-ear towel and lettering. No extra hands/tails or any candle.\nExact required lettering in reading order; speaker labels here are metadata, DO NOT print them:\nPanel 1:\nNarrator: \"Supper filled a table almost as long as the couch.\"\nPanel 2:\nDuri: \"A fruit mountain! I'll start at the bottom.\"\nRoshan: \"Can I start our song now?\"\nHana: \"We're listening.\"\nPanel 3:\nRoshan, singing: \"Here I...\"\n",
+  "prompt_sha256": "541164078b9ec324225097f2f2c6bff63765f5d01e3383184989503e880dbfd5",
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_17_take1_prompt.txt",
+  "references": [
+    {
+      "role": "edit_target_complete_native_page",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_17_take1.png",
+      "sha256": "781bc3d248d3c90d741de3bf5145f12ecd28dcc134fe0989a83551d40fbab087"
+    }
+  ],
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_17_take1_references.json",
+  "modifications": "Native provider PNG copied byte-identically; own-page generated corrections declared by exact prompt; no software crop/resize/sharpening/lettering overlay. Adjacent generated pixels may change.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original static-book candidate; existing project identity/setting/prop references retain terms; no film pixels/scene copy."
+}

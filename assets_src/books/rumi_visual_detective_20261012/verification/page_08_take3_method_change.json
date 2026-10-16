@@ -1,0 +1,34 @@
+{
+  "page": 8,
+  "take": 3,
+  "method": "fresh_full_page_staging_after_two_failed_local_repairs",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "diagnosis": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/local_repair_diagnosis_pages_08_10.json",
+    "sha256": "391e74c4b79e9866a46059679521f8e45b04e424a0931d8d269a49e0a5001703"
+  },
+  "preceding_attempts": [
+    {
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take1.json",
+      "receipt_sha256": "4cde0f748ad553a118b3423e0bc773b20207874d3da02595030240648340fc25"
+    },
+    {
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take2.json",
+      "receipt_sha256": "6becbb8f0425c5465073d502addecc7f5d6b08c96158401cf15e70b04fd49278"
+    }
+  ],
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_08_take3.txt",
+  "prompt_sha256": "9d0b106164431dbb9a62d0c79d572ff48aa3cdefcf4bdd056ea35bbeac8363e7",
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_08_take3.json",
+  "references_sha256": "913b222247ca2cdeb7fd3ca030d049934d248163c6ab91822e1837e97cc4bfd2",
+  "authorization": "Root explicitly authorized one additional fresh full-page staging call for this named page; cycle total capped at three, no reset",
+  "cycle_call_cap": 3,
+  "additional_call_cap": 1,
+  "previous_local_calls": 2,
+  "generation_owner": "book_builder after root reassignment",
+  "no_automatic_retakes": true,
+  "fresh_layout_gap": "Separate Duri/Rumi speaker frames in frozen p08.2; four pictures, unchanged original words.",
+  "source_page_sha256": "9607e522e9aa18eadf279d7c4fd1994174072027acbd050ebe5e9bfcf5c0dd0d"
+}

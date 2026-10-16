@@ -1,0 +1,280 @@
+{
+  "schema": "rumi_gold_star_failure_diagnosis/1",
+  "status": "FOCUSED_FAILURE_REPRODUCED_NO_GATE_FIX",
+  "checked_utc": "2026-10-12T09:15:09.799646+00:00",
+  "full_ci_remains": {
+    "status": "FAIL_FULL_LOCAL_REGRESSION_PRESERVED",
+    "overall_exit": 1,
+    "trusted_probes_reached": 0,
+    "expected_probes": 82,
+    "preserved_file_sha256": {
+      "full_ci.log": "7a4b9b9c35d08fb3ee31a62a38c882470982546f3042a7a647b471bcf9680db1",
+      "full_ci_receipt.json": "649c630cb283023ce08c82ef79e30836e8cc7fd28990e2d5448fccd16dc90e5d"
+    }
+  },
+  "focused_test": {
+    "argv": [
+      "C:/Program Files/Git/bin/bash.exe",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "set -uo pipefail\ncd '/c/Users/Peter/Documents/mermaid-roshan-reef'\nexport PYTHONUTF8=1 PYTHONIOENCODING=utf-8\nexport TMPDIR=\"$PWD/tmp\"\n/c/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B -m unittest tools.tests.test_gold_star.FixtureTests.test_new_game_file_must_be_catalogued\n"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "F\r\n======================================================================\r\nFAIL: test_new_game_file_must_be_catalogued (tools.tests.test_gold_star.FixtureTests.test_new_game_file_must_be_catalogued)\r\n----------------------------------------------------------------------\r\nTraceback (most recent call last):\r\n  File \"C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tools\\tests\\test_gold_star.py\", line 222, in test_new_game_file_must_be_catalogued\r\n    self.assertTrue(any(\"scripts/games/gamma.gd\" in error and \"not in the catalogue\" in error for error in errors))\r\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nAssertionError: False is not true\r\n\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.085s\r\n\r\nFAILED (failures=1)\r\n"
+  },
+  "focused_shell_literal": "set -uo pipefail\ncd '/c/Users/Peter/Documents/mermaid-roshan-reef'\nexport PYTHONUTF8=1 PYTHONIOENCODING=utf-8\nexport TMPDIR=\"$PWD/tmp\"\n/c/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B -m unittest tools.tests.test_gold_star.FixtureTests.test_new_game_file_must_be_catalogued\n",
+  "fixture_diagnostic_command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "--noprofile",
+    "--norc",
+    "-c",
+    "set -uo pipefail\ncd '/c/Users/Peter/Documents/mermaid-roshan-reef'\nexport PYTHONUTF8=1 PYTHONIOENCODING=utf-8\nexport TMPDIR=\"$PWD/tmp\"\n/c/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B tmp/diagnose_rumi_gold_star_fixture_20261012.py --fixture-only\n"
+  ],
+  "fixture_shell_literal": "set -uo pipefail\ncd '/c/Users/Peter/Documents/mermaid-roshan-reef'\nexport PYTHONUTF8=1 PYTHONIOENCODING=utf-8\nexport TMPDIR=\"$PWD/tmp\"\n/c/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B tmp/diagnose_rumi_gold_star_fixture_20261012.py --fixture-only\n",
+  "fixture_details": {
+    "python_executable": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+    "python_version": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "TMPDIR_environment": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp",
+    "tempfile_gettempdir": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp",
+    "fixture_root": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\tmpsdpwr8t4",
+    "fixture_inside_project": true,
+    "gamma_exists": true,
+    "gamma_fixture_relative_posix": "scripts/games/gamma.gd",
+    "git_discovery": {
+      "argv": [
+        "git",
+        "-C",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\tmpsdpwr8t4",
+        "ls-files",
+        "--cached",
+        "--others",
+        "--exclude-standard"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "git_top_level": {
+      "argv": [
+        "git",
+        "-C",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\tmpsdpwr8t4",
+        "rev-parse",
+        "--show-toplevel"
+      ],
+      "exit_code": 0,
+      "stdout": "C:/Users/Peter/Documents/mermaid-roshan-reef\n",
+      "stderr": ""
+    },
+    "git_ignore_diagnostic": {
+      "argv": [
+        "git",
+        "-C",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+        "check-ignore",
+        "-v",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\tmpsdpwr8t4\\scripts\\games\\gamma.gd"
+      ],
+      "exit_code": 0,
+      "stdout": ".gitignore:47:/tmp/*\t\"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\tmpsdpwr8t4\\\\scripts\\\\games\\\\gamma.gd\"\n",
+      "stderr": ""
+    },
+    "gold_star_git_files": [],
+    "gold_star_uncovered_files": [],
+    "gold_star_validate_errors": [],
+    "expected_diagnostic_present": false,
+    "filesystem_fallback_would_include_gamma": true
+  },
+  "baseline_byte_checks": [
+    {
+      "path": "tools/gold_star.py",
+      "baseline": "056d890ef38f2496ab52669c955ada654f902511",
+      "current_sha256": "a90c187903bec5038487209a2c7ee01ce44b9ac8512ab3629e6ee0a2c0fcb0d1",
+      "baseline_blob_sha256": "5a0121de444c6606b7454ba7bd5403a4153c4b4d448a055aa529dde5a24c9355",
+      "raw_bytes_equal": false,
+      "baseline_with_current_checkout_filters_sha256": "a90c187903bec5038487209a2c7ee01ce44b9ac8512ab3629e6ee0a2c0fcb0d1",
+      "raw_bytes_equal_to_baseline_with_checkout_filters": true,
+      "line_endings_only_difference_from_commit_blob": true,
+      "working_CRLF_count": 986,
+      "commit_blob_CRLF_count": 0,
+      "git_attributes": {
+        "argv": [
+          "git",
+          "check-attr",
+          "text",
+          "eol",
+          "--",
+          "tools/gold_star.py"
+        ],
+        "exit_code": 0,
+        "stdout": "tools/gold_star.py: text: unspecified\ntools/gold_star.py: eol: unspecified\n",
+        "stderr": ""
+      },
+      "git_eol": {
+        "argv": [
+          "git",
+          "ls-files",
+          "--eol",
+          "--",
+          "tools/gold_star.py"
+        ],
+        "exit_code": 0,
+        "stdout": "i/lf    w/crlf  attr/                 \ttools/gold_star.py\n",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "tools/tests/test_gold_star.py",
+      "baseline": "056d890ef38f2496ab52669c955ada654f902511",
+      "current_sha256": "41eb2a2aa54ba10d4e46a55372a1eaae9ed70c54e1a4a57f202ea4bb98e828ca",
+      "baseline_blob_sha256": "712263cf4a63ac84fad0a56c516a74cdf2f5626bd767bd907d1ee352da5f8814",
+      "raw_bytes_equal": false,
+      "baseline_with_current_checkout_filters_sha256": "41eb2a2aa54ba10d4e46a55372a1eaae9ed70c54e1a4a57f202ea4bb98e828ca",
+      "raw_bytes_equal_to_baseline_with_checkout_filters": true,
+      "line_endings_only_difference_from_commit_blob": true,
+      "working_CRLF_count": 478,
+      "commit_blob_CRLF_count": 0,
+      "git_attributes": {
+        "argv": [
+          "git",
+          "check-attr",
+          "text",
+          "eol",
+          "--",
+          "tools/tests/test_gold_star.py"
+        ],
+        "exit_code": 0,
+        "stdout": "tools/tests/test_gold_star.py: text: unspecified\ntools/tests/test_gold_star.py: eol: unspecified\n",
+        "stderr": ""
+      },
+      "git_eol": {
+        "argv": [
+          "git",
+          "ls-files",
+          "--eol",
+          "--",
+          "tools/tests/test_gold_star.py"
+        ],
+        "exit_code": 0,
+        "stdout": "i/lf    w/crlf  attr/                 \ttools/tests/test_gold_star.py\n",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "scripts/ci.sh",
+      "baseline": "056d890ef38f2496ab52669c955ada654f902511",
+      "current_sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+      "baseline_blob_sha256": "f6c0b7cf8e4e549c8c3cb34ec0cf69e115be92df2c34b39e5678ca15411e2859",
+      "raw_bytes_equal": false,
+      "baseline_with_current_checkout_filters_sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+      "raw_bytes_equal_to_baseline_with_checkout_filters": true,
+      "line_endings_only_difference_from_commit_blob": true,
+      "working_CRLF_count": 237,
+      "commit_blob_CRLF_count": 0,
+      "git_attributes": {
+        "argv": [
+          "git",
+          "check-attr",
+          "text",
+          "eol",
+          "--",
+          "scripts/ci.sh"
+        ],
+        "exit_code": 0,
+        "stdout": "scripts/ci.sh: text: unspecified\nscripts/ci.sh: eol: unspecified\n",
+        "stderr": ""
+      },
+      "git_eol": {
+        "argv": [
+          "git",
+          "ls-files",
+          "--eol",
+          "--",
+          "scripts/ci.sh"
+        ],
+        "exit_code": 0,
+        "stdout": "i/lf    w/crlf  attr/                 \tscripts/ci.sh\n",
+        "stderr": ""
+      }
+    },
+    {
+      "path": ".github/workflows/probes.yml",
+      "baseline": "056d890ef38f2496ab52669c955ada654f902511",
+      "current_sha256": "e615577c954cf2adee5d54cdd4ed6d6753751e519dd6dd625af2711130d544fc",
+      "baseline_blob_sha256": "dc39e75ce124e957963f8891539ca45682016a70807bff1e70b8eb10cba4ab29",
+      "raw_bytes_equal": false,
+      "baseline_with_current_checkout_filters_sha256": "e615577c954cf2adee5d54cdd4ed6d6753751e519dd6dd625af2711130d544fc",
+      "raw_bytes_equal_to_baseline_with_checkout_filters": true,
+      "line_endings_only_difference_from_commit_blob": true,
+      "working_CRLF_count": 434,
+      "commit_blob_CRLF_count": 0,
+      "git_attributes": {
+        "argv": [
+          "git",
+          "check-attr",
+          "text",
+          "eol",
+          "--",
+          ".github/workflows/probes.yml"
+        ],
+        "exit_code": 0,
+        "stdout": ".github/workflows/probes.yml: text: unspecified\n.github/workflows/probes.yml: eol: unspecified\n",
+        "stderr": ""
+      },
+      "git_eol": {
+        "argv": [
+          "git",
+          "ls-files",
+          "--eol",
+          "--",
+          ".github/workflows/probes.yml"
+        ],
+        "exit_code": 0,
+        "stdout": "i/lf    w/crlf  attr/                 \t.github/workflows/probes.yml\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "cause": "The CI wrapper exports TMPDIR inside the repository ignored tmp directory. The original unit-test TemporaryDirectory therefore nests its fixture inside that ignored directory. git -C fixture ls-files succeeds through the parent repository but reports no fixture files because they are ignored. gold_star.git_files only falls back to filesystem scanning after a Git error, so its successful empty result bypasses the fallback and omits gamma.gd. validate produces no missing-catalogue error, making the original assertion fail. This is temporary-root Git discovery/ignore behavior, not a POSIX-versus-backslash diagnostic difference.",
+  "linux_inventory": {
+    "wsl": {
+      "argv": [
+        "wsl.exe",
+        "--list",
+        "--verbose"
+      ],
+      "exit_code": 4294967295,
+      "stdout": "Windows Subsystem for Linux has no installed distributions.\r\r\nDistributions can be installed by visiting the Microsoft Store:\r\r\nhttps://aka.ms/wslstore\r\r\n",
+      "stderr": ""
+    },
+    "existing_workflow": ".github/workflows/probes.yml",
+    "existing_workflow_runs_on": "ubuntu-latest",
+    "existing_workflow_includes_test_gold_star": false,
+    "scope_limit": "Existing Linux workflow omits tools.tests.test_gold_star from its contract-test list, so a green run cannot substitute for the failed full local suite. No Linux distribution, workflow change, full CI rerun, test/tool/runtime change, or gate suppression was performed."
+  },
+  "diagnostic_only": true,
+  "no_regression_green_claim": true,
+  "raw_diagnostic_log": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/gold_star_failure_diagnostic.log",
+    "sha256": "c93a98a56bb99cbbce3ffe7bb34b65e0edb1d2b7607a1f51ff88a1c18eff8c4c"
+  },
+  "baseline_diff": {
+    "argv": [
+      "git",
+      "diff",
+      "--exit-code",
+      "056d890ef38f2496ab52669c955ada654f902511",
+      "--",
+      "tools/gold_star.py",
+      "tools/tests/test_gold_star.py",
+      "scripts/ci.sh",
+      ".github/workflows/probes.yml"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "baseline_byte_comparison_limit": "Raw working files use CRLF while baseline Git blobs use LF. They are exact byte matches to the baseline after Git applies the existing checkout filters, and LF normalization alone matches the stored commit bytes. No source or configuration was changed."
+}

@@ -1,0 +1,1203 @@
+{
+  "schema": "rumi_fixed_rubric_reconciliation_v1",
+  "status": "AGENT_STATIC_BOOK_TARGET_MET",
+  "recorded_at_utc": "2026-10-12T09:13:10.154551+00:00",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "selection": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/selected_art.json",
+    "sha256": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f"
+  },
+  "review_bindings": [
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/QUALITY_RUBRIC.txt",
+      "sha256": "3f83261db2c6ecca74e1f54020a61795d86ba8262463cbfecfe04a8cf0ffde2a"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/root_baseline_review.json",
+      "sha256": "e6833a0c300c8e96ec86f90fea0505e0c798fd698a8eedf379908cedbda86a3c"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/baseline_pages_01_16.json",
+      "sha256": "af4dea192728e19f661aa8241da00a233fda039419346601b60e1fcd477aa7e8"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/baseline_pages_17_32.json",
+      "sha256": "ecda8794ad6684524ef2954ff4bc53cb08f89cf103d44fabbe15787e8d4b0e9a"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+      "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+      "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+      "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/independent_revised_pages_02_03_04_32.json",
+      "sha256": "82a301124fc81b8d4aab8787c9ad448606b7f8614c3e7356ba6335916cb28335"
+    }
+  ],
+  "method": "Fixed five equal categories, scores in0.1 increments. Lower root/independent score in every category, including additional independent four-page check; unrounded arithmetic page means then32-page mean. No raw score/floor/rubric overwritten.",
+  "overall_unrounded": "4.735",
+  "overall_display_2_decimals": "4.74",
+  "target": 4.7,
+  "minimum_page_unrounded": "4.6",
+  "page_floor": 4.5,
+  "all_page_floors_met": true,
+  "selected_hard_failure_pages": [],
+  "baseline_conservative_overall_unrounded": "4.655",
+  "baseline_conservative_page_scores": [
+    {
+      "number": 1,
+      "page_mean_unrounded": "4.86"
+    },
+    {
+      "number": 2,
+      "page_mean_unrounded": "4.8"
+    },
+    {
+      "number": 3,
+      "page_mean_unrounded": "4.76"
+    },
+    {
+      "number": 4,
+      "page_mean_unrounded": "4.76"
+    },
+    {
+      "number": 5,
+      "page_mean_unrounded": "4.8"
+    },
+    {
+      "number": 6,
+      "page_mean_unrounded": "4.8"
+    },
+    {
+      "number": 7,
+      "page_mean_unrounded": "4.58"
+    },
+    {
+      "number": 8,
+      "page_mean_unrounded": "4.64"
+    },
+    {
+      "number": 9,
+      "page_mean_unrounded": "4.78"
+    },
+    {
+      "number": 10,
+      "page_mean_unrounded": "4.54"
+    },
+    {
+      "number": 11,
+      "page_mean_unrounded": "4.24"
+    },
+    {
+      "number": 12,
+      "page_mean_unrounded": "4.8"
+    },
+    {
+      "number": 13,
+      "page_mean_unrounded": "4.74"
+    },
+    {
+      "number": 14,
+      "page_mean_unrounded": "4.78"
+    },
+    {
+      "number": 15,
+      "page_mean_unrounded": "4.8"
+    },
+    {
+      "number": 16,
+      "page_mean_unrounded": "4.54"
+    },
+    {
+      "number": 17,
+      "page_mean_unrounded": "4.58"
+    },
+    {
+      "number": 18,
+      "page_mean_unrounded": "4.64"
+    },
+    {
+      "number": 19,
+      "page_mean_unrounded": "4.72"
+    },
+    {
+      "number": 20,
+      "page_mean_unrounded": "4.54"
+    },
+    {
+      "number": 21,
+      "page_mean_unrounded": "4.28"
+    },
+    {
+      "number": 22,
+      "page_mean_unrounded": "4.4"
+    },
+    {
+      "number": 23,
+      "page_mean_unrounded": "4.66"
+    },
+    {
+      "number": 24,
+      "page_mean_unrounded": "4.62"
+    },
+    {
+      "number": 25,
+      "page_mean_unrounded": "4.48"
+    },
+    {
+      "number": 26,
+      "page_mean_unrounded": "4.78"
+    },
+    {
+      "number": 27,
+      "page_mean_unrounded": "4.48"
+    },
+    {
+      "number": 28,
+      "page_mean_unrounded": "4.78"
+    },
+    {
+      "number": 29,
+      "page_mean_unrounded": "4.62"
+    },
+    {
+      "number": 30,
+      "page_mean_unrounded": "4.74"
+    },
+    {
+      "number": 31,
+      "page_mean_unrounded": "4.68"
+    },
+    {
+      "number": 32,
+      "page_mean_unrounded": "4.74"
+    }
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.9,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.9,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "page_mean_unrounded": "4.86",
+      "hard_failure_observed": false,
+      "root_observations": "Complete cast cover, clear single tails and title; ornate skyline remains subordinate to foreground.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 2,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_02_take1.png",
+      "sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.76",
+      "hard_failure_observed": false,
+      "root_observations": "Six distinct hat-preparation moments; low brim purposefully covers eyes more than source staging, then two-hand adjustment restores full eyes/forelock. Complete readable words; candle remains absent.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 3,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take2.png",
+      "sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.5,
+        "manga_composition": 4.7
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.6,
+        "manga_composition": 4.8
+      },
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.5,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.7",
+      "hard_failure_observed": false,
+      "root_observations": "Shadowed neutral bare stone in test4 contrasts with returned rainbow patch in5. Both tools stowed6. Rumi Yes remains tailless but unambiguous by adjacent open-mouth Rumi; small balloon limitation. Fountain-to-patch reflected path is implied rather than diagrammed.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 4,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take2.png",
+      "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.7,
+        "manga_composition": 4.7
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 5,
+        "manga_composition": 4.9
+      },
+      "additional_independent_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.5
+      },
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.7,
+        "manga_composition": 4.5
+      },
+      "page_mean_unrounded": "4.68",
+      "hard_failure_observed": false,
+      "root_observations": "Exactly four unique leads; performer chef hat corrected. Five linked panels retain every exact caption/line; tram current and tipped fan readable. City geography compressed; actual bag bell small. Both narrator captions are in frozen source, not extra text.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 5,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "page_mean_unrounded": "4.8",
+      "hard_failure_observed": false,
+      "root_observations": "Friends occupy space as Roshan tries to speak; acting and short speaker tails are clear.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 6,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "page_mean_unrounded": "4.8",
+      "hard_failure_observed": false,
+      "root_observations": "Drum strike and interrupted sentence have clear causal staging; lower help call is distinct.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 7,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_07_take1.png",
+      "sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5.0,
+        "line_detail_completeness": 5.0,
+        "action_contact_staging": 5.0,
+        "balloon_text_clarity": 5.0,
+        "manga_composition": 5.0
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.78",
+      "hard_failure_observed": false,
+      "root_observations": "Floating taper removed; invitation bell and open stop hand readable. Single tails, crisp faces; dense city quiet behind action.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 8,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take3.png",
+      "sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "page_mean_unrounded": "4.8",
+      "hard_failure_observed": false,
+      "root_observations": "Four distinct pictures put Duri explanation before Rumi reassurance with separate short single-speaker balloons; Hana pull and Duri protest retained. Taut bag strap visibly meets pivot; ornamental mechanism stays simplified.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 9,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+      "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.78",
+      "hard_failure_observed": false,
+      "root_observations": "Stop command, released tug and requested loosening are differentiated; crowded low tableau is still legible.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 10,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take3.png",
+      "sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "page_mean_unrounded": "4.82",
+      "hard_failure_observed": false,
+      "root_observations": "Distinct support lanes: Rumi left two blue-cuffed continuous arms grip actual low fan edge; Hana right two coral-sleeved continuous arms grip upper edge. Roshan separate at base, then lifts visibly loose courier loop off peg. Complete crisp focal hands and exact short speaker tails. First panel briefly compresses support positioning before the clearer middle panel; background helpers deliberately soften in final focal unhook shot.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 11,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_11_take1.png",
+      "sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 5.0,
+        "manga_composition": 4.8
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "page_mean_unrounded": "4.74",
+      "hard_failure_observed": false,
+      "root_observations": "Four fan grips have two visible Roshan arms and two blue-cuffed off-panel Rumi forearms. Later request concerns help at this end; helping transition compressed. No third Roshan hand or broken essential grip. Duri shell and tram threat clear.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 12,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take2.png",
+      "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "page_mean_unrounded": "4.8",
+      "hard_failure_observed": false,
+      "root_observations": "Lift, backing out and settled fan are distinct actions; four flippers and final bell reach are readable.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 13,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_13_take1.png",
+      "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.5,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "page_mean_unrounded": "4.74",
+      "hard_failure_observed": false,
+      "root_observations": "Specific vulnerability and acknowledgment are clear; small bag clasp ornament differs but action is unaffected.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 14,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_14_take1.png",
+      "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.78",
+      "hard_failure_observed": false,
+      "root_observations": "Warm rest, direct request and three separate apologies work; first panel is densely dressed but face hierarchy holds.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 15,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_15_take1.png",
+      "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "page_mean_unrounded": "4.8",
+      "hard_failure_observed": false,
+      "root_observations": "Cooler-pool choice, towel refusal, accepted preference and rabbit joke show distinct meaningful acting.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 16,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_16_take1.png",
+      "sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.7,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 5.0,
+        "line_detail_completeness": 5.0,
+        "action_contact_staging": 5.0,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.9
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.7,
+        "manga_composition": 4.8
+      },
+      "page_mean_unrounded": "4.76",
+      "hard_failure_observed": false,
+      "root_observations": "Roshan supper request tail ends above her identifiable forelock, clear of Nari towel. Bathhouse and correct dialogue intact; opening Hana balloon position substitutes for short visible tail.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 17,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_17_take1.png",
+      "sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.5
+      },
+      "page_mean_unrounded": "4.72",
+      "hard_failure_observed": false,
+      "root_observations": "Large extravagant food table remains crisp and varied. Blue squared narrow fabric streamers read as clothing; one continuous rainbow tail. Clear speaker/order and interrupted song preparation.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 18,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take2.png",
+      "sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.5,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.5,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.6
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.5,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.5,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.6
+      },
+      "page_mean_unrounded": "4.64",
+      "hard_failure_observed": false,
+      "root_observations": "Costumed imps interrupt couch gathering; correct short balloon tails and distinct reactions.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 19,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_19_take1.png",
+      "sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.6,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.7
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.6,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.72",
+      "hard_failure_observed": false,
+      "root_observations": "Roshan boundary, performer fear and friends support are clear; foreground contour/detail has no focal blur.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 20,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_20_take1.png",
+      "sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.5,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.7,
+        "action_contact_staging": 4.5,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.7,
+        "action_contact_staging": 4.5,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.5
+      },
+      "page_mean_unrounded": "4.64",
+      "hard_failure_observed": false,
+      "root_observations": "Visible wand contact and broken bubble fragments establish pop before multiplication. Microphone blocked. Aisle geometry remains compressed, nonessential to upcoming explicit route.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 21,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_21_take1.png",
+      "sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.7
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.74",
+      "hard_failure_observed": false,
+      "root_observations": "Duri-left delivery then Roshan-right plan with short noncrossing tails; cream/orange shell cloth and frame drum readable. Duri bell briefly pink/red rather than usual gold, a nonessential prop-color continuity limit.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 22,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_22_take1.png",
+      "sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.7,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.7,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.7,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.7,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.7",
+      "hard_failure_observed": false,
+      "root_observations": "Nari hand on drum and Hana holding cloth before loaded catch are explicit. Four pictured instants include separate catch/duck; group lyric multi-tips/readable. No missing star contact.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 23,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_23_take1.png",
+      "sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.5,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.7
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.5,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.72",
+      "hard_failure_observed": false,
+      "root_observations": "Cream cloth retained folded in Hana hands and same Nari frame drum. Under-current arrow and partners readable. Rapid reaction staging compresses peripheral movements.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 24,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take3.png",
+      "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.5,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.3,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.5,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.3,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.62",
+      "hard_failure_observed": false,
+      "root_observations": "Low swimming and tipped-cloth basket transfer are clear; cloth pattern/colour varies mildly from catch setup.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 25,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take2.png",
+      "sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.5
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.5
+      },
+      "page_mean_unrounded": "4.68",
+      "hard_failure_observed": false,
+      "root_observations": "Continuous curtain cord visibly catches star tip; wand then outside bubble and Rumi retrieval. Friends applause and magician backward action compressed; cloth temporarily outside visible handling. Essential cause/effect clear.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 26,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.7
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.78",
+      "hard_failure_observed": false,
+      "root_observations": "Wave/help, stop/listen and heard response are clear; prepared pale catch cloth stays visible.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 27,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take2.png",
+      "sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.5,
+        "balloon_text_clarity": 4.5,
+        "manga_composition": 4.6
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.4,
+        "manga_composition": 4.6
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.5,
+        "balloon_text_clarity": 4.4,
+        "manga_composition": 4.6
+      },
+      "page_mean_unrounded": "4.6",
+      "hard_failure_observed": false,
+      "root_observations": "Preparation, loaded bubble contact and padded landing are distinct with supporting cloth and owned forearm grip. Every line present. Catch balloon has two redundant tips both near Roshan; performer already grips tie while asking what to do. These nonessential timing/balloon limits remain visible.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 28,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "page_mean_unrounded": "4.78",
+      "hard_failure_observed": false,
+      "root_observations": "Distinct emotional reactions connect previous victims and imps; apology balloons correctly target each speaker.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 29,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.3,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.5,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.7
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.3,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.5,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.62",
+      "hard_failure_observed": false,
+      "root_observations": "Packing/navy stage cloth could read as changed catch cloth; microphone changes from black to shell gold in subsequent page.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 30,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.6,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.9,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.7
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.6,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.74",
+      "hard_failure_observed": false,
+      "root_observations": "Solo, trio answer and neighborhood chorus are visually distinct; essential voice payoff is unambiguous.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 31,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.8
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.4,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "additional_independent_raw_scores": null,
+      "conservative_scores": {
+        "character_identity_anatomy": 4.4,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.68",
+      "hard_failure_observed": false,
+      "root_observations": "Duri gains a small cap ornament; turn-taking and invitation to Nari remain clear.",
+      "review_limits_preserved": true
+    },
+    {
+      "number": 32,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_32_take1.png",
+      "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+      "root_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "independent_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "additional_independent_raw_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.9,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.8
+      },
+      "conservative_scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "page_mean_unrounded": "4.74",
+      "hard_failure_observed": false,
+      "root_observations": "Exact new ordinary candle-idea request and listening payoff, no candle shown. Upward pool return clear; trio/turtle follow as harmless additional escort. Turning fountain implied by visible rainbow water at right rather than full fixture.",
+      "review_limits_preserved": true
+    }
+  ],
+  "physical_blur_review": "Original-detail manual inspection checked focal faces, forelocks, hands, prop surfaces/contact edges and legible text. Intentional softer distant scenery is distinguished from unfinished focal detail. No software sharpening/upscale/noise added.",
+  "limits": "Judgment by Codex agents under this commissioned static-book rubric, not an objective perceptual benchmark, owner/child/print acceptance, DL-VIS-07 runtime5/5 acceptance, cinematic delivery or global master-audit satisfaction. Residual minor continuity, tailless/duplicated balloon tips and compressed staging remain described in raw reviews."
+}

@@ -1,0 +1,38 @@
+{
+  "page": 24,
+  "take": 2,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-9a9aec2e-dd7a-4b76-89f8-077862dfc138.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take2.png",
+  "sha256": "623d71b2a3cbe144094b7eb4e3671306ebf06143d1abbd1af4faef25b40d93e2",
+  "provider_sha256": "623d71b2a3cbe144094b7eb4e3671306ebf06143d1abbd1af4faef25b40d93e2",
+  "rgb_pixel_sha256": "bf6f4ba8ff2c71c9bc2dbc833a793ee4594f2994063b9cd1702319f6b9d5925b",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: identity-preserve. Image1 is the EDIT TARGET, the complete original1024x1536 manga page24take1. Image2 is character identity reference ONLY: Roshan is the smallest rainbow-haired/rainbow-tailed mermaid at the far LEFT of the lineup, Hana is the copper-haired teal-tailed taller mermaid. Make ONLY a bounded costume/clip identity correction to ROSHAN in the TOP/FIRST swimming panel of Image1. She is the smaller brown-haired rainbow-forelock mermaid swimming beside lavender-braided Rumi. Remove the mistakenly borrowed CELADON SHELL CLIP from Roshan's brown hair; Roshan has no Hana clip. Restore Roshan's actual ornate coral/cream jacket with SHORT PUFF sleeves and PURPLE RUFFLED WRIST BRACELETS from Image2, not Hana's long coral sleeves/cream ruffled cuffs. Keep her brown eyes, happy expression, rainbow forelock, face/head size, all hair except the removed clip, swimming body orientation, hands/arms and one continuous rainbow tail/fanfin unchanged. Preserve the top caption EXACTLY and all Rumi art. Preserve both lower panels, every word/balloon/tail, foam stars, cream catch-cloth, basket, imps, bubble, curtain and gold tassel completely unchanged. Do not recompose/redraw the whole scene or add figures/words. Do not crop or resize. Complete native portrait page output.\n",
+  "prompt_sha256": "25571b1abdb6dc2c4dec769776b1d3ba3b176741432a128281065a5779869e00",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "edit_target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take1.png",
+      "sha256": "0384f2747e003c25f8d4dbcc5f86f5516456bfc91be6f85319f817fb0ae14af1"
+    },
+    {
+      "role": "Roshan_identity_only",
+      "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+      "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+    }
+  ],
+  "modifications": "Local top Roshan identity repair requested; top fixed but lower Hana also altered into hybrid, rejected",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

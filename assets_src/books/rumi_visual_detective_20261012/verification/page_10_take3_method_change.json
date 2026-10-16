@@ -1,0 +1,34 @@
+{
+  "page": 10,
+  "take": 3,
+  "method": "fresh_full_page_staging_after_two_failed_local_repairs",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "diagnosis": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/local_repair_diagnosis_pages_08_10.json",
+    "sha256": "391e74c4b79e9866a46059679521f8e45b04e424a0931d8d269a49e0a5001703"
+  },
+  "preceding_attempts": [
+    {
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take1.json",
+      "receipt_sha256": "33ab739f42e28d606e6135de1cef4c8b5a22c4882bf896e7810c5a7e54abd0d9"
+    },
+    {
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take2.json",
+      "receipt_sha256": "21986ff73115034727b6be3d0a82ad8759d3b85a97bdb417b073a915e3013b7e"
+    }
+  ],
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_10_take3.txt",
+  "prompt_sha256": "6350b949c546a664850034ec531da55b87f9ded23e9a3da9dd772520193121a0",
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_10_take3.json",
+  "references_sha256": "818dac4d7cf8b027fb797cc50e0efbef4abb4df9048f9f09f9f6df273799dcf0",
+  "authorization": "Root explicitly authorized one additional fresh full-page staging call for this named page; cycle total capped at three, no reset",
+  "cycle_call_cap": 3,
+  "additional_call_cap": 1,
+  "previous_local_calls": 2,
+  "generation_owner": "book_builder after root reassignment",
+  "no_automatic_retakes": true,
+  "fresh_layout_gap": "Separated LEFT Rumi lower fan support, RIGHT Hana upper fan support, independent low foreground Roshan, connected exactly-two arms per character.",
+  "source_page_sha256": "2a9d1757ad307465bdd644dd3498b3b1561ccf7a1ccf23097395e1f0f505a29f"
+}

@@ -1,0 +1,33 @@
+{
+  "page": 27,
+  "take": 3,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-d9e35d30-6b9d-423d-a594-42d4966ec66a.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take3.png",
+  "sha256": "ea02564120295261c078938b30dcb52bd3615723892f59e944ee54a2d926cf88",
+  "provider_sha256": "ea02564120295261c078938b30dcb52bd3615723892f59e944ee54a2d926cf88",
+  "rgb_pixel_sha256": "5544138b631d10fe3c49d4594356f7eb30bb698503a69434690e1be26c04c455",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: precise-object-edit. Edit the supplied complete native portrait manga page27 take2 as a bounded local contact correction. Retain its full 1024x1536 frame, same three panels, all characters, faces, hands, sizes, poses, costumes, stage/curtain, every lettering word/balloon/tail and all of the final bottom panel unchanged. ONLY repair the catch cloth's middle in the FIRST TWO panels: lift the middle of the cloth up so the lower curved surface of the magician's translucent bubble visibly touches, nestles into and is cradled by the cloth. The cloth's endpoints stay in Hana's and Nari's existing hands; their hands and arms do not move. Shape a raised soft supporting cloth bowl around the sphere's lower surface, connected naturally to both held corners, without concealing the magician or adding straps. Close the visible air gap below the bubble in each of those two panels. Keep the bubble and magician exactly their existing size, location and pose; no lifting the magician, no added anatomy, no flying fall. The FINAL PANEL with the magician resting in cloth, Roshan steadying him and Rumi's wand pop stays unchanged. Do not change or re-letter any text, add a panel, crop, resize or alter the page borders. Delivery is the complete native page with ONLY these two small cloth contact areas repaired.",
+  "prompt_sha256": "33e2db9ab23e646ed2412e8f471cd8910d1f9c52952943207c30c062d0e52ebe",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "edit_target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take2.png",
+      "sha256": "8b743223fb2244e6261dab1fd6b500aae10df4493d1843934ce4e8bc31a30356"
+    }
+  ],
+  "modifications": "Bounded local ImageGen repair on same page take2: raised cloth contact in first two panels; no crop/resize/lettering overlay or other-page pixel reuse. Provider also adjusted holder forearms/hands slightly and revealed supporting table surface; full final panel requires bytewise comparison.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

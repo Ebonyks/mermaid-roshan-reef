@@ -1,0 +1,22 @@
+ORIGINAL FOCUSED TEST IN CORRECTED SYSTEM-TEMP ENVIRONMENT
+["C:\\Program Files\\Git\\bin\\bash.exe", "--noprofile", "--norc", "-c", "#!/usr/bin/env bash\nset -uo pipefail\ncd '/c/Users/Peter/Documents/mermaid-roshan-reef'\nexport PYTHONUTF8=1 PYTHONIOENCODING=utf-8\npython3() { /c/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B \"$@\"; }\nexport -f python3\nexport TMPDIR=C:/Users/Peter/AppData/Local/Temp\npython3 -m unittest tools.tests.test_gold_star.FixtureTests.test_new_game_file_must_be_catalogued\n"]
+SHELL LITERAL
+#!/usr/bin/env bash
+set -uo pipefail
+cd '/c/Users/Peter/Documents/mermaid-roshan-reef'
+export PYTHONUTF8=1 PYTHONIOENCODING=utf-8
+python3() { /c/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B "$@"; }
+export -f python3
+export TMPDIR=C:/Users/Peter/AppData/Local/Temp
+python3 -m unittest tools.tests.test_gold_star.FixtureTests.test_new_game_file_must_be_catalogued
+
+STDOUT
+
+STDERR
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.075s
+
+OK
+
+ACTUAL EXIT 0

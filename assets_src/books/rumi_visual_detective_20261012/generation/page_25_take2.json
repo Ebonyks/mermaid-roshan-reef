@@ -1,0 +1,37 @@
+{
+  "page": 25,
+  "take": 2,
+  "created_at_utc": "2026-10-12T08:34:27.828888+00:00",
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-e7246e3f-fad9-4a1c-982f-e5a0ffd9985e.png",
+  "path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take2.png",
+  "sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+  "provider_sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+  "rgb_pixel_sha256": "f0a984394ca74b95ec2ebb37717bfc142952813daa2336e6c8597099af493156",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_page_sha256": "757d90a6f490e987183ea25e20cbdd703dad83a3c2a9942c47358d6da768258f",
+  "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET: my complete new page25take1. Make ONLY a local repair to PANEL1's failed snag geometry. The gold knot floating around the wand SHAFT is wrong: REMOVE it. Draw ONE CONTINUOUS GOLD TASSEL CORD visibly attached to the purple glitter curtain's existing hanging gold tassel/cord at LEFT, extending through the empty blue water and LOOPING/CATCHING A POINT of the wand's GOLD STAR TIP at upper-right. The entire continuous cord from CURTAIN attachment to STAR contact must be visible, not cut, floating, or touching only the handle. Let the star tip snag into that loose loop while the magician's bare purple hands lose the same wand, and show the handle beginning to slip toward Rumi; there is only ONE wand. The cord must not cross the caption, faces or hands. If necessary bring the wand/star closer to the existing curtain cord within PANEL1 to make this REAL physical contact readable; keep the same event/identities. Preserve panels2/3 including the outside wand and Rumi receiving it, all exact words, all faces/costumes/anatomy, bubble and safe tone. No new words/SFX, no extra prop, no candle. Return the WHOLE 1024x1536 RGB native portrait page, no crop/resample/overlay. A detached knot with no curtain connection is explicitly a failed repair.\nExact required lettering, preserve spelling and speakers:\nPanel 1:\nNarrator: \"The tassel snagged. The wand slipped.\"\nPanel 2:\nMagician: \"Oh! This isn't the trick! Where's my wand? I can't reach it!\"\nPanel 3:\nMagician: \"Help!\"\nNarrator: \"His friend was still bowing.\"\nPerformer: \"Ta-daaa!\"\n\n",
+  "prompt_sha256": "0350e7a9109bc88a62dacefd3d8de9cffd7005e18d7309a50f1399f48032da0b",
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take2_prompt.txt",
+  "references": [
+    {
+      "role": "edit_target_complete_native_previous_take",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take1.png",
+      "sha256": "37059ffd8654cc99ad5635f1ee87ae5c89a104dd991bca997c3d881d0ba2597a"
+    }
+  ],
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take2_references.json",
+  "modifications": "Native provider PNG copied byte-identically; own-page generated corrections declared by exact prompt; no software crop/resize/sharpening/lettering overlay. Adjacent generated pixels may change.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original static-book candidate; existing project identity/setting/prop references retain terms; no film pixels/scene copy."
+}

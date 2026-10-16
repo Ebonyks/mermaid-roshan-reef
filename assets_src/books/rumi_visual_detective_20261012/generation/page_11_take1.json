@@ -1,0 +1,38 @@
+{
+  "page": 11,
+  "take": 1,
+  "created_at_utc": "2026-10-12T08:21:35.976433+00:00",
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-9acc81e3-aca1-4cef-a52e-688e86782385.png",
+  "path": "assets_src/books/rumi_visual_detective_20261012/native/page_11_take1.png",
+  "sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+  "provider_sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+  "rgb_pixel_sha256": "2b98ee08ab79edac44755346dc9beb2dcefca3267594ab031d8b355e35ab2405",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_page_sha256": "e5a20c5a911a3f8c205d605a7593a2693967ecf2f8ad1e603493a37d82a5a8da",
+  "prompt": "Use case: precise-object-edit.\nAsset type: one complete native portrait manga picture-book page, 1024 x 1536 pixels, RGB opaque output.\nInput image 1 is the OWN-PAGE EDIT TARGET, not a layout guide or a source for collage. Make a bounded local correction to this existing commissioned page. Keep the complete original page framing, three panels, thin black panel lines, polished 2D manga/storybook painting, colors, character identities, room/city, and all existing scene facts.\nNamed repair for page 11: Change ONLY the ambiguous rightmost grip in panel 2 and the adjacent small area required to show ownership. The two nearer grips belong to Roshan and remain attached to her two coral-jacket arms. The THIRD/rightmost grip belongs to Rumi: visibly connect it to a blue-and-gold cuff and one continuous forearm belonging to the purple-braided adult mermaid who supports the low edge from beside/behind Roshan. Include enough of Rumi connected sleeve/arm and nearby shoulder/figure if needed for unmistakable ownership, consistent with her existing support position; she does not acquire another arm. This is her existing low-edge support BEFORE she shifts beside Roshan in panel 3. Do not delete the useful third grip or turn it into an extra Roshan arm. Preserve the fan, safe Duri opening, current, Roshan expression, and all original panels/words outside that local contact repair.\nVerbatim lettering, with speaker mapping and reading order (do not add speaker names into the art):\nPanel 1: Nari: \"Another tram! Hold on!\"\nPanel 2: Narrator: \"WHOOSH! The fan pushed back.\"\nPanel 3: Roshan: \"Rumi, I need help at this end!\"\nPanel 3: Rumi: \"Coming beside you.\"\nConstraints: output the WHOLE 1024x1536 portrait page at unchanged aspect with all panels, not a crop/detail. No software enlargement, no new scene, no pasted panel, no unrelated prop, no redesigned character, no missing words, no extra words or watermark. Keep clear readable black English lettering. Preserve original gestures, anatomy, attached tails, complete hands, support/contact and props except the named correction. Do not conceal missing contact with glow or clothing. Retain deliberate distant background softness; do not blur focal contours. The rainbow candle stays hidden and is not introduced on this page.\n",
+  "prompt_sha256": "e638916177d21bfa0e65dc5db968cc710d9bcb5d83a454bde195cd7bc3fd8c7a",
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_11_take1.txt",
+  "references": [
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_11_take1.png",
+      "role": "own_page_edit_target",
+      "purpose": "Change ONLY the ambiguous rightmost grip in panel 2 and the adjacent small area required to show ownership. The two nearer grips belong to Roshan and remain attached to her two coral-jacket arms. The THIRD/rightmost grip belongs to Rumi: visibly connect it to a blue-and-gold cuff and one continuous forearm belonging to the purple-braided adult mermaid who supports the low edge from beside/behind Roshan. Include enough of Rumi connected sleeve/arm and nearby shoulder/figure if needed for unmistakable ownership, consistent with her existing support position; she does not acquire another arm. This is her existing low-edge support BEFORE she shifts beside Roshan in panel 3. Do not delete the useful third grip or turn it into an extra Roshan arm. Preserve the fan, safe Duri opening, current, Roshan expression, and all original panels/words outside that local contact repair.",
+      "sha256": "6040390fdfe8cecc92cca794e61524a205537cc6929b05cdacc5f49c104cce7e"
+    }
+  ],
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_11_take1.json",
+  "modifications": "Native provider PNG copied byte-identically; own-page generated corrections declared by exact prompt; no software crop/resize/sharpening/lettering overlay. Adjacent generated pixels may change.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original static-book candidate; existing project identity/setting/prop references retain terms; no film pixels/scene copy."
+}

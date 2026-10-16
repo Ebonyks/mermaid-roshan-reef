@@ -1,0 +1,1315 @@
+{
+  "schema": "rumi_visual_baseline_range_review_v1",
+  "status": "BASELINE_MEASURED_RANGE_TARGET_NOT_MET",
+  "reviewer": "Codex independent page_review",
+  "reviewed_at_utc": "2026-10-12T07:43:39.548099+00:00",
+  "review_range": [
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "native_pages_viewed": 16,
+  "baseline_edition": "assets_src/books/rumi_voice_book_20261011",
+  "baseline_script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "selection_path": "assets_src/books/rumi_voice_book_20261011/selected_art.json",
+  "selection_sha256": "0e875f78ffe6299c7c8a1ebd41f95b90ca04fe237a3105d06114c4f301329dee",
+  "rubric_path": "assets_src/books/rumi_visual_detective_20261012/QUALITY_RUBRIC.txt",
+  "rubric_sha256": "3f83261db2c6ecca74e1f54020a61795d86ba8262463cbfecfe04a8cf0ffde2a",
+  "scoring_method": {
+    "categories": [
+      "character_identity_anatomy",
+      "line_detail_completeness",
+      "action_contact_staging",
+      "balloon_text_clarity",
+      "manga_composition"
+    ],
+    "weights": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "score_increment": 0.1,
+    "anchors": {
+      "5.0": "No visible defect in this category at native size.",
+      "4.5": "Polished with a small nonessential visible limitation.",
+      "4.0": "Clear and complete with noticeable repairable defects.",
+      "3.0": "Usable draft with substantial distracting defects.",
+      "2.0": "Significant story/readability failure.",
+      "1.0": "Unusable or missing content."
+    },
+    "page_aggregation": "Arithmetic mean of five categories, preserved unrounded.",
+    "range_aggregation": "Unrounded arithmetic mean of these16 page scores; not a32-page book score.",
+    "final_method": "Parent must retain both independent/root raw reviews and use lower score per category for final selection. This baseline is never inflated or overwritten."
+  },
+  "calibration_note": "The fixed rubric was read before numeric scores were assigned. No previously stored numeric range scores were changed. Historical thresholdless candidate passes do not establish4.7 and are not retrospectively converted into scores.",
+  "audit_scope": {
+    "rules": [
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "DL-VIS-01",
+      "DL-VIS-02",
+      "DL-VIS-03",
+      "DL-VIS-04",
+      "DL-VIS-05",
+      "DL-VIS-06",
+      "DL-READ-01",
+      "DL-READ-03",
+      "DL-ASSET-01",
+      "DL-ASSET-03",
+      "DL-ASSET-08"
+    ],
+    "related_findings": [
+      "MA-DOC-008",
+      "MA-VIS-006",
+      "MA-ROSHAN-005"
+    ],
+    "finding_limit": "Source-only baseline review; no finding closure, runtime art change or master-audit satisfaction.",
+    "score_limit": "This expressly commissioned agent source-book rubric does not grant the owner/runtime5/5 acceptance required by DL-VIS-07."
+  },
+  "identity_refs_viewed_original": [
+    {
+      "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+      "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+      "role": "Identity comparison only; candidate source presence does not grant new artwork/owner acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_popstar.png",
+      "sha256": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523",
+      "role": "Identity comparison only; candidate source presence does not grant new artwork/owner acceptance."
+    },
+    {
+      "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "role": "Identity comparison only; candidate source presence does not grant new artwork/owner acceptance."
+    }
+  ],
+  "summary": {
+    "reviewed_page_count": 16,
+    "range_score_unrounded": "4.64125",
+    "range_score": 4.64125,
+    "agent_target": 4.7,
+    "range_mean_target_met": false,
+    "pages_below_floor_4_5": [
+      21,
+      22,
+      27
+    ],
+    "hard_fail_pages": [],
+    "rainbow_candle_visible_pages": [],
+    "unique_native_file_hash_count": 16,
+    "unique_native_rgb_hash_count": 16,
+    "highest_priority_repairs": [
+      "p21.3 short noncrossing speaker tails.",
+      "p22.1 visible drum stroke and p22.2 visible prepared catch-cloth before contact.",
+      "p25.1 actual tassel/wand snag geometry.",
+      "p27 clear approach/contact/settle and isolated Roshan-to-magician support.",
+      "Consistent action cloth/drum/microphone and removal or motivation of Duri's sudden cap."
+    ],
+    "blur_finding": "No broad focal face blur was observed in this range at native size. Deliberate background depth softness is permitted. Weak grips, omitted contact, altered props and dense equal-brightness dressing are distinct defects; sharpening would not repair them.",
+    "detective_montage_limit": "No detective-hat montage or hidden-candle clue is present in these baseline pages. Adding such content requires the new authored story/art brief; the baseline does not depict it."
+  },
+  "pages": [
+    {
+      "page": 17,
+      "take": 1,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_17_take1.png",
+      "image_sha256": "781bc3d248d3c90d741de3bf5145f12ecd28dcc134fe0989a83551d40fbab087",
+      "rgb_pixel_sha256": "86d265b01f09120cfa6a5e7d444110d84871e315c13670b4383c8e566f9b0ee7",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.3,
+          "weight": 0.2,
+          "comment": "Noticeable fin-like fabric silhouette; principal cast faces and costumes remain recognizable."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Finished focal faces, hands and food; distant scenery is deliberately softer."
+        },
+        "action_contact_staging": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Relaxation, invitation and solo are distinct; small cup/set-dressing variance."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Exact readable manuscript text and nearby clear tails."
+        },
+        "manga_composition": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Polished but dense feast/background saturation slightly weakens the solo hierarchy."
+        }
+      },
+      "page_score_unrounded": "4.62",
+      "page_score": 4.62,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p17.3",
+          "category": "character_identity_anatomy",
+          "visible_defect": "Roshan has one continuous scaled tail, but the broad pink streamer curling down her left side ends like a fin rather than narrow blue-gold fabric. The resulting silhouette invites a second-tail reading.",
+          "bounded_improvement": "Give the fabric ribbon a narrow, clearly cloth-shaped end while preserving the actual tail."
+        },
+        {
+          "panel": "p17.1-p17.3",
+          "category": "manga_composition",
+          "visible_defect": "The extravagant feast is fully drawn and satisfies the requested abundance, but bright patterned clothing, food, lanterns and city detail compete with Roshan beginning her solo.",
+          "bounded_improvement": "Keep the banquet; quiet a small background value cluster immediately behind Roshan during the solo."
+        },
+        {
+          "panel": "p17.1",
+          "category": "action_contact_staging",
+          "visible_defect": "The wide panel contains more than four cups. This is a small set-dressing variation rather than a plot failure.",
+          "bounded_improvement": "No repair needed solely to enforce a cup count."
+        }
+      ],
+      "strengths": [
+        "Warm attentive acting, finished food and clear exact dialogue. No native focal blur.",
+        "The cup and Hana hand placement are readable."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 18,
+      "take": 2,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take2.png",
+      "image_sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b",
+      "rgb_pixel_sha256": "c6a7ee788aa6e510069629ac8e25ef06eca9e0c9ab0edf8a0117182b51b22657",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Stable cast and anatomy; a small towel continuity limitation."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Clean faces, clothes and banner; soft distant city detail remains peripheral."
+        },
+        "action_contact_staging": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Entrance and refusal are clear; stage/living-room geography is compressed."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Correct complete words and unambiguous speaker targets."
+        },
+        "manga_composition": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Strong interruption and reaction sequence, with dense decoration behind the actors."
+        }
+      },
+      "page_score_unrounded": "4.66",
+      "page_score": 4.66,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p18.1-p18.3",
+          "category": "character_identity_anatomy",
+          "visible_defect": "Nari retains a cream towel, but its rabbit ears are loose unlined folds rather than the upright pink-lined ears on page17.",
+          "bounded_improvement": "If revising this page, keep the same recognizable towel construction."
+        },
+        {
+          "panel": "p18.3",
+          "category": "action_contact_staging",
+          "visible_defect": "The shell stage appears immediately behind the couch confrontation; this compresses the lounge-to-stage spatial relationship.",
+          "bounded_improvement": "Retain a doorway/threshold landmark showing that the magician points beyond the lounge."
+        }
+      ],
+      "strengths": [
+        "Performer entrance banner is fabric, imps retain costume and trousers/shoes, and Duri is visible.",
+        "Roshan and friends change from startled to upset; focal linework stays crisp."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 19,
+      "take": 1,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_19_take1.png",
+      "image_sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5",
+      "rgb_pixel_sha256": "ba17d316b75b66e56b0bcc394fafab0008c21ce62c944a80494c7a6b4f0a2b83",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Recognizable single-tail cast with a small overlap limitation."
+        },
+        "line_detail_completeness": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Focal contours and hands are finished; only background simplification."
+        },
+        "action_contact_staging": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Boundary, worried refusal and allied response are distinct and legible."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "All exact words, sensible order and correct nearby speaker tails."
+        },
+        "manga_composition": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Varied scale and expressive acting; the long opening balloon modestly crowds the gesture."
+        }
+      },
+      "page_score_unrounded": "4.76",
+      "page_score": 4.76,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p19.1",
+          "category": "character_identity_anatomy",
+          "visible_defect": "Hana/Nari/Roshan tails overlap behind Duri. Roshan still has one continuous rainbow tail, but the overlapping fin silhouettes take a moment to separate.",
+          "bounded_improvement": "Keep a narrow water gap between the fins if this panel is revisited."
+        },
+        {
+          "panel": "p19.1",
+          "category": "manga_composition",
+          "visible_defect": "The long speech occupies a large sky balloon. It remains readable and does not cover faces, but leaves little quiet space around Roshan's raised hand.",
+          "bounded_improvement": "Preserve the readable text block; allow slightly more quiet water behind the gesture if needed."
+        }
+      ],
+      "strengths": [
+        "Roshan holds her own position; the following performer worry and friends' response change the emotional state.",
+        "No unfinished focal faces or incorrect speaker tails observed."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 20,
+      "take": 2,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_20_take2.png",
+      "image_sha256": "8b0b0e5da21a6fe4f302f2b38e25a85be6c79da0ce075452b9ab4b7203b25d69",
+      "rgb_pixel_sha256": "1140c52b1a4d39dd5b25544e28951565ccc4b5cb9937850775bcb9aa1bbe2246",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Stable focal identities and limbs; minor distant crowd simplification."
+        },
+        "line_detail_completeness": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Finished focal props/figures; dense small bubbles reduce local shape separation."
+        },
+        "action_contact_staging": {
+          "score": 4.0,
+          "weight": 0.2,
+          "comment": "Noticeable repair needed for barrier/aisle geography and the narrated tap-pop."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Exact readable words and correct attribution without obstructing focal faces."
+        },
+        "manga_composition": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Spectacle is lively but the bright background competes with the route problem."
+        }
+      },
+      "page_score_unrounded": "4.56",
+      "page_score": 4.56,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p20.1-p20.2",
+          "category": "action_contact_staging",
+          "visible_defect": "The bubble barrier begins behind the microphone, then grows into the foreground. The claimed blocked microphone approach is not clearly separated from the safe side aisle in the wide views.",
+          "bounded_improvement": "Fix the stage geography with one visible clear side lane, bubble wall across the centre approach and a consistent microphone position."
+        },
+        {
+          "panel": "p20.1",
+          "category": "action_contact_staging",
+          "visible_defect": "The stray bubble is still whole beside the wand star. The narrated pop is an inferred instant rather than a clearly drawn contact/consequence.",
+          "bounded_improvement": "Show the wand star touching a breaking rim or a tiny burst at the contact point."
+        },
+        {
+          "panel": "p20.2",
+          "category": "manga_composition",
+          "visible_defect": "Bubbles, foam stars and coral/lantern highlights form an almost equal-brightness field around the stage.",
+          "bounded_improvement": "Reserve the brightest cluster for the blocked route and soften peripheral spectacle."
+        }
+      ],
+      "strengths": [
+        "The repaired opaque purple/gold fabric curtain is distinct from the transparent bubbles.",
+        "Roshan's request and the four protagonists remain sharp and readable."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 21,
+      "take": 3,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take3.png",
+      "image_sha256": "40459dadaa2eef6cacc15121cfbb20206adcea9f467c34ff0c3485b69c3678db",
+      "rgb_pixel_sha256": "4b7fe875c80418d4c78e1676cccdcc8f0e068c1c528c82c7b1974b1c03333770",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Faces/tails are stable; cloth/drum continuity is a small but visible limitation."
+        },
+        "line_detail_completeness": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Most focal work is crisp; Hana's cloth grip is crowded."
+        },
+        "action_contact_staging": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Concrete jobs and delivery state change are clear."
+        },
+        "balloon_text_clarity": {
+          "score": 3.7,
+          "weight": 0.2,
+          "comment": "Substantial distracting crossed-tail defect despite correct endpoint attribution."
+        },
+        "manga_composition": {
+          "score": 4.3,
+          "weight": 0.2,
+          "comment": "The opening views work; crossing tails dominate the lower panel eye path."
+        }
+      },
+      "page_score_unrounded": "4.34",
+      "page_score": 4.34,
+      "page_floor_4_5_met": false,
+      "observations": [
+        {
+          "panel": "p21.3",
+          "category": "balloon_text_clarity",
+          "visible_defect": "The two long balloon tails cross the entire panel and each other. Their tips now reach Duri and Roshan correctly, but readers must trace intersecting white lines over hair/current space to identify the voices.",
+          "bounded_improvement": "Place Duri's balloon near Duri and Roshan's near Roshan, preserving Duri-first reading order and using short noncrossing tails."
+        },
+        {
+          "panel": "p21.2",
+          "category": "line_detail_completeness",
+          "visible_defect": "Hana's cloth grip is partly lost among small folded fabric and finger shapes. The support action is readable, but the focal grip is less finished than the faces.",
+          "bounded_improvement": "Clarify the thumb/finger contour at the right cloth grip."
+        },
+        {
+          "panel": "p21.2",
+          "category": "character_identity_anatomy",
+          "visible_defect": "The spare cloth is blue/purple with stars and Nari's drum is shallow/framed. Later pages change both props' forms.",
+          "bounded_improvement": "Bind one cloth and drum design for the action sequence; do not redraw unaffected identity art."
+        }
+      ],
+      "strengths": [
+        "Rumi directs a clear safe route; the cloth/drum jobs and Duri's completed invitation delivery are distinct.",
+        "The correct words survive; the problem is tail clarity rather than missing or wrong-speaker text."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 22,
+      "take": 1,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_22_take1.png",
+      "image_sha256": "bd5c8593c0e2f4b55dd7816dd84f2f41dce318880c676cf6f2d45047dfcb132e",
+      "rgb_pixel_sha256": "42319323214a9caa681257944dbe891d2b7fea7c1d4dd9a25adcc996875bc297",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.4,
+          "weight": 0.2,
+          "comment": "Stable cast anatomy, with noticeable prop form/color continuity defects."
+        },
+        "line_detail_completeness": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Finished focal lines; the bubble/bright star overlap is dense."
+        },
+        "action_contact_staging": {
+          "score": 3.9,
+          "weight": 0.2,
+          "comment": "Noticeable missing beat stroke and cloth anticipation; low-route geometry is ambiguous."
+        },
+        "balloon_text_clarity": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Exact words with clear nearby dialogue and collective-song tails."
+        },
+        "manga_composition": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Useful diagonal catch/duck rhythm; earlier preparation is visually weaker."
+        }
+      },
+      "page_score_unrounded": "4.48",
+      "page_score": 4.48,
+      "page_floor_4_5_met": false,
+      "observations": [
+        {
+          "panel": "p22.1",
+          "category": "action_contact_staging",
+          "visible_defect": "Nari claps with both hands while the changed drum floats at her waist. The swimming beat lacks a visible authored drum stroke.",
+          "bounded_improvement": "Show Nari actually striking or tapping the same bound drum."
+        },
+        {
+          "panel": "p22.2-p22.3",
+          "category": "action_contact_staging",
+          "visible_defect": "Hana reaches with bare raised hands toward the first star; the catch cloth reappears only in the following lower panel. The cloth preparation and catch contact are disconnected.",
+          "bounded_improvement": "Keep the cloth visibly prepared between her hands before the star reaches it, then show its supported catch."
+        },
+        {
+          "panel": "p22.1-p22.3",
+          "category": "character_identity_anatomy",
+          "visible_defect": "The drum changes from page21's shallow frame to a barrel-like form, and the catch cloth becomes plain lavender.",
+          "bounded_improvement": "Use the agreed drum and cloth silhouettes/materials consistently."
+        },
+        {
+          "panel": "p22.2",
+          "category": "action_contact_staging",
+          "visible_defect": "The large bubble rim encircles part of Roshan's tail; the intended route under the first bubble is less certain than her forward dive.",
+          "bounded_improvement": "Separate the bubble's underside from her single tail and put the clear low route below it."
+        }
+      ],
+      "strengths": [
+        "Four pictured panels make the catch and duck distinct; this is an allowed authored3/visual4 split.",
+        "Faces and near hands are sharp; the deficiencies are preparation and prop continuity."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 23,
+      "take": 2,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_23_take2.png",
+      "image_sha256": "305a985d9d19707135936117e1dfdde4ed7c53348c735e4a18a51e5a7591cd24",
+      "rgb_pixel_sha256": "bf0f320c17543a1f1176e6c301566e176c6e98067050de6578bb5eda7b6b80f7",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Recognizable cast; small instrument continuity limitation."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Clean focal faces, fabric and gesture contours."
+        },
+        "action_contact_staging": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Clear cause/reaction; route endpoint has a small geographical omission."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Correct exact text, SFX order and nearby tail targets."
+        },
+        "manga_composition": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Purposeful diagonal action, reaction and forward advance."
+        }
+      },
+      "page_score_unrounded": "4.68",
+      "page_score": 4.68,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p23.2",
+          "category": "character_identity_anatomy",
+          "visible_defect": "Nari's drum is now a deep purple cylinder rather than page21's shallow frame.",
+          "bounded_improvement": "Keep one instrument design throughout the work-song."
+        },
+        {
+          "panel": "p23.3",
+          "category": "action_contact_staging",
+          "visible_defect": "The current arrow leads beneath a stone arch, but no bubble edge or stage curtain is visible in this lower view. Connection to the contested microphone route relies on surrounding pages.",
+          "bounded_improvement": "Include a small consistent stage/curtain/bubble landmark along the low route."
+        }
+      ],
+      "strengths": [
+        "The curtain sweep, bell/stop reaction and changed route are distinct, and DING precedes Pause in visible reading order.",
+        "No native focal smearing or tail misattribution found."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 24,
+      "take": 3,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take3.png",
+      "image_sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+      "rgb_pixel_sha256": "0c9b981a94ed215cb73a8068c3b6dde1fe414afa749423060ba052083d2cb7d0",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Stable repaired cast; minor catch-cloth material continuity issue."
+        },
+        "line_detail_completeness": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Finished focal linework and hands; no focal blur."
+        },
+        "action_contact_staging": {
+          "score": 4.3,
+          "weight": 0.2,
+          "comment": "Noticeable route/transfer specificity gaps despite a readable advance."
+        },
+        "balloon_text_clarity": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "All exact words and correct speaker targets, without focal obstruction."
+        },
+        "manga_composition": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Strong diagonal hero panel and useful preparation beat."
+        }
+      },
+      "page_score_unrounded": "4.64",
+      "page_score": 4.64,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p24.1",
+          "category": "action_contact_staging",
+          "visible_defect": "Roshan/Rumi advance under a bubble arc, but the fabric curtain is absent from this hero panel, so Around the curtain is narrated rather than spatially demonstrated.",
+          "bounded_improvement": "Show the tied/loose curtain edge and the clear low passage together with the two swimmers."
+        },
+        {
+          "panel": "p24.2",
+          "category": "character_identity_anatomy",
+          "visible_defect": "The catch cloth has changed from lavender to cream with peach shells.",
+          "bounded_improvement": "Choose one existing cloth material/design for this action and keep it into the rescue."
+        },
+        {
+          "panel": "p24.2",
+          "category": "action_contact_staging",
+          "visible_defect": "Several stars sparkle above the cloth/basket. The basket is present, but the exact cloth-to-basket transfer is less specific than the dialogue.",
+          "bounded_improvement": "Give one star a clear trajectory/support edge into the basket; keep the basket outside the aisle."
+        }
+      ],
+      "strengths": [
+        "The repaired Roshan face/forelock and single scaled tail are recognizable, with clear hands and distinct Rumi braid.",
+        "Magician, wand, giant bubble and nearby tassel are established for the next event."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 25,
+      "take": 2,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_25_take2.png",
+      "image_sha256": "a9c328c1bd1ad45a5378de3fcc1ddd86376fcbe4fb22b32d76322c1d8009a69e",
+      "rgb_pixel_sha256": "985f98cdc8ec86bcadc3def7beef495803074e2ef0ef67825caf6736880f8d5d",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Stable cast/props with complete focal silhouettes."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Crisp magician face, bubble and fabric details; peripheral depth softness only."
+        },
+        "action_contact_staging": {
+          "score": 3.7,
+          "weight": 0.2,
+          "comment": "Substantial missing snag contact and compressed bubble entry, despite clear endpoint states."
+        },
+        "balloon_text_clarity": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Exact readable dialogue and correct attribution."
+        },
+        "manga_composition": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Lively change of scale; crowd/friends' applause slightly blunts the help-call focal contrast."
+        }
+      },
+      "page_score_unrounded": "4.5",
+      "page_score": 4.5,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p25.1",
+          "category": "action_contact_staging",
+          "visible_defect": "The caption says the tassel snagged, but the flying wand is separated from the curtain/tassel and no catch point is drawn. The essential inciting snag is inferred from prose.",
+          "bounded_improvement": "Show the tassel contacting/looping the wand tip before or during release, with a readable direction toward Rumi."
+        },
+        {
+          "panel": "p25.1-p25.2",
+          "category": "action_contact_staging",
+          "visible_defect": "The magician is already tumbling in the first panel, then enclosed in the next. His step/backward entry into the newly formed bubble is compressed.",
+          "bounded_improvement": "Keep a clear bubble rim/entry direction so the wand-loss consequence reads physically."
+        },
+        {
+          "panel": "p25.3",
+          "category": "manga_composition",
+          "visible_defect": "The foreground friends clap/smile while the magician calls for help; this can weaken the intended contrast with the performer's oblivious bow.",
+          "bounded_improvement": "Let Roshan begin noticing the help call while keeping the performer's bow as the main listening failure."
+        }
+      ],
+      "strengths": [
+        "Wand remains outside the enclosing bubble and Rumi visibly has it by the final panel.",
+        "Exact Help/Ta-daaa text, costumes and complete magician limbs remain readable."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 26,
+      "take": 1,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "image_sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "rgb_pixel_sha256": "5579dc777ba83803a6d038263ecde39183152b2eb47e6b9678a66cd107001850",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Stable cast and complete hands; minor pose/scale variance only."
+        },
+        "line_detail_completeness": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Finished focal faces, palms and translucent rim."
+        },
+        "action_contact_staging": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Distinct noticing, stop and eye-level reassurance moments."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Exact words, correct targets and unobstructed acting."
+        },
+        "manga_composition": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Strong emotional progression; small surplus peripheral action decoration."
+        }
+      },
+      "page_score_unrounded": "4.82",
+      "page_score": 4.82,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p26.2",
+          "category": "manga_composition",
+          "visible_defect": "Speed lines, ornate stage and bubble highlights surround the stop gesture. Roshan remains readable, but the background is busier than needed for this emotional reversal.",
+          "bounded_improvement": "Quiet peripheral highlights; preserve the large open palm and reaction faces."
+        }
+      ],
+      "strengths": [
+        "Open palms are complete, Roshan notices/calls/reassures in distinct views, and the magician's fear is visibly different from his showmanship.",
+        "Faces, hands and exact dialogue are clear at native size; no essential obstruction."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 27,
+      "take": 3,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take3.png",
+      "image_sha256": "ea02564120295261c078938b30dcb52bd3615723892f59e944ee54a2d926cf88",
+      "rgb_pixel_sha256": "5544138b631d10fe3c49d4594356f7eb30bb698503a69434690e1be26c04c455",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Stable faces/tails, with crowded rescue hand silhouettes."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Mostly crisp; hands/support boundaries are less isolated than faces."
+        },
+        "action_contact_staging": {
+          "score": 4.2,
+          "weight": 0.2,
+          "comment": "Noticeable intermediate sphere-support and Roshan-forearm ambiguity."
+        },
+        "balloon_text_clarity": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Exact attribution; small but noticeable first-panel sequence complication."
+        },
+        "manga_composition": {
+          "score": 4.3,
+          "weight": 0.2,
+          "comment": "Consecutive support layouts feel held rather than visibly advancing."
+        }
+      },
+      "page_score_unrounded": "4.48",
+      "page_score": 4.48,
+      "page_floor_4_5_met": false,
+      "observations": [
+        {
+          "panel": "p27.1-p27.2",
+          "category": "manga_composition",
+          "visible_defect": "The bubble, holders and performer use very similar catch layouts in consecutive panels. Rumi arrives and the curtain tie advances, but the main support state barely changes.",
+          "bounded_improvement": "Distinguish approach-to-contact, supported settle, then pop/landing with deliberate camera/action changes."
+        },
+        {
+          "panel": "p27.1-p27.2",
+          "category": "action_contact_staging",
+          "visible_defect": "The cloth back edge nearly meets the bubble underside, but its support/contact is less explicit than the drawn final padded landing.",
+          "bounded_improvement": "Show a definite sag/contact patch under the sphere and a stable low platform, without a free gap."
+        },
+        {
+          "panel": "p27.3",
+          "category": "action_contact_staging",
+          "visible_defect": "Roshan's steadying hands are crowded by the magician's raised wrist/navy coat. The intended forearm support is indistinct.",
+          "bounded_improvement": "Give the steadying hand and his forearm separate readable contours."
+        },
+        {
+          "panel": "p27.1",
+          "category": "balloon_text_clarity",
+          "visible_defect": "Two Roshan instructions bracket the performer's higher/right question. The words are correct, but row reading and his already-tying pose compress the question/answer order.",
+          "bounded_improvement": "Place the three balloons along one clear question-answer path and delay the tying pose until the answer is understood."
+        }
+      ],
+      "strengths": [
+        "Hana/Nari hold the cloth, performer reaches the hook, Rumi has the wand, and the final magician landing is visibly padded.",
+        "No definitive broken final landing contact or wrong-speaker required dialogue observed; intermediate support is an improvement priority."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 28,
+      "take": 1,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "image_sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "rgb_pixel_sha256": "09598016190b559bd091a675120257925d6aa22259a61f4a08f65852c9fbe575",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Stable cast; small Duri surface-pattern variance."
+        },
+        "line_detail_completeness": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Finished focal lines and expressive faces."
+        },
+        "action_contact_staging": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Clear empathy, response and apology states; safe quiet setting."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Exact readable text and nearby noncrossing tails."
+        },
+        "manga_composition": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Effective transition to quieter emotional panels and clear eye contact."
+        }
+      },
+      "page_score_unrounded": "4.82",
+      "page_score": 4.82,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p28.2",
+          "category": "character_identity_anatomy",
+          "visible_defect": "Duri gains pale spots on his flippers, whereas earlier lounge close views are plain lavender.",
+          "bounded_improvement": "If a repair is otherwise needed, keep the same lavender flipper surface."
+        }
+      ],
+      "strengths": [
+        "Magician's small serious pose, Duri's comparison and specific apologies have distinct, legible acting.",
+        "All required dialogue and tail targets are clear; no focal blur or major anatomical defect."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 29,
+      "take": 2,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "image_sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "rgb_pixel_sha256": "5eda9ec40f885843800f14afb0d94bf1c2f18d50d474a440c36a193049bd4f79",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.3,
+          "weight": 0.2,
+          "comment": "Noticeable prop identity discontinuity; character faces and tails remain stable."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Finished focal figures, fabrics and stage hardware."
+        },
+        "action_contact_staging": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Practical amends are visible, with small substituted-prop clarity limitations."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Exact complete words and correct tails."
+        },
+        "manga_composition": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Useful wide/amends, courier and stage-centre progression."
+        }
+      },
+      "page_score_unrounded": "4.64",
+      "page_score": 4.64,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p29.1",
+          "category": "character_identity_anatomy",
+          "visible_defect": "The packed catch-cloth is navy with stars/moon instead of the cream/peach rescue cloth; the basket holds pale round objects rather than recognizable foam stars.",
+          "bounded_improvement": "Carry the established cloth and star basket visibly into the amends panel."
+        },
+        {
+          "panel": "p29.1-p29.3",
+          "category": "character_identity_anatomy",
+          "visible_defect": "The microphone changes from a gold shell head to a black grille/stand, then changes again to a pink/gold shell mic on page30.",
+          "bounded_improvement": "Bind one microphone silhouette/material for the stage payoff."
+        },
+        {
+          "panel": "p29.1",
+          "category": "action_contact_staging",
+          "visible_defect": "Amends are visible, but substituted packed props make it harder to see that the actual trick and catch materials have been put away.",
+          "bounded_improvement": "Use the same recognizable trick props at their final safe locations."
+        }
+      ],
+      "strengths": [
+        "Clear open stage, Duri's practical contribution and Roshan's first-line choice.",
+        "Exact nearby balloons and focal hands/faces are sharp."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 30,
+      "take": 1,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "image_sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "rgb_pixel_sha256": "3250c0a2e1d41b42ebe0e8506f64afc521aaedbbaccefd849172e19bb3cf9d43",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Stable focal cast with minor microphone continuity limitation."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Crisp focal faces/hands; purposeful simplified distant crowd."
+        },
+        "action_contact_staging": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Unmistakable solo-to-trio-to-community consequence."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Exact words and clear collective attribution."
+        },
+        "manga_composition": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Strong scale hierarchy and emotional payoff; slightly busy community periphery."
+        }
+      },
+      "page_score_unrounded": "4.78",
+      "page_score": 4.78,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p30.1",
+          "category": "character_identity_anatomy",
+          "visible_defect": "Shell microphone/stand differs from page29's black microphone.",
+          "bounded_improvement": "Match the bound stage microphone; keep this strong solo acting."
+        },
+        {
+          "panel": "p30.3",
+          "category": "manga_composition",
+          "visible_defect": "The broad answer is crowded with equally bright lantern/coral highlights. Foreground community faces are readable, but the song response could have a quieter peripheral cluster.",
+          "bounded_improvement": "Group background light/detail rather than adding more objects."
+        }
+      ],
+      "strengths": [
+        "Roshan clearly owns the first line; trio then neighbourhood answer in distinct views.",
+        "Exact song text, collective tails, Duri bell action and sharp foreground faces work well."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 31,
+      "take": 1,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "image_sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "rgb_pixel_sha256": "a2fd4817ce7d954c5b0b9d0ccc466626daa2aa9fa662c6c2e6c8614c735cee67",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.4,
+          "weight": 0.2,
+          "comment": "Noticeable unsupported Duri cap and smaller microphone variance."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Finished focal turtle/mermaid/imp faces and props."
+        },
+        "action_contact_staging": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Turns and completed-delivery consequence remain clear."
+        },
+        "balloon_text_clarity": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Exact readable dialogue with nearby targets."
+        },
+        "manga_composition": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Clear three-beat handoff; stage decoration slightly competes at the perimeter."
+        }
+      },
+      "page_score_unrounded": "4.68",
+      "page_score": 4.68,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p31.2",
+          "category": "character_identity_anatomy",
+          "visible_defect": "Duri suddenly wears an orange cap that was not present in prior courier/action views.",
+          "bounded_improvement": "Keep his established bare head or explicitly motivate the costume choice in story/art."
+        },
+        {
+          "panel": "p31.1-p31.3",
+          "category": "character_identity_anatomy",
+          "visible_defect": "Several differently colored handheld microphones appear after the prior fixed-stage microphone. This is a small stage-prop expansion, not a required story beat.",
+          "bounded_improvement": "Use the agreed stage microphone family if these panels are otherwise revised."
+        }
+      ],
+      "strengths": [
+        "Imp turn, Duri's completed deliveries/own song and Roshan-Nari exchange are distinct.",
+        "Empty courier bag is visibly open; exact dialogue and near faces are readable."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Lanterns, shell/pearl luminaires, microphone/stand and bubble highlights are not pictured as candle discoveries."
+      }
+    },
+    {
+      "page": 32,
+      "take": 1,
+      "image_path": "assets_src/books/rumi_voice_book_20261011/native/page_32_take1.png",
+      "image_sha256": "6a6944574a2e20af92a4d7d1f164b4d09562c80cb14485d486b00a2451499dc8",
+      "rgb_pixel_sha256": "000c6074b2b63c6885a78ddb2dd04f5a2b52312a6b75797565d3fb89fba8b5b7",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "view_method": "view_image(detail=original); entire native page, no crop, resample or contact sheet",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Stable single-tail identities and expressive faces."
+        },
+        "line_detail_completeness": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Finished foreground clothing/hands and room fixtures."
+        },
+        "action_contact_staging": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Clear return and ordinary listening; small visual omission of the explicitly turning rainbow landmark."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Exact dialogue/narration and correct close speaker targets."
+        },
+        "manga_composition": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Effective journey-to-quiet-close progression with efficient gutters."
+        }
+      },
+      "page_score_unrounded": "4.8",
+      "page_score": 4.8,
+      "page_floor_4_5_met": true,
+      "observations": [
+        {
+          "panel": "p32.1-p32.2",
+          "category": "action_contact_staging",
+          "visible_defect": "The circular pool opening and familiar rainbow waterfall are pictured, but the caption's turning rainbow is not spatially identified as a turning fixture in the first panel.",
+          "bounded_improvement": "Retain a recognizable fountain/turning-rainbow landmark when drawing the revised ending; do not insert a candle or imply recovery."
+        }
+      ],
+      "strengths": [
+        "Return remains within Pearl Castle, with no new portal or candle recovery. Roshan has an ordinary idea and Rumi listens.",
+        "Distinct upward, bench and face-level views; sharp complete focal expressions and exact unobstructed words."
+      ],
+      "exact_manuscript_words_visually_present": true,
+      "wrong_or_missing_required_speaker_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Rainbow waterfall/turning-rainbow narration is a room fixture/magic reference, not a flame/wick/candle reveal."
+      }
+    }
+  ],
+  "preservation": "Read-only native review; only this new JSON and an ignored tmp writer were written. Previous edition/script/native/provider files are preserved. No generation, pixel manipulation, source replacement, commit, push or CI launch.",
+  "acceptance": {
+    "owner": "PENDING",
+    "child": "PENDING",
+    "print": "PENDING",
+    "runtime_device": "NOT_ESTABLISHED",
+    "global_master_audit": "UNSATISFIED_UNCHANGED"
+  }
+}

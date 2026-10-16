@@ -1,0 +1,55 @@
+{
+  "schema": "rumi_detective_tool_preparation_v1",
+  "recorded_at_utc": "2026-10-12T08:20:58.747210+00:00",
+  "status": "TOOLS_PREPARED_NO_ART_SELECTION_NO_PDF_AUTHORING_NO_CI_RUN",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "code": [
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/build_book.py",
+      "sha256": "a486e2c9464467e6355b997aa2c889cee326ea82f325b8ce59b885ebb9455e3a"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/validate_selection.py",
+      "sha256": "9d10a9f1514faeda62c88b61fabddcf3a8888ee54de0a35d273b3bb7cc8c93fe"
+    }
+  ],
+  "read_only_self_checks": {
+    "in_memory_syntax_compile": true,
+    "original_png_idat_decodes_to_exact_native_rgb": true,
+    "in_memory_bad_png_crc_rejected": true,
+    "unbound_reference_absolute_and_parent_paths_rejected": true,
+    "explicit_root_frozen_selection_sha_required": true
+  },
+  "previous_edition_preserved": {
+    "builder_sha256": "e3932e2012a702f76f4fbd61c3a07fd73fb26dd3e82043d7b76668f5d2bfb857",
+    "pdf_sha256": "1f7a5c6b1627b0aa0e05ba28eae648f75998eefcef71b79b4dd94912e51c3ffd",
+    "both_match_prior_book_check": true,
+    "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967"
+  },
+  "prepared_ci": {
+    "receipt_path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_receipt.json",
+    "receipt_sha256": "d0cc35052ade6aa3a142c820c9ab5dc0f6e4ee0d9b6e3b1eabf764fe131c19a6",
+    "log_path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci.log",
+    "log_sha256": "01d074465d1f3a7261ffe378a8dcf46e19143859d21c5719ebd5aa30072d2f14",
+    "runner_path": "tmp/run_rumi_visual_detective_full_ci_20261012.py",
+    "runner_sha256": "4ed4b6622b675b059177fb22cba6309fb72240dc326069eee80b158b1dc5f66c",
+    "wrapper_path": "tmp/rumi_visual_detective_full_ci_20261012.sh",
+    "wrapper_sha256": "0141df8ac0bfadbc05af751fca76ffd960cc89e785b0c00f91676a8d21c57fff",
+    "status": "PENDING_NOT_STARTED_WAITING_ROOT_GO",
+    "expected_trusted_probes": 82,
+    "engine_version": "4.7.2.stable.official.ed1daf0bf",
+    "no_ci_process_started": true
+  },
+  "usage": {
+    "preflight": "Bundled Python -B build_book.py --selection-sha256 <root-frozen SHA> --preflight",
+    "author": "Immediately after root successful exactly-once new PDF create marker and marker receipt, bundled Python -B build_book.py --selection-sha256 <root-frozen SHA>",
+    "read_only_pdf": "Bundled Python -B build_book.py --selection-sha256 <root-frozen SHA> --verify-existing",
+    "provenance": "Bundled Python -B validate_selection.py --selection-sha256 <root-frozen SHA> --output verification/provenance_check.json",
+    "ci": "Only after explicit ROOTGO: bundled Python -X utf8 -B tmp/run_rumi_visual_detective_full_ci_20261012.py --run --root-go"
+  },
+  "limits": [
+    "Tool preparation is not selected-page provenance PASS, PDF verification or CI PASS.",
+    "Hash uniqueness does not prove distinct story moments or correct generated lettering.",
+    "Visual, owner, child, print, runtime and global master-audit acceptance remain separate."
+  ]
+}
