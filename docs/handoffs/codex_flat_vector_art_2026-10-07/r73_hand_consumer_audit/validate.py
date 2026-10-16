@@ -55,6 +55,9 @@ for n in ['per_piece.json','scene_coverage.json','tally.json','CONGRUENCY_BACKLO
   if k not in ['revision','phase','publication']:assert before[k]==after[k],(n,k)
  assert after['hand_consumer_audit']['accepted_removed']==0 and not after['hand_consumer_audit']['allcaller_closure']
 for n in ['CURRENT_KNOWN_ROLE_UNION.json','CURRENT_PARTIAL_CONTEXT_UNION.json','CURRENT_CATALOGUE_CONTEXT_UNION.json']:assert (P/n).read_bytes()==(O/n).read_bytes()
+method=rd(P/'ANALYSIS_METHOD.json');check=rd(P/'REPRODUCTION_CHECK.json');assert check['status']=='PASS_EXACT_FOUR_ANALYSIS_OUTPUTS' and check['scanner_sha256']==method['scanner_sha256']==sha((P/'scan_consumers.py').read_bytes()) and len(check['outputs'])==4
+for row in check['outputs']:assert row['exact_bytes'] and sha((P/row['path']).read_bytes())==row['sha256'] and len((P/row['path']).read_bytes())==row['bytes']
+assert method['executed_analysis_scanner_sha256']==sha(git('show','5a46e06c26be03099967e665d7407b507f9cf010:'+ (P/'scan_consumers.py').relative_to(R).as_posix()))
 assert rd(O/'NEW_ART_REVIEW_REQUEST.json')['owner_approval'] is False and rd(O/'NEW_ART_REVIEW_REQUEST.json')['generation_calls']==0
 assert rd(H/'CURRENT.json')['current_tally']=='r73_hand_consumer_audit/tally.json'
 allowed={'design/audit_impacts/flat-vector-hand-consumers-20261015.json','audit/MASTER_AUDIT_2026-08-09.md','audit/findings/ACTIVE_FINDINGS_2026-08-13.md','audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md','design/05_DOC_LEDGER.md',(H/'README.md').relative_to(R).as_posix(),(H/'CURRENT.json').relative_to(R).as_posix()}

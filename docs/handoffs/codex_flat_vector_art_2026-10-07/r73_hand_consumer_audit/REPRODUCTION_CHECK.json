@@ -1,0 +1,38 @@
+{
+  "status": "PASS_EXACT_FOUR_ANALYSIS_OUTPUTS",
+  "checked_at_utc": "2026-10-16T05:43:05.962225+00:00",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "command": [
+    "python",
+    "-B",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r73_hand_consumer_audit\\scan_consumers.py"
+  ],
+  "scanner_sha256": "e0cb4ef27282d4ed6d1091a61e6e0fb04363a477603565f7c55c65349b4a8fc3",
+  "outputs": [
+    {
+      "path": "SOURCE_CENSUS.json",
+      "bytes": 52864,
+      "sha256": "33596fdbe5b8ecd12ce0f5e977c6c370b3acf751e8437cc48ad94a6c9a2e1715",
+      "exact_bytes": true
+    },
+    {
+      "path": "SOURCE_BODIES.json",
+      "bytes": 544988,
+      "sha256": "cf5b82eea17216cc8e036f525fb1dcfc79e8503a87a8af7072f9647e283ee416",
+      "exact_bytes": true
+    },
+    {
+      "path": "CONSUMER_MAP.json",
+      "bytes": 153325,
+      "sha256": "2692e233e98c481515cfcbd0be6495614e8d8c4967281bc6e6d12c64a7eec2b1",
+      "exact_bytes": true
+    },
+    {
+      "path": "INTAKE_CORRECTION.json",
+      "bytes": 541,
+      "sha256": "21b41855bbdd28b9ed792a85fcdff6417011e869bb0e4bc57ebd38ba078333de",
+      "exact_bytes": true
+    }
+  ],
+  "scope": "Fresh source-only scanner run into new scratch directory reproduces the exact four authoritative JSON outputs, including stable source IDs. No engine/runtime/source-art/save write or new acceptance."
+}

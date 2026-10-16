@@ -1,6 +1,6 @@
 {
   "id": "flat-vector-hand-consumers-20261015",
-  "scope": "Reconcile current ghost_hand.png literal references, their actual loading/drawing functions, consumers, source entry sites and guarded states against the older R17 map and R72 finite census. Preserve stable IDs and every prior review/count; distinguish test requirements from candidate live rendering and unresolved dynamic dispatch. This binds shared-asset retirement dependencies, not runtime visibility/allcaller closure/QA11/art acceptance. No source/runtime/art/import/save modifications and no generation/export. Current source adds2probe references to the same16R17 candidate file paths, not new gameplay consumers.12direct source reviews establish2conditional primitive fallback paths and venue tree-book/menu dependencies;127exact function bindings. All output is nonruntime source evidence with zero new art/context/removal credit.",
+  "scope": "Reconcile current ghost_hand.png literal references, their actual loading/drawing functions, consumers, source entry sites and guarded states against the older R17 map and R72 finite census. Preserve stable IDs and every prior review/count; distinguish test requirements from candidate live rendering and unresolved dynamic dispatch. This binds shared-asset retirement dependencies, not runtime visibility/allcaller closure/QA11/art acceptance. No source/runtime/art/import/save modifications and no generation/export. Current source adds2probe references to the same16R17 candidate file paths, not new gameplay consumers.12direct source reviews establish2conditional primitive fallback paths and venue tree-book/menu dependencies;127exact function bindings. All output is nonruntime source evidence with zero new art/context/removal credit. Final delivery correction: source-only scanner now includes the exact deterministic FVHC source-ID/classification enrichment and scratch output selection. Actual independent reproduction regenerates all four source-analysis JSON files byte for byte. This changes audit tooling only; no source/runtime/asset/save or artwork/context totals.",
   "baseline": "e4ff0ae20c0edfc567221396d4613b1fc4b1d067",
   "rules": [
     "DL-AUTH-01",
@@ -65,7 +65,9 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/REPRODUCTION_CHECK.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/RETIREMENT_DEPENDENCIES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/REVIEWED_BRANCHES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/REVIEW_SOURCE_REFERENCES.json",
@@ -73,6 +75,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/SOURCE_CENSUS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/SOURCE_GUARDS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/TOPIC_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/TWO_D_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/UPSTREAM_FRESHNESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/VALIDATOR_PREPARATION_HISTORY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/WORK_IN_PROGRESS.json",
@@ -80,6 +84,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/build_manifest.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/receipt_gates.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/reproduce.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/scan_consumers.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/scan_summary.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/scene_coverage.json",
@@ -110,13 +116,23 @@
     },
     {
       "command": "Audit authority/development/document tests/stress and actual staged+committed2D perpush",
-      "result": "PENDING",
-      "evidence": "GATES document/evidence54tests/6stress PASS. Actual staged+committed2D are required before each push and will be bound in final receipt; not claimed prematurely."
+      "result": "PASS",
+      "evidence": "GATES document/evidence54tests/6stress PASS; actual payload staged+committed2D outputs bound in TWO_D_GATES. Strict2D remains unsatisfied; final receipt earns separate actual pair before push."
     },
     {
       "command": "Publish same authorized GitHub branch/path, anonymous exact manifest/all-file checks and final metadata verification",
-      "result": "PENDING",
-      "evidence": "Pre-recorded R73 scope; no completion or acceptance claimed."
+      "result": "PASS",
+      "evidence": "Immutable public payload manifest/all required files anonymously byte-verified at 5a46e06c26be03099967e665d7407b507f9cf010; final metadata is separately checked after push."
+    },
+    {
+      "command": "python -B r73_hand_consumer_audit/reproduce.py --output-dir NEW_SCRATCH --report NEW_SCRATCH_REPORT",
+      "result": "PASS",
+      "evidence": "REPRODUCTION_CHECK.json: fresh source-only scanner run reproduces SOURCE_CENSUS,SOURCE_BODIES,CONSUMER_MAP,INTAKE_CORRECTION exact bytes, including source-only stable IDs. No runtime or artwork acceptance."
+    },
+    {
+      "command": "Anonymous immutable HTTPS manifest/index/fragments and every declared source/context/evidence file, plus public repository API",
+      "result": "PASS",
+      "evidence": "398files/19262880bytes at 5a46e06c26be03099967e665d7407b507f9cf010; manifestSHA256 39a41206d8906457d00fd8551b155caca8e0bc2175b6f8fdfced41871b093596; time 2026-10-16T05:40:16.530760+00:00. R73 binds current source consumer/retirement dependencies only;0new captures/art/generation/production/acceptance. R72 exact ImageGen request remains awaiting explicit owner authorization. Exact sourceD full probe CI retained separately."
     }
   ],
   "acceptance_gaps": "Static source consumer reconciliation only. Existing pixel/crop/role inventory, natural route/dynamic native caller/QA11/device/child/owner/strict2D and whole-game unknown denominators remain open. No art generation/export/replacement/accepted removal."

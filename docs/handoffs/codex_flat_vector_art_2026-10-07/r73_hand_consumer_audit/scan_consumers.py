@@ -1,8 +1,8 @@
 from pathlib import Path
-import json,hashlib,subprocess,re,datetime,importlib.util
+import json,hashlib,subprocess,re,datetime,importlib.util,os
 from gdtoolkit.parser import parser
 from lark import Tree,Token
-R=Path.cwd();H=R/'docs/handoffs/codex_flat_vector_art_2026-10-07';P=H/'r73_hand_consumer_audit';D='5120b6d59885dd057937aaf284e73681d8eac9f5'
+R=Path.cwd();H=R/'docs/handoffs/codex_flat_vector_art_2026-10-07';P=Path(os.environ.get('FVHC_OUTPUT',str(H/'r73_hand_consumer_audit')));D='5120b6d59885dd057937aaf284e73681d8eac9f5'
 sha=lambda b:hashlib.sha256(b).hexdigest()
 wr=lambda p,d:p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
 paths=subprocess.check_output(['git','ls-tree','-r','--name-only',D,'--','scripts','scenes','shaders','project.godot'],text=True).splitlines();src={};trees={};funcs={};classes={}
@@ -88,6 +88,11 @@ for path,s in src.items():
 wr(P/'SOURCE_CENSUS.json',{'source_revision':D,'listed_root_paths':len(paths),'scanned_text_files':len(src),'parsed_gd_files':len(trees),'files':[{'path':p,'sha256':s['sha256'],'bytes':len(s['raw'])} for p,s in sorted(src.items())],'predicate':'Git-declared scripts/scenes/shaders/project.godot text suffixes .gd/.tscn/.tres/.gdshader/.godot. Excludes docs/export/assets/JSON/native/UID loader/content rules. Basename plus exact path source check, not complete resource/semantic reachability.'})
 wr(P/'SOURCE_BODIES.json',{'source_revision':D,'function_count':len(selected_bodies),'functions':[selected_bodies[k] for k in sorted(selected_bodies)]})
 old=json.loads((H/'r17_pointer_callers/SOURCE_AUDIT.json').read_text(encoding='utf-8'));oldpaths={r['path'] for r in old['old_hand_path_references']};currentpaths={r['path'] for r in refs};same=oldpaths&currentpaths
+for row in consumers:
+ row['consumer_id']='FVHC-'+sha((asset+'\t'+row['path']).encode())[:12].upper()
+ row['classification']='PROBE_ASSET_REQUIREMENT' if Path(row['path']).name.startswith('probe_') else 'CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF'
+ row['individual_artwork_role_split']='UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR'
+ row['scope_note']='Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim.'
 wr(P/'CONSUMER_MAP.json',{'source_revision':D,'resource':asset,'literal_rows':refs,'consumers':consumers,'prior_r17_source':old['source_revision'],'prior_r17_paths':sorted(oldpaths),'same_non_probe_paths':sorted(same),'added_reference_paths':sorted(currentpaths-oldpaths),'removed_reference_paths':sorted(oldpaths-currentpaths),'method':'AST bounded function/constant data plus explicit local loading-property occurrence expansion and one-edge incoming script/class references. These are source candidates, not proofs of execution. Missing alias/value/native/dynamic/cancel/fallback closure stays open.'})
 # Retain the transcript correction as evidence rather than calling probe additions new production consumers.
 wr(P/'INTAKE_CORRECTION.json',{'claim_corrected':'R17 predates sourceD, but already listed all16 non-probe resource-reference files including pool activities. The two extra current references are explicit probe requirements. No new production consumer, new art role or new visible context follows from that difference.','old_non_probe_paths':len(oldpaths),'current_reference_paths':len(currentpaths),'same_paths':len(same),'added_paths':sorted(currentpaths-oldpaths),'prior_historical_counts_preserved':True})

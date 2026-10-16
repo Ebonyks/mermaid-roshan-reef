@@ -3,5 +3,30 @@
   "branch": "codex/flat-vector-r6-20261012",
   "method": "Exact nonforce payload Git object publication and one final receipt commit. Each earns actual staged+committed2D no-regression. Anonymous immutable manifest/all-required-file and final changed-metadata checks.",
   "own_receipt_scope": "Final receipt verifies payload; own changed metadata/head checked after push without recursive self hash.",
-  "recipient_access": "Public anonymous HTTPS; no image-generation service transfer."
+  "recipient_access": "Public anonymous HTTPS; no image-generation service transfer.",
+  "payload_transport": {
+    "status": "EXACT_GIT_OBJECTS_AND_ORIGINAL_COMMIT_PUBLISHED_NON_FORCE",
+    "baseline": "e4ff0ae20c0edfc567221396d4613b1fc4b1d067",
+    "revision": "5a46e06c26be03099967e665d7407b507f9cf010",
+    "tree": "a4a221a8a95a021b9973d49bcd8cb03ef99251e6",
+    "new_blob_count": 39,
+    "changed_file_count": 45,
+    "checked_at_utc": "2026-10-16T05:40:05.146438+00:00",
+    "existing_gh_authorization_only": true,
+    "credential_value_extracted_or_printed": false,
+    "transport_reason": "Prior R39 ordinary114MiB Git pack reset; direct exact-object safe path used forR72, no failedR73 pack claimed.",
+    "access_mode": "Authenticated Git object write to same owner-authorized public repository/durable branch; anonymous required-file verification follows",
+    "no_runtime_or_source_tree_change_from_verified_commit": true
+  },
+  "payload_verification": {
+    "state": "R73_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "5a46e06c26be03099967e665d7407b507f9cf010",
+    "required_files": 398,
+    "required_bytes": 19262880,
+    "manifest_sha256": "39a41206d8906457d00fd8551b155caca8e0bc2175b6f8fdfced41871b093596",
+    "checked_at_utc": "2026-10-16T05:40:16.530760+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final receipt own changed metadata bytes/head checked after push; not recursively self-hashed."
+  }
 }

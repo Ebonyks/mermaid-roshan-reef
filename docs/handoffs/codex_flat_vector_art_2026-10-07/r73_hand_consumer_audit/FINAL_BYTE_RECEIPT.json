@@ -1,3 +1,37 @@
 {
-  "status": "PENDING_PAYLOAD_VERIFICATION"
+  "status": "PAYLOAD_ALL_DECLARED_FILES_ANONYMOUSLY_VERIFIED",
+  "payload_revision": "5a46e06c26be03099967e665d7407b507f9cf010",
+  "manifest_sha256": "39a41206d8906457d00fd8551b155caca8e0bc2175b6f8fdfced41871b093596",
+  "required_file_count": 398,
+  "required_bytes": 19262880,
+  "payload_checked_at_utc": "2026-10-16T05:40:16.530760+00:00",
+  "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+  "audited_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "origin_dev_at_receipt": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "runtime_delta_from_audited_source": [],
+  "source_controls_source_art_imports_unchanged": true,
+  "retained_bounded": 6122,
+  "retained_excluded": 3223,
+  "retained_native_events": 9345,
+  "source_resource_references": 18,
+  "candidate_render_source_files": 16,
+  "probe_requirement_files": 2,
+  "new_capture_events": 0,
+  "reviewed_source_dependencies": 4,
+  "generation_calls": 0,
+  "accepted_removed": 0,
+  "all_game_piece_total": null,
+  "mission_complete": false,
+  "allcaller_closure": false,
+  "prior_source_garden_return": "FAIL_SOURCE_RETURN_CONTRACT_UNFIXED",
+  "existing_request": "../r72_skyway_hand_reuse/NEW_ART_REVIEW_REQUEST.json",
+  "request_scope": "Prior R72 exact two-image request remains unchanged and unapproved; no export/generation/readiness/acceptance",
+  "actual_payload_two_d": {
+    "path": "TWO_D_GATES.json",
+    "sha256": "3f3ad81b55901ea54029979d98e5efbe4acf287eccfacc87f787a22e9d634909",
+    "lanes": 2,
+    "strict_2d_satisfied": false
+  },
+  "own_receipt_verification": "This record proves the payload above. Final receipt commit own changed metadata bytes/head and actual staged/committed gates are checked after push and reported in final chat/external check, avoiding a recursive self-hash claim.",
+  "created_at_utc": "2026-10-16T05:44:10.110912+00:00"
 }

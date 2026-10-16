@@ -1,6 +1,6 @@
 {
   "gdtoolkit_version": "4.5.0",
-  "scanner_sha256": "356dca0b7643598f5644bb4fa27d94809097013a1f7d60bcc01aa6b7d6ddc1cb",
+  "scanner_sha256": "e0cb4ef27282d4ed6d1091a61e6e0fb04363a477603565f7c55c65349b4a8fc3",
   "parsed_scripts": 312,
   "source_formats": ".gd/.tscn/.tres/.gdshader/.godot under scripts/scenes/shaders/project.godot",
   "proven": "Exact listed-source literal/basename row census, AST function boundaries, full file/body bytes, direct same-function assignments and source-candidate incoming references.12 named function bodies bind four reviewed source dependencies; no blanket whole-function review.",
@@ -11,5 +11,7 @@
     "Full inheritance/callback/value domains/cancel/reload/allcaller closure",
     "Art/style/device/child/owner/QA11 acceptance"
   ],
-  "algorithm_history": "Initial exact-path-only draft omitted the basename-only probe assertion; final scanner includes it. Local texture-name leakage risk was corrected by restricting cross-method selection to declared class fields. No old source/runtime/canonical file was edited. Draft outputs are superseded before publication; no new live consumer or rendering credit inferred."
+  "algorithm_history": "Initial exact-path-only draft omitted the basename-only probe assertion; final scanner includes it. Local texture-name leakage risk was corrected by restricting cross-method selection to declared class fields. No old source/runtime/canonical file was edited. Draft outputs are superseded before publication; no new live consumer or rendering credit inferred.",
+  "executed_analysis_scanner_sha256": "356dca0b7643598f5644bb4fa27d94809097013a1f7d60bcc01aa6b7d6ddc1cb",
+  "reproduction_correction": "The payload source scanner emitted raw rows before source-ID/classification enrichment. Final source-only reproducer adds the exact deterministic enrichment and FVHC_OUTPUT scratch selection; source-analysis logic and all authoritative evidence rows remain unchanged. REPRODUCTION_CHECK independently compares four output files byte for byte."
 }

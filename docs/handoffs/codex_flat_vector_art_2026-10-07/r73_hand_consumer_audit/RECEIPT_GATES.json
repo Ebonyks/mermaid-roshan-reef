@@ -1,0 +1,42 @@
+{
+  "status": "PASS_FINAL_RECEIPT_REVIEW",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r73_hand_consumer_audit\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "c57887a09252f63ee9352a73a88f8db752ffdb0e55ca4ceb065c9fc725d50580",
+      "output": "R73_EVIDENCE_PASS;318text312AST;18refs16same_render_candidates2probe_requirements;127function_bindings12branch_bodies;2conditional_primitive_fallbacks;0newcontext/art/removal;globalunknown\r\n",
+      "checked_at_utc": "2026-10-16T05:44:31.738110+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "f9d80d9d514be48905dab80fceaa40eae450075884a212a1226f9526b774f790",
+      "output": "DOCAUTH|INVENTORY=786|LEDGER=786|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T05:44:43.387662+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T05:44:51.849112+00:00"
+    }
+  ],
+  "log_sha256": "4464da9e16bd6f549a92f81846160ac78b737db37e167f33573a29585c6e1149",
+  "scope": "All3 evidence/document gates passed. Final staged/committed2D must separately pass before push. No art, runtime/device/child/owner or whole-game acceptance."
+}
