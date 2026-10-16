@@ -116,7 +116,7 @@
     {
       "command": "Merge/reconcile origin/dev dd799b2d, then unchanged full scripts/ci.sh",
       "result": "PASS",
-      "evidence": "Incoming dev dd799b2d43871b29d1d6e0503646308a194dad1e runtime preserved. Combined full_ci_integration.log exits0:82/82 exact ordered probes,65 integrated Tree Book assertions, zero trusted failure markers. VERIFICATION.json binds raw/canonical log hashes and unchanged runtime source hashes. New exact published-head CI required before dev integration."
+      "evidence": "Incoming dev dd799b2d43871b29d1d6e0503646308a194dad1e runtime preserved. Combined full_ci_integration.log exits0:82/82 exact ordered probes,65 integrated Tree Book assertions, zero trusted failure markers. VERIFICATION.json binds raw/canonical log hashes and unchanged runtime source hashes. New exact published-head CI required before dev integration. Exact combined runtime source commit 9b49c87f7f340e3c644937d4c14bf8c22f67c384; subsequent binding is metadata only."
     }
   ],
   "acceptance_gaps": "Combined current-dev source passes58 focused/65 integrated Tree Book checks and82 full local probes. Exact published-head GitHub CI is required before dev integration; prior corrected-head runs hit the existing55-minute job limit. Device, child, full-speed human motion and owner acceptance remain pending; no release/master-audit satisfaction claim.",
@@ -148,5 +148,6 @@
   "implementation_source_commit": "2f1808755a4f41999c6a9184727c2cb1c9abd82d",
   "change_id": "CHG-037",
   "integration_parent": "dd799b2d43871b29d1d6e0503646308a194dad1e",
-  "change_id_reconciliation": "The draft CHG-036 label in earlier Arborist commits collided with the now-integrated doorframe CHG-036. Current Arborist repair is CHG-037; historical source/logs are preserved."
+  "change_id_reconciliation": "The draft CHG-036 label in earlier Arborist commits collided with the now-integrated doorframe CHG-036. Current Arborist repair is CHG-037; historical source/logs are preserved.",
+  "combined_source_commit": "9b49c87f7f340e3c644937d4c14bf8c22f67c384"
 }
