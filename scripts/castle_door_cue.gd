@@ -3,26 +3,34 @@ extends Control
 ## Input-transparent Canvas cue for one existing painted castle door.
 
 const DoorLanguage := preload("res://scripts/castle_door_language.gd")
-const ARCH_SEGMENTS := 24
 const BONUS_PERIOD_SECONDS := 4.4
 const PLOT_PERIOD_SECONDS := 3.2
 const PLOT_SHIMMER_PERIOD_SECONDS := 4.6
 const BONUS_OUTER_COLOR := Color(0.96, 0.34, 0.39)
-const BONUS_INNER_COLOR := Color(1.00, 0.62, 0.58)
-const PLOT_OUTER_COLOR := Color(1.00, 0.72, 0.16)
-const PLOT_INNER_COLOR := Color(1.00, 0.84, 0.34)
-const RAINBOW: Array[Color] = [
-	Color(1.00, 0.36, 0.44),
-	Color(1.00, 0.66, 0.24),
-	Color(1.00, 0.88, 0.34),
-	Color(0.42, 0.88, 0.62),
-	Color(0.34, 0.72, 1.00),
-	Color(0.66, 0.48, 1.00),
-]
+const BONUS_GLOW_COLOR := Color(0.98, 0.26, 0.34)
+const PLOT_GLOW_COLOR := Color(1.00, 0.72, 0.16)
+const FRAME_GLOW_SHADER := preload(
+	"res://shaders/castle_door_frame_glow.gdshader")
+const FRAME_TEXTURES := {
+	"small": preload(
+		"res://assets/flats/castle/door_cues/door_frame_small_exact.png"),
+	"opera": preload(
+		"res://assets/flats/castle/door_cues/door_frame_opera_exact.png"),
+	"royal": preload(
+		"res://assets/flats/castle/door_cues/door_frame_royal_exact.png"),
+}
+const FRAME_FAMILY_INDEX := {
+	"small": 0.0,
+	"opera": 1.0,
+	"royal": 2.0,
+}
 
 var door_state: String = DoorLanguage.OPEN
 var motion_time := 0.0
 var feedback_time := 0.0
+var frame_family := ""
+var frame_texture: Texture2D = null
+var frame_material: ShaderMaterial = null
 
 
 func _init() -> void:
@@ -31,8 +39,18 @@ func _init() -> void:
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	clip_contents = true
+	clip_contents = false
 	_sync_visibility()
+
+
+func configure_physical_frame(next_family: String) -> void:
+	frame_family = next_family if FRAME_TEXTURES.has(next_family) else ""
+	frame_texture = FRAME_TEXTURES.get(frame_family) as Texture2D
+	if frame_texture != null:
+		frame_material = ShaderMaterial.new()
+		frame_material.shader = FRAME_GLOW_SHADER
+	_sync_material()
+	queue_redraw()
 
 
 func set_door_state(next_state: String) -> void:
@@ -62,11 +80,34 @@ func pulse_plot_feedback() -> void:
 func _sync_visibility() -> void:
 	visible = door_state != DoorLanguage.OPEN
 	set_process(visible)
+	_sync_material()
+
+
+func _sync_material() -> void:
+	var uses_frame: bool = frame_material != null \
+		and door_state != DoorLanguage.OPEN
+	material = frame_material if uses_frame else null
+	if not uses_frame:
+		return
+	frame_material.set_shader_parameter("motion_time", motion_time)
+	frame_material.set_shader_parameter("feedback_strength", feedback_time / 0.72)
+	frame_material.set_shader_parameter("shimmer_period", PLOT_SHIMMER_PERIOD_SECONDS)
+	frame_material.set_shader_parameter("frame_family",
+		float(FRAME_FAMILY_INDEX.get(frame_family, 0.0)))
+	var cue_mode := 0.0
+	if door_state == DoorLanguage.PLOT:
+		cue_mode = 1.0
+	elif door_state == DoorLanguage.BLOCKED:
+		cue_mode = 2.0
+	frame_material.set_shader_parameter("cue_mode", cue_mode)
+	frame_material.set_shader_parameter("cue_alpha",
+		0.62 if door_state == DoorLanguage.PLOT else 0.36)
 
 
 func _process(delta: float) -> void:
 	motion_time += maxf(0.0, delta)
 	feedback_time = maxf(0.0, feedback_time - maxf(0.0, delta))
+	_sync_material()
 	queue_redraw()
 
 
@@ -77,12 +118,15 @@ func _draw() -> void:
 		DoorLanguage.BLOCKED:
 			_draw_blocked()
 		DoorLanguage.BONUS:
-			_draw_bonus()
+			_draw_bonus_glow()
 		DoorLanguage.PLOT:
-			_draw_plot()
+			_draw_plot_glow()
 
 
 func _draw_blocked() -> void:
+	if frame_texture != null:
+		_draw_frame_glow()
+		return
 	var flutter: float = feedback_time / 0.72
 	draw_rect(Rect2(Vector2.ZERO, size),
 		Color(0.07, 0.05, 0.15, 0.16 + flutter * 0.10), true)
@@ -101,74 +145,55 @@ func _draw_blocked() -> void:
 		draw_circle(Vector2.ZERO, radius,
 			Color(0.52, 0.52, 0.72, 0.22 + flutter * 0.10))
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	draw_polyline(_arch_points(3.0),
-		Color(0.34, 0.31, 0.52, 0.35 + flutter * 0.28),
-		2.0 + flutter * 2.0, true)
 
 
-func _draw_bonus() -> void:
-	var breath: float = _motion_wave(BONUS_PERIOD_SECONDS)
-	var outer_tint := BONUS_OUTER_COLOR
-	outer_tint.a = 0.20 + breath * 0.22
-	draw_polyline(_arch_points(5.0), outer_tint,
-		4.0 + breath * 2.0, true)
-	var inner_tint := BONUS_INNER_COLOR
-	inner_tint.a = 0.46 + breath * 0.22
-	draw_polyline(_arch_points(8.0), inner_tint, 1.6, true)
+func _draw_bonus_glow() -> void:
+	if frame_texture != null:
+		_draw_frame_glow()
+		return
+	_draw_doorway_glow(BONUS_GLOW_COLOR,
+		_motion_wave(BONUS_PERIOD_SECONDS), 0.18)
 
 
-func _draw_plot() -> void:
-	var pulse: float = maxf(_motion_wave(PLOT_PERIOD_SECONDS),
-		feedback_time / 0.72)
-	var outer := Rect2(Vector2(4.0, 4.0), size - Vector2(8.0, 8.0))
-	var outer_tint := PLOT_OUTER_COLOR
-	outer_tint.a = 0.18 + pulse * 0.16
-	draw_polyline(_arch_points(4.0), outer_tint,
-		5.0 + pulse * 2.0, true)
-	var inner_tint := PLOT_INNER_COLOR
-	inner_tint.a = 0.86 + pulse * 0.10
-	draw_polyline(_arch_points(8.0), inner_tint, 2.5, true)
-	var sheen_progress: float = fposmod(
-		motion_time / PLOT_SHIMMER_PERIOD_SECONDS, 1.0)
-	var sheen_x: float = lerpf(-size.x * 0.45, size.x * 1.35,
-		sheen_progress)
-	var band_width: float = maxf(1.5, size.x * 0.008)
-	for index: int in range(RAINBOW.size()):
-		var start := Vector2(sheen_x + float(index) * band_width, outer.end.y)
-		var finish := Vector2(start.x + size.x * 0.34, outer.position.y)
-		var tint: Color = RAINBOW[index]
-		tint.a = 0.28
-		draw_line(start, finish, tint, band_width, true)
-	var star_center := Vector2(size.x * 0.5,
-		maxf(16.0, outer.position.y + 12.0
-			+ sin(motion_time * TAU / 3.6) * 1.5))
-	var star_radius: float = 8.5 + pulse * 1.5
-	var points := PackedVector2Array()
-	for index: int in range(8):
-		var angle: float = -PI * 0.5 + float(index) * TAU / 8.0
-		var radius: float = star_radius if index % 2 == 0 else star_radius * 0.38
-		points.append(star_center + Vector2(cos(angle), sin(angle)) * radius)
-	draw_colored_polygon(points, Color(1.0, 0.90, 0.44, 0.98))
+func _draw_plot_glow() -> void:
+	if frame_texture != null:
+		_draw_frame_glow()
+		return
+	_draw_doorway_glow(PLOT_GLOW_COLOR,
+		_motion_wave(PLOT_PERIOD_SECONDS), 0.24)
+
+
+func _draw_frame_glow() -> void:
+	# The texture is an exact crop of the approved painted doorway. The shader
+	# derives emission from those same pixels, so the luminous core cannot drift
+	# away from the crest, arch, posts, or Royal Hall columns during camera motion.
+	draw_texture_rect(frame_texture, Rect2(Vector2.ZERO, size), false,
+		Color.WHITE)
+
+
+func _draw_doorway_glow(color: Color, pulse: float,
+		peak_alpha: float) -> void:
+	var center := Vector2(size.x * 0.5, size.y * 0.58)
+	# Leave generous transparent margins on every side. The previous ellipse
+	# reached the Control bounds and clip_contents exposed those bounds as a
+	# false rectangular door frame.
+	var radius_x: float = maxf(1.0, size.x * 0.38)
+	var top_budget: float = maxf(1.0, center.y - size.y * 0.10)
+	var bottom_budget: float = maxf(1.0,
+		size.y - center.y - size.y * 0.08)
+	var radius_y: float = maxf(1.0, minf(size.y * 0.34,
+		minf(top_budget, bottom_budget)))
+	var glow_scale := Vector2(radius_x / radius_y, 1.0)
+	for layer: int in range(9):
+		var radius_fraction: float = 1.0 - float(layer) * 0.09
+		var tint := color
+		tint.a = peak_alpha * (0.11 + float(layer) * 0.025) \
+			* (0.62 + pulse * 0.38)
+		draw_set_transform(center, 0.0, glow_scale)
+		draw_circle(Vector2.ZERO, radius_y * radius_fraction, tint,
+			true, -1.0, true)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 
 func _motion_wave(period_seconds: float) -> float:
 	return 0.5 + 0.5 * sin(motion_time * TAU / period_seconds)
-
-
-func _arch_points(inset: float) -> PackedVector2Array:
-	var left: float = inset
-	var right: float = maxf(left + 1.0, size.x - inset)
-	var bottom: float = maxf(inset + 1.0, size.y - inset)
-	var center := Vector2(size.x * 0.5, size.y * 0.34)
-	var radius_x: float = maxf(1.0, (right - left) * 0.5)
-	var radius_y: float = minf(maxf(1.0, size.y * 0.20),
-		maxf(1.0, center.y - inset))
-	var points := PackedVector2Array()
-	points.append(Vector2(left, bottom))
-	points.append(Vector2(left, center.y))
-	for index: int in range(ARCH_SEGMENTS + 1):
-		var angle: float = PI + PI * float(index) / float(ARCH_SEGMENTS)
-		points.append(center + Vector2(cos(angle) * radius_x,
-			sin(angle) * radius_y))
-	points.append(Vector2(right, bottom))
-	return points

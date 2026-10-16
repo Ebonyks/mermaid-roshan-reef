@@ -1,7 +1,7 @@
 {
   "id": "arborist-spray-20261015",
   "baseline": "5120b6d59885dd057937aaf284e73681d8eac9f5",
-  "scope": "Owner-reported Arborist spraying comprehension repair in the optional Tree Book practice: put intentional hold, authored bottle spray and visible healing on the same patient canopy; preserve diagnosis choices, voice cues, stars and additive partial-treatment saves. Final cue-coordinate review also aligns the displayed hand fingertip and actual viewport touch with the spray contact, and widens the hit region to the visible canopy.",
+  "scope": "Owner-reported Arborist spraying comprehension repair in the optional Tree Book practice: put intentional hold, authored bottle spray and visible healing on the same patient canopy; preserve diagnosis choices, voice cues, stars and additive partial-treatment saves. Final cue-coordinate review also aligns the displayed hand fingertip and actual viewport touch with the spray contact, and widens the hit region to the visible canopy. Reconcile current dev doorframe integration without altering its source or licence/audit facts; validate the combined source.",
   "rules": [
     "DL-AUTH-05",
     "DL-AUTH-06",
@@ -68,7 +68,9 @@
     "assets_src/review/arborist_spray_20261015/focused_v2.log",
     "assets_src/review/arborist_spray_20261015/capture_v2.log",
     "assets_src/review/arborist_spray_20261015/full_ci_v2.log",
-    "assets_src/review/arborist_spray_20261015/raw_logs_v2.zip"
+    "assets_src/review/arborist_spray_20261015/raw_logs_v2.zip",
+    "assets_src/review/arborist_spray_20261015/full_ci_integration.log",
+    "assets_src/review/arborist_spray_20261015/raw_logs_integration.zip"
   ],
   "validation": [
     {
@@ -110,9 +112,14 @@
       "command": "Corrected-hint focused, actual pictured-tip viewport, and full unchanged scripts/ci.sh run",
       "result": "PASS",
       "evidence": "VERIFICATION.json binds exact corrected source hashes,58 focused checks,65 integrated checks, actual pictured fingertip input at both viewport sizes, and82/82 ordered zero-exit trusted probes without failure markers. Exact raw streams preserved in raw_logs_v2.zip; v1 remains immutable history at db1d8f78."
+    },
+    {
+      "command": "Merge/reconcile origin/dev dd799b2d, then unchanged full scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Incoming dev dd799b2d43871b29d1d6e0503646308a194dad1e runtime preserved. Combined full_ci_integration.log exits0:82/82 exact ordered probes,65 integrated Tree Book assertions, zero trusted failure markers. VERIFICATION.json binds raw/canonical log hashes and unchanged runtime source hashes. New exact published-head CI required before dev integration."
     }
   ],
-  "acceptance_gaps": "Corrected source passes58 focused and65 integrated Tree Book checks, real pictured-tip viewport captures and full local82-probe suite. Exact published-head GitHub CI still required before dev integration. Target-device touch/performance, full-speed/frame-step human motion, child comprehension and owner art/voice review remain pending. No master-audit satisfaction or release claim.",
+  "acceptance_gaps": "Combined current-dev source passes58 focused/65 integrated Tree Book checks and82 full local probes. Exact published-head GitHub CI is required before dev integration; prior corrected-head runs hit the existing55-minute job limit. Device, child, full-speed human motion and owner acceptance remain pending; no release/master-audit satisfaction claim.",
   "references_used": [
     {
       "path": "design/OPERA_TREE_BOOK_TEST_2026-09-30.md",
@@ -138,5 +145,8 @@
     "github_run": "38853605995 canceled for the corrected candidate before integration; no dev merge."
   },
   "previous_implementation_source_commit": "c02e8c88dc3ac8b5fbbdd4028e30eae753c12429",
-  "implementation_source_commit": "2f1808755a4f41999c6a9184727c2cb1c9abd82d"
+  "implementation_source_commit": "2f1808755a4f41999c6a9184727c2cb1c9abd82d",
+  "change_id": "CHG-037",
+  "integration_parent": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "change_id_reconciliation": "The draft CHG-036 label in earlier Arborist commits collided with the now-integrated doorframe CHG-036. Current Arborist repair is CHG-037; historical source/logs are preserved."
 }
