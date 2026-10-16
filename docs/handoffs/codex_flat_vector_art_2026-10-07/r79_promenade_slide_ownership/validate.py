@@ -29,6 +29,10 @@ assert rd(P/'FIXTURE_SYNTAX_GATES.json')['fixture_files'][0]['sha256']==sha((P/'
 code=(P/'capture_entry.gd').read_text(encoding='utf-8');assert not re.search(r'\bm\.(game|g|quality|intro_active|first_session|day_one_active|save_data|position)\s*=(?!=)',code)and'Engine.time_scale ='not in code and'ProjectSettings.save('not in code
 assert len(roles)==1 and roles[0]['id']=='FVR-5344465CE503'and roles[0]['family']=='sky_lagoon_affordances'and roles[0]['reviewed_active_instances']==['slide','swing','seesaw']and roles[0]['visible_artwork_not_functional_geometry']
 assert not roles[0]['reuse_ready']and roles[0]['drawing_required']is None and all(x is None for x in roles[0]['acceptance_evidence'].values())
+
+measure=rd(P/'CUE_MEASUREMENTS.json')['measurements'];assert len(measure)==8
+for x in measure:
+ expected={'slide':118.0,'swing':110.0,'seesaw':110.0}[x['consumer']];assert x['native_hit_radius_px']==expected and x['source_hit_disk_contains_glow_center']==(x['consumer']=='seesaw')and not x['direct_glow_center_gesture_executed']
 assert len(rd(P/'REVIEW.json')['axes'])==10 and not rd(P/'REVIEW.json')['mission_complete']and not rd(P/'OWNER_DISPOSITIONS.json')['legacy_picture_race_paths_globally_unreachable']
 assert s['known_roles']==263 and s['known_families']==35 and s['new_roles']==1 and s['new_families']==0 and s['supplemental_partial_roles']==39 and s['existing_partial_roles']==75 and s['existing_partial_families']==15
 assert s['retained_bounded']==6412 and s['retained_excluded']==3506 and s['retained_native_events']==9918 and s['new_native_frames']==78 and s['new_bounded_contexts']==70 and s['new_excluded_diagnostics']==8

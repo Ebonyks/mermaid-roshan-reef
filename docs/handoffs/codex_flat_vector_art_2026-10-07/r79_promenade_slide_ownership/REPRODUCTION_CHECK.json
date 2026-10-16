@@ -15,14 +15,14 @@
     },
     {
       "path": "CUE_MEASUREMENTS.json",
-      "bytes": 13739,
-      "sha256": "2bb92dc4964a49273abc899978e5180b552b86bd6aafcdaf67daff77d5d88c54",
+      "bytes": 16573,
+      "sha256": "9f7b508babc9bb01c9e465e1ab3e1feed12f6c8c2bdb536d92aa90084ab0d59d",
       "byte_identical": true
     },
     {
       "path": "NEW_ROLE_RECORDS.json",
-      "bytes": 18877,
-      "sha256": "767acafc9700353f5c0d27ec143b82bf3897900bcc976aae45ae8ff0563f7d85",
+      "bytes": 19032,
+      "sha256": "db13423151a750d8e24400029176ecc3460d5b75f84c5d17bfcb4f9a462f9393",
       "byte_identical": true
     },
     {
@@ -56,5 +56,9 @@
       "output": "R79_DERIVED FVR-5344465CE503 78 raw 70 bounded 8 excluded;100checks;263roles35families;0accepted\r\n"
     }
   ],
-  "checked_at_utc": "2026-10-16T10:55:15.471948+00:00"
+  "checked_at_utc": "2026-10-16T10:55:15.471948+00:00",
+  "correction_replay": {
+    "checked_at_utc": "2026-10-16T11:13:47.427627+00:00",
+    "scope": "Per-consumer hit-radius caption and source geometry clarification. Source graph exact original reparse unchanged; native/source inputs unchanged; corrected derivation replay byte-identical. No new native execution."
+  }
 }

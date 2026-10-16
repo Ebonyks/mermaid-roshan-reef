@@ -1,0 +1,36 @@
+{
+  "payload_revision": "9d25c779ee3ea5b0780f7dea9661121a28554a5b",
+  "reason": "Correct generic measurement caption and distinguish equipment taps from visible cue-center hit geometry",
+  "captured_radii_px": {
+    "slide": 118,
+    "swing": 110,
+    "seesaw": 110
+  },
+  "native_inputs_unchanged": true,
+  "new_native_executions": 0,
+  "direct_glow_gesture_verified": false,
+  "all_counts_unchanged": true,
+  "scope": "Final canonical correction bytes/head independently verified after final receipt push; original payload/manifest/receipt remains immutable historical publication.",
+  "focus_capture_count": 8,
+  "replayed_evidence_files": [
+    "SOURCE_OWNER_GRAPH.json",
+    "CAPTURE_INDEX.json",
+    "CUE_MEASUREMENTS.json",
+    "NEW_ROLE_RECORDS.json",
+    "SOURCE_BINDINGS.json",
+    "SUMMARY.json",
+    "DELIVERY_SOURCE_REFERENCES.json",
+    "REVIEW.json",
+    "validate.py",
+    "derive_evidence.py"
+  ],
+  "corrected_evidence_files": [
+    "CUE_MEASUREMENTS.json",
+    "NEW_ROLE_RECORDS.json",
+    "REVIEW.json",
+    "REPRODUCTION_CHECK.json",
+    "validate.py",
+    "derive_evidence.py",
+    "README.md"
+  ]
+}

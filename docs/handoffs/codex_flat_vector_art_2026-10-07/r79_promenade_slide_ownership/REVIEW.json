@@ -35,7 +35,7 @@
     },
     {
       "axis": "scale",
-      "observation": "CUE_MEASUREMENTS binds native source projection and each focused consumer. The selected slide gradient is about76.50px square and its pointer about25.50px wide. Visible cue dimensions and source hit radius118px are different measures.",
+      "observation": "CUE_MEASUREMENTS binds each actual consumer projection: selected slide gradient about76.50px square, pointer25.50px wide. Captured source hit radii are slide118px, swing110px and seesaw110px; visible cue dimensions and hit disks are distinct.",
       "disposition": "PARTIAL_NATIVE_SCALE_OBSERVATION_ONLY"
     },
     {
@@ -50,8 +50,8 @@
     },
     {
       "axis": "readability",
-      "observation": "The ring/triangle follows original focus selection and disappears on activation; actual original focus/activation taps succeed. It is still flat procedural artwork. Phone/child non-reading recognition and painted replacement readability have no new acceptance.",
-      "disposition": "INPUT_OBSERVATION_SEPARATE_FROM_DEVICE_CHILD_OWNER"
+      "observation": "Original successful focus/activation taps were on equipment hit centers. Source-derived visible glow-center distances are slide150.55px versus118px radius, swing132.00px versus110px radius, seesaw89.22px versus110px radius. Thus slide/swing glow centers lie outside their named equipment hit disks in these captures. Direct glow-center/tip gesture delivery, child interpretation and replacement readability are still untested; this is not a claimed runtime gesture failure.",
+      "disposition": "SOURCE_GEOMETRY_GAP_DIRECT_MARKER_INPUT_DEVICE_CHILD_OWNER_OPEN"
     },
     {
       "axis": "action-state",
@@ -71,5 +71,11 @@
   "machine_evidence": "Native observer source/input/byte/hash checks and AST/document gates grant only their named bounded claims.",
   "QA11_device_child_owner": "PENDING_NOT_ESTABLISHED",
   "accepted_removed": 0,
-  "mission_complete": false
+  "mission_complete": false,
+  "caption_correction": {
+    "payload_revision": "9d25c779ee3ea5b0780f7dea9661121a28554a5b",
+    "old_caption": "Generic118px caption incorrectly applied to all consumer measurement rows",
+    "corrected": "Captured source radii are slide118, swing110, seesaw110px",
+    "new_native_executions": 0
+  }
 }

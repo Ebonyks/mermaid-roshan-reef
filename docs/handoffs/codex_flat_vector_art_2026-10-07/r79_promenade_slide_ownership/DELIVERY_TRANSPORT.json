@@ -1,7 +1,32 @@
 {
-  "state": "PENDING_PAYLOAD_PUBLICATION",
+  "state": "PAYLOAD_PUBLISHED_AND_ANONYMOUSLY_VERIFIED",
   "repository": "Ebonyks/mermaid-roshan-reef",
   "branch": "codex/flat-vector-r6-20261012",
   "access": "anonymous immutable HTTPS every required byte/SHA256",
-  "no_dev_master_mutation": true
+  "no_dev_master_mutation": true,
+  "payload_transport": {
+    "status": "EXACT_GIT_OBJECTS_AND_ORIGINAL_COMMIT_PUBLISHED_NON_FORCE",
+    "baseline": "ce4a454f65fc5b61f915ce41176af866fdf633ab",
+    "revision": "9d25c779ee3ea5b0780f7dea9661121a28554a5b",
+    "tree": "1d04013ff0b7f03fb0cb886eed7d9527baac6372",
+    "new_blob_count": 139,
+    "changed_file_count": 146,
+    "checked_at_utc": "2026-10-16T11:07:51.767924+00:00",
+    "existing_gh_authorization_only": true,
+    "credential_value_extracted_or_printed": false,
+    "transport_reason": "Prior R39 ordinary114MiB Git pack reset; direct exact-object safe path used forR72, no failedR79 pack claimed.",
+    "access_mode": "Authenticated Git object write to same owner-authorized public repository/durable branch; anonymous required-file verification follows",
+    "no_runtime_or_source_tree_change_from_verified_commit": true
+  },
+  "payload_verification": {
+    "state": "R79_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "9d25c779ee3ea5b0780f7dea9661121a28554a5b",
+    "required_files": 534,
+    "required_bytes": 214998233,
+    "manifest_sha256": "a7cc79f11d09d00f6739a44e0ff654a84d71ad808fe708471ef947c6a044b89a",
+    "checked_at_utc": "2026-10-16T11:08:09.682600+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final own changed metadata bytes/head checked after push separately, without recursive self hash."
+  }
 }
