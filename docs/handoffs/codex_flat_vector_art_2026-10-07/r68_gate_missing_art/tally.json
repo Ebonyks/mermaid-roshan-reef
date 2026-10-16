@@ -20,7 +20,7 @@
     "INACTIVE_ARCHIVE"
   ],
   "mission_status": "ACTIVE; zero-vector removal NOT achieved",
-  "phase": "R68 prototype direct-target repair plus correction: source walking entry already survived missing cue; no production/accepted removal credit",
+  "phase": "R68 direct gate interaction repair and scope correction published;4 repaired cases88 checks52 rawframes32 bounded20 excluded;source walking access already survived;production unchanged,acceptance/removal open",
   "named_piece_records": 224,
   "named_family_count": 29,
   "named_status_counts": {
@@ -1593,8 +1593,16 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "state": "SEALED_PAYLOAD_SNAPSHOT",
-    "verification_authority": "CURRENT.json R68_publication and this revision tally/REMOTE_VERIFICATION/FINAL_BYTE_RECEIPT at their exact immutable commits; snapshot alone does not assert remote delivery",
+    "state": "PUBLISHED_PAYLOAD_ANONYMOUSLY_VERIFIED",
+    "payload_revision": "05ad9e5fb60f16d1cffd95f8a164d634632fb2ae",
+    "manifest_sha256": "26cd510f59f155187d06050582aca66d1d4c5b0334ac0333058859340414676c",
+    "payload_sha256": "f9fd5f855193846c2e5e2fed5c27fbc8bbb3f52440ea9af7884bf6de9a7fb147",
+    "required_files": 273,
+    "required_bytes": 139366371,
+    "checked_at_utc": "2026-10-16T00:00:12.676910+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "creative_acceptance": false,
+    "production_adoption": false,
     "accepted_removed": 0
   },
   "independent_style_review": {
@@ -5032,7 +5040,41 @@
     "scope_correction": "SCOPE_CORRECTION.json",
     "caller_census": "DIRECT_CALLER_CENSUS.json",
     "entry_callers": "CASTLE_ENTRY_CALLERS.json",
-    "candidate": "painted_gate.gd"
+    "candidate": "painted_gate.gd",
+    "current_ci_snapshot": {
+      "checked_at_utc": "2026-10-16T00:00:47.392474+00:00",
+      "runs": [
+        {
+          "conclusion": "",
+          "databaseId": 38826897157,
+          "headSha": "05ad9e5fb60f16d1cffd95f8a164d634632fb2ae",
+          "status": "queued",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38826897157"
+        },
+        {
+          "conclusion": "cancelled",
+          "databaseId": 38822828605,
+          "headSha": "348116d6dc82c5a4f9e0a6a0b856de0ff6416349",
+          "status": "completed",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38822828605"
+        },
+        {
+          "conclusion": "cancelled",
+          "databaseId": 38822552604,
+          "headSha": "f886b5fd530fe33125060dd7b845181cb3f19fc1",
+          "status": "completed",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38822552604"
+        },
+        {
+          "conclusion": "cancelled",
+          "databaseId": 38822185337,
+          "headSha": "ceda23cfb6a65d8685906b3599f97ddb28044e68",
+          "status": "completed",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38822185337"
+        }
+      ],
+      "scope": "Observed exact heads only; pending/cancelled is not green or acceptance."
+    }
   },
   "inherited_r67_reference_base": {
     "payload": "ceda23cfb6a65d8685906b3599f97ddb28044e68",

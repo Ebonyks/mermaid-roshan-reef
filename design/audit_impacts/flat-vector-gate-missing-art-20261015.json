@@ -87,6 +87,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/PLAN_INITIAL.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/REPRODUCTION.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/REVIEW.json",
@@ -242,6 +243,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt2_baseline_missing_1600/painted_gate.gd",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/painted_gate.gd",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/run_native_v1.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/scene_coverage.json",
@@ -260,6 +262,11 @@
       "command": "Evidence identity/parser/inference/exact-engine/document/audit/2D gates and remote delivery",
       "result": "PASS",
       "evidence": "FIXTURE_SYNTAX_GATES/GATES: corrected parser/inference/exact-engine check-only,52PNGdecoded hashes,4 repaired cases88 assertions plus baseline/timing correction,history/frozen5 and unions preserved,documentauthority/development,54tests/6stress. First syntax failure retained. Staged+committed2D separately before push. No acceptance credit."
+    },
+    {
+      "command": "Anonymous exact immutable payload manifest and every required file",
+      "result": "PASS",
+      "evidence": "Payload05ad9e5fb60f16d1cffd95f8a164d634632fb2ae;273 files/139366371bytes;REMOTE_VERIFICATION.json;2026-10-16T00:00:12.676910+00:00;publication is not creative acceptance."
     }
   ],
   "acceptance_gaps": "Nonproduction candidate only. Direct target/focus fix bounded; source walking access already existed. Missing artwork remains failed and gold-star new-use style/entrance semantics remain unaccepted. Other inputs/profiles/route callers, legacy source policy, full QA11/freshOS/device/audio/performance/child/owner, strict2D and unknown whole-game inventory remain open.0 accepted removals.",

@@ -2,5 +2,32 @@
   "repository": "Ebonyks/mermaid-roshan-reef",
   "branch": "codex/flat-vector-r6-20261012",
   "method": "Exact nonforce topic commit and anonymous immutable byte verification via established Git-object transport",
-  "recipient_access": "Public anonymous HTTPS; publication is not creative acceptance"
+  "recipient_access": "Public anonymous HTTPS; publication is not creative acceptance",
+  "exact_git_object_publication": {
+    "status": "EXACT_GIT_OBJECTS_AND_ORIGINAL_COMMIT_PUBLISHED_NON_FORCE",
+    "baseline": "348116d6dc82c5a4f9e0a6a0b856de0ff6416349",
+    "revision": "05ad9e5fb60f16d1cffd95f8a164d634632fb2ae",
+    "tree": "f01b623fabf7c1afa6c722e19287fef6ca579728",
+    "new_blob_count": 129,
+    "changed_file_count": 193,
+    "checked_at_utc": "2026-10-16T00:00:00.066062+00:00",
+    "existing_gh_authorization_only": true,
+    "credential_value_extracted_or_printed": false,
+    "transport_reason": "Prior R39 ordinary114MiB Git pack reset; direct exact-object safe path used forR68, no failedR68 pack claimed.",
+    "access_mode": "Authenticated Git object write to same owner-authorized public repository/durable branch; anonymous required-file verification follows",
+    "no_runtime_or_source_tree_change_from_verified_commit": true
+  },
+  "anonymous_payload_verification": {
+    "state": "PUBLISHED_PAYLOAD_ANONYMOUSLY_VERIFIED",
+    "payload_revision": "05ad9e5fb60f16d1cffd95f8a164d634632fb2ae",
+    "manifest_sha256": "26cd510f59f155187d06050582aca66d1d4c5b0334ac0333058859340414676c",
+    "payload_sha256": "f9fd5f855193846c2e5e2fed5c27fbc8bbb3f52440ea9af7884bf6de9a7fb147",
+    "required_files": 273,
+    "required_bytes": 139366371,
+    "checked_at_utc": "2026-10-16T00:00:12.676910+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "creative_acceptance": false,
+    "production_adoption": false,
+    "accepted_removed": 0
+  }
 }

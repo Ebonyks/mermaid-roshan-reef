@@ -11,7 +11,7 @@
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r67_painted_gate_cue/GATES.json",
+  "current_ci_evidence": "r68_gate_missing_art/GATES.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -176,5 +176,18 @@
   },
   "immutable_r67_payload_revision": "ceda23cfb6a65d8685906b3599f97ddb28044e68",
   "immutable_r67_receipt_revision": "f886b5fd530fe33125060dd7b845181cb3f19fc1",
-  "immutable_r67_final_proof_revision": "348116d6dc82c5a4f9e0a6a0b856de0ff6416349"
+  "immutable_r67_final_proof_revision": "348116d6dc82c5a4f9e0a6a0b856de0ff6416349",
+  "R68_publication": {
+    "state": "PUBLISHED_PAYLOAD_ANONYMOUSLY_VERIFIED",
+    "payload_revision": "05ad9e5fb60f16d1cffd95f8a164d634632fb2ae",
+    "manifest_sha256": "26cd510f59f155187d06050582aca66d1d4c5b0334ac0333058859340414676c",
+    "payload_sha256": "f9fd5f855193846c2e5e2fed5c27fbc8bbb3f52440ea9af7884bf6de9a7fb147",
+    "required_files": 273,
+    "required_bytes": 139366371,
+    "checked_at_utc": "2026-10-16T00:00:12.676910+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "creative_acceptance": false,
+    "production_adoption": false,
+    "accepted_removed": 0
+  }
 }
