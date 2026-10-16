@@ -427,6 +427,9 @@ poses as broken motion.
 
 2026-10-15 R48 scoped evidence: [Grand Puff current context](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r48_grand_puff_context/README.md), [impact](../../design/audit_impacts/flat-vector-grand-puff-context-20261015.json). Two actual portal/encounter cases after synthetic private checkpoints retain60native/56bounded/4excluded; five new caller records and source-bound clipping/occlusion observations. Painted identities and all production bytes unchanged; no global denominator, full natural journey, strict Canvas/QA11, device/child/owner or acceptance closure. Lifecycle unchanged.
 
+
+2026-10-16 R76 scoped evidence: [care UI context](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/README.md), [impact](../../design/audit_impacts/flat-vector-stuffie-care-context-20261016.json). Seven semantic care pictogram/progress roles added after current native two-width neighbor review,261known/35families.86healthy input/save checks do not approve glossy glyph material, live acknowledgement or title occlusion. All88frames/36failed-observer diagnostics retained; no production/art/removal acceptance or finding lifecycle change. Unknown global denominator and finalQA11/device/child/owner remain open.
+
 ## MA-VIS-009
 
 | Field | Value |

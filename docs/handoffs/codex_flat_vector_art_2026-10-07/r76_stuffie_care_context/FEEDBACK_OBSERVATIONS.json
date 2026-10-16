@@ -1,0 +1,152 @@
+{
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "source_binding": "SOURCE_BINDINGS.json:_draw_care_menu and _choose_canvas_menu_care",
+  "observation": "Source creates StuffieCurrentNeed under need_panel, but feedback get_node_or_null(\"StuffieCurrentNeed\") uses the stage root. Actual unasked inputs retain the current want label; intended icon+heart pulse absent in reviewed checkpoints. Button auto names after redraw are a separate fixture-lookup issue, not cause of nested label path. Audio/child comprehension not evaluated.",
+  "observations": [
+    {
+      "case": "attempt3_care_source_1280",
+      "id": "unasked_feed_feedback",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@418/StuffieCurrentNeed",
+      "text": "\ud83d\udca4\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "874c2aa247f45b91e312edccd9b70c1abb2caec55ba45774a89e632ce6d1a34e"
+    },
+    {
+      "case": "attempt3_care_source_1280",
+      "id": "unasked_feed_settled",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@418/StuffieCurrentNeed",
+      "text": "\ud83d\udca4\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "65b6125002ea384ed8d22d1d09122b25076b8ba24d8818d30cfc8bd8ca1c342b"
+    },
+    {
+      "case": "attempt3_care_source_1280",
+      "id": "unasked_bath_feedback",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@430/StuffieCurrentNeed",
+      "text": "\ud83d\udca4\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "1ff70264c65655465d2804a47024c36df14a59ec4450d00650a3c6b1665e6ef5"
+    },
+    {
+      "case": "attempt3_care_source_1280",
+      "id": "unasked_bath_settled",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@430/StuffieCurrentNeed",
+      "text": "\ud83d\udca4\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "2d2369861d1d18a0d62bbcd1e961a5e9eedf19fc483acdfc135d9ac221f93c53"
+    },
+    {
+      "case": "attempt3_care_source_1280",
+      "id": "unasked_cuddle_feedback",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@445/StuffieCurrentNeed",
+      "text": "\ud83d\udca4\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "8bbafb2d73af91d72cff7287facc03a6bde3be357c61d2c6844285bd4092c993"
+    },
+    {
+      "case": "attempt3_care_source_1280",
+      "id": "unasked_cuddle_settled",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@445/StuffieCurrentNeed",
+      "text": "\ud83d\udca4\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "2727942c19fe917e56196d400b12b0e2e73c9aa0f9c25f1abaf5887c34183825"
+    },
+    {
+      "case": "attempt3_care_source_1280",
+      "id": "unasked_play_feedback",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@457/StuffieCurrentNeed",
+      "text": "\ud83d\udca4\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "dbc50e9fd0cf47bd574001cfe75b3ec3509972dcd8e38c28d70b3659106d818d"
+    },
+    {
+      "case": "attempt3_care_source_1280",
+      "id": "unasked_play_settled",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@457/StuffieCurrentNeed",
+      "text": "\ud83d\udca4\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "e8af6360148a1036f9a7389fa526787657b5dd38d6df1011a5b7761d4bd15b70"
+    },
+    {
+      "case": "attempt3_care_source_1600",
+      "id": "unasked_feed_feedback",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@418/StuffieCurrentNeed",
+      "text": "\u2764\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "86f1fbb3b83e340c64ddc75bf749502ae4a97e75d57b7c35661ba1adae9d2583"
+    },
+    {
+      "case": "attempt3_care_source_1600",
+      "id": "unasked_feed_settled",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@418/StuffieCurrentNeed",
+      "text": "\u2764\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "41d8a9a6cdf7f9e190b0f3e354e2a93531bfbc66768e7fd08a9d80cf6568d82e"
+    },
+    {
+      "case": "attempt3_care_source_1600",
+      "id": "unasked_nap_feedback",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@430/StuffieCurrentNeed",
+      "text": "\u2764\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "094528bdb232ab8a00c611959c5de60f03e4177144f195e31a81fb5972ee917a"
+    },
+    {
+      "case": "attempt3_care_source_1600",
+      "id": "unasked_nap_settled",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@430/StuffieCurrentNeed",
+      "text": "\u2764\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "c13be397836056594b0db3126248c660e8c404992afe5ddd4fd61ed5a7c90bba"
+    },
+    {
+      "case": "attempt3_care_source_1600",
+      "id": "unasked_bath_feedback",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@445/StuffieCurrentNeed",
+      "text": "\u2764\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "70f6c55c1a97e3497c82798061da570b5bd461ca20d2533bd3da18b880b08094"
+    },
+    {
+      "case": "attempt3_care_source_1600",
+      "id": "unasked_bath_settled",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@445/StuffieCurrentNeed",
+      "text": "\u2764\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "3a6b5b1f26dcc9bf4ec9748494c001a9f9482776b4892b19c073054d356064a1"
+    },
+    {
+      "case": "attempt3_care_source_1600",
+      "id": "unasked_play_feedback",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@457/StuffieCurrentNeed",
+      "text": "\u2764\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "838fd1e1d40043de55352a4f0ff8b78b106dde99ef85648c9658609a90b66f1d"
+    },
+    {
+      "case": "attempt3_care_source_1600",
+      "id": "unasked_play_settled",
+      "live_need_label_path": "/root/Main/@CanvasLayer@396/@Control@397/StorybookStage/@Panel@457/StuffieCurrentNeed",
+      "text": "\u2764\nThis is what I need!",
+      "label_is_direct_child_of_stage": false,
+      "intended_short_acknowledgement_observed": false,
+      "evidence_sha256": "e111816f2df43e3e3b204f15b4d05c5fc149c0abd300023e6c129c830f051fe3"
+    }
+  ],
+  "repaired": false
+}

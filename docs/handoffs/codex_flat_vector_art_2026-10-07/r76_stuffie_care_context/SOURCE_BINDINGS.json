@@ -1,0 +1,108 @@
+{
+  "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "functions": [
+    {
+      "path": "scripts/companion.gd",
+      "function": "_draw_care_menu",
+      "start_line": 293,
+      "end_line": 401,
+      "body_sha256": "96d4d6a097c5c8ae6ebf3eeb626fb7db29469d7574a208a5edf1be8044a31a50",
+      "file_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "hash_mode": "Exact LF Git file/function through next function boundary"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "function": "_choose_canvas_menu_care",
+      "start_line": 423,
+      "end_line": 443,
+      "body_sha256": "4def4cf7950b6b9672195672a887570b7078a0cbd92d71491b65ee7cb19ee4db",
+      "file_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "hash_mode": "Exact LF Git file/function through next function boundary"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "function": "_choose_menu_care",
+      "start_line": 444,
+      "end_line": 477,
+      "body_sha256": "5cf42f11194a20c62e352c28182cf81b70af61cf2c048b5c0a39449c6074983b",
+      "file_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "hash_mode": "Exact LF Git file/function through next function boundary"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "function": "_star_pips",
+      "start_line": 1524,
+      "end_line": 1529,
+      "body_sha256": "705591b9416369ce8237a8546b47faca1284a6d5cbc1ba4f55f6db0539d222bc",
+      "file_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "hash_mode": "Exact LF Git file/function through next function boundary"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "function": "_add_creature_preview",
+      "start_line": 920,
+      "end_line": 986,
+      "body_sha256": "f316555af9f7a33b4e97347e5468d2e8171984870bf761f7ed1db1d5c09d991e",
+      "file_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "hash_mode": "Exact LF Git file/function through next function boundary"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "function": "_finish_care",
+      "start_line": 1484,
+      "end_line": 1523,
+      "body_sha256": "b70197a9973fab248a57505f9c8af8761dc77629e270190dc22625bc7a19471a",
+      "file_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "hash_mode": "Exact LF Git file/function through next function boundary"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "function": "tick_canvas_care",
+      "start_line": 402,
+      "end_line": 422,
+      "body_sha256": "b7e52957b40454cacc149e025eb3e2e5f6a362b6b66ef67b517378731289b24f",
+      "file_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "hash_mode": "Exact LF Git file/function through next function boundary"
+    }
+  ],
+  "readiness": "Current source/API context; not caller closure or glyph font-provider provenance",
+  "wants_literal_bindings": [
+    {
+      "selector": "WANTS.feed",
+      "line": 63,
+      "exact_lf_line": "\t{\"id\": \"feed\", \"emoji\": \"\ud83c\udf4e\", \"ask\": \"%s is hungry! Tap your stuffie to share a snack!\", \"done\": \"Munch munch munch! Yummy!\"},\n",
+      "sha256": "706af32aa1366d7c49255d4bced5f0fa24cffecda2c7389beda3588f6b8d4e53"
+    },
+    {
+      "selector": "WANTS.nap",
+      "line": 64,
+      "exact_lf_line": "\t{\"id\": \"nap\", \"emoji\": \"\ud83d\udca4\", \"ask\": \"%s is sleepy! Tap your stuffie for a little nap!\", \"done\": \"Zzz... what a cozy nap!\"},\n",
+      "sha256": "e080e8268220d9b47375b8e79c762d507a37e80d2aac1d7daa02f448dbe119da"
+    },
+    {
+      "selector": "WANTS.bath",
+      "line": 65,
+      "exact_lf_line": "\t{\"id\": \"bath\", \"emoji\": \"\ud83e\udee7\", \"ask\": \"%s wants a bubble bath! Tap your stuffie to scrub-a-dub!\", \"done\": \"All clean and extra fluffy!\"},\n",
+      "sha256": "052d919768be79ae95e52e847ef1fded1b8dd8848f40bced293d677fa8fb6ebf"
+    },
+    {
+      "selector": "WANTS.cuddle",
+      "line": 66,
+      "exact_lf_line": "\t{\"id\": \"cuddle\", \"emoji\": \"\u2764\", \"ask\": \"%s wants a cuddle! Tap your stuffie for a big hug!\", \"done\": \"Best. Hug. Ever!\"},\n",
+      "sha256": "12bc77a6fea5de25162a7ed9f5f3a7274701fe4540c897fc404deb6923a00165"
+    },
+    {
+      "selector": "WANTS.play",
+      "line": 67,
+      "exact_lf_line": "\t{\"id\": \"play\", \"emoji\": \"\ud83c\udfbe\", \"ask\": \"%s wants to play! Tap your stuffie for zoomies!\", \"done\": \"Wheee! That was so fun!\"},\n",
+      "sha256": "f40a7ac4497b7bec0d4ad5e69eb2292eba988ae0bfbae31a24d39d4b8b70c422"
+    }
+  ]
+}

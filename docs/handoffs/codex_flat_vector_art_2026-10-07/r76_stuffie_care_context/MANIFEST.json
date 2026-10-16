@@ -1,0 +1,1415 @@
+{
+  "schema": "reef.flat_vector_delta_manifest/1",
+  "revision": "FV-AUDIT-20261016-R76",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/flat-vector-r6-20261012",
+  "audited_source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "topic_baseline": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+  "files": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": null,
+      "bytes": 297761,
+      "sha256": "d6f6d8c829a75ea61d09b8f38c9423d1a20ba9828c204660191fcb063344c006",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": null,
+      "bytes": 246810,
+      "sha256": "dac16b008a42f66a1afb899307104d77d4dae05fd9d9688092458110d6f1da73",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": null,
+      "bytes": 307458,
+      "sha256": "a402fb6fbd8220cad8b57a9effeb01d0dc7f34fb5e3ef72801f9bfcd02186bb3",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": null,
+      "bytes": 257708,
+      "sha256": "fab3780b7e1c82efab1cc141e5a99142695930b0bc3b33461baa9ec6cd9ce150",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-stuffie-care-context-20261016.json",
+      "revision": null,
+      "bytes": 24244,
+      "sha256": "0adce5257399e62d9e87d848039936076e66ff333d2000cb80b338ad5221b64e",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": null,
+      "bytes": 32939,
+      "sha256": "ec53c574adadd7b4e651c8a13e247235726469343f3534d4c657cbb5ec0c71b0",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": null,
+      "bytes": 476,
+      "sha256": "6199922d80d37e1466ced4dd6d47b2803cb040a878738ab10e757c123abbfb60",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/.gdignore",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/.gitattributes",
+      "revision": null,
+      "bytes": 25,
+      "sha256": "ff1e9d5d7182e648dadfa460f204f024bae019999dc58f6a0db5adc06ab94d63",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/CAPTURE_INDEX.json",
+      "revision": null,
+      "bytes": 50507,
+      "sha256": "dc429ae6b7e2df35292d1f4d605f561d1cd4d7a0927b17eeddf6973379d12764",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/CONGRUENCY_BACKLOG.json",
+      "revision": null,
+      "bytes": 426506,
+      "sha256": "b1d9c1703bbad5841949e6adda2ab9258b9712b24a29af3b1930c8e08e7e87b6",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+      "revision": null,
+      "bytes": 5872,
+      "sha256": "5d856b21bf7be22d1b2f05821de28307bb5a37d3c23ad0c4cb334b1f5bdeecb5",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/CURRENT_KNOWN_ROLE_UNION.json",
+      "revision": null,
+      "bytes": 37698,
+      "sha256": "89ada8b382f51b8d61e611267d6372968b882e70a1ae99223a0edea432126c4c",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/CURRENT_PARTIAL_CONTEXT_UNION.json",
+      "revision": null,
+      "bytes": 19343,
+      "sha256": "8af6230d3b25ab952dcfffa24ca3a0b4cd50de54caa7db1085b168e8c9755cc8",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/DELIVERY_SOURCE_REFERENCES.json",
+      "revision": null,
+      "bytes": 6857,
+      "sha256": "ebaac206ac45b9a3cdcfd9c73d1987a83c3ebff85d349494997737bf147a5cd8",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/DELIVERY_TRANSPORT.json",
+      "revision": null,
+      "bytes": 196,
+      "sha256": "faf9ecdcd6174b8ae7d3d26d89587b324176b9005fbf447ae4eb92ae54632d8f",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/FEEDBACK_OBSERVATIONS.json",
+      "revision": null,
+      "bytes": 7891,
+      "sha256": "8711de08c31879dad96a5582df6037ba6228432950c0d0d47b718bebf485cb4f",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/FIXTURE_SYNTAX_GATES.json",
+      "revision": null,
+      "bytes": 1699,
+      "sha256": "035e733fc176176350bc8e9043128f0538bb55bd2d7e8249959c4e2d979e5f03",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/FIXTURE_SYNTAX_GATES_ATTEMPT1.json",
+      "revision": null,
+      "bytes": 1699,
+      "sha256": "72529330d4296477d74810853935d5acf6e314d4931356d1d70ddc4662a1b504",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/FIXTURE_SYNTAX_GATES_ATTEMPT2.json",
+      "revision": null,
+      "bytes": 1699,
+      "sha256": "3b8bdd171da1c49be549e174484bed20587f6ed9691d19871dc046d2152b9124",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/GATES.json",
+      "revision": null,
+      "bytes": 3717,
+      "sha256": "8b4e5bc3c8625c60abc63dd0ebfef6f457e9436f7d51f3fdff9ebec4cbde65aa",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/NEW_ROLE_RECORDS.json",
+      "revision": null,
+      "bytes": 64686,
+      "sha256": "115707060d4aa6ff8fe6e6a82d0db6f663facc210ca56de3a3d6428924a844e3",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/PLAN.json",
+      "revision": null,
+      "bytes": 3012,
+      "sha256": "3f5942a39f72ee6d90e7497e76bdb8bfa93ffd3cbb260e6d660a294568631373",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/README.md",
+      "revision": null,
+      "bytes": 5145,
+      "sha256": "c3092eefffe39180abc01e55cc15cc211bbdb9912b7f8d4417b5a1d61a5eaba3",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/REPRODUCTION_CHECK.json",
+      "revision": null,
+      "bytes": 763,
+      "sha256": "1fdee73a19333beb61f38ca1eac105cb469da7c21752a19c499cb3afd90eed65",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/REUSE_INVENTORY.json",
+      "revision": null,
+      "bytes": 2596,
+      "sha256": "67ca4d174c8c13e5fdff636199cba64b7e84751ffd446fe5bf037b1a113bd240",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/REVIEW.json",
+      "revision": null,
+      "bytes": 8354,
+      "sha256": "153a8b230535b3ea80f8a9a22417c670058f4bef7c4d3b1f73e9dbeff638c43e",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/SOURCE_BINDINGS.json",
+      "revision": null,
+      "bytes": 5053,
+      "sha256": "2b7e7ec90a9afeb13d07253c1e59d3f15357a5fd4631ccd5323a846653e7ce56",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/SOURCE_GUARDS.json",
+      "revision": null,
+      "bytes": 768,
+      "sha256": "67dabd5bfaf30ef19a2e731fb11cece90448b760afb2fca728348fcfad4f7d58",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/SUMMARY.json",
+      "revision": null,
+      "bytes": 1841,
+      "sha256": "0e0e8be5b63735bc66ad94433041a62b543bced0f87bd17ba5cbc3cdfb031232",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/TOPIC_CI.json",
+      "revision": null,
+      "bytes": 908,
+      "sha256": "53117678f82422929e13274d82562cca4d86634da7ebc3c32ac481c17e784bc2",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/TWO_D_GATES.json",
+      "revision": null,
+      "bytes": 49,
+      "sha256": "96d6ad07a1adc8a6c1003b278daa842f8cd0df95f97f2d5c9e1ec9a63dee2fe1",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/UPSTREAM_FRESHNESS.json",
+      "revision": null,
+      "bytes": 214,
+      "sha256": "51947fc5affc61e28b2bda6ada1e7d50997ce961c5771219c47a1a1cbc25cd60",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/WORK_IN_PROGRESS.json",
+      "revision": null,
+      "bytes": 526,
+      "sha256": "369c069128296b5b7514b1ff4701652f0c1eb1e3c553d179540a92212fe2aee8",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/bounded_json.py",
+      "revision": null,
+      "bytes": 4089,
+      "sha256": "42d8c411b7cd752dc3abc2e09089a1d97a4302bcae15d145b6a515c57bbc83cd",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/build_manifest.py",
+      "revision": null,
+      "bytes": 3636,
+      "sha256": "5921df6b77b58db961bd3369a714efc740b3043727fe2d2122c8cdd2fdba030f",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/capture_care.gd",
+      "revision": null,
+      "bytes": 14021,
+      "sha256": "cb348e0512534ad8c4bfc3afdf2698704b7cbcac5b35601d7071c5d1739b81b8",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/derive_evidence.py",
+      "revision": null,
+      "bytes": 5206,
+      "sha256": "d0086308ec210a2f6a6b6558565c6bd9e866ba3e66803bd39251837339b94b8d",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/gates.log",
+      "revision": null,
+      "bytes": 536,
+      "sha256": "fe6efa4ccf4f01f67c62574078ce29f97e762a4108b07625c94d2c23fac4eb5d",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1689,
+      "sha256": "2defbfeb6af7c6755ea88e198e9eccfbd58ad1f6e84873950c1946d16ae80c46",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "920c66a2a69f16274f171cfde8c6c5c49f987616b434fae53f692abd3a856e72",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/capture_care.gd",
+      "revision": null,
+      "bytes": 13312,
+      "sha256": "88d60c897daed69815a932761b1b57fce916233c94bb9ad9d6d033c4b793d30e",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 69474,
+      "sha256": "4bf70f0bdeaee8b295a4acc596e9b05e259e2066dd57deb562c42cc498569c04",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/engine.log",
+      "revision": null,
+      "bytes": 556,
+      "sha256": "5e197514d436426688f134a3ac6c811a811ae4d93b59509bb15a878836328b01",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/initial_root.png",
+      "revision": null,
+      "bytes": 1724844,
+      "sha256": "09802902c24f18667484c679e5a67ad08147400158b5db5e860d0c26e9cf00b7",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/natural_want_root.png",
+      "revision": null,
+      "bytes": 1837898,
+      "sha256": "8a949c0e92afb4f2982e5b7a71bf1cdbebad935e7b8f25f2242d9a5c783f5517",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/neutral_passive_wait.png",
+      "revision": null,
+      "bytes": 379321,
+      "sha256": "095d0110304a5ef671509c4fc4f33dbe56efe0bab49a9fda7a2d396c1fcff4cb",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/neutral_points3.png",
+      "revision": null,
+      "bytes": 379309,
+      "sha256": "8c40864d122cf7289fd8aedc37913b5f9ec9f084c44e7153c665ee67abb6b62e",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/neutral_root_menu.png",
+      "revision": null,
+      "bytes": 629282,
+      "sha256": "8ccc9c925a6e407ede057440f223424d41a32fd80241439fffd43ace843b4868",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/neutral_root_restored.png",
+      "revision": null,
+      "bytes": 1723528,
+      "sha256": "a2cfcdb6b1c3827e609865446e86bb8a036834d7692f942bd64783da117624a1",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/requested_feed.png",
+      "revision": null,
+      "bytes": 377464,
+      "sha256": "534330e5a1720cc511da22ad9bc66dbbd61f33063915993c823cd60cac519832",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/requested_root_menu.png",
+      "revision": null,
+      "bytes": 655064,
+      "sha256": "838834df2af54fa3f26b614d5329bf30b377c6aef8c8e3efae44f68fde46f1c3",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/unasked_nap_feedback.png",
+      "revision": null,
+      "bytes": 376920,
+      "sha256": "f8db4c4acb779269f52425cebdf75d3097fe38ad732c31cb15f7a52df255699d",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt1_care_source_1280/unasked_nap_settled.png",
+      "revision": null,
+      "bytes": 376819,
+      "sha256": "da1a969de7b4cc667809625ba311bd5f46b3234de3a3fe53ed564ef116a66269",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1689,
+      "sha256": "f0974dfd88bf4265de19cc8a08eee1b1ab0b33110052c2ae22435c305f55de27",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "1fa42c494837b2a3bfa39813e01210fe7bdddeff2153ef401493af570a2dac25",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/capture_care.gd",
+      "revision": null,
+      "bytes": 13834,
+      "sha256": "2489e86c9d4926ddc74f4ca53734c96e89840f262cfbb336b2b8d8a55e53f7f9",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 207348,
+      "sha256": "ee72b76ac5dc025b7842e7cdc46876f892ecc5b21ccd5812b42cbcf19e733bcb",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/engine.log",
+      "revision": null,
+      "bytes": 1203,
+      "sha256": "2794c3e0ae66d1241bb97cfd6945352d53dde09e96308f2d91036ce5ff56eb56",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/initial_root.png",
+      "revision": null,
+      "bytes": 1724928,
+      "sha256": "efd7e0bc303bb5316f6f2faa380512ad1295879b52c24ef6aa89ebed8243dea9",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/level_up_root_restored.png",
+      "revision": null,
+      "bytes": 1717901,
+      "sha256": "15000b5c902cabce0e2b39343dd8c8a9c8a3e9c0907e0b620e3a0f245e50e653",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/level_up_settled.png",
+      "revision": null,
+      "bytes": 376226,
+      "sha256": "393fedf890d6729d0707531a5ab91f0c3bfae6946a55da5be2b2acec083b12be",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/natural_want_root.png",
+      "revision": null,
+      "bytes": 1837838,
+      "sha256": "c1b9df83476823aa89451e79fc0e104b7769f7cdf718110d39a87efb9e7c19a0",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/neutral_passive_wait.png",
+      "revision": null,
+      "bytes": 379349,
+      "sha256": "f4e0bf2db4be4805961881ca684b38bf49f7ac614c2cabd2ef2a8b0f2c03ac0c",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/neutral_points3.png",
+      "revision": null,
+      "bytes": 379325,
+      "sha256": "1ea8a2633e025f18fe2a0893ea830f8a7914bd86b3b20c8e8229ff5e232eb402",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/neutral_root_menu.png",
+      "revision": null,
+      "bytes": 629313,
+      "sha256": "ce7550c91eaa6c13b064bfa451f452e70c56404e722b69a419fb81876f790e73",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/neutral_root_restored.png",
+      "revision": null,
+      "bytes": 1723389,
+      "sha256": "58a0789d3a1e167c786d444229957331ff76db2c940cd6383bc8f8ef80d6b7d1",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/new_main_reload_points4.png",
+      "revision": null,
+      "bytes": 350259,
+      "sha256": "87106ee4336023192723cb3c37030226bba863e101cd5f8a17af357d5737c78a",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/reload_root_menu.png",
+      "revision": null,
+      "bytes": 555288,
+      "sha256": "5adf9d3eaccc7788c8ec97db1c0ba143f9e9f3cbdcce5e24df0addf908385850",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/reload_root_restored.png",
+      "revision": null,
+      "bytes": 1538865,
+      "sha256": "e73acf6b7ab06480eb962e3c7d9b6ae5a23d83da7c6e8ffe5bf9b5700853bceb",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/reopen_points4.png",
+      "revision": null,
+      "bytes": 377544,
+      "sha256": "2995b4c12025b11c3dc2184afb09f96006b7d039c7a505feeb5c272eb9f2e392",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/reopen_root_menu.png",
+      "revision": null,
+      "bytes": 626540,
+      "sha256": "13d7c169bfe1978d4cadcbc1693428f1d04c123370bc77a8cd32bddc30b22386",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/repeat_root_restored.png",
+      "revision": null,
+      "bytes": 1716107,
+      "sha256": "b2bf1e46c8354124d44e074525ea3184a95ae10bdde688eaf7990c318abda2a3",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/repeated_unasked_feedback.png",
+      "revision": null,
+      "bytes": 376491,
+      "sha256": "68b27d385535f810ccd7fe6d0bd7baab4ac9c9e6acedb995e9841dccb59434f1",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/requested_fulfilled_feedback.png",
+      "revision": null,
+      "bytes": 376490,
+      "sha256": "b7cac1b12701953d3cf7f616af4e6193ab4dc848d7269339f308ab8ee5e27ede",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/requested_nap.png",
+      "revision": null,
+      "bytes": 377266,
+      "sha256": "029ea823f474cda2e05f82644f0161f7e567c4ae6d7f2815e7647baf9d80a113",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/requested_root_menu.png",
+      "revision": null,
+      "bytes": 655111,
+      "sha256": "de8e79a369f6851d0ad463aff6e26c7334b6a2f6e45eccabf2c65717c004d925",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/unasked_bath_feedback.png",
+      "revision": null,
+      "bytes": 376722,
+      "sha256": "e7f17f96f0aca2d5a1bc726d37b4b99b6614bc635e4a6795ca4e15ff745dbeee",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/unasked_bath_settled.png",
+      "revision": null,
+      "bytes": 376617,
+      "sha256": "b06d6eceb23b4c079fcbf624e348b0a0231f97d0c3553d5c640c7b56218c8e23",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/unasked_cuddle_feedback.png",
+      "revision": null,
+      "bytes": 376547,
+      "sha256": "9c58191dffeb84d9f836c2c9fa209b32ba97a927ea9cf66cc7e6f341842982c1",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/unasked_cuddle_settled.png",
+      "revision": null,
+      "bytes": 376481,
+      "sha256": "b58842a9585d0dcb8d1662486badfe2f49d2d45f06f1ee094b5679c179858b5a",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/unasked_feed_feedback.png",
+      "revision": null,
+      "bytes": 376708,
+      "sha256": "9087be3e0f60314badc74b680b2a927711b63a94ac27ccd85e83800a135a1945",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/unasked_feed_settled.png",
+      "revision": null,
+      "bytes": 376667,
+      "sha256": "c3607331f951badb8733399a549464a075f474635d103aa0b44548c8339e6a03",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/unasked_play_feedback.png",
+      "revision": null,
+      "bytes": 376439,
+      "sha256": "d05fbf637100b4b7c48c4ef0b7cc6d15696ea993596d34842645ba4937ef4b21",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt2_care_source_1280/unasked_play_settled.png",
+      "revision": null,
+      "bytes": 376432,
+      "sha256": "bac0e524f016b54ffd1ea5ab845d53f995cbe905e13fefb048f9b626868d027a",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1689,
+      "sha256": "c93c6ef415dcf94ce3d249d8c946b9db59bde8f547e0db1a36d7093ac748f764",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "c05b12e416b6324c657e7bdcfde7ff52a98d20d13b5e1953f5ad19a9e47c459a",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/capture_care.gd",
+      "revision": null,
+      "bytes": 14021,
+      "sha256": "cb348e0512534ad8c4bfc3afdf2698704b7cbcac5b35601d7071c5d1739b81b8",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 207270,
+      "sha256": "89028673c6703ad518381f39edd391c6558376071699d11ce5b2919446b1ba4a",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/engine.log",
+      "revision": null,
+      "bytes": 1130,
+      "sha256": "26abc024056da5bf9024ae26c3f5d283cf9409d11fb5b38cd2179029eb74574e",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/initial_root.png",
+      "revision": null,
+      "bytes": 1724848,
+      "sha256": "5acd14f0313f2869f932d7a3c51b2c9098bcebeae989a9dbd78dbaef42f03bb7",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/level_up_root_restored.png",
+      "revision": null,
+      "bytes": 1717921,
+      "sha256": "475901cfebfbfc0e253aa14518fb7fc7399cb0b0e98e503479c0d998a9776238",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/level_up_settled.png",
+      "revision": null,
+      "bytes": 376245,
+      "sha256": "9010696f999a0dfa0b456758ef1232339b5b5d8e201e2c233b55a99e5076dbd9",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/natural_want_root.png",
+      "revision": null,
+      "bytes": 1837902,
+      "sha256": "08b9dc059a77b28f4cf8cadd12e84d6f4888f5335c5caa7b8ec0d3e207167c75",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/neutral_passive_wait.png",
+      "revision": null,
+      "bytes": 379323,
+      "sha256": "3a9a3d16164c49423925c13d68fdd0fc40ddb2b526ce387ab7158dbfc7c1a240",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/neutral_points3.png",
+      "revision": null,
+      "bytes": 379316,
+      "sha256": "201f494e1e55ee950df8d0b93993507f2081c573da2e5f72f0a5bc754fc1a2bb",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/neutral_root_menu.png",
+      "revision": null,
+      "bytes": 629270,
+      "sha256": "2a728726a622d3c9daebe37fdcf3671cc2f7623b974f86d8a5c2eeb60c631d17",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/neutral_root_restored.png",
+      "revision": null,
+      "bytes": 1723526,
+      "sha256": "cc3bf3f3c40443b0b90f4b256fc346fcc5e604c6380f607f4ce2013c5d189060",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/new_main_reload_points4.png",
+      "revision": null,
+      "bytes": 350275,
+      "sha256": "2a2676271f1869d1a8dc08fd49ff43d96a7e94254df0171aff8b1ba144b6ca4d",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/reload_root_menu.png",
+      "revision": null,
+      "bytes": 555311,
+      "sha256": "2425978b14d8ccdea60d0e6696aecc5b1338cd1c3525617abc33ef0add9ff549",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/reload_root_restored.png",
+      "revision": null,
+      "bytes": 1538906,
+      "sha256": "a7638954e9ab7694faa29a99b0c1377982e0752a3b203ec2c97f5bba6b74f79d",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/reopen_points4.png",
+      "revision": null,
+      "bytes": 377545,
+      "sha256": "892742cfa427d71ec4515c077af3471b92df4af9365d004b24ee5a58a1931389",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/reopen_root_menu.png",
+      "revision": null,
+      "bytes": 626548,
+      "sha256": "225f60d06fc61cb44d5c53d85e0405e8fcc948e403aca5258fb7ae98be17b45c",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/repeat_root_restored.png",
+      "revision": null,
+      "bytes": 1716050,
+      "sha256": "58db3a1be699a74d058a328bc4159afc93389dc3bfc774a8a13ee72cfcb60cae",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/repeated_unasked_feedback.png",
+      "revision": null,
+      "bytes": 376497,
+      "sha256": "6547d5af3556959db00dfcb2da39b9eff1c904558c94c8039c7cce208b276b00",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/requested_fulfilled_feedback.png",
+      "revision": null,
+      "bytes": 376489,
+      "sha256": "5aa270929b2af95364c11bebb14db3cba57891d4e56b851be94c9cf6cc67dd95",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/requested_nap.png",
+      "revision": null,
+      "bytes": 377277,
+      "sha256": "fc286ad259a72f188e4202ca109002cf7614481d898ededb8ce60977f8fa941e",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/requested_root_menu.png",
+      "revision": null,
+      "bytes": 655064,
+      "sha256": "eb45aa7dc8d1500745139f375f2c18ad5d65504f6ed78a54c050686386078f23",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/unasked_bath_feedback.png",
+      "revision": null,
+      "bytes": 376738,
+      "sha256": "1ff70264c65655465d2804a47024c36df14a59ec4450d00650a3c6b1665e6ef5",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/unasked_bath_settled.png",
+      "revision": null,
+      "bytes": 376616,
+      "sha256": "2d2369861d1d18a0d62bbcd1e961a5e9eedf19fc483acdfc135d9ac221f93c53",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/unasked_cuddle_feedback.png",
+      "revision": null,
+      "bytes": 376547,
+      "sha256": "8bbafb2d73af91d72cff7287facc03a6bde3be357c61d2c6844285bd4092c993",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/unasked_cuddle_settled.png",
+      "revision": null,
+      "bytes": 376473,
+      "sha256": "2727942c19fe917e56196d400b12b0e2e73c9aa0f9c25f1abaf5887c34183825",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/unasked_feed_feedback.png",
+      "revision": null,
+      "bytes": 376727,
+      "sha256": "874c2aa247f45b91e312edccd9b70c1abb2caec55ba45774a89e632ce6d1a34e",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/unasked_feed_settled.png",
+      "revision": null,
+      "bytes": 376667,
+      "sha256": "65b6125002ea384ed8d22d1d09122b25076b8ba24d8818d30cfc8bd8ca1c342b",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/unasked_play_feedback.png",
+      "revision": null,
+      "bytes": 376487,
+      "sha256": "dbc50e9fd0cf47bd574001cfe75b3ec3509972dcd8e38c28d70b3659106d818d",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1280/unasked_play_settled.png",
+      "revision": null,
+      "bytes": 376445,
+      "sha256": "e8af6360148a1036f9a7389fa526787657b5dd38d6df1011a5b7761d4bd15b70",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/LAUNCH.json",
+      "revision": null,
+      "bytes": 1689,
+      "sha256": "2ec9266022cdaad23e6f8c59f5ef2f698566beb49940973b533b2f63e079fe62",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "dfa97de75959d134aaec596bcba4bd20adc4675df22389228bd37e2bf848ad78",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/capture_care.gd",
+      "revision": null,
+      "bytes": 14021,
+      "sha256": "cb348e0512534ad8c4bfc3afdf2698704b7cbcac5b35601d7071c5d1739b81b8",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/capture_manifest.json",
+      "revision": null,
+      "bytes": 207572,
+      "sha256": "1fcc1001084b25f8478d8c3737dbaa30ef6ba9309fd665767c253939be0bb20c",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/engine.log",
+      "revision": null,
+      "bytes": 1127,
+      "sha256": "30602b51f252bd453c4d63fd3f657125b2ca06bc73aab80d467952f4b7dd3ed7",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/initial_root.png",
+      "revision": null,
+      "bytes": 2166036,
+      "sha256": "6f79dc6268dba8039b4f78fe3d1ad739ba1f023108782bd7eeca4172fd520e2e",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/level_up_root_restored.png",
+      "revision": null,
+      "bytes": 2159993,
+      "sha256": "b9b635c71bef0042d08eb3b1a57dc1a3c66b9ec0a4351a52538eef533c33df74",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/level_up_settled.png",
+      "revision": null,
+      "bytes": 676377,
+      "sha256": "294b57f4a02e2c43fa35686c07ab51af1ffcf54ccaf77286b667d584d37f80c0",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/natural_want_root.png",
+      "revision": null,
+      "bytes": 2276659,
+      "sha256": "d3297017e89c5d9651d819ca72fcc894b9ad2b0f555c9f09beb45b50a1d69db8",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/neutral_passive_wait.png",
+      "revision": null,
+      "bytes": 679378,
+      "sha256": "e50fcadb1f2d38afb59b14dace3d82afd5783259ef44894b05dce866782cc789",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/neutral_points3.png",
+      "revision": null,
+      "bytes": 679436,
+      "sha256": "87311c215689c04ab1d727cc16990463fdb911c48104b487d12ea7508f3e1ed7",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/neutral_root_menu.png",
+      "revision": null,
+      "bytes": 957991,
+      "sha256": "ea4ca2949e3ff2fb5589a4dd68301d9c66bf43c7bebeb8b2c4db8f7d5ee6a6da",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/neutral_root_restored.png",
+      "revision": null,
+      "bytes": 2164886,
+      "sha256": "1d977709fa2029d8e77229af85a93e328046c8f551e8990581a1dcc5588d44a5",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/new_main_reload_points4.png",
+      "revision": null,
+      "bytes": 609052,
+      "sha256": "b3c8aa0b2a4cc529b29a538f9a0fa3005522f191cb6ae59c858edcb7e7d60e2f",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/reload_root_menu.png",
+      "revision": null,
+      "bytes": 842816,
+      "sha256": "c7464e57dba3d9d90e2eea66aa83a7f4c06268744ca37750250628f7064616f4",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/reload_root_restored.png",
+      "revision": null,
+      "bytes": 1923321,
+      "sha256": "ab2c51dbcce8dc3375216660af7c88762c3927b320e73118e2cd821f2b11a103",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/reopen_points4.png",
+      "revision": null,
+      "bytes": 677506,
+      "sha256": "77a1c4a50b36336ccf94d496397294305c85358568843710dd65119c3e3041f6",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/reopen_root_menu.png",
+      "revision": null,
+      "bytes": 955182,
+      "sha256": "610fdcd8b9a90d97cac31073e8653f00767981eaf220e5415944993c9d60e3a4",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/repeat_root_restored.png",
+      "revision": null,
+      "bytes": 2158101,
+      "sha256": "b3cbf43c702104e85998b93e9b3c9ee79a9da42bd6c135df5058197e5e5bb814",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/repeated_unasked_feedback.png",
+      "revision": null,
+      "bytes": 676579,
+      "sha256": "ca9dbc50e30638b3d9a6b33d59602412700d26db5632a5e3b0915a819c098ab6",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/requested_cuddle.png",
+      "revision": null,
+      "bytes": 676820,
+      "sha256": "08efdee752a2fa3488cb8a97db8b1a375842dcba780b7ff4710531eaf1361ea0",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/requested_fulfilled_feedback.png",
+      "revision": null,
+      "bytes": 676551,
+      "sha256": "bf3c49b23cb59d65a888fbc1944b8f3baf96c24ac1286ea4cf780ad788def324",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/requested_root_menu.png",
+      "revision": null,
+      "bytes": 979881,
+      "sha256": "5d3ccf55785dc511bfba1592366ad4368e7a6d29766c62a0ac9ba19096fac9a2",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/unasked_bath_feedback.png",
+      "revision": null,
+      "bytes": 676399,
+      "sha256": "70f6c55c1a97e3497c82798061da570b5bd461ca20d2533bd3da18b880b08094",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/unasked_bath_settled.png",
+      "revision": null,
+      "bytes": 676422,
+      "sha256": "3a6b5b1f26dcc9bf4ec9748494c001a9f9482776b4892b19c073054d356064a1",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/unasked_feed_feedback.png",
+      "revision": null,
+      "bytes": 676549,
+      "sha256": "86f1fbb3b83e340c64ddc75bf749502ae4a97e75d57b7c35661ba1adae9d2583",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/unasked_feed_settled.png",
+      "revision": null,
+      "bytes": 676376,
+      "sha256": "41d8a9a6cdf7f9e190b0f3e354e2a93531bfbc66768e7fd08a9d80cf6568d82e",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/unasked_nap_feedback.png",
+      "revision": null,
+      "bytes": 676333,
+      "sha256": "094528bdb232ab8a00c611959c5de60f03e4177144f195e31a81fb5972ee917a",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/unasked_nap_settled.png",
+      "revision": null,
+      "bytes": 676434,
+      "sha256": "c13be397836056594b0db3126248c660e8c404992afe5ddd4fd61ed5a7c90bba",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/unasked_play_feedback.png",
+      "revision": null,
+      "bytes": 676433,
+      "sha256": "838fd1e1d40043de55352a4f0ff8b78b106dde99ef85648c9658609a90b66f1d",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/unasked_play_settled.png",
+      "revision": null,
+      "bytes": 676465,
+      "sha256": "e111816f2df43e3e3b204f15b4d05c5fc149c0abd300023e6c129c830f051fe3",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/per_piece.json",
+      "revision": null,
+      "bytes": 1587812,
+      "sha256": "9679932d0e07301d0889ec186fcb087164d25ac289e15ca1029326aea722577f",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/preflight.py",
+      "revision": null,
+      "bytes": 1455,
+      "sha256": "cd7487e78cf860c581b18fc5be8f44ca0183f184cb8a8064fb21c9220327a354",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/run_native.py",
+      "revision": null,
+      "bytes": 4808,
+      "sha256": "d7534f035aeb7430db91a89dce6dece38584219d36e8c4658f0e82717138d717",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/scene_coverage.json",
+      "revision": null,
+      "bytes": 962257,
+      "sha256": "72d7a8f923758bb0e5031406e7b0d87872e58b01a20c1ebd3729dc4b012e206c",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/tally.json",
+      "revision": null,
+      "bytes": 413534,
+      "sha256": "b5b8bf5690ec099513ba3568bd28ba696db72bddb112ea00d788f5392484c82d",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/validate.py",
+      "revision": null,
+      "bytes": 8434,
+      "sha256": "88915ac0946c213cf3fe0c5a481dcbc72a865ef5f8b9f7ee88d9c045e82ca1fc",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/verify_remote.py",
+      "revision": null,
+      "bytes": 3368,
+      "sha256": "01d8b66cf88d6de6c15bf6188e54d4067efc1ae74cf27d7aa5a1c05753b8c870",
+      "role": "Current R76 source-bound care UI partial audit;0production/art/acceptance"
+    },
+    {
+      "path": "assets/art35/cards/mg/star_star.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 518527,
+      "sha256": "3a8dce7bc1721fd1c6b97b0f8148c1f9a9b176d8a5a28c5855cb3501a74fdcf7",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "assets/art35/cards/style3/fruit_apple_fruit_apple.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 196285,
+      "sha256": "d2047f425e793db0a85b8a8cabfb332053dda2a395ab561ec2b1d068194608a4",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 233301,
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "assets/characters/companions/baby_eagle.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 139462,
+      "sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "assets/mg/star.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 868379,
+      "sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "assets/props/story/fruit_apple.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 390318,
+      "sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "assets/ui/castle_room_buttons_v2/room_sleepover_bedroom.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 80444,
+      "sha256": "2bff373d6b04c6b2d18ddd28e89275794f1f5478a99eedab5a0abc0f839e6da2",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "project.godot",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1762,
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 221,
+      "sha256": "1de477913ac3db6efe5d66d04967279dc9b66217bea01afeeddb4d98ef692f21",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 65658,
+      "sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 370863,
+      "sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3749,
+      "sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13628,
+      "sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 46616,
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1920,
+      "sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 16107,
+      "sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "role": "Exact selected current source/painted same-scene reference or existing reuse candidate;no fit/acceptance implied"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/glyph_inventory.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 136505,
+      "sha256": "19f3e0335f9b3af55b8c83f541eed52336107807c9b073057f412897ca2fcaa9",
+      "role": "Frozen original registry, exact bytes preserved; occurrences not piece totals"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 1103788,
+      "sha256": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9",
+      "role": "Frozen original registry, exact bytes preserved; occurrences not piece totals"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/FINAL_BYTE_RECEIPT.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 1852,
+      "sha256": "d5999f818fb02a780224aa2e232560598734f5924d8f12919f4d4881f8d4795c",
+      "role": "Prior unapproved external payload request, no retry/export"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/NEW_ART_REVIEW_REQUEST.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 3050,
+      "sha256": "ca4dc61d8800c018fc334dc714919b60c70aaa1061f2e6991fd2c960cced20dc",
+      "role": "Prior unapproved external payload request, no retry/export"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/README.md",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 5769,
+      "sha256": "bfde9f1a741106babf553f85f45030908346f8ebc4dd15c754dac5db402dc787",
+      "role": "Prior unapproved external payload request, no retry/export"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/CONGRUENCY_BACKLOG.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 423767,
+      "sha256": "3f559259f0a48f6240ecd246d3e5e86fb02fc4fa8935e4003f3591cb4f2cf682",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 5642,
+      "sha256": "420b98d1405ee0286e9cf5481047a5c75aa2e32bb331a3ccdcea592bb937eb3d",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/CURRENT_KNOWN_ROLE_UNION.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 34630,
+      "sha256": "271d55ad889e02db02ef5775822e53c0e39d0a95c0bd905d5bb5935603fb0397",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/CURRENT_PARTIAL_CONTEXT_UNION.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 17193,
+      "sha256": "a1347f7cff8f7f338c03dbf04ae3b25aa61aeb7c63f8bccc658dadc0f8491cd9",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/FINAL_BYTE_RECEIPT.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 2348,
+      "sha256": "74f2b2ce51a8626c3c25708320f9bc6b4ff4b834b11b07f5449351c2a57eefa0",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/MANIFEST.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 151449,
+      "sha256": "94ce51a816c033b49f7d934bb8172f4bd6bfa063d30f08d38ad8ea2ee0205e90",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/README.md",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 6845,
+      "sha256": "f4267162872eee6df5a536c5864067d0379d550922390604671fdb8d8ace7b8a",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/REMOTE_VERIFICATION.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 277369,
+      "sha256": "acaf6dc4b1b03b8463b48d9baf4e9e23dae8d2beeae60fc111b3c37fc715a753",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/RUNTIME_BYTE_BASELINE.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 1121888,
+      "sha256": "ba78355b0738e69d9d1f0f943100cdcfbbc2b7dba7af4d885f83a0a2253cafe9",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SOURCE_GUARDS.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 451,
+      "sha256": "4de8e8e5097ca7e9bc33cd3be8530007fd2ba8109a9ece54e93af91cab88b89d",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SUMMARY.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 5425,
+      "sha256": "dfd4defa185110dbfd3403669261ad2b89a8d6a2ee3ede15d17903a6f024e0fb",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/WORK_IN_PROGRESS.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 1256,
+      "sha256": "8b60aff90ddf9e84a47769b4d280611cf083b77f7b178dd7ab822b00fa5795b1",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/per_piece.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 1521951,
+      "sha256": "f9c21bfdf069ca469c796f9dfee32cf9d99bac4b387b6b7d5acbac9615c954c6",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/scene_coverage.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 960091,
+      "sha256": "331001a7ddb43f7966616785a3683c14ffafb74c03c7607f73a13f288be3be52",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/tally.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 412146,
+      "sha256": "fa17b0d1c7375459d042ee182377de2e8e567e0811ea64950a4d8ce0e7207444",
+      "role": "Immutable R75 history/baseline, no renewed transitive native quality or acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 438160,
+      "sha256": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f",
+      "role": "Frozen original registry, exact bytes preserved; occurrences not piece totals"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/source_scopes.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 306677,
+      "sha256": "a1aca7b3bacc6124a1d0938f126803b6ea022b8f8de1ee224ef78ab5a8ef6951",
+      "role": "Frozen original registry, exact bytes preserved; occurrences not piece totals"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json",
+      "revision": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+      "bytes": 7990,
+      "sha256": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a",
+      "role": "Frozen original registry, exact bytes preserved; occurrences not piece totals"
+    }
+  ],
+  "required_file_count": 193,
+  "required_bytes": 88760995,
+  "payload_sha256": "7ad294afeed1835d637f00d4fddd6a57b134b264495ac0bac336e4070e5ab700",
+  "historical_parent": {
+    "receipt": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+    "prior_payload": "063b7b6131df443fbed3972873b0f7a3478e9146",
+    "freshly_reverified_transitive_payload": false
+  },
+  "metrics": {
+    "revision": "FV-AUDIT-20261016-R76",
+    "topic_baseline": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+    "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+    "native_cases": 4,
+    "healthy_cases": 2,
+    "healthy_observer_checks": 86,
+    "failed_attempt_frames": 36,
+    "new_native_frames": 88,
+    "new_bounded_contexts": 32,
+    "new_excluded_diagnostics": 56,
+    "retained_bounded": 6310,
+    "retained_excluded": 3476,
+    "retained_native_events": 9786,
+    "known_roles": 261,
+    "known_families": 35,
+    "new_roles": 7,
+    "new_families": 0,
+    "existing_partial_roles": 75,
+    "existing_partial_families": 15,
+    "supplemental_partial_roles": 37,
+    "catalogue_partial": 92,
+    "catalogue_without_current_slice": 84,
+    "catalogue_complete": 0,
+    "new_alias_credits": 0,
+    "count_unit": "Named semantic care pictogram/progress roles, repeated footer/title/need uses deduplicated; not glyph occurrences or extension counts",
+    "source_status": "UNCHANGED_GLOSSY_GLYPH_ART_AND_STATUS_ACK_LOOKUP_WEAKNESS",
+    "new_drawing_samples": 0,
+    "drawing_required": null,
+    "reuse_ready": false,
+    "generation_calls": 0,
+    "new_runtime_assets": 0,
+    "approved": 0,
+    "integrated": 0,
+    "runtime_verified_replacements": 0,
+    "accepted_removed": 0,
+    "all_game_artwork_total": null,
+    "distinct_screen_total": null,
+    "regression_total": null,
+    "allcaller_closure": false,
+    "mission_complete": false,
+    "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
+  },
+  "post_publication_records": "Receipt own final changed metadata bytes/head checked after push separately;no recursive self hash.",
+  "accepted_removed": 0,
+  "mission_complete": false
+}

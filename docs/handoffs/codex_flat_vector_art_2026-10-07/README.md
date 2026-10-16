@@ -1,3 +1,3 @@
-# Current R75 tree-book hand registration audit
+# Current R76 Stuffie care audit
 
-[Open R75](r75_tree_book_registration/README.md). Two fresh current-source controls and two bounded original-pixel registration variants preserve the source failures, reject badge placement and bind a diagnostic primary-leaf anchor. [Tally](r75_tree_book_registration/tally.json):254knownroles/35families;0acceptedremovals; whole-game totals unknown. Flat hand and all painting/integration/QA11/device/child/owner lanes remain open.
+[Open R76](r76_stuffie_care_context/README.md). Seven newly named care pictogram/progress roles have bounded current-source context and ten-dimension neighbor review. [Tally](r76_stuffie_care_context/tally.json):261knownroles/35families;0acceptedremovals; whole-game totals unknown. Native controls/save persistence pass86checks; source acknowledgement/title/material weaknesses and all replacement/QA11/device/child/owner lanes remain open.

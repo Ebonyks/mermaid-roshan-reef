@@ -1,0 +1,49 @@
+{
+  "status": "PASS_BEFORE_NATIVE",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r76_stuffie_care_context\\capture_care.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r76_stuffie_care_context\\capture_care.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r76/capture_care.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n"
+    }
+  ],
+  "fixture_files": [
+    {
+      "path": "capture_care.gd",
+      "sha256": "88d60c897daed69815a932761b1b57fce916233c94bb9ad9d6d033c4b793d30e"
+    }
+  ],
+  "checked_at_utc": "2026-10-16T08:17:07.462315+00:00"
+}
