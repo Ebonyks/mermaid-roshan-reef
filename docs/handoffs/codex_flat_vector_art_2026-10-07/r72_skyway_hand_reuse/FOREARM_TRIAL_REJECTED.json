@@ -1,0 +1,14 @@
+{
+  "status": "FOREARM_CROP_VISUALLY_REJECTED",
+  "case": "native/attempt1_painted_1280",
+  "machine_status": "Original input/targets/full bob cycles pass; source garden Back remains failed",
+  "reason": "40px-wide source region includes long forearm and abrupt cut-off. Direct native frames show dangling arm rather than polished standalone hand cue. Numerical registration does not accept art.",
+  "directly_viewed": [
+    "native/attempt1_painted_1280/06_reentry_hint_registered.png",
+    "native/attempt1_painted_1280/07_outbound_02.png",
+    "native/attempt1_painted_1280/07_outbound_03.png",
+    "source_inspection.png"
+  ],
+  "next_trial": "Same approved source/frame with tighter28px-wide region and uniform49/27 scale. No retouch/newpixels or generation.",
+  "prior_helper_sha256": "ce64433794d4fd2f5d2c4fa474924361ab34c59fc2d2adcb876363eb97610082"
+}

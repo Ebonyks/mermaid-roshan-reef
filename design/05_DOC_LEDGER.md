@@ -1360,3 +1360,6 @@ release/device/child/owner authority retain precedence.
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r71_skyway_pointer/README.md` | 🔵 | `SUPPORTING_CURRENT`; R71 source cue misses and nonproduction offset preview; painted hand export blocked. Existing art unchanged,0 accepted removals; unknown inventory and acceptance remain open. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r71_skyway_pointer/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; exact source/private runtime guard, natural bob/alpha-tip evidence, excluded diagnostics, original gardenBack failure and delivery gates. No QA11/device/child/owner acceptance. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; R72 finite painted pointing-gesture reuse audit. Two crop variants rejected for standalone quality; source mechanics retain scope. New-art export request blocked until explicit owner authorization;0acceptedremovals, global totals unknown. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; exact source/private engine/geometry/source-metadata correction/history/gates and two-phase publication. No QA11/device/child/owner or production acceptance. |

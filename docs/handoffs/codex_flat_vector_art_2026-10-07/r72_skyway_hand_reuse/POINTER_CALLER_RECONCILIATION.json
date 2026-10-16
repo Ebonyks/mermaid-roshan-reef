@@ -1,0 +1,250 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "literal_rows": [
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "line": 28,
+      "text": "const POINTER_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "body_sha256": "d1ae274f5f8c5e6c6edc13208da55d393b8621b72fe0bee478c3360ad01f4c37",
+      "body_lines": [
+        28,
+        28
+      ]
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "line": 19,
+      "text": "const GHOST_HAND := preload(\"res://assets/castle/training/ghost_hand.png\")",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "body_sha256": "e635013bfc96fa9687efd2b407e082bb97b80a594eb890dd3fcb186268345c17",
+      "body_lines": [
+        19,
+        19
+      ]
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "line": 32,
+      "text": "const ROSHAN_REACH := \"res://assets/characters/roshan_25d/roshan_gesture_b.png\"",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "body_sha256": "fe83c8091c4ef618077a854da8bd3fe48709df09b49472f2e7f7878fb11a27bd",
+      "body_lines": [
+        32,
+        32
+      ]
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "line": 247,
+      "text": "\tpointer = _picture(\"GuideHand\", \"res://assets/castle/training/ghost_hand.png\",",
+      "enclosing_function": "func _build_controls() -> void:",
+      "file_sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "body_sha256": "4585b358ce86e3c0dccf4c3e0228d7a2f9182046b433c5ac133394c59dba3a46",
+      "body_lines": [
+        225,
+        250
+      ]
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "line": 5,
+      "text": "const HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+      "body_sha256": "c3b23c8ea250d0bf1f8cefe2772d872940bb89ffc7113cea5ddb92f1a8808713",
+      "body_lines": [
+        5,
+        5
+      ]
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "line": 12,
+      "text": "const SAFE_HAND := preload(\"res://assets/castle/training/ghost_hand.png\")",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29",
+      "body_sha256": "a06215fd0918f8abb3967daea5c73f2f96079abc59bf75f1e9508546e263faa7",
+      "body_lines": [
+        12,
+        12
+      ]
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "line": 21,
+      "text": "const POINTER := \"res://assets/castle/training/ghost_hand.png\"",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "body_sha256": "027c251da30f1f45dc1f6376f3abe447d35b46b079c5800147120d2656bb827f",
+      "body_lines": [
+        21,
+        21
+      ]
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "line": 43,
+      "text": "const POINTER_TEXTURE := \"res://assets/castle/training/ghost_hand.png\"",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "body_sha256": "4f64a5515c10f90834a64dac9e113581ba1a4ec2642c2acd1666f0285d6d3945",
+      "body_lines": [
+        43,
+        43
+      ]
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "line": 63,
+      "text": "const POINTER_TEXTURE := \"res://assets/castle/training/ghost_hand.png\"",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "body_sha256": "4f64a5515c10f90834a64dac9e113581ba1a4ec2642c2acd1666f0285d6d3945",
+      "body_lines": [
+        63,
+        63
+      ]
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "line": 16,
+      "text": "const POINTER := preload(\"res://assets/castle/training/ghost_hand.png\")",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "body_sha256": "78682a9c345067c83ee54f774ced75349c259b153e889364bf83c30561601e7e",
+      "body_lines": [
+        16,
+        16
+      ]
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "line": 30,
+      "text": "const GUIDE_HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "body_sha256": "bdff4d6b3dfbc9f96a5e28504c098cabbb3514260836aa718f44016d588e79a6",
+      "body_lines": [
+        30,
+        30
+      ]
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "line": 36,
+      "text": "const GUIDE_HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "body_sha256": "bdff4d6b3dfbc9f96a5e28504c098cabbb3514260836aa718f44016d588e79a6",
+      "body_lines": [
+        36,
+        36
+      ]
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "line": 28,
+      "text": "const GUIDE_HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "body_sha256": "bdff4d6b3dfbc9f96a5e28504c098cabbb3514260836aa718f44016d588e79a6",
+      "body_lines": [
+        28,
+        28
+      ]
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 790,
+      "text": "\t\t\t\t\t\"res://assets/castle/training/ghost_hand.png\")",
+      "enclosing_function": "func _load_widget_set() -> void:",
+      "file_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "body_sha256": "f15c8ffb5a02259f173af9a5eeae234a29b939cc87989b874b7c723cac9a7f9d",
+      "body_lines": [
+        749,
+        815
+      ]
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "line": 18,
+      "text": "const GHOST_HAND_TEXTURE := \"res://assets/castle/training/ghost_hand.png\"",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "body_sha256": "f7b0da0bb9bf78ceed0fde0c4d4284bbafd8bba475865e31be4db9e5e8005e10",
+      "body_lines": [
+        18,
+        18
+      ]
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "line": 71,
+      "text": "\thand = load(\"res://assets/castle/training/ghost_hand.png\") as Texture2D",
+      "enclosing_function": "func _ready() -> void:",
+      "file_sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "body_sha256": "e1a6c6d0fd249092ac0051e01e85c56a4559ad18836cac235a76326c0b00fea8",
+      "body_lines": [
+        57,
+        88
+      ]
+    },
+    {
+      "path": "scripts/player.gd",
+      "line": 100,
+      "text": "\t\"gesture_b\": [preload(\"res://assets/characters/roshan_25d/roshan_gesture_b.png\"), 4, 4],",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "91ae8a4e9dccc090c7e1ce86bbec387ff8c761951e794e9d93b3c753be7c49b8",
+      "body_sha256": "a2fd2eef0c10b8243534912db9b800a8639e75344cc826a0d15eef19003a3721",
+      "body_lines": [
+        100,
+        100
+      ]
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+      "line": 16,
+      "text": "\t\"res://assets/castle/training/ghost_hand.png\",",
+      "enclosing_function": "TOP_LEVEL_DECLARATION",
+      "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+      "body_sha256": "0249871ab026fe63729e64c5d124b274fe2a721cf93ba16109d7e3b048242833",
+      "body_lines": [
+        16,
+        16
+      ]
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "line": 590,
+      "text": "\t\t\tand surface.pour_demo_hand_texture.resource_path.ends_with(\"ghost_hand.png\") \\",
+      "enclosing_function": "func _init() -> void:",
+      "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+      "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a",
+      "body_lines": [
+        535,
+        1945
+      ]
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "line": 260,
+      "text": "\thand.texture = load(\"res://assets/castle/training/ghost_hand.png\") as Texture2D",
+      "enclosing_function": "func _build_new_game_confirmation(stage: Control) -> void:",
+      "file_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "body_sha256": "fba8ce5690f10b4faf6d5c156612aa538a6c1594b2a2b8bb061c9635e4df1ef3",
+      "body_lines": [
+        215,
+        273
+      ]
+    }
+  ],
+  "scope": "Exact two-resource literal consumer census, not full computed/dynamic resource flow, pointer instance enumeration, route/current visibility or caller closure. Existing family/role totals unchanged. Current Skyway named role has native evidence; other consumers retain their own unresolved scopes.",
+  "new_role_or_family_credit": 0,
+  "new_complete_route_credit": 0,
+  "listed_paths": 382,
+  "scanned_text_paths": 316
+}

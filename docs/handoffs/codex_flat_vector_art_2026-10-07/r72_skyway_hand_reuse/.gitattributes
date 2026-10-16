@@ -1,0 +1,5 @@
+*.gd -text
+*.log -text
+# Retain exact executed nonruntime fixture bytes.
+*.gd whitespace=-blank-at-eof
+native/*/*.gd whitespace=-blank-at-eof

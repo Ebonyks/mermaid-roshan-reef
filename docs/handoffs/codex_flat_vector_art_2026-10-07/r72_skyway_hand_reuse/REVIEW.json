@@ -1,0 +1,110 @@
+{
+  "reviewer": "Codex direct native-image inspection; not independent human/device/child/owner acceptance",
+  "direct_native_views": [
+    {
+      "path": "native/attempt1_painted_1280/06_reentry_hint_registered.png",
+      "sha256": "c6ff2b26c24d61f30b5f52202cb691e98b5a6f4d0c2a502af355b9967f000665",
+      "classification": "REJECTED_FOREARM_CROP"
+    },
+    {
+      "path": "native/attempt1_painted_1280/07_outbound_02.png",
+      "sha256": "d8154d46fec165b5f7a77365594a01ea68c9fa2cfd63ddec1a91ff2212bf7621",
+      "classification": "REJECTED_FOREARM_CROP"
+    },
+    {
+      "path": "native/attempt1_painted_1280/07_outbound_03.png",
+      "sha256": "17277ffd3616dc5f41526f4ad4124074b703b091a9cd6f0bf5218285f2d02618",
+      "classification": "REJECTED_FOREARM_CROP"
+    },
+    {
+      "path": "native/attempt2_painted_1280/06_reentry_hint_registered.png",
+      "sha256": "7e88f08c5f2caee7195b0bd1384255d49d7751a3ddd01efd1850b28cd0c9b542",
+      "classification": "REJECTED_TIGHT_CROP"
+    },
+    {
+      "path": "native/attempt2_painted_1280/07_outbound_02.png",
+      "sha256": "c9acca40e3cd8487cbf6ea14353d4db51c79aff33c2e6937d594c384fee643d7",
+      "classification": "REJECTED_TIGHT_CROP"
+    },
+    {
+      "path": "native/attempt2_painted_1280/07_outbound_03.png",
+      "sha256": "a168b9a8d7bc802cb679fef1a80bc72500147ff981cf375053f742826186baca",
+      "classification": "REJECTED_TIGHT_CROP"
+    },
+    {
+      "path": "native/attempt2_painted_1600/06_reentry_hint_registered.png",
+      "sha256": "435a110acb8c80728478a0d5898a340778820a0e294fda4c0c06e27d68003968",
+      "classification": "REJECTED_TIGHT_CROP_WIDE"
+    },
+    {
+      "path": "native/attempt2_painted_1600/07_outbound_02.png",
+      "sha256": "1cd5ab3d95490674253279b9ee881a18518edb7e795d1e840aa5811373c6cd9f",
+      "classification": "REJECTED_TIGHT_CROP_WIDE"
+    },
+    {
+      "path": "native/attempt3_painted_1280/06_reentry_hint_registered.png",
+      "sha256": "10961cc10d5542eb787480182f33157d4d3bfdc7277aeb93c8ca5c624a68729d",
+      "classification": "REJECTED_TIGHT_CROP_CORRECTED_OBSERVER"
+    },
+    {
+      "path": "native/attempt2_flat_1280/06_reentry_hint_registered.png",
+      "sha256": "ba872ca0030719f47ebcac25affd2f6521e17fc583d83adab457f93512ae94c7",
+      "classification": "REGISTERED_FLAT_CONTROL"
+    },
+    {
+      "path": "native/attempt2_flat_1600/06_reentry_hint_registered.png",
+      "sha256": "b2daa7ada3062b5e637513ab8aadbecd46df62bfbf1a53aeaf7cffc56d55ccab",
+      "classification": "REGISTERED_FLAT_CONTROL_WIDE"
+    },
+    {
+      "path": "native/attempt4_lossless_1280/06_reentry_hint_registered.png",
+      "sha256": "6e4498dc9a6571ed288b291e84db5179774b07bff66d40ca46c8bf467f1aa951",
+      "classification": "REJECTED_TIGHT_CROP_ORIGINAL_PNG_LOSSLESS"
+    },
+    {
+      "path": "native/attempt4_lossless_1280/07_outbound_02.png",
+      "sha256": "279e9ccbbb150720c332f29b620c1f571001b46d7951e5f83b2823ed7a13bf75",
+      "classification": "REJECTED_TIGHT_CROP_ORIGINAL_PNG_LOSSLESS"
+    },
+    {
+      "path": "native/attempt4_lossless_1280/07_outbound_03.png",
+      "sha256": "ec095a0da3528f07a0e891b1fdcd7e5472349fa02f899f5be717bb2741612da4",
+      "classification": "REJECTED_TIGHT_CROP_ORIGINAL_PNG_LOSSLESS"
+    }
+  ],
+  "source_inspection_view": {
+    "path": "source_inspection.png",
+    "sha256": "126a7c6a9a07ad3def40a23b2d11a8ec86a34ba8ede356b85f90dc0578591f0a",
+    "classification": "EXCLUDED_SOURCE_INSPECTION"
+  },
+  "direct_source_atlases": [
+    "roshan_gesture_a",
+    "roshan_gesture_b",
+    "roshan_gesture_c",
+    "roshan_gesture_d"
+  ],
+  "ten_axes": {
+    "contour": "Wide crop leaves a long forearm; tight crop retains an abrupt wrist. Original PNG lossless decode improves the edge/color over imported texture but still does not form an authored standalone hand. Both new uses rejected; original identity acceptance unchanged.",
+    "material": "Original painted skin shading confirmed through lossless PNG decode. Compression loss is measured separately; remaining tiny source detail/cut wrist fails the standalone instructional role. No bitmap repaint or cleanup.",
+    "palette": "Lossless original source has warmer cleaner skin colors than imported texture and belongs to approved identity family. Palette alone does not repair the cut wrist or accept a new use.",
+    "light": "Rotation rotates authored source shading; no relighting. New overlay light congruency is not accepted. Same-scene character/door/background hashes retained.",
+    "perspective": "Original side-facing reach is rotated toward down. Its source-specific fist/profile and wrist cut remain visible, rather than a newly authored standalone cue.",
+    "scale": "39px or27px source span reconstructed to49logical pixels. Original PNG lossless trial confirms limited source detail persists after removing import loss; native Aseprite is same resolution.",
+    "contact": "Floating instructional cue has no physical support/contact claim. Source live fingertip remains within original touch target in all sampled post-binding cycles.",
+    "occlusion": "Direct frames leave hero visible; source-projected alpha diagnostic retained separately. Exact GPU filtering/QA11 occlusion, phone/device and owner evidence absent.",
+    "readability": "Original registered flat hand remains clear but stylistically unresolved. Cropped painted variants lose standalone cue polish/silhouette clarity at actual scene size. Numeric touch reach does not accept them.",
+    "action_state": "Original Main/controller/input/targets/progress/clock and other foreground preserve recorded signatures. Three fingertip inputs and house endpoint work; original gardenBack/HUD fails in all7cases and reverse/allcaller closure remains open."
+  },
+  "new_reuse_approved": false,
+  "new_reuse_rejected": 2,
+  "approved_original_identity_scope_unchanged": true,
+  "full_context_review_complete": false,
+  "production_adoption": false,
+  "accepted_removed": 0,
+  "source_decode_view": {
+    "path": "decode_comparison.png",
+    "sha256": "d1fea6ccf0b3918ee6f03100ac1b5a9092072d74ce0f96c0bba676bd88838956",
+    "classification": "EXCLUDED_SOURCE_DECODE_INSPECTION"
+  },
+  "lossless_review_scope": "Direct full native scene inspection of3post-binding frames plus source decode comparison. Same28px crop, second decode path; not a third creative candidate. Source-PNG loader emits export warning and adds no runtime-readiness acceptance."
+}

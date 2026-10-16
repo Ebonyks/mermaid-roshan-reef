@@ -1,0 +1,53 @@
+{
+  "status": "TWO_DISTINCT_EXISTING_ART_REGION_TRIALS_REJECTED",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "source": "assets/characters/roshan_25d/roshan_gesture_b.png",
+  "source_sha256": "59daf2a2efdbabba1a28bedfed5312805b4351627f0882704b11c4b6ca488ead",
+  "trials": [
+    {
+      "id": "R72-CROP-40",
+      "region": [
+        527,
+        819,
+        40,
+        35
+      ],
+      "scale": 1.2564102564102564,
+      "case": "attempt1_painted_1280",
+      "reason": "Long bare forearm and abrupt cropped end look like detached arm rather than authored standalone instructional hand."
+    },
+    {
+      "id": "R72-CROP-28",
+      "region": [
+        527,
+        819,
+        28,
+        35
+      ],
+      "scale": 1.8148148148148149,
+      "cases": [
+        "attempt2_painted_1280",
+        "attempt2_painted_1600",
+        "attempt3_painted_1280",
+        "attempt4_lossless_1280"
+      ],
+      "reason": "Imported texture adds compression loss. Same crop from original PNG rendered losslessly in current scene improves color/contour but still has an abrupt cut wrist and limited27px native source span enlarged to49px. Both decode paths fail standalone hand quality; approved atlas identity scope unchanged."
+    }
+  ],
+  "source_master_check": "Original PNG and native Aseprite1024x1024 contain same-resolution pose; current repack frame14 is integer shift12px with zero erased pixels. No higher-resolution accepted standalone hand established here.",
+  "required_gap": "One clean standalone downward-index pointing hand, painted contours/material at adequate native resolution, same-scene palette/light and clear phone silhouette, transparent background, registered fingertip. Preserve approved character/environment originals.",
+  "machine_lanes": "Reach/source state/controls/hero-preservation diagnostic are separate; no creative approval or accepted removal.",
+  "global_reuse_limit": "Does not claim every repository image was visually exhausted. Relevant hand/master/gesture sources and finite alternatives retain scope.",
+  "new_art_calls": 0,
+  "decode_followup": {
+    "comparison": "decode_comparison.json",
+    "import_settings": "IMPORT_DECODE_FINDING.json",
+    "native_case": "attempt4_lossless_1280",
+    "source_png_unchanged": true,
+    "sidecar_unchanged": true,
+    "source_rgba_exact": true,
+    "new_use_quality": "REJECTED_AFTER_DIRECT_NATIVE_REVIEW",
+    "export_readiness": "UNPROVEN_SOURCE_PNG_LOADER_WARNING",
+    "memory": "1024x1024RGBA8 is4MiB uncompressed texture storage before overhead; no phone/overdraw/performance measurement or adoption"
+  }
+}

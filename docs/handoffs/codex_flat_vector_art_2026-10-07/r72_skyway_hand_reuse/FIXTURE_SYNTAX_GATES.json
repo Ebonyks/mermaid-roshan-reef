@@ -1,0 +1,90 @@
+{
+  "status": "PASS_BEFORE_NATIVE",
+  "checked_at_utc": "2026-10-16T04:38:13.996170+00:00",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\capture_fairy.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\capture_skyway.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\skyway_reuse.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\pointer_registration.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\capture_pointer.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "script_errors": false
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\capture_fairy.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\capture_skyway.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\skyway_reuse.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\pointer_registration.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\capture_pointer.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "script_errors": false
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--rendering-method",
+        "mobile",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r72/capture_pointer.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n",
+      "stderr": "",
+      "script_errors": false
+    }
+  ],
+  "fixture_files": [
+    {
+      "path": "base_capture.gd",
+      "sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83"
+    },
+    {
+      "path": "capture_entry.gd",
+      "sha256": "96f8e1336f5ddd6a3c55dd9b359a7c9e44a91d053bdc815408a96b9a07aaea5a"
+    },
+    {
+      "path": "capture_fairy.gd",
+      "sha256": "e26d0e72f9a1a4139f153757813211db42284000e63399c80454ef74a3ea293d"
+    },
+    {
+      "path": "capture_skyway.gd",
+      "sha256": "2f32a449c3df462b99986a1aaa7e7187229fb489893df57fe27c49757a3109a8"
+    },
+    {
+      "path": "skyway_reuse.gd",
+      "sha256": "cdd079c6acc933b12efffd7d01a077948ce9907a24e9e697d33c6171ded3866c"
+    },
+    {
+      "path": "pointer_registration.gd",
+      "sha256": "8ad9b55354e003c2bd8add42ed081e486dd07c9682260458fcc399561cadae0d"
+    },
+    {
+      "path": "capture_pointer.gd",
+      "sha256": "df4a1ce47cbeab3b94769cbae063e73c62ed9a993728622c114ac32ff356a966"
+    }
+  ]
+}

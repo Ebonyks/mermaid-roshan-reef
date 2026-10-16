@@ -1,3 +1,7 @@
+# Current R72 Skyway painted-hand reuse audit
+
+[Open R72](r72_skyway_hand_reuse/README.md). Two existing-art crops failed standalone cue quality despite successful source input. The published two-image new-art request requires explicit ImageGen export authorization. No generation, production change or accepted removal. [Tally](r72_skyway_hand_reuse/tally.json) and [routing/history](CURRENT.json) supersede older current labels below.
+
 # Current R71 Skyway hand registration and painted-art request
 
 [Open R71](r71_skyway_pointer/README.md). Original fingertip misses reproduced; local left-offset preview preserves original controls and pixels. Painted-hand export is blocked pending destination-specific owner approval. No production or removal credit. [Tally](r71_skyway_pointer/tally.json) and [routing/history](CURRENT.json) supersede older current labels below.

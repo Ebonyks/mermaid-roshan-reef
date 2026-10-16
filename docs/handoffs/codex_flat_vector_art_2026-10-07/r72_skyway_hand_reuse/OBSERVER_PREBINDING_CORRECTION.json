@@ -1,0 +1,17 @@
+{
+  "status": "OBSERVER_PREBINDING_METADATA_CORRECTED",
+  "prior_script_sha256": "332eb7f7aea8d26fa75345e6396fb96d89d0f29439ee0b2272f94a3da19dad4c",
+  "scope": "Requested painted variant previously selected painted tip coordinates even in four pre-attachment original-flat entry snapshots. Pixel captures and post-binding cycles/input measurements are unaffected. All earlier painted trials are rejected/excluded; flag invalid pre-binding tip metadata rather than rewrite raw reports. Flat controls use original coordinates and are unaffected. New observer selects tip by actual texture+region state and records requested versus actual role.",
+  "affected_prior_cases": [
+    "attempt1_painted_1280",
+    "attempt2_painted_1280",
+    "attempt2_painted_1600"
+  ],
+  "invalid_tip_snapshot_ids": [
+    "04_skyway_entry",
+    "04_reuse_visible",
+    "06_reentry_skyway_entry",
+    "06_reentry_reuse_visible"
+  ],
+  "rerun": "attempt3_painted_1280 rechecks corrected metadata; same tight crop and original pixels, not a new art take or acceptance."
+}

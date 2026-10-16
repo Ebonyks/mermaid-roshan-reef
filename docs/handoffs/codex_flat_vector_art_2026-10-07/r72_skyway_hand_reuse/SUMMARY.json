@@ -1,0 +1,169 @@
+{
+  "revision": "FV-AUDIT-20261015-R72",
+  "stable_id": "FVR-47ADC102790E",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "native_cases": 7,
+  "healthy_native_checks": 322,
+  "bounded_control_cases": 2,
+  "bounded_control_checks": 92,
+  "rejected_painted_capture_cases": 5,
+  "distinct_reuse_crop_trials": 2,
+  "source_inspection_frames": 2,
+  "new_native_frames": 142,
+  "new_bounded_contexts": 40,
+  "new_excluded_diagnostics": 102,
+  "retained_bounded": 6122,
+  "retained_excluded": 3223,
+  "retained_native_events": 9345,
+  "known_roles": 243,
+  "families": 34,
+  "existing_partial_roles": 75,
+  "existing_partial_families": 15,
+  "supplemental_partial_roles": 19,
+  "catalogue_partial": 92,
+  "catalogue_without_current_slice": 84,
+  "catalogue_complete": 0,
+  "new_roles": 0,
+  "new_families": 0,
+  "new_alias_credits": 0,
+  "generation_calls": 0,
+  "new_drawing_samples": 0,
+  "new_runtime_assets": 0,
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_replacements": 0,
+  "accepted_removed": 0,
+  "new_reuse_candidates_awaiting_review": 0,
+  "rejected_reuse_candidates": 2,
+  "new_art_export_requests_blocked": 1,
+  "all_game_artwork_total": null,
+  "distinct_screen_total": null,
+  "regression_total": null,
+  "mission_complete": false,
+  "candidate_art_status": "REJECTED_REUSE_FOR_STANDALONE_CUE_QUALITY",
+  "original_flat_art_status": "UNCHANGED_AND_UNACCEPTED",
+  "source_garden_return_status": "FAIL_SOURCE_RETURN_CONTRACT_UNFIXED",
+  "new_art_request_status": "NEEDS_EXPLICIT_OWNER_IMAGEGEN_EXPORT_AUTHORIZATION_AFTER_FAILED_REUSE",
+  "gaps": [
+    "Two literal approved-region crops fail standalone hand quality: long forearm/cut wrist and limited native hand detail. Current imported VRAM compression adds measured loss. Original PNG lossless decode improves color/contour but does not repair the cut wrist or native detail. No pixel repaint or retouch.",
+    "Direct PNG ImageTexture quality trial is not export-ready: engine emits source-image export warning. A future lossless delivery/import path, asset/license/memory/device gates would need separate work; this does not accept either crop.",
+    "Reviewed current gesture family and exact original/native masters do not establish a higher-resolution standalone down-index hand. This finite relevant-source review is not exhaustive all-image acceptance.",
+    "R71 automatic approval rejection remains binding: no ImageGen export or generation until explicit destination-specific owner permission.",
+    "Source gardenBack/HUD, source opaque fallback/R70 background crop/nativequality, voice/othercallers/QA11/freshOS/device/child/owner/strict2D and unknown global inventory remain open"
+  ],
+  "cases": [
+    {
+      "case": "attempt1_painted_1280",
+      "hand_variant": "painted",
+      "classification": "EXCLUDED_REJECTED_PAINTED_REUSE_TRIAL",
+      "native_frames": 20,
+      "checks": 46,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "manifest_sha256": "31b85bf18c60e401612e7c1fd31f533ef4106158088ce6350d570d4fcc0d457a",
+      "hint_sha256": "eff4829aeb63226571de0874c347c3d355214ec0aa50f74ab552a579da9f20b2",
+      "prebinding_tip_metadata": "INVALID_IN_FOUR_PREBINDING_ENTRY_STATES_ONLY",
+      "aspect": [
+        1280,
+        720
+      ]
+    },
+    {
+      "case": "attempt2_flat_1280",
+      "hand_variant": "flat",
+      "classification": "BOUNDED_REGISTERED_FLAT_CONTROL",
+      "native_frames": 20,
+      "checks": 46,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "manifest_sha256": "483e71ac5704e200614b6b94a83a0af928e063fe86d0ea7a0db93dde49123d92",
+      "hint_sha256": "99ac2087f550108f32dbeaea27fd51b1c89afcff86680e022c4a9c7296f3810a",
+      "prebinding_tip_metadata": "ACTUAL_ASSET_COORDINATES_VALID",
+      "aspect": [
+        1280,
+        720
+      ]
+    },
+    {
+      "case": "attempt2_flat_1600",
+      "hand_variant": "flat",
+      "classification": "BOUNDED_REGISTERED_FLAT_CONTROL",
+      "native_frames": 20,
+      "checks": 46,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "manifest_sha256": "1afecdf0e1611410dbed07d4c0e3f6866eda1de45baa2e308dc5a89c48e1291f",
+      "hint_sha256": "d5173b56c664daadb2f5c003bcb53c2c3f3571156b5ba56818f93a2e736cae79",
+      "prebinding_tip_metadata": "ACTUAL_ASSET_COORDINATES_VALID",
+      "aspect": [
+        1600,
+        720
+      ]
+    },
+    {
+      "case": "attempt2_painted_1280",
+      "hand_variant": "painted",
+      "classification": "EXCLUDED_REJECTED_PAINTED_REUSE_TRIAL",
+      "native_frames": 20,
+      "checks": 46,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "manifest_sha256": "feb0546dd0c9922ca63cd7479f22c4d2321cb40bccba99cde88bf41cb3c877fe",
+      "hint_sha256": "0bbf0a01588a3139ab25343b697b99c07b2edd2e213c31015281228e826e4513",
+      "prebinding_tip_metadata": "INVALID_IN_FOUR_PREBINDING_ENTRY_STATES_ONLY",
+      "aspect": [
+        1280,
+        720
+      ]
+    },
+    {
+      "case": "attempt2_painted_1600",
+      "hand_variant": "painted",
+      "classification": "EXCLUDED_REJECTED_PAINTED_REUSE_TRIAL",
+      "native_frames": 20,
+      "checks": 46,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "manifest_sha256": "b1ace4363dac355a7513c25951ed6aebedf078b242bf6a40ddb96fd63451cad7",
+      "hint_sha256": "37aa9017f705e10c80cc9b6d589a61e02698d98057b9b02997d1a9620e13a41f",
+      "prebinding_tip_metadata": "INVALID_IN_FOUR_PREBINDING_ENTRY_STATES_ONLY",
+      "aspect": [
+        1600,
+        720
+      ]
+    },
+    {
+      "case": "attempt3_painted_1280",
+      "hand_variant": "painted",
+      "classification": "EXCLUDED_REJECTED_PAINTED_REUSE_TRIAL",
+      "native_frames": 20,
+      "checks": 46,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "manifest_sha256": "865300336c2e42317f28678254cf6831c530f0886506e69743605aa0ed700b51",
+      "hint_sha256": "014d536a6b26bc3c40a4a27ce37ae6feb7bb033e99a28df7fe3fbcfda4432abd",
+      "prebinding_tip_metadata": "ACTUAL_ASSET_COORDINATES_VALID",
+      "aspect": [
+        1280,
+        720
+      ]
+    },
+    {
+      "case": "attempt4_lossless_1280",
+      "hand_variant": "lossless",
+      "classification": "EXCLUDED_REJECTED_PAINTED_REUSE_TRIAL",
+      "native_frames": 20,
+      "checks": 46,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "manifest_sha256": "754b7f3d1eb78af526c259c1bbd311c4037747c55dc01da06b9e5d122db461ad",
+      "hint_sha256": "d902cd115077f1597e907558c460e64934436a1e6808dbe86aa21042df3dca95",
+      "prebinding_tip_metadata": "ACTUAL_ASSET_COORDINATES_VALID",
+      "aspect": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "distinct_decode_paths": 2
+}
