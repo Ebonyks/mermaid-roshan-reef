@@ -1,0 +1,445 @@
+{
+  "schema": "reef.named_game_payload_dispositions/1",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "topic_baseline": "d3d5124c2373d17bb835ae85f63044b6fd2dfbdc",
+  "entry_producers": [
+    {
+      "id": "FVE-585975C91EC2",
+      "source_call": {
+        "path": "scripts/day_one_flow.gd",
+        "function": "_day_one_drain_story_clips",
+        "line": 409,
+        "end_line": 409,
+        "guards": [
+          {
+            "kind": "if_branch",
+            "line": 406,
+            "condition_AST": "expr\n  getattr\n    m\n    .\n    _day_one_story_boss_start_pending"
+          },
+          {
+            "kind": "if_branch",
+            "line": 408,
+            "condition_AST": "expr\n  and_test\n    getattr_call\n      getattr\n        m\n        .\n        day_one_is_active\n    and\n    getattr\n      getattr_call\n        getattr\n          m\n          .\n          _day_one_ref\n      .\n      giant_dust_bunny_boss_triggered"
+          }
+        ],
+        "method": "_start_game",
+        "receiver_AST": "getattr\n  m\n  .\n  _start_game",
+        "argument_AST": [
+          "getattr\n  m\n  .\n  dust_boss_fr"
+        ],
+        "excerpt": "\t\t\tm._start_game(m.dust_boss_fr)",
+        "probe_or_test_filename": false
+      },
+      "source_initializer": {
+        "path": "scripts/main.gd",
+        "function": "<top>",
+        "line": 736,
+        "end_line": 736,
+        "guards": [],
+        "name": "dust_boss_fr",
+        "AST": "class_var_inf\n  dust_boss_fr\n  expr\n    dict\n      c_dict_element\n        string\t\"fname\"\n        string\t\"Dusty Attic\"\n      c_dict_element\n        string\t\"game\"\n        string\t\"dustboss\"\n      c_dict_element\n        string\t\"won\"\n        true\n      c_dict_element\n        string\t\"cool\"\n        0.0",
+        "literal_string_pairs": {
+          "fname": "Dusty Attic",
+          "game": "dustboss"
+        },
+        "probe_or_test_filename": false
+      },
+      "initializer_game_string": "dustboss",
+      "value_scope": "Mutable Main field initializer only; not an immutable runtime value guarantee",
+      "dispatch_boundary": "Direct named entry; _start_game uses synchronous _fade_cut callback",
+      "all_alias_mutations_closed": false,
+      "normal_route_runtime_verified": false,
+      "art_or_screen_credit": 0
+    },
+    {
+      "id": "FVE-26766CCAD85D",
+      "source_call": {
+        "path": "scripts/main.gd",
+        "function": "_on_day_one_hook_event",
+        "line": 6754,
+        "end_line": 6754,
+        "guards": [
+          {
+            "kind": "match_branch",
+            "line": 6745,
+            "condition_AST": "NO_DIRECT_CONDITION"
+          },
+          {
+            "kind": "else_branch",
+            "line": 6753,
+            "condition_AST": "NO_DIRECT_CONDITION"
+          }
+        ],
+        "method": "_start_game",
+        "receiver_AST": "self",
+        "argument_AST": [
+          "dust_boss_fr"
+        ],
+        "excerpt": "\t\t\t\t_start_game(dust_boss_fr)",
+        "probe_or_test_filename": false
+      },
+      "source_initializer": {
+        "path": "scripts/main.gd",
+        "function": "<top>",
+        "line": 736,
+        "end_line": 736,
+        "guards": [],
+        "name": "dust_boss_fr",
+        "AST": "class_var_inf\n  dust_boss_fr\n  expr\n    dict\n      c_dict_element\n        string\t\"fname\"\n        string\t\"Dusty Attic\"\n      c_dict_element\n        string\t\"game\"\n        string\t\"dustboss\"\n      c_dict_element\n        string\t\"won\"\n        true\n      c_dict_element\n        string\t\"cool\"\n        0.0",
+        "literal_string_pairs": {
+          "fname": "Dusty Attic",
+          "game": "dustboss"
+        },
+        "probe_or_test_filename": false
+      },
+      "initializer_game_string": "dustboss",
+      "value_scope": "Mutable Main field initializer only; not an immutable runtime value guarantee",
+      "dispatch_boundary": "Direct named entry; _start_game uses synchronous _fade_cut callback",
+      "all_alias_mutations_closed": false,
+      "normal_route_runtime_verified": false,
+      "art_or_screen_credit": 0
+    },
+    {
+      "id": "FVE-7D4A86EC46AA",
+      "source_call": {
+        "path": "scripts/main.gd",
+        "function": "_l2_start_slide",
+        "line": 7081,
+        "end_line": 7081,
+        "guards": [],
+        "method": "_start_game",
+        "receiver_AST": "self",
+        "argument_AST": [
+          "fr"
+        ],
+        "excerpt": "\t_start_game(fr)",
+        "probe_or_test_filename": false
+      },
+      "source_initializer": {
+        "path": "scripts/main.gd",
+        "function": "_l2_start_slide",
+        "line": 7079,
+        "end_line": 7079,
+        "guards": [],
+        "name": "fr",
+        "AST": "func_var_inf\n  fr\n  expr\n    dict\n      c_dict_element\n        string\t\"fname\"\n        string\t\"Rainbow Slide\"\n      c_dict_element\n        string\t\"won\"\n        true\n      c_dict_element\n        string\t\"game\"\n        string\t\"race\"\n      c_dict_element\n        string\t\"cool\"\n        0.0",
+        "literal_string_pairs": {
+          "fname": "Rainbow Slide",
+          "game": "race"
+        },
+        "probe_or_test_filename": false
+      },
+      "initializer_game_string": "race",
+      "value_scope": "Fresh local dictionary before call; no source-level alias exposure between initializer and call",
+      "dispatch_boundary": "Direct named entry; _start_game uses synchronous _fade_cut callback",
+      "all_alias_mutations_closed": false,
+      "normal_route_runtime_verified": false,
+      "art_or_screen_credit": 0
+    },
+    {
+      "id": "FVE-CDEFFB16B7C6",
+      "source_call": {
+        "path": "scripts/main.gd",
+        "function": "_end_galaxy",
+        "line": 2350,
+        "end_line": 2350,
+        "guards": [
+          {
+            "kind": "if_branch",
+            "line": 2347,
+            "condition_AST": "expr\tfairy_pending"
+          }
+        ],
+        "method": "call_deferred",
+        "receiver_AST": "self",
+        "argument_AST": [
+          "string\t\"_start_game\"",
+          "fairy_fr"
+        ],
+        "excerpt": "\t\tcall_deferred(\"_start_game\", fairy_fr)   # straight into the fairy flight",
+        "selector": "_start_game",
+        "classification": "Object literal selector candidate; normal entry still unproved",
+        "probe_or_test_filename": false
+      },
+      "source_initializer": {
+        "path": "scripts/main.gd",
+        "function": "<top>",
+        "line": 738,
+        "end_line": 738,
+        "guards": [],
+        "name": "fairy_fr",
+        "AST": "class_var_inf\n  fairy_fr\n  expr\n    dict\n      c_dict_element\n        string\t\"fname\"\n        string\t\"Fairy Pond\"\n      c_dict_element\n        string\t\"game\"\n        string\t\"fairyshoot\"\n      c_dict_element\n        string\t\"won\"\n        true\n      c_dict_element\n        string\t\"cool\"\n        0.0",
+        "literal_string_pairs": {
+          "fname": "Fairy Pond",
+          "game": "fairyshoot"
+        },
+        "probe_or_test_filename": false
+      },
+      "initializer_game_string": "fairyshoot",
+      "value_scope": "Mutable Main field initializer only; not an immutable runtime value guarantee",
+      "dispatch_boundary": "Outer Object.call_deferred queues entry; _start_game then uses synchronous _fade_cut callback",
+      "all_alias_mutations_closed": false,
+      "normal_route_runtime_verified": false,
+      "art_or_screen_credit": 0
+    }
+  ],
+  "slide_named_callers": [
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "function": "_tick_level2",
+      "line": 2554,
+      "end_line": 2554,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 2543,
+          "condition_AST": "expr\n  and_test\n    asless_actual_not_test\n      not\n      explicit_touch\n    and\n    asless_comparison\n      getattr\n        m\n        .\n        mg_cool\n      <=\n      0.0\n    and\n    asless_comparison\n      getattr\n        m\n        .\n        mg_kind\n      ==\n      string\t\"\"\n    and\n    getattr\n      m\n      .\n      l2_open"
+        },
+        {
+          "kind": "if_branch",
+          "line": 2548,
+          "condition_AST": "expr\n  and_test\n    comparison\n      getattr_call\n        getattr\n          standalone_call\n            Vector2\n            arith_expr\n              getattr\n                wpp\n                .\n                x\n              -\n              getattr\n                ppos\n                .\n                x\n            arith_expr\n              getattr\n                wpp\n                .\n                z\n              -\n              getattr\n                ppos\n                .\n                z\n          .\n          length\n      <\n      3.5\n    and\n    asless_comparison\n      standalone_call\n        absf\n        arith_expr\n          getattr\n            wpp\n            .\n            y\n          -\n          getattr\n            ppos\n            .\n            y\n      <\n      9.0"
+        },
+        {
+          "kind": "if_branch",
+          "line": 2550,
+          "condition_AST": "expr\n  comparison\n    standalone_call\n      float\n      subscr_expr\n        dw\n        akey\n    >=\n    0.6"
+        },
+        {
+          "kind": "if_branch",
+          "line": 2553,
+          "condition_AST": "expr\n  comparison\n    akey\n    ==\n    string\t\"p_slide\""
+        }
+      ],
+      "method": "_l2_start_slide",
+      "receiver_AST": "getattr\n  m\n  .\n  _l2_start_slide",
+      "argument_AST": [],
+      "excerpt": "\t\t\t\t\t\tm._l2_start_slide()",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg2d_open",
+      "line": 18,
+      "end_line": 18,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 17,
+          "condition_AST": "expr\n  comparison\n    kind\n    ==\n    string\t\"slide\""
+        }
+      ],
+      "method": "_l2_start_slide",
+      "receiver_AST": "getattr\n  m\n  .\n  _l2_start_slide",
+      "argument_AST": [],
+      "excerpt": "\t\tm._l2_start_slide()   # the rainbow slide uses the full Lagoon playground, never the retired card screen",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_touch_open_picture",
+      "line": 4850,
+      "end_line": 4850,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 4849,
+          "condition_AST": "expr\n  comparison\n    art_key\n    ==\n    string\t\"p_slide\""
+        }
+      ],
+      "method": "_l2_start_slide",
+      "receiver_AST": "self",
+      "argument_AST": [],
+      "excerpt": "\t\t_l2_start_slide()",
+      "probe_or_test_filename": false
+    }
+  ],
+  "field_references_non_test": [
+    {
+      "path": "scripts/day_one_flow.gd",
+      "function": "_day_one_drain_story_clips",
+      "line": 409,
+      "end_line": 409,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 406,
+          "condition_AST": "expr\n  getattr\n    m\n    .\n    _day_one_story_boss_start_pending"
+        },
+        {
+          "kind": "if_branch",
+          "line": 408,
+          "condition_AST": "expr\n  and_test\n    getattr_call\n      getattr\n        m\n        .\n        day_one_is_active\n    and\n    getattr\n      getattr_call\n        getattr\n          m\n          .\n          _day_one_ref\n      .\n      giant_dust_bunny_boss_triggered"
+        }
+      ],
+      "name": "dust_boss_fr",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "if_stmt",
+        "if_branch",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "<top>",
+      "line": 736,
+      "end_line": 736,
+      "guards": [],
+      "name": "dust_boss_fr",
+      "AST_parent": "class_var_inf",
+      "ancestor_kinds": [
+        "start",
+        "class_var_stmt"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "<top>",
+      "line": 738,
+      "end_line": 738,
+      "guards": [],
+      "name": "fairy_fr",
+      "AST_parent": "class_var_inf",
+      "ancestor_kinds": [
+        "start",
+        "class_var_stmt"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_end_galaxy",
+      "line": 2350,
+      "end_line": 2350,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 2347,
+          "condition_AST": "expr\tfairy_pending"
+        }
+      ],
+      "name": "fairy_fr",
+      "AST_parent": "standalone_call",
+      "ancestor_kinds": [
+        "func_def",
+        "if_stmt",
+        "if_branch",
+        "expr_stmt",
+        "expr"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_on_day_one_hook_event",
+      "line": 6754,
+      "end_line": 6754,
+      "guards": [
+        {
+          "kind": "match_branch",
+          "line": 6745,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        },
+        {
+          "kind": "else_branch",
+          "line": 6753,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        }
+      ],
+      "name": "dust_boss_fr",
+      "AST_parent": "standalone_call",
+      "ancestor_kinds": [
+        "match_branch",
+        "if_stmt",
+        "else_branch",
+        "expr_stmt",
+        "expr"
+      ],
+      "probe_or_test_filename": false
+    }
+  ],
+  "field_literal_property_access": [],
+  "fade_callback": {
+    "function_evidence": {
+      "path": "scripts/main.gd",
+      "function": "_fade_cut",
+      "line": 3033,
+      "end_line": 3053,
+      "text": "func _fade_cut(cb: Callable) -> void:\n\t# Visual cover for a synchronous heavy world rebuild. PROBE SAFETY: the\n\t# rebuild must happen in THIS call chain \u2014 probes call these entry points\n\t# and assert state a frame or two later, so cb is never tween-deferred.\n\t# Snap the cover to full black, run the build under it in the same frame,\n\t# then tween only the reveal. State timing is byte-identical to before.\n\t_prepare_touch_transition()\n\tif fade_rect == null:\n\t\tcb.call()\n\t\t_finish_touch_transition()\n\t\treturn\n\tfade_rect.mouse_filter = Control.MOUSE_FILTER_STOP\n\tfade_rect.modulate.a = 1.0\n\tcb.call()\n\t_populate_touch_interactables()\n\tif fade_tween != null and fade_tween.is_valid():\n\t\tfade_tween.kill()\n\tfade_tween = create_tween()\n\tfade_tween.tween_property(fade_rect, \"modulate:a\", 0.0, 0.25)\n\tfade_tween.tween_callback(_finish_touch_transition)\n",
+      "probe_or_test_filename": false
+    },
+    "start_function_evidence": {
+      "path": "scripts/main.gd",
+      "function": "_start_game",
+      "line": 7871,
+      "end_line": 7873,
+      "text": "func _start_game(fr: Dictionary) -> void:\n\t_fade_cut(_start_game_now.bind(fr))\n",
+      "probe_or_test_filename": false
+    },
+    "entry_read_and_alias_storage": {
+      "path": "scripts/main.gd",
+      "line": 7874,
+      "first_lines": [
+        "func _start_game_now(fr: Dictionary) -> void:",
+        "\tgame = String(fr[\"game\"])",
+        "\tg = {\"fr\": fr, \"t\": 0.0, \"timer\": -1.0}",
+        "\tif game == \"slide\":",
+        "\t\t# _enter_arena must know the exact route before it decides whether to build",
+        "\t\t# and teleport into a spatial arena. Penguin chase remains mode=\"chase\".",
+        "\t\tg[\"mode\"] = String(fr.get(\"mode\", \"fish\"))",
+        "\t_enter_arena(game)"
+      ]
+    },
+    "source_conclusion": "Both source branches call cb.call() in the current call chain; only reveal and _finish_touch_transition are tweened. Fairy outer defer is separate.",
+    "generic_language_evidence": "SEMANTIC_PROOF.json",
+    "production_fade_executed_here": false
+  },
+  "picture_selector": {
+    "touch_source": {
+      "path": "scripts/main.gd",
+      "function": "_touch_open_picture",
+      "line": 4844,
+      "end_line": 4853,
+      "text": "func _touch_open_picture(picture_index: int) -> void:\n\tif picture_index < 0 or picture_index >= wall_pics.size():\n\t\treturn\n\tvar picture: Dictionary = wall_pics[picture_index]\n\tvar art_key: String = String(picture.get(\"art\", \"\"))\n\tif art_key == \"p_slide\":\n\t\t_l2_start_slide()\n\telif PIC_GAME.has(art_key):\n\t\t_mg2d_open(String(PIC_GAME[art_key]))\n",
+      "probe_or_test_filename": false
+    },
+    "picture_games_source": {
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg2d_open",
+      "line": 14,
+      "end_line": 94,
+      "text": "func _mg2d_open(kind: String) -> void:\n\tif m.mg_kind != \"\":\n\t\treturn\n\tif kind == \"slide\":\n\t\tm._l2_start_slide()   # the rainbow slide uses the full Lagoon playground, never the retired card screen\n\t\treturn\n\tm._navigation_push(\"picture_game\", self,\n\t\tCallable(self, \"_mg2d_close\"))\n\topen_generation += 1\n\tm._set_world_controls_enabled(false, \"picture_game\")\n\tm.mg_kind = kind\n\tm.mg = {\"t\": 0.0, \"btns\": [], \"music_return\": m.cur_track}\n\tm._play_music(\"picture_\" + kind)\n\tif m.mg2d_layer == null:\n\t\tm.mg2d_layer = CanvasLayer.new()\n\t\tm.mg2d_layer.layer = 7\n\t\tm.add_child(m.mg2d_layer)\n\tm.mg2d_root = Control.new()\n\tm.mg2d_root.set_anchors_preset(Control.PRESET_FULL_RECT)\n\tm.mg2d_layer.add_child(m.mg2d_root)\n\tm.mg2d_layer.visible = true\n\t# clean themed gradient background (no busy book page behind the toys)\n\tvar themes := {\n\t\t\"snowman\": [Color(0.50, 0.66, 0.86), Color(0.88, 0.94, 1.0)],\n\t\t\"garden\": [Color(0.45, 0.78, 0.95), Color(0.7, 0.92, 0.6)],\n\t\t\"trampoline\": [Color(0.45, 0.72, 1.0), Color(0.86, 0.95, 1.0)],\n\t\t\"slide\": [Color(0.55, 0.7, 1.0), Color(1.0, 0.85, 0.92)],\n\t\t\"xmas\": [Color(0.10, 0.18, 0.30), Color(0.25, 0.40, 0.48)]}\n\tvar grad := Gradient.new()\n\tgrad.set_color(0, themes[kind][0])\n\tgrad.set_color(1, themes[kind][1])\n\tvar gt := GradientTexture2D.new()\n\tgt.gradient = grad\n\tgt.fill_from = Vector2(0, 0)\n\tgt.fill_to = Vector2(0, 1)\n\tgt.width = 64\n\tgt.height = 64\n\tvar bg := TextureRect.new()\n\tbg.texture = gt\n\tbg.set_anchors_preset(Control.PRESET_FULL_RECT)\n\tbg.stretch_mode = TextureRect.STRETCH_SCALE\n\tm.mg2d_root.add_child(bg)\n\t# responsive 1280x720 stage, scaled + centred to any screen (fixes landscape)\n\tm.mg2d_stage = Control.new()\n\tm.mg2d_stage.size = Vector2(1280, 720)\n\tvar vp: Vector2 = m.get_viewport().get_visible_rect().size\n\tvar sc: float = minf(vp.x / 1280.0, vp.y / 720.0)\n\tm.mg2d_stage.scale = Vector2(sc, sc)\n\tm.mg2d_stage.position = (vp - Vector2(1280, 720) * sc) * 0.5\n\tm.mg2d_root.add_child(m.mg2d_stage)\n\t# All picture-game feedback lives above the play pieces on this stage. The\n\t# layer and every tween below it die with the stage on close or re-entry.\n\tvar feedback_layer := Control.new()\n\tfeedback_layer.name = \"PictureGameFeedbackLayer\"\n\tfeedback_layer.size = m.mg2d_stage.size\n\tfeedback_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\tfeedback_layer.z_index = 20\n\tm.mg2d_stage.add_child(feedback_layer)\n\tm.mg[\"feedback_layer\"] = feedback_layer\n\tm.mg[\"feedback_tweens\"] = []\n\tm.mg[\"feedback_events\"] = {}\n\tvar header := StorybookUI.add_hud_panel(m.mg2d_stage,\n\t\tRect2(24, 18, 880, 112), StorybookUI.PURPLE,\n\t\tColor(0.94, 0.98, 1.0, 0.97), 34)\n\theader.name = \"PictureGameStorybookHeader\"\n\tStorybookUI.add_shell_crest(header, Rect2(20, 27, 82, 60),\n\t\t\"PictureGameShellCrest\")\n\t# Word-wrapped labels need an explicit content box; an empty label starts\n\t# at zero width and otherwise displays the later objective one letter wide.\n\tvar objective := _mg_label(\"\", 34, Vector2(138, 30))\n\tobjective.size = Vector2(734, 88)\n\tobjective.vertical_alignment = VERTICAL_ALIGNMENT_CENTER\n\tm.mg[\"hud\"] = objective\n\tm.mg[\"xbtn\"] = null\n\tif kind == \"snowman\": _mg_build_snowman()\n\telif kind == \"garden\": _mg_build_garden()\n\telif kind == \"trampoline\": _mg_build_trampoline()\n\telif kind == \"slide\": _mg_build_slide()\n\telif kind == \"xmas\": _mg_build_xmas()\n\n",
+      "probe_or_test_filename": false
+    },
+    "table_literal": "PIC_GAME[\"p_slide\"] = \"slide\"",
+    "special_branch_payload": "_l2_start_slide local fr[\"game\"] = \"race\"",
+    "conclusion": "Named p_slide touch and legacy dwell branches use race payload; _mg2d_open(\"slide\") redirects before retired picture canvas creation. A table suffix does not establish an actual slide-labelled screen.",
+    "actual_child_route_verified": false,
+    "global_old_slide_unreachable": false
+  },
+  "open_edges": [
+    {
+      "id": "FVE-OPEN-MUTABLE",
+      "gap": "Main fields and g[fr] dictionaries are references; reflected variable selectors, alias/native writes and reentrant callback effects are not a closed value domain."
+    },
+    {
+      "id": "FVE-OPEN-REACH",
+      "gap": "Three named slide callers and four entry sites are source-bound; wall_pics producers, real child triggers, runtime/resource/native/debug ownership and complete entry/exit/state coverage remain open."
+    },
+    {
+      "id": "FVE-OPEN-GAME",
+      "gap": "Other direct game writers from R57 and later source remain separate; three initializer tags are not the whole game domain or catalogue denominator."
+    },
+    {
+      "id": "FVE-OPEN-VISUAL",
+      "gap": "No new scene captures, congruency review, production repair, QA11/device/child/owner or zero-art acceptance."
+    }
+  ],
+  "allcaller_closure": false,
+  "artwork_removed": 0
+}

@@ -1,0 +1,106 @@
+{
+  "id": "flat-vector-game-payload-20261016",
+  "scope": "R78 bounded current-source game-entry payload audit. Parse all current scripts from exact Git blobs; inventory named/reflective literal _start_game/_start_game_now/_l2_start_slide/_touch_open_picture call/ref sites and two dictionary fields. Bind the four named non-test entry sites to two mutable field initializers and one local literal. Distinguish synchronous _fade_cut callback from outer Fairy deferred dispatch and p_slide special branch from PIC_GAME table. Test Dictionary/Callable reference semantics only in an isolated no-Main/no-world headless fixture at official4.7.2; source/body proof remains separate from generic language proof. No forced game tags, gameplay/world capture or production code/art changes; unknown aliases/dynamic/native paths and whole-game totals stay open. No new generation/external art export; preserve frozen root5, approved sources, save contents and all prior evidence.",
+  "baseline": "d3d5124c2373d17bb835ae85f63044b6fd2dfbdc",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-09",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-09",
+    "DL-QA-10",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-DOC-007",
+    "MA-2D-002"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-game-payload-20261016.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/.gitattributes",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/CALLER_DISPOSITIONS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/CURRENT_KNOWN_ROLE_UNION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/CURRENT_PARTIAL_CONTEXT_UNION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/DELIVERY_SOURCE_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/DELIVERY_TRANSPORT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/REPRODUCTION_CHECK.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/SEMANTIC_LAUNCH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/SEMANTIC_PROOF.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/SEMANTIC_SOURCE_GUARD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/SOURCE_PAYLOAD_GRAPH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/SOURCE_TESTS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/UPSTREAM_FRESHNESS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/WORK_IN_PROGRESS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/bounded_json.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/build_manifest.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/gates.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/payload_semantics.gd",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/scan_game_payload.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/test_game_payload.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/validate.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/verify_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "python -B r78/scan_game_payload.py and reproducibility comparison",
+      "result": "PASS",
+      "evidence": "SOURCE_PAYLOAD_GRAPH/CALLER_DISPOSITIONS, SOURCE_TESTS15/SEMANTIC_PROOF13, exact byte reproduction and scoped validate.py PASS. No runtime/scene/art/acceptance claim."
+    },
+    {
+      "command": "python -B r78/test_game_payload.py",
+      "result": "PASS",
+      "evidence": "SOURCE_PAYLOAD_GRAPH/CALLER_DISPOSITIONS, SOURCE_TESTS15/SEMANTIC_PROOF13, exact byte reproduction and scoped validate.py PASS. No runtime/scene/art/acceptance claim."
+    },
+    {
+      "command": "official Godot4.7.2 headless payload_semantics.gd; hash-only11 guard",
+      "result": "PASS",
+      "evidence": "SOURCE_PAYLOAD_GRAPH/CALLER_DISPOSITIONS, SOURCE_TESTS15/SEMANTIC_PROOF13, exact byte reproduction and scoped validate.py PASS. No runtime/scene/art/acceptance claim."
+    },
+    {
+      "command": "python -B r78/validate.py",
+      "result": "PASS",
+      "evidence": "SOURCE_PAYLOAD_GRAPH/CALLER_DISPOSITIONS, SOURCE_TESTS15/SEMANTIC_PROOF13, exact byte reproduction and scoped validate.py PASS. No runtime/scene/art/acceptance claim."
+    },
+    {
+      "command": "document authority/development54unit/6stress and actual staged+committed2D regression gates",
+      "result": "PENDING",
+      "evidence": "Document authority/development54tests/6stress PASS. Actual staged/committed2D required before each push, not yet claimed."
+    },
+    {
+      "command": "anonymous exact immutable manifest and every required file/final metadata verification",
+      "result": "PENDING",
+      "evidence": "Planned; no PASS or runtime/acceptance claim."
+    }
+  ],
+  "acceptance_gaps": "No production repair or new visual context. Global denominator, game value aliases/native/dynamic/caller closure, current complete routes/screens, QA11/runtime/device/child/owner and accepted-removal evidence remain open."
+}

@@ -1,0 +1,4626 @@
+{
+  "schema": "reef.game_payload_source_graph/1",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "scanner_sha256": "d14025e440719d84a67185eae507e2c08c5933da04a94849b01720da5fb63bbd",
+  "parser_version": "4.5.0",
+  "target_names": [
+    "_l2_start_slide",
+    "_start_game",
+    "_start_game_now",
+    "_touch_open_picture"
+  ],
+  "files": [
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 48767,
+      "sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 243732,
+      "sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 29438,
+      "sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10369,
+      "sha256": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2548,
+      "sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10043,
+      "sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14672,
+      "sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/arena/northern_kingdom.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 75975,
+      "sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 135470,
+      "sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 73828,
+      "sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11752,
+      "sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 31745,
+      "sha256": "35ccacfec6860ceb984a5f91c6f8532f643d75c5739efa1f8f825164b175b76e",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/boot_splash_overlay.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1586,
+      "sha256": "d90b8692f1632eedcd957a6ca46539aa3ad85b87d3abe93c20cd9cfc0dc64b0d",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/boss_encounter_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4152,
+      "sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9032,
+      "sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/camera_kit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8461,
+      "sha256": "ec980456ed35789e273ea7b28964e63959277ecc61eb8438251bfe012bb0927b",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15000,
+      "sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6242,
+      "sha256": "da2d19422b20b6a8cce724a441e09db80f4ac105757a4131233920054ac79c94",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2664,
+      "sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 19430,
+      "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 22903,
+      "sha256": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 38925,
+      "sha256": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3611,
+      "sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 35950,
+      "sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 25519,
+      "sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2887,
+      "sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 23340,
+      "sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6208,
+      "sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4138,
+      "sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/chapter_two_voice_catalog.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2729,
+      "sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 16314,
+      "sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 44298,
+      "sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11873,
+      "sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 25280,
+      "sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 65658,
+      "sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13414,
+      "sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21869,
+      "sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7540,
+      "sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4954,
+      "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/day_one_contextual_voice_catalog.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 39205,
+      "sha256": "c14e8403fb36e82b2a3c6eb20eb0d5839424707046c64c3ded52893918ada75b",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 29053,
+      "sha256": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17269,
+      "sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/day_one_story_clips.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8389,
+      "sha256": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/day_two_transition_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17434,
+      "sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/debug_export_stage_pathfinding.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 25281,
+      "sha256": "771e7d06e7b7ed206bb8ae23d056f55dfbabe39aff28246ad260d716a8203736",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/dev_mode.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 48385,
+      "sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7418,
+      "sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9176,
+      "sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 22095,
+      "sha256": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4759,
+      "sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10814,
+      "sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/dust_bunny_ai.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3015,
+      "sha256": "129f1fb65b4854b6fbd481932883a5240c9dc289aa985cb2ba258d3e3025c55b",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12899,
+      "sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/dust_bunny_sprite.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4332,
+      "sha256": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 51545,
+      "sha256": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/encounter_attack_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 716,
+      "sha256": "f427ccd622a7bde0308998976bba7141a7b6b8bdc21e4fa562537af014617bed",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/encounter_contract_checks.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10066,
+      "sha256": "910c876867420ddf2b1e9249512910c0838894285e3d07af755ce82195aae639",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3050,
+      "sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/encounter_navigation_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2735,
+      "sha256": "e8d0fc1913b781fe0494a11dc2e642b7088c27d3f12077e81c950171e0819e71",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/encounter_patterns_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6506,
+      "sha256": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/encounter_phase_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 326,
+      "sha256": "b78240e2844a33dc55d021286ef612b344ee8022701de7324f0732d53c36ddda",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/encounter_profile_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2079,
+      "sha256": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6553,
+      "sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/encounter_warning_cue_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1144,
+      "sha256": "750a09cad16bd8517551aab6b091d37f2d76bcb0b517b4d51ce0c553e2b2fb59",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21759,
+      "sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fashion_designer.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8785,
+      "sha256": "f3c6165baa08f6e99f21d4d02782d1b1f1658ad348aae0e79a4f79740442165d",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fashion_designer_test_case.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8406,
+      "sha256": "9dcbba0a3ffd837db69b702e03a0262987c1b6abb7447e76cbc302dceb777d22",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fashion_dressing_input.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5196,
+      "sha256": "45d02a87cf842a5deb427f15269f776cb4c430b0272ceea7add8d037df7ceadf",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1096,
+      "sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6931,
+      "sha256": "d5b440608b63510446196233ef5fb559c006b0a90c5dcee74516e84dba5e1cfc",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fashion_parts_test_case.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9524,
+      "sha256": "27399d2be439afe62e653b9d484cb36a28828412e1cd50a950af5a7d8b750351",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fashion_skin_catalog.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 160,
+      "sha256": "c71d558cff766d25cd7835657f7e0e10ebe268d8e74a7b4c2e083b8b28adf548",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7240,
+      "sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fashion_skin_engine_test_case.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9462,
+      "sha256": "dc77bc632c87a4587f24fcd317d3e185f833fa1e822f049a558eed69c90648ed",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12825,
+      "sha256": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/fx_water.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12218,
+      "sha256": "e33ff31788951f89715cc926cbbfc9a05bb8e6324b76c9e0137ce2b658f5d4c0",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 73159,
+      "sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/brawl.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 22123,
+      "sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17044,
+      "sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36313,
+      "sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36097,
+      "sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8553,
+      "sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9785,
+      "sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3856,
+      "sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 28592,
+      "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13306,
+      "sha256": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 42786,
+      "sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 243,
+      "sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/fairy.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 30308,
+      "sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/fetch.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14405,
+      "sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 42980,
+      "sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/octagon_stage.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15858,
+      "sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 32556,
+      "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 22256,
+      "sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 22079,
+      "sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 20079,
+      "sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/seek.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 23600,
+      "sha256": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17821,
+      "sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 42173,
+      "sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/slide_race.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 68216,
+      "sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/games/treasure.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4905,
+      "sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/hit_engine.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36221,
+      "sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/imp_ai.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 20764,
+      "sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/interaction_affordance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4599,
+      "sha256": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/interaction_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8800,
+      "sha256": "22d206cc7e278b9e46557f20d358e0fd80b3dec26fae61bf6d2f51aedd86c5ab",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7412,
+      "sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/juice.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4139,
+      "sha256": "a356054344800d52edddb531108cd50f6d941582ea44d123b8397d5663de0fb4",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 128753,
+      "sha256": "0c5ce86e7361ea04287ba322709461a4a9feb84603307cefa20f7d55b4ea5caa",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5116,
+      "sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/landmark_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10065,
+      "sha256": "01e8e9bb7332ab76decfa093a98ed6b1940e8d9b424221fd8b27a9591ea300e0",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/light_rig.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6085,
+      "sha256": "09e97441be4aa77a390e813298d1848a5d5f5c291d2efbcbf706cf10e3611551",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/living_world.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14317,
+      "sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14155,
+      "sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 33453,
+      "sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 370863,
+      "sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12895,
+      "sha256": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/mic_input.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 24216,
+      "sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3749,
+      "sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7685,
+      "sha256": "9e2fa238b904db3b0548f3b76ddd647f6e27934f4a3148da3c893b04ccf135a3",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 25366,
+      "sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 27480,
+      "sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 241013,
+      "sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11406,
+      "sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_competition.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8801,
+      "sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 33298,
+      "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 242776,
+      "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 25931,
+      "sha256": "713a43c5e2245f5dd4496a1a1909a5ba7c3bbd6961ebe4a8dd3db34e89b57222",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17056,
+      "sha256": "5b13d622520753a2682aba0a834cd397475e1695d3f6d235a7700e2e2a3e088c",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 18361,
+      "sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_imp_clips.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3293,
+      "sha256": "e061de84be9831d4e9662c11d3440461078c505b4b1484d499fdf1fa37df0797",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6331,
+      "sha256": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7933,
+      "sha256": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9606,
+      "sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7696,
+      "sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1533,
+      "sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 18753,
+      "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6876,
+      "sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 905,
+      "sha256": "dd353ac7377557900f15d3b98a317f8ad5da33a5f6d4d0b4635f8b50740ecad4",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 48376,
+      "sha256": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15132,
+      "sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14435,
+      "sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 26218,
+      "sha256": "37a9bf06e2c2b777086543ca48fb54b3634ccc8d5a1620a6f03668e6dff0e740",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14689,
+      "sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/painter/painter_document.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6373,
+      "sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/painter/painter_guided_probe.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5671,
+      "sha256": "356738628280b63dcb6885726538f85033267386f123bb1c7f0672188e3bb5a0",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/painter/painter_probe.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10991,
+      "sha256": "288ce1900225597006e16c2ddc23ddf8990df131ad9d5b5b4162daea5f8aee9c",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/painter/painter_studio.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17837,
+      "sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/painter/painter_template.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3614,
+      "sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/painter/vendor/painter_flood_fill.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5888,
+      "sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/partner_assist.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3506,
+      "sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13628,
+      "sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/physics.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13998,
+      "sha256": "39a8a3ecf72e79ff797d2f6eb067ad3d186626a282d044af6f8ce64a57a78cce",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/player.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 47872,
+      "sha256": "91ae8a4e9dccc090c7e1ce86bbec387ff8c761951e794e9d93b3c753be7c49b8",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 467,
+      "sha256": "ea448c210f0f9bd5e72192c98678129037c27c3da6340f130046f9c0c4d3eedb",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_alpha_milestone_save.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5058,
+      "sha256": "a489a5b8221e2c658183ae745ef803c0622889f6791c16c69e190c6f5382ff27",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_anim_lab.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1402,
+      "sha256": "d3f4c44ba6ea48d8be715566f5c19cf9397fb304fce7891aaa96d7e88dc9cfde",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_aq_ref.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1690,
+      "sha256": "96eb39b2ac7347c045f6c950c8c0dc3e058af9594284e5480156c0905f3b35bd",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_aquatic2.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3008,
+      "sha256": "ec5c083cb87192192d34bef61909446f4e2507371fd171fb27761144b816fd1d",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15455,
+      "sha256": "bed079ec48075b154715101d6bd61ac700590c32d43c8cb5265476ee9370258c",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_art_manifest.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13089,
+      "sha256": "0e12eb251a3ad47bb0d6e67885c32b08995f36effbd1c37c6826b83ef6fa7324",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_audio.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5889,
+      "sha256": "14360c356e8f1b3034fed30bd4cb7cde35adc4754ebfee83c882843a39e2ae78",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 258006,
+      "sha256": "79ef070b36b4188c2995a9dab0e0df99efd7469937267b4ac49cd58e2bd0d4cb",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_basement.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10323,
+      "sha256": "93c9559622c211bc2b838343bc415978a78e904cbfe5e5608fd0152eaf1a9358",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_bathroom_integration.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 37255,
+      "sha256": "9ece4ba9b7c3ab0cea901cc8586e0bc9c492cf42acd24f6c5c4e5358bfaab2e2",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_bathroom_props.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3859,
+      "sha256": "e054e3e0dfecfac60092a0d53af9561aeddc25dc875769f6249273fc9b21e73f",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_boot_display.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6592,
+      "sha256": "6789deb6af82abfe5c5007610c7da5f60a56ddd62edbb602c938decac1096130",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_camera.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6765,
+      "sha256": "6ed68fd06bbd30e0823dfceada40eaa260e1a93e96dc62c673db98e3daabb424",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_castle_cam.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6137,
+      "sha256": "5f20a771fe3c628af84ce1647bc52d70df55fa551a745bf6895139fbbe2ba5e5",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_castle_canvas2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 20101,
+      "sha256": "a62ceb2931cb0cf1ff015f9144b99f9a9a41ee5d684f3498059b5b647a8242d7",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_castle_door_language.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9813,
+      "sha256": "75918e67face762686ad8cabd5ad01c5442bc2cfeb89640b9ed68fd7ffc12e75",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_castle_door_visual_capture.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8379,
+      "sha256": "9e7b9eecc256d9a5a142609653b70fa80c570723ca00546402961ebad25f3fb7",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_castle_mobile_capture.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8643,
+      "sha256": "6ef116981f77ac4546045d7d354554a48356bd2a1e2e19639838eb6163609126",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_castle_pearl_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 256,
+      "sha256": "718266c7d3073b88f864b2d3c391afbef9eb2096b80a1e59d459b9b73719386f",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_castle_pool_life_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3915,
+      "sha256": "e3a6118904c327625625f86f948014133ed9cb8a3686a818424d5bd80f232708",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_castle_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3041,
+      "sha256": "5d8cfc789564a5a2bfec70e1121d632e159eaaf44d59033fe7b17f55f285999e",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_castle_shots_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6199,
+      "sha256": "7f2c3a74daad7d28577298caccc2ca98861c8674a576c4dfe0f76d5c2b25d03b",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 92096,
+      "sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_chapter2_farmer_resume.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21779,
+      "sha256": "391476ed0a7603a2c972ebe4c9e6e5d4c3ffa5732ad411249bae0a00b361df2a",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_chapter2_lawn.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12454,
+      "sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_chuck.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1950,
+      "sha256": "1ced289dca74a3f847ff8968d4925b53becf53a5e90d80a274c7b624138ce759",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_collection.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3475,
+      "sha256": "c071175071874f16572bdb3cba940088415c830e4c77b38404b672643197956c",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_combat.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9009,
+      "sha256": "48c87ff11aa0749598067207371c06b7963bbf2e3fbde34eb0c1ebf1d3ba4793",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_combat_tutorial.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10876,
+      "sha256": "011fd3503929e53059c4abf93cbbc41eaeacd813415ce3db44f77f2770410630",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_creatures.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1964,
+      "sha256": "1c8456acf2f44413c109ffc67714959e7d900c8fdaeaac3b4c461522d94af033",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_crown.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 33021,
+      "sha256": "2b1deb2cb1fa71fac67fa9b331408cb68bf4ed2a0a5ebaece439f538d5c47b24",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_dance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3125,
+      "sha256": "91d6ab9f51863709cb754569ddc1398da70513f5279b927e4d67d0bc77b2b29b",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_art_attack_state.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13143,
+      "sha256": "49361c6470bd8aa137af417e03aa14e9d0038ac907af05303ea3cf6dbe279ed3",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_art_studio_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3886,
+      "sha256": "0a9dc0cd4d4b1502cc7ecf2d4ff819773a7a43bc05f330bd87fb367dd9b5873a",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_bunny.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14017,
+      "sha256": "11572f42eaefe255f8682b6960da694a56518c23b8937311548c24a959684895",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36174,
+      "sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_integration.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9075,
+      "sha256": "e0ad83990468fb3506fe46319fae32894cec45f85c5f01bf736e2f60dc087cac",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_movie_handoff.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5618,
+      "sha256": "a12cb8aff301348284b86faa6ef07064abdcfb6bebd7b1f5daaf383001cba305",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12210,
+      "sha256": "069bb0daf6dcaa274c95f4a81cad4c4fc678cc2e53cec9b6d746a4b24f931a16",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_castle_dressing.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5841,
+      "sha256": "cbdfbe8cca0c92c78dd5562e66f73cf07e2e2091db877b2016f3411119143c82",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_contextual_voice.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3172,
+      "sha256": "9167f0095236e9966fc53d9ebdab5949d44082e91e6a03c46dd57e770cef1b18",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_d8_revisits.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4238,
+      "sha256": "aee7b1ad437ded36aaf1c7c517e6e2fbe1151b329e4af1e1f0dbe1222796ae3f",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8414,
+      "sha256": "3385a3a3c38c075126075d290c8def3a65118b2859670b183fa6416a764586e0",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_handoffs.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3810,
+      "sha256": "f19c9e76056c61cf8136a26e1027f4b907d6377f433ca7aa02ab06260718ae71",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_integration.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6011,
+      "sha256": "a5b158a699b7a32f5cf5bb035620f236114140643a30a7dba8fe5637e123a0ae",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_cleanup.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36294,
+      "sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6141,
+      "sha256": "b5d36a535a72975d7c2c2000fba5e94facde3f949ea92dbf18d85de9f9f5dafd",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_story_clips.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11399,
+      "sha256": "210e1637b7d14fcd942a2480814d0726c8a3008e5c19770dec127b042b4ba2e1",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_day_one_voice.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3506,
+      "sha256": "056e9c9158654bb462410d0a0a299dcdb19cc03532d11201142b72d2bbd334bb",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 28478,
+      "sha256": "7908a93152d3aed66195eaf1f7b372fe7ed86d0dec12338680423e5b5c615611",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_dungeon.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9910,
+      "sha256": "081d763e8836d8767aa647c80df26402ab67c273ac776202e7c7a89b98157bef",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36448,
+      "sha256": "0ab73140c9d202c1c80533fb7304d61f44fe3b1ba4b3a37b257d3e13be7a1263",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_dust_boss_balance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5316,
+      "sha256": "f4940fb4b5d6398e5d1fab94fdf92f4666c2302ff6c36f533312c6f3956be235",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_dust_boss_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5810,
+      "sha256": "b3345765e089d6d56595e905f16746cff09a3f4c01bfea096b0dd9e3406b3794",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_dust_bunny.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3662,
+      "sha256": "103bd3ff509df3d5a612faa4fd00ce66b3f85885a8c51e622496ec5211d36735",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_dust_bunny_boss.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11374,
+      "sha256": "348413471e2d2ae7adf4b7a9554f2180cb26e948897996f8e032b9f27a8a3d6d",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_ember.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11489,
+      "sha256": "7242fedd587854ec1de6b6f9913b5c71f7322b469727622403d07535d8964673",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_ember_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3982,
+      "sha256": "61f7722b735e18cbe771864fbc9e298fdd36788ed98365d4d10dcc1d05c10e3a",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_fable_audit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4088,
+      "sha256": "3ef6191d3c25933d2a72eb07d26b9e41953a1cddb0a467f2eafc08ae5189af51",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_fable_kit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3845,
+      "sha256": "e431067b4f080a62f68c658033a2ec592d96b3fdedc419ad47ae0d7089e2d404",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_fairy_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2727,
+      "sha256": "b6043069021eb19bb8a94a1d5a98a1109f29f93b8ae2d277bbe970ca25b5e26e",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_fairy_conservatory_handoff.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4910,
+      "sha256": "3d57dea550657ff8903937dede613bec619919a0bbd3331f99d461cadb17c7ce",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_fairy_conservatory_route.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5356,
+      "sha256": "acd22101ed22eeace09014bffd0ad071a83a2f9587831951775716f2eb2db83a",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_fairy_restoration.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10293,
+      "sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_fetch.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1380,
+      "sha256": "394df697279ae83894967ca44e5724d61da98dc3e473337fcdeb2eefba5e4b59",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_galaxy_peek.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2705,
+      "sha256": "a6e33fc764ff9d5f55080b4f8e7986e74ad5768255010dda56c12dff9c7a11c9",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_galaxy_state.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8951,
+      "sha256": "37b564bcf73b37a4c38f08213af58a47ebb0c4554d8d539b445f24987afa38ad",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_garden_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1462,
+      "sha256": "17894d0dd1070508108956bed19d9ad056f9089a2bf855dae45f4dafecfd0dec",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_heading.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 993,
+      "sha256": "96e370796521188ddc7f5d22c69398a7412b7f41ef372deea8150bbe50a0ec13",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_hit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12850,
+      "sha256": "a472adaf30aae6d20e07835f73b2a8a74a0cf41eb50ca0dc32db746d0b0df226",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6662,
+      "sha256": "810a4cab317b459f8e280a5c959de2ee9b8c46a378b2dc79ab21010ac70cd214",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_imp_ai.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11703,
+      "sha256": "69c38ecdd142fdedacb68c7995ec41338e84333aeeb09d7359d648610b4a260d",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_imp_animation_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9858,
+      "sha256": "3e0a7a8db8fa72df607799a3a8cd5f5e3d70d59f16e66743eac59b15ce0f850a",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_interaction.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 40701,
+      "sha256": "46c39f611758851372e904bf67200808ac884e42e8de205c588466f38151fb3f",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21193,
+      "sha256": "7914d0edb8cece8a12dd2e3213a93b7307ddda49da02422f46081eaad89814a6",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_kitchen_props.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5920,
+      "sha256": "5b0b5f839439540331160bfc1dde572b20d93d577ee3aad4601423550768cde3",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_l2.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 55993,
+      "sha256": "4f6350c9eada515f8671be18d3a897ade7974da0aab5725107cfffa92d2434c2",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_l2_living_cards.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11230,
+      "sha256": "a05d3bb578c16339e2154dcccb5fcbe3976c286a67e0ed531388e21372c9cab4",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_l2_reenter.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3220,
+      "sha256": "4a753fbfe0c51a93630f610f2da089e0381c8b1a980750df6476bcb7611a93cd",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_living_world.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14876,
+      "sha256": "034d914bfb39042b9e264d873ffc95c64bb1423e22df4c134be19958f392be41",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_load.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12496,
+      "sha256": "698a51a2f3f6dbb72e1c7070baa04af21dd255756ab88919bd15dab03efe1bb2",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 113295,
+      "sha256": "2a3be501e7999c6c62533b539d33c26d5bd246838670a9bd695694d885eddb0d",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_mg2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15110,
+      "sha256": "f37008aa1844e82b761921c914df83756c87ed3508c53d555ce95842e139555b",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_mic.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10479,
+      "sha256": "00ede493070f7ab68d35da9f5297244772aa00095196b76d3ee1b06bd7882b19",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_mouselook.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3137,
+      "sha256": "e21289452def93c1cbd88ab3df48a04e043cbcd61a0c8d0df36a9111ec9fa49f",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_northern.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8147,
+      "sha256": "5ded882b3ffebd1e9611ff43d1d069680543ffe7aec958094c11b402c1e4801d",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_northern_art_audit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4169,
+      "sha256": "940fbd7bbae151b325c36fe2c86b5e143a48a3cb66a6d816d4933c3c4cc28992",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_ocean_kingdoms.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4680,
+      "sha256": "abc55cfb52424e44970f905b2b298537c6b0f43dafe750ef879e2dd967e3a3b0",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 42855,
+      "sha256": "7ae3134a6197f8dfe0ac3a415c67ed02bcf5a8f9dfe02c96c5880bff5033d1c0",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 151346,
+      "sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera_2d_balance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12134,
+      "sha256": "bafc7d595550580552369de1f5728651ccb8af2478ffe01127775dea719b95c3",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 31860,
+      "sha256": "77ca60f8c50fb60836f5f6445ccd52ebb03445fdc9d948fa2c21002dd05947e0",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera_balance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 348,
+      "sha256": "c0351582019b13a7b7d8d51e6d5ac1e8d09f1f11b7fe6e5e7da2826a5f5113ba",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera_detective.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6755,
+      "sha256": "4ea70a97288fd0c0feba2fe4d7382d9319a3345538010916c99a3ed54304f7ea",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera_diegetic_paths.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 18568,
+      "sha256": "6f7c6a451e9669885e514c18b107013b4bd11e4afa503b3dd1587785fe2aa81e",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 92518,
+      "sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera_mastery.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7375,
+      "sha256": "7d7a38da9517de21c3f4b5b74c5857410b04fab51dcb4f3449c84c6d94152782",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera_nursery.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11058,
+      "sha256": "b79612ce95275915902fe7d7a334e4b2d45ce866be977be6b46f6551356bd7f9",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera_performance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 19836,
+      "sha256": "ab9af4d9e5b90d4e3224de5145412ae7bfd4e8c763285b31938205dee1656152",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_opera_pipe.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4308,
+      "sha256": "5ad9f1953ecc666d9b9e21a1d250294a37e9d0159c515fdf250b7dbd6eaae9c2",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_overdraw.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 44097,
+      "sha256": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_painter.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 585,
+      "sha256": "8084b3475c1ab3ff668be78216471e129718aacfc2d90ae5437f0218e332cd88",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_partner.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4437,
+      "sha256": "1309875b832c3f80b5945515148d562145838913bc65d3f54851af6a40cf47a3",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 18681,
+      "sha256": "e266e523af5c629f98ca8b52acfd931de7659b455a58634ccde6a917f3b50e97",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_peng_pal.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2647,
+      "sha256": "0084bb4d8ac1f4b97869457554a51708fe2b2ed2e091a4d85fc2377503a61afa",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_penguin_beak.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 486,
+      "sha256": "69f32b2482e621501380aa953d52bb0ae230105b78a9f2cb25dd4a8486708286",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_penguin_face.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2468,
+      "sha256": "2a038330d9bb60d0382a62a6b4ccb2524827c476416ddf8a6f98f9fb4c63ce9d",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_pg_water.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2412,
+      "sha256": "dbc065c22259e16fdebc8feee124620cd74a66f6132d77dec6ee426ab277c610",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_pg_wide.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1634,
+      "sha256": "14f277647806d166f77740625053f38f2df1970914df64c51c1f237cb01794c4",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_playground_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7210,
+      "sha256": "4bb1f21d49a526a02e8c29d8e0d44a8d6ff9b5ad7b86d885ecacdcfdd385c988",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_props.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12951,
+      "sha256": "7175e1342e2f54e609ca801c131601305239e6f84499294c2f6c4647937f1240",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_race_feel.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9724,
+      "sha256": "5eb883cdca4a6221fd0ccd07d86cf7670c6a95aa9bbdc22ef77066390ab7c372",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_rank.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17994,
+      "sha256": "51a50bd847052b0f578b478929d98ab4f3bae27cef0e0c0b65ef76dbfda6d0c2",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_reef_districts.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5349,
+      "sha256": "17ae88e94945694fe4547216d0fe0262d3be38c987cfa10c946feedeb2eb2f54",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_reef_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1898,
+      "sha256": "8ec9908b5ca952e1c9080c1cac075fd541c1abec5cae0f61f0aa6c55eba49b5f",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_river_profile.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1200,
+      "sha256": "fd0a40360f704fd537b2abd44ce61668e095a2970fa82259d9f48733dac7b939",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_save_recovery.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 19238,
+      "sha256": "5210bdca9be34fb530411460073fc06281f7df48754219cfaae20ad306d5f135",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 30620,
+      "sha256": "f8fc20152b00f7b0e80d5a24610fd00aff7943098fed50789698cb2136ff0739",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_skins.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2699,
+      "sha256": "c25092a82d2722579ff1d1d41eddb51fb499438a2c1ff959b5fbfc584b6f0763",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_animals.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 23290,
+      "sha256": "fcde9f8ec2a518776a94ca2d116dbf12f00ef02f6d7a7be1f32de27495c5966a",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 57814,
+      "sha256": "ab91b10e1abe0ced1b0288e568d73b6987d35a084c52ff4a612935ca5c215151",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_stage_navigation_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2424,
+      "sha256": "4532005e0033392a3f2ee37d7ff3f20ee46083e4230e2a515db1a2467958cbaf",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_start_menu_new_game.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 19332,
+      "sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_start_menu_routing.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6989,
+      "sha256": "cb78dc83a64764bbff81aec0835f8354fbb20cc886cf9ca1e60f80792a4c19d8",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_stuffie.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 34871,
+      "sha256": "6a70cad9c8b4a992061af670a4d75c7db1afab671a7a1f6b2ecea9d0ea899286",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_texture_seams.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2221,
+      "sha256": "ffe196d19782bba373ff06f7764382b1164e9a3605a4bed176b4e0adbcad400a",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_throne.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21411,
+      "sha256": "e1f37bcc4c328caa013d6d24ded2154ce47a5a5f884e5926a2508a1dc0c64a15",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_throne_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2338,
+      "sha256": "0917812438b062bee51adf567a8a8265161d263c722eee5d5309b72b82668e37",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_touch_adversary.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12078,
+      "sha256": "5e9dc0fe8cb3b806f244eb7699ba46a5fdbb614ce945f7f178f15a065c056bdf",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_touch_look.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5321,
+      "sha256": "bd29130a50f3936919534d4a183d7c91e38d9059457e86d5ef9ac93f71641adb",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_touch_router.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15163,
+      "sha256": "508a7b07ebc81c20504de626d4385544cc4440333785c85cec7e2c3916a6e334",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_touch_stress.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 20783,
+      "sha256": "8cb81fdbb115d46ca67c5263ce1905b3fcfdfd7d629480c27396c865391d5832",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_toy_anim.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2031,
+      "sha256": "6f5d5a06d7841cb035513649cd734cafc8ec1aa09411e96615e949e6c635c5b0",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_train.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3101,
+      "sha256": "07d450f692623e6ed8ff0fee27046b6e18c94c2cdc566df71bddef4696d3c8d2",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_tree_book_test.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 271,
+      "sha256": "81bbb378b8b70ce2c12925602892614c94e215e18419973b87f1fdd0b916dfb6",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_ui.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 191,
+      "sha256": "bb5403c37599646886809c92af9ae82dc4c0335d28b60409e9b5331f0c9165a1",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_ui_system.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 39336,
+      "sha256": "871337431bb6f9518cd5e40e4b8bd41688303d013872841e2f24ab9faa2a1e2f",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_upstairs.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4380,
+      "sha256": "a7b57f7f8d3602180721acdf5a7dd9af63b8c14f9e207783ac50c319a82ca3f9",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_verbs.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13254,
+      "sha256": "0b2f612e6d050f6a5fbc30292d739e0eb132cb9efb592a922af5aece558d63c4",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_visual_audit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 67835,
+      "sha256": "2422faa70bd47b947b51e96543d761364e0fea106c03b6145fe57498b5201a60",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21163,
+      "sha256": "1cd4051f2886982b13f3b1aa2f35febb21ec0f9db99787d0b8f83039fd0d0c05",
+      "probe_or_test_filename": true,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/rainbow_friend_follower.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2983,
+      "sha256": "745c323c562a51628c0d8b268e07dd640fe7d6b0e22aedd975bd4a7ccd1f72cb",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 16731,
+      "sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/roshan_sprite_anchors.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2361,
+      "sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/roshan_sprite_frames.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9541,
+      "sha256": "41860fcd11e0ee071cc1c7c8bacc8242160b209b73c3a5d4bc1d2eda4a908d81",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/roshan_sprite_loop.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11251,
+      "sha256": "73663a09ec2bf6f3f87d37596a7bcd1818346d744492deb109cac4a31e65362e",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 46616,
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1920,
+      "sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/sprite_transition_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7902,
+      "sha256": "0a5c87ff8c4eb812bc2b352382f069c82771f1f39860e9adece4b35a04bf4bd5",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3261,
+      "sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 18908,
+      "sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/story_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5234,
+      "sha256": "3ff0367f3be0801e4a40f233d42cf66baef8a952948b373c2a33ffab6f176f8b",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 16107,
+      "sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 24254,
+      "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/tap_move_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6058,
+      "sha256": "dbe2d50e6b0dfb40b0f24f7cc9a73065c267209cd6a399e3fde601af4ce2a263",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6662,
+      "sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 39214,
+      "sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/tree_book_test_checks.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6920,
+      "sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14633,
+      "sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "probe_or_test_filename": false,
+      "parse": "PASS"
+    }
+  ],
+  "named_calls": [
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "function": "_tick_level2",
+      "line": 2554,
+      "end_line": 2554,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 2543,
+          "condition_AST": "expr\n  and_test\n    asless_actual_not_test\n      not\n      explicit_touch\n    and\n    asless_comparison\n      getattr\n        m\n        .\n        mg_cool\n      <=\n      0.0\n    and\n    asless_comparison\n      getattr\n        m\n        .\n        mg_kind\n      ==\n      string\t\"\"\n    and\n    getattr\n      m\n      .\n      l2_open"
+        },
+        {
+          "kind": "if_branch",
+          "line": 2548,
+          "condition_AST": "expr\n  and_test\n    comparison\n      getattr_call\n        getattr\n          standalone_call\n            Vector2\n            arith_expr\n              getattr\n                wpp\n                .\n                x\n              -\n              getattr\n                ppos\n                .\n                x\n            arith_expr\n              getattr\n                wpp\n                .\n                z\n              -\n              getattr\n                ppos\n                .\n                z\n          .\n          length\n      <\n      3.5\n    and\n    asless_comparison\n      standalone_call\n        absf\n        arith_expr\n          getattr\n            wpp\n            .\n            y\n          -\n          getattr\n            ppos\n            .\n            y\n      <\n      9.0"
+        },
+        {
+          "kind": "if_branch",
+          "line": 2550,
+          "condition_AST": "expr\n  comparison\n    standalone_call\n      float\n      subscr_expr\n        dw\n        akey\n    >=\n    0.6"
+        },
+        {
+          "kind": "if_branch",
+          "line": 2553,
+          "condition_AST": "expr\n  comparison\n    akey\n    ==\n    string\t\"p_slide\""
+        }
+      ],
+      "method": "_l2_start_slide",
+      "receiver_AST": "getattr\n  m\n  .\n  _l2_start_slide",
+      "argument_AST": [],
+      "excerpt": "\t\t\t\t\t\tm._l2_start_slide()",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "function": "_day_one_drain_story_clips",
+      "line": 409,
+      "end_line": 409,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 406,
+          "condition_AST": "expr\n  getattr\n    m\n    .\n    _day_one_story_boss_start_pending"
+        },
+        {
+          "kind": "if_branch",
+          "line": 408,
+          "condition_AST": "expr\n  and_test\n    getattr_call\n      getattr\n        m\n        .\n        day_one_is_active\n    and\n    getattr\n      getattr_call\n        getattr\n          m\n          .\n          _day_one_ref\n      .\n      giant_dust_bunny_boss_triggered"
+        }
+      ],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  m\n  .\n  _start_game",
+      "argument_AST": [
+        "getattr\n  m\n  .\n  dust_boss_fr"
+      ],
+      "excerpt": "\t\t\tm._start_game(m.dust_boss_fr)",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg2d_open",
+      "line": 18,
+      "end_line": 18,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 17,
+          "condition_AST": "expr\n  comparison\n    kind\n    ==\n    string\t\"slide\""
+        }
+      ],
+      "method": "_l2_start_slide",
+      "receiver_AST": "getattr\n  m\n  .\n  _l2_start_slide",
+      "argument_AST": [],
+      "excerpt": "\t\tm._l2_start_slide()   # the rainbow slide uses the full Lagoon playground, never the retired card screen",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_activate_touch_interactable",
+      "line": 4838,
+      "end_line": 4838,
+      "guards": [
+        {
+          "kind": "match_branch",
+          "line": 4830,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        },
+        {
+          "kind": "elif_branch",
+          "line": 4837,
+          "condition_AST": "expr\n  getattr_call\n    getattr\n      id\n      .\n      begins_with\n    string\t\"court:picture:\""
+        }
+      ],
+      "method": "_touch_open_picture",
+      "receiver_AST": "self",
+      "argument_AST": [
+        "standalone_call\n  int\n  payload"
+      ],
+      "excerpt": "\t\t\t\t_touch_open_picture(int(payload))",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_touch_open_picture",
+      "line": 4850,
+      "end_line": 4850,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 4849,
+          "condition_AST": "expr\n  comparison\n    art_key\n    ==\n    string\t\"p_slide\""
+        }
+      ],
+      "method": "_l2_start_slide",
+      "receiver_AST": "self",
+      "argument_AST": [],
+      "excerpt": "\t\t_l2_start_slide()",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_on_day_one_hook_event",
+      "line": 6754,
+      "end_line": 6754,
+      "guards": [
+        {
+          "kind": "match_branch",
+          "line": 6745,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        },
+        {
+          "kind": "else_branch",
+          "line": 6753,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        }
+      ],
+      "method": "_start_game",
+      "receiver_AST": "self",
+      "argument_AST": [
+        "dust_boss_fr"
+      ],
+      "excerpt": "\t\t\t\t_start_game(dust_boss_fr)",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_l2_start_slide",
+      "line": 7081,
+      "end_line": 7081,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "self",
+      "argument_AST": [
+        "fr"
+      ],
+      "excerpt": "\t_start_game(fr)",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "function": "_capture_arena",
+      "line": 186,
+      "end_line": 186,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game(friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "function": "_capture_arenas",
+      "line": 202,
+      "end_line": 202,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "standalone_call\n  _friend_for\n  string\t\"seek\""
+      ],
+      "excerpt": "\tmain._start_game(_friend_for(\"seek\"))",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "function": "_capture_arenas",
+      "line": 247,
+      "end_line": 247,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  slide_fr"
+      ],
+      "excerpt": "\tmain._start_game(main.slide_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_init",
+      "line": 180,
+      "end_line": 180,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "f"
+      ],
+      "excerpt": "\t\tmain._start_game(f)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_init",
+      "line": 223,
+      "end_line": 223,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  brawl_fr"
+      ],
+      "excerpt": "\tmain._start_game(main.brawl_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_init",
+      "line": 250,
+      "end_line": 250,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  shop_fr"
+      ],
+      "excerpt": "\tmain._start_game(main.shop_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_audit_slide_canvas",
+      "line": 454,
+      "end_line": 454,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game(friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_audit_slide_canvas",
+      "line": 614,
+      "end_line": 614,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game(friend)   # reef pillar route retired 2026-09-23",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_audit_slide_canvas",
+      "line": 702,
+      "end_line": 702,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game(friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_audit_slide_canvas",
+      "line": 759,
+      "end_line": 759,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game(friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_slide_check_route_regressions",
+      "line": 5118,
+      "end_line": 5118,
+      "guards": [],
+      "method": "_start_game_now",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game_now",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  slide_fr"
+      ],
+      "excerpt": "\tmain._start_game_now(main.slide_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_slide_check_route_regressions",
+      "line": 5160,
+      "end_line": 5160,
+      "guards": [],
+      "method": "_start_game_now",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game_now",
+      "argument_AST": [
+        "race_fr"
+      ],
+      "excerpt": "\tmain._start_game_now(race_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_chuck.gd",
+      "function": "_init",
+      "line": 30,
+      "end_line": 30,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "fr"
+      ],
+      "excerpt": "\tmain._start_game(fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "function": "_init",
+      "line": 79,
+      "end_line": 79,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game(friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "function": "_init",
+      "line": 196,
+      "end_line": 196,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game(friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "function": "_init",
+      "line": 269,
+      "end_line": 269,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game(friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "function": "_checkpoint_restart_case",
+      "line": 629,
+      "end_line": 629,
+      "guards": [],
+      "method": "_start_game_now",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game_now",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  dust_boss_fr"
+      ],
+      "excerpt": "\tmain._start_game_now(main.dust_boss_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "function": "_final_checkpoint_restart_case",
+      "line": 660,
+      "end_line": 660,
+      "guards": [],
+      "method": "_start_game_now",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game_now",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  dust_boss_fr"
+      ],
+      "excerpt": "\tmain._start_game_now(main.dust_boss_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss_balance.gd",
+      "function": "_play",
+      "line": 55,
+      "end_line": 55,
+      "guards": [],
+      "method": "_start_game_now",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game_now",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  dust_boss_fr"
+      ],
+      "excerpt": "\tmain._start_game_now(main.dust_boss_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss_shots.gd",
+      "function": "_init",
+      "line": 43,
+      "end_line": 43,
+      "guards": [],
+      "method": "_start_game_now",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game_now",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  dust_boss_fr"
+      ],
+      "excerpt": "\tmain._start_game_now(main.dust_boss_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_fetch.gd",
+      "function": "_init",
+      "line": 21,
+      "end_line": 21,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "fr"
+      ],
+      "excerpt": "\tmain._start_game(fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "function": "_init",
+      "line": 98,
+      "end_line": 98,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  fairy_fr"
+      ],
+      "excerpt": "\tmain._start_game(main.fairy_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "function": "_init",
+      "line": 131,
+      "end_line": 131,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  brawl_fr"
+      ],
+      "excerpt": "\tmain._start_game(main.brawl_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "function": "_init",
+      "line": 150,
+      "end_line": 150,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 149,
+          "condition_AST": "expr\n  asless_actual_not_test\n    not\n    getattr_call\n      getattr\n        fetch_fr\n        .\n        is_empty"
+        }
+      ],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "fetch_fr"
+      ],
+      "excerpt": "\t\tmain._start_game(fetch_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "function": "_launch_daddy",
+      "line": 2655,
+      "end_line": 2655,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "daddy_friend"
+      ],
+      "excerpt": "\tmain._start_game(daddy_friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_init",
+      "line": 70,
+      "end_line": 70,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "f"
+      ],
+      "excerpt": "\t\tmain._start_game(f)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_probe_brawl_agency",
+      "line": 305,
+      "end_line": 305,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  brawl_fr"
+      ],
+      "excerpt": "\tmain._start_game(main.brawl_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_probe_shop_agency",
+      "line": 324,
+      "end_line": 324,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  shop_fr"
+      ],
+      "excerpt": "\tmain._start_game(main.shop_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_probe_penguin_agency",
+      "line": 386,
+      "end_line": 386,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  slide_fr"
+      ],
+      "excerpt": "\tmain._start_game(main.slide_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_probe_penguin_agency",
+      "line": 402,
+      "end_line": 402,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  slide_fr"
+      ],
+      "excerpt": "\tmain._start_game(main.slide_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_probe_fairy_agency",
+      "line": 415,
+      "end_line": 415,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  fairy_fr"
+      ],
+      "excerpt": "\tmain._start_game(main.fairy_fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_penguin_face.gd",
+      "function": "_init",
+      "line": 19,
+      "end_line": 19,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "fr"
+      ],
+      "excerpt": "\tmain._start_game(fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_race_feel.gd",
+      "function": "_run_slide",
+      "line": 122,
+      "end_line": 122,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "fr"
+      ],
+      "excerpt": "\tmain._start_game(fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_race_feel.gd",
+      "function": "_track_metrics",
+      "line": 197,
+      "end_line": 197,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "fr"
+      ],
+      "excerpt": "\tmain._start_game(fr)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_rank.gd",
+      "function": "_init",
+      "line": 368,
+      "end_line": 368,
+      "guards": [
+        {
+          "kind": "else_branch",
+          "line": 366,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        }
+      ],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "fetch_f"
+      ],
+      "excerpt": "\t\tmain._start_game(fetch_f)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "function": "_init",
+      "line": 84,
+      "end_line": 84,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game(friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "function": "_init",
+      "line": 215,
+      "end_line": 215,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game(friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "function": "_init",
+      "line": 292,
+      "end_line": 292,
+      "guards": [],
+      "method": "_start_game",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game(friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "function": "_check_melody_message_cue",
+      "line": 134,
+      "end_line": 134,
+      "guards": [],
+      "method": "_start_game_now",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game_now",
+      "argument_AST": [
+        "friend"
+      ],
+      "excerpt": "\tmain._start_game_now(friend)",
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "function": "_check_brawl_message_cues",
+      "line": 157,
+      "end_line": 157,
+      "guards": [],
+      "method": "_start_game_now",
+      "receiver_AST": "getattr\n  main\n  .\n  _start_game_now",
+      "argument_AST": [
+        "getattr\n  main\n  .\n  brawl_fr"
+      ],
+      "excerpt": "\tmain._start_game_now(main.brawl_fr)",
+      "probe_or_test_filename": true
+    }
+  ],
+  "literal_reflective_calls": [
+    {
+      "path": "scripts/main.gd",
+      "function": "_end_galaxy",
+      "line": 2350,
+      "end_line": 2350,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 2347,
+          "condition_AST": "expr\tfairy_pending"
+        }
+      ],
+      "method": "call_deferred",
+      "receiver_AST": "self",
+      "argument_AST": [
+        "string\t\"_start_game\"",
+        "fairy_fr"
+      ],
+      "excerpt": "\t\tcall_deferred(\"_start_game\", fairy_fr)   # straight into the fairy flight",
+      "selector": "_start_game",
+      "classification": "Object literal selector candidate; normal entry still unproved",
+      "probe_or_test_filename": false
+    }
+  ],
+  "ambiguous_literal_dispatch_arguments": [],
+  "target_references": [
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "function": "_tick_level2",
+      "line": 2554,
+      "end_line": 2554,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 2543,
+          "condition_AST": "expr\n  and_test\n    asless_actual_not_test\n      not\n      explicit_touch\n    and\n    asless_comparison\n      getattr\n        m\n        .\n        mg_cool\n      <=\n      0.0\n    and\n    asless_comparison\n      getattr\n        m\n        .\n        mg_kind\n      ==\n      string\t\"\"\n    and\n    getattr\n      m\n      .\n      l2_open"
+        },
+        {
+          "kind": "if_branch",
+          "line": 2548,
+          "condition_AST": "expr\n  and_test\n    comparison\n      getattr_call\n        getattr\n          standalone_call\n            Vector2\n            arith_expr\n              getattr\n                wpp\n                .\n                x\n              -\n              getattr\n                ppos\n                .\n                x\n            arith_expr\n              getattr\n                wpp\n                .\n                z\n              -\n              getattr\n                ppos\n                .\n                z\n          .\n          length\n      <\n      3.5\n    and\n    asless_comparison\n      standalone_call\n        absf\n        arith_expr\n          getattr\n            wpp\n            .\n            y\n          -\n          getattr\n            ppos\n            .\n            y\n      <\n      9.0"
+        },
+        {
+          "kind": "if_branch",
+          "line": 2550,
+          "condition_AST": "expr\n  comparison\n    standalone_call\n      float\n      subscr_expr\n        dw\n        akey\n    >=\n    0.6"
+        },
+        {
+          "kind": "if_branch",
+          "line": 2553,
+          "condition_AST": "expr\n  comparison\n    akey\n    ==\n    string\t\"p_slide\""
+        }
+      ],
+      "name": "_l2_start_slide",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "if_stmt",
+        "if_branch",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "function": "_day_one_drain_story_clips",
+      "line": 409,
+      "end_line": 409,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 406,
+          "condition_AST": "expr\n  getattr\n    m\n    .\n    _day_one_story_boss_start_pending"
+        },
+        {
+          "kind": "if_branch",
+          "line": 408,
+          "condition_AST": "expr\n  and_test\n    getattr_call\n      getattr\n        m\n        .\n        day_one_is_active\n    and\n    getattr\n      getattr_call\n        getattr\n          m\n          .\n          _day_one_ref\n      .\n      giant_dust_bunny_boss_triggered"
+        }
+      ],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "if_stmt",
+        "if_branch",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg2d_open",
+      "line": 18,
+      "end_line": 18,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 17,
+          "condition_AST": "expr\n  comparison\n    kind\n    ==\n    string\t\"slide\""
+        }
+      ],
+      "name": "_l2_start_slide",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "if_stmt",
+        "if_branch",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_activate_touch_interactable",
+      "line": 4838,
+      "end_line": 4838,
+      "guards": [
+        {
+          "kind": "match_branch",
+          "line": 4830,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        },
+        {
+          "kind": "elif_branch",
+          "line": 4837,
+          "condition_AST": "expr\n  getattr_call\n    getattr\n      id\n      .\n      begins_with\n    string\t\"court:picture:\""
+        }
+      ],
+      "name": "_touch_open_picture",
+      "AST_parent": "standalone_call",
+      "ancestor_kinds": [
+        "match_branch",
+        "if_stmt",
+        "elif_branch",
+        "expr_stmt",
+        "expr"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_touch_open_picture",
+      "line": 4850,
+      "end_line": 4850,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 4849,
+          "condition_AST": "expr\n  comparison\n    art_key\n    ==\n    string\t\"p_slide\""
+        }
+      ],
+      "name": "_l2_start_slide",
+      "AST_parent": "standalone_call",
+      "ancestor_kinds": [
+        "func_def",
+        "if_stmt",
+        "if_branch",
+        "expr_stmt",
+        "expr"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_on_day_one_hook_event",
+      "line": 6754,
+      "end_line": 6754,
+      "guards": [
+        {
+          "kind": "match_branch",
+          "line": 6745,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        },
+        {
+          "kind": "else_branch",
+          "line": 6753,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        }
+      ],
+      "name": "_start_game",
+      "AST_parent": "standalone_call",
+      "ancestor_kinds": [
+        "match_branch",
+        "if_stmt",
+        "else_branch",
+        "expr_stmt",
+        "expr"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_l2_start_slide",
+      "line": 7081,
+      "end_line": 7081,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "standalone_call",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_start_game",
+      "line": 7872,
+      "end_line": 7872,
+      "guards": [],
+      "name": "_start_game_now",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "standalone_call",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "function": "_capture_arena",
+      "line": 186,
+      "end_line": 186,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "function": "_capture_arenas",
+      "line": 202,
+      "end_line": 202,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "function": "_capture_arenas",
+      "line": 247,
+      "end_line": 247,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_init",
+      "line": 180,
+      "end_line": 180,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "func_def",
+        "for_stmt",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_init",
+      "line": 223,
+      "end_line": 223,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_init",
+      "line": 250,
+      "end_line": 250,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_audit_slide_canvas",
+      "line": 454,
+      "end_line": 454,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_audit_slide_canvas",
+      "line": 614,
+      "end_line": 614,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_audit_slide_canvas",
+      "line": 702,
+      "end_line": 702,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_audit_slide_canvas",
+      "line": 759,
+      "end_line": 759,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_slide_check_route_regressions",
+      "line": 5118,
+      "end_line": 5118,
+      "guards": [],
+      "name": "_start_game_now",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_slide_check_route_regressions",
+      "line": 5160,
+      "end_line": 5160,
+      "guards": [],
+      "name": "_start_game_now",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_chuck.gd",
+      "function": "_init",
+      "line": 30,
+      "end_line": 30,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "function": "_init",
+      "line": 79,
+      "end_line": 79,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "function": "_init",
+      "line": 196,
+      "end_line": 196,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "function": "_init",
+      "line": 269,
+      "end_line": 269,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "function": "_checkpoint_restart_case",
+      "line": 629,
+      "end_line": 629,
+      "guards": [],
+      "name": "_start_game_now",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "function": "_final_checkpoint_restart_case",
+      "line": 660,
+      "end_line": 660,
+      "guards": [],
+      "name": "_start_game_now",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss_balance.gd",
+      "function": "_play",
+      "line": 55,
+      "end_line": 55,
+      "guards": [],
+      "name": "_start_game_now",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss_shots.gd",
+      "function": "_init",
+      "line": 43,
+      "end_line": 43,
+      "guards": [],
+      "name": "_start_game_now",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_fetch.gd",
+      "function": "_init",
+      "line": 21,
+      "end_line": 21,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "function": "_init",
+      "line": 98,
+      "end_line": 98,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "function": "_init",
+      "line": 131,
+      "end_line": 131,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "function": "_init",
+      "line": 150,
+      "end_line": 150,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 149,
+          "condition_AST": "expr\n  asless_actual_not_test\n    not\n    getattr_call\n      getattr\n        fetch_fr\n        .\n        is_empty"
+        }
+      ],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "if_stmt",
+        "if_branch",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "function": "_launch_daddy",
+      "line": 2655,
+      "end_line": 2655,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_init",
+      "line": 70,
+      "end_line": 70,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "func_def",
+        "for_stmt",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_probe_brawl_agency",
+      "line": 305,
+      "end_line": 305,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_probe_shop_agency",
+      "line": 324,
+      "end_line": 324,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_probe_penguin_agency",
+      "line": 386,
+      "end_line": 386,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_probe_penguin_agency",
+      "line": 402,
+      "end_line": 402,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_probe_fairy_agency",
+      "line": 415,
+      "end_line": 415,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_penguin_face.gd",
+      "function": "_init",
+      "line": 19,
+      "end_line": 19,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_race_feel.gd",
+      "function": "_run_slide",
+      "line": 122,
+      "end_line": 122,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_race_feel.gd",
+      "function": "_track_metrics",
+      "line": 197,
+      "end_line": 197,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_rank.gd",
+      "function": "_init",
+      "line": 368,
+      "end_line": 368,
+      "guards": [
+        {
+          "kind": "else_branch",
+          "line": 366,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        }
+      ],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "if_stmt",
+        "else_branch",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "function": "_init",
+      "line": 84,
+      "end_line": 84,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "function": "_init",
+      "line": 215,
+      "end_line": 215,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "function": "_init",
+      "line": 292,
+      "end_line": 292,
+      "guards": [],
+      "name": "_start_game",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "function": "_check_melody_message_cue",
+      "line": 134,
+      "end_line": 134,
+      "guards": [],
+      "name": "_start_game_now",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "function": "_check_brawl_message_cues",
+      "line": 157,
+      "end_line": 157,
+      "guards": [],
+      "name": "_start_game_now",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    }
+  ],
+  "field_references": [
+    {
+      "path": "scripts/day_one_flow.gd",
+      "function": "_day_one_drain_story_clips",
+      "line": 409,
+      "end_line": 409,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 406,
+          "condition_AST": "expr\n  getattr\n    m\n    .\n    _day_one_story_boss_start_pending"
+        },
+        {
+          "kind": "if_branch",
+          "line": 408,
+          "condition_AST": "expr\n  and_test\n    getattr_call\n      getattr\n        m\n        .\n        day_one_is_active\n    and\n    getattr\n      getattr_call\n        getattr\n          m\n          .\n          _day_one_ref\n      .\n      giant_dust_bunny_boss_triggered"
+        }
+      ],
+      "name": "dust_boss_fr",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "if_stmt",
+        "if_branch",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "<top>",
+      "line": 736,
+      "end_line": 736,
+      "guards": [],
+      "name": "dust_boss_fr",
+      "AST_parent": "class_var_inf",
+      "ancestor_kinds": [
+        "start",
+        "class_var_stmt"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "<top>",
+      "line": 738,
+      "end_line": 738,
+      "guards": [],
+      "name": "fairy_fr",
+      "AST_parent": "class_var_inf",
+      "ancestor_kinds": [
+        "start",
+        "class_var_stmt"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_end_galaxy",
+      "line": 2350,
+      "end_line": 2350,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 2347,
+          "condition_AST": "expr\tfairy_pending"
+        }
+      ],
+      "name": "fairy_fr",
+      "AST_parent": "standalone_call",
+      "ancestor_kinds": [
+        "func_def",
+        "if_stmt",
+        "if_branch",
+        "expr_stmt",
+        "expr"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_on_day_one_hook_event",
+      "line": 6754,
+      "end_line": 6754,
+      "guards": [
+        {
+          "kind": "match_branch",
+          "line": 6745,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        },
+        {
+          "kind": "else_branch",
+          "line": 6753,
+          "condition_AST": "NO_DIRECT_CONDITION"
+        }
+      ],
+      "name": "dust_boss_fr",
+      "AST_parent": "standalone_call",
+      "ancestor_kinds": [
+        "match_branch",
+        "if_stmt",
+        "else_branch",
+        "expr_stmt",
+        "expr"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "function": "_capture_arena",
+      "line": 183,
+      "end_line": 183,
+      "guards": [
+        {
+          "kind": "elif_branch",
+          "line": 182,
+          "condition_AST": "expr\n  comparison\n    kind\n    ==\n    string\t\"fairyshoot\""
+        }
+      ],
+      "name": "fairy_fr",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "if_stmt",
+        "elif_branch",
+        "expr_stmt",
+        "expr",
+        "assnmnt_expr"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "function": "_checkpoint_restart_case",
+      "line": 629,
+      "end_line": 629,
+      "guards": [],
+      "name": "dust_boss_fr",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "function": "_final_checkpoint_restart_case",
+      "line": 660,
+      "end_line": 660,
+      "guards": [],
+      "name": "dust_boss_fr",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss_balance.gd",
+      "function": "_play",
+      "line": 55,
+      "end_line": 55,
+      "guards": [],
+      "name": "dust_boss_fr",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_dust_boss_shots.gd",
+      "function": "_init",
+      "line": 43,
+      "end_line": 43,
+      "guards": [],
+      "name": "dust_boss_fr",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "function": "_init",
+      "line": 98,
+      "end_line": 98,
+      "guards": [],
+      "name": "fairy_fr",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "function": "_probe_fairy_agency",
+      "line": 415,
+      "end_line": 415,
+      "guards": [],
+      "name": "fairy_fr",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": true
+    }
+  ],
+  "field_literal_property_access": [],
+  "declarations": [
+    {
+      "path": "scripts/main.gd",
+      "function": "<top>",
+      "line": 736,
+      "end_line": 736,
+      "guards": [],
+      "name": "dust_boss_fr",
+      "AST": "class_var_inf\n  dust_boss_fr\n  expr\n    dict\n      c_dict_element\n        string\t\"fname\"\n        string\t\"Dusty Attic\"\n      c_dict_element\n        string\t\"game\"\n        string\t\"dustboss\"\n      c_dict_element\n        string\t\"won\"\n        true\n      c_dict_element\n        string\t\"cool\"\n        0.0",
+      "literal_string_pairs": {
+        "fname": "Dusty Attic",
+        "game": "dustboss"
+      },
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "<top>",
+      "line": 738,
+      "end_line": 738,
+      "guards": [],
+      "name": "fairy_fr",
+      "AST": "class_var_inf\n  fairy_fr\n  expr\n    dict\n      c_dict_element\n        string\t\"fname\"\n        string\t\"Fairy Pond\"\n      c_dict_element\n        string\t\"game\"\n        string\t\"fairyshoot\"\n      c_dict_element\n        string\t\"won\"\n        true\n      c_dict_element\n        string\t\"cool\"\n        0.0",
+      "literal_string_pairs": {
+        "fname": "Fairy Pond",
+        "game": "fairyshoot"
+      },
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_l2_start_slide",
+      "line": 7079,
+      "end_line": 7079,
+      "guards": [],
+      "name": "fr",
+      "AST": "func_var_inf\n  fr\n  expr\n    dict\n      c_dict_element\n        string\t\"fname\"\n        string\t\"Rainbow Slide\"\n      c_dict_element\n        string\t\"won\"\n        true\n      c_dict_element\n        string\t\"game\"\n        string\t\"race\"\n      c_dict_element\n        string\t\"cool\"\n        0.0",
+      "literal_string_pairs": {
+        "fname": "Rainbow Slide",
+        "game": "race"
+      },
+      "probe_or_test_filename": false
+    }
+  ],
+  "function_bodies": [
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "function": "_tick_level2",
+      "line": 2378,
+      "end_line": 2581,
+      "text": "func _tick_level2(delta: float, ppos: Vector3) -> void:\n\t# the train moves first so the ride seats' anchors are fresh when the\n\t# toy tick reads them (it also hides itself whenever phase != \"court\")\n\tm._train_ref()._tick_train(delta, ppos)\n\t_tick_toys(delta, ppos)\n\tif m.mg_kind != \"\":\n\t\tm._tick_mg2d(delta)\n\t\treturn\n\tif m.l2_cutscene_t >= 0.0:\n\t\tm._tick_cutscene(delta)\n\t\treturn\n\tif String(m.g.get(\"phase\", \"court\")) == \"hall\":\n\t\tm._tick_castle_rooms(delta)\n\t\treturn\n\tvar explicit_touch: bool = m.touch_uses_explicit_interactions()\n\tif _tick_ocean_kingdom_gates(ppos):\n\t\treturn\n\t# crafted friends are alive: they scamper around, and run up to nuzzle +\n\t# purr when Roshan comes near\n\t_tick_crafted(delta, ppos)\n\t_tick_alpine_house_bonuses(delta, ppos)\n\t# Alpine cave: the cairns are the visual pointer and nearing the hidden mouth\n\t# adds a recorded voice hint. The warm star inside is the northern-world door.\n\tif m.g.has(\"alpine_secret_pos\"):\n\t\tvar cave_entrance: Vector3 = m.g[\"alpine_cave_entrance\"]\n\t\tif (not bool(m.g.get(\"alpine_cave_hint\", false))\n\t\t\tand cave_entrance.distance_to(ppos) < 34.0):\n\t\t\tm.g[\"alpine_cave_hint\"] = true\n\t\t\tm.show_msg(\"Roshan\", \"Ooh! The snowy mountain sparkles lead to that star!\", \"pearl\")\n\t# Cave star: leave-and-re-enter hysteresis prevents an immediate return\n\t# trip from bouncing Roshan between the two separately loaded worlds.\n\tif m.g.has(\"northern_portal_pos\"):\n\t\tvar north_pos: Vector3 = m.g[\"northern_portal_pos\"]\n\t\tvar north_rune: Label3D = m.g.get(\"northern_portal_rune\") as Label3D\n\t\tif is_instance_valid(north_rune):\n\t\t\tnorth_rune.scale = Vector3.ONE * (1.0 + sin(float(m.g[\"t\"]) * 2.4) * 0.08)\n\t\tvar north_dist: float = north_pos.distance_to(ppos)\n\t\tif not bool(m.g.get(\"northern_portal_armed\", true)):\n\t\t\tif north_dist > 16.0:\n\t\t\t\tm.g[\"northern_portal_armed\"] = true\n\t\telif not explicit_touch and north_dist < 8.0:\n\t\t\tm._enter_northern_kingdom()\n\t\t\treturn\n\t\tif (not bool(m.g.get(\"northern_portal_hint\", false)) and north_dist < 28.0):\n\t\t\tm.g[\"northern_portal_hint\"] = true\n\t\t\tm.show_msg(\"Roshan\", \"A magic star! A new world is through there!\", \"pearl2\")\n\t# night magic: shooting stars streak over the lagoon after bedtime\n\tif m.is_night:\n\t\tm.night_star_t -= delta\n\t\tif m.night_star_t <= 0.0:\n\t\t\tm.night_star_t = 5.0 + randf() * 7.0\n\t\t\tm._spawn_shooting_star(ppos)\n\t# Rainbow Road race \u2014 swim into either leg of the rainbow arch (right leg = reversed lap)\n\t# main owns the shared kart cooldown tick; do not count it down a second time here.\n\tm.bw_cool = maxf(0.0, m.bw_cool - delta)\n\tif m.galaxy_unlocked and m.bw_portal_pos != Vector3.ZERO:\n\t\tvar bw_dist: float = Vector2(m.bw_portal_pos.x - ppos.x, m.bw_portal_pos.z - ppos.z).length()\n\t\tvar bw_height: float = absf(m.bw_portal_pos.y - ppos.y)\n\t\tif not m.galaxy_gateway_armed:\n\t\t\tif bw_dist > 13.0 or bw_height > 14.0:\n\t\t\t\tm.galaxy_gateway_armed = true\n\t\telif not explicit_touch and m.bw_cool <= 0.0 and m.kart_cool <= 0.0 and bw_dist < 9.0 and bw_height < 10.0:\n\t\t\tm.bw_cool = 10.0\n\t\t\tm.galaxy_gateway_armed = false\n\t\t\tm.kart_from = \"level2\"   # Galaxy return routing shares the race-origin state\n\t\t\tm.show_msg(\"Roshan\", \"To the Butterfly World! Wheee!\")\n\t\t\tm._start_galaxy()\n\t\t\treturn\n\t# the EMBER FORTRESS door at the rainbow junction: swimming in launches the\n\t# float race with the DOWNWARD ending (same leave-and-return hysteresis as\n\t# the galaxy gate above; the shared kart cooldown prevents double-starts)\n\tif m.ember_portal_pos != Vector3.ZERO:\n\t\tvar em_dist: float = Vector2(m.ember_portal_pos.x - ppos.x, m.ember_portal_pos.z - ppos.z).length()\n\t\tvar em_h: float = absf(m.ember_portal_pos.y - ppos.y)\n\t\tif not bool(m.g.get(\"ember_gate_hint\", false)) and em_dist < 30.0 and em_h < 20.0:\n\t\t\tm.g[\"ember_gate_hint\"] = true\n\t\t\tm.show_msg(\"Roshan\", \"Ooh... a dark spooky door! The go-kart road can dive DOWN to the volcano planet!\", \"pearl\")\n\t\tif not m.ember_gateway_armed:\n\t\t\tif em_dist > 16.0 or em_h > 16.0:\n\t\t\t\tm.ember_gateway_armed = true\n\t\telif not explicit_touch and m.kart_cool <= 0.0 and m.bw_cool <= 0.0 and em_dist < 10.0 and em_h < 12.0:\n\t\t\tm.bw_cool = 10.0\n\t\t\tm.ember_gateway_armed = false\n\t\t\tm.kart_float_dest = \"ember\"\n\t\t\tm.show_msg(\"Ember King\", \"So! You found my dark door... race the rainbow road DOWN to my fortress, if you dare!\", \"talk\")\n\t\t\tm._start_kart_game(false, \"float\")\n\t\t\treturn\n\tif m.kart_legA != Vector3.ZERO:\n\t\t# horizontal distance + generous height tolerance (same forgiving test as the fairy pond)\n\t\tvar dA: float = Vector2(m.kart_legA.x - ppos.x, m.kart_legA.z - ppos.z).length()\n\t\tvar dB: float = Vector2(m.kart_legB.x - ppos.x, m.kart_legB.z - ppos.z).length()\n\t\t# explicit one-time introduction when you first reach the rainbow\n\t\tif not bool(m.g.get(\"kart_intro\", false)) and minf(dA, dB) < 48.0:\n\t\t\tm.g[\"kart_intro\"] = true\n\t\t\tm.show_msg(\"Rainbow Road\", \"The rainbow road to ROSHAN GALAXY! Race the rainbow to reach the stars \u2014 each side goes a different way around!\")\n\t\tif minf(dA, dB) < 48.0:\n\t\t\tm.hud_game.text = \"Swim INTO the rainbow to race your go-kart!\"\n\t\tvar a_outside: bool = dA > 18.0 or absf(m.kart_legA.y - ppos.y) > 22.0\n\t\tvar b_outside: bool = dB > 18.0 or absf(m.kart_legB.y - ppos.y) > 22.0\n\t\tif not m.kart_float_portals_armed:\n\t\t\tif a_outside and b_outside:\n\t\t\t\tm.kart_float_portals_armed = true\n\t\telif not explicit_touch and m.kart_cool <= 0.0:\n\t\t\tif dA < 14.0 and absf(m.kart_legA.y - ppos.y) < 18.0:\n\t\t\t\tm._start_kart_game(false, \"float\")\n\t\t\t\treturn\n\t\t\tif dB < 14.0 and absf(m.kart_legB.y - ppos.y) < 18.0:\n\t\t\t\tm._start_kart_game(true, \"float\")\n\t\t\t\treturn\n\tfor fd in m.g.get(\"l2_fish\", []):\n\t\tvar fn2: Node3D = fd[\"node\"]\n\t\tif not is_instance_valid(fn2):\n\t\t\tcontinue\n\t\tfd[\"off\"] = fmod(float(fd[\"off\"]) + float(fd[\"spd\"]) * delta, float(fd[\"len\"]))\n\t\tvar base: Vector3 = (fd[\"a\"] as Vector3) + (fd[\"dir\"] as Vector3) * float(fd[\"off\"])\n\t\tvar side: Vector3 = (fd[\"dir\"] as Vector3).cross(Vector3.UP).normalized()\n\t\tvar fp: Vector3 = base + side * float(fd[\"lane\"])\n\t\t# swim a fixed height above the LOCAL carved floor (hills cross the rivers)\n\t\tfp.y = m.lagoon_h(fp.x, fp.z) + 2.4 + sin(float(m.g.get(\"t\", 0.0)) * 3.0 + float(fd[\"off\"])) * 0.4\n\t\tfn2.position = fp\n\t\tfn2.look_at(fp + (fd[\"dir\"] as Vector3) * 2.0, Vector3.UP)\n\tvar got := 0\n\tvar nxt: Node3D = null\n\tfor sd in m.l2_stars:\n\t\tif bool(sd[\"got\"]):\n\t\t\tgot += 1\n\t\t\tcontinue\n\t\tvar star: Node3D = sd[\"node\"]\n\t\tstar.position.y += sin(float(m.g[\"t\"]) * 2.0 + star.position.x) * 0.02\n\t\tstar.rotate_z(delta * 0.8)\n\t\tstar.scale = Vector3.ONE * (1.0 + sin(float(m.g[\"t\"]) * 4.0) * 0.12)\n\t\tif nxt == null:\n\t\t\tnxt = star\n\t\tvar d: float = star.position.distance_to(ppos)\n\t\t# gentle magnet so a 4yo who swims close gets pulled in\n\t\tif d < 32.0:\n\t\t\tm.player.position = m.player.position.lerp(star.position, minf(0.85, delta * 1.7 * (1.0 - d / 32.0)))\n\t\tif d < 14.0:\n\t\t\tsd[\"got\"] = true\n\t\t\tvar sidx: int = m.l2_stars.find(sd)\n\t\t\tif sidx >= 0 and sidx < m.l2_star_progress.size():\n\t\t\t\tm.l2_star_progress[sidx] = true\n\t\t\t\tm.stickers[\"_l2_star_%d\" % sidx] = true\n\t\t\t\tm._write_save()\n\t\t\tgot += 1\n\t\t\tm._sparkle_burst(star.position, Color(1.0, 0.9, 0.4))\n\t\t\tif m.chime != null:\n\t\t\t\tm.chime.pitch_scale = 1.0 + float(got) * 0.12\n\t\t\t\tm.chime.play()\n\t\t\tif m.voice != null:\n\t\t\t\tm.voice.pitch_scale = 1.0 + randf() * 0.2\n\t\t\t\tm._play_success_yay(m.voice.pitch_scale)\n\t\t\tstar.visible = false\n\t\t\tif got >= 3:\n\t\t\t\tm._open_castle_door()\n\tif got >= 3 and not m.l2_open:\n\t\tm._open_castle_door()\n\t# fairy pond \u2014 fly the top-down sparkle dodger (active once the castle is open)\n\t# (the fairy flight now launches from the Fairy Fountain in the Butterfly\n\t# World \u2014 the courtyard pond stays as scenery)\n\t# the rainbow gateway always takes you back to the ocean\n\tm.mg_cool = maxf(0.0, m.mg_cool - delta)\n\t# Phase 1: pictures are OPTIONAL play \u2014 inert until the castle is open, so\n\t# the natural swim line to the Dream Stars can't hijack into a minigame and\n\t# wipe star progress. Tight 3.5 radius + 0.6s dwell = deliberate visits only.\n\tif not explicit_touch and m.mg_cool <= 0.0 and m.mg_kind == \"\" and m.l2_open:\n\t\tvar dw: Dictionary = m.g.get(\"pic_dwell\", {})\n\t\tfor wp in m.wall_pics:\n\t\t\tvar wpp: Vector3 = wp[\"pos\"]\n\t\t\tvar akey := String(wp[\"art\"])\n\t\t\tif Vector2(wpp.x - ppos.x, wpp.z - ppos.z).length() < 3.5 and absf(wpp.y - ppos.y) < 9.0:\n\t\t\t\tdw[akey] = float(dw.get(akey, 0.0)) + delta\n\t\t\t\tif float(dw[akey]) >= 0.6:\n\t\t\t\t\tdw[akey] = 0.0\n\t\t\t\t\tm.g[\"pic_dwell\"] = dw\n\t\t\t\t\tif akey == \"p_slide\":\n\t\t\t\t\t\tm._l2_start_slide()\n\t\t\t\t\telse:\n\t\t\t\t\t\tm._mg2d_open(String(m.PIC_GAME[akey]))\n\t\t\t\t\treturn\n\t\t\telse:\n\t\t\t\tdw[akey] = 0.0\n\t\tm.g[\"pic_dwell\"] = dw\n\t# hidden back door: a secret underwater entrance that works even before the stars\n\tif not explicit_touch and m.g.has(\"back_entry\"):\n\t\tvar bpos: Vector3 = m.g[\"back_entry\"]\n\t\tif bpos.distance_to(ppos) < 9.0:\n\t\t\tm._enter_castle_interior(true)   # secret hatch -> Daddy's treasure room\n\t\t\treturn\n\t# owner request 2026-07-21 (UI declutter): free-roam objective banners are\n\t# gone \u2014 the sparkle trail + voice lines already carry the route. Blanking\n\t# per tick keeps the old overwrite semantics (no stale hint can linger).\n\tm.hud_game.text = \"\"\n\tif m.l2_open and not explicit_touch:\n\t\t# magnet toward the fixed doorway (the door itself slides up out of view)\n\t\tvar entry: Vector3 = m.g.get(\"entry\", m.l2_door.position)\n\t\tvar dd: float = Vector2(entry.x - ppos.x, entry.z - ppos.z).length()\n\t\tif dd < 36.0:\n\t\t\tvar pull: Vector3 = entry + Vector3(0, 2, 10)\n\t\t\tm.player.position = m.player.position.lerp(pull, minf(0.75, delta * 1.5 * (1.0 - dd / 36.0)))\n\t\tif dd < 20.0:\n\t\t\tm._enter_castle_interior()\n\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "function": "_day_one_drain_story_clips",
+      "line": 396,
+      "end_line": 416,
+      "text": "func _day_one_drain_story_clips() -> void:\n\tif not m.is_inside_tree() or m.is_queued_for_deletion() \\\n\t\t\tor (m._day_one_story_clip != null and is_instance_valid(m._day_one_story_clip)):\n\t\treturn\n\tif m.touch_ui != null:\n\t\tm.touch_ui.consume_action()\n\twhile not m._day_one_story_clip_queue.is_empty():\n\t\tvar next_id: String = m._day_one_story_clip_queue.pop_front()\n\t\tif m._day_one_play_story_clip(next_id):\n\t\t\treturn\n\tif m._day_one_story_boss_start_pending:\n\t\tm._day_one_story_boss_start_pending = false\n\t\tif m.day_one_is_active() and m._day_one_ref().giant_dust_bunny_boss_triggered:\n\t\t\tm._start_game(m.dust_boss_fr)\n\tif m._day_one_story_boss_transition_pending:\n\t\tm._day_one_story_boss_transition_pending = false\n\t\tm._show_day_two_transition()\n\tif m.castle_room_id == \"bubble_bath\" and m.castle_room_stage != null:\n\t\tm._sync_day_one_bathroom_cleanup()\n\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg2d_open",
+      "line": 14,
+      "end_line": 94,
+      "text": "func _mg2d_open(kind: String) -> void:\n\tif m.mg_kind != \"\":\n\t\treturn\n\tif kind == \"slide\":\n\t\tm._l2_start_slide()   # the rainbow slide uses the full Lagoon playground, never the retired card screen\n\t\treturn\n\tm._navigation_push(\"picture_game\", self,\n\t\tCallable(self, \"_mg2d_close\"))\n\topen_generation += 1\n\tm._set_world_controls_enabled(false, \"picture_game\")\n\tm.mg_kind = kind\n\tm.mg = {\"t\": 0.0, \"btns\": [], \"music_return\": m.cur_track}\n\tm._play_music(\"picture_\" + kind)\n\tif m.mg2d_layer == null:\n\t\tm.mg2d_layer = CanvasLayer.new()\n\t\tm.mg2d_layer.layer = 7\n\t\tm.add_child(m.mg2d_layer)\n\tm.mg2d_root = Control.new()\n\tm.mg2d_root.set_anchors_preset(Control.PRESET_FULL_RECT)\n\tm.mg2d_layer.add_child(m.mg2d_root)\n\tm.mg2d_layer.visible = true\n\t# clean themed gradient background (no busy book page behind the toys)\n\tvar themes := {\n\t\t\"snowman\": [Color(0.50, 0.66, 0.86), Color(0.88, 0.94, 1.0)],\n\t\t\"garden\": [Color(0.45, 0.78, 0.95), Color(0.7, 0.92, 0.6)],\n\t\t\"trampoline\": [Color(0.45, 0.72, 1.0), Color(0.86, 0.95, 1.0)],\n\t\t\"slide\": [Color(0.55, 0.7, 1.0), Color(1.0, 0.85, 0.92)],\n\t\t\"xmas\": [Color(0.10, 0.18, 0.30), Color(0.25, 0.40, 0.48)]}\n\tvar grad := Gradient.new()\n\tgrad.set_color(0, themes[kind][0])\n\tgrad.set_color(1, themes[kind][1])\n\tvar gt := GradientTexture2D.new()\n\tgt.gradient = grad\n\tgt.fill_from = Vector2(0, 0)\n\tgt.fill_to = Vector2(0, 1)\n\tgt.width = 64\n\tgt.height = 64\n\tvar bg := TextureRect.new()\n\tbg.texture = gt\n\tbg.set_anchors_preset(Control.PRESET_FULL_RECT)\n\tbg.stretch_mode = TextureRect.STRETCH_SCALE\n\tm.mg2d_root.add_child(bg)\n\t# responsive 1280x720 stage, scaled + centred to any screen (fixes landscape)\n\tm.mg2d_stage = Control.new()\n\tm.mg2d_stage.size = Vector2(1280, 720)\n\tvar vp: Vector2 = m.get_viewport().get_visible_rect().size\n\tvar sc: float = minf(vp.x / 1280.0, vp.y / 720.0)\n\tm.mg2d_stage.scale = Vector2(sc, sc)\n\tm.mg2d_stage.position = (vp - Vector2(1280, 720) * sc) * 0.5\n\tm.mg2d_root.add_child(m.mg2d_stage)\n\t# All picture-game feedback lives above the play pieces on this stage. The\n\t# layer and every tween below it die with the stage on close or re-entry.\n\tvar feedback_layer := Control.new()\n\tfeedback_layer.name = \"PictureGameFeedbackLayer\"\n\tfeedback_layer.size = m.mg2d_stage.size\n\tfeedback_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\tfeedback_layer.z_index = 20\n\tm.mg2d_stage.add_child(feedback_layer)\n\tm.mg[\"feedback_layer\"] = feedback_layer\n\tm.mg[\"feedback_tweens\"] = []\n\tm.mg[\"feedback_events\"] = {}\n\tvar header := StorybookUI.add_hud_panel(m.mg2d_stage,\n\t\tRect2(24, 18, 880, 112), StorybookUI.PURPLE,\n\t\tColor(0.94, 0.98, 1.0, 0.97), 34)\n\theader.name = \"PictureGameStorybookHeader\"\n\tStorybookUI.add_shell_crest(header, Rect2(20, 27, 82, 60),\n\t\t\"PictureGameShellCrest\")\n\t# Word-wrapped labels need an explicit content box; an empty label starts\n\t# at zero width and otherwise displays the later objective one letter wide.\n\tvar objective := _mg_label(\"\", 34, Vector2(138, 30))\n\tobjective.size = Vector2(734, 88)\n\tobjective.vertical_alignment = VERTICAL_ALIGNMENT_CENTER\n\tm.mg[\"hud\"] = objective\n\tm.mg[\"xbtn\"] = null\n\tif kind == \"snowman\": _mg_build_snowman()\n\telif kind == \"garden\": _mg_build_garden()\n\telif kind == \"trampoline\": _mg_build_trampoline()\n\telif kind == \"slide\": _mg_build_slide()\n\telif kind == \"xmas\": _mg_build_xmas()\n\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_end_galaxy",
+      "line": 2341,
+      "end_line": 2399,
+      "text": "func _end_galaxy(completed: bool) -> void:\n\tplayer.visible = true\n\tif hud_layer != null:\n\t\thud_layer.visible = true\n\tgalaxy_game = null\n\tgame = \"\"\n\tif fairy_pending:\n\t\tfairy_pending = false\n\t\tfairy_from_galaxy = true\n\t\tcall_deferred(\"_start_game\", fairy_fr)   # straight into the fairy flight\n\t\treturn\n\tif fairy_conservatory_galaxy_return:\n\t\t# The handoff owns the original Hall/Lagoon context. Keep that tuple intact\n\t\t# through Galaxy (and its optional Fairy Pond detour), then reopen the\n\t\t# handoff's Butterfly House return card instead of rebuilding Sky Lagoon.\n\t\tfairy_conservatory_galaxy_return = false\n\t\tgalaxy_from = \"\"\n\t\tgalaxy_return_set = false\n\t\tgalaxy_return_pos *= 0.0\n\t\tgalaxy_level2_open = false\n\t\tif completed:\n\t\t\taward_sticker(\"butterfly\")\n\t\t\tshow_msg(\"Mermaid Rosalina\", \"You saved the Butterfly World! FAIRY ROSHAN is waiting in the castle wardrobe! \ud83e\udd8b\", \"win\")\n\t\t\tchapter3_fairy_mission_started = true\n\t\t\t_write_save()\n\t\telse:\n\t\t\tshow_msg(\"Butterfly World\",\n\t\t\t\t\"Home again! The butterflies will wait for your return...\",\n\t\t\t\t\"fairy_home\")\n\t\t_update_hud()\n\t\tcall_deferred(\"_start_fairy_conservatory_handoff\", true)\n\t\treturn\n\tif completed:\n\t\taward_sticker(\"butterfly\")\n\t\tshow_msg(\"Mermaid Rosalina\", \"You saved the Butterfly World! FAIRY ROSHAN is waiting in the castle wardrobe! \ud83e\udd8b\", \"win\")\n\telse:\n\t\tshow_msg(\"Butterfly World\",\n\t\t\t\"Home again! The butterflies will wait for your return...\",\n\t\t\t\"fairy_home\")\n\t_update_hud()\n\tvar return_world: String = galaxy_from\n\tvar return_level2_open: bool = galaxy_level2_open or level2_done_once\n\tvar saved_return_pos: Vector3 = galaxy_return_pos\n\tgalaxy_from = \"\"\n\tgalaxy_return_set = false\n\tgalaxy_return_pos = Vector3.ZERO\n\tgalaxy_level2_open = false\n\tif return_world == \"level2\":\n\t\tcall_deferred(\"_restore_level2_after_trip\", return_level2_open, saved_return_pos)\n\t\treturn\n\tkart_from = \"\"\n\t# Defensive ocean restoration for direct/debug entries. GalaxyLevel restores\n\t# its previous environment, but these assignments also repair an older hybrid\n\t# state left by a portal that forgot where it came from.\n\tplayer.position = saved_return_pos\n\tplayer.vel = Vector3.ZERO\n\twe_node.environment = world_env\n\t_play_music(\"world\")\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_fade_cut",
+      "line": 3033,
+      "end_line": 3053,
+      "text": "func _fade_cut(cb: Callable) -> void:\n\t# Visual cover for a synchronous heavy world rebuild. PROBE SAFETY: the\n\t# rebuild must happen in THIS call chain \u2014 probes call these entry points\n\t# and assert state a frame or two later, so cb is never tween-deferred.\n\t# Snap the cover to full black, run the build under it in the same frame,\n\t# then tween only the reveal. State timing is byte-identical to before.\n\t_prepare_touch_transition()\n\tif fade_rect == null:\n\t\tcb.call()\n\t\t_finish_touch_transition()\n\t\treturn\n\tfade_rect.mouse_filter = Control.MOUSE_FILTER_STOP\n\tfade_rect.modulate.a = 1.0\n\tcb.call()\n\t_populate_touch_interactables()\n\tif fade_tween != null and fade_tween.is_valid():\n\t\tfade_tween.kill()\n\tfade_tween = create_tween()\n\tfade_tween.tween_property(fade_rect, \"modulate:a\", 0.0, 0.25)\n\tfade_tween.tween_callback(_finish_touch_transition)\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_prepare_touch_transition",
+      "line": 4687,
+      "end_line": 4694,
+      "text": "func _prepare_touch_transition() -> void:\n\tif touch_ui != null:\n\t\ttouch_ui.cancel_all_touches()\n\t_cancel_lagoon_navigation()\n\t_tap_move_ref().cancel(\"transition\")\n\t_interaction_ref().clear_focus()\n\ttouch_interactables.clear()\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_activate_touch_interactable",
+      "line": 4804,
+      "end_line": 4843,
+      "text": "func _activate_touch_interactable(id: String, payload: Variant = null) -> void:\n\tif not touch_uses_explicit_interactions():\n\t\treturn\n\tif touch_ui != null:\n\t\t# Consume the activating button without stealing a simultaneously held\n\t\t# left-stick finger. Fade-backed activities clear every owner below.\n\t\ttouch_ui.consume_action()\n\tmatch id:\n\t\t\"court:north\":\n\t\t\t_enter_northern_kingdom()\n\t\t\"north:return\":\n\t\t\t_enter_level2(false, true)\n\t\t\"court:galaxy\":\n\t\t\tkart_from = \"level2\"\n\t\t\t_start_fairy_conservatory_handoff()\n\t\t\"court:ember\":\n\t\t\tkart_float_dest = \"ember\"\n\t\t\t_start_kart_game(false, \"float\")\n\t\t\"court:kart_a\":\n\t\t\t_start_kart_game(false, \"float\")\n\t\t\"court:kart_b\":\n\t\t\t_start_kart_game(true, \"float\")\n\t\t\"court:back_entry\":\n\t\t\t_enter_castle_interior(true)\n\t\t\"court:castle\":\n\t\t\t_enter_castle_interior()\n\t\t_:\n\t\t\tif id.begins_with(\"court:ocean:\"):\n\t\t\t\tvar gate_index: int = int(payload)\n\t\t\t\tvar gates: Array = g.get(\"ocean_kingdom_gates\", [])\n\t\t\t\tif gate_index >= 0 and gate_index < gates.size():\n\t\t\t\t\tvar gate: Dictionary = gates[gate_index]\n\t\t\t\t\t_enter_ocean_kingdom(String(gate[\"kingdom\"]))\n\t\t\telif id.begins_with(\"court:picture:\"):\n\t\t\t\t_touch_open_picture(int(payload))\n\t\t\telif id.begins_with(\"court:star:\"):\n\t\t\t\t# Arrival collection remains the familiar forgiving proximity\n\t\t\t\t# reward; the tap supplies navigation, not a second requirement.\n\t\t\t\tpass\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_touch_open_picture",
+      "line": 4844,
+      "end_line": 4853,
+      "text": "func _touch_open_picture(picture_index: int) -> void:\n\tif picture_index < 0 or picture_index >= wall_pics.size():\n\t\treturn\n\tvar picture: Dictionary = wall_pics[picture_index]\n\tvar art_key: String = String(picture.get(\"art\", \"\"))\n\tif art_key == \"p_slide\":\n\t\t_l2_start_slide()\n\telif PIC_GAME.has(art_key):\n\t\t_mg2d_open(String(PIC_GAME[art_key]))\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_tick_level2",
+      "line": 5190,
+      "end_line": 5196,
+      "text": "func _tick_level2(delta: float, ppos: Vector3) -> void:\n\tif String(g.get(\"phase\", \"\")) == \"promenade\":\n\t\t_companion_ref().tick_canvas_care(delta)\n\t\t_lagoon_promenade_ref().tick(delta)\n\t\treturn\n\t_lagoon_ref()._tick_level2(delta, ppos)\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_mg2d_open",
+      "line": 5585,
+      "end_line": 5587,
+      "text": "func _mg2d_open(kind: String) -> void:\n\t_pics_ref()._mg2d_open(kind)\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_on_day_one_hook_event",
+      "line": 6713,
+      "end_line": 6768,
+      "text": "func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:\n\tg[\"day_one_last_event\"] = event_name\n\tmatch event_name:\n\t\tDayOneDirector.EVENT_ARRIVAL_PLANE_MEDIA:\n\t\t\t# DL-CIN-16: the 30-second opening introduces the game; the pearl-plane\n\t\t\t# animation remains the in-engine fallback when the clip is absent.\n\t\t\tg[\"day_one_media_request\"] = \"d1_opening\"\n\t\t\t_day_one_play_story_clip(\"d1_opening\")\n\t\tDayOneDirector.EVENT_DIRTY_CASTLE_DISCOVERY:\n\t\t\tg[\"day_one_castle_dirty\"] = true\n\t\t\t_day_one_play_story_clip(\"d1_castle\")\n\t\tDayOneDirector.EVENT_GROK_VIDEO_2:\n\t\t\tg[\"day_one_media_request\"] = \"grok_dirty_castle_video_2\"\n\t\t\tshow_msg(\"Roshan\",\n\t\t\t\t\"Dust bunnies! This castle needs our help!\",\n\t\t\t\t\"day_one_rescue_bunnies\")\n\t\tDayOneDirector.EVENT_DUST_BUNNY_CLEANUP:\n\t\t\tg[\"day_one_cleaned_room\"] = String(payload.get(\"room_id\", \"\"))\n\t\t\tvar cleaned_room: String = String(payload.get(\"room_id\", \"\"))\n\t\t\tvar restoration_id: String = {\n\t\t\t\t\"bathroom\": \"d1_bath_clean\", \"pool\": \"d1_pool_clean\",\n\t\t\t\t\"stuffie\": \"d1_eagle_free\", \"art\": \"d1_art_clean\",\n\t\t\t}.get(cleaned_room, \"\")\n\t\t\tif restoration_id != \"\":\n\t\t\t\t_day_one_play_story_clip(restoration_id)\n\t\tDayOneDirector.EVENT_ART_DESK_UNLOCKED:\n\t\t\tg[\"day_one_art_desk_unlocked\"] = true\n\t\tDayOneDirector.EVENT_ART_CUSTOMIZATION_COMPLETED:\n\t\t\tg[\"day_one_art_customization_completed\"] = true\n\t\tDayOneDirector.EVENT_BOSS_DOOR_GLOW:\n\t\t\t_day_one_arm_boss_door()\n\t\t\t_day_one_play_story_clip(\"d1_rainbow_route\")\n\t\tDayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS:\n\t\t\t# The director's trigger is a runtime latch. Do not persist it until\n\t\t\t# complete_day_one_after_boss() has crossed the real win boundary.\n\t\t\tif _castle_rooms_25d != null and _castle_rooms_25d.is_open():\n\t\t\t\t_castle_rooms_25d.close()\n\t\t\t_day_one_play_story_clip(\"d1_puff_arrival\")\n\t\t\tif _day_one_story_clip != null and is_instance_valid(_day_one_story_clip):\n\t\t\t\t_day_one_story_boss_start_pending = true\n\t\t\telse:\n\t\t\t\t_start_game(dust_boss_fr)\n\t\tDayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED:\n\t\t\t_day_one_clear_castle_dressing()\n\t\t\t# Never defer progression behind optional media: save compatibility and\n\t\t\t# the atomic boss-to-Chapter-2 boundary remain authoritative.\n\t\t\t_chapter_two_ref().start_after_boss()\n\t\t\t_day_one_play_story_clip(\"d1_puff_transformation\")\n\t\tDayOneDirector.EVENT_DAY_TWO_BEGINS:\n\t\t\t_day_one_play_story_clip(\"d1_epilogue\")\n\t\t\t_day_one_ref().clear_day_one_routing()\n\t\t\tg[\"day_two_started\"] = true\n\tif event_name != DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS:\n\t\t_queue_save()\n\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_day_one_drain_story_clips",
+      "line": 6839,
+      "end_line": 6842,
+      "text": "func _day_one_drain_story_clips() -> void:\n\t_day_one_flow_ref()._day_one_drain_story_clips()\n\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_l2_start_slide",
+      "line": 7072,
+      "end_line": 7117,
+      "text": "func _l2_start_slide() -> void:\n\t# the rainbow slide is the 3D play place (same world as Harper's game), returning to the courtyard when done\n\tfor n in game_nodes:\n\t\tif is_instance_valid(n):\n\t\t\tn.queue_free()\n\tgame_nodes.clear()\n\tl2_stars = []\n\tvar fr := {\"fname\": \"Rainbow Slide\", \"won\": true, \"game\": \"race\", \"cool\": 0.0}\n\trainbow_slide_mode = true\n\t_start_game(fr)\n\trainbow_slide_mode = false\n\t# a brighter rainbow-dream sky in place of the sunset\n\tif arena_env != null:\n\t\tarena_env.background_color = Color(0.48, 0.70, 0.90)\n\t\tarena_env.ambient_light_color = Color(0.88, 0.90, 1.0)\n\t\tarena_env.ambient_light_energy = 0.62\n\t\t_apply_scene_grade(arena_env, \"bright_pastel\")\n\t# flashing colored disco lights ringing the play place (this is the RAINBOW slide!)\n\tvar rbc := [Color(1, 0.2, 0.2), Color(1, 0.6, 0.1), Color(1, 0.9, 0.2), Color(0.2, 0.9, 0.3), Color(0.2, 0.5, 1.0), Color(0.6, 0.3, 0.9)]\n\tfor li in range(8):\n\t\tvar fl := OmniLight3D.new()\n\t\tfl.light_energy = 1.25 if quality == \"speedy\" else 2.0\n\t\tfl.omni_range = 34.0\n\t\tvar ang: float = float(li) / 8.0 * TAU\n\t\tfl.position = ARENA_POS + Vector3(cos(ang) * 17.0, 5.0 + float(li % 4) * 8.0, sin(ang) * 17.0)\n\t\tfl.light_color = rbc[li % rbc.size()]\n\t\tadd_child(fl)\n\t\tgame_nodes.append(fl)\n\t\tvar tw := fl.create_tween().set_loops()\n\t\tfor ci in range(rbc.size()):\n\t\t\ttw.tween_property(fl, \"light_color\", rbc[(li + ci + 1) % rbc.size()], 0.3)\n\t# a couple of rainbow arches over the climb\n\tfor ai in range(2):\n\t\tvar arc := MeshInstance3D.new()\n\t\tvar at := TorusMesh.new(); at.inner_radius = 16.0 + float(ai) * 6.0; at.outer_radius = 18.0 + float(ai) * 6.0\n\t\tat.rings = 32; at.ring_segments = 16\n\t\tarc.mesh = at\n\t\tvar ash := Shader.new()\n\t\tash.code = \"shader_type spatial;\\nrender_mode cull_disabled, unshaded;\\nvoid fragment(){ float b=UV.y; vec3 c; if(b<0.16)c=vec3(0.9,0.2,0.3);else if(b<0.33)c=vec3(1.0,0.6,0.2);else if(b<0.5)c=vec3(1.0,0.9,0.3);else if(b<0.66)c=vec3(0.3,0.8,0.4);else if(b<0.83)c=vec3(0.3,0.6,1.0);else c=vec3(0.6,0.4,0.9); ALBEDO=c; EMISSION=c*0.5; }\"\n\t\tvar am := ShaderMaterial.new(); am.shader = ash\n\t\tarc.material_override = am\n\t\tarc.position = ARENA_POS + Vector3(0, 24.0 + float(ai) * 6.0, 0)\n\t\tarc.rotation_degrees = Vector3(0, 0, 90)\n\t\tadd_child(arc)\n\t\tgame_nodes.append(arc)\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_start_game",
+      "line": 7871,
+      "end_line": 7873,
+      "text": "func _start_game(fr: Dictionary) -> void:\n\t_fade_cut(_start_game_now.bind(fr))\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_start_game_now",
+      "line": 7874,
+      "end_line": 7953,
+      "text": "func _start_game_now(fr: Dictionary) -> void:\n\tgame = String(fr[\"game\"])\n\tg = {\"fr\": fr, \"t\": 0.0, \"timer\": -1.0}\n\tif game == \"slide\":\n\t\t# _enter_arena must know the exact route before it decides whether to build\n\t\t# and teleport into a spatial arena. Penguin chase remains mode=\"chase\".\n\t\tg[\"mode\"] = String(fr.get(\"mode\", \"fish\"))\n\t_enter_arena(game)\n\tif game == \"melody\":\n\t\t# Its full-screen notes own the complete touch surface; hide the legacy\n\t\t# swim stick/action bay while retaining the separately-owned pause corner.\n\t\t_set_world_controls_enabled(false, \"melody\")\n\tvar origin: Vector3 = ARENA_POS\n\tif game == \"fetch\":\n\t\t_game_obj(\"fetch\", FetchGame).build(fr, origin)\n\telif game == \"dolls\":\n\t\t_game_obj(\"dolls\", DollsGame).build(fr)\n\telif game == \"brawl\":\n\t\t_game_obj(\"brawl\", BrawlGame).build(fr, origin)\n\telif game == \"dustboss\":\n\t\t_game_obj(\"dustboss\", DustBossGame).build(fr, origin)\n\telif game == \"seek\":\n\t\t_game_obj(\"seek\", SeekGame).build(fr)\n\telif game == \"race\":\n\t\t_game_obj(\"race\", SlideRaceGame).build(fr, origin)\n\telif game == \"shop\":\n\t\t_game_obj(\"shop\", ShopGame).build(fr, origin)\n\telif game == \"treasure\":\n\t\t_game_obj(\"treasure\", TreasureGame).build(fr, origin)\n\telif game == \"melody\":\n\t\tvar melody: MelodyGame = _game_obj(\"melody\", MelodyGame) as MelodyGame\n\t\tmelody.build(fr, origin)\n\t\tfor reason_value: Variant in _melody_input_context_losses.keys():\n\t\t\tmelody.on_input_context_lost(StringName(String(reason_value)))\n\t\tmelody.arm_entry_sources(_melody_held_sources.keys())\n\telif game == \"slide\":\n\t\tvar slide: SlideRaceGame = _game_obj(\"race\", SlideRaceGame) as SlideRaceGame\n\t\tvar slide_canvas_route: bool = _slide_canvas_fish_route_active()\n\t\tif slide_canvas_route:\n\t\t\t# Clear the legacy router before build. Its cancellation callback is safe\n\t\t\t# against the closed controller; build then establishes the authoritative\n\t\t\t# fresh startup latch which remains intact through the reveal fade.\n\t\t\tjoy_ev_axis.clear()\n\t\t\tjoy_ev_btn.clear()\n\t\t\t_slide_canvas_overlay_axis_wait_neutral = false\n\t\t\t_slide_canvas_overlay_poll_neutral_frames = 0\n\t\t\tvar slide_canvas_return_camera := active_viewport_camera()\n\t\t\tg[\"slide_canvas_return_camera\"] = slide_canvas_return_camera\n\t\t\tg[\"slide_canvas_camera_was_current\"] = \\\n\t\t\t\tslide_canvas_return_camera != null\n\t\t\tif player != null and player.cam != null:\n\t\t\t\tg[\"slide_canvas_player_cam_transform\"] = player.cam.transform\n\t\t\t\tg[\"slide_canvas_player_cam_fov\"] = player.cam.fov\n\t\t\t\tg[\"slide_canvas_player_cam_orbit\"] = player.cam_orbit\n\t\t\t\tg[\"slide_canvas_player_cam_pitch\"] = player.cam_pitch_off\n\t\t\tif slide_canvas_return_camera != null:\n\t\t\t\tslide_canvas_return_camera.clear_current(false)\n\t\t\tif collection_button_layer != null:\n\t\t\t\tg[\"slide_canvas_collection_was_visible\"] = \\\n\t\t\t\t\tcollection_button_layer.visible\n\t\t\t\tcollection_button_layer.visible = false\n\t\t\tif living_layer != null:\n\t\t\t\tg[\"slide_canvas_living_was_visible\"] = living_layer.visible\n\t\t\t\tliving_layer.visible = false\n\t\t\t_set_world_controls_enabled(false, \"slide_canvas\")\n\t\t\tif player != null:\n\t\t\t\tg[\"slide_canvas_player_was_visible\"] = player.visible\n\t\tslide.build_slide(fr, origin)\n\t\tif slide_canvas_route:\n\t\t\t# The fade still covers the fresh layer. Hide the spatial actor and seed\n\t\t\t# every concrete source which was physically down before entry.\n\t\t\tif player != null:\n\t\t\t\tplayer.visible = false\n\t\t\t\tplayer.vel *= 0.0\n\t\t\tfor reason_value: Variant in _slide_canvas_input_context_losses.keys():\n\t\t\t\tslide.on_input_context_lost(StringName(String(reason_value)))\n\t\t\tslide.arm_entry_sources(_slide_canvas_held_sources.keys())\n\telif game == \"fairyshoot\":\n\t\t_game_obj(\"fairyshoot\", FairyGame).build(fr, origin)\n",
+      "probe_or_test_filename": false
+    }
+  ],
+  "resources": [
+    {
+      "path": "project.godot",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1762,
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "target_text_candidates": [],
+      "scope": "Text references only, no native/external/resource dynamic closure"
+    },
+    {
+      "path": "scenes/arborist_tree_book_test.tscn",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 297,
+      "sha256": "42e3654eb4d95a464dfb93eb0c72b2240529e366bb9cf58f5e75640b58cf92fc",
+      "target_text_candidates": [],
+      "scope": "Text references only, no native/external/resource dynamic closure"
+    },
+    {
+      "path": "scenes/fairy_restoration_prototype.tscn",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 317,
+      "sha256": "8daee0e0a0bc6e78eb4d74d65ada04e732de21259cf6610c0009e830276057ff",
+      "target_text_candidates": [],
+      "scope": "Text references only, no native/external/resource dynamic closure"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 221,
+      "sha256": "1de477913ac3db6efe5d66d04967279dc9b66217bea01afeeddb4d98ef692f21",
+      "target_text_candidates": [],
+      "scope": "Text references only, no native/external/resource dynamic closure"
+    },
+    {
+      "path": "scenes/painter_prototype.tscn",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 303,
+      "sha256": "810599851777d0a69535e9734189c5859a90b13dc63a9086fdc7053427ddaa61",
+      "target_text_candidates": [],
+      "scope": "Text references only, no native/external/resource dynamic closure"
+    }
+  ],
+  "summary": {
+    "parsed_scripts": 313,
+    "named_calls": 47,
+    "literal_reflective_candidates": 1,
+    "non_test_named_calls": 7,
+    "non_test_literal_reflective_candidates": 1,
+    "resource_files_checked": 5,
+    "non_test_field_references": 5,
+    "global_unreachability_proved": false,
+    "dictionary_mutation_alias_domain_closed": false
+  },
+  "limits": "Exact named syntax/arguments/guards and initializer proof only. Method references are not extra invocations. Non-test filenames include debug code. A mutable Dictionary is not a frozen payload. Reflected variable selectors, receiver aliases, external/native paths and all other game writers stay open. No absent-name test or source producer grants runtime reachability, scene coverage, art/style/replacement or acceptance credit."
+}

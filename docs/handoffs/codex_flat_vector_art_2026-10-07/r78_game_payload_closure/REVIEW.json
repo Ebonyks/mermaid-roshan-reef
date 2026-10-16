@@ -1,0 +1,34 @@
+{
+  "type": "Codex source/semantic review only; no human creative acceptance",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "verified": [
+    "All313scripts parsed; named/reflective literal selectors separated from method refs and ambiguous callback arguments",
+    "4named entry sites bound to exact two Main field initializers and one local fr initializer",
+    "3named _l2_start_slide callers retained with guards; p_slide table suffix distinguished from race redirect",
+    "Both _fade_cut branches call synchronously; outer Fairy defer remains separate",
+    "13actual engine language checks prove Dictionary/Callable/deferred/duplicate semantics only; no Main/production methods executed",
+    "262role IDs/35families and retained context totals unchanged"
+  ],
+  "unresolved": [
+    {
+      "id": "FVE-OPEN-MUTABLE",
+      "gap": "Main fields and g[fr] dictionaries are references; reflected variable selectors, alias/native writes and reentrant callback effects are not a closed value domain."
+    },
+    {
+      "id": "FVE-OPEN-REACH",
+      "gap": "Three named slide callers and four entry sites are source-bound; wall_pics producers, real child triggers, runtime/resource/native/debug ownership and complete entry/exit/state coverage remain open."
+    },
+    {
+      "id": "FVE-OPEN-GAME",
+      "gap": "Other direct game writers from R57 and later source remain separate; three initializer tags are not the whole game domain or catalogue denominator."
+    },
+    {
+      "id": "FVE-OPEN-VISUAL",
+      "gap": "No new scene captures, congruency review, production repair, QA11/device/child/owner or zero-art acceptance."
+    }
+  ],
+  "visual_comparison_new_item": "NOT_APPLICABLE_SOURCE_ONLY; no piece generated/repaired/reviewed here. Prior per-piece deficiencies remain open.",
+  "no_production_changes": true,
+  "no_generation": true,
+  "acceptance": false
+}

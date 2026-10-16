@@ -1,0 +1,112 @@
+{
+	"checks": [
+		{
+			"name": "exact_approved_engine",
+			"pass": true
+		},
+		{
+			"name": "project_mobile_config",
+			"pass": true
+		},
+		{
+			"name": "literal_dictionary_initial_value",
+			"pass": true
+		},
+		{
+			"name": "bind_does_not_invoke",
+			"pass": true
+		},
+		{
+			"name": "bound_dictionary_is_reference",
+			"pass": true
+		},
+		{
+			"name": "delivered_dictionary_remains_aliased",
+			"pass": true
+		},
+		{
+			"name": "shallow_duplicate_root_independent",
+			"pass": true
+		},
+		{
+			"name": "shallow_duplicate_nested_still_alias",
+			"pass": true
+		},
+		{
+			"name": "deep_duplicate_nested_independent",
+			"pass": true
+		},
+		{
+			"name": "deferred_not_immediate",
+			"pass": true
+		},
+		{
+			"name": "deferred_delivery_observes_alias_change",
+			"pass": true
+		},
+		{
+			"name": "plain_callback_call_synchronous",
+			"pass": true
+		},
+		{
+			"name": "normal_eleven_names_hash_only_unchanged",
+			"pass": true
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"limits": "Generic Dictionary/Callable semantics only. No execution of _fade_cut/_start_game, no source payload reachability, Speedy rendered context, QA11/device/child/owner or artwork acceptance.",
+	"main_instantiated": false,
+	"native_frames": 0,
+	"normal_save_hashes_after": {
+		"reef_save.json": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		"reef_save.json.bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		"reef_save.json.bak.old": "ABSENT",
+		"reef_save.json.bak.tmp": "ABSENT",
+		"reef_save.json.before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+		"reef_save.json.before_new_game.old": "ABSENT",
+		"reef_save.json.before_new_game.tmp": "ABSENT",
+		"reef_save.json.old": "ABSENT",
+		"reef_save.json.tmp": "ABSENT",
+		"reef_save.json.tmp0": "ABSENT",
+		"reef_save.json.tmp1": "ABSENT"
+	},
+	"normal_save_hashes_before": {
+		"reef_save.json": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		"reef_save.json.bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		"reef_save.json.bak.old": "ABSENT",
+		"reef_save.json.bak.tmp": "ABSENT",
+		"reef_save.json.before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+		"reef_save.json.before_new_game.old": "ABSENT",
+		"reef_save.json.before_new_game.tmp": "ABSENT",
+		"reef_save.json.old": "ABSENT",
+		"reef_save.json.tmp": "ABSENT",
+		"reef_save.json.tmp0": "ABSENT",
+		"reef_save.json.tmp1": "ABSENT"
+	},
+	"normal_save_names": [
+		"reef_save.json",
+		"reef_save.json.bak",
+		"reef_save.json.tmp",
+		"reef_save.json.tmp0",
+		"reef_save.json.tmp1",
+		"reef_save.json.old",
+		"reef_save.json.bak.tmp",
+		"reef_save.json.bak.old",
+		"reef_save.json.before_new_game",
+		"reef_save.json.before_new_game.tmp",
+		"reef_save.json.before_new_game.old"
+	],
+	"production_methods_executed": [],
+	"schema": "reef.payload_language_semantics/1",
+	"status": "PASS"
+}

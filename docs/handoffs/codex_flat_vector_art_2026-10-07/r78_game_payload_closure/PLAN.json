@@ -1,0 +1,48 @@
+{
+  "revision": "FV-AUDIT-20261016-R78",
+  "scope": "R78 bounded current-source game-entry payload audit. Parse all current scripts from exact Git blobs; inventory named/reflective literal _start_game/_start_game_now/_l2_start_slide/_touch_open_picture call/ref sites and two dictionary fields. Bind the four named non-test entry sites to two mutable field initializers and one local literal. Distinguish synchronous _fade_cut callback from outer Fairy deferred dispatch and p_slide special branch from PIC_GAME table. Test Dictionary/Callable reference semantics only in an isolated no-Main/no-world headless fixture at official4.7.2; source/body proof remains separate from generic language proof. No forced game tags, gameplay/world capture or production code/art changes; unknown aliases/dynamic/native paths and whole-game totals stay open. No new generation/external art export; preserve frozen root5, approved sources, save contents and all prior evidence.",
+  "topic_baseline": "d3d5124c2373d17bb835ae85f63044b6fd2dfbdc",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-09",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-09",
+    "DL-QA-10",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-DOC-007",
+    "MA-2D-002"
+  ],
+  "delivery": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/flat-vector-r6-20261012",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure",
+    "recipient_mode": "anonymous public exact immutable HTTP bytes/SHA256"
+  },
+  "required_evidence": [
+    "313current Git script blobs parsed with exact function/guard/argument provenance and resource target check",
+    "Adversarial AST extraction tests including reflective literal selectors versus payloads, aliases and field writes",
+    "Exact4.7.2 headless language semantics with no Main/world/save-content reads; hash-only normal11 guard",
+    "Canonical role/family/coverage/tally counts inherited unchanged; no route/unreachability credit",
+    "Document authority/development/unit/stress and actual staged+committed2D gates before each push",
+    "Published immutable manifest/all declared files and final own metadata bytes/head anonymously verified"
+  ],
+  "prior_rejections": "Root5 bytes/representation and R72 ImageGen external payload stay frozen/unapproved. No retry.",
+  "all_game_artwork_total": null,
+  "production_changes": []
+}
