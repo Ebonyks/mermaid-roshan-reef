@@ -1,0 +1,4506 @@
+{
+  "cases": [
+    {
+      "case": "attempt1_z_only_1280",
+      "visual_variant": "z_only",
+      "classification": "EXCLUDED_CAMERA_OBSERVER_DIAGNOSTIC",
+      "raw_exit_code": 1,
+      "observer_status": "FAIL",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "source_route_failures": [
+        {
+          "actual_game": "level2",
+          "actual_phase": "promenade",
+          "capture": "07_back_source_failure",
+          "expected": "fairy_conservatory/rainbow_return followed by exact cached main_hall",
+          "id": "R69-FAIRY-GARDEN-BACK",
+          "navigation": [],
+          "production_repair": false,
+          "return_flags": {
+            "fairy_conservatory": true,
+            "from": "fairy_conservatory",
+            "galaxy_instance_alive": true,
+            "return_set": true
+          },
+          "status": "FAIL_SOURCE_RETURN_CONTRACT"
+        }
+      ],
+      "aspect": [
+        1280,
+        720
+      ],
+      "native_frames": 17,
+      "checks": 26,
+      "failed_checks": [
+        "original direct Skyway Back resumes same cached hall"
+      ],
+      "same_source_signatures": [
+        {
+          "after": {
+            "controller": -9223371843514135566,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 196175989783,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 196763192356,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 193374194678,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 196729637920,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.292602539063
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 193390972230,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 196461202463,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 195890777117,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 193458081044,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "before": {
+            "controller": -9223371843514135566,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 196175989783,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 196763192356,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 193374194678,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 196729637920,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.292602539063
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 193390972230,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 196461202463,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 195890777117,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 193458081044,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "declared_delta": "Existing backdropz -30; optional background tile positions/uniform scale and one resize observer. Source foreground/world/control/state/navigation unchanged.",
+          "entry": "04",
+          "equal": true
+        },
+        {
+          "after": {
+            "controller": -9223371835175859158,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 204514266148,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 205101469113,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 201712471036,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 205067914288,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.181335449219
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 201729248532,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 204799478784,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 204229053473,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 201796357119,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "before": {
+            "controller": -9223371835175859158,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 204514266148,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 205101469113,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 201712471036,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 205067914288,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.181335449219
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 201729248532,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 204799478784,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 204229053473,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 201796357119,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "declared_delta": "Existing backdropz -30; optional background tile positions/uniform scale and one resize observer. Source foreground/world/control/state/navigation unchanged.",
+          "entry": "06_reentry",
+          "equal": true
+        }
+      ],
+      "manifest_sha256": "f72bd503b5726af5eebc2f93eca64ee19fd310b771b8d4f7ac62d143634efc1a"
+    },
+    {
+      "case": "attempt2_z_only_1280",
+      "visual_variant": "z_only",
+      "classification": "EXCLUDED_Z_ONLY_VISUAL_DIAGNOSTIC",
+      "raw_exit_code": 0,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "source_route_failures": [
+        {
+          "actual_game": "level2",
+          "actual_phase": "promenade",
+          "capture": "07_back_source_failure",
+          "expected": "fairy_conservatory/rainbow_return followed by exact cached main_hall",
+          "id": "R69-FAIRY-GARDEN-BACK",
+          "navigation": [],
+          "production_repair": false,
+          "return_flags": {
+            "fairy_conservatory": true,
+            "from": "fairy_conservatory",
+            "galaxy_instance_alive": true,
+            "return_set": true
+          },
+          "status": "FAIL_SOURCE_RETURN_CONTRACT"
+        }
+      ],
+      "aspect": [
+        1280,
+        720
+      ],
+      "native_frames": 18,
+      "checks": 26,
+      "failed_checks": [],
+      "same_source_signatures": [
+        {
+          "after": {
+            "controller": -9223371840360018958,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 199330106391,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 199917308964,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 196528311284,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 199883754528,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.046142578125
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 196545088838,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 199615319071,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 199044893725,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 196612197652,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "before": {
+            "controller": -9223371840360018958,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 199330106391,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 199917308964,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 196528311284,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 199883754528,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.046142578125
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 196545088838,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 199615319071,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 199044893725,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 196612197652,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "declared_delta": "Existing backdropz -30; optional background tile positions/uniform scale and one resize observer. Source foreground/world/control/state/navigation unchanged.",
+          "entry": "04",
+          "equal": true
+        },
+        {
+          "after": {
+            "controller": -9223371832021742550,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 207668382756,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 208255585273,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 204866587644,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 208222030896,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.217834472656
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 204883365140,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 207953595392,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 207383170081,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 204950473727,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "before": {
+            "controller": -9223371832021742550,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 207668382756,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 208255585273,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 204866587644,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 208222030896,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.217834472656
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 204883365140,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 207953595392,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 207383170081,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 204950473727,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "declared_delta": "Existing backdropz -30; optional background tile positions/uniform scale and one resize observer. Source foreground/world/control/state/navigation unchanged.",
+          "entry": "06_reentry",
+          "equal": true
+        }
+      ],
+      "manifest_sha256": "5499576bf542c8074c3b847b8c25e6a10b914970ac733bd50f6050a618913cb7"
+    },
+    {
+      "case": "attempt2_z_only_1600",
+      "visual_variant": "z_only",
+      "classification": "EXCLUDED_Z_ONLY_VISUAL_DIAGNOSTIC",
+      "raw_exit_code": 0,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "source_route_failures": [
+        {
+          "actual_game": "level2",
+          "actual_phase": "promenade",
+          "capture": "07_back_source_failure",
+          "expected": "fairy_conservatory/rainbow_return followed by exact cached main_hall",
+          "id": "R69-FAIRY-GARDEN-BACK",
+          "navigation": [],
+          "production_repair": false,
+          "return_flags": {
+            "fairy_conservatory": true,
+            "from": "fairy_conservatory",
+            "galaxy_instance_alive": true,
+            "return_set": true
+          },
+          "status": "FAIL_SOURCE_RETURN_CONTRACT"
+        }
+      ],
+      "aspect": [
+        1600,
+        720
+      ],
+      "native_frames": 18,
+      "checks": 26,
+      "failed_checks": [],
+      "same_source_signatures": [
+        {
+          "after": {
+            "controller": -9223371840158692366,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 199531432983,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (660.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (660.0, 44.0)]",
+              "id": 200118635556,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 196729637876,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866733802161,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 200085081120,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.111206054688
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 196746415430,
+            "root_size": [
+              1600.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 199816645663,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 199246220317,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 196813524244,
+            "world_position": [
+              160.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "before": {
+            "controller": -9223371840158692366,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 199531432983,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (660.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (660.0, 44.0)]",
+              "id": 200118635556,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 196729637876,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866733802161,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 200085081120,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.111206054688
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 196746415430,
+            "root_size": [
+              1600.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 199816645663,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 199246220317,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 196813524244,
+            "world_position": [
+              160.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "declared_delta": "Existing backdropz -30; optional background tile positions/uniform scale and one resize observer. Source foreground/world/control/state/navigation unchanged.",
+          "entry": "04",
+          "equal": true
+        },
+        {
+          "after": {
+            "controller": -9223371831820415958,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 207869709348,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (660.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (660.0, 44.0)]",
+              "id": 208456910367,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 205067914236,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866733802161,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 208423357488,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.216430664063
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 205084691732,
+            "root_size": [
+              1600.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 208154921984,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 207584496673,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 205151800319,
+            "world_position": [
+              160.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "before": {
+            "controller": -9223371831820415958,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 207869709348,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (660.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (660.0, 44.0)]",
+              "id": 208456910367,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 205067914236,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866733802161,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 208423357488,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.216430664063
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 205084691732,
+            "root_size": [
+              1600.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 208154921984,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 207584496673,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 205151800319,
+            "world_position": [
+              160.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "declared_delta": "Existing backdropz -30; optional background tile positions/uniform scale and one resize observer. Source foreground/world/control/state/navigation unchanged.",
+          "entry": "06_reentry",
+          "equal": true
+        }
+      ],
+      "manifest_sha256": "379eae918f7cd8c5267aff667d263005f3dbfcf8336fafda64cc00c1e510d8e3"
+    },
+    {
+      "case": "attempt3_cover_1280",
+      "visual_variant": "cover",
+      "classification": "BOUNDED_COVER_REUSE_CANDIDATE",
+      "raw_exit_code": 0,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "source_route_failures": [
+        {
+          "actual_game": "level2",
+          "actual_phase": "promenade",
+          "capture": "07_back_source_failure",
+          "expected": "fairy_conservatory/rainbow_return followed by exact cached main_hall",
+          "id": "R69-FAIRY-GARDEN-BACK",
+          "navigation": [],
+          "production_repair": false,
+          "return_flags": {
+            "fairy_conservatory": true,
+            "from": "fairy_conservatory",
+            "galaxy_instance_alive": true,
+            "return_set": true
+          },
+          "status": "FAIL_SOURCE_RETURN_CONTRACT"
+        }
+      ],
+      "aspect": [
+        1280,
+        720
+      ],
+      "native_frames": 18,
+      "checks": 26,
+      "failed_checks": [],
+      "same_source_signatures": [
+        {
+          "after": {
+            "controller": -9223371840410350606,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 199279774743,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 199866977316,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 196477979636,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 199833422880,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.155822753906
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 196494757190,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 199564987423,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 198994562077,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 196561866004,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "before": {
+            "controller": -9223371840410350606,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 199279774743,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 199866977316,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 196477979636,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 199833422880,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.155822753906
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 196494757190,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 199564987423,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 198994562077,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 196561866004,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "declared_delta": "Existing backdropz -30; optional background tile positions/uniform scale and one resize observer. Source foreground/world/control/state/navigation unchanged.",
+          "entry": "04",
+          "equal": true
+        },
+        {
+          "after": {
+            "controller": -9223371832072074198,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 207618051108,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 208205252127,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 204816255996,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 208171699248,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.210998535156
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 204833033492,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 207903263744,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 207332838433,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 204900142079,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "before": {
+            "controller": -9223371832072074198,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 207618051108,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (500.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (500.0, 44.0)]",
+              "id": 208205252127,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 204816255996,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866935128753,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 208171699248,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.210998535156
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 204833033492,
+            "root_size": [
+              1280.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 207903263744,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 207332838433,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 204900142079,
+            "world_position": [
+              0.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "declared_delta": "Existing backdropz -30; optional background tile positions/uniform scale and one resize observer. Source foreground/world/control/state/navigation unchanged.",
+          "entry": "06_reentry",
+          "equal": true
+        }
+      ],
+      "manifest_sha256": "0670b91f74b4e049a97d96c3894ea80c7b34a21f79a43c07e1427570b146511b"
+    },
+    {
+      "case": "attempt3_cover_1600",
+      "visual_variant": "cover",
+      "classification": "BOUNDED_COVER_REUSE_CANDIDATE",
+      "raw_exit_code": 0,
+      "observer_status": "PASS",
+      "source_route_status": "FAIL_SOURCE_RETURN_CONTRACT",
+      "source_route_failures": [
+        {
+          "actual_game": "level2",
+          "actual_phase": "promenade",
+          "capture": "07_back_source_failure",
+          "expected": "fairy_conservatory/rainbow_return followed by exact cached main_hall",
+          "id": "R69-FAIRY-GARDEN-BACK",
+          "navigation": [],
+          "production_repair": false,
+          "return_flags": {
+            "fairy_conservatory": true,
+            "from": "fairy_conservatory",
+            "galaxy_instance_alive": true,
+            "return_set": true
+          },
+          "status": "FAIL_SOURCE_RETURN_CONTRACT"
+        }
+      ],
+      "aspect": [
+        1600,
+        720
+      ],
+      "native_frames": 18,
+      "checks": 26,
+      "failed_checks": [],
+      "same_source_signatures": [
+        {
+          "after": {
+            "controller": -9223371840209024014,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 199481101335,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (660.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (660.0, 44.0)]",
+              "id": 200068303908,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 196679306228,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866733802161,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 200034749472,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.034545898438
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 196696083782,
+            "root_size": [
+              1600.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 199766314015,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 199195888669,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 196763192319,
+            "world_position": [
+              160.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "before": {
+            "controller": -9223371840209024014,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 199481101335,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (660.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (660.0, 44.0)]",
+              "id": 200068303908,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 196679306228,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866733802161,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 200034749472,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.034545898438
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 196696083782,
+            "root_size": [
+              1600.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 199766314015,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 199195888669,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 196763192319,
+            "world_position": [
+              160.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "declared_delta": "Existing backdropz -30; optional background tile positions/uniform scale and one resize observer. Source foreground/world/control/state/navigation unchanged.",
+          "entry": "04",
+          "equal": true
+        },
+        {
+          "after": {
+            "controller": -9223371831870747606,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 207819377700,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (660.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (660.0, 44.0)]",
+              "id": 208406578719,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 205017582584,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866733802161,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 208373025840,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.210815429688
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 205034359807,
+            "root_size": [
+              1600.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 208104590336,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 207534165025,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 205101468948,
+            "world_position": [
+              160.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "before": {
+            "controller": -9223371831870747606,
+            "game": "fairy_conservatory",
+            "house": {
+              "id": 207819377700,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                184.0
+              ],
+              "scale": [
+                0.263671875,
+                0.263671875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -4
+            },
+            "house_control": {
+              "class": "Button",
+              "disabled": false,
+              "exists": true,
+              "flat": true,
+              "focus_mode": 0,
+              "global_rect": "[P: (660.0, 44.0), S: (280.0, 300.0)]",
+              "global_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (660.0, 44.0)]",
+              "id": 208406578719,
+              "mouse_filter": 0,
+              "path": "/root/Main/FairyConservatoryHandoff2D/HandoffRoot/ButterflyHouseHotspot",
+              "pressed_connections": 2,
+              "self_modulate": "(1.0, 1.0, 1.0, 0.0)",
+              "text": "",
+              "tooltip": "Enter Butterfly House",
+              "visible": false
+            },
+            "layer_id": 205017582584,
+            "navigation": [
+              {
+                "id": "pearl_castle",
+                "method": "_exit_to_courtyard",
+                "owner_id": -9223371866733802161,
+                "valid": true
+              },
+              {
+                "id": "fairy_conservatory",
+                "method": "_end_fairy_conservatory_handoff",
+                "owner_id": 127372625413,
+                "valid": true
+              }
+            ],
+            "pointer": {
+              "id": 208373025840,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                598.0,
+                512.210815429688
+              ],
+              "scale": [
+                0.119999997317791,
+                0.119999997317791
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/castle/training/ghost_hand.png",
+                "size": "(512.0, 512.0)"
+              },
+              "visible": true,
+              "z_index": 8
+            },
+            "root_id": 205034359807,
+            "root_size": [
+              1600.0,
+              720.0
+            ],
+            "roshan": {
+              "id": 208104590336,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                594.0
+              ],
+              "scale": [
+                0.783625721931458,
+                0.783625721931458
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/characters/roshan_25d/roshan_base.png",
+                "size": "(256.0, 256.0)"
+              },
+              "visible": true,
+              "z_index": 4
+            },
+            "source_script": "res://scripts/arena/fairy_conservatory_handoff_2d.gd",
+            "source_state": {
+              "active": true,
+              "background_tile_count": 8,
+              "background_tile_paths": [
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+                "res://assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png"
+              ],
+              "background_tiles_loaded": 8,
+              "butterfly_house_loaded": true,
+              "butterfly_house_path": "res://assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+              "butterfly_house_visible": true,
+              "finished": false,
+              "has_house_hotspot": true,
+              "has_timer": false,
+              "house_hotspot_size": "(280.0, 300.0)",
+              "house_hotspot_visible": false,
+              "no_fail_state": true,
+              "one_point_route_centered": true,
+              "pointer_base": "(598.0, 518.0)",
+              "pointer_is_sprite2d": true,
+              "progress": 0.0,
+              "rainbow_walkway_loaded": true,
+              "rainbow_walkway_path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+              "rainbow_walkway_visible": true,
+              "returning_from_butterfly": false,
+              "roshan_is_sprite2d": true,
+              "roshan_position": "(640.0, 594.0)",
+              "state": "rainbow_stage",
+              "uses_global_navigation": true,
+              "uses_spatial_runtime": false,
+              "waypoint_count": 3,
+              "waypoint_index": 0
+            },
+            "walkway": {
+              "id": 207534165025,
+              "modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "position": [
+                640.0,
+                500.0
+              ],
+              "scale": [
+                0.60546875,
+                0.60546875
+              ],
+              "self_modulate": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "texture": {
+                "class": "CompressedTexture2D",
+                "path": "res://assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+                "size": "(1024.0, 1024.0)"
+              },
+              "visible": true,
+              "z_index": -5
+            },
+            "world_id": 205101468948,
+            "world_position": [
+              160.0,
+              0.0
+            ],
+            "world_scale": [
+              1.0,
+              1.0
+            ]
+          },
+          "declared_delta": "Existing backdropz -30; optional background tile positions/uniform scale and one resize observer. Source foreground/world/control/state/navigation unchanged.",
+          "entry": "06_reentry",
+          "equal": true
+        }
+      ],
+      "manifest_sha256": "e500b1814a4ed7d5b1d84020a9b4c20d069f5b6e16936aaf301159ac96d757df"
+    }
+  ],
+  "private_synthetic_profiles": [
+    {
+      "case": "attempt1_z_only_1280",
+      "own_private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-skyway-art-reuse-20261015\\attempt1_z_only_1280\\output\\private_profile\\reef_save.json",
+      "sha256": "d9eba5ea955c0ef39dcbef6c6a2a9ccefbdfce04c91aa1590bf033c3eefa1d63",
+      "source_unknown_key_preserved": true,
+      "child_drawings_seeded_or_copied": false,
+      "opened": true,
+      "mission_started": true,
+      "quality": "speedy",
+      "plays": 4,
+      "pearls": 23
+    },
+    {
+      "case": "attempt2_z_only_1280",
+      "own_private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-skyway-art-reuse-20261015\\attempt2_z_only_1280\\output\\private_profile\\reef_save.json",
+      "sha256": "d9eba5ea955c0ef39dcbef6c6a2a9ccefbdfce04c91aa1590bf033c3eefa1d63",
+      "source_unknown_key_preserved": true,
+      "child_drawings_seeded_or_copied": false,
+      "opened": true,
+      "mission_started": true,
+      "quality": "speedy",
+      "plays": 4,
+      "pearls": 23
+    },
+    {
+      "case": "attempt2_z_only_1600",
+      "own_private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-skyway-art-reuse-20261015\\attempt2_z_only_1600\\output\\private_profile\\reef_save.json",
+      "sha256": "d9eba5ea955c0ef39dcbef6c6a2a9ccefbdfce04c91aa1590bf033c3eefa1d63",
+      "source_unknown_key_preserved": true,
+      "child_drawings_seeded_or_copied": false,
+      "opened": true,
+      "mission_started": true,
+      "quality": "speedy",
+      "plays": 4,
+      "pearls": 23
+    },
+    {
+      "case": "attempt3_cover_1280",
+      "own_private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-skyway-art-reuse-20261015\\attempt3_cover_1280\\output\\private_profile\\reef_save.json",
+      "sha256": "d9eba5ea955c0ef39dcbef6c6a2a9ccefbdfce04c91aa1590bf033c3eefa1d63",
+      "source_unknown_key_preserved": true,
+      "child_drawings_seeded_or_copied": false,
+      "opened": true,
+      "mission_started": true,
+      "quality": "speedy",
+      "plays": 4,
+      "pearls": 23
+    },
+    {
+      "case": "attempt3_cover_1600",
+      "own_private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-skyway-art-reuse-20261015\\attempt3_cover_1600\\output\\private_profile\\reef_save.json",
+      "sha256": "d9eba5ea955c0ef39dcbef6c6a2a9ccefbdfce04c91aa1590bf033c3eefa1d63",
+      "source_unknown_key_preserved": true,
+      "child_drawings_seeded_or_copied": false,
+      "opened": true,
+      "mission_started": true,
+      "quality": "speedy",
+      "plays": 4,
+      "pearls": 23
+    }
+  ],
+  "runtime_files": 4420,
+  "initialized_sidecars": 4041,
+  "normal_hash_names": 11,
+  "all_guards_pass": true,
+  "source_assets_changed": [],
+  "actual_child_json_parsed_or_copied": false,
+  "source_garden_return": "FAIL; candidate never calls teardown/route/state to conceal failure",
+  "direct_skyway_back": "Original globalBack correctly restores same hall/control identities after source camera convergence; original door re-entry rebuilds original source controller and candidate reattaches without retaining old root."
+}

@@ -2387,3 +2387,9 @@ CHG-075 payload `05ad9e5fb60f16d1cffd95f8a164d634632fb2ae`: all 273 required fil
 - Rollback: retire only new nonruntime R69 evidence/routing changes with history-preserving follow-up; do not alter frozen registries, protected sources, production runtime, normal saves or owner decisions. No defect lifecycle changed.
 
 CHG-076 payload `5166c0e92dbe6c1804fafe19201cc857f7a5db26`: all 263 required files (134729845 bytes) matched anonymous immutable HTTPS at `2026-10-16T01:11:42.777124+00:00`. Manifest SHA-256 `716d298e34865193c1fe546167dcca366d11a5ae79e26a4aa585c05b58bae294`. Four observer cases55 checks62 native40 bounded22 excluded;source art and Back contracts FAIL;243 roles34 families;92 partial84 without0 complete.0 production changes and accepted removals;caller/device/child/owner/global gaps remain open.
+
+### CHG-077 — R70 existing-art Skyway reuse candidate
+
+- Scope: [R70](../docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/README.md), [impact](../design/audit_impacts/flat-vector-skyway-art-reuse-20261015.json); topicbaseline `dccb444efd0277bbcea62af1384a78b535d5b569`, source `5120b6d59885dd057937aaf284e73681d8eac9f5`.2 final cases52 checks89 raw36 bounded53 excluded. Source controller/state/control/world/foreground signature equality retained; source art and gardenBack remain failed. No generation/runtime/accepted-removal credit.
+- Verification: original inputs/private dependency beforeReady, natural hall camera convergence/directBack/re-entry/House caller; exact4.7.2 Mobile/Speedy and4420/4041/11 guards. Native pixels/coverage and document/2D/remote gates retained separately. Widecrop/nativequality/hand/contact/fallback/voice/caller/QA11/device/child/owner/global inventory remain open.
+- Rollback: retire only nonruntime R70 candidate/evidence/routing through a history-preserving follow-up. Do not edit frozen registries, runtime/protected sources or normal saves. No master finding lifecycle changes.

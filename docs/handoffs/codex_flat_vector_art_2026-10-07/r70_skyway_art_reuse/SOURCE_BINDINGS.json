@@ -1,0 +1,206 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "functions": [
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "function": "start",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 62,
+      "end_line": 118,
+      "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "body_sha256": "62af61e112d90207df8f6ee043ffa5cb95785313a3b25499003409bd3b28db7b",
+      "body": "func start(main: Node, finish_cb: Callable,\n\t\treturning_from_butterfly: bool = false) -> void:\n\tteardown()\n\t_main = main\n\t_finish_cb = finish_cb\n\t_returning_from_butterfly = returning_from_butterfly\n\t_state = \"rainbow_return\" if returning_from_butterfly else \"rainbow_stage\"\n\t_waypoint_index = WALK_WAYPOINTS.size() if returning_from_butterfly else 0\n\t_finished = false\n\t_pointer_phase = 0.0\n\n\t_layer = CanvasLayer.new()\n\t_layer.name = \"FairyConservatoryHandoff2D\"\n\t_layer.layer = CANVAS_LAYER\n\t_layer.process_mode = Node.PROCESS_MODE_ALWAYS\n\t_main.add_child(_layer)\n\n\t_root = Control.new()\n\t_root.name = \"HandoffRoot\"\n\t_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)\n\t_root.mouse_filter = Control.MOUSE_FILTER_STOP\n\t_root.gui_input.connect(_on_root_gui_input)\n\t_root.resized.connect(_layout_world)\n\t_layer.add_child(_root)\n\n\t_backdrop = ColorRect.new()\n\t_backdrop.name = \"HandoffBackdropFallback\"\n\t_backdrop.color = Color(0.20, 0.12, 0.36, 1.0)\n\t_backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\t_root.add_child(_backdrop)\n\t_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)\n\n\t_world = Node2D.new()\n\t_world.name = \"HandoffCanvasWorld\"\n\t_root.add_child(_world)\n\t_build_tiles()\n\t_walkway = _make_sprite(\"RainbowWalkway\", WALKWAY_PATH)\n\t_house = _make_sprite(\"ButterflyHouse\", HOUSE_PATH)\n\t_roshan = _make_sprite(\"RoshanHandoff\", FashionOutfitRenderer.path(_main as ReefMain, ROSHAN_PATH))\n\t_pointer = _make_sprite(\"HandoffPointer\", POINTER_PATH)\n\tif _walkway != null:\n\t\t_world.add_child(_walkway)\n\tif _house != null:\n\t\t_world.add_child(_house)\n\tif _roshan != null:\n\t\t_world.add_child(_roshan)\n\tif _pointer != null:\n\t\t_world.add_child(_pointer)\n\t_build_navigation()\n\t_layout_world()\n\t_refresh_state()\n\t_announce_state()\n\tif _main.has_method(\"_set_world_controls_enabled\"):\n\t\t_main.call(\"_set_world_controls_enabled\", false,\n\t\t\t\"fairy_conservatory_handoff_2d\")\n\n\n"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "function": "_build_tiles",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 189,
+      "end_line": 199,
+      "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "body_sha256": "9039593ac436e488175644e8a4c28451381b8ffb1359a5cc68478eed3b8c6081",
+      "body": "func _build_tiles() -> void:\n\tfor index: int in range(TILE_PATHS.size()):\n\t\tvar tile := _make_sprite(\"HandoffBackground_r%d_c%d\" % [\n\t\t\tindex / TILE_COLUMNS, index % TILE_COLUMNS], TILE_PATHS[index])\n\t\tif tile == null:\n\t\t\tcontinue\n\t\ttile.z_index = -20\n\t\t_tiles.append(tile)\n\t\t_world.add_child(tile)\n\n\n"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "function": "_layout_world",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 224,
+      "end_line": 264,
+      "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "body_sha256": "22691f2f0d80b27bcdd3c0f2ada4de008194e917aaab451914a270832d0f0db3",
+      "body": "func _layout_world() -> void:\n\tif _root == null or _world == null:\n\t\treturn\n\tvar viewport_size := _root.size\n\tif viewport_size.x <= 0.0 or viewport_size.y <= 0.0:\n\t\tviewport_size = CANVAS_SIZE\n\tvar fit_scale := minf(viewport_size.x / CANVAS_SIZE.x,\n\t\tviewport_size.y / CANVAS_SIZE.y)\n\t_world.scale = Vector2.ONE * fit_scale\n\t_world.position = (viewport_size - CANVAS_SIZE * fit_scale) * 0.5\n\tfor index: int in range(_tiles.size()):\n\t\tvar tile: Sprite2D = _tiles[index]\n\t\tvar row: int = index / TILE_COLUMNS\n\t\tvar column: int = index % TILE_COLUMNS\n\t\ttile.position = Vector2(\n\t\t\t(float(column) + 0.5) * CANVAS_SIZE.x / TILE_COLUMNS,\n\t\t\t(float(row) + 0.5) * CANVAS_SIZE.y / TILE_ROWS)\n\t\ttile.scale = Vector2(\n\t\t\tCANVAS_SIZE.x / float(TILE_COLUMNS) / TILE_SIZE.x,\n\t\t\tCANVAS_SIZE.y / float(TILE_ROWS) / TILE_SIZE.y)\n\tif _walkway != null:\n\t\t_walkway.position = Vector2(640.0, 500.0)\n\t\t_fit_sprite(_walkway, Vector2(620.0, 620.0))\n\t\t_walkway.z_index = -5\n\tif _house != null:\n\t\t_house.position = Vector2(640.0, 184.0)\n\t\t_fit_sprite(_house, Vector2(270.0, 270.0))\n\t\t_house.z_index = -4\n\tif _roshan != null:\n\t\t_roshan.z_index = 4\n\t\t_update_roshan_position()\n\tif _pointer != null:\n\t\t_pointer.z_index = 8\n\t\t_pointer.scale = Vector2.ONE * 0.12\n\tif _house_button != null:\n\t\t_house_button.position = _world.position + HOUSE_HOTSPOT.position * fit_scale\n\t\t_house_button.size = Vector2(\n\t\t\tmaxf(HOUSE_HOTSPOT.size.x, MIN_TOUCH.x),\n\t\t\tmaxf(HOUSE_HOTSPOT.size.y, MIN_TOUCH.y)) * fit_scale\n\n\n"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "function": "_make_sprite",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 200,
+      "end_line": 209,
+      "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "body_sha256": "84ede3fa4cb2413a0527e6212a8c9901e59229db7f6ec59ce25a1572b83291e8",
+      "body": "func _make_sprite(node_name: String, path: String) -> Sprite2D:\n\tvar sprite := Sprite2D.new()\n\tsprite.name = node_name\n\tsprite.centered = true\n\tsprite.texture = load(path) as Texture2D if ResourceLoader.exists(path) else null\n\tsprite.set_meta(\"approved_runtime_path\", path)\n\tsprite.set_meta(\"canvas_only\", true)\n\treturn sprite\n\n\n"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "function": "_refresh_state",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 276,
+      "end_line": 297,
+      "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "body_sha256": "8b698fef97708c406eae674fb01144f813cf0a156e940d4db8cfa50c128ce230",
+      "body": "func _refresh_state() -> void:\n\tvar house_visible := _state == \"butterfly_house\"\n\tif _walkway != null:\n\t\t_walkway.visible = true\n\tif _house != null:\n\t\t_house.visible = true\n\tif _house_button != null:\n\t\t_house_button.visible = house_visible\n\tif _roshan != null:\n\t\t_roshan.visible = true\n\t\t_update_roshan_position()\n\tif _pointer != null:\n\t\t_pointer.visible = true\n\t\tif house_visible:\n\t\t\t_pointer_base = HOUSE_HOTSPOT.get_center() + Vector2(-44.0, -88.0)\n\t\telif _state == \"rainbow_return\":\n\t\t\t_pointer_base = _return_waypoint() + Vector2(-42.0, -82.0)\n\t\telse:\n\t\t\t_pointer_base = _next_waypoint() + Vector2(-42.0, -82.0)\n\t\t_pointer.position = _pointer_base\n\n\n"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "function": "_handle_logical_tap",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 364,
+      "end_line": 397,
+      "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "body_sha256": "f7ea1136fb7022d3459121f9b33cb9acf2f4827197f6b678228af80f9742ed69",
+      "body": "func _handle_logical_tap(logical_position: Vector2) -> void:\n\tif _finished:\n\t\treturn\n\tif _state == \"butterfly_house\":\n\t\tif HOUSE_HOTSPOT.has_point(logical_position):\n\t\t\t_enter_house()\n\t\treturn\n\tif _state == \"rainbow_return\":\n\t\tvar return_target := _return_waypoint()\n\t\tvar return_touch := Rect2(return_target - MIN_TOUCH * 0.5, MIN_TOUCH)\n\t\tif not return_touch.has_point(logical_position):\n\t\t\treturn\n\t\t_waypoint_index = maxi(_waypoint_index - 1, 0)\n\t\tif _main != null and is_instance_valid(_main) \\\n\t\t\t\tand _main.has_method(\"_ui_tap\"):\n\t\t\t_main.call(\"_ui_tap\")\n\t\tif _waypoint_index <= 0:\n\t\t\t_finish(\"back\")\n\t\telse:\n\t\t\t_refresh_state()\n\t\treturn\n\tvar next := _next_waypoint()\n\tvar touch_size := Rect2(next - MIN_TOUCH * 0.5, MIN_TOUCH)\n\tif touch_size.has_point(logical_position):\n\t\t_waypoint_index = mini(_waypoint_index + 1, WALK_WAYPOINTS.size())\n\t\tif _main != null and is_instance_valid(_main) \\\n\t\t\t\tand _main.has_method(\"_ui_tap\"):\n\t\t\t_main.call(\"_ui_tap\")\n\t\tif _waypoint_index >= WALK_WAYPOINTS.size():\n\t\t\t_state = \"butterfly_house\"\n\t\t\t_announce_state()\n\t\t_refresh_state()\n\n\n"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "function": "audit_snapshot",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 152,
+      "end_line": 188,
+      "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "body_sha256": "e8087fa7a8f3badad93cd97ce20468f98a4e1bf492d3d1d1fb13d57a592844a0",
+      "body": "func audit_snapshot() -> Dictionary:\n\tvar loaded_tiles := 0\n\tfor tile: Sprite2D in _tiles:\n\t\tif tile != null and tile.texture != null:\n\t\t\tloaded_tiles += 1\n\treturn {\n\t\t\"active\": _layer != null and is_instance_valid(_layer),\n\t\t\"state\": _state,\n\t\t\"returning_from_butterfly\": _returning_from_butterfly,\n\t\t\"waypoint_index\": _waypoint_index,\n\t\t\"waypoint_count\": WALK_WAYPOINTS.size(),\n\t\t\"progress\": float(_waypoint_index) / float(WALK_WAYPOINTS.size()),\n\t\t\"background_tile_paths\": TILE_PATHS.duplicate(),\n\t\t\"background_tile_count\": _tiles.size(),\n\t\t\"background_tiles_loaded\": loaded_tiles,\n\t\t\"rainbow_walkway_path\": WALKWAY_PATH,\n\t\t\"rainbow_walkway_loaded\": _walkway != null and _walkway.texture != null,\n\t\t\"butterfly_house_path\": HOUSE_PATH,\n\t\t\"butterfly_house_loaded\": _house != null and _house.texture != null,\n\t\t\"rainbow_walkway_visible\": _walkway != null and _walkway.visible,\n\t\t\"butterfly_house_visible\": _house != null and _house.visible,\n\t\t\"one_point_route_centered\": _route_is_centered(),\n\t\t\"roshan_is_sprite2d\": _roshan != null,\n\t\t\"pointer_is_sprite2d\": _pointer != null,\n\t\t\"has_house_hotspot\": _house_button != null,\n\t\t\"house_hotspot_size\": _house_button.size if _house_button != null else Vector2.ZERO,\n\t\t\"uses_global_navigation\": true,\n\t\t\"no_fail_state\": true,\n\t\t\"has_timer\": false,\n\t\t\"uses_spatial_runtime\": false,\n\t\t\"roshan_position\": _roshan.position if _roshan != null else Vector2.ZERO,\n\t\t\"pointer_base\": _pointer_base,\n\t\t\"house_hotspot_visible\": _house_button != null and _house_button.visible,\n\t\t\"finished\": _finished,\n\t}\n\n\n"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "function": "visual_state",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 53,
+      "end_line": 62,
+      "file_sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "body_sha256": "932330dad87ff44e882020d606092127fbba7f868196192436aee37c7aede70e",
+      "body": "func visual_state() -> String:\n\tif _flag(OPENED_KEY) or _legacy_open():\n\t\treturn \"open\"\n\tif _flag(REVEALED_KEY) \\\n\t\t\tor _flag(\"chapter3_rainbow_candle_lit\") \\\n\t\t\tor _flag(\"rainbow_candle_lit\"):\n\t\treturn \"revealed\"\n\treturn \"closed\"\n\n\n"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "function": "_open",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 284,
+      "end_line": 300,
+      "file_sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "body_sha256": "0016c30ea4a6116333e9101daacb4a088bd5732c9537b081480c18b3d53acf0b",
+      "body": "func _open() -> void:\n\tif _opening or not _hall_active():\n\t\treturn\n\tif _render_state == \"open\":\n\t\tm.call(\"_start_fairy_conservatory_handoff\")\n\t\treturn\n\tif _render_state != \"revealed\":\n\t\treturn\n\t_opening = true\n\t_set_flag(REVEALED_KEY)\n\t_set_flag(OPENED_KEY)\n\t_render_state = \"revealed\"\n\t_sync()\n\tm.call(\"_ui_tap\")\n\tm.call(\"_write_save\")\n\t_opening = false\n\tm.call(\"_start_fairy_conservatory_handoff\")\n"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_start_fairy_conservatory_handoff",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 2171,
+      "end_line": 2173,
+      "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "body_sha256": "44b46b0f85d013252b787d9c7a01685e8448f08ab4e7499af627cb7d1e1d2d08",
+      "body": "func _start_fairy_conservatory_handoff(returning_from_butterfly: bool = false) -> void:\n\t_fade_cut(_start_fairy_conservatory_handoff_now.bind(returning_from_butterfly))\n\n"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_start_galaxy_from_fairy_conservatory",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 2250,
+      "end_line": 2259,
+      "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "body_sha256": "8d365bc0f0abd49e4b462aa46e170ebd144f36c2ec0273f1790122f38968c018",
+      "body": "func _start_galaxy_from_fairy_conservatory() -> void:\n\t# Pre-seed Galaxy's generic return tuple so its normal end callback cannot\n\t# rebuild a second Lagoon while the handoff owns the outer context.\n\tfairy_conservatory_galaxy_return = true\n\tgalaxy_return_set = true\n\tgalaxy_from = \"fairy_conservatory\"\n\tgalaxy_return_pos *= 0.0\n\tgalaxy_level2_open = false\n\t_start_galaxy()\n\n"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_start_galaxy_now",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 2316,
+      "end_line": 2340,
+      "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "body_sha256": "f02ba9d7a94f60aae4f88ab6684b9f0065776deb2bc70f8bd99b10494711e6b9",
+      "body": "func _start_galaxy_now() -> void:\n\t# A direct courtyard portal and the Rainbow Road both reach this function.\n\t# Remember the actual world underneath once, and keep it through the optional\n\t# fairy-flight detour so Butterfly World always returns symmetrically.\n\tif not galaxy_return_set:\n\t\t_capture_lagoon_trip_return()\n\t\tgalaxy_from = kart_from if game == \"kart\" else game\n\t\tgalaxy_return_pos = player.position\n\t\tgalaxy_level2_open = l2_open\n\t\tgalaxy_return_set = true\n\t\tif game == \"kart\":\n\t\t\tkart_from = \"\"\n\tif hud_layer != null:\n\t\thud_layer.visible = false   # the galaxy draws its own HUD — no overlap\n\tif not galaxy_unlocked:\n\t\tgalaxy_unlocked = true\n\t\t_write_save()\n\tgame = \"galaxy\"\n\t_play_music(\"galaxy\")\n\thud_game.text = \"\"\n\tplayer.visible = false   # the galaxy has its own avatar\n\tgalaxy_game = GalaxyLevel.new()\n\tadd_child(galaxy_game)\n\t(galaxy_game as GalaxyLevel).start(self, Callable(self, \"_end_galaxy\"))\n\n"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_end_galaxy",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 2341,
+      "end_line": 2399,
+      "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "body_sha256": "e75310efea7fb4e690aa4981b6f3c6332d66099356cb6373229685243e02c7d5",
+      "body": "func _end_galaxy(completed: bool) -> void:\n\tplayer.visible = true\n\tif hud_layer != null:\n\t\thud_layer.visible = true\n\tgalaxy_game = null\n\tgame = \"\"\n\tif fairy_pending:\n\t\tfairy_pending = false\n\t\tfairy_from_galaxy = true\n\t\tcall_deferred(\"_start_game\", fairy_fr)   # straight into the fairy flight\n\t\treturn\n\tif fairy_conservatory_galaxy_return:\n\t\t# The handoff owns the original Hall/Lagoon context. Keep that tuple intact\n\t\t# through Galaxy (and its optional Fairy Pond detour), then reopen the\n\t\t# handoff's Butterfly House return card instead of rebuilding Sky Lagoon.\n\t\tfairy_conservatory_galaxy_return = false\n\t\tgalaxy_from = \"\"\n\t\tgalaxy_return_set = false\n\t\tgalaxy_return_pos *= 0.0\n\t\tgalaxy_level2_open = false\n\t\tif completed:\n\t\t\taward_sticker(\"butterfly\")\n\t\t\tshow_msg(\"Mermaid Rosalina\", \"You saved the Butterfly World! FAIRY ROSHAN is waiting in the castle wardrobe! 🦋\", \"win\")\n\t\t\tchapter3_fairy_mission_started = true\n\t\t\t_write_save()\n\t\telse:\n\t\t\tshow_msg(\"Butterfly World\",\n\t\t\t\t\"Home again! The butterflies will wait for your return...\",\n\t\t\t\t\"fairy_home\")\n\t\t_update_hud()\n\t\tcall_deferred(\"_start_fairy_conservatory_handoff\", true)\n\t\treturn\n\tif completed:\n\t\taward_sticker(\"butterfly\")\n\t\tshow_msg(\"Mermaid Rosalina\", \"You saved the Butterfly World! FAIRY ROSHAN is waiting in the castle wardrobe! 🦋\", \"win\")\n\telse:\n\t\tshow_msg(\"Butterfly World\",\n\t\t\t\"Home again! The butterflies will wait for your return...\",\n\t\t\t\"fairy_home\")\n\t_update_hud()\n\tvar return_world: String = galaxy_from\n\tvar return_level2_open: bool = galaxy_level2_open or level2_done_once\n\tvar saved_return_pos: Vector3 = galaxy_return_pos\n\tgalaxy_from = \"\"\n\tgalaxy_return_set = false\n\tgalaxy_return_pos = Vector3.ZERO\n\tgalaxy_level2_open = false\n\tif return_world == \"level2\":\n\t\tcall_deferred(\"_restore_level2_after_trip\", return_level2_open, saved_return_pos)\n\t\treturn\n\tkart_from = \"\"\n\t# Defensive ocean restoration for direct/debug entries. GalaxyLevel restores\n\t# its previous environment, but these assignments also repair an older hybrid\n\t# state left by a portal that forgot where it came from.\n\tplayer.position = saved_return_pos\n\tplayer.vel = Vector3.ZERO\n\twe_node.environment = world_env\n\t_play_music(\"world\")\n\n"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_capture_fairy_conservatory_return_context",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 2212,
+      "end_line": 2249,
+      "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "body_sha256": "8662f54a629d7f9a02352f81bfdcd5b1d25c26df6236f8f944b3b1271fca6e2d",
+      "body": "func _capture_fairy_conservatory_return_context() -> void:\n\tvar context := {\n\t\t\"kind\": \"ocean\",\n\t\t\"position\": player.position,\n\t\t\"hud_visible\": hud_layer != null and hud_layer.visible,\n\t}\n\tif game == \"level2\":\n\t\tvar phase := String(g.get(\"phase\", \"\"))\n\t\tif phase == \"hall\":\n\t\t\tcontext = {\n\t\t\t\t\"kind\": \"hall\",\n\t\t\t\t\"room\": castle_room_id,\n\t\t\t\t\"position\": player.position,\n\t\t\t\t\"l2_open\": l2_open,\n\t\t\t\t\"hud_visible\": hud_layer != null and hud_layer.visible,\n\t\t\t}\n\t\t\tif _castle_rooms_ref().is_open():\n\t\t\t\t_castle_rooms_ref().suspend()\n\t\telif phase == \"promenade\":\n\t\t\t_capture_lagoon_trip_return()\n\t\t\tcontext = {\n\t\t\t\t\"kind\": \"level2\",\n\t\t\t\t\"position\": player.position,\n\t\t\t\t\"l2_open\": l2_open,\n\t\t\t\t\"master_x\": lagoon_trip_return_master_x,\n\t\t\t\t\"hud_visible\": hud_layer != null and hud_layer.visible,\n\t\t\t}\n\telif game == \"kart\" and kart_from == \"level2\":\n\t\tcontext = {\n\t\t\t\"kind\": \"level2\",\n\t\t\t\"position\": player.position,\n\t\t\t\"l2_open\": galaxy_level2_open or l2_open,\n\t\t\t\"master_x\": lagoon_trip_return_master_x,\n\t\t\t\"hud_visible\": hud_layer != null and hud_layer.visible,\n\t\t}\n\t\tkart_from = \"\"\n\tfairy_conservatory_return_context = context\n\n"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_restore_fairy_conservatory_return_context",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 2280,
+      "end_line": 2315,
+      "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "body_sha256": "9a78cb8433de12d3fa1f070086bed1550e780ae23745fa91cf4231c799df410f",
+      "body": "func _restore_fairy_conservatory_return_context() -> void:\n\tvar context := fairy_conservatory_return_context.duplicate(true)\n\tfairy_conservatory_return_context.clear()\n\tfairy_conservatory_closing = false\n\tgame = \"\"\n\tif context.is_empty():\n\t\t_update_hud()\n\t\treturn\n\tvar kind := String(context.get(\"kind\", \"ocean\"))\n\tif kind == \"hall\":\n\t\tgame = \"level2\"\n\t\tl2_open = bool(context.get(\"l2_open\", l2_open))\n\t\tplayer.position = context.get(\"position\", player.position)\n\t\tplayer.vel *= 0.0\n\t\t# The Hall controller remained alive but suspended. Resume the existing\n\t\t# composition without show_room(), which would reset its cross-screen\n\t\t# camera offset to the left edge.\n\t\t_castle_rooms_ref().resume()\n\t\tif hud_layer != null:\n\t\t\thud_layer.visible = bool(context.get(\"hud_visible\", false))\n\t\treturn\n\tif kind == \"level2\":\n\t\tlagoon_trip_return_master_x = float(context.get(\"master_x\", lagoon_trip_return_master_x))\n\t\tcall_deferred(\"_restore_level2_after_trip\", bool(context.get(\"l2_open\", false)),\n\t\t\tcontext.get(\"position\", player.position))\n\t\treturn\n\tplayer.position = context.get(\"position\", player.position)\n\tplayer.vel *= 0.0\n\tplayer.visible = true\n\tif player.cam != null:\n\t\tplayer.cam.make_current()\n\twe_node.environment = world_env\n\t_play_music(\"world\")\n\tif hud_layer != null:\n\t\thud_layer.visible = bool(context.get(\"hud_visible\", true))\n\n"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "function": "press",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 61,
+      "end_line": 87,
+      "file_sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "body_sha256": "4c2530881f77fada524a28c5670f8c964a9a13f6add58abcc7d78b577c6863e9",
+      "body": "func press() -> void:\n\tif m._pause_ref()._navigation_locked():\n\t\treturn\n\tif m.pause_panel != null and m.pause_panel.visible:\n\t\tm._pause_ref().toggle_pause()\n\t\treturn\n\t_prune_invalid()\n\tif (m.game == \"dustboss\" and m.day_one_is_active()) \\\n\t\t\tor (top_id() == \"pearl_castle\" and (m.day_one_is_active() or m.chapter2_is_active())):\n\t\tm._pause_ref().toggle_pause()\n\t\treturn\n\tif not m.navigation_routes.is_empty():\n\t\tvar route: Dictionary = m.navigation_routes.pop_back() as Dictionary\n\t\tvar close_action: Callable = route.get(\"close\", Callable()) as Callable\n\t\tif close_action.is_valid():\n\t\t\tclose_action.call()\n\t\tsync_button()\n\t\treturn\n\tif at_sky_lagoon_root():\n\t\tm._pause_ref().toggle_pause()\n\telif m._pause_ref()._has_leave_context():\n\t\t# Older activities predate explicit route registration. Back must still be\n\t\t# functional game-wide while those controllers migrate onto the stack.\n\t\tm._pause_ref()._leave_current_activity()\n\tsync_button()\n\n\n"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "function": "_leave_current_activity",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 217,
+      "end_line": 348,
+      "file_sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "body_sha256": "2400290ce91c74747375d3ad3b3d687d09e7583678df57e961075017e59e64d7",
+      "body": "func _leave_current_activity() -> void:\n\t# This is a voluntary, neutral exit -- never a loss and never a free win.\n\tm.get_tree().paused = false\n\tm.pause_panel.visible = false\n\tm._sync_pause_surface_layer()\n\tif m.dance_engine != null and is_instance_valid(m.dance_engine) \\\n\t\t\tand (m.dance_engine as DanceEngine).active:\n\t\t(m.dance_engine as DanceEngine).close_demo()\n\t\treturn\n\tif m._attack_customizer != null \\\n\t\t\tand is_instance_valid(m._attack_customizer) \\\n\t\t\tand m._attack_customizer.is_open:\n\t\tm._attack_customizer.close()\n\t\treturn\n\tif m._day_one_art_studio != null \\\n\t\t\tand is_instance_valid(m._day_one_art_studio):\n\t\tm._close_day_one_art_studio()\n\t\treturn\n\tif m._castle_career_routes != null \\\n\t\t\tand m._castle_career_routes.opera_venue != null \\\n\t\t\tand is_instance_valid(m._castle_career_routes.opera_venue) \\\n\t\t\tand m._castle_career_routes.opera_venue.is_open():\n\t\tm._castle_career_routes.close_opera_venue()\n\t\treturn\n\tif m._castle_rooms_25d != null \\\n\t\t\tand m._castle_rooms_25d.kitchen_menu_layer != null:\n\t\tm._castle_rooms_25d._close_kitchen_menu()\n\t\treturn\n\tif m.mic_teach_layer != null:\n\t\tm._mic_ref().close_teach()\n\t\treturn\n\tif m.stickers_layer != null:\n\t\tm._close_stickers()\n\t\treturn\n\tif m.collection_layer != null:\n\t\tm._collection_ref().close_book()\n\t\treturn\n\tif m.companion_layer != null:\n\t\tm._companion_ref().close_picker()\n\t\treturn\n\tif m.companion_care_layer != null:\n\t\tm._companion_ref().close_care_menu()\n\t\treturn\n\tif m.mg_kind != \"\":\n\t\tm._mg2d_close()\n\t\treturn\n\tif m.wardrobe_layer != null:\n\t\tm._close_wardrobe()\n\t\treturn\n\tif m.castle_logo_layer != null:\n\t\tm._close_castle_logo()\n\t\treturn\n\tif m.craft_layer != null:\n\t\tm._close_craft()\n\t\treturn\n\tif m.combat_tutorial_game != null:\n\t\t# the sparring class is a castle cutaway (m.game stays \"level2\"):\n\t\t# leaving must put the CLASS away first — cancel resumes the hall via\n\t\t# its finish callback; the next leave-press then exits the castle.\n\t\t# Without this the tutorial haunted the session: ghost finger stuck on\n\t\t# screen, its hit engine stealing every ocean tap (alpha audit\n\t\t# 2026-08-05).\n\t\tm.combat_tutorial_game.cancel()\n\t\treturn\n\t# Child activities can suspend the castle room layer while leaving its state\n\t# alive. They must unwind before the castle itself sees Back.\n\tif m.game == \"kitchen_cooking\":\n\t\tm._castle_rooms_ref().cancel_kitchen_recipe()\n\t\treturn\n\tif m.game == \"opera\" and m.opera_game != null:\n\t\t(m.opera_game as OperaHouse)._leave_early()\n\t\treturn\n\tif m.game == \"kart\" and m.kart_game != null:\n\t\tm.kart_game.call(\"_quit_race\")\n\t\treturn\n\tif (m.game == \"dungeon\" or m.game == \"emberdun\") and m.dungeon_game != null:\n\t\tm.dungeon_game._leave_early()\n\t\treturn\n\tif m._castle_rooms_25d != null and m._castle_rooms_25d.is_open() \\\n\t\t\tand m.castle_room_layer != null and m.castle_room_layer.visible:\n\t\tm._castle_rooms_25d._go_back()\n\t\treturn\n\tif m.game == \"level2\":\n\t\tm._exit_level2()\n\t\treturn\n\tif m.game == \"galaxy\" and m.galaxy_game != null:\n\t\t(m.galaxy_game as GalaxyLevel)._teardown(false)\n\t\treturn\n\tif m.game == \"ember\" and m.ember_game != null:\n\t\t(m.ember_game as EmberFortressLevel)._teardown(false)\n\t\treturn\n\tif m.game == \"combat\" and m.combat_game != null:\n\t\tm.combat_game.cancel()\n\t\treturn\n\tif m.game == \"stuffie\" and m.stuffie_game != null:\n\t\tm.stuffie_game.cancel()\n\t\treturn\n\tif m.game == \"\":\n\t\treturn\n\tvar leaving_game: String = m.game\n\tvar leaving_slide_canvas: bool = m.has_method(\"_slide_canvas_fish_route_active\") \\\n\t\tand bool(m.call(\"_slide_canvas_fish_route_active\"))\n\tvar friend_state: Dictionary = m.g.get(\"fr\", {})\n\tvar leaving_name: String = String(friend_state.get(\"fname\", \"\"))\n\tm._leave_arena()\n\t# Back to free swim at return_pos: shed any banking/pitch tilt frozen by\n\t# a spatial arena so she does not reappear mid-lean in the reef. The opaque\n\t# fish Canvas never changed that return pose, so preserve it exactly.\n\tif not leaving_slide_canvas:\n\t\tm.player.rotation.x = 0.0\n\t\tm.player.rotation.z = 0.0\n\tif not friend_state.is_empty():\n\t\tfriend_state[\"cool\"] = 8.0\n\tif leaving_game == \"fairyshoot\":\n\t\tm._apply_skin()\n\tif leaving_name == \"Pearl Shop\":\n\t\tm.shop_cool = 16.0\n\telif leaving_name == \"Secret Cave\":\n\t\tm.treasure_cool = 14.0\n\telif leaving_name == \"Penguin Slide\":\n\t\tm.slide_cool = 14.0\n\telif leaving_name == \"Toy Castle\":\n\t\tm.brawl_cool = 14.0\n\tm._clear_game()\n\tm._write_save()\n\tif leaving_game == \"fairyshoot\" and m.fairy_from_galaxy:\n\t\tm.fairy_from_galaxy = false\n\t\tm.call_deferred(\"_start_galaxy\")\n\telif leaving_game == \"fairyshoot\" or leaving_name == \"Rainbow Slide\":\n\t\tm.call_deferred(\"_enter_level2\", m.l2_open)\n\telse:\n\t\tm.show_msg(\"Roshan\", \"Back to the castle! Pick anything you want to play.\")\n"
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "function": "_build_hud",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 1026,
+      "end_line": 1059,
+      "file_sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "body_sha256": "a3d54655b9b64a8432b79f3d0f9b7e26492afd94d6012ef81b64eb8c391a3688",
+      "body": "func _build_hud() -> void:\n\t_hud = CanvasLayer.new()\n\t_hud.layer = 18\n\tadd_child(_hud)\n\tvar root := Control.new()\n\troot.set_anchors_preset(Control.PRESET_FULL_RECT)\n\t# a plain Control defaults to MOUSE_FILTER_STOP — full-rect, that swallows\n\t# every tap/drag before touch_ui's stick can see it. Display only: IGNORE.\n\troot.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\t_hud.add_child(root)\n\tvar shard_card := StorybookUI.add_hud_panel(root, Rect2(18, 14, 270, 96), StorybookUI.GOLD, Color(0.94, 0.96, 1.0, 0.95), 30)\n\tshard_card.name = \"GalaxyProgressCard\"\n\t_lbl_shards = Label.new()\n\t_lbl_shards.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)\n\t_lbl_shards.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER\n\t_lbl_shards.vertical_alignment = VERTICAL_ALIGNMENT_CENTER\n\tStorybookUI.style_hud_label(_lbl_shards, 40)\n\tshard_card.add_child(_lbl_shards)\n\t_lbl_big = Label.new()\n\t_lbl_big.set_anchors_preset(Control.PRESET_FULL_RECT)\n\t_lbl_big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER\n\t_lbl_big.vertical_alignment = VERTICAL_ALIGNMENT_CENTER\n\tStorybookUI.style_hud_label(_lbl_big, 84, StorybookUI.GOLD, 12)\n\troot.add_child(_lbl_big)\n\tvar hint_card := StorybookUI.add_hud_panel(root, Rect2(330, 624, 620, 76), StorybookUI.LAVENDER, Color(0.92, 0.94, 1.0, 0.94), 26)\n\thint_card.name = \"GalaxyHintCard\"\n\t_lbl_hint = Label.new()\n\t_lbl_hint.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)\n\t_lbl_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER\n\t_lbl_hint.vertical_alignment = VERTICAL_ALIGNMENT_CENTER\n\tStorybookUI.style_hud_label(_lbl_hint, 26)\n\thint_card.add_child(_lbl_hint)\n\t_update_shard_hud()\n\n"
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "function": "_teardown",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 1754,
+      "end_line": 1763,
+      "file_sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "body_sha256": "f4b97dfa857df1bb5cc1d0d682ce2b43a6b5f9dccee131bb90b108d802b9944c",
+      "body": "func _teardown(completed: bool) -> void:\n\tvar earned_completion: bool = completed or _state == \"won\"\n\t_state = \"done\"\n\tif _prev_env != null and \"we_node\" in _main and _main.we_node != null:\n\t\t_main.we_node.environment = _prev_env\n\tif _player_node != null and \"cam\" in _player_node and _player_node.cam != null:\n\t\t(_player_node.cam as Camera3D).make_current()\n\tif _finish_cb.is_valid():\n\t\t_finish_cb.call(earned_completion)\n\tqueue_free()\n"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_update_camera_parallax",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "start_line": 5124,
+      "end_line": 5144,
+      "file_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "body_sha256": "03e584408c5455b7a5226156569c299396431dd9b427a22711acfb36a6a6057b",
+      "body": "func _update_camera_parallax(delta: float) -> void:\n\tif m.castle_room_world_root == null or m.castle_room_player_sprite == null:\n\t\treturn\n\tvar foot: Vector2 = m.castle_room_player_sprite.get_meta(\n\t\t\"stage_foot\", StorybookUI.CANVAS_SIZE * 0.5) as Vector2\n\tif _is_wide_hall():\n\t\tvar view_left_target := clampf(foot.x - HALL_VIEW_SIZE.x * 0.5,\n\t\t\t0.0, HALL_LOGICAL_SIZE.x - HALL_VIEW_SIZE.x)\n\t\tvar hall_weight: float = clampf(delta * 3.5, 0.0, 1.0)\n\t\t_hall_view_left_art = lerpf(_hall_view_left_art,\n\t\t\tview_left_target, hall_weight)\n\t\tm.castle_room_world_root.position = Vector2(\n\t\t\t-_hall_view_left_art * HALL_STAGE_SCALE, 0.0)\n\t\treturn\n\tvar target := Vector2(\n\t\t(foot.x / StorybookUI.CANVAS_SIZE.x - 0.5) * 10.24,\n\t\t(0.5 - foot.y / StorybookUI.CANVAS_SIZE.y) * 4.48)\n\tvar weight: float = clampf(delta * 3.5, 0.0, 1.0)\n\tm.castle_room_world_root.position = m.castle_room_world_root.position.lerp(\n\t\ttarget, weight)\n\n"
+    }
+  ],
+  "limit": "Exact lexical bodies and current original-control observations; no all-caller or full visual closure."
+}

@@ -1,0 +1,15 @@
+{
+  "checked_at_utc": "2026-10-16T01:36:40.640348+00:00",
+  "tested_variant": "z_only",
+  "evidence": "native/attempt2_z_only_1600/04_reuse_visible.png",
+  "source_asset_pixels_changed": false,
+  "observed_gap": "Backdrop lowering reveals painted scene but original contain layout leaves160-native-pixel left/right purple margins at1600x720. Original foreground/world/input geometry and directBack source hall are preserved.",
+  "next_candidate": "Keep backdrop behind art, uniformly cover using original8tiles around same world center. No source pixel edits, invented extension, foreground/control transforms or new textures. Preserve exact seams and review crop/perspective/native effective coverage.",
+  "acceptance_gaps": [
+    "Full destination/source identity/contact/readability and native background resolution at the wide crop",
+    "Missing-resource fallback retirement",
+    "Known source garden Back/HUD failure",
+    "Live orientation/phone performance/audio/QA11/freshOS/child/owner and whole-game inventory"
+  ],
+  "accepted_removed": 0
+}

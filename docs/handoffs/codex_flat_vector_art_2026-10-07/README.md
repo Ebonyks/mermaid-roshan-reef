@@ -1,3 +1,7 @@
+# Current R70 existing-art Skyway reuse candidate
+
+[Open the R70 preview](r70_skyway_art_reuse/README.md). Existing art now renders in a nonproduction candidate at both aspects; source/control/foreground signatures stay exact.2 cases52 checks89 raw36 bounded53 excluded. Production source art and garden Back remain failed;0 accepted removals and unknown whole-game totals. [Current tally](r70_skyway_art_reuse/tally.json) and [routing/history](CURRENT.json) supersede older current labels below.
+
 # Current R69 Fairy route context and source failures
 
 [Open R69](r69_fairy_route_context/README.md). Source Skyway art is occluded by its opaque fallback; garden Back misroutes and leaves Galaxy HUD/state alive. Both failures remain open. [Current registry](r69_fairy_route_context/per_piece.json), [coverage](r69_fairy_route_context/scene_coverage.json), [tally](r69_fairy_route_context/tally.json), [backlog](r69_fairy_route_context/CONGRUENCY_BACKLOG.json), and [routing/history](CURRENT.json) supersede older current labels below.243 named roles/34 families;92 partial/84 without/0 complete;0 accepted removals and unknown whole-game denominator. No production changes.

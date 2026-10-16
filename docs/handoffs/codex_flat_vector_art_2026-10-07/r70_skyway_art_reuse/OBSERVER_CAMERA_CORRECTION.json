@@ -1,0 +1,12 @@
+{
+  "checked_at_utc": "2026-10-16T01:31:53.958430+00:00",
+  "failed_attempt": "attempt1_z_only_1280",
+  "raw_frames_excluded": 17,
+  "actual_failure": "Camera703.775527 artpx before source door vs705.358135 after return; same exact hall/controller identities and no movement Tween.",
+  "source_explanation": "CastleRooms._update_camera_parallax lerpf(delta*3.5) continues after movement Tween ends. Freezing a view after only30 frames was premature; source suspended/resumed the same composition, without left-edge reset.",
+  "correction": "Read actual source stage_foot and exact HALL_VIEW_SIZE/HALL_LOGICAL_SIZE camera target. Wait for natural source convergence <=.001artpx before freeze. No clock/camera/actor/state writes or tolerance relaxation on candidate identity signatures.",
+  "source_cause_review": "Source camera settling, not evidence of a new candidate or source return defect.",
+  "v1_sha256": "9ba160664b7756f05f0365b5686609628ef6c216e2dbd3894b744843e54ac6dc",
+  "v2_sha256": "3a76a0994f775ccaeb145c4a5525c51010db6e5854034e7ba46d56018d948b12",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5"
+}

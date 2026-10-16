@@ -1,0 +1,2096 @@
+{
+  "schema": "reef.flat_vector_delta_manifest/1",
+  "revision": "FV-AUDIT-20261015-R70",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/flat-vector-r6-20261012",
+  "audited_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "topic_baseline": "dccb444efd0277bbcea62af1384a78b535d5b569",
+  "files": [
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3682776,
+      "sha256": "78a40ae3815ada84dfa4b06bf76c678d8adb4e3570491bba6d3a995e80ea710b",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 164693,
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 210083,
+      "sha256": "b3fbe139d79ba9567213afeb70a25bd986d90230052be7a9b320802a65613293",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 186294,
+      "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 123283,
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 50051,
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 396741,
+      "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_swim_back.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 660570,
+      "sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/characters/skins/fairy_mermaid.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 596226,
+      "sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/fairy/sprites/bug_firefly.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 424899,
+      "sha256": "20348706e59d653027960209d7c7461e7d28eb186d2fb3609e24798816057e5b",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/fairy_conservatory/butterfly_gate_available.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1638322,
+      "sha256": "45531acaf25acbee8e76ff57f7a4e76c16db10b270f8642ca770d34f909e0854",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_craft_room.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 23881,
+      "sha256": "17ccf96d936d557b28a88960d8793f58ceff73fa5328b42c7c41c4f65c138e2e",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 23936,
+      "sha256": "222d5a5a4c590b6ae951ff5d7f4431bd35ed539e48cf0346a2e31fd83a09a0dd",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 24281,
+      "sha256": "7f05f4b227ca10281af798f1ec632c7a662be15797abfc7c5cb15e2682b5d8dd",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 24914,
+      "sha256": "7aa633b17cd655f5bf340636555fab1406fc86030e9de38e667f9e701dd764b0",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 20315,
+      "sha256": "8ae6239cc8d01eecaa741842b591b2388659ff92929b9dec336e62ffa7ab4033",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 31308,
+      "sha256": "7378b84c037fc6c5fe21880577f6eba2214d3c5e990b726bfaf67d83e8c03fd1",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 21818,
+      "sha256": "22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1096542,
+      "sha256": "317cdef9249c73bae64d8b0e7c6590a78b5a4f71d3187a2c32e5fa435150c1cb",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1046054,
+      "sha256": "2584ed2636652871e5a7eeb3400243a61a2676cf966b9e9f652463f424467e22",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1077160,
+      "sha256": "ee46dfa20f4de0140c8dbfb56eacba2d59acdb8eff684c0c45422fd34862b892",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 945248,
+      "sha256": "802731a92762c849f9c0597b2e75a6dbc0336dbf60032ee9290867cd4ce7d1a1",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 996041,
+      "sha256": "9bfa44736244ae50fda10461c48cc0ee0cf35f195dd6e3b59364c6c9756cfc82",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c5.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1049188,
+      "sha256": "d1e4652e644bd5354c5bd779242f885cc58ad0f2a6adc61dff4105d7417fc0ae",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1094261,
+      "sha256": "d1e3eab5aa9ce34c9b136343c03709b707e775883177c51244fe1b1dc56d74ec",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1110588,
+      "sha256": "e775495278b8fbcadca429dececa5445fe6dc5d8327f9758966ac4a5ae615129",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1093857,
+      "sha256": "c2abbd83f3fce093addd9250c1930ee57d86f4c21e170b2d454121d12b723ea5",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1035767,
+      "sha256": "3b5ba5dd85ba1bf5969be08a191957e2eb476e741b717aa0e7fb843eb0aee40d",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1059965,
+      "sha256": "9e180247910d843b535998ad1167371b1990834279a26119714743af59a11203",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c5.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1101365,
+      "sha256": "31b6d8a5dfef47c575b63f953c98240c826f5007ef1fa406ef17a853630ff808",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_actor_shadow.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3083,
+      "sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1182953,
+      "sha256": "626647407ee1b72ef1b5d49cc37e45e2ba7e04dcfdf6ecfc3ae9de05dd68a0cb",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 957609,
+      "sha256": "83a0da2ecccccd71e0ccfd4593c40989429abef67daf67f0be3b73c305cbfaf9",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 903101,
+      "sha256": "fbe11c0f6b62b0d117d34a4f2aabbf8c71b8c7c5d8ece270dc75d2af9877f0e9",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1231211,
+      "sha256": "0c0310b41a140b10de123c549d93e07bdf8334386eeb57c1034043ee51f96f76",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1300408,
+      "sha256": "9843684229a6e001770edd93ebe59b35fc9bd024cdd607490c7e7fd63dc5ae6d",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 920163,
+      "sha256": "2641ddcf0d7a15811974fa33aa06d5da89db0198dec93b89953745bae31bc7e8",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 993852,
+      "sha256": "65fcb14971ba6f2e94c279cdd6d99a2702afbfc49f009d325323e715204f828a",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1451725,
+      "sha256": "67bac93a60b7b365156596360ca487257a42d6e40431dc2794ea763712761936",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1709220,
+      "sha256": "95bebeeb343be83b465d52b7ee57427bcdce488795f409b285f959a0ea3eba09",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1146462,
+      "sha256": "ef7503286fc2c19fb0dd5301e8062a19580c406cfc9fc758b1900da9d0eaa768",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1326003,
+      "sha256": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1112475,
+      "sha256": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1119885,
+      "sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1235978,
+      "sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1564115,
+      "sha256": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1478823,
+      "sha256": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1556321,
+      "sha256": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1645750,
+      "sha256": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1758075,
+      "sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1608993,
+      "sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1715536,
+      "sha256": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1657023,
+      "sha256": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/props/gen2/butterfly1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 157329,
+      "sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/props/gen2/butterfly2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 260626,
+      "sha256": "7f48d95cdd1ce42d9296a09cd7b0aa17a7d52215585d8e7e43c9d83d5255a07b",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/props/story/play_swing_frame.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 410877,
+      "sha256": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/props/story/play_swing_seat.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 265290,
+      "sha256": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 220380,
+      "sha256": "723a3a473845c506aeb45fe1ff1b5da5ea4794495dbd4c7a4946918016fa63ff",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/animals/raccoon_idle_atlas.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 191044,
+      "sha256": "3ed12de88641330134844cdc37927aecf022ae74187f4b4deb2193a3c282d9dc",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1355,
+      "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1412255,
+      "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 16828,
+      "sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 4937,
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 218626,
+      "sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 52560,
+      "sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 174961,
+      "sha256": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 12563,
+      "sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 137320,
+      "sha256": "d82ceecb13213d903f228d143ae77b69cbdb80cb293fa1995bc855719791b7e8",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "assets/ui/boot_splash_mermaid_roshan.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1848681,
+      "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 12146,
+      "sha256": "4f3e8338e2d2d9d5354b339c59f38668f077448d5869244a7202f09f4e573c6b",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "project.godot",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1762,
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 242528,
+      "sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 10043,
+      "sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 14672,
+      "sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 370863,
+      "sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3749,
+      "sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 13628,
+      "sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "role": "Exact source/reuse/current-scene dependency"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 46616,
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": null,
+      "bytes": 297934,
+      "sha256": "0d3929c7cdf6ac7b5239df4fb45b18026a384a521b23bd1bc8d27e16e00b99a7",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": null,
+      "bytes": 235222,
+      "sha256": "e4e7fe8577f3ff9cdd0da023d1a9f95b3ce83ef1030318cafe75bee00f0f6d58",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": null,
+      "bytes": 304540,
+      "sha256": "3c20087dc005fbd8ef12bb59241af75865e7fd08b9ead87dfe3cc5536f5c7746",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": null,
+      "bytes": 254568,
+      "sha256": "d3292992a312780482c933c1696cec9dab3fc512b62987479275bc587bb4aed0",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-skyway-art-reuse-20261015.json",
+      "revision": null,
+      "bytes": 24809,
+      "sha256": "2e2220e37361e8354dd4a572be03f2be8c0837c51ae3c6281486b77b5b9760e5",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": null,
+      "bytes": 15740,
+      "sha256": "2ea9fcd3982913ec7f3b684ca7f5364afe9ce70521c8635fd399119c1dd3233a",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": null,
+      "bytes": 35999,
+      "sha256": "facd741a3064a4e25d2c4c4ff3c01786cf23dc620e89be468a82380b6a5138f4",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/.gdignore",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/.gitattributes",
+      "revision": null,
+      "bytes": 142,
+      "sha256": "6af0b83e45276d584ea0675342abc93de098b9297368cbe36bcdcadbc30cbfc8",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/BACKGROUND_COVERAGE.json",
+      "revision": null,
+      "bytes": 11758,
+      "sha256": "042909aaecb578e571d825a0f06682e6fe5d0f915d7ab884efaf5e8135cd2c7d",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/CONGRUENCY_BACKLOG.json",
+      "revision": null,
+      "bytes": 401134,
+      "sha256": "c4085b60681e3af1512752cbbd9ac880b6df958fa40cd5c3e6e6b7b45389699c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/CONTEXT_PREREQUISITE.json",
+      "revision": null,
+      "bytes": 16226,
+      "sha256": "4681fe3bdffb7a61e807e1cb8763f2b8ab3a7ec5f09276172db9e044ca92b8cd",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+      "revision": null,
+      "bytes": 5079,
+      "sha256": "5b4aab3691c5e7ec825606f1869536f640ce808e583f5103da5cac8af60960ea",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/CURRENT_KNOWN_ROLE_UNION.json",
+      "revision": null,
+      "bytes": 32357,
+      "sha256": "4a537fb6d4b15def9f6b0d92fa3da17e62762b2f652bd9b6410b93563ee3e16d",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/CURRENT_PARTIAL_CONTEXT_UNION.json",
+      "revision": null,
+      "bytes": 16430,
+      "sha256": "9dfe7e0cc4e0fb9e563e62943f35f92cf954983a35743793c8eb2cd31050bd6c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/DELIVERY_SOURCE_REFERENCES.json",
+      "revision": null,
+      "bytes": 31658,
+      "sha256": "ec548c7bfc4dab859ea849712b5a33be385212d1284745a98665711d76beab4c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/DELIVERY_TRANSPORT.json",
+      "revision": null,
+      "bytes": 260,
+      "sha256": "4f95dee9d69c8eaead1f660ebdbff5437079d509d2350b1b270bd6b03ef51923",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/FIXTURE_SYNTAX_GATES.json",
+      "revision": null,
+      "bytes": 3692,
+      "sha256": "65a1cce8835b48e06882e099e4b4834f1ce16cbcf0cf7760147739c68ef05b7e",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/FIXTURE_SYNTAX_V1.json",
+      "revision": null,
+      "bytes": 3692,
+      "sha256": "fafcef4bc1392e43df3a1e2f35644e8ae35948f62361aed93eab04e884706eb0",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/GATES.json",
+      "revision": null,
+      "bytes": 17302,
+      "sha256": "8ce7d8066226d8ac848eb988c46d8ca0e43253204e2c2f0473630b6a6647d58f",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/INITIAL_SYNTAX_FAILURE.json",
+      "revision": null,
+      "bytes": 4064,
+      "sha256": "4e981ea6d496e2217ac6f456b96851b49487233593d7a448da21b3d27dbece3d",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/LIFECYCLE.json",
+      "revision": null,
+      "bytes": 155476,
+      "sha256": "e4bc0c97de92190910eb40f4ecee69416197938c0ebb99a05100900d393c91ba",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/OBSERVER_CAMERA_CORRECTION.json",
+      "revision": null,
+      "bytes": 1128,
+      "sha256": "84801d441d7133f1a96412ca91f05a917a5af5ce514899d24eb0ace23942bc4e",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/PIXEL_EVIDENCE.json",
+      "revision": null,
+      "bytes": 75916,
+      "sha256": "6490b9918d2e09d47b96eeed93fd98ee05170e57162f396fbbfb65927b5322a3",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/PLAN.json",
+      "revision": null,
+      "bytes": 5768,
+      "sha256": "f798ce0bfeeaecbe21859adc3e6036ff8705f4c874bf85ea80a155f510ed366a",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/README.md",
+      "revision": null,
+      "bytes": 3868,
+      "sha256": "00bbee1b8a01feb7509b9eb1d62f6cc44234c3cd402613f7b95d2a4c9a9a614c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/REFERENCE_RESOLUTION.json",
+      "revision": null,
+      "bytes": 696,
+      "sha256": "aac03dd018292663c19416024d8707bebcc4d639b7cd073d7bac8b3cf6085c54",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/REPRODUCTION.md",
+      "revision": null,
+      "bytes": 4085,
+      "sha256": "0e01db2f7c3e0e36630a26d2e00e7381f02b5fe13dd6c16edd42b8431468a2dd",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/REVIEW.json",
+      "revision": null,
+      "bytes": 6266,
+      "sha256": "a6b9dc1a6ca19889ab531ca789852fc3468ab09989505a5c4fb7281b8673a9c2",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/SOURCE_BINDINGS.json",
+      "revision": null,
+      "bytes": 32935,
+      "sha256": "a088be82921ca33434f46d6ac6ff6671e0065af04ec953a904464f88dd6dc8ff",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/SOURCE_LINEAGE.json",
+      "revision": null,
+      "bytes": 9330,
+      "sha256": "3181f37aa55236e7a5e355ac532118feca44a0ab10023ca22c2843a548c5d01c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/SUMMARY.json",
+      "revision": null,
+      "bytes": 154252,
+      "sha256": "aad504d8bc53cf1769ac87dd2f6c8ca306a4ce6610e8a9a92e9c966259913db2",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/UPSTREAM_FRESHNESS.json",
+      "revision": null,
+      "bytes": 214,
+      "sha256": "7013214822e78ce713aac22df961766a5069c1a358736972786680f922419e99",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/WIDE_REUSE_GAP.json",
+      "revision": null,
+      "bytes": 1054,
+      "sha256": "c141d372e56b34638e61fe01888bcaf5d68c9f8452c0d3ed028b40dd9aa07c10",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/WORK_IN_PROGRESS.json",
+      "revision": null,
+      "bytes": 463,
+      "sha256": "238d5e486ac4eb9ff008f2735e1e98bf78b8934f1051a7f016bed561ef8c0be9",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/base_capture.gd",
+      "revision": null,
+      "bytes": 28438,
+      "sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/bounded_json.py",
+      "revision": null,
+      "bytes": 4089,
+      "sha256": "42d8c411b7cd752dc3abc2e09089a1d97a4302bcae15d145b6a515c57bbc83cd",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/build_manifest.py",
+      "revision": null,
+      "bytes": 3679,
+      "sha256": "afa99cbf3b3e983de9c9785ff05bb711b8cfc4c7adc9b7f82a96471fd2ef7ac6",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/capture_entry.gd",
+      "revision": null,
+      "bytes": 16412,
+      "sha256": "6e0ff3677ceba48bc9eb27addff226d53cd81511c4ffe7ba91071c3316b51880",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/capture_fairy.gd",
+      "revision": null,
+      "bytes": 20713,
+      "sha256": "31805e6f2a1b8fef2dd019c949d461392a208ad76f6fe948e51e0bc6540dc602",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/capture_skyway.gd",
+      "revision": null,
+      "bytes": 5721,
+      "sha256": "3a76a0994f775ccaeb145c4a5525c51010db6e5854034e7ba46d56018d948b12",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/capture_skyway_syntax_v1.gd",
+      "revision": null,
+      "bytes": 5087,
+      "sha256": "2a2d28510df799d03c4e14409ba04387fd0e2c984cd999666a569ed59f7eb229",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/capture_skyway_v1.gd",
+      "revision": null,
+      "bytes": 5097,
+      "sha256": "9ba160664b7756f05f0365b5686609628ef6c216e2dbd3894b744843e54ac6dc",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/gates.log",
+      "revision": null,
+      "bytes": 498,
+      "sha256": "03119f136b1d3348a80dc79320e52baf8046f03a75f70fe677f73a0f09ce12f2",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/01_original_menu.png",
+      "revision": null,
+      "bytes": 1387677,
+      "sha256": "d6d669f8f182b9babd8adf2c0561ff32df2dff9fc3e0c4a28e1640b56621c59c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/02_hall_initial.png",
+      "revision": null,
+      "bytes": 1557097,
+      "sha256": "81a9339fbb7e7c0ff0f04a54afa5aff3f2aba9b86ce04b88c5f9cab8db97b0ca",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/02_promenade.png",
+      "revision": null,
+      "bytes": 1368373,
+      "sha256": "dc14cec1e01f80f5cc91e5910f6b7a1670d77dc234ceb7cf0338e0f08ad7c2a2",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/03_door_framed.png",
+      "revision": null,
+      "bytes": 1569324,
+      "sha256": "15a08d03e2f900a236fa5b98ff0e78a0f7e7f8c8b65f98bc7e948261f45146ff",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/04_reuse_visible.png",
+      "revision": null,
+      "bytes": 1644968,
+      "sha256": "58f0f74b16fdb7d7937506aad2662ea0d8f9449671d043cf510c5583be4f5b5d",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/04_skyway_entry.png",
+      "revision": null,
+      "bytes": 38920,
+      "sha256": "e430a46746d926e28592522f806c47f2c4c35348aaaee1396b713521f05ca259",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/05_direct_back_hall.png",
+      "revision": null,
+      "bytes": 1573043,
+      "sha256": "30623f9c148236fa3d753eb3de46fa43777fe7281adfcaf04c74d570aaf3998f",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/06_reentry_reuse_visible.png",
+      "revision": null,
+      "bytes": 1644945,
+      "sha256": "dd719d2b31847a0d2d030057a1d0f40f35358d5fa6aa4ccaf611b5b68c840306",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/06_reentry_skyway_entry.png",
+      "revision": null,
+      "bytes": 38918,
+      "sha256": "750282c125d8541d017e190d3ac76898c36e9ec3267da77ad105425d7df63492",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/07_back_source_failure.png",
+      "revision": null,
+      "bytes": 1591081,
+      "sha256": "f549b6d84a8e7e49dad24e257247d7785c4baa2f2bc399076be508ca16db1349",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/07_butterfly_world_entry.png",
+      "revision": null,
+      "bytes": 661843,
+      "sha256": "f6b498fe1919515ede931560db52f0f1363389736d4c7ce95aa1b5c36444808a",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/07_butterfly_world_passive.png",
+      "revision": null,
+      "bytes": 649310,
+      "sha256": "324b0f14d41135d2eb7f30689fefed6d7f88296734ee80cf321e378270f73fa0",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/07_outbound_01.png",
+      "revision": null,
+      "bytes": 1642894,
+      "sha256": "591816c374c152bc6ef598c4a4112a8be812ed1492b0d79522f32eb248428445",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/07_outbound_02.png",
+      "revision": null,
+      "bytes": 1639690,
+      "sha256": "c78065df1c5a28c950bf97ab6e309192b972b2d579ff960096da26880434acd3",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/07_outbound_03.png",
+      "revision": null,
+      "bytes": 1638071,
+      "sha256": "a2a47d40db204dbbd1e5d019362f7bed995619c1f67e2201ac5f6c72f4694f7d",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/07_skyway_passive.png",
+      "revision": null,
+      "bytes": 1644954,
+      "sha256": "eb1133cf17ee81a7cfb65054722a1bd78be782b0f21f0ffe2c4fc82e9bfed168",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/07_skyway_wrong_tap.png",
+      "revision": null,
+      "bytes": 1644930,
+      "sha256": "ad31044c17b66d5a9d7da415bc15613507bf5e929d4c84ff4ead25b775cf51b3",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 2048,
+      "sha256": "07e0df7eaf039601e0f9b86087b2e14cacab1d505509003b3792765da0700d1a",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1360,
+      "sha256": "0442a323627e740afe071197e263c00305f2bf729abc2cb104a1a16576006583",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/base_capture.gd",
+      "revision": null,
+      "bytes": 28438,
+      "sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/capture_entry.gd",
+      "revision": null,
+      "bytes": 16412,
+      "sha256": "6e0ff3677ceba48bc9eb27addff226d53cd81511c4ffe7ba91071c3316b51880",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/capture_fairy.gd",
+      "revision": null,
+      "bytes": 20713,
+      "sha256": "31805e6f2a1b8fef2dd019c949d461392a208ad76f6fe948e51e0bc6540dc602",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 1081607,
+      "sha256": "f72bd503b5726af5eebc2f93eca64ee19fd310b771b8d4f7ac62d143634efc1a",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/capture_skyway.gd",
+      "revision": null,
+      "bytes": 5097,
+      "sha256": "9ba160664b7756f05f0365b5686609628ef6c216e2dbd3894b744843e54ac6dc",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/engine.log",
+      "revision": null,
+      "bytes": 895,
+      "sha256": "fda047a8a2e4994da64be7bb83469ec155ed725b90e329627393725086370135",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt1_z_only_1280/skyway_reuse.gd",
+      "revision": null,
+      "bytes": 2596,
+      "sha256": "cdd079c6acc933b12efffd7d01a077948ce9907a24e9e697d33c6171ded3866c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/01_original_menu.png",
+      "revision": null,
+      "bytes": 1387699,
+      "sha256": "b4b29b362859b1ce602abfcc72ba8c4091c8e0e8f43c7904379cf8cc8fda77d6",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/02_hall_initial.png",
+      "revision": null,
+      "bytes": 1557098,
+      "sha256": "18e4c022fffb600c9cc7db9725d99953e220b4014b43bd1d6e9c9171492dede6",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/02_promenade.png",
+      "revision": null,
+      "bytes": 1368388,
+      "sha256": "1397775e0ca40d1f294c13614a9c821257f28123b9a662ece2f2f7d3ee5c2168",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/03_door_framed.png",
+      "revision": null,
+      "bytes": 1569024,
+      "sha256": "f384464529d030a57e4858f995cebf953003abfdb794392f39038d0eac6013d9",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/03_hall_camera_settled.png",
+      "revision": null,
+      "bytes": 1687278,
+      "sha256": "7e581e6ddb3dec94f153aee39bc2bc0f2c60a45b3116b789849a5b392490759a",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/04_reuse_visible.png",
+      "revision": null,
+      "bytes": 1644928,
+      "sha256": "524f34d2a20d9ab34cba3c1bb5a5fe762798fb5a3f08806ed6eedd3d8d7bcb2f",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/04_skyway_entry.png",
+      "revision": null,
+      "bytes": 38898,
+      "sha256": "1a1d3dcc290fc4e5e9a98348c6a3c1cdbd6e3f7962d55eb2b82272ac78a543e7",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/05_direct_back_hall.png",
+      "revision": null,
+      "bytes": 1573583,
+      "sha256": "c259e3fd358679cb5f34884843d1a039746ba299ff83037613fbfc61386a4ab7",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/06_reentry_reuse_visible.png",
+      "revision": null,
+      "bytes": 1644936,
+      "sha256": "8c25155f106459a6b79113fae77f4a9ed58395a563ffc9ce7b237b5c5402f906",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/06_reentry_skyway_entry.png",
+      "revision": null,
+      "bytes": 38923,
+      "sha256": "abda9729c5fdf5eef9fad1d414c1f6ea8e6d643e2d36d97f483a2a0a38c8cf35",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/07_back_source_failure.png",
+      "revision": null,
+      "bytes": 1591203,
+      "sha256": "352e139a576cf298f61b93a68917f013bdb0a02cf86252f69b0c83ca12ed10a8",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/07_butterfly_world_entry.png",
+      "revision": null,
+      "bytes": 658273,
+      "sha256": "b00907aa704afac6536a8146607653d5f84639130325c78cf6f761e56857bfa0",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/07_butterfly_world_passive.png",
+      "revision": null,
+      "bytes": 645492,
+      "sha256": "d6456e790ce527eb2e27734eb5eb965f8af6a224d2105f8ace978e14bf5f9665",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/07_outbound_01.png",
+      "revision": null,
+      "bytes": 1642836,
+      "sha256": "08ed987b32216b07d5e48abe8b9e2c67b38abd0cae82e985c4c0ed1e54ead23a",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/07_outbound_02.png",
+      "revision": null,
+      "bytes": 1639713,
+      "sha256": "1965d970bc1ac224c702a79d0f0548b46a6e1855db1d84684a4e6e8ddd617fe3",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/07_outbound_03.png",
+      "revision": null,
+      "bytes": 1638150,
+      "sha256": "1dc760bc2b1e45ee1cf7c39b9c350f3e8a1e361ce3ce6fdbf566120ac89ec480",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/07_skyway_passive.png",
+      "revision": null,
+      "bytes": 1644918,
+      "sha256": "36bf06bc6efd7ae48ef4ee3befa2900a8bb5fbcee731b41f46d5781e82ee46b3",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/07_skyway_wrong_tap.png",
+      "revision": null,
+      "bytes": 1644902,
+      "sha256": "0c2b024449d3597c8047e9027bfc4716720653ca2868b625ddd37a9bd735a632",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 2048,
+      "sha256": "842d7358bfbab947859f83f13afb75cb173d07ae152d5932cf150d292f528dee",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1360,
+      "sha256": "6cc2ff91dfbbcb4b24b4e8350aae24c4ce264a9d84214fab9aad240afb932a88",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/base_capture.gd",
+      "revision": null,
+      "bytes": 28438,
+      "sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/capture_entry.gd",
+      "revision": null,
+      "bytes": 16412,
+      "sha256": "6e0ff3677ceba48bc9eb27addff226d53cd81511c4ffe7ba91071c3316b51880",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/capture_fairy.gd",
+      "revision": null,
+      "bytes": 20713,
+      "sha256": "31805e6f2a1b8fef2dd019c949d461392a208ad76f6fe948e51e0bc6540dc602",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 1108008,
+      "sha256": "5499576bf542c8074c3b847b8c25e6a10b914970ac733bd50f6050a618913cb7",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/capture_skyway.gd",
+      "revision": null,
+      "bytes": 5721,
+      "sha256": "3a76a0994f775ccaeb145c4a5525c51010db6e5854034e7ba46d56018d948b12",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/engine.log",
+      "revision": null,
+      "bytes": 881,
+      "sha256": "b2a9f50b88edaf79b969817244c28b38bb74488510cb51de42b572bc3427bf13",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1280/skyway_reuse.gd",
+      "revision": null,
+      "bytes": 2596,
+      "sha256": "cdd079c6acc933b12efffd7d01a077948ce9907a24e9e697d33c6171ded3866c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/01_original_menu.png",
+      "revision": null,
+      "bytes": 1403193,
+      "sha256": "f36e8a3599c9833d04bca1a28aef17ceb12672c8219791f349466cad61e72583",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/02_hall_initial.png",
+      "revision": null,
+      "bytes": 1817709,
+      "sha256": "9251dedb186d7b221d8b5a7e295288b9bca3491ad8a5f6c6592e151feee8a432",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/02_promenade.png",
+      "revision": null,
+      "bytes": 1780461,
+      "sha256": "e592a76fc251131fdd4d6d327bb7843171fa58ca9ef4803b6fd72ef265cd4393",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/03_door_framed.png",
+      "revision": null,
+      "bytes": 1910275,
+      "sha256": "b2d28579265e999542ac4a94fbe836c34cb0c56d63cb6914293d80be246f046f",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/03_hall_camera_settled.png",
+      "revision": null,
+      "bytes": 2033661,
+      "sha256": "2c729a769e5c50d208b462f891c291007175292824bb899367284a69caf0e6b7",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/04_reuse_visible.png",
+      "revision": null,
+      "bytes": 1676464,
+      "sha256": "f91b55679623083c4c81a315421c79ee6549692e43ca703947f9ad83041289cb",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/04_skyway_entry.png",
+      "revision": null,
+      "bytes": 39772,
+      "sha256": "aec92a5fde1befbf5e94eb926c94ea0172f47891a805ac7f20fe3cb129e76280",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/05_direct_back_hall.png",
+      "revision": null,
+      "bytes": 1915148,
+      "sha256": "425468bd475c06b9aca19993131b5c76c601713c8b4a89c63651e020f0b6457a",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/06_reentry_reuse_visible.png",
+      "revision": null,
+      "bytes": 1676445,
+      "sha256": "04dd432d60d43e69dd7bcb48423f87d67d2a78ed03ef96ea14e920bc1a163976",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/06_reentry_skyway_entry.png",
+      "revision": null,
+      "bytes": 39765,
+      "sha256": "29ce1c6b3c8a2a9bbf5a3a034cfd56791531abe263fb0d1afbb6e6189df39701",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/07_back_source_failure.png",
+      "revision": null,
+      "bytes": 1977395,
+      "sha256": "92444854a62aa7ac954a36cdfff560115ad5335675ce579f0fddb766c78eb79b",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/07_butterfly_world_entry.png",
+      "revision": null,
+      "bytes": 808570,
+      "sha256": "3cf45d0fe9395a31fe0aab4a2417a5e31b1d18723988c1f7167cb565ee89ed19",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/07_butterfly_world_passive.png",
+      "revision": null,
+      "bytes": 804528,
+      "sha256": "15212638464d15724d0adc6bcaa5cb698d4571f4d297a3303eef8eaeb037b726",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/07_outbound_01.png",
+      "revision": null,
+      "bytes": 1674400,
+      "sha256": "bddb68d0b49dabc5418663d8c3eda357fc13e5b6f748ee2a203eefa54b363e70",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/07_outbound_02.png",
+      "revision": null,
+      "bytes": 1671355,
+      "sha256": "64dbccee876340677877daf33c46e0b85d06aa3ab383a8d702a17e7c972c7940",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/07_outbound_03.png",
+      "revision": null,
+      "bytes": 1669850,
+      "sha256": "e162ea6c4cdd20ed1ff2ea3a50b966fa56af57b5a5ef20b0b24d21105b063f27",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/07_skyway_passive.png",
+      "revision": null,
+      "bytes": 1676464,
+      "sha256": "f91b55679623083c4c81a315421c79ee6549692e43ca703947f9ad83041289cb",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/07_skyway_wrong_tap.png",
+      "revision": null,
+      "bytes": 1676434,
+      "sha256": "7facda2680c01a11d15bdbaa8d294e2d2321d05c3529436b55fa0690c40713f8",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/LAUNCH.json",
+      "revision": null,
+      "bytes": 2048,
+      "sha256": "ad50b2ac0003b6c2f6322edb7f95af30e1bec1b8b05fc44cd3d014069e387773",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/RESULT.json",
+      "revision": null,
+      "bytes": 1360,
+      "sha256": "50b2206756aef7eb4a635cea0fbd22f6dc94425bdae8288c3a9cb4e313594f2f",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/base_capture.gd",
+      "revision": null,
+      "bytes": 28438,
+      "sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/capture_entry.gd",
+      "revision": null,
+      "bytes": 16412,
+      "sha256": "6e0ff3677ceba48bc9eb27addff226d53cd81511c4ffe7ba91071c3316b51880",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/capture_fairy.gd",
+      "revision": null,
+      "bytes": 20713,
+      "sha256": "31805e6f2a1b8fef2dd019c949d461392a208ad76f6fe948e51e0bc6540dc602",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/capture_manifest.json",
+      "revision": null,
+      "bytes": 1112175,
+      "sha256": "379eae918f7cd8c5267aff667d263005f3dbfcf8336fafda64cc00c1e510d8e3",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/capture_skyway.gd",
+      "revision": null,
+      "bytes": 5721,
+      "sha256": "3a76a0994f775ccaeb145c4a5525c51010db6e5854034e7ba46d56018d948b12",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/engine.log",
+      "revision": null,
+      "bytes": 881,
+      "sha256": "b2a9f50b88edaf79b969817244c28b38bb74488510cb51de42b572bc3427bf13",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt2_z_only_1600/skyway_reuse.gd",
+      "revision": null,
+      "bytes": 2596,
+      "sha256": "cdd079c6acc933b12efffd7d01a077948ce9907a24e9e697d33c6171ded3866c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/01_original_menu.png",
+      "revision": null,
+      "bytes": 1387681,
+      "sha256": "1c632edb4c9e53759b9219e693cb4755d1d08d348fe3dae4e64a3b301514098f",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/02_hall_initial.png",
+      "revision": null,
+      "bytes": 1557084,
+      "sha256": "f4d9a2c505958133160b50e0bf911131f743914f8e524040406d1f5988d15327",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/02_promenade.png",
+      "revision": null,
+      "bytes": 1368383,
+      "sha256": "6bc0b17d74ee3d09bf99238deb6b3adeebaf5c31c910cea71cc261a82463aa38",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/03_door_framed.png",
+      "revision": null,
+      "bytes": 1569204,
+      "sha256": "8ef24210bbd6bf8a17a5fc8a1996c27d9ddc7723736f78781fdab8a14e334a05",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/03_hall_camera_settled.png",
+      "revision": null,
+      "bytes": 1687288,
+      "sha256": "ca932bf90adde0918f55ed42e71f46ac8cd14238cb63605767412f1e78ee327a",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/04_reuse_visible.png",
+      "revision": null,
+      "bytes": 1644879,
+      "sha256": "20d59224d09fd7f78f482bfae2f2f8880b05c435feed10ed1f4ca90fbcc20d70",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/04_skyway_entry.png",
+      "revision": null,
+      "bytes": 38946,
+      "sha256": "ec82e108fbe2321eba5268bb97cd55ab9c76a889513e37507529782a1523a9d1",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/05_direct_back_hall.png",
+      "revision": null,
+      "bytes": 1573806,
+      "sha256": "867c73564a0b3e8f5d4516e40dbdd2c1dd12a4d3a196d002bc9a45791df2cf8e",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/06_reentry_reuse_visible.png",
+      "revision": null,
+      "bytes": 1644941,
+      "sha256": "79cba5eed8dc4c2a35c973a5ba4369d7d4b3457ed66ae0095b499a4ebb369583",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/06_reentry_skyway_entry.png",
+      "revision": null,
+      "bytes": 38923,
+      "sha256": "9a6befb848fcc9ef889a8be81da57c3035b90c1f19bc4c14c64d9dd7f9bedcdd",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/07_back_source_failure.png",
+      "revision": null,
+      "bytes": 1591091,
+      "sha256": "b63f1f08d425974acd96a1e1b1f2dea9200b52ca214a46fd4157f585251718e5",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/07_butterfly_world_entry.png",
+      "revision": null,
+      "bytes": 658788,
+      "sha256": "8e68ba44c580a0434d74f8f66bb4bb243b3944f54bfcf05938d6a2099b6b7c23",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/07_butterfly_world_passive.png",
+      "revision": null,
+      "bytes": 645073,
+      "sha256": "66cea669801af5bc0a68bf5b630fbfac06bea88250997ce4c2412abc598c19ab",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/07_outbound_01.png",
+      "revision": null,
+      "bytes": 1642861,
+      "sha256": "207682cc9b971d63790c1dec7da9caa5776d6528ddab32cd41960aa5c1f550d2",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/07_outbound_02.png",
+      "revision": null,
+      "bytes": 1639702,
+      "sha256": "fc3cfbcb3b35bcec285e9ff0054c1f1944e8e68f24df2e4041c85c89e273f7b2",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/07_outbound_03.png",
+      "revision": null,
+      "bytes": 1638188,
+      "sha256": "16b26cb420e38eb4582318763390a53ac30028aa515b57ac1d19b373a6543e46",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/07_skyway_passive.png",
+      "revision": null,
+      "bytes": 1644885,
+      "sha256": "ce17d84a5debf9b6a080bd466bb31261c9cfd669366f759f6e96aeeb4fc8c4d1",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/07_skyway_wrong_tap.png",
+      "revision": null,
+      "bytes": 1644926,
+      "sha256": "e27c6f5015ecc47aca1605d2f1a38dbd1186758207e3ac40762890b5cd198afc",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 2048,
+      "sha256": "e460f8c3b4502055886ae71e81dacdfd411357a767dfcef3898c8416f4a725f8",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1360,
+      "sha256": "0e30acd9293c99e4633c8c0bdae9c71a24bd2d7965b9daec96649fb81da9211f",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/base_capture.gd",
+      "revision": null,
+      "bytes": 28438,
+      "sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/capture_entry.gd",
+      "revision": null,
+      "bytes": 16412,
+      "sha256": "6e0ff3677ceba48bc9eb27addff226d53cd81511c4ffe7ba91071c3316b51880",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/capture_fairy.gd",
+      "revision": null,
+      "bytes": 20713,
+      "sha256": "31805e6f2a1b8fef2dd019c949d461392a208ad76f6fe948e51e0bc6540dc602",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 1108934,
+      "sha256": "0670b91f74b4e049a97d96c3894ea80c7b34a21f79a43c07e1427570b146511b",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/capture_skyway.gd",
+      "revision": null,
+      "bytes": 5721,
+      "sha256": "3a76a0994f775ccaeb145c4a5525c51010db6e5854034e7ba46d56018d948b12",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/engine.log",
+      "revision": null,
+      "bytes": 881,
+      "sha256": "b2a9f50b88edaf79b969817244c28b38bb74488510cb51de42b572bc3427bf13",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1280/skyway_reuse.gd",
+      "revision": null,
+      "bytes": 2596,
+      "sha256": "cdd079c6acc933b12efffd7d01a077948ce9907a24e9e697d33c6171ded3866c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/01_original_menu.png",
+      "revision": null,
+      "bytes": 1403200,
+      "sha256": "3df3683d8002cdbefb26185d1d594eac9949d863f69f63426dd788e9ebbbcc34",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/02_hall_initial.png",
+      "revision": null,
+      "bytes": 1817711,
+      "sha256": "d61b380bd8f90b116ed801143b9c179361047c602ecab01d782689290c8e56dc",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/02_promenade.png",
+      "revision": null,
+      "bytes": 1780413,
+      "sha256": "2e2325af2d4dd2fbba1e991b7b34523c8527fe1c26cc7d3fec0193a4d3f79509",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/03_door_framed.png",
+      "revision": null,
+      "bytes": 1910468,
+      "sha256": "2b2596d559c8904fc64e14f3fe7ccbe9fce3f6e16179c7ef26af0a7d8dcc3dc1",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/03_hall_camera_settled.png",
+      "revision": null,
+      "bytes": 2034271,
+      "sha256": "6a97ce10ff00e60f2a0da8e8373c9d2f734df0b4201b31e5bd98ea4c60db9f77",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/04_reuse_visible.png",
+      "revision": null,
+      "bytes": 1955874,
+      "sha256": "962e7e0c3b5836a685e80c355062b6700f91d118d918666507b1cdbfb733c7af",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/04_skyway_entry.png",
+      "revision": null,
+      "bytes": 39737,
+      "sha256": "678f06f9180932af7d0eb4941fc5ef0e18834784501dbca904ce6c79f0791bc3",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/05_direct_back_hall.png",
+      "revision": null,
+      "bytes": 1915083,
+      "sha256": "37906c7db8f80b92dad410bb22dc9e259a1441b2433c8f38fa4406a1c9c39ceb",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/06_reentry_reuse_visible.png",
+      "revision": null,
+      "bytes": 1955839,
+      "sha256": "c17f552b5f2a8ab2b10097d39e4fc0620d70320fecd43654d5bd5e4fe700730c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/06_reentry_skyway_entry.png",
+      "revision": null,
+      "bytes": 39763,
+      "sha256": "02343fda1308ba46eb004ca37ce7ead6e54d33fb1923f0783f3a5936ca3a5959",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/07_back_source_failure.png",
+      "revision": null,
+      "bytes": 1977438,
+      "sha256": "d491dd3910dd61b5b7fb880835473548687371065843033bddc4e464fb1a462b",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/07_butterfly_world_entry.png",
+      "revision": null,
+      "bytes": 814071,
+      "sha256": "6ef6cc0f4a88ae4f23d18ff3738ed68f850dc746ca116a04c862ed2565eace79",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/07_butterfly_world_passive.png",
+      "revision": null,
+      "bytes": 797415,
+      "sha256": "266de2ef9eb33598d0a0b6158c7dd07e7085a38a9152ee2e68ba4726ab65fa57",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/07_outbound_01.png",
+      "revision": null,
+      "bytes": 1953578,
+      "sha256": "2d51eb114fef5485ed3cbce105936a36f71c53c3cc38e0fadad56a8cb85c972f",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/07_outbound_02.png",
+      "revision": null,
+      "bytes": 1950726,
+      "sha256": "a4a0a9049fb336ab92152998aae6bd2a96ab83a400723ae8fc0edc4ac5138cb2",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/07_outbound_03.png",
+      "revision": null,
+      "bytes": 1948434,
+      "sha256": "c5029b3d7ecb6e6e83d20d67cc133fabda07d5bb7caa8533151fe90c684ae581",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/07_skyway_passive.png",
+      "revision": null,
+      "bytes": 1955875,
+      "sha256": "0c918eb8bf13ec8ae312ad648c92665dcccd2fcfb674cfd96497597fb292b89b",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/07_skyway_wrong_tap.png",
+      "revision": null,
+      "bytes": 1955931,
+      "sha256": "a55bcc4e60d965a1fe58a83e394083ce0583183563fc215c9e02bf6acfb44e36",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/LAUNCH.json",
+      "revision": null,
+      "bytes": 2048,
+      "sha256": "90ea24b63989e43db4c568fd3765f21c876cc562baab0019c0f462fbf4b6b234",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/RESULT.json",
+      "revision": null,
+      "bytes": 1360,
+      "sha256": "4e786af04a10bc09835951da9f58989aff3f32a7515f8cd4e0d941ed08ed1267",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/base_capture.gd",
+      "revision": null,
+      "bytes": 28438,
+      "sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/capture_entry.gd",
+      "revision": null,
+      "bytes": 16412,
+      "sha256": "6e0ff3677ceba48bc9eb27addff226d53cd81511c4ffe7ba91071c3316b51880",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/capture_fairy.gd",
+      "revision": null,
+      "bytes": 20713,
+      "sha256": "31805e6f2a1b8fef2dd019c949d461392a208ad76f6fe948e51e0bc6540dc602",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/capture_manifest.json",
+      "revision": null,
+      "bytes": 1113143,
+      "sha256": "e500b1814a4ed7d5b1d84020a9b4c20d069f5b6e16936aaf301159ac96d757df",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/capture_skyway.gd",
+      "revision": null,
+      "bytes": 5721,
+      "sha256": "3a76a0994f775ccaeb145c4a5525c51010db6e5854034e7ba46d56018d948b12",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/engine.log",
+      "revision": null,
+      "bytes": 881,
+      "sha256": "b2a9f50b88edaf79b969817244c28b38bb74488510cb51de42b572bc3427bf13",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/skyway_reuse.gd",
+      "revision": null,
+      "bytes": 2596,
+      "sha256": "cdd079c6acc933b12efffd7d01a077948ce9907a24e9e697d33c6171ded3866c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/per_piece.json",
+      "revision": null,
+      "bytes": 1441571,
+      "sha256": "87c3d9ac9a0cf4a63f24c9ebf2fc06fc5567a8c1478149a7cf459fa5b4a7c41e",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/run_native.py",
+      "revision": null,
+      "bytes": 5002,
+      "sha256": "3931081cf62d8943b234e9568ef807e879cbbc3bfdbd3530219539dbafc66eda",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/scene_coverage.json",
+      "revision": null,
+      "bytes": 938542,
+      "sha256": "4c2f504288fd884deb5b646dddfe162088aba78c606e1404beed205e081539f5",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/skyway_reuse.gd",
+      "revision": null,
+      "bytes": 2596,
+      "sha256": "cdd079c6acc933b12efffd7d01a077948ce9907a24e9e697d33c6171ded3866c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/syntax_gates.py",
+      "revision": null,
+      "bytes": 1495,
+      "sha256": "ddfe8fd61905ade1aa9f4f6e5c8626fe5b5f1cc38fad03c82856ac8bc76ba23c",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/tally.json",
+      "revision": null,
+      "bytes": 388679,
+      "sha256": "8e9757f3d138253cf0700d659937a9dfa6c8b2cd1e9a357533a59b734193b614",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/validate.py",
+      "revision": null,
+      "bytes": 9609,
+      "sha256": "b0718335760a2115406c012ca8831f637a22a4627b6ea5f67a0da45c8be2d743",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/verify_remote.py",
+      "revision": null,
+      "bytes": 3368,
+      "sha256": "fa7c9e9df1013dbd3d56fe6a165eee24241168252191551aa13f8b2517861d64",
+      "role": "Current R70 evidence; acceptance open"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/glyph_inventory.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 136505,
+      "sha256": "19f3e0335f9b3af55b8c83f541eed52336107807c9b073057f412897ca2fcaa9",
+      "role": "Frozen original registry, byte-preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 1103788,
+      "sha256": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9",
+      "role": "Frozen original registry, byte-preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/RUNTIME_BYTE_BASELINE.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 1106570,
+      "sha256": "60e556d68dcd3e826407e7a4f15341a52e2b7fa5216c67907ca68d521de335e7",
+      "role": "Initialized native source/sidecar baseline; historical import scope preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/CONGRUENCY_BACKLOG.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 237448,
+      "sha256": "4f503fb8233123b2023433b626f89e8c8e9db2cabc9e5c5ef3f6c48d55327b45",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 5079,
+      "sha256": "5b4aab3691c5e7ec825606f1869536f640ce808e583f5103da5cac8af60960ea",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/CURRENT_KNOWN_ROLE_UNION.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 32357,
+      "sha256": "4a537fb6d4b15def9f6b0d92fa3da17e62762b2f652bd9b6410b93563ee3e16d",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/CURRENT_PARTIAL_CONTEXT_UNION.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 16430,
+      "sha256": "9dfe7e0cc4e0fb9e563e62943f35f92cf954983a35743793c8eb2cd31050bd6c",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/FINAL_BYTE_RECEIPT.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 9131,
+      "sha256": "df729f864e04289690700bba8d3ad066fcaa8b330cdbf4259933bea03ef93f05",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/MANIFEST.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 88493,
+      "sha256": "716d298e34865193c1fe546167dcca366d11a5ae79e26a4aa585c05b58bae294",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/PIECE_RECORDS.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 2994,
+      "sha256": "9750393e9b0fbb4b9a28a1936cb7a4ceaa8e9ee77d292c2447fd9678f15f8593",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/README.md",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 3328,
+      "sha256": "15e10c3b586b9bc1216e81a127bc75948758590eb29b655a0d5a656fb519e4da",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/REMOTE_VERIFICATION.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 168552,
+      "sha256": "a418363800966251ca3941c32b6d239bdcf1ea28ec95c4424f62afd9aa954c2e",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/REVIEW.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 7813,
+      "sha256": "b88bc85356ba6523423d3c7b9f7c2e2d965631135dff9181cef370be9e4004bf",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/SOURCE_BINDINGS.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 31546,
+      "sha256": "02cad61c3ce24cb09bf07906193607c499caa5db31b734ddaa836a91eba1fcb6",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/SOURCE_FAILURES.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 2860,
+      "sha256": "9cc65ff28adeaa39f8f3954ec3f7209919c041e44ec9aedbf271280484a78034",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/WORK_IN_PROGRESS.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 1210,
+      "sha256": "0a8dd1c4b286b7ebe2b9f211c81cb116e71cebcd7a5492a160344345c603c062",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/native/attempt3_opened_1600/04_skyway_entry.png",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 39775,
+      "sha256": "a061521e3352d21b77afaf42a7c8f2a06b965629b221685b6ddb2bb261754577",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/native/attempt3_revealed_1280/03_door_framed.png",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 1572242,
+      "sha256": "776dfaafb6b64f6bb92967d9fe38c2e16395a872ad266896d740ccfa2f97ca9a",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/native/attempt3_revealed_1280/04_skyway_entry.png",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 38921,
+      "sha256": "93d79f572d6417a5a8c3de1a5f7b430e9f49cc6b9985bd15bef2884d80723c26",
+      "role": "Before-candidate remote context prerequisite"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/per_piece.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 1277885,
+      "sha256": "18dfb08e8a9fff9af47716a38236e5416e4c430122acc3c9ebcabbb4f3012093",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/scene_coverage.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 774856,
+      "sha256": "ed383aa3c7120e1413a44208e3fcb7b50aab1e1a832fc8b788a85dfbe345b892",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/tally.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 225503,
+      "sha256": "f94e776fc418c6c328bbadf68f43a700ecc3c34344f48475f9cf454e84c1f4ef",
+      "role": "Immutable R69 canonical/history/manifest/receipt; historical verification times retain scope"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 438160,
+      "sha256": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f",
+      "role": "Frozen original registry, byte-preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/source_scopes.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 306677,
+      "sha256": "a1aca7b3bacc6124a1d0938f126803b6ea022b8f8de1ee224ef78ab5a8ef6951",
+      "role": "Frozen original registry, byte-preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json",
+      "revision": "dccb444efd0277bbcea62af1384a78b535d5b569",
+      "bytes": 7990,
+      "sha256": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a",
+      "role": "Frozen original registry, byte-preserved"
+    }
+  ],
+  "required_file_count": 289,
+  "required_bytes": 198912343,
+  "payload_sha256": "d199f1f8b419f6d5b9e66a9eb2cca0d9a621ec61e3808f189cf1290491706d07",
+  "historical_parent": {
+    "payload": "5166c0e92dbe6c1804fafe19201cc857f7a5db26",
+    "receipt": "a17dcd57c65991ee063d0c91999a767f27001199",
+    "final_proof": "dccb444efd0277bbcea62af1384a78b535d5b569",
+    "historical_direct_required_file_count": 263,
+    "historical_direct_required_bytes": 134729845,
+    "freshly_reverified_transitive_payload": false
+  },
+  "metrics": {
+    "revision": "FV-AUDIT-20261015-R70",
+    "stable_id": "FVR-1031BA433A5D",
+    "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+    "native_cases": 5,
+    "final_cover_cases": 2,
+    "final_cover_checks": 52,
+    "new_native_frames": 89,
+    "new_bounded_contexts": 36,
+    "new_excluded_diagnostics": 53,
+    "candidate_art_status": "BOUNDED_OCCLUSION_AND_EDGE_COVERAGE_REPAIR_NOT_ACCEPTED",
+    "source_production_art_status": "FAIL_OPAQUE_FALLBACK_UNCHANGED",
+    "source_garden_return_status": "FAIL_SOURCE_RETURN_CONTRACT_UNFIXED",
+    "direct_skyway_back": "CACHED_HALL_RESTORED_AFTER_NATURAL_CAMERA_SETTLE",
+    "same_state_control_foreground_comparisons": 4,
+    "new_roles": 0,
+    "new_families": 0,
+    "new_alias_credits": 0,
+    "known_roles": 243,
+    "families": 34,
+    "existing_partial_roles": 75,
+    "existing_partial_families": 15,
+    "supplemental_partial_roles": 19,
+    "catalogue_partial": 92,
+    "catalogue_without_current_slice": 84,
+    "catalogue_complete": 0,
+    "retained_bounded": 5996,
+    "retained_excluded": 3044,
+    "retained_native_events": 9040,
+    "generation_calls": 0,
+    "new_drawing_samples": 0,
+    "source_reuse_candidate_awaiting_review": 1,
+    "new_runtime_assets": 0,
+    "approved": 0,
+    "integrated": 0,
+    "runtime_verified_replacements": 0,
+    "accepted_removed": 0,
+    "all_game_artwork_total": null,
+    "distinct_screen_total": null,
+    "regression_total": null,
+    "mission_complete": false,
+    "gaps": [
+      "Candidate only; source still renders purple and source garden Back/HUD failure remains",
+      "Wide centered-cover crop/scene perspective/native visible source resolution not accepted",
+      "Flat raster instructional hand and shared UI/source foreground contact/action still unresolved",
+      "Missing-resource fallback remains a node; no recovery or retirement proof",
+      "Other unlock/profile/caller states/live orientation/QA11/freshOS/phone performance/audio/child/owner and unknown inventory remain open"
+    ]
+  },
+  "post_publication_records": "Receipt metadata is bound and anonymously verified separately to avoid recursive self hash.",
+  "accepted_removed": 0,
+  "mission_complete": false
+}
