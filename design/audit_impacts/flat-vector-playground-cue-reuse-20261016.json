@@ -78,6 +78,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/CURRENT_ROLE_UPDATE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/DELIVERY_SOURCE_REFERENCES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/DELIVERY_TRANSPORT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/FIXTURE_SYNTAX_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/FIXTURE_SYNTAX_GATES_EXECUTED.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/GATES.json",
@@ -86,6 +87,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/REPRODUCTION_CHECK.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/REUSE_INVENTORY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/REVIEW.json",
@@ -93,6 +96,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/SOURCE_BINDINGS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/SOURCE_GUARDS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/TOPIC_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/TWO_D_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/UNRESOLVED_VISIBLE_SCOPES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/UPSTREAM_FRESHNESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/WORK_IN_PROGRESS.json",
@@ -176,6 +181,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/per_piece.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/preflight.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/prepublication_gate_attempt1.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/tally.json",
@@ -206,13 +212,13 @@
     },
     {
       "command": "Document authority/development54unit6stress plus actual staged/committed2D regression gates",
-      "result": "PENDING",
-      "evidence": "Document authority/development54 unit tests/6 stress cases PASS. Actual staged/committed2D still required before each push."
+      "result": "PASS",
+      "evidence": "8adversarial tests, preservation validator, document authority/development54unit/6stress PASS; actual payload staged/committed2D outputs in TWO_D_GATES. Strict2D unsatisfied. Final receipt earns own actual pair before push."
     },
     {
       "command": "Anonymous exact payload/manifest/source dependencies and final revision publication verification",
-      "result": "PENDING",
-      "evidence": "Planned; no premature input, candidate, production or acceptance claim."
+      "result": "PASS",
+      "evidence": "Public immutable manifest and all521required files/186153327bytes exact verified at ab78b3c3ca7547b8c5514838bc1f87e1f115f295; manifestSHA256 a0cf6d269bdd0f27bc57623ae87a31a2fd689ba3aabd13235ce59029befa0597; checked 2026-10-16T12:08:21.608493+00:00. Final own metadata verified separately after push."
     }
   ],
   "acceptance_gaps": "No production repair in Phase1. New-use motif/painted cue placement/style, full action/contact/caller/QA11/device/child/owner and global inventory/zero-art evidence remain open."
