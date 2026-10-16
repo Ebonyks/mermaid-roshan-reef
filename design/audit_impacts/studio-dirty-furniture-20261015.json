@@ -1,0 +1,189 @@
+{
+  "id": "studio-dirty-furniture-20261015",
+  "baseline": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "scope": "Owner-requested studio stress test: preserve floor-item phase, introduce clearly dirty/clean furniture states, repair transparency and cleanup/picker lifecycle. Replace Day One furniture as complete single-unit Canvas cards rather than layering thin grime on unchanged clean tables. Includes a reproduced orphan-smoother alpha/ghost leak during saved-outfit reload; controller exit now restores alpha and frees its owned smoothing draw.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-04",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-LAY-03",
+    "DL-LAY-04",
+    "DL-LAY-05",
+    "DL-LAY-09",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-MOT-03",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-PERF-04",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-VIS-006",
+    "MA-VIS-007",
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "assets/castle/day_one_art_studio/furniture/left_counter_clean.png",
+    "assets/castle/day_one_art_studio/furniture/left_counter_dirty.png",
+    "assets/castle/day_one_art_studio/furniture/paint_table_clean.png",
+    "assets/castle/day_one_art_studio/furniture/paint_table_dirty.png",
+    "assets/castle/day_one_art_studio/furniture/right_counter_clean.png",
+    "assets/castle/day_one_art_studio/furniture/right_counter_dirty.png",
+    "assets_src/castle/studio_furniture_20261015/DELIVERY.json",
+    "assets_src/castle/studio_furniture_20261015/PROVENANCE.json",
+    "assets_src/castle/studio_furniture_20261015/left_counter_native.png",
+    "assets_src/castle/studio_furniture_20261015/paint_table_native.png",
+    "assets_src/castle/studio_furniture_20261015/rejected/left_open_trolley_redesign.png",
+    "assets_src/castle/studio_furniture_20261015/right_counter_native.png",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/evidence/studio-dirty-furniture-20261015/1280_00_dirty_room_with_floor_supplies.png",
+    "audit/evidence/studio-dirty-furniture-20261015/1280_02_partial_scrub.png",
+    "audit/evidence/studio-dirty-furniture-20261015/1280_05_all_furniture_clean.png",
+    "audit/evidence/studio-dirty-furniture-20261015/1280_final3.log",
+    "audit/evidence/studio-dirty-furniture-20261015/1560_00_dirty_room_with_floor_supplies.png",
+    "audit/evidence/studio-dirty-furniture-20261015/1560_02_partial_scrub.png",
+    "audit/evidence/studio-dirty-furniture-20261015/1560_05_all_furniture_clean.png",
+    "audit/evidence/studio-dirty-furniture-20261015/1560_wide-final.log",
+    "audit/evidence/studio-dirty-furniture-20261015/RECEIPT.json",
+    "audit/evidence/studio-dirty-furniture-20261015/REVIEW.json",
+    "audit/evidence/studio-dirty-furniture-20261015/full_ci.log",
+    "audit/evidence/studio-dirty-furniture-20261015/prior_full-ci.log",
+    "audit/evidence/studio-dirty-furniture-20261015/prior_live-v2.log",
+    "audit/evidence/studio-dirty-furniture-20261015/prior_live.log",
+    "audit/evidence/studio-dirty-furniture-20261015/prior_verbs-retry.log",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/reference/games.json",
+    "scripts/attack_customizer.gd",
+    "scripts/day_one_art_furniture_2d.gd",
+    "scripts/day_one_art_studio.gd",
+    "scripts/day_one_contact_action_2d.gd",
+    "scripts/probe_day_one_art_attack_state.gd",
+    "scripts/probe_day_one_art_studio_shots.gd",
+    "scripts/roshan_sprite_loop.gd",
+    "scripts/sprite_transition_2d.gd",
+    "tools/build_studio_furniture_states.py",
+    "tools/seal_studio_stress_evidence.py"
+  ],
+  "validation": [
+    {
+      "command": "First unmodified scripts/ci.sh; exact Godot 4.7.2-stable",
+      "result": "FAIL",
+      "evidence": "audit/evidence/studio-dirty-furniture-20261015/prior_full-ci.log: process exit1, all 82 probes invoked, 81 exit0 and probe_verbs exit127 without printed script error. The unchanged isolated verbs rerun completed every check and exited0 (prior_verbs-retry.log). No cause or waiver is invented; a complete clean rerun remains required."
+    },
+    {
+      "command": "Current source inspection and owner runtime report",
+      "result": "PASS",
+      "evidence": "At baseline5120b6d5, the clean furniture never changes; only 18-art-pixel-high decals disappear. Grime is hidden until supplies are collected, and shared picker close invokes completion even for Back. These reproduced baseline defects motivate the bounded changes and stress matrix."
+    },
+    {
+      "command": "Full unmodified scripts/ci.sh with exact Godot 4.7.2-stable",
+      "result": "PASS",
+      "evidence": "audit/evidence/studio-dirty-furniture-20261015/full_ci.log: unchanged full-suite rerun completed all 82 trusted probes in the declared order with every process exit0; owning scripts/ci.sh process exited0. Exact source/evidence hashes and the original failed run plus isolated retry remain in RECEIPT.json. Existing advisory game-wide UNSATISFIED findings and the headless visual-capture skip are not converted into acceptance."
+    },
+    {
+      "command": "Exact Godot 4.7.2 Mobile studio stress at 1280x720; saved-state and input matrix",
+      "result": "PASS",
+      "evidence": "tmp/studio-stress-20261015/final3.log RESULT PASS failures=0, actual GUI supply/grime taps, 150 rapid grime handler attempts, focus during approach/work, pause/carry interruption, no-actor/passive negatives, 8 exact save/load subsets with re-entry and one opaque Roshan/smoother each, picker Back/reopen and teardown. mobile-final3 PNGs visually inspected. Wider final and full-suite passes are recorded separately."
+    },
+    {
+      "command": "Exact Godot 4.7.2 Mobile 1560x720 cold-start stress; final matte/contact/actor fixes",
+      "result": "PASS",
+      "evidence": "tmp/studio-stress-20261015/wide-final.log RESULT PASS failures=0. Final same-source 1280x720 run is final3.log. audit/evidence/studio-dirty-furniture-20261015/RECEIPT.json seals exact runtime/tool/asset and evidence hashes; clean alpha is identical to dirty alpha, surfaces visibly differ. Prior failed/invalid diagnostic lanes are preserved and identified."
+    },
+    {
+      "command": "python -m gdtoolkit.parser changed scripts; python tools/lint_inference.py changed scripts; git diff --check; audit_document_authority.py; audit_development.py --base auto; gold_star.py --check",
+      "result": "PASS",
+      "evidence": "Parser/inference/whitespace exit0. Authority ALL OK (704/704,69active/72records); change coverage ALL OK at baseline5120b6d5; catalogue60games/0errors,33stale assessments explicitly retained without invented scores. Rerun before any commit after final metadata."
+    },
+    {
+      "command": "Luna independent final source and room-capture review",
+      "result": "PASS",
+      "evidence": "audit/evidence/studio-dirty-furniture-20261015/REVIEW.json: clear dirty/clean furniture, matching sweep, no obvious holes/duplicates/fringe at gameplay scale. Scoped agent review only; owner/device/child pending."
+    }
+  ],
+  "acceptance_gaps": "Device, child and owner visual acceptance remain pending. Existing finding lifecycles remain open. No Day One story clips or protected voices are changed. The reused Roshan pose and keyed travel/tool movement are not newly authored character acting. Full local suite passed; exact published-head CI remains required before dev integration. No new APK or stable release is claimed.",
+  "direction_packet": {
+    "lane": "Non-destructive derived clean/dirty states with named ImageGen local-state gaps",
+    "reuse_inventory": [
+      {
+        "path": "assets/castle/day_one_art_studio/",
+        "decision": "Reuse loose supplies and cleaning brush. Owner says floor phase is okay."
+      },
+      {
+        "path": "assets/flats/castle/interactions_v2/craft_room_paint_table_sheet.png",
+        "decision": "Appearance/placement source; no dirty full-unit state."
+      },
+      {
+        "path": "assets/flats/castle/interactions_v2/craft_room_palette_sheet.png",
+        "decision": "Appearance/placement source; no dirty full-unit state."
+      },
+      {
+        "path": "assets/flats/castle/rooms/room_craft_room_front_right.png",
+        "decision": "Exact right counter source; preserve inventory and silhouette."
+      }
+    ],
+    "anchors": [
+      {
+        "path": "assets/flats/castle/rooms/room_craft_room.png",
+        "trait": "Actual room palette, furniture silhouettes, perspective, contents; no architecture or floor pixels into card."
+      },
+      {
+        "path": "assets/flats/castle/rooms/room_craft_room_item_paint_table.png",
+        "trait": "Central low rectangular painted table, exact shelves/cups/paper; avoid crop background."
+      },
+      {
+        "path": "assets/flats/castle/rooms/room_craft_room_item_palette.png",
+        "trait": "Left curved cart and stored art materials."
+      },
+      {
+        "path": "assets/flats/castle/rooms/room_craft_room_front_right.png",
+        "trait": "Right cart brush holder, rolls and round boxes."
+      }
+    ],
+    "display": "1280x720: table approximately 280x130, carts approximately 320x310/380x310, preserve live fixture anchors.",
+    "verb": "Tap supplies; Roshan travels and visibly works; tap dirty furniture for brush scrub; broad dried-paint spills and dust clear to the matching clean state.",
+    "states": "Dirty from entry, prompted after supplies, contact brush, local visible removal, clean settle, saved re-entry.",
+    "matte": "Complete furniture body opaque; intentional shelf openings transparent; no cropped floor/wall, rectangular backing, white halo or holes through solid tabletops.",
+    "budget": "One clean/dirty paired-state generation per fixture, maximum two takes per fixture; stop and diagnose if both fail. No cinematic generation.",
+    "review": "Inspect isolated clean/dirty geometry then actual Mobile room with HUD and two aspects; no owner/device/child pass inferred.",
+    "animation": "Existing Roshan identity cutout and authored brush; bounded keyed work tool and source-pixel dirty reveal. No new character performance claim."
+  }
+}

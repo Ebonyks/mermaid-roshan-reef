@@ -10,6 +10,14 @@ The dated evidence below retains its original commit and acceptance limits;
 "current" claims in that sealed snapshot do not describe today's build.
 Game-wide audit satisfaction remains **UNSATISFIED**.
 
+Owner-requested Craft Room cleanup repair (2026-10-15) is tracked in
+[CHG-036](MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#studio-dirty-furniture-chg-036)
+and its [impact record](../design/audit_impacts/studio-dirty-furniture-20261015.json).
+The candidate adds complete dirty/clean furniture states, local brush work,
+interruption safety and sprite-smoother teardown. Exact validation and
+remaining visual/device/child/owner gaps stay in that record; existing
+finding lifecycles and game-wide satisfaction are unchanged.
+
 | Planning question | Current answer and authority |
 |---|---|
 | How should an agent develop a chapter? | Use the [chapter guide](../design/09_CHAPTER_DEVELOPMENT_GUIDE.md) and [brief](../design/templates/CHAPTER_BRIEF_V1.md). The owner approves premise/boundaries; the agent develops the playable result within them, without another routine planning/expansion checkpoint. |

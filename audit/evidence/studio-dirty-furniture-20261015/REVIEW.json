@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-15",
+  "reviewer": "Luna subagent, reported to the root orchestrator",
+  "status": "SCOPED_CANDIDATE_REVIEW",
+  "paths": [
+    "tmp/studio-stress-20261015/mobile-final3",
+    "tmp/studio-stress-20261015/mobile-wide-final"
+  ],
+  "findings": [
+    "Clear dirty/clean difference for all three fixtures at real gameplay scale.",
+    "No obvious transparent holes or duplicate original furniture in final room composites.",
+    "Brush/actor sweep follows the visible dirt-removal path.",
+    "Earlier colored fringe not apparent in final room captures.",
+    "Eight save/reload subsets retain visible opaque Roshan and one active smoother in the supplied exact-engine stress logs."
+  ],
+  "limits": "Luna did not run engine tests or independently authenticate log generation. No numeric quality score or owner/device/child acceptance. Side-gutter app controls at wide aspect remain outside the studio canvas scope."
+}

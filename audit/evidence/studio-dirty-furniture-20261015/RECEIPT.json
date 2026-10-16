@@ -1,0 +1,144 @@
+{
+  "baseline": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "engine": "4.7.2-stable official.ed1daf0bf",
+  "renderer": "Forward Mobile Vulkan RTX3060Ti",
+  "save_isolation": "Each process requires DAY_ONE_ART_USERDATA_ROOT and validates user:// is beneath it before instantiating main.",
+  "sources": {
+    "scripts/day_one_art_studio.gd": {
+      "sha256": "eb0efa3597d2eea9106ab4805ce7b799de191ba785255191d48cdfaba32c1292",
+      "utf8_lf_sha256": "efcd8b824630050ad5098434a602a3d68cb46621e267472a977e58093e199e45"
+    },
+    "scripts/day_one_art_furniture_2d.gd": {
+      "sha256": "56a1bdee11730e03935cbb17be465f9e2f818f664b2fc3de2dcc263b9a045e8e",
+      "utf8_lf_sha256": "56a1bdee11730e03935cbb17be465f9e2f818f664b2fc3de2dcc263b9a045e8e"
+    },
+    "scripts/day_one_contact_action_2d.gd": {
+      "sha256": "489f3bcc638b0a47091a0fb96dc40fb65ef103742445b463a6533e3d887f9952",
+      "utf8_lf_sha256": "60e7f3c9743fb10ce5070f60645c01d1ec465aca9019818fd59d344aa43d3c84"
+    },
+    "scripts/attack_customizer.gd": {
+      "sha256": "dc37f193c06af3799abfbba3fe3f0c0c04a48f4fe26d7ee789b3255b655e737e",
+      "utf8_lf_sha256": "cbef40ebc91c0d7b545084d0880ad94eaff805c7a6dabb2d2bc207a47fcd8319"
+    },
+    "scripts/roshan_sprite_loop.gd": {
+      "sha256": "d5dd310a8f86b24a6f76aa2e7bd67489dc003d578b8eaf1131facf093beb4c88",
+      "utf8_lf_sha256": "ceb04426899c12124e983aaba843bba4183e8aba8daa7a1655ec1ec918d01b14"
+    },
+    "scripts/sprite_transition_2d.gd": {
+      "sha256": "8cf97087122a3f78ffee3b825ac58d3e585f251855e1f0dfff5653be5e12cea1",
+      "utf8_lf_sha256": "1288b7f1d135ca30862aa9ab45aec01d9e71c1cbcf15d98dc5a0063a57300439"
+    },
+    "scripts/probe_day_one_art_attack_state.gd": {
+      "sha256": "b9d8ba259ffef3b8ade3f42a4d7206ebf10d6c2df92c5e3b241c7633b28347e6",
+      "utf8_lf_sha256": "cb3b6f75a2291e80b416f049aa64c3d1b1da67226cb4671cc630926259327219"
+    },
+    "scripts/probe_day_one_art_studio_shots.gd": {
+      "sha256": "3cba1813b23dc8b36b750f3c23288515c76e0dcf1dca555a787f9e7f84be47c8",
+      "utf8_lf_sha256": "d0553b356e0099da15383556f93734ec9a88681edb201ccb6761191b2e30294c"
+    },
+    "tools/build_studio_furniture_states.py": {
+      "sha256": "47588a131a30673fbc06ca464b8788f7e11b05506b144b97d4a38524ce04aa87",
+      "utf8_lf_sha256": "47588a131a30673fbc06ca464b8788f7e11b05506b144b97d4a38524ce04aa87"
+    },
+    "assets/castle/day_one_art_studio/furniture/left_counter_clean.png": {
+      "sha256": "23401d2a72810d22cd84e88d9c34422ea5332147d1c9173b97352952f2975ea4",
+      "utf8_lf_sha256": null
+    },
+    "assets/castle/day_one_art_studio/furniture/left_counter_dirty.png": {
+      "sha256": "bcd086f6e7d5004ecabc1a93c912fa9fb22a76b0763c00d45daab00d39f92ddf",
+      "utf8_lf_sha256": null
+    },
+    "assets/castle/day_one_art_studio/furniture/paint_table_clean.png": {
+      "sha256": "e9bf6bf577ef237688f452f107e470fc0cec5cd84a69a76807707c4c9312631e",
+      "utf8_lf_sha256": null
+    },
+    "assets/castle/day_one_art_studio/furniture/paint_table_dirty.png": {
+      "sha256": "5fcb720dda28e20389f59c6fe546f3ada1bd7a939a75de17bfd0f670c37647bb",
+      "utf8_lf_sha256": null
+    },
+    "assets/castle/day_one_art_studio/furniture/right_counter_clean.png": {
+      "sha256": "edefa5b2712d0c4e2bf91063626e0720cc4aa67fc2a98327c53b649c3364a50c",
+      "utf8_lf_sha256": null
+    },
+    "assets/castle/day_one_art_studio/furniture/right_counter_dirty.png": {
+      "sha256": "72b25722952f74c16d8886759d0c87f9a3d1c718dd6434a5f9b897fbffbdfd0d",
+      "utf8_lf_sha256": null
+    }
+  },
+  "evidence": [
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/1280_final3.log",
+      "sha256": "8b36d1b1f753ca8d363096fa8320e4ce2f4a0421784e89692346cbee6792ffa5",
+      "role": "diagnostic Mobile gameplay evidence"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/1280_00_dirty_room_with_floor_supplies.png",
+      "sha256": "6d3ebf2e39ab14458bf3efca9e8b42fca0b459365bfed5da757509a1a37b451f",
+      "role": "diagnostic Mobile gameplay evidence"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/1280_02_partial_scrub.png",
+      "sha256": "02afa26c3fa4dfecd1cb546b15efc888f0c92edc72f74e6b8de9f738d07360c1",
+      "role": "diagnostic Mobile gameplay evidence"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/1280_05_all_furniture_clean.png",
+      "sha256": "377be4120b06606af1a63e5e0983347df2c867bbcdccbd7f36bea4cbfd976e78",
+      "role": "diagnostic Mobile gameplay evidence"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/1560_wide-final.log",
+      "sha256": "8b36d1b1f753ca8d363096fa8320e4ce2f4a0421784e89692346cbee6792ffa5",
+      "role": "diagnostic Mobile gameplay evidence"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/1560_00_dirty_room_with_floor_supplies.png",
+      "sha256": "e0e7026a69a8f5ccae7d34e2343fc1ddb94dec2b021b7398c8a07c014b93f75d",
+      "role": "diagnostic Mobile gameplay evidence"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/1560_02_partial_scrub.png",
+      "sha256": "90143f0887503f4b35128eaa35b0bde473ae139e0421fe02fbccdbb20e60ce58",
+      "role": "diagnostic Mobile gameplay evidence"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/1560_05_all_furniture_clean.png",
+      "sha256": "a950f154e79eb7815326a171ae2674d39f6386de07bd637afc090b2ac3272a59",
+      "role": "diagnostic Mobile gameplay evidence"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/prior_live.log",
+      "sha256": "dbd04fd9f6c1abaa5d890e0c9eb1e2362611bd2d182a1f1b5286e0dd08c6a877",
+      "role": "Prior diagnostic/reproduction; not final full-suite or visual acceptance"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/prior_live-v2.log",
+      "sha256": "a6a35940ea85152032bf1bb64751f14efbc1d3fc50b0b7e44edfbf06a0c64363",
+      "role": "Prior diagnostic/reproduction; not final full-suite or visual acceptance"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/prior_full-ci.log",
+      "sha256": "95fdb886757ef52f42783c1ec9bca54ef500edcf0a7e6ede312dfed42c5f6151",
+      "role": "Prior diagnostic/reproduction; not final full-suite or visual acceptance"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/prior_verbs-retry.log",
+      "sha256": "928f73549f7a5a2e45cb7972bd376564459f5fa6cec2f896d8e6d1e91b406f39",
+      "role": "Prior diagnostic/reproduction; not final full-suite or visual acceptance"
+    },
+    {
+      "path": "audit/evidence/studio-dirty-furniture-20261015/full_ci.log",
+      "sha256": "114e409dc4c37bea4657ed3e06fd2e6fe864383641ac9188fea04a9b9b3c4736",
+      "role": "Unmodified full local CI transcript"
+    }
+  ],
+  "review": "The root orchestrator inspected dirty/partial/clean runtime PNGs at both aspects. Luna independently reviewed earlier state ownership and found the fringe and wipe/contact issues repaired by the final candidate.",
+  "scope": "Staged unfinished Craft Room checkpoint. Not a fresh-save whole-game run, target-device result, accepted visual-adapter PASS, owner acceptance or child comprehension evidence.",
+  "prior_failures": "live.log: opening clip hid the room plus pause cancellation failure. live-v2.log: state tests passed but pixel review rejected dirty texture multiplied into clean shader; wide capture dynamically resized an already-built stage and was rejected. final3/wide-final use correct clips-seen checkpoint, fixed shader and cold viewport construction.",
+  "full_suite": {
+    "command": "scripts/ci.sh",
+    "process_exit": 0,
+    "trusted_probes": 82,
+    "note": "Exit status supplied only after the owning process finished. The first full run had an unexplained verbs process exit127; its isolated retry completed with exit0 and both transcripts are retained. The final complete rerun is separate. Existing advisory UNSATISFIED reports and headless visual skips are not acceptance."
+  }
+}

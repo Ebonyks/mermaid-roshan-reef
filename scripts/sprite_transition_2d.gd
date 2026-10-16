@@ -148,6 +148,13 @@ func cancel() -> void:
 	_finish_transition(false)
 
 
+func _exit_tree() -> void:
+	_finish_transition(false)
+	if _ghost != null and is_instance_valid(_ghost):
+		_ghost.queue_free()
+	_ghost = null
+
+
 func _process(delta: float) -> void:
 	if not _has_target():
 		set_process(false)

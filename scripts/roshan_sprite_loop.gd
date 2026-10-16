@@ -132,6 +132,16 @@ func set_paused(paused: bool) -> void:
 	if not paused:
 		_enter_idle()
 
+
+func _exit_tree() -> void:
+	# Outfit/save refresh replaces this loop while a frame blend may be active.
+	# Its smoother is parented to the Sprite2D, so removing this controller
+	# must release it explicitly or old ghosts keep fighting the new alpha.
+	if _transition_2d != null and is_instance_valid(_transition_2d):
+		_transition_2d.cancel()
+		_transition_2d.queue_free()
+	_transition_2d = null
+
 func animation_state() -> String:
 	return _state
 

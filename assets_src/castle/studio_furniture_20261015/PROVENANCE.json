@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-15",
+  "role": "Gameplay furniture cleanliness states; not cinematic footage",
+  "tool": "Built-in image_gen",
+  "model_revision": "Not exposed by hosted tool",
+  "seed": "Not exposed",
+  "cost": "Not exposed; four tool calls total, including one rejected take",
+  "limits": {
+    "takes_per_fixture": 2,
+    "total_calls": 4,
+    "new_calls_authorized": 0
+  },
+  "sources": [
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room.png",
+      "role": "Destination-room palette/perspective; no room pixels into output",
+      "sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room_item_paint_table.png",
+      "role": "Central table identity",
+      "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room_item_palette.png",
+      "role": "Left closed cabinet identity",
+      "sha256": "48a516e2da0cbef6dadc6ee68676c735148bba9cce73fc26888c49c967266374"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room_front_right.png",
+      "role": "Right cabinet identity",
+      "sha256": "41167d28ce5a519e0aee05239f782accf8f4137cf0c002189e8d1456a6c17871"
+    }
+  ],
+  "takes": [
+    {
+      "id": "a997a599-5a64-4672-99dc-08e231240878",
+      "fixture": "paint_table",
+      "attempt": 1,
+      "path": "paint_table_native.png",
+      "disposition": "Candidate selected for local gameplay review"
+    },
+    {
+      "id": "00cad283-876a-400d-a2a7-f21aa2f08671",
+      "fixture": "left_counter",
+      "attempt": 1,
+      "path": "rejected/left_open_trolley_redesign.png",
+      "disposition": "REJECTED: introduced open legs/handles/front emblem instead of the original closed curved cabinet"
+    },
+    {
+      "id": "97b74bf4-24b2-47d5-aa50-69e99d0161e1",
+      "fixture": "right_counter",
+      "attempt": 1,
+      "path": "right_counter_native.png",
+      "disposition": "Candidate selected for local gameplay review"
+    },
+    {
+      "id": "b58047e4-c425-4d4c-87b7-9a62550456f6",
+      "fixture": "left_counter",
+      "attempt": 2,
+      "path": "left_counter_native.png",
+      "disposition": "Candidate selected: restores closed rounded cabinet and side-shell identity"
+    }
+  ],
+  "prompts": {
+    "paint_table": "Use case: precise-object-edit. Asset type: registered two-state 2D game furniture sprite sheet. Image 1 is the exact central paint table identity/edit target. Image 2 is the destination room appearance reference only. Produce ONE horizontal sheet with TWO equally sized cells, transparent background: LEFT clean table; RIGHT the SAME table dirty before cleaning. Preserve the low rectangular cream wood paint table, lavender shelf, shell emblem, cups of brushes, small paint bottles, paper on top, stacked paper and round containers below, exact front three-quarter view and soft pastel painted storybook linework. Both cells must have identical object size, position within cell, silhouette, camera, details, contents, and structural geometry. CLEAN: isolate the complete furniture, remove all room/floor/wall pixels. DIRTY: change only surface state: broad clearly visible muted lavender-grey dust and muddy coral/teal dried paint smears across most of the tabletop, soft dusty streaks on its front lip; a preschooler can instantly see it needs washing. All fixtures remain intact. Strong distinct dirty-to-clean contrast at 280-pixel runtime width, friendly high-key, no black dirt. Object centered in each cell with 5% clear transparent margin, full legs and edges visible, solid table surfaces fully opaque, only actual shelf gaps transparent. No floor, wall, backdrop, shadow rectangle, labels, captions, text, arrows, frame or white sticker border. This is a bounded dirty-state derivative, not a redesigned table.",
+    "left_rejected": "Use case: precise-object-edit. Produce ONE horizontal registered two-state sprite sheet for this exact LEFT craft-room cart, TWO equal cells. LEFT clean; RIGHT same cart dirty. Preserve its oval cream/aqua tabletop, lavender front, shell emblem, wheeled legs, shell-shaped pencil holder, brush holder, three upright pastel paint bottles, white watercolor palette, lower shelf with two baskets of bottles. Exact identity, contents, perspective and painted storybook finish from reference. Isolate complete cart from all background/floor pixels. Same scale, center, silhouette, structural geometry and inventory in both cells. Dirty state changes only surfaces: broad muted lavender-grey dust and muddy coral/teal dried-paint spills across most of tabletop and dusty streaks on front rim; instantly distinguishable at 320px width. Clean state wiped pristine. Solid tabletop and shelf backing completely opaque; only real openings transparent. Full object and wheels, 5% transparent margin per cell, matching bounds. No floor, wall, text, labels, arrows, border, extra objects, white sticker edge or black grime. Keep the existing cart design; only local cleanliness changes.",
+    "right": "Use case: precise-object-edit. Edit this exact right craft-room counter, do not redesign. Return ONE horizontal TWO equal-cell sheet, clean on LEFT and matching dirty state on RIGHT. Preserve the broad curved cream/aqua top, purple shelf backing, full curved cabinet body with side shell emblem, short base/wheels, existing brush cup, tall rolled pastel paper, watercolor palette, two round boxes and small yellow box on lower shelf. Repair incomplete isolation at edges by completing only the existing countertop contour. No new handles, extra shelves, new feet or new props. Both cells identical silhouette/scale/position/geometry and all contents. Clean is pristine existing identity. Dirty has broad dusty lavender-grey dried paint with coral/teal smears on top and drip stains on front rim, obvious at 350px width but high key and gentle. All solid furniture surfaces fully opaque including front/backs. Real shelf openings only transparent. Transparent background and 5% padding, complete object, no room/floor/wall pixels, white halo, labels, text or border. Keep existing approved design stable; only cleanliness changes.",
+    "left_final": "Precise object edit, registered CLEAN/DIRTY state pair. Preserve this EXACT LEFT craft cart's closed rounded crescent cabinet design, same full pale-cream curved side panels and oval tabletop, pale-aqua rim, purple interior BACKING and LOWER SHELF, shell emblem on the RIGHT SIDE PANEL, short dark little wheels hidden beneath base. It is NOT an open trolley: DO NOT invent handles, tall legs, scalloped apron or front-center shell ornament. Keep exact existing pencil/brush shell cups, three pastel paint bottles, circular watercolor wells, and TWO woven baskets of pastel bottles on the lower shelf. Return one horizontal sheet, two equal cells clean LEFT, dirty RIGHT, transparent background, entire object isolated from original wall/floor, same position, scale, perspective, silhouette and contents. On dirty version only: visibly dusty lavender-grey table surface, broad dried coral/teal paint spills across tabletop and front lip, a few dusty paint drips over cream cabinet edge. Matching clean version is wiped pristine. Clearly different at phone size. Complete solid opaque cabinet, opaque shelf backing, natural antialiasing only at silhouette. No added parts, no room, floor, backdrop, text, labels, frames, white halo. High-quality painted pastel storybook art in the precise original design."
+  },
+  "edits": "tools/build_studio_furniture_states.py records deterministic bounded chroma-edge repair, nearest-solid RGB for partial alpha, crop, uniform fit, bottom-center registration, tight shared output bounds and shared clean-state alpha. DELIVERY.json records native and final SHA-256.",
+  "animation_job": {
+    "verb": "Roshan picks up/stores supplies and sweeps the brush across each dirty work surface",
+    "fixed_parts": "All furniture geometry and inventory fixed",
+    "moving_parts": "Approved Roshan cutout translation, existing brush and carried supply",
+    "method": "Canvas keyed translation with single-card shader dirt reveal; no new character animation frames",
+    "entry": "Dirty fixtures, floor supplies, no progress",
+    "exit": "Clean fixtures with existing additive saved flags; original normal-room ownership restored on teardown",
+    "timing": "Travel at existing contact controller speed; pickup and storage contact 0.42s each, scrubbing 1.10s, synchronous once-only commit after work",
+    "interruptions": "Focus, pause, back, teardown cancel unearned work and restore unsaved dirt/item; no post-contact timer/tween commits",
+    "provenance": "Existing Roshan directional atlas and magic_cleaning_brush.png reused; no protected originals changed",
+    "master": "Native paired PNGs retained; no editable Aseprite source: only bounded deterministic normalization/matte repair and runtime keyed motion were required",
+    "acceptance": "Local machine and visual review separate from target-device/child/owner acceptance"
+  },
+  "acceptance": "Candidates only. No owner acceptance, final-cinematic status, device claim or numeric quality score.",
+  "cleanup_time": "Approximately 15 minutes of source/derivative/matte setup and visual diagnosis; total implementation/testing time is separately reflected by the source and test evidence. Hosted generation calls took approximately 22s,35s,31s,30s; billing was not exposed."
+}
