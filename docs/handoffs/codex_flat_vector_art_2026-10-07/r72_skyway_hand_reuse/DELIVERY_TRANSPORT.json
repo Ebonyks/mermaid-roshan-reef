@@ -3,5 +3,30 @@
   "branch": "codex/flat-vector-r6-20261012",
   "method": "Two phases: exact nonforce payload Git objects then one final receipt commit; anonymous immutable all-file verification for each. Each push earns actual staged+committed GAME2D gates.",
   "self_verification_scope": "Published receipt proves payload. Final receipt own bytes/head and final pair gates verified after push and reported in final chat/external check, without recursive self-hash commits. No check or source gate is weakened.",
-  "recipient_access": "Public anonymous HTTPS; publication is not creative acceptance"
+  "recipient_access": "Public anonymous HTTPS; publication is not creative acceptance",
+  "payload_transport": {
+    "status": "EXACT_GIT_OBJECTS_AND_ORIGINAL_COMMIT_PUBLISHED_NON_FORCE",
+    "baseline": "63b842887eb14d6b51bedb0b676afbe17b6453a7",
+    "revision": "1b771fafcc68506eed8212a1cc9b5981bc25b0a2",
+    "tree": "cb4a8a782bc4845beabb6922532dd2633d9065c3",
+    "new_blob_count": 230,
+    "changed_file_count": 297,
+    "checked_at_utc": "2026-10-16T05:07:32.829379+00:00",
+    "existing_gh_authorization_only": true,
+    "credential_value_extracted_or_printed": false,
+    "transport_reason": "Prior R39 ordinary114MiB Git pack reset; direct exact-object safe path used forR72, no failedR72 pack claimed.",
+    "access_mode": "Authenticated Git object write to same owner-authorized public repository/durable branch; anonymous required-file verification follows",
+    "no_runtime_or_source_tree_change_from_verified_commit": true
+  },
+  "payload_verification": {
+    "state": "R72_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "1b771fafcc68506eed8212a1cc9b5981bc25b0a2",
+    "required_files": 355,
+    "required_bytes": 243198540,
+    "manifest_sha256": "1e5a53b480e68b6e4204429c202a310bf01184dabb59752d603c32035d22dc67",
+    "checked_at_utc": "2026-10-16T05:07:48.051991+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final receipt own changed metadata bytes/head checked after push; not recursively self-hashed."
+  }
 }

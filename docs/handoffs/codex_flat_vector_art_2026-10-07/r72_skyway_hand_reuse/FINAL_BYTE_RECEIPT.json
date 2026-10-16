@@ -1,3 +1,36 @@
 {
-  "status": "PENDING_PAYLOAD_VERIFICATION"
+  "status": "PAYLOAD_ALL_DECLARED_FILES_ANONYMOUSLY_VERIFIED",
+  "payload_revision": "1b771fafcc68506eed8212a1cc9b5981bc25b0a2",
+  "manifest_sha256": "1e5a53b480e68b6e4204429c202a310bf01184dabb59752d603c32035d22dc67",
+  "required_file_count": 355,
+  "required_bytes": 243198540,
+  "payload_checked_at_utc": "2026-10-16T05:07:48.051991+00:00",
+  "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+  "audited_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "origin_dev_at_receipt": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "runtime_delta_from_audited_source": [],
+  "source_controls_source_art_imports_unchanged": true,
+  "retained_bounded": 6122,
+  "retained_excluded": 3223,
+  "retained_native_events": 9345,
+  "rejected_crop_variants": 2,
+  "tested_decode_paths": 2,
+  "native_runtime_cases": 7,
+  "observer_checks": 322,
+  "natural_bob_cycles": 28,
+  "generation_calls": 0,
+  "accepted_removed": 0,
+  "all_game_piece_total": null,
+  "mission_complete": false,
+  "source_garden_return": "FAIL_SOURCE_RETURN_CONTRACT_UNFIXED",
+  "request": "NEW_ART_REVIEW_REQUEST.json",
+  "request_scope": "Two exact project inputs bound; no owner authorization, no export/generation/readiness/acceptance",
+  "actual_payload_two_d": {
+    "path": "TWO_D_GATES.json",
+    "sha256": "832206a1f1a8611cb1a02a550ae06756d58182c1ab24b5f0d83e710b6c181324",
+    "lanes": 2,
+    "strict_2d_satisfied": false
+  },
+  "own_receipt_verification": "This record proves the payload above. Final receipt commit own changed metadata bytes/head and actual staged/committed gates are checked after push and reported in final chat/external check, avoiding a recursive self-hash claim.",
+  "created_at_utc": "2026-10-16T05:08:05.753756+00:00"
 }

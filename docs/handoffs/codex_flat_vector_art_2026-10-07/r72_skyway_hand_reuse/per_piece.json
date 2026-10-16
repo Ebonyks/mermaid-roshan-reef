@@ -17212,9 +17212,9 @@
         "coverage_state": "COVERAGE_GAP",
         "geometry_expressions": [
           "var launch_rect := Rect2(252, 514, 776, 178)",
-          "stage, \"StartMenuContinueButton\", \"\u25b6  CONTINUE\", Rect2(290, 548, 340, 118),",
-          "stage, \"StartMenuNewGameButton\", \"\u2605  NEW GAME\", Rect2(650, 548, 340, 118),",
-          "stage, \"StartMenuOptionsTab\", \"\u2699  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
+          "stage, \"StartMenuContinueButton\", \"▶  CONTINUE\", Rect2(290, 548, 340, 118),",
+          "stage, \"StartMenuNewGameButton\", \"★  NEW GAME\", Rect2(650, 548, 340, 118),",
+          "stage, \"StartMenuOptionsTab\", \"⚙  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
           "button.size = rect.size",
           "button.custom_minimum_size = rect.size",
           "inset_style.set_corner_radius_all(30)",
@@ -17312,9 +17312,9 @@
         "coverage_state": "COVERAGE_GAP",
         "geometry_expressions": [
           "var launch_rect := Rect2(252, 514, 776, 178)",
-          "stage, \"StartMenuContinueButton\", \"\u25b6  CONTINUE\", Rect2(290, 548, 340, 118),",
-          "stage, \"StartMenuNewGameButton\", \"\u2605  NEW GAME\", Rect2(650, 548, 340, 118),",
-          "stage, \"StartMenuOptionsTab\", \"\u2699  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
+          "stage, \"StartMenuContinueButton\", \"▶  CONTINUE\", Rect2(290, 548, 340, 118),",
+          "stage, \"StartMenuNewGameButton\", \"★  NEW GAME\", Rect2(650, 548, 340, 118),",
+          "stage, \"StartMenuOptionsTab\", \"⚙  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
           "button.size = rect.size",
           "button.custom_minimum_size = rect.size",
           "inset_style.set_corner_radius_all(30)",
@@ -17412,9 +17412,9 @@
         "coverage_state": "COVERAGE_GAP",
         "geometry_expressions": [
           "var launch_rect := Rect2(252, 514, 776, 178)",
-          "stage, \"StartMenuContinueButton\", \"\u25b6  CONTINUE\", Rect2(290, 548, 340, 118),",
-          "stage, \"StartMenuNewGameButton\", \"\u2605  NEW GAME\", Rect2(650, 548, 340, 118),",
-          "stage, \"StartMenuOptionsTab\", \"\u2699  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
+          "stage, \"StartMenuContinueButton\", \"▶  CONTINUE\", Rect2(290, 548, 340, 118),",
+          "stage, \"StartMenuNewGameButton\", \"★  NEW GAME\", Rect2(650, 548, 340, 118),",
+          "stage, \"StartMenuOptionsTab\", \"⚙  OPTIONS\", Rect2(1044, 594, 210, 104), \"secondary\", 25)",
           "button.size = rect.size",
           "button.custom_minimum_size = rect.size",
           "inset_style.set_corner_radius_all(30)",
@@ -21728,7 +21728,7 @@
           "var fl := _mg_label(\"ROLL UP THE SNOWBALLS!\", 52, Vector2(255, 146))",
           "fl.size = Vector2(770, 80)",
           "fl.pivot_offset = Vector2(385, 40)",
-          "var ar := _mg_label(\"\u21bb\", 84, Vector2(0, 0))",
+          "var ar := _mg_label(\"↻\", 84, Vector2(0, 0))",
           "ar.size = Vector2(110, 110)"
         ],
         "note": "Expressions are scope evidence, not measured per-piece screen bounds."
@@ -22589,7 +22589,7 @@
     },
     {
       "id": "FVR-0C5CD19F9292",
-      "name": "Lamb-a\u00e2\u20ac\u2122 companion whole cutout",
+      "name": "Lamb-aâ€™ companion whole cutout",
       "family": "stuffie_companions",
       "status": "NEEDS_CONTEXT_REVIEW",
       "evidence_level": "PARTIAL_CURRENT_CONTEXT",
@@ -25109,7 +25109,7 @@
       {
         "id": "FVOBS-CATALOGUE-CRITTERS-BINDING",
         "status": "EXPLICIT_SAVED_BOOK_PARTIAL_BINDING_ONLY",
-        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton\u2192open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
+        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton→open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
         "evidence": "CRITTER_ALIAS_BINDING.json"
       },
       {
@@ -25632,7 +25632,15 @@
     "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r66_display_entry_context"
   },
   "publication": {
-    "state": "PENDING_R72_PUBLICATION"
+    "state": "R72_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "1b771fafcc68506eed8212a1cc9b5981bc25b0a2",
+    "required_files": 355,
+    "required_bytes": 243198540,
+    "manifest_sha256": "1e5a53b480e68b6e4204429c202a310bf01184dabb59752d603c32035d22dc67",
+    "checked_at_utc": "2026-10-16T05:07:48.051991+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final receipt own changed metadata bytes/head checked after push; not recursively self-hashed."
   },
   "gate_missing_art_repair": {
     "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",

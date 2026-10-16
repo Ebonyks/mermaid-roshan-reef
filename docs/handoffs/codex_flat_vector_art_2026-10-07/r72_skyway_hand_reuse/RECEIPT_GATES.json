@@ -1,0 +1,42 @@
+{
+  "status": "PASS_FINAL_RECEIPT_REVIEW",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r72_skyway_hand_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "0650fc4304d265de533f4ef9edccfa9ac67d55cf1ee1aeb88ce0b2651b21bdd2",
+      "output": "R72_EVIDENCE_PASS;7cases322checks28cycles;142raw40bounded102excluded;2reuse crops REJECTED;source gardenBack FAIL;0generation/production/removal;owner export authorization required\r\n",
+      "checked_at_utc": "2026-10-16T05:08:28.810954+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "3386dbab1ff674d7664424132f4d74bee647a366300e2148a65bc41eaaf89ff5",
+      "output": "DOCAUTH|INVENTORY=785|LEDGER=785|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T05:08:42.449969+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T05:08:51.542566+00:00"
+    }
+  ],
+  "log_sha256": "6421dbad02c1786dfdb64aec6b3ff6e7fd810cc103ee8bdc809ea4bfa941ca38",
+  "scope": "All3 evidence/document gates passed. Final staged/committed2D must separately pass before push. No art, runtime/device/child/owner or whole-game acceptance."
+}
