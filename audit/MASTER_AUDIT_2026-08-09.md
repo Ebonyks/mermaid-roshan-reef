@@ -105,6 +105,8 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 [Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)
 Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md), [protocol](../design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md), and [impact](../design/audit_impacts/grok-handoff-2-20260909.json). External motion-reference repairs do not close live visual findings or delivery gates.
 
+Scoped 2026-10-15 [Arborist spraying comprehension repair](../design/audit_impacts/arborist-spray-20261015.json) aligns canopy touch, Roshan's bottle and visible healing in the optional Tree Book practice. Implementation, exact machine evidence and pending device/child/owner acceptance remain separate; no career/star migration or finding closure.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 ## Sealed audit snapshot and subsequent round metadata
