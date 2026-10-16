@@ -1,0 +1,147 @@
+{
+  "pieces": [
+    {
+      "id": "FVR-5344465CE503",
+      "stable_id_input": "scripts/arena/sky_lagoon_promenade.gd::_register_target::Playground procedural focus ring and pointer",
+      "name": "Playground procedural focus ring and pointer",
+      "family": "sky_lagoon_affordances",
+      "status": "PARTIAL_CONTEXT_VISIBLE_PROCEDURAL_CUE_REPLACEMENT_OPEN",
+      "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "source_functions": [
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_build_playground_screen",
+          "line": 530,
+          "end_line": 552,
+          "text": "func _build_playground_screen() -> void:\n\tvar holder: Node2D = m.g.get(\"lagoon_interactive_layer\") as Node2D\n\t# Keep the three authored alpha footprints distinct across the meadow. Their\n\t# original 2655/3200/3760 centers let both neighboring silhouettes collide;\n\t# the seesaw also read as planted in the lower shrub band instead of on grass.\n\t# Only the equipment rest transforms move, so touch targets and Roshan's\n\t# equipment-local play sockets continue to follow the same nodes.\n\tvar slide := _make_sprite(\n\t\t\"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png\",\n\t\tVector2(2550, 1400), 620.0, true, holder)\n\tslide.name = \"SkyLagoonSlide\"\n\tvar swing := _build_promenade_swing(Vector2(3200, 1390))\n\tvar seesaw := _make_sprite(\n\t\t\"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png\",\n\t\tVector2(3826, 1500), 265.0, true, holder)\n\tseesaw.name = \"SkyLagoonSeesaw\"\n\t_add_contact_shadow(slide, Vector2(500, 40))\n\t_add_contact_shadow(swing, Vector2(580, 42))\n\t_add_contact_shadow(seesaw, Vector2(430, 38))\n\t_register_target(\"slide\", slide, \"playground\", \"slide\", 118.0, 1.10)\n\t_register_target(\"swing\", swing, \"playground\", \"swing\", 110.0, 1.10)\n\t_register_target(\"seesaw\", seesaw, \"playground\", \"seesaw\", 110.0, 1.12)\n",
+          "probe_or_test_filename": false
+        },
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_register_target",
+          "line": 714,
+          "end_line": 768,
+          "text": "func _register_target(id: String, node: Node2D, kind: String, payload: String,\n\t\tradius_px: float, highlight_scale: float, highlight_path: String = \"\",\n\t\thighlight_height: float = 0.0) -> void:\n\tvar affordance_kind: String = Affordance.PLOT if kind == \"castle\" \\\n\t\telse Affordance.ANIMATION\n\tvar glow := Sprite2D.new()\n\tglow.name = \"SkyLagoonFocus_%s\" % id\n\tif kind == \"playground\":\n\t\t# A neutral procedural ring plus arrow names the object without cloning\n\t\t# any of its pixels. At the full-height phone scale the selected composite\n\t\t# remains over 64 px and its tip lands on the source card's top edge.\n\t\tglow.texture = _affordance_diamond_texture()\n\t\tglow.scale = Vector2.ONE * highlight_scale\n\t\tvar pointer_tip := Vector2(0.0, 128.0)\n\t\t_add_affordance_pointer(glow, pointer_tip)\n\t\tvar visible_top_y: float = _sprite_alpha_top_master(node as Sprite2D) \\\n\t\t\tif node is Sprite2D else node.position.y\n\t\tglow.position = Vector2(node.position.x,\n\t\t\tvisible_top_y - pointer_tip.y * highlight_scale)\n\t\tglow.set_meta(\"focus_cue_role\", \"procedural_ring_pointer\")\n\t\tglow.set_meta(\"pointer_tip_local\", pointer_tip)\n\t\tglow.set_meta(\"focus_cue_nominal_master_size\", Vector2(192.0, 256.0))\n\telif not highlight_path.is_empty():\n\t\tglow.texture = load(highlight_path) as Texture2D\n\t\tif glow.texture != null and highlight_height > 0.0:\n\t\t\tglow.scale = Vector2.ONE * (highlight_height / glow.texture.get_height())\n\telif node is Sprite2D:\n\t\tvar source := node as Sprite2D\n\t\tglow.texture = source.texture\n\t\tglow.scale = source.scale\n\tif kind != \"playground\":\n\t\tglow.position = node.position\n\tvar idle_tint: Color = Affordance.color(affordance_kind, false)\n\t# A complete duplicate object is never the affordance. Idle animation targets\n\t# use a nearly invisible shimmer; selection raises the same pixels briefly.\n\tidle_tint.a = minf(idle_tint.a,\n\t\t0.055 if kind == \"playground\" else 0.10)\n\tglow.modulate = idle_tint\n\tglow.visible = true\n\tglow.z_index = node.z_index + 4\n\tglow.set_meta(\"canvas_layer_role\", \"interaction_affordance\")\n\tglow.set_meta(\"interaction_id\", id)\n\tglow.set_meta(\"affordance_base_scale\", glow.scale)\n\t(m.g.get(\"lagoon_interactive_layer\") as Node2D).add_child(glow)\n\tnode.set_meta(\"interaction_id\", id)\n\tnode.set_meta(\"touch_footprint_px\", radius_px * 2.0)\n\tnode.set_meta(\"canvas_layer_role\", \"interactive\")\n\tvar targets: Array = m.g.get(\"lagoon_promenade_targets\", []) as Array\n\ttargets.append({\n\t\t\"id\": id, \"node\": node, \"kind\": kind, \"payload\": payload,\n\t\t\"radius_px\": radius_px, \"affordance_kind\": affordance_kind,\n\t\t\"highlight\": glow, \"highlight_scale\": highlight_scale,\n\t})\n\tm.g[\"lagoon_promenade_targets\"] = targets\n",
+          "probe_or_test_filename": false
+        },
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_activate",
+          "line": 861,
+          "end_line": 867,
+          "text": "func _activate(target: Dictionary) -> void:\n\tmatch String(target.get(\"kind\", \"\")):\n\t\t\"playground\":\n\t\t\t_start_playground_animation(String(target.get(\"payload\", \"\")), target.get(\"node\") as Node2D)\n\t\t\"castle\":\n\t\t\tm._enter_castle_interior()\n",
+          "probe_or_test_filename": false
+        },
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_start_playground_animation",
+          "line": 1426,
+          "end_line": 1456,
+          "text": "func _start_playground_animation(kind: String, equipment: Node2D) -> void:\n\tif not PLAY_FRAME_PATHS.has(kind) or equipment == null \\\n\t\t\tor not is_instance_valid(equipment):\n\t\treturn\n\tvar frames: Array[Texture2D] = []\n\tfor path_value: Variant in PLAY_FRAME_PATHS[kind]:\n\t\tframes.append(load(String(path_value)) as Texture2D)\n\tif frames.size() != 4:\n\t\treturn\n\tm.g[\"lagoon_walk_goal_master\"] = null\n\tm.g[\"lagoon_play_anim\"] = {\n\t\t\"kind\": kind, \"phase\": \"action\", \"t\": 0.0,\n\t\t\"dur\": float(PLAY_DURATIONS[kind]), \"equipment\": equipment,\n\t\t\"equipment_rotation\": equipment.rotation, \"frames\": frames,\n\t\t\"frame_index\": -1,\n\t\t\"equipment_rest_rotation\": equipment.rotation,\n\t}\n\tvar card: Sprite2D = m.g.get(\"lagoon_roshan_card\") as Sprite2D\n\tif card != null:\n\t\t# Playground poses are authored in one facing. Route movement may have\n\t\t# left the pooled card mirrored after approaching a toy from the right.\n\t\tcard.flip_h = false\n\t_set_play_frame(0)\n\t# Place the first pose on its authored contact socket immediately. Waiting\n\t# for the next process tick exposes one frame at Roshan's old route position.\n\tmatch kind:\n\t\t\"swing\": _tick_swing_animation(card, equipment, 0.0)\n\t\t\"slide\": _tick_slide_animation(card, equipment, 0.0)\n\t\t\"seesaw\": _tick_seesaw_animation(card, equipment, 0.0)\n\t_sync_contact_shadow(card)\n",
+          "probe_or_test_filename": false
+        },
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_tick_slide_animation",
+          "line": 1531,
+          "end_line": 1551,
+          "text": "func _tick_slide_animation(card: Sprite2D, slide: Node2D, timer: float) -> void:\n\tif timer < 2.55:\n\t\tvar progress: float = clampf(timer / 2.55, 0.0, 1.0)\n\t\t_set_play_frame(int(floor(progress * 5.0)) % 2)\n\t\tcard.position = slide.position + Vector2(-135.0 + progress * 65.0,\n\t\t\t95.0 - progress * 435.0 - sin(progress * 5.0 * PI) * 18.0)\n\t\tcard.rotation = 0.03\n\telif timer < 3.15:\n\t\t_set_play_frame(2)\n\t\tvar settle: float = smoothstep(0.0, 1.0, (timer - 2.55) / 0.60)\n\t\tcard.position = slide.position + Vector2(-70.0, -340.0).lerp(\n\t\t\tSLIDE_RIDE_START_MASTER, settle)\n\t\tcard.rotation = lerpf(0.03, 0.12, settle)\n\telse:\n\t\t_set_play_frame(3)\n\t\tvar ride: float = smoothstep(0.0, 1.0, clampf((timer - 3.15) / 2.05, 0.0, 1.0))\n\t\tvar first: Vector2 = SLIDE_RIDE_START_MASTER.lerp(SLIDE_RIDE_CONTROL_MASTER, ride)\n\t\tvar second: Vector2 = SLIDE_RIDE_CONTROL_MASTER.lerp(SLIDE_RIDE_FINISH_MASTER, ride)\n\t\tcard.position = slide.position + first.lerp(second, ride)\n\t\tcard.rotation = lerpf(0.12, 0.42, ride)\n",
+          "probe_or_test_filename": false
+        },
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_affordance_diamond_texture",
+          "line": 769,
+          "end_line": 785,
+          "text": "func _affordance_diamond_texture() -> GradientTexture2D:\n\tvar gradient := Gradient.new()\n\tgradient.colors = PackedColorArray([\n\t\tColor(1.0, 1.0, 1.0, 0.0),\n\t\tColor(1.0, 1.0, 1.0, 0.98),\n\t\tColor(1.0, 1.0, 1.0, 0.0),\n\t])\n\tgradient.offsets = PackedFloat32Array([0.0, 0.50, 1.0])\n\tvar texture := GradientTexture2D.new()\n\ttexture.gradient = gradient\n\ttexture.width = 192\n\ttexture.height = 192\n\ttexture.fill = GradientTexture2D.FILL_RADIAL\n\ttexture.fill_from = Vector2(0.5, 0.5)\n\ttexture.fill_to = Vector2(1.0, 0.5)\n\treturn texture\n",
+          "sha256_lf": "c0b68b8d6d2049501231ea838b0715ad13a52dffb339097801cf897d20400da5"
+        },
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_add_affordance_pointer",
+          "line": 786,
+          "end_line": 805,
+          "text": "func _add_affordance_pointer(glow: Sprite2D, tip: Vector2) -> void:\n\tvar outline := Polygon2D.new()\n\toutline.name = \"PointerOutline\"\n\toutline.polygon = PackedVector2Array([\n\t\tVector2(-32.0, 70.0), Vector2(32.0, 70.0),\n\t\tVector2(18.0, 101.0), tip, Vector2(-18.0, 101.0),\n\t])\n\toutline.color = Color(0.10, 0.16, 0.34, 0.96)\n\toutline.set_meta(\"canvas_layer_role\", \"interaction_affordance_pointer_outline\")\n\tglow.add_child(outline)\n\tvar arrow := Polygon2D.new()\n\tarrow.name = \"PointerFill\"\n\tarrow.polygon = PackedVector2Array([\n\t\tVector2(-22.0, 75.0), Vector2(22.0, 75.0),\n\t\tVector2(11.0, 99.0), Vector2(0.0, 119.0), Vector2(-11.0, 99.0),\n\t])\n\tarrow.color = Color.WHITE\n\tarrow.set_meta(\"canvas_layer_role\", \"interaction_affordance_pointer_fill\")\n\tglow.add_child(arrow)\n",
+          "sha256_lf": "45e4c0f7319d99f3835192fbd36cb5b4adb56248f91cb5d6a023658c7fe42c28"
+        },
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_tick_target_affordances",
+          "line": 829,
+          "end_line": 860,
+          "text": "func _tick_target_affordances(focus_id: String, focus_t: float) -> void:\n\tfor value: Variant in m.g.get(\"lagoon_promenade_targets\", []) as Array:\n\t\tvar target: Dictionary = value as Dictionary\n\t\tvar glow: Sprite2D = target.get(\"highlight\") as Sprite2D\n\t\tif glow == null or not is_instance_valid(glow):\n\t\t\tcontinue\n\t\tvar selected: bool = String(target.get(\"id\", \"\")) == focus_id\n\t\tglow.visible = true\n\t\tvar kind: String = String(target.get(\"affordance_kind\", Affordance.INTERACTION))\n\t\tvar wave: float = sin(focus_t * Affordance.pulse_speed(kind, selected))\n\t\tvar tint: Color = Affordance.color(kind, selected)\n\t\tif selected:\n\t\t\ttint.a = lerpf(0.82, 1.0, wave * 0.5 + 0.5)\n\t\telse:\n\t\t\t# Day One's castle gate is the route anchor. It must remain a readable\n\t\t\t# idle cue after focus is cleared; the generic promenade cap would make\n\t\t\t# the only safe destination effectively disappear.\n\t\t\tif m.day_one_is_active() and String(target.get(\"id\", \"\")) == \"castle_gate\":\n\t\t\t\ttint.a = maxf(tint.a, 0.45)\n\t\t\telse:\n\t\t\t\ttint.a = minf(tint.a, 0.055)\n\t\tglow.modulate = tint\n\t\tvar pulse: float = 1.0 + wave * Affordance.pulse_amount(kind, selected)\n\t\tvar base_scale: float = float(target.get(\"highlight_scale\", 1.0))\n\t\tif String(glow.get_meta(\"focus_cue_role\", \"\")) \\\n\t\t\t\t== \"procedural_ring_pointer\":\n\t\t\tglow.scale = Vector2.ONE * base_scale * pulse\n\t\telif String(target.get(\"id\", \"\")) != \"castle_gate\":\n\t\t\tvar node: Node2D = target.get(\"node\") as Node2D\n\t\t\tif node is Sprite2D:\n\t\t\t\tglow.scale = (node as Sprite2D).scale * base_scale * pulse\n",
+          "sha256_lf": "7da13d0f5460c9b17f0ba4e942103bd836eae1ebd06405faefe21e295d95bb5c"
+        },
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_tick_swing_animation",
+          "line": 1517,
+          "end_line": 1530,
+          "text": "func _tick_swing_animation(card: Sprite2D, swing: Node2D, timer: float) -> void:\n\tvar phase: float = timer * TAU / 1.72\n\tvar angle: float = sin(phase) * 0.20\n\tvar pivot: Node2D = swing.get_meta(\"swing_seat_pivot\") as Node2D \\\n\t\tif swing.has_meta(\"swing_seat_pivot\") else null\n\tif pivot != null:\n\t\tpivot.rotation = angle\n\tvar frame: int = 1 if sin(phase) > 0.34 else 2 if sin(phase) < -0.34 else 3 if cos(phase) < 0.0 else 0\n\t_set_play_frame(frame)\n\tcard.rotation = angle * 0.65\n\tvar grip_socket: Vector2 = (pivot.position if pivot != null else Vector2(0.0, -258.0)) \\\n\t\t+ Vector2(0.0, SWING_GRIP_LENGTH_MASTER).rotated(angle)\n\t_place_play_anchor(card, swing, SWING_SEAT_ANCHORS[frame], grip_socket)\n",
+          "sha256_lf": "8ec4831fa1ef8d1b237d8601219705da430334c52de8c47636d8cfc6e8eecc23"
+        },
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_tick_seesaw_animation",
+          "line": 1552,
+          "end_line": 1567,
+          "text": "func _tick_seesaw_animation(card: Sprite2D, seesaw: Node2D, timer: float) -> void:\n\tvar phase: float = timer * TAU / 1.92\n\tvar rock: float = sin(phase) * 0.105\n\tvar play: Dictionary = m.g.get(\"lagoon_play_anim\", {}) as Dictionary\n\t# Always sample from the immutable authored rest angle. Adding each sine\n\t# sample to the previous frame accumulated nearly a radian during one ride.\n\tseesaw.rotation = float(play.get(\"equipment_rest_rotation\", 0.0)) + rock\n\tvar frame: int = 2 if sin(phase) > 0.45 else 0 if sin(phase) < -0.45 else 1 if cos(phase) > 0.0 else 3\n\t_set_play_frame(frame)\n\tcard.rotation = rock\n\tcard.scale = Vector2.ONE * (PLAY_ROSHAN_HEIGHT_PX \\\n\t\t/ maxf(1.0, float(card.texture.get_height()))) * 1.12\n\t_place_play_anchor(card, seesaw, SEESAW_SEAT_ANCHORS[frame],\n\t\tSEESAW_RIGHT_SEAT_SOCKET_MASTER)\n\tplay[\"equipment_rotation\"] = seesaw.rotation\n",
+          "sha256_lf": "9590f53b1697266a25c794bd3f6f55914facb727d9fafa4a9174341d3f8bd14d"
+        },
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_finish_playground_animation",
+          "line": 1613,
+          "end_line": 1632,
+          "text": "func _finish_playground_animation() -> void:\n\tvar play: Dictionary = m.g.get(\"lagoon_play_anim\", {}) as Dictionary\n\tvar card: Sprite2D = m.g.get(\"lagoon_roshan_card\") as Sprite2D\n\tif play.is_empty() or card == null or String(play.get(\"phase\", \"\")) == \"settle\":\n\t\treturn\n\tvar equipment_value: Variant = play.get(\"equipment\")\n\tvar equipment: Node2D = null\n\tif is_instance_valid(equipment_value):\n\t\tequipment = equipment_value as Node2D\n\tif equipment != null:\n\t\tequipment.rotation = float(play.get(\"equipment_rest_rotation\", 0.0))\n\t\tvar pivot: Node2D = equipment.get_meta(\"swing_seat_pivot\") as Node2D \\\n\t\t\tif equipment.has_meta(\"swing_seat_pivot\") else null\n\t\tif pivot != null:\n\t\t\tpivot.rotation = 0.0\n\tplay[\"phase\"] = \"settle\"\n\tplay[\"settle_t\"] = 0.0\n\tplay[\"settle_start_position\"] = card.position\n\tplay[\"settle_start_rotation\"] = card.rotation\n",
+          "sha256_lf": "e85de81b65d88ba112649930f99e58ecf65b1114645c06c96eee42a0c1ab5fdc"
+        },
+        {
+          "path": "scripts/arena/sky_lagoon_promenade.gd",
+          "function": "_tick_playground_settle",
+          "line": 1633,
+          "end_line": 1659,
+          "text": "func _tick_playground_settle(card: Sprite2D, play: Dictionary, delta: float) -> void:\n\tvar timer: float = minf(float(play.get(\"settle_t\", 0.0)) + delta, PLAY_SETTLE_S)\n\tplay[\"settle_t\"] = timer\n\tvar progress: float = timer / PLAY_SETTLE_S\n\tvar route_contact := Vector2(float(m.g.get(\"lagoon_master_x\", 0.0)),\n\t\tfloat(m.g.get(\"lagoon_master_y\", 0.0)))\n\tvar original_texture: Texture2D = card.texture\n\tvar original_region_enabled: bool = card.region_enabled\n\tvar original_region: Rect2 = card.region_rect\n\tvar original_scale: Vector2 = card.scale\n\tvar original_rotation: float = card.rotation\n\t_configure_route_roshan_card(card)\n\tvar target: Vector2 = _route_roshan_center_for_contact(card, route_contact)\n\tcard.texture = original_texture\n\tcard.region_enabled = original_region_enabled\n\tcard.region_rect = original_region\n\tcard.scale = original_scale\n\tcard.rotation = original_rotation\n\tcard.position = (play.get(\"settle_start_position\", card.position) as Vector2).lerp(target,\n\t\tsmoothstep(0.0, 1.0, progress)) - Vector2(0.0, sin(progress * PI) * PLAY_SETTLE_HOP)\n\tcard.rotation = lerp_angle(float(play.get(\"settle_start_rotation\", 0.0)), 0.0, progress)\n\tif timer < PLAY_SETTLE_S:\n\t\treturn\n\tm.g[\"lagoon_play_anim\"] = {}\n\t_configure_route_roshan_card(card)\n\t_sync_roshan_card()\n",
+          "sha256_lf": "7e23761f6caabf2bdd48fea49f23afc1d433931e477586f81ef3810fc6b29e67"
+        }
+      ],
+      "visible_artwork_not_functional_geometry": true,
+      "source_defined_instances": [
+        "slide",
+        "swing",
+        "seesaw"
+      ],
+      "reviewed_active_instances": [
+        "slide",
+        "swing",
+        "seesaw"
+      ],
+      "count_unit": "One shared authored procedural cue design-role with three source-defined consumers; consumer instances are not new pieces/families. Castle gate flat mask retains its separate existing ID.",
+      "context_evidence": [
+        "CAPTURE_INDEX.json",
+        "CUE_MEASUREMENTS.json",
+        "REVIEW.json"
+      ],
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "integration_sha": null,
+      "acceptance_evidence": {
+        "candidate": null,
+        "integration": null,
+        "runtime_replacement": null,
+        "QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null
+      },
+      "blocked_dependencies": [
+        "Approved painted cue/source reuse fit inventory; do not generate merely from a source gap assumption",
+        "Other consumer focus/idle/cancellation/reentry states and complete current caller/resource closure",
+        "Painted material/style, action/contact/motion/QA11/device/child/owner and zero-art evidence"
+      ]
+    }
+  ],
+  "new_families": [],
+  "new_role_count": 1
+}

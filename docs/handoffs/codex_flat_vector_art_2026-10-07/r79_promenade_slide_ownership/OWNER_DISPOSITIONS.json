@@ -1,0 +1,215 @@
+{
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "source_graph": "SOURCE_OWNER_GRAPH.json",
+  "selected_entry": {
+    "path": "scripts/main.gd",
+    "function": "_enter_level2_now",
+    "line": 4927,
+    "end_line": 4992,
+    "text": "func _enter_level2_now(from_castle: bool = false, from_north: bool = false,\n\tat_ocean_gate_hub: bool = false) -> void:\n\tgame = \"level2\"\n\t# The reef sun is a persistent world node. Sky Lagoon supplies its own sun;\n\t# stacking both erased nearly all color from pearl, snow, and pastel props.\n\tif sun_light != null:\n\t\tsun_light.visible = false\n\t# A completed castle is a permanent playground. Never rebuild its three-star\n\t# lock on a later visit, even when an older caller omits from_castle.\n\tif level2_done_once:\n\t\tl2_star_progress = [true, true, true]\n\telse:\n\t\tfor i in range(l2_star_progress.size()):\n\t\t\tl2_star_progress[i] = bool(stickers.get(\"_l2_star_%d\" % i, l2_star_progress[i]))\n\t# free whatever level nodes are still alive BEFORE rebuilding: the rainbow-\n\t# road/galaxy return path re-entered here without tearing the lagoon down\n\t# first, stacking a second terrain+castle+playground exactly on top of the\n\t# live one (coplanar z-fighting shimmer over the whole level). Same idiom\n\t# as _enter_castle_interior; the callers that already pre-free stay no-ops.\n\tif String(g.get(\"phase\", \"\")) == \"promenade\" and _sky_lagoon_promenade != null:\n\t\t_sky_lagoon_promenade.teardown()\n\tfor n in game_nodes:\n\t\tif is_instance_valid(n):\n\t\t\tn.queue_free()\n\tgame_nodes.clear()\n\tg = {\"t\": 0.0}\n\tarena_solids.clear()\n\tarena_zones.clear()\n\tfade_walls.clear()\n\tlagoon_floor = true   # the courtyard floor follows the rolling-hill terrain\n\tnorthern_floor = false\n\t_play_music(\"level2\")\n\treturn_pos = player.position\n\t# The Canvas promenade owns its visible Roshan, Camera2D and route state.\n\t# Preserve the generic player only as a hidden return-position compatibility\n\t# object; neither its renderer nor its compatibility camera may remain authoritative.\n\tplayer.vel = player.vel * 0.0\n\tplayer.visible = false\n\tif player.cam != null and player.cam.is_inside_tree():\n\t\tplayer.cam.clear_current(false)\n\tarena_center = LEVEL2_POS\n\tarena_dome = 235.0\n\tarena_ceil = 120.0\n\tl2_stars = []\n\tl2_open = false\n\tg[\"phase\"] = \"court\"\n\tg[\"ocean_gate_hub\"] = at_ocean_gate_hub\n\t# No spatial fallback sits behind the Canvas product. A missing Canvas layer\n\t# must fail visibly instead of silently revealing the retired 3D sky grade.\n\tarena_env = null\n\twe_node.environment = null\n\tif String(g.get(\"phase\", \"\")) == \"court\":\n\t\t_lagoon_promenade_ref().build(from_castle, from_north, at_ocean_gate_hub)\n\t\t_day_one_begin_arrival()\n\t\tl2_open = from_castle or level2_done_once\n\t\t# A prior world's assisted route, focus ring, objective or spatial\n\t\t# critter must not survive underneath the Canvas product. These generic\n\t\t# directors remain available elsewhere but have no active Sky authority.\n\t\t_tap_move_ref().cancel(\"sky_canvas_entry\")\n\t\t_interaction_ref().clear_focus()\n\t\ttouch_interactables.clear()\n\t\t_set_objective(\"\", null, \"\")\n\t\t_collection_ref().tick(0.0, player.position)\n\t\t_navigation_set_root(\"sky_lagoon\")\n\t\treturn\n",
+    "probe_or_test_filename": false
+  },
+  "selected_tick": {
+    "path": "scripts/main.gd",
+    "function": "_tick_level2",
+    "line": 5190,
+    "end_line": 5196,
+    "text": "func _tick_level2(delta: float, ppos: Vector3) -> void:\n\tif String(g.get(\"phase\", \"\")) == \"promenade\":\n\t\t_companion_ref().tick_canvas_care(delta)\n\t\t_lagoon_promenade_ref().tick(delta)\n\t\treturn\n\t_lagoon_ref()._tick_level2(delta, ppos)\n",
+    "probe_or_test_filename": false
+  },
+  "selected_population": {
+    "path": "scripts/main.gd",
+    "function": "_populate_touch_interactables",
+    "line": 4733,
+    "end_line": 4752,
+    "text": "func _populate_touch_interactables() -> void:\n\ttouch_interactables.clear()\n\tif not touch_uses_explicit_interactions() or player == null:\n\t\treturn\n\tif game == \"north\":\n\t\tvar north_return: Vector3 = g.get(\"north_return_pos\", Vector3.ZERO)\n\t\tif north_return != Vector3.ZERO:\n\t\t\t_touch_add_item(\"north:return\", \"Magic Cave Home\", north_return, null, 9.0, 42.0, \"ENTER\")\n\t\treturn\n\tif game != \"level2\":\n\t\treturn\n\tif String(g.get(\"phase\", \"\")) == \"promenade\":\n\t\treturn\n\tif String(g.get(\"phase\", \"court\")) == \"hall\":\n\t\t# The castle room stage owns every interior touch target. Never rebuild\n\t\t# the retired free-roaming hall's world-space interaction list behind it.\n\t\treturn\n\telse:\n\t\t_populate_courtyard_touch_interactables()\n",
+    "probe_or_test_filename": false
+  },
+  "wall_array_non_test_references": [
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "function": "_build_pearl_castle",
+      "line": 348,
+      "end_line": 348,
+      "guards": [],
+      "name": "wall_pics",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "expr_stmt",
+        "expr",
+        "assnmnt_expr"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "function": "_tick_level2",
+      "line": 2545,
+      "end_line": 2545,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 2543,
+          "condition_AST": "expr\n  and_test\n    asless_actual_not_test\n      not\n      explicit_touch\n    and\n    asless_comparison\n      getattr\n        m\n        .\n        mg_cool\n      <=\n      0.0\n    and\n    asless_comparison\n      getattr\n        m\n        .\n        mg_kind\n      ==\n      string\t\"\"\n    and\n    getattr\n      m\n      .\n      l2_open"
+        }
+      ],
+      "name": "wall_pics",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "func_def",
+        "if_stmt",
+        "if_branch",
+        "for_stmt",
+        "expr"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "<top>",
+      "line": 206,
+      "end_line": 206,
+      "guards": [],
+      "name": "wall_pics",
+      "AST_parent": "class_var_typed_assgnd",
+      "ancestor_kinds": [
+        "start",
+        "class_var_stmt"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_populate_courtyard_touch_interactables",
+      "line": 4784,
+      "end_line": 4784,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 4783,
+          "condition_AST": "expr\tl2_open"
+        }
+      ],
+      "name": "wall_pics",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "if_branch",
+        "for_stmt",
+        "expr",
+        "standalone_call",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_populate_courtyard_touch_interactables",
+      "line": 4785,
+      "end_line": 4785,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 4783,
+          "condition_AST": "expr\tl2_open"
+        }
+      ],
+      "name": "wall_pics",
+      "AST_parent": "subscr_expr",
+      "ancestor_kinds": [
+        "if_branch",
+        "for_stmt",
+        "func_var_stmt",
+        "func_var_typed_assgnd",
+        "expr"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_touch_open_picture",
+      "line": 4845,
+      "end_line": 4845,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 4845,
+          "condition_AST": "expr\n  or_test\n    comparison\n      picture_index\n      <\n      0\n    or\n    asless_comparison\n      picture_index\n      >=\n      getattr_call\n        getattr\n          wall_pics\n          .\n          size"
+        }
+      ],
+      "name": "wall_pics",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "if_branch",
+        "expr",
+        "or_test",
+        "asless_comparison",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_touch_open_picture",
+      "line": 4847,
+      "end_line": 4847,
+      "guards": [],
+      "name": "wall_pics",
+      "AST_parent": "subscr_expr",
+      "ancestor_kinds": [
+        "start",
+        "func_def",
+        "func_var_stmt",
+        "func_var_typed_assgnd",
+        "expr"
+      ],
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_hang_portrait",
+      "line": 5840,
+      "end_line": 5840,
+      "guards": [
+        {
+          "kind": "if_branch",
+          "line": 5839,
+          "condition_AST": "expr\n  getattr_call\n    getattr\n      PIC_GAME\n      .\n      has\n    art"
+        }
+      ],
+      "name": "wall_pics",
+      "AST_parent": "getattr",
+      "ancestor_kinds": [
+        "if_stmt",
+        "if_branch",
+        "expr_stmt",
+        "expr",
+        "getattr_call"
+      ],
+      "probe_or_test_filename": false
+    }
+  ],
+  "non_test_legacy_builder_callers": [
+    {
+      "path": "scripts/main.gd",
+      "function": "_build_pearl_castle",
+      "line": 5179,
+      "end_line": 5179,
+      "guards": [],
+      "method": "_build_pearl_castle",
+      "receiver_AST": "getattr\n  standalone_call\t_lagoon_ref\n  .\n  _build_pearl_castle",
+      "argument_AST": [
+        "o"
+      ],
+      "excerpt": "\t_lagoon_ref()._build_pearl_castle(o)",
+      "probe_or_test_filename": false
+    }
+  ],
+  "source_producer_summary": "Main wall_pics initializes empty. Main._hang_portrait appends only PIC_GAME art keys. Retained SkyLagoon._build_pearl_castle clears it and loops six banners; p_seattle is not a picture-game key. Two named _hang_portrait sites remain in retained SkyLagoon. Current _enter_level2_now builds Canvas promenade rather than that retained builder; current promenade tick/touch owns the observed activities.",
+  "native_observation": "Original NewGame/opening selects level2/promenade, wall_pics remains empty and _sky_lagoon is not constructed in every bounded retained state. Current slide/swing/seesaw activation calls _start_playground_animation, keeps level2/promenade and returns naturally.",
+  "legacy_picture_race_paths_globally_unreachable": false,
+  "allcaller_closure": false,
+  "source_or_native_artwork_removed": 0,
+  "limits": "Named current selection plus bounded original-input observations. Reflected/variable/native/debug/alias paths and all other entry profiles remain open. Presence of p_slide.jpg in protected Castle movie display is a separate image/role, not a picture-game launch or license to alter that original."
+}

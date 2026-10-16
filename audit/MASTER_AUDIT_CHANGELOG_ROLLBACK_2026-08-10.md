@@ -2459,3 +2459,13 @@ Possible negative effects/dependencies: source initializers can be mistaken for 
 Rollback class: audit/document metadata only. Use a clean dedicated `codex/rollback-chg-085` branch and inspect the bounded packet/routing/impact diff. Never revert runtime, frozen root5 or prior packets here. Re-run document/development/2D regression and anonymous delivery checks for any published rollback.
 
 CHG-085 payload `f163d46b146ec94deb5fd3bf478a59713831eb45`: 383required files/18569260bytes anonymously verified at 2026-10-16T10:24:02.101779+00:00; manifest SHA-256 `0046ff01df9ceac739d32e476129087f3c03397cac786a790b9c40f4212cc632`.313script exact-source graph,4named producers/3slide callers,15extraction tests/13no-Main language checks and4425rawsource/11save guards. No art/production/native-frame/acceptance increment. Final metadata owns separate byte/head verification.
+
+## Current promenade ownership and focus cue (CHG-086)
+
+2026-10-16, topic baseline `ce4a454f65fc5b61f915ce41176af866fdf633ab`, runtime source `dd799b2d43871b29d1d6e0503646308a194dad1e`. [R79 packet](../docs/handoffs/codex_flat_vector_art_2026-10-07/r79_promenade_slide_ownership/README.md) and [impact](../design/audit_impacts/flat-vector-promenade-slide-20261016.json) list exact changed files and publication evidence.
+
+Benefit: current world/touch ownership and actual private original-input slide/swing/seesaw states distinguish live Canvas play from retained portrait/race routes. 313-script named audit, four native cases / 100 checks, 78 frames (70 bounded / eight bootstrap excluded); one shared procedural ring/pointer role adds no family. 263 roles / 35 families; 6,412 bounded / 9,918 retained history; zero accepted removals. Ten-axis same-scene review keeps flat cue material and action/contact/motion gaps explicit. No production/art/source/normal child-data changes or new generation.
+
+Dependencies/possible negative effects: confusing a shared cue with three new pieces, current animation with a legacy game alias, source selection with global unreachability, or machine/native observation with acceptance. Validators retain the exact units and unknown denominator; prior packets/rejections/protected sources remain unchanged. Full dynamic/native/caller, motion, QA11/device/child/owner and zero-art evidence remain blocking. Payload/final receipt commits follow publication and exact anonymous verification.
+
+Rollback class: audit/context documents only. Start a clean `codex/rollback-chg-086` branch and inspect the bounded packet/routing/impact diff; never revert production, frozen root5 or prior evidence for this change. Re-run source/evidence/document and actual staged/committed 2D regression plus delivery gates for a published rollback.

@@ -1,0 +1,60 @@
+{
+  "all_byte_identical": true,
+  "checks": [
+    {
+      "path": "SOURCE_OWNER_GRAPH.json",
+      "bytes": 289442,
+      "sha256": "77b8f7d8d06f5e4192e9f01aa6edf32f2aa8bc817849d6a5de3532e46c061d63",
+      "byte_identical": true
+    },
+    {
+      "path": "CAPTURE_INDEX.json",
+      "bytes": 55854,
+      "sha256": "2442eb00f06e30d1548f7d73c20a24efa224656d8e92afbd44694704b2e05df4",
+      "byte_identical": true
+    },
+    {
+      "path": "CUE_MEASUREMENTS.json",
+      "bytes": 13739,
+      "sha256": "2bb92dc4964a49273abc899978e5180b552b86bd6aafcdaf67daff77d5d88c54",
+      "byte_identical": true
+    },
+    {
+      "path": "NEW_ROLE_RECORDS.json",
+      "bytes": 18877,
+      "sha256": "767acafc9700353f5c0d27ec143b82bf3897900bcc976aae45ae8ff0563f7d85",
+      "byte_identical": true
+    },
+    {
+      "path": "SOURCE_BINDINGS.json",
+      "bytes": 52892,
+      "sha256": "c6b4b1949bcd4e4ca8ad330a5bba79d46a7ce3b65ecd89efa685e4e8f58d74f9",
+      "byte_identical": true
+    },
+    {
+      "path": "SUMMARY.json",
+      "bytes": 2148,
+      "sha256": "d6c79da720901c9a9c3040abb1541907c8ed0f4610a7100728d6520693da176a",
+      "byte_identical": true
+    },
+    {
+      "path": "DELIVERY_SOURCE_REFERENCES.json",
+      "bytes": 107451,
+      "sha256": "cb11e1167f0ba39334c40a238af38449476286b57d04d59edaf1fddc0c542859",
+      "byte_identical": true
+    }
+  ],
+  "commands": [
+    {
+      "command": "scan_promenade_owner.py",
+      "exit_code": 0,
+      "output": "R79_PARSED 100 of 313\r\nR79_PARSED 200 of 313\r\nR79_PARSED 300 of 313\r\nR79_SOURCE_SUMMARY {\"parsed_scripts\": 313, \"named_target_calls\": 98, \"non_test_named_target_calls\": 27, \"non_test_wall_array_references\": 8, \"allcaller_closure\": false, \"global_legacy_unreachability_proved\": false}\r\n"
+    },
+    {
+      "command": "derive_evidence.py",
+      "exit_code": 0,
+      "output": "R79_DERIVED FVR-5344465CE503 78 raw 70 bounded 8 excluded;100checks;263roles35families;0accepted\r\n"
+    }
+  ],
+  "checked_at_utc": "2026-10-16T10:55:15.471948+00:00"
+}

@@ -1,0 +1,29 @@
+{
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "cases": [
+    {
+      "path": "native/attempt1_entry_source_1280",
+      "result": "native/attempt1_entry_source_1280/RESULT.json"
+    },
+    {
+      "path": "native/attempt1_entry_source_1600",
+      "result": "native/attempt1_entry_source_1600/RESULT.json"
+    },
+    {
+      "path": "native/attempt2_entry_source_1280",
+      "result": "native/attempt2_entry_source_1280/RESULT.json"
+    },
+    {
+      "path": "native/attempt2_entry_source_1600",
+      "result": "native/attempt2_entry_source_1600/RESULT.json"
+    }
+  ],
+  "runtime_raw_file_count": 4425,
+  "sidecar_count": 4088,
+  "normal_names_hash_only": 11,
+  "all_cases_guarded_unchanged": true,
+  "source_worktree_clean": true,
+  "scope": "Each LAUNCH/RESULT/source manifest binds exact process exit, script hashes and raw source/import/save guards; actual child data not read, snapshot/restored or changed.",
+  "checked_at_utc": "2026-10-16T10:56:18.914450+00:00",
+  "source_worktree_head": "dd799b2d43871b29d1d6e0503646308a194dad1e"
+}

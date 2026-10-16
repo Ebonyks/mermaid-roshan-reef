@@ -1,0 +1,27 @@
+test_callable_payload_stays_ambiguous (__main__.OwnerExtraction.test_callable_payload_stays_ambiguous) ... ok
+test_comment_and_string_not_caller (__main__.OwnerExtraction.test_comment_and_string_not_caller) ... ok
+test_dynamic_property_set_retained (__main__.OwnerExtraction.test_dynamic_property_set_retained) ... ok
+test_function_scope_excludes_next_header (__main__.OwnerExtraction.test_function_scope_excludes_next_header) ... ok
+test_member_clear_is_recorded (__main__.OwnerExtraction.test_member_clear_is_recorded) ... ok
+test_no_inferred_call_from_reference (__main__.OwnerExtraction.test_no_inferred_call_from_reference) ... ok
+test_reflected_object_selector (__main__.OwnerExtraction.test_reflected_object_selector) ... ok
+test_selector_guard_retained (__main__.OwnerExtraction.test_selector_guard_retained) ... ok
+test_wall_append_owner (__main__.OwnerExtraction.test_wall_append_owner) ... ok
+test_wall_array_declaration (__main__.OwnerExtraction.test_wall_array_declaration) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.182s
+
+OK
+R79_VALIDATION_PASS 313exactAST/8wallrefs;4nativecases100checks;78raw70bounded8excluded;onecue3consumers;263/35;6412bounded9918history;0art/runtime/acceptance;globalunknown
+DOCAUTH|INVENTORY=792|LEDGER=792|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df
+AUDITDEV|RESULT|ALL OK
+......................................................
+----------------------------------------------------------------------
+Ran 54 tests in 8.165s
+
+OK
+DOCAUTH|STRESS|6/6
+DOCAUTH|STRESS|6/6
