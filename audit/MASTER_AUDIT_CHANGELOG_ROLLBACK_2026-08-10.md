@@ -2016,7 +2016,7 @@ Owner commission2026-10-12; baseline `e2b3c73789707aa49a91b4f42e2a9dd4b68225df`.
 
 ### Arborist spraying comprehension CHG-036
 
-- Date: 2026-10-15; owner asks to make Arborist spraying understandable. Exact source baseline `5120b6d59885dd057937aaf284e73681d8eac9f5`; candidate is uncommitted until required gates complete. [Impact](../design/audit_impacts/arborist-spray-20261015.json) enumerates every changed path and binds source hashes/evidence.
+- Date: 2026-10-15; owner asks to make Arborist spraying understandable. Exact source baseline `5120b6d59885dd057937aaf284e73681d8eac9f5`; implementation source commit `c02e8c88dc3ac8b5fbbdd4028e30eae753c12429` is bound to the tested GDScript hashes by the evidence receipt; the subsequent binding changes metadata only. [Impact](../design/audit_impacts/arborist-spray-20261015.json) enumerates every changed path and binds source hashes/evidence.
 - Benefit: the owned hold, local authored spray, hand cue and earned recovery refer to the same visible patient canopy. Release/cancel preserves the dose. Diagnosis, voices, star masks and save schema remain unchanged.
 - Risks: larger composition/contact placement, changed 1.6-second dose timing and phone touch feel require review. Original PNG/OGG sources are reused byte-for-byte; existing device/child/owner and game-wide MA-PLAY-004 gates remain open.
 - Dependencies: the existing optional Tree Book activity, measured carry/aim/spray/finish atlas, exact voice cues and version-1 checkpoint. No new paid generation or runtime dependency.

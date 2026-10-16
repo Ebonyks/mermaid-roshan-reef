@@ -378,5 +378,7 @@
     "log": "assets_src/review/arborist_spray_20261015/final_checks.log",
     "sha256": "20e1cec65ce16ca5f74ffaab6485e256431736ac68ff1b033a923c178eafe59d",
     "scope": "Parser, inference lint, document authority, complete change coverage and whitespace; repeat after final metadata binding before publication."
-  }
+  },
+  "implementation_source_commit": "c02e8c88dc3ac8b5fbbdd4028e30eae753c12429",
+  "source_binding": "All three changed GDScript source/test/capture blobs match the exact locally tested raw LF hashes. Other runtime scripts/scenes/assets are unchanged from baseline5120b6d5. This follow-up binds metadata only; published-head CI remains independently required."
 }
