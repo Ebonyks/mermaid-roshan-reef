@@ -1,1 +1,29 @@
-{"state":"PENDING", "method":"Exact original Git objects via established gh authorization, same durable branch, no force/dev/master changes; anonymous every-required-file verification follows."}
+{
+  "state": "PAYLOAD_PUBLISHED_AND_ANONYMOUSLY_VERIFIED",
+  "method": "Exact original Git objects via established gh authorization, same durable branch, no force/dev/master changes; anonymous every-required-file verification follows.",
+  "payload_transport": {
+    "status": "EXACT_GIT_OBJECTS_AND_ORIGINAL_COMMIT_PUBLISHED_NON_FORCE",
+    "baseline": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
+    "revision": "c641283bba1c1bb2dfe56faa2341f474f45543bd",
+    "tree": "fe4045045e15024791a754fab6f0c006fc69193a",
+    "new_blob_count": 150,
+    "changed_file_count": 156,
+    "checked_at_utc": "2026-10-16T08:41:26.125839+00:00",
+    "existing_gh_authorization_only": true,
+    "credential_value_extracted_or_printed": false,
+    "transport_reason": "Prior R39 ordinary114MiB Git pack reset; direct exact-object safe path used forR72, no failedR76 pack claimed.",
+    "access_mode": "Authenticated Git object write to same owner-authorized public repository/durable branch; anonymous required-file verification follows",
+    "no_runtime_or_source_tree_change_from_verified_commit": true
+  },
+  "payload_verification": {
+    "state": "R76_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "c641283bba1c1bb2dfe56faa2341f474f45543bd",
+    "required_files": 193,
+    "required_bytes": 88760995,
+    "manifest_sha256": "892c3f398101c4e35bada5b8e5b10e907979e965d8a6e25aadaf521cce188fdc",
+    "checked_at_utc": "2026-10-16T08:41:35.351584+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final own changed metadata bytes/head checked after push separately, without recursive self hash."
+  }
+}

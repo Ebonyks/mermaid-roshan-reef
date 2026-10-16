@@ -1,10 +1,18 @@
 {
+  "checked_at_utc": "2026-10-16T08:42:08.806569+00:00",
   "runs": [
     {
       "conclusion": "",
+      "databaseId": 38875365785,
+      "headSha": "c641283bba1c1bb2dfe56faa2341f474f45543bd",
+      "status": "in_progress",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38875365785"
+    },
+    {
+      "conclusion": "cancelled",
       "databaseId": 38870489837,
       "headSha": "e970602af8bf091bdcb7dea00a78fa9ada7ca224",
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38870489837"
     },
     {
@@ -22,5 +30,5 @@
       "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38862418339"
     }
   ],
-  "scope": "Exact observed heads only. Pending/cancelled or priorhead green does not establish newhead source-suite/acceptance."
+  "scope": "Observed exact heads only; pending/cancelled is not green or acceptance."
 }

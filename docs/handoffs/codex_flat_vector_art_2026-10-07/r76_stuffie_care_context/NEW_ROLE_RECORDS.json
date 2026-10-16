@@ -153,7 +153,7 @@
       "literal_source_binding": {
         "selector": "WANTS.feed",
         "line": 63,
-        "exact_lf_line": "\t{\"id\": \"feed\", \"emoji\": \"\ud83c\udf4e\", \"ask\": \"%s is hungry! Tap your stuffie to share a snack!\", \"done\": \"Munch munch munch! Yummy!\"},\n",
+        "exact_lf_line": "\t{\"id\": \"feed\", \"emoji\": \"🍎\", \"ask\": \"%s is hungry! Tap your stuffie to share a snack!\", \"done\": \"Munch munch munch! Yummy!\"},\n",
         "sha256": "706af32aa1366d7c49255d4bced5f0fa24cffecda2c7389beda3588f6b8d4e53"
       }
     },
@@ -310,7 +310,7 @@
       "literal_source_binding": {
         "selector": "WANTS.nap",
         "line": 64,
-        "exact_lf_line": "\t{\"id\": \"nap\", \"emoji\": \"\ud83d\udca4\", \"ask\": \"%s is sleepy! Tap your stuffie for a little nap!\", \"done\": \"Zzz... what a cozy nap!\"},\n",
+        "exact_lf_line": "\t{\"id\": \"nap\", \"emoji\": \"💤\", \"ask\": \"%s is sleepy! Tap your stuffie for a little nap!\", \"done\": \"Zzz... what a cozy nap!\"},\n",
         "sha256": "e080e8268220d9b47375b8e79c762d507a37e80d2aac1d7daa02f448dbe119da"
       }
     },
@@ -467,7 +467,7 @@
       "literal_source_binding": {
         "selector": "WANTS.bath",
         "line": 65,
-        "exact_lf_line": "\t{\"id\": \"bath\", \"emoji\": \"\ud83e\udee7\", \"ask\": \"%s wants a bubble bath! Tap your stuffie to scrub-a-dub!\", \"done\": \"All clean and extra fluffy!\"},\n",
+        "exact_lf_line": "\t{\"id\": \"bath\", \"emoji\": \"🫧\", \"ask\": \"%s wants a bubble bath! Tap your stuffie to scrub-a-dub!\", \"done\": \"All clean and extra fluffy!\"},\n",
         "sha256": "052d919768be79ae95e52e847ef1fded1b8dd8848f40bced293d677fa8fb6ebf"
       }
     },
@@ -624,7 +624,7 @@
       "literal_source_binding": {
         "selector": "WANTS.cuddle",
         "line": 66,
-        "exact_lf_line": "\t{\"id\": \"cuddle\", \"emoji\": \"\u2764\", \"ask\": \"%s wants a cuddle! Tap your stuffie for a big hug!\", \"done\": \"Best. Hug. Ever!\"},\n",
+        "exact_lf_line": "\t{\"id\": \"cuddle\", \"emoji\": \"❤\", \"ask\": \"%s wants a cuddle! Tap your stuffie for a big hug!\", \"done\": \"Best. Hug. Ever!\"},\n",
         "sha256": "12bc77a6fea5de25162a7ed9f5f3a7274701fe4540c897fc404deb6923a00165"
       }
     },
@@ -781,7 +781,7 @@
       "literal_source_binding": {
         "selector": "WANTS.play",
         "line": 67,
-        "exact_lf_line": "\t{\"id\": \"play\", \"emoji\": \"\ud83c\udfbe\", \"ask\": \"%s wants to play! Tap your stuffie for zoomies!\", \"done\": \"Wheee! That was so fun!\"},\n",
+        "exact_lf_line": "\t{\"id\": \"play\", \"emoji\": \"🎾\", \"ask\": \"%s wants to play! Tap your stuffie for zoomies!\", \"done\": \"Wheee! That was so fun!\"},\n",
         "sha256": "f40a7ac4497b7bec0d4ad5e69eb2292eba988ae0bfbae31a24d39d4b8b70c422"
       }
     },
@@ -1089,5 +1089,10 @@
     }
   ],
   "count": 7,
-  "dedup": "Existing shared_ui panel FV-E9E82E0C6703,button FV-2ABD73BAFFE0,ornament FV-AB474EF3699E and Eagle FVR-AB5EEA08E585 are retained, not rediscovered. Frozen348 glyph sites are occurrences; care symbols receive7 named semantic roles; title/footer/need repeats not extra pieces. Palette Change glyph and other states remain unreviewed scope, not hidden from whole-game unknown denominator."
+  "dedup": "Existing shared panels/buttons/ornament and Eagle retain IDs. Repeated footer and matching requested-need action symbols do not add pieces. The neutral/title U+2665 heart is not automatically equated with action U+2764; its scope and the Change-palette glyph remain unresolved. Frozen glyph occurrence inventory is not a piece count.",
+  "unassigned_visible_glyph_scopes": [
+    "neutral/title heart U+2665 versus cuddle U+2764 attribution",
+    "disabled Change-palette pictogram",
+    "other need/growth/action variants"
+  ]
 }

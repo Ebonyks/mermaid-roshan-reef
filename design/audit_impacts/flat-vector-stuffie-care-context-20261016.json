@@ -75,6 +75,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/DELIVERY_SOURCE_REFERENCES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/DELIVERY_TRANSPORT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/FEEDBACK_OBSERVATIONS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/FIXTURE_SYNTAX_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/FIXTURE_SYNTAX_GATES_ATTEMPT1.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/FIXTURE_SYNTAX_GATES_ATTEMPT2.json",
@@ -83,6 +84,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/NEW_ROLE_RECORDS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/REPRODUCTION_CHECK.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/REUSE_INVENTORY.json",
@@ -209,6 +211,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/native/attempt3_care_source_1600/unasked_play_settled.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/per_piece.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/preflight.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/tally.json",
@@ -243,13 +246,13 @@
     },
     {
       "command": "Document authority/development54tests/6stress and staged+committed2D before each push",
-      "result": "PENDING",
-      "evidence": "Document/evidence54tests/6stress PASS; actual staged+committed2D required before each push, not claimed prematurely."
+      "result": "PASS",
+      "evidence": "GATES evidence/document54tests/6stress PASS; payload actual staged/committed2D outputs in TWO_D_GATES. Strict2D unsatisfied; final receipt earns its own pair before push."
     },
     {
       "command": "Immutable anonymous every-required-file remote publication verification",
-      "result": "PENDING",
-      "evidence": "R76 PLAN; record exact native source/checks/publication, no acceptance inferred."
+      "result": "PASS",
+      "evidence": "Immutable public manifest/all193required files/88760995bytes exact verified at c641283bba1c1bb2dfe56faa2341f474f45543bd; manifestSHA256 892c3f398101c4e35bada5b8e5b10e907979e965d8a6e25aadaf521cce188fdc; check 2026-10-16T08:41:35.351584+00:00. Final own metadata checked separately after push."
     }
   ],
   "acceptance_gaps": "Phase1 no production changes; queued/bruised/during-care states, natural full route, allcaller closure, fullQA11/device/child/owner, unknown whole-game inventory and all zero-art acceptance remain open."

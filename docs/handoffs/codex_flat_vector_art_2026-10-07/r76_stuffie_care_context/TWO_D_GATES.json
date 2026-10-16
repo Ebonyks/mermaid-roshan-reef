@@ -1,4 +1,25 @@
 {
-  "status": "PENDING",
-  "acceptance": false
+  "status": "NO_REGRESSION_ONLY_STRICT_2D_UNSATISFIED",
+  "checked_at_utc": "2026-10-16T08:42:08.798743+00:00",
+  "results": [
+    {
+      "lane": "SEALED_STAGED_2D.log",
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "exit_code": 0,
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "bytes": 414,
+      "raw_output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\r\nGAME2D| STATUS| UNSATISFIED\r\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\r\n",
+      "file_modified_at_utc": "2026-10-16T08:36:20.190876+00:00"
+    },
+    {
+      "lane": "POST_COMMIT_2D.log",
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "exit_code": 0,
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "bytes": 414,
+      "raw_output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\r\nGAME2D| STATUS| UNSATISFIED\r\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\r\n",
+      "file_modified_at_utc": "2026-10-16T08:37:53.185407+00:00"
+    }
+  ],
+  "scope": "Actual payload staged/committed and, when available, receipt staged/committed outputs. No model/3D debt waiver or production change. Final self-commit gates are checked before its push and recorded in the external final byte check to avoid recursive self hash."
 }
