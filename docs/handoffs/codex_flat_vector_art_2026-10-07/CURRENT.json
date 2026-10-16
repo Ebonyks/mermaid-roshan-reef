@@ -252,8 +252,8 @@
     "receipt": "REMOTE_VERIFICATION.json",
     "own_receipt_scope": "Final receipt own changed metadata bytes/head checked after push; not recursively self-hashed."
   },
-  "current_two_d_evidence": "r74_tree_book_context/TWO_D_GATES.json",
-  "current_ci_snapshot": "r74_tree_book_context/TOPIC_CI.json",
+  "current_two_d_evidence": "r75_tree_book_registration/TWO_D_GATES.json",
+  "current_ci_snapshot": "r75_tree_book_registration/TOPIC_CI.json",
   "current_new_art_export_request": "r72_skyway_hand_reuse/NEW_ART_REVIEW_REQUEST.json",
   "immutable_r72_payload_revision": "1b771fafcc68506eed8212a1cc9b5981bc25b0a2",
   "immutable_r72_final_revision": "e4ff0ae20c0edfc567221396d4613b1fc4b1d067",
@@ -548,5 +548,16 @@
       }
     ],
     "limits": "Original-source synthetic native controls and visual-only candidate diagnostics. Source hand remains flat, material/contour congruency and painted replacement unresolved. Source-projected alpha-component proof is not independent DL-QA-11/live occlusion, final human/art, actual device/child/owner or global zero-art acceptance. Initial headless import raw-byte guard failure and exact EOL recovery kept separate."
+  },
+  "r75_publication": {
+    "state": "R75_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "063b7b6131df443fbed3972873b0f7a3478e9146",
+    "required_files": 389,
+    "required_bytes": 204697650,
+    "manifest_sha256": "94ce51a816c033b49f7d934bb8172f4bd6bfa063d30f08d38ad8ea2ee0205e90",
+    "checked_at_utc": "2026-10-16T07:51:26.003231+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final receipt own changed bytes/head checked after push without recursive self hash."
   }
 }

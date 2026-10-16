@@ -27,3 +27,11 @@ Set `R75_ANALYSIS_OUTPUT` to a new scratch directory and run `derive_evidence.py
 Authorized public destination: Ebonyks/mermaid-roshan-reef, durable branch `codex/flat-vector-r6-20261012`, this nonruntime versioned directory. [Manifest](MANIFEST.json), [anonymous remote verification](REMOTE_VERIFICATION.json), and [final payload receipt](FINAL_BYTE_RECEIPT.json) bind exact source/context/evidence bytes. Final receipt own bytes/head are checked after push without recursive self-hash claims. Prior namespaces/frozen root registries and historical totals remain unchanged. Topic CI is separate; pending/cancelled is not green or acceptance.
 
 Next: resume unresolved inventory/caller/fallback coverage and approved painted-source reuse for this cue. The two bounded geometry variants do not justify another same-input trial. The whole mission remains open.
+
+## Inspect the treatment placement
+
+These are native diagnostics using the same flat hand pixels; none is approved replacement art. Click an image for its full-size capture.
+
+| Original source: tip below target | First preview: badge placement rejected | Revised preview: primary leaf anchor |
+|---|---|---|
+| ![Original source](native/attempt1_tree_book_control_1280/treatment_help.png) | ![Rejected first preview](native/attempt1_tree_book_registered_1280/treatment_help.png) | ![Diagnostic primary-leaf preview](native/attempt2_tree_book_registered_1280/treatment_help.png) |

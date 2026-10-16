@@ -84,6 +84,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/PREPARATION_HISTORY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/PROVENANCE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/REPRODUCTION_CHECK.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/REVIEW.json",
@@ -95,6 +96,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SOURCE_STATE_COMPARISONS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SUMMARY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SUPPLEMENTAL_CURRENT_DEPENDENCIES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/TOPIC_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/TWO_D_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/UPSTREAM_FRESHNESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/WORK_IN_PROGRESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/bounded_json.py",
@@ -371,6 +374,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_tip_pressed.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_tip_released.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/registration_preview.gd",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/registration_preview_edge_v1.gd",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/run_native.py",
@@ -408,13 +412,18 @@
     },
     {
       "command": "Audit authority/development54tests/6stress and actual staged+committed2D perpush; exact-source CI separately scoped",
-      "result": "PENDING",
-      "evidence": "Document/evidence54tests/6stress PASS; actual staged+committed2D required before each push, not claimed prematurely."
+      "result": "PASS",
+      "evidence": "GATES evidence/document54tests/6stress PASS; actual payload staged+committed2D outputs in TWO_D_GATES. Strict2D remains unsatisfied; final receipt earns its own actual pair before push."
     },
     {
       "command": "Publish same authorized public GitHub branch/path, anonymously verify manifest/every declared file and final metadata",
-      "result": "PENDING",
-      "evidence": "R75 pre-recorded scope; no execution or acceptance claimed."
+      "result": "PASS",
+      "evidence": "Immutable public payload manifest/all required files anonymously exact-byte/SHA verified at 063b7b6131df443fbed3972873b0f7a3478e9146; final metadata checked after push."
+    },
+    {
+      "command": "Anonymous immutable HTTPS manifest/index/allfragments and every declared source/context/evidence file plus public repo API",
+      "result": "PASS",
+      "evidence": "389files/204697650bytes at 063b7b6131df443fbed3972873b0f7a3478e9146; manifestSHA256 94ce51a816c033b49f7d934bb8172f4bd6bfa063d30f08d38ad8ea2ee0205e90; time 2026-10-16T07:51:26.003231+00:00. R75 six-case source/current control and visual-only registration diagnostics; first semantic placement rejected, final source-leaf anchor diagnostic only;0art/generation/integration/acceptance/removal. R72 exact export request remains unapproved."
     }
   ],
   "acceptance_gaps": "Phase1 no production changes; current hand remains flat. Offset preview cannot remove flat-art debt or grant accepted removal. Whole-game inventory/callers/fallbacks/nativeQA11/device/child/owner open. R72 ImageGen export request remains unapproved, no retry or external payload."
