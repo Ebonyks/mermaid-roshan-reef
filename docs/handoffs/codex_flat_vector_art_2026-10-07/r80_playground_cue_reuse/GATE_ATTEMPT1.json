@@ -1,0 +1,9 @@
+{
+  "status": "FAILED_PREPUBLICATION_DOCUMENT_LINK_ORDER_FIXED",
+  "exit_code": 1,
+  "issue": "DOC072: README linked to GATES.json before the run had created that record.",
+  "repair": "Create a pending gate record before document checks, then replace with actual results after all checks. No source/native evidence changed.",
+  "raw_log": "prepublication_gate_attempt1.log",
+  "sha256": "9a650965f50724cca6930f3cc3332935ea0c13e59bc3a80fc21f85ab2068b13b",
+  "checked_at_utc": "2026-10-16T11:58:49.951835+00:00"
+}

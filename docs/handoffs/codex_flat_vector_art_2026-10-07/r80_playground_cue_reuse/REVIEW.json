@@ -1,0 +1,87 @@
+{
+  "review_type": "Codex agent partial same-scene source/candidate review; no human/owner acceptance",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "role_id": "FVR-5344465CE503",
+  "sample_id": "FV-CAND-R80-STAR-01",
+  "consumers": [
+    "slide",
+    "swing",
+    "seesaw"
+  ],
+  "axes": [
+    {
+      "axis": "contour",
+      "source": "Mathematical radial ring and outlined triangular polygon pointer.",
+      "candidate": "Whole original five-point star has rounded irregular painted contours; original proportions preserved. Star changes the directional pointing grammar.",
+      "disposition": "MATERIAL_CANDIDATE_WITH_NEW_USE_SEMANTICS_OPEN"
+    },
+    {
+      "axis": "material",
+      "source": "GradientTexture2D and Polygon2D uniform fills.",
+      "candidate": "Existing star visibly carries brush variation, authored highlights and lavender edge/shadow; no new generation or source pixel edits.",
+      "disposition": "PAINTED_SOURCE_REUSED_NO_NEW_USE_ACCEPTANCE"
+    },
+    {
+      "axis": "palette",
+      "source": "Gold focus tint relates to the surrounding gold/pink equipment.",
+      "candidate": "Original gold/lavender RGB retained through white modulation, alpha-only focus and uniform scale. It relates to gold posts/shell accents in these actual native scenes.",
+      "disposition": "STATE_LOCAL_PARTIAL_COMPARISON_NO_RECOLOR"
+    },
+    {
+      "axis": "light",
+      "source": "Radial glow is an overlay rather than painted directional shading.",
+      "candidate": "Source star highlight/shadow retained without rotation or relighting; source parent/camera/composite remain original.",
+      "disposition": "SOURCE_LIGHT_PRESERVATION_OBSERVED_NEW_USE_REVIEW_OPEN"
+    },
+    {
+      "axis": "perspective",
+      "source": "Screen-facing cue above equipment.",
+      "candidate": "Screen-facing painted badge is projected through original world Canvas and anchored within each equipment hit disk; no replacement world/camera/actor.",
+      "disposition": "DECLARED_NONRUNTIME_UI_REUSE_ONLY"
+    },
+    {
+      "axis": "scale",
+      "source": "Glow centers can lie outside the named equipment hit disk.",
+      "candidate": "Nominal72px long edge,2.5percent whole-bitmap pulse, original1024:1008 aspect. All54recorded card rectangles fit original hit disks; minimum recorded margin17.06px.",
+      "disposition": "MEASURED_BOUNDED_RECTANGLE_ONLY_DEVICE_PERFORMANCE_OPEN"
+    },
+    {
+      "axis": "contact",
+      "source": "Actual source center taps on slide/swing clear focus and start walking, while source arrow tips activate. Seesaw center/tip activate.",
+      "candidate": "All6actual painted-center taps activate through unchanged controller. This tests cue input rather than character support/contact; full actor motion/contact remains open.",
+      "disposition": "ACTUAL_INPUT_GAP_CONFIRMED_AND_LOCAL_PROTOTYPE_INPUT_OBSERVED"
+    },
+    {
+      "axis": "occlusion",
+      "source": "Cue hovers above the toys and avoids covering most equipment.",
+      "candidate": "Badge now overlaps upper equipment shape. It fades after focus clears, but selected placement covers parts of chute/crossbar/seat silhouette and needs exact readability/occlusion review.",
+      "disposition": "OCCLUSION_TRADEOFF_REVIEW_REQUIRED"
+    },
+    {
+      "axis": "readability",
+      "source": "Bright ring center is not the same input target as the equipment; native source behavior is now executed evidence.",
+      "candidate": "The visible badge is inside the existing hit area and clickable in programmatic original-input tests. A star may imply reward/completion rather than selection; no child or owner recognition evidence exists.",
+      "disposition": "NEW_USE_SEMANTICS_CHILD_OWNER_PENDING"
+    },
+    {
+      "axis": "action-state",
+      "source": "Original controller/natural toy actions retained; no game/phase/progress/timer/actor override.",
+      "candidate": "Explicit nonruntime visual override only: original cue texture/polygons absent in prototype, separate painted Sprite2D siblings follow source focus and hit geometry. Source/candidate lanes remain distinct; no production fallback retirement or accepted replacement.",
+      "disposition": "ONE_REUSE_SAMPLE_AWAITING_REVIEW_NO_INTEGRATION"
+    }
+  ],
+  "source_input": "INPUT_OUTCOMES.json",
+  "candidate_geometry": "CANDIDATE_GEOMETRY.json",
+  "exact_same_scene_hashes": "SOURCE_BINDINGS.json and CAPTURE_INDEX.json",
+  "source_inventory": "REUSE_INVENTORY.json",
+  "raw_scope_caption_qualification": "SCOPE_CLARIFICATION.json; original/candidate mode and actual trial records take precedence over inherited generic report caption. Raw executed fixtures/manifests retained.",
+  "current_role_reuse_ready": false,
+  "drawing_required": null,
+  "current_role_samples_awaiting_review": 1,
+  "new_source_or_drawing_generated": false,
+  "production_changed": false,
+  "source_global_unreachability": false,
+  "QA11_device_child_owner": "PENDING_NOT_ESTABLISHED",
+  "accepted_removed": 0,
+  "mission_complete": false
+}

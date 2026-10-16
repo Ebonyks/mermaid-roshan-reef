@@ -1,0 +1,25 @@
+test_leftover_polygon_rejected (__main__.EvidenceSeparation.test_leftover_polygon_rejected) ... ok
+test_outside_hit_disk_rejected (__main__.EvidenceSeparation.test_outside_hit_disk_rejected) ... ok
+test_production_acceptance_rejected (__main__.EvidenceSeparation.test_production_acceptance_rejected) ... ok
+test_prototype_cannot_gain_source_context (__main__.EvidenceSeparation.test_prototype_cannot_gain_source_context) ... ok
+test_recorded_card_contract (__main__.EvidenceSeparation.test_recorded_card_contract) ... ok
+test_rgb_recolor_rejected (__main__.EvidenceSeparation.test_rgb_recolor_rejected) ... ok
+test_unknown_mode_not_silently_accepted (__main__.EvidenceSeparation.test_unknown_mode_not_silently_accepted) ... ok
+test_wrong_generic_radius_rejected (__main__.EvidenceSeparation.test_wrong_generic_radius_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.005s
+
+OK
+R80_VALIDATION_PASS 2cases84checks;61raw39source22excluded;12source+6candidateinputs;54containedcards;1reuseSample;263/35;frozen/history/source preserved;0production/acceptance;globalunknown
+DOCAUTH|INVENTORY=793|LEDGER=793|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df
+AUDITDEV|RESULT|ALL OK
+......................................................
+----------------------------------------------------------------------
+Ran 54 tests in 8.521s
+
+OK
+DOCAUTH|STRESS|6/6
+DOCAUTH|STRESS|6/6

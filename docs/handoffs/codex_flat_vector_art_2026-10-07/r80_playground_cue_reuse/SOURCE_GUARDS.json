@@ -1,0 +1,23 @@
+{
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "cases": [
+    {
+      "path": "native/attempt1_entry_source_1280",
+      "result": "native/attempt1_entry_source_1280/RESULT.json",
+      "result_sha256": "232d99429344a7761f6c3f067d4258bcbf9e4e3e0157a3f2f3965e8d27d8ce57"
+    },
+    {
+      "path": "native/attempt1_entry_source_1600",
+      "result": "native/attempt1_entry_source_1600/RESULT.json",
+      "result_sha256": "6b514987b19c11f097ff6ce53de5698a2c349da73234736c783157e88ae105b5"
+    }
+  ],
+  "runtime_raw_file_count": 4425,
+  "sidecar_count": 4088,
+  "normal_names_hash_only": 11,
+  "all_cases_guarded_unchanged": true,
+  "source_worktree_clean": true,
+  "source_worktree_head": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "scope": "Actual raw runtime/import/normal-save-name hash-only launch/result guards unchanged for both cases. Prototype cue visuals change only in process, not production files. Child contents are never parsed, copied, restored or changed.",
+  "checked_at_utc": "2026-10-16T11:53:58.595575+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "new_observation_scopes": [
+    {
+      "id": "FVS-38151AC2830B",
+      "stable_id_input": "native_transient_tap_disk::source_glow_center_miss",
+      "observation": "A transient broad filled yellow disk appears at the last input location in source slide-center-after captures; source highlight metadata at that instant is separately at idle alpha.",
+      "evidence": [
+        "native/attempt1_entry_source_1280/source_slide_center_after.png",
+        "native/attempt1_entry_source_1600/source_slide_center_after.png"
+      ],
+      "source_owner": "UNBOUND; may overlap existing feedback/gesture scope. Source versus debug/overlay ownership and lifetime need binding before new piece counting or disposition.",
+      "new_piece_count": 0,
+      "included_in_zero_art_target_if_reachable_visible_art": true,
+      "functional_invisible_geometry_exemption_claimed": false,
+      "next": "Trace current HUD/touch feedback and existing registered pieces; preserve event/capture hashes and avoid duplicate role IDs."
+    }
+  ],
+  "new_observation_scope_count": 1,
+  "all_game_unresolved_scope_total": null,
+  "no_accepted_removal": true
+}

@@ -1,0 +1,110 @@
+{
+  "status": "PASS_SOURCE_INPUT_AND_SEPARATE_REUSE_PROTOTYPE_ONLY",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r80_playground_cue_reuse\\test_evidence_rules.py"
+      ],
+      "exit_code": 0,
+      "sha256": "fbfb6b5b13504a12a54c0cdb0c21468da9ff02a368ec765e3cfd790fc9ffb1af",
+      "checked_at_utc": "2026-10-16T11:59:17.630661+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r80_playground_cue_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "282cffb760008b998409a9a8f0c8d066fee725427f8c82a34dada1bab73d566b",
+      "checked_at_utc": "2026-10-16T11:59:40.397174+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "50aa0448dc3d1c4e43f6517a4e7f734063ea0d3ad9ede19159f82523b19b7371",
+      "checked_at_utc": "2026-10-16T11:59:49.911066+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-16T11:59:57.918129+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "sha256": "47c777fec06922b553101beacaf8dbfac01ce1e7d1fc9bf6019253c6784bb9bf",
+      "checked_at_utc": "2026-10-16T12:00:07.769615+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-16T12:00:08.722314+00:00"
+    }
+  ],
+  "raw_log_sha256": "291e402c517e584dd2cae72328a1ff05fb0d180737b71bbf7ee6edd3f7e46e80",
+  "scope": "8 adversarial evidence tests; two exact 4.7.2 Mobile/Speedy original-input native cases/84 checks/61 frames:39 bounded source and22 excluded prototype/bootstrap.12 source trials and6 separate candidate trials;54 full card rectangles inside original hit disks.263 roles/35 families,one shared-role reuse sample pending new-use review.4425 rawsource/4088 sidecars/11 normal save-name hash guards unchanged. Document authority/development54 unit/6 stress PASS. Actual staged/committed2D separately before every push. No production change, QA11/device/child/owner/global acceptance.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r80_playground_cue_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "282cffb760008b998409a9a8f0c8d066fee725427f8c82a34dada1bab73d566b",
+      "output": "R80_VALIDATION_PASS 2cases84checks;61raw39source22excluded;12source+6candidateinputs;54containedcards;1reuseSample;263/35;frozen/history/source preserved;0production/acceptance;globalunknown\r\n",
+      "checked_at_utc": "2026-10-16T12:00:52.521672+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "50aa0448dc3d1c4e43f6517a4e7f734063ea0d3ad9ede19159f82523b19b7371",
+      "output": "DOCAUTH|INVENTORY=793|LEDGER=793|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T12:01:02.122973+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T12:01:09.601956+00:00"
+    }
+  ]
+}

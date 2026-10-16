@@ -1,0 +1,61 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r80_playground_cue_reuse\\derive_evidence.py"
+  ],
+  "environment": {
+    "R80_ANALYSIS_OUTPUT": "fresh owned output directory"
+  },
+  "exit_code": 0,
+  "all_byte_identical": true,
+  "files": [
+    {
+      "path": "CAPTURE_INDEX.json",
+      "bytes": 37071,
+      "sha256": "edced098ec8462f23a8928b03e631d2067786d5f001f1c64e39ba65bb81abebf",
+      "byte_identical": true
+    },
+    {
+      "path": "INPUT_OUTCOMES.json",
+      "bytes": 10316,
+      "sha256": "7cf4a810681bedb72f633d055573f63eaf1c8c2e3beb903b1923de4c31c186f2",
+      "byte_identical": true
+    },
+    {
+      "path": "CANDIDATE_GEOMETRY.json",
+      "bytes": 75797,
+      "sha256": "0374b991b4da2062d810cadc247543d6929da1ef0ccecf5b5ec8ab0eef226463",
+      "byte_identical": true
+    },
+    {
+      "path": "DELIVERY_SOURCE_REFERENCES.json",
+      "bytes": 183442,
+      "sha256": "c930fd8cf02ace8acae87e3d3bd7af029d19f5f66ef9e95d8f4fda537427b2e9",
+      "byte_identical": true
+    },
+    {
+      "path": "SOURCE_BINDINGS.json",
+      "bytes": 200546,
+      "sha256": "c73fa9063f2ae1a7209ed5cb2c492fdf634d3238fef331d4491787b55d0fbd40",
+      "byte_identical": true
+    },
+    {
+      "path": "SUMMARY.json",
+      "bytes": 2725,
+      "sha256": "c3ddf5b02bd3b2f05643e0584c06c96d4bc6b1d9ce6622066fa690f62a471877",
+      "byte_identical": true
+    },
+    {
+      "path": "CANDIDATE_SAMPLE.json",
+      "bytes": 1652,
+      "sha256": "fa4d23adf282428f4c711e39454e4e346de82412148a5a6fb78d3335f5da8794",
+      "byte_identical": true
+    }
+  ],
+  "derived_file_count": 7,
+  "output": "R80_DERIVED 61raw39source22excluded;84checks;12source+6candidateinputs;1reuseSample;263/35;0accepted\r\n",
+  "checked_at_utc": "2026-10-16T11:55:27.489062+00:00",
+  "native_reruns": 0,
+  "scope": "Fresh deterministic derivation from unchanged raw captures/archived executed fixtures/current source. Generic raw captions explicitly qualified; no relabelled native evidence."
+}

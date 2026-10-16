@@ -1,0 +1,126 @@
+{
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "shortlist": [
+    {
+      "path": "assets/mg/star.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+      "bytes": 868379,
+      "dimensions": [
+        1024,
+        1008
+      ],
+      "mode": "RGBA",
+      "fit_disposition": "Chosen whole-bitmap local prototype: painted gold/lavender surface and source proportions; new-use star/reward interpretation remains unaccepted.",
+      "new_use_accepted": false
+    },
+    {
+      "path": "assets/art35/cards/mg/star_star.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "3a8dce7bc1721fd1c6b97b0f8148c1f9a9b176d8a5a28c5855cb3501a74fdcf7",
+      "bytes": 518527,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "mode": "RGBA",
+      "fit_disposition": "Not selected: flattened card presentation differs from original star proportions; use the full source instead.",
+      "new_use_accepted": false
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "bytes": 219621,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "fit_disposition": "Not selected: recognizable bathroom sponge changes the cue meaning to a cleaning tool.",
+      "new_use_accepted": false
+    },
+    {
+      "path": "assets/terrain/star_detail.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "3a24f772808a71a6af37913bc58fb3d395e2849ef3f343172fb5e876baf8119e",
+      "bytes": 80600,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "fit_disposition": "Not selected: opaque RGB terrain detail is not a transparent selection cue.",
+      "new_use_accepted": false
+    },
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "bytes": 123283,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "fit_disposition": "Not selected: flat existing hand does not solve painted-material requirement; no new generation/export.",
+      "new_use_accepted": false
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+      "bytes": 1355,
+      "dimensions": [
+        199,
+        228
+      ],
+      "mode": "RGBA",
+      "fit_disposition": "Not selected: flat gate silhouette is target-specific and retains its separate existing record.",
+      "new_use_accepted": false
+    }
+  ],
+  "license_source": {
+    "path": "ASSET_LICENSES.md",
+    "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+    "sha256": "048a0b8d6a235fa1e29d3cf5cce9d6c2b21613eb4e63e89a2bcf4f6eaed49c16",
+    "bytes": 3685006,
+    "applicable_rows": [
+      {
+        "line": 93,
+        "text": "| assets/mg/*.png | drawn/generated for this project (PIL) from book-art motifs | \u00a9 Mermaid Roshan LLC derivatives / project original | \u2014 | craft zone masks, minigame art |"
+      },
+      {
+        "line": 161,
+        "text": "| assets/mg/coal.png, sprout.png, k_sprout.png, flower.png, flower2.png, flower3.png, flower4.png, k_flower1.png, k_flower2.png, k_bush.png, k_bush2.png, tree.png, k_pine.png, xtree.png, k_xmastree.png, sun.png, star.png, orn1.png, orn2.png, orn3.png, orn4.png, orn5.png | Project-authored Blender 4.4.3 models and orthographic renders guided by the approved Batch 04 concepts and `ART_STYLE_GUIDE.md` | **Project-generated art** | - | 512x512 RGBA; matte materials; navy Freestyle contours; existing runtime paths replaced in place; generated 2026-07-14 |"
+      },
+      {
+        "line": 224,
+        "text": "| assets/mg/sun.png, tree.png, coal.png, star.png, butterfly.png, fish_body.png, fish_fins.png, k_bush2.png, xtree.png, orn1.png, orn2.png, orn3.png, orn4.png, orn5.png | OpenAI ChatGPT built-in image generation guided by `ART_STYLE_GUIDE.md` and the source-book motif analysis | **Project-generated art** | `assets_src/imagegen/pass35_2026-07-16/chroma/`; `ART_PASS35_PROMPTS.md` | Separate chroma generations; corner-sampled green/magenta alpha removal, despill, tight crop, normalized to at most 1024 px; previous files mirrored in `backups/art_pre_pass35_2026-07-16/`; generated 2026-07-16. |"
+      },
+      {
+        "line": 1605,
+        "text": "| assets/opera/worlds/props/fx_stolen_sparkle.png | Non-destructive derivative of approved project art `assets/mg/star.png` | **Project-generated \u00a9 Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Uniform whole-star resize and transparent-canvas padding to 128x128; no generated pixels |"
+      },
+      {
+        "line": 2653,
+        "text": "- `assets/castle/dirty_cleanup_2d/{targets/target_cloudy_mirror.png,targets/target_bath_soap_ring.png,targets/target_floor_scuff.png,tools/tool_star_sponge.png,effects/fx_clean_ring.png,effects/fx_soap_bubbles.png,effects/fx_wipe_swoosh.png}` \u2014 seven exact, lossless 512\u00d7512 project-original RGBA cutouts restored from audited commit `95132b6b310c34aa1d7fba5330d72f36fed9d4d7` for the Bubble Bathroom's first playable rescue. Source: OpenAI built-in image generation under the project's storybook direction; license: project original; URL: none. Modifications in this task: none. The existing Bubble Bath room plates, tiles, fixtures, and protected originals are reused unchanged."
+      },
+      {
+        "line": 4670,
+        "text": "- `assets_src/characters/grand_puff_2026-09-13/references/counter_star.png` \u2014 source: `assets/opera/worlds/props/fx_stolen_sparkle.png`; license: project-owned Mermaid Roshan artwork, same terms as original; URL: none (local project source); modifications: none."
+      },
+      {
+        "line": 5604,
+        "text": "| `audit/day2_art_library_2026-09-30/previews/D2A-0398.webp` | `assets/opera/worlds/props/fx_stolen_sparkle.png`; inherits source license/provenance | [Exact source](https://github.com/Ebonyks/mermaid-roshan-reef/blob/55032e88936b22723fd9af5282c61ba6696b3d43/assets/opera/worlds/props/fx_stolen_sparkle.png) | Whole-canvas aspect-preserving thumbnail with original alpha; SVG source copied with LF line endings |"
+      }
+    ]
+  },
+  "source_authority_qualification": "Generic PIL and historical Blender rows precede the explicit July16 ImageGen replacement row; the later sparkle derivative calls star.png approved project art. This binds existing source eligibility/provenance only, not acceptance of the new cue motif.",
+  "chosen_source": "assets/mg/star.png",
+  "modifications_to_source": "NONE; full original bitmap, uniform runtime scale and white RGB modulation in ignored fixture only. No rotation/nonuniform stretch/redraw/relighting.",
+  "generation_calls": 0,
+  "new_drawings": 0,
+  "production_integration": false,
+  "new_use_acceptance": false
+}

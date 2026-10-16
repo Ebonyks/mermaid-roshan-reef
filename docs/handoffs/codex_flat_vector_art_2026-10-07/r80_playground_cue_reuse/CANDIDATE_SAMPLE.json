@@ -1,0 +1,48 @@
+{
+  "sample_id": "FV-CAND-R80-STAR-01",
+  "role_id": "FVR-5344465CE503",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "source": {
+    "path": "assets/mg/star.png",
+    "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+    "sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+    "bytes": 868379,
+    "dimensions": [
+      1024,
+      1008
+    ],
+    "mode": "RGBA",
+    "fit_disposition": "Chosen whole-bitmap local prototype: painted gold/lavender surface and source proportions; new-use star/reward interpretation remains unaccepted.",
+    "new_use_accepted": false
+  },
+  "method": "Declared local whole-source Sprite2D reuse, uniform aspect-preserving scale and authoredRGB; alpha/size-only focus cadence. No source pixel edit, rotation, generation or production integration.",
+  "consumers": [
+    "slide",
+    "swing",
+    "seesaw"
+  ],
+  "native_aspects": [
+    [
+      1280,
+      720
+    ],
+    [
+      1600,
+      720
+    ]
+  ],
+  "geometry": "CANDIDATE_GEOMETRY.json",
+  "actual_input": "INPUT_OUTCOMES.json",
+  "context": "CAPTURE_INDEX.json",
+  "state": "NONRUNTIME_REUSE_SAMPLE_AWAITING_NEW_USE_REVIEW",
+  "review_gaps": [
+    "Star may imply reward/completion rather than selection; original downward pointer meaning is absent",
+    "Badge overlaps equipment silhouette; exact motif/placement/occlusion and phone recognition require review",
+    "Source untouched in production; allcaller/fallback/QA11/device/child/owner evidence incomplete"
+  ],
+  "approved": false,
+  "integrated": false,
+  "runtime_verified_replacement": false,
+  "accepted_removed": 0,
+  "generation_calls": 0
+}
