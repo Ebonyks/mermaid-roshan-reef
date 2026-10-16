@@ -44,10 +44,13 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/CURRENT_PARTIAL_CONTEXT_UNION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/DELIVERY_SOURCE_REFERENCES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/DELIVERY_TRANSPORT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/REPRODUCTION_CHECK.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/SEMANTIC_LAUNCH.json",
@@ -56,6 +59,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/SOURCE_PAYLOAD_GRAPH.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/SOURCE_TESTS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/TOPIC_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/TWO_D_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/UPSTREAM_FRESHNESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/WORK_IN_PROGRESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/bounded_json.py",
@@ -63,6 +68,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/payload_semantics.gd",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/scan_game_payload.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r78_game_payload_closure/tally.json",
@@ -93,13 +99,13 @@
     },
     {
       "command": "document authority/development54unit/6stress and actual staged+committed2D regression gates",
-      "result": "PENDING",
-      "evidence": "Document authority/development54tests/6stress PASS. Actual staged/committed2D required before each push, not yet claimed."
+      "result": "PASS",
+      "evidence": "15source tests, preservation validator, document authority/development54unit/6stress PASS; actual payload staged/committed2D outputs retained in TWO_D_GATES. Strict2D remains unsatisfied; final receipt earns its own actual pair before push."
     },
     {
       "command": "anonymous exact immutable manifest and every required file/final metadata verification",
-      "result": "PENDING",
-      "evidence": "Planned; no PASS or runtime/acceptance claim."
+      "result": "PASS",
+      "evidence": "Public immutable manifest/all383required files/18569260bytes exact verified at f163d46b146ec94deb5fd3bf478a59713831eb45; manifestSHA256 0046ff01df9ceac739d32e476129087f3c03397cac786a790b9c40f4212cc632; checked 2026-10-16T10:24:02.101779+00:00. Final own metadata verified separately after push."
     }
   ],
   "acceptance_gaps": "No production repair or new visual context. Global denominator, game value aliases/native/dynamic/caller closure, current complete routes/screens, QA11/runtime/device/child/owner and accepted-removal evidence remain open."
