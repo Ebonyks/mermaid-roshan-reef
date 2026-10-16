@@ -1,9 +1,34 @@
 {
-  "state": "PENDING_PAYLOAD_PUBLICATION",
+  "state": "PAYLOAD_PUBLISHED_AND_ANONYMOUSLY_VERIFIED",
   "repository": "Ebonyks/mermaid-roshan-reef",
   "branch": "codex/flat-vector-r6-20261012",
   "method": "Original Git commit/tree/blob objects through existing gh authorization, non-force to same durable branch; no dev/master mutation. Exact anonymous HTTPS verification follows every declared required file.",
   "reason": "Established safe path after earlier ordinary large-pack resets; no new failed pack or rejection claimed.",
   "creative_acceptance": false,
-  "generation_export": false
+  "generation_export": false,
+  "payload_transport": {
+    "status": "EXACT_GIT_OBJECTS_AND_ORIGINAL_COMMIT_PUBLISHED_NON_FORCE",
+    "baseline": "89bca453942eb91a2fd23a486373aafde2f33658",
+    "revision": "85727a455f82e0d54450b6938f8af395732c4899",
+    "tree": "b9aceafc4e62f4ef2fbe99877fd3ba588c53a515",
+    "new_blob_count": 79,
+    "changed_file_count": 86,
+    "checked_at_utc": "2026-10-16T12:38:38.589032+00:00",
+    "existing_gh_authorization_only": true,
+    "credential_value_extracted_or_printed": false,
+    "transport_reason": "Prior R39 ordinary114MiB Git pack reset; direct exact-object safe path used forR72, no failedR81 pack claimed.",
+    "access_mode": "Authenticated Git object write to same owner-authorized public repository/durable branch; anonymous required-file verification follows",
+    "no_runtime_or_source_tree_change_from_verified_commit": true
+  },
+  "payload_verification": {
+    "state": "R81_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "85727a455f82e0d54450b6938f8af395732c4899",
+    "required_files": 487,
+    "required_bytes": 111504472,
+    "manifest_sha256": "8a493250670451639d006602a0b468a106c148c6cf384fe4413a4e21b5feb0d9",
+    "checked_at_utc": "2026-10-16T12:38:52.787004+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final own changed metadata bytes/head checked after push separately, without recursive self hash."
+  }
 }

@@ -79,6 +79,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/CURRENT_ROLE_UPDATE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/DELIVERY_SOURCE_REFERENCES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/DELIVERY_TRANSPORT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/FIXTURE_SYNTAX_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/FIXTURE_SYNTAX_GATES_ATTEMPT1.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/FLASH_LIFECYCLE.json",
@@ -87,6 +88,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/OWNER_DISPOSITION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/REPRODUCTION_CHECK.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/SCANNER_ATTEMPT1.json",
@@ -95,6 +98,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/SOURCE_OWNER_GRAPH.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/SOURCE_TOOLCHAIN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/TOPIC_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/TWO_D_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/UPSTREAM_FRESHNESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/WORK_IN_PROGRESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/bounded_json.py",
@@ -139,6 +144,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/native/attempt1_entry_source_1600/swing_onset.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/per_piece.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/preflight.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/scan_flash_owner.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r81_touch_flash_ownership/scan_flash_owner_attempt1.py.txt",
@@ -171,13 +177,13 @@
     },
     {
       "command": "Document authority/development54unit6stress plus actual staged/committed2D regression gates",
-      "result": "PENDING",
-      "evidence": "Document authority/development54 unit tests/6 stress cases PASS. Actual staged/committed2D still required before each push."
+      "result": "PASS",
+      "evidence": "14AST/evidence tests, preservation validator, document authority/development54unit/6stress PASS; actual payload staged/committed2D outputs in TWO_D_GATES. Strict2D unsatisfied. Final receipt earns its own actual pair before push."
     },
     {
       "command": "Anonymous exact payload/manifest/source dependencies and final revision publication verification",
-      "result": "PENDING",
-      "evidence": "Planned R81 source/transient-lifetime evidence; no premature native, acceptance or publication claim."
+      "result": "PASS",
+      "evidence": "Immutable manifest and all487required files/111504472bytes anonymously exact verified at 85727a455f82e0d54450b6938f8af395732c4899; manifestSHA256 8a493250670451639d006602a0b468a106c148c6cf384fe4413a4e21b5feb0d9; checked 2026-10-16T12:38:52.787004+00:00. Final own metadata verified separately after push."
     }
   ],
   "acceptance_gaps": "Existing broad touch material only receives a narrow flash subpart context review. Remaining touch modes/materials/source callers and all whole-game/QA11/device/child/owner acceptance remain open. No runtime repair in Phase1."

@@ -11,6 +11,14 @@
   "external_export_request": "../r72_skyway_hand_reuse/NEW_ART_REVIEW_REQUEST.json",
   "external_export_approved": false,
   "publication": {
-    "state": "PENDING_R81_PUBLICATION"
+    "state": "R81_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "85727a455f82e0d54450b6938f8af395732c4899",
+    "required_files": 487,
+    "required_bytes": 111504472,
+    "manifest_sha256": "8a493250670451639d006602a0b468a106c148c6cf384fe4413a4e21b5feb0d9",
+    "checked_at_utc": "2026-10-16T12:38:52.787004+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final own changed metadata bytes/head checked after push separately, without recursive self hash."
   }
 }

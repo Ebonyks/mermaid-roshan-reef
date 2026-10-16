@@ -16767,7 +16767,7 @@
       {
         "id": "FVOBS-CATALOGUE-CRITTERS-BINDING",
         "status": "EXPLICIT_SAVED_BOOK_PARTIAL_BINDING_ONLY",
-        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton\u2192open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
+        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton→open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
         "evidence": "CRITTER_ALIAS_BINDING.json"
       },
       {
@@ -17290,7 +17290,15 @@
     "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r66_display_entry_context"
   },
   "publication": {
-    "state": "PENDING_R81_PUBLICATION"
+    "state": "R81_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "85727a455f82e0d54450b6938f8af395732c4899",
+    "required_files": 487,
+    "required_bytes": 111504472,
+    "manifest_sha256": "8a493250670451639d006602a0b468a106c148c6cf384fe4413a4e21b5feb0d9",
+    "checked_at_utc": "2026-10-16T12:38:52.787004+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final own changed metadata bytes/head checked after push separately, without recursive self hash."
   },
   "gate_missing_art_repair": {
     "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
