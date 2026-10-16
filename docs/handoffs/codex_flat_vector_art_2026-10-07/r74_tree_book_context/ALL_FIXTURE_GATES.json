@@ -1,0 +1,58 @@
+{
+  "status": "PASS_ALL_ARCHIVED_FIXTURES",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r74_tree_book_context\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r74_tree_book_context\\capture_tree_book_guard_v1.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r74_tree_book_context\\native\\attempt1_tree_book_1280\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r74_tree_book_context\\native\\attempt2_tree_book_1280\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r74_tree_book_context\\native\\attempt2_tree_book_1600\\capture_tree_book.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r74_tree_book_context\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r74_tree_book_context\\capture_tree_book_guard_v1.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r74_tree_book_context\\native\\attempt1_tree_book_1280\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r74_tree_book_context\\native\\attempt2_tree_book_1280\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r74_tree_book_context\\native\\attempt2_tree_book_1600\\capture_tree_book.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "fixture_files": [
+    {
+      "path": "capture_tree_book.gd",
+      "sha256": "4bd88066abcdcab962ed7b662f9bdb510362137ea20a344c4aa53920513cc2e2"
+    },
+    {
+      "path": "capture_tree_book_guard_v1.gd",
+      "sha256": "e3cf5e86ba204ccb9c52963881815357ae1a6e0b472c6c777ad5057f833118bb"
+    },
+    {
+      "path": "native/attempt1_tree_book_1280/capture_tree_book.gd",
+      "sha256": "e3cf5e86ba204ccb9c52963881815357ae1a6e0b472c6c777ad5057f833118bb"
+    },
+    {
+      "path": "native/attempt2_tree_book_1280/capture_tree_book.gd",
+      "sha256": "4bd88066abcdcab962ed7b662f9bdb510362137ea20a344c4aa53920513cc2e2"
+    },
+    {
+      "path": "native/attempt2_tree_book_1600/capture_tree_book.gd",
+      "sha256": "4bd88066abcdcab962ed7b662f9bdb510362137ea20a344c4aa53920513cc2e2"
+    }
+  ]
+}

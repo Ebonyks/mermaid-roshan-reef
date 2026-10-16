@@ -1,0 +1,176 @@
+{
+  "status": "PINNED_CAPTURE_PRESERVED_NEW_CASTLE_DOORFRAME_HEAD_NOT_NATIVE_REVIEWED",
+  "audited_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "origin_dev": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "checked_at_utc": "2026-10-16T06:22:01.162255+00:00",
+  "runtime_changed_paths": [
+    "assets/flats/castle/door_cues/door_frame_opera_exact.png",
+    "assets/flats/castle/door_cues/door_frame_royal_exact.png",
+    "assets/flats/castle/door_cues/door_frame_small_exact.png",
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/castle_door_cue.gd",
+    "scripts/probe_castle_door_language.gd",
+    "scripts/probe_castle_door_visual_capture.gd",
+    "shaders/castle_door_frame_glow.gdshader"
+  ],
+  "changed_files": [
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_opera_exact.png",
+      "before_sha256": null,
+      "after_sha256": "3d107eca1ad32cae40ac9bfa298d02c3ab1e94475b873f1905eedcc1ece64d42",
+      "after_bytes": 757381
+    },
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_royal_exact.png",
+      "before_sha256": null,
+      "after_sha256": "eae0fbef272947cea857b4a80ffe3a15da8f10761eae9abda71a88420bbcd2d9",
+      "after_bytes": 961018
+    },
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_small_exact.png",
+      "before_sha256": null,
+      "after_sha256": "4603157688afb263d20e9ce47b23ed3f24b1ba518f6104b62b592a05fb698c10",
+      "after_bytes": 298586
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "before_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "after_sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+      "after_bytes": 243732
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "before_sha256": "0932feb34209b3dbd3e2738b32a7dddf0ee99ab607251356bb4fbac9cc7f895d",
+      "after_sha256": "da2d19422b20b6a8cce724a441e09db80f4ac105757a4131233920054ac79c94",
+      "after_bytes": 6242
+    },
+    {
+      "path": "scripts/probe_castle_door_language.gd",
+      "before_sha256": "c1c7e269e3511b674389848944d17b363b9c4561716662521cf748be23f7318e",
+      "after_sha256": "75918e67face762686ad8cabd5ad01c5442bc2cfeb89640b9ed68fd7ffc12e75",
+      "after_bytes": 9813
+    },
+    {
+      "path": "scripts/probe_castle_door_visual_capture.gd",
+      "before_sha256": null,
+      "after_sha256": "9e7b9eecc256d9a5a142609653b70fa80c570723ca00546402961ebad25f3fb7",
+      "after_bytes": 8379
+    },
+    {
+      "path": "shaders/castle_door_frame_glow.gdshader",
+      "before_sha256": null,
+      "after_sha256": "26d052deea78357f345a0a290da5ef4df4f5d8ba446b79666ba3e3b119b96267",
+      "after_bytes": 5830
+    }
+  ],
+  "selected_book_entry_art_and_save_byte_equal": [
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "exact_bytes": true
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "exact_bytes": true
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "exact_bytes": true
+    },
+    {
+      "path": "scripts/main.gd",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "exact_bytes": true
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "exact_bytes": true
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "exact_bytes": true
+    },
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "exact_bytes": true
+    },
+    {
+      "path": "assets/opera/tree_book_test/book.png",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "4516c82b24804b081154edd5fb507c072619a26782b9bbfabd1b5ff05d28c70f",
+      "exact_bytes": true
+    },
+    {
+      "path": "assets/opera/tree_book_test/lagoon_tree_bigleaf_maple.png",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "6d1be41b48707e686140b30f610ed5a9f18e22be435f832a01199370a1ddacc9",
+      "exact_bytes": true
+    },
+    {
+      "path": "assets/opera/tree_book_test/lagoon_tree_pacific_dogwood.png",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "e92e41cf81ccfdc251960a7c5599d6984b82ebb1cfc89f3f7cf0704b5dd565eb",
+      "exact_bytes": true
+    },
+    {
+      "path": "assets/opera/tree_book_test/leaves_medicine.png",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "5fedb4067df5d3d9a736594139ceaac08f08ce33558596a20e00e003e0eabd1c",
+      "exact_bytes": true
+    },
+    {
+      "path": "assets/opera/tree_book_test/patient.png",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "a1a77f01b2d0a57d896f1c831132ce6cf61efe6204fb3de09a58f271c7087d34",
+      "exact_bytes": true
+    },
+    {
+      "path": "assets/opera/tree_book_test/roshan_book.png",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "ae849978740b10e0309f435c7062338d1ef75736b3291577bd99e522f4be4347",
+      "exact_bytes": true
+    },
+    {
+      "path": "assets/opera/tree_book_test/sky_lagoon_tree_sticker_tall_v1.png",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "78d833ddea8f0efde6dd383827e808fa6cdcfeaa7df12d6400dba626001427c2",
+      "exact_bytes": true
+    },
+    {
+      "path": "assets/opera/tree_book_test/spray_poses.png",
+      "old_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "sha256": "0c7dd79d7d845dcef394f6fbe4e6f766b236b747a48df0b277208818c1fa1f95",
+      "exact_bytes": true
+    }
+  ],
+  "reviewed_delta_scope": "Actual diff adds painted castle door frames, door visual layer and hall cue shader/probes. CastleRooms25D._build_stage/close change, so broader dependency is not identical. Book-specific source/venue/save/navigation/hand/eight PNGs byte equal. Do not silently promote captures to new head or count another agents changes as accepted removal.",
+  "new_head_runtime_reviewed": false,
+  "requires_fresh_context_before_production_or_final_acceptance": true
+}

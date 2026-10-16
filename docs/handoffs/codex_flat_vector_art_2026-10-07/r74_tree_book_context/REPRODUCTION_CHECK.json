@@ -1,0 +1,49 @@
+{
+  "status": "PASS_FRESH_SCRATCH_ANALYSIS",
+  "scanner_sha256": "141dac36cf5d0aa2d8a402092f20d1f1024f6a962078ff4baded02a67e0779fc",
+  "outputs": [
+    {
+      "path": "CAPTURE_INDEX.json",
+      "status": "PASS",
+      "scope": "Exact complete logical JSON output",
+      "expected_logical_sha256": "1de197fd05c3b02adfce4fb01fd17d8442820fcc73a639e299194184e6552906",
+      "reproduced_logical_sha256": "1de197fd05c3b02adfce4fb01fd17d8442820fcc73a639e299194184e6552906"
+    },
+    {
+      "path": "POINTER_MEASUREMENTS.json",
+      "status": "PASS",
+      "scope": "Exact complete logical JSON output",
+      "expected_logical_sha256": "ccdae6213cf1bee1d6439d9c0e45292a930ba4912a0a5521723f96bac1b348c5",
+      "reproduced_logical_sha256": "ccdae6213cf1bee1d6439d9c0e45292a930ba4912a0a5521723f96bac1b348c5"
+    },
+    {
+      "path": "DELIVERY_SOURCE_REFERENCES.json",
+      "status": "PASS",
+      "scope": "Exact prerequisite source references subset; extra current-dev delta refs intentionally bound separately",
+      "expected_logical_sha256": "37c85ee6a2745bc25acdb31497496a9e26ff64b4c65a615042449c5643f99279",
+      "reproduced_logical_sha256": "8c36506786ff0910e9a7e5a0f6a48e0acc819fb723fdbbf4234b714cf8e4e002"
+    },
+    {
+      "path": "SOURCE_BINDINGS.json",
+      "status": "PASS",
+      "scope": "Exact complete logical JSON output",
+      "expected_logical_sha256": "0b29601f30ad2fc7da3035c81712ecbbce262df35b65158d44c89cc69b7435b7",
+      "reproduced_logical_sha256": "0b29601f30ad2fc7da3035c81712ecbbce262df35b65158d44c89cc69b7435b7"
+    },
+    {
+      "path": "PIECE_CONTEXT_REVIEWS.json",
+      "status": "PASS",
+      "scope": "Exact complete logical JSON output",
+      "expected_logical_sha256": "bf17ce25af9d0f2788e5f5ea0c943d0ccb910f1ebc2872bc819e2cbe61d4a007",
+      "reproduced_logical_sha256": "bf17ce25af9d0f2788e5f5ea0c943d0ccb910f1ebc2872bc819e2cbe61d4a007"
+    },
+    {
+      "path": "SUMMARY.json",
+      "status": "PASS",
+      "scope": "Exact complete logical JSON output",
+      "expected_logical_sha256": "f87971bd829d27c41048b6afa76689a9876844079986ed2ed006fc106e3bd65b",
+      "reproduced_logical_sha256": "f87971bd829d27c41048b6afa76689a9876844079986ed2ed006fc106e3bd65b"
+    }
+  ],
+  "scope": "Read-only original artifacts/source replay to fresh scratch;five full logicalJSON exact and one prerequisite subset. Separate new upstream metadata retained honestly. No native rerun or source/runtime/save changes."
+}

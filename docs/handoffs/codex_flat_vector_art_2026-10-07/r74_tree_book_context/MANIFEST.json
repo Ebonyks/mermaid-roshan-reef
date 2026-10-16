@@ -1,0 +1,1787 @@
+{
+  "schema": "reef.flat_vector_delta_manifest/1",
+  "revision": "FV-AUDIT-20261015-R74",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/flat-vector-r6-20261012",
+  "audited_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "topic_baseline": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+  "files": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/glyph_inventory.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 136505,
+      "sha256": "19f3e0335f9b3af55b8c83f541eed52336107807c9b073057f412897ca2fcaa9",
+      "role": "Frozen original registry preserved exactly"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 1103788,
+      "sha256": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9",
+      "role": "Frozen original registry preserved exactly"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/RUNTIME_BYTE_BASELINE.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 1106570,
+      "sha256": "60e556d68dcd3e826407e7a4f15341a52e2b7fa5216c67907ca68d521de335e7",
+      "role": "Retained source/import byte baseline"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/FINAL_BYTE_RECEIPT.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 1852,
+      "sha256": "d5999f818fb02a780224aa2e232560598734f5924d8f12919f4d4881f8d4795c",
+      "role": "Prior unapproved exact ImageGen request and receipt; no retry/export"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/NEW_ART_REVIEW_REQUEST.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 3050,
+      "sha256": "ca4dc61d8800c018fc334dc714919b60c70aaa1061f2e6991fd2c960cced20dc",
+      "role": "Prior unapproved exact ImageGen request and receipt; no retry/export"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/README.md",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 5769,
+      "sha256": "bfde9f1a741106babf553f85f45030908346f8ebc4dd15c754dac5db402dc787",
+      "role": "Prior unapproved exact ImageGen request and receipt; no retry/export"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/CONGRUENCY_BACKLOG.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 411896,
+      "sha256": "46d042a4144bd1d1bf849b7cef09f8c8484ceb5fcd83b6b636044c7306ceb637",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 5079,
+      "sha256": "5b4aab3691c5e7ec825606f1869536f640ce808e583f5103da5cac8af60960ea",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/CURRENT_KNOWN_ROLE_UNION.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 32357,
+      "sha256": "4a537fb6d4b15def9f6b0d92fa3da17e62762b2f652bd9b6410b93563ee3e16d",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/CURRENT_PARTIAL_CONTEXT_UNION.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 16430,
+      "sha256": "9dfe7e0cc4e0fb9e563e62943f35f92cf954983a35743793c8eb2cd31050bd6c",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/FINAL_BYTE_RECEIPT.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 1962,
+      "sha256": "ef2b26031dfe3c4d6ddce065af3fdd541e6c272a6d9a25fc1bd01f1b1d0d122c",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/MANIFEST.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 119770,
+      "sha256": "39a41206d8906457d00fd8551b155caca8e0bc2175b6f8fdfced41871b093596",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/README.md",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 5251,
+      "sha256": "c7ca023b7ee0878648c401b3e4fca692d2bd9048f019130f9d3cf3fb311ba7b9",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/REMOTE_VERIFICATION.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 220749,
+      "sha256": "8b3c0e225b83651fd5c2eea89e37b9902b4290583ca397b1f3b7499a8d26c049",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/SOURCE_GUARDS.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 1240,
+      "sha256": "f221d3cca756b41de656e30b8755cb5ec8d305d9f9ad97334db16e9105c9f576",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/SUMMARY.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 1713,
+      "sha256": "7b743c82b07029860fdc902889f80f08fab4690520a6f3ba34587127160ec964",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/WORK_IN_PROGRESS.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 1415,
+      "sha256": "7502006164c5bd5c06ca311dd4ca5cca8f488d1370ba25869f45c170445c1bd6",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/per_piece.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 1452333,
+      "sha256": "d4f131a7d86d25af6d9074284d1b01129fa31e6b723d0431ed1c5cd9b874383f",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/scene_coverage.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 949304,
+      "sha256": "fce15d67214ae16210ec324499497840c842d6ea480ed82d13c4ac6340cce863",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/tally.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 402115,
+      "sha256": "c59212ea056cb367764e413893aff1d059fbc587427814f19e46f998eea10c90",
+      "role": "Immutable prior R73 canonical/history, no renewed whole-game acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 438160,
+      "sha256": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f",
+      "role": "Frozen original registry preserved exactly"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/source_scopes.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 306677,
+      "sha256": "a1aca7b3bacc6124a1d0938f126803b6ea022b8f8de1ee224ef78ab5a8ef6951",
+      "role": "Frozen original registry preserved exactly"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json",
+      "revision": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+      "bytes": 7990,
+      "sha256": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a",
+      "role": "Frozen original registry preserved exactly"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3682776,
+      "sha256": "78a40ae3815ada84dfa4b06bf76c678d8adb4e3570491bba6d3a995e80ea710b",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 123283,
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/book.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 725412,
+      "sha256": "4516c82b24804b081154edd5fb507c072619a26782b9bbfabd1b5ff05d28c70f",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/lagoon_tree_bigleaf_maple.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 111557,
+      "sha256": "6d1be41b48707e686140b30f610ed5a9f18e22be435f832a01199370a1ddacc9",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/lagoon_tree_pacific_dogwood.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 109596,
+      "sha256": "e92e41cf81ccfdc251960a7c5599d6984b82ebb1cfc89f3f7cf0704b5dd565eb",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/leaves_medicine.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 739632,
+      "sha256": "5fedb4067df5d3d9a736594139ceaac08f08ce33558596a20e00e003e0eabd1c",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/patient.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 762363,
+      "sha256": "a1a77f01b2d0a57d896f1c831132ce6cf61efe6204fb3de09a58f271c7087d34",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/roshan_book.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 831266,
+      "sha256": "ae849978740b10e0309f435c7062338d1ef75736b3291577bd99e522f4be4347",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/sky_lagoon_tree_sticker_tall_v1.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 134450,
+      "sha256": "78d833ddea8f0efde6dd383827e808fa6cdcfeaa7df12d6400dba626001427c2",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/spray_poses.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 956362,
+      "sha256": "0c7dd79d7d845dcef394f6fbe4e6f766b236b747a48df0b277208818c1fa1f95",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets_src/imagegen/arborist_test_20260930/PROVENANCE.json",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 8588,
+      "sha256": "980f22edbe1eb6960ea02d944c65f5a6ebd58dc764f4187fdda43be0e2703e56",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "design/ARBORIST_TREE_BOOK_HANDOFF_2026-09-29.md",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 12438,
+      "sha256": "b3c15524ad05c80f669490b7fad8463198cccbd3cc988cc599e8428e0c1c5f87",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "project.godot",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1762,
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 221,
+      "sha256": "1de477913ac3db6efe5d66d04967279dc9b66217bea01afeeddb4d98ef692f21",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 242528,
+      "sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 15000,
+      "sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 370863,
+      "sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 18361,
+      "sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 14435,
+      "sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 46616,
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1392,
+      "sha256": "7fe925d2d12927d152a27f3a614ff62c9b0e6fe02991396a6837e8f5c06d0f5b",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": null,
+      "bytes": 297793,
+      "sha256": "fdbc333eeca02010bf53ccf003efabaefeff0e3a579898027ea71bfd20289b97",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": null,
+      "bytes": 243893,
+      "sha256": "644f659352f541a104404567afdc4ce43da302566c1f4ad42c95859af273ec66",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": null,
+      "bytes": 256760,
+      "sha256": "d426ffb9fc1a4643b1c2442c8c90c6db498175f77ed438b9ce307707936d581c",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-tree-book-context-20261015.json",
+      "revision": null,
+      "bytes": 27484,
+      "sha256": "4838df01857884349c15be67c4256eb180401f52499a870461fdbf73f9794a83",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": null,
+      "bytes": 23672,
+      "sha256": "49ed9262362a69832943cab01ba6a22ca487e57d52c5d05f6a4d5e4489489d03",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": null,
+      "bytes": 503,
+      "sha256": "1f14e7f9dbd211cd8f751cfa1d2d42c9dce95e6ffb6075d04bd86c96e95a5c98",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/.gdignore",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/.gitattributes",
+      "revision": null,
+      "bytes": 23,
+      "sha256": "8598e83c918afde63676db335e91ec7fa02ebc4a531334c50e03f74041c49232",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/ALL_FIXTURE_GATES.json",
+      "revision": null,
+      "bytes": 3485,
+      "sha256": "879e19f3560d8d6bb19a7ba3c207d877971bbd7de3a4ac49f937f8c348fb1920",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/CAPTURE_INDEX.json",
+      "revision": null,
+      "bytes": 76002,
+      "sha256": "7bc2c4d310be936efee09470a0f2bdc6cdfaf97084ba7363a590a9468245683d",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/CONGRUENCY_BACKLOG.json",
+      "revision": null,
+      "bytes": 416701,
+      "sha256": "12b2c6e7d9af87f4a038cb8595b645e82e257da8c762f50a498221bad6483b83",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/CONTEXT_PREREQUISITE.json",
+      "revision": null,
+      "bytes": 11116,
+      "sha256": "b21fdc0f8a55301e22902505e2258b249784c282450f2e945ad12e9f31a8e0d1",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+      "revision": null,
+      "bytes": 5283,
+      "sha256": "e1f139d88e5fdea35f623ade1e33d06bacbca3c50b8535521603137f7939d565",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/CURRENT_KNOWN_ROLE_UNION.json",
+      "revision": null,
+      "bytes": 34271,
+      "sha256": "017498ce68d2aeeee05d85ed8c9ead8017966862177ca2b518630332801ab006",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/CURRENT_PARTIAL_CONTEXT_UNION.json",
+      "revision": null,
+      "bytes": 16834,
+      "sha256": "fe873703cd524a43791b2afa4bb1e0d0a5d4332bb2698fa67d761fa40a743cd0",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/DELIVERY_SOURCE_REFERENCES.json",
+      "revision": null,
+      "bytes": 6878,
+      "sha256": "b902ab4e25a36b4d4c7e2684df7ad795b0159fdb52a7a7453e526f11ddf40568",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/DELIVERY_TRANSPORT.json",
+      "revision": null,
+      "bytes": 342,
+      "sha256": "8bfcf88e9dcad7479d304b40a0eb9effde526c2a3eb79deb2f3224af628fd180",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/FIXTURE_GUARD_CORRECTION.json",
+      "revision": null,
+      "bytes": 1145,
+      "sha256": "5c4cf0a3d044a7b4052beddc8cf914321e70e3f49c4eae4fa2722f1a9ce37d0c",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/FIXTURE_SYNTAX_GATES.json",
+      "revision": null,
+      "bytes": 1752,
+      "sha256": "b9e9a14b0652845b60c0aa83c725ac8f80f150f7a1006ea499ff29c161a5ed64",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/GATES.json",
+      "revision": null,
+      "bytes": 3687,
+      "sha256": "a339d4996d9079f7d558b4e8bfdec258341e1030a73431a932c487ac88d80f23",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/PIECE_CONTEXT_REVIEWS.json",
+      "revision": null,
+      "bytes": 67525,
+      "sha256": "8188f4d2b3af277ebb96919f4329694a52fb30e9e0af49119dee32c0f29f4b01",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/PLAN.json",
+      "revision": null,
+      "bytes": 4129,
+      "sha256": "928b18893b61b87334e72054d160af70cc2c05c9584b32abe78a3b05311f8ea6",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/POINTER_MEASUREMENTS.json",
+      "revision": null,
+      "bytes": 21439,
+      "sha256": "7bb240719f1d6a5b6717fcfa111239d57afcc8050c3553a2a3052f150d61fa3f",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/PREPARATION_HISTORY.json",
+      "revision": null,
+      "bytes": 1329,
+      "sha256": "369d293596ca169d0557bd1e4b68a60b0f73a49be7ff873f91770bdf640662b8",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/PROVENANCE.json",
+      "revision": null,
+      "bytes": 881,
+      "sha256": "fee53375800ce217fe473886fa70139b9279d0826767fe6e629b0c90fc1eee0b",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/README.md",
+      "revision": null,
+      "bytes": 5986,
+      "sha256": "a50a3ddd1bab6c1ceb33b538a679a514556b75876ee726ac8be1d81a8286ceea",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/REPRODUCTION_CHECK.json",
+      "revision": null,
+      "bytes": 2499,
+      "sha256": "eb5c4f0882b902067feaf0bce1e0833287a4b2cf21cca9fb8b46056a93ea667f",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/SOURCE_BINDINGS.json",
+      "revision": null,
+      "bytes": 1651,
+      "sha256": "f1fdc1dad7146f8f053709a168a747489f57645912f0106056eca4b2f447ecf7",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/SOURCE_GUARDS.json",
+      "revision": null,
+      "bytes": 452,
+      "sha256": "777721b62dda44c577ac3c4bcd0d06f9cb4aea6932f3b8b4567cf0dd5e52a6fa",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/SUMMARY.json",
+      "revision": null,
+      "bytes": 3599,
+      "sha256": "0da38bfd0bc34675e39fd0fc42024352bb11db8581d22b15de0ca46690bea2ef",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/SUPPLEMENTAL_NAVIGATION_BINDING.json",
+      "revision": null,
+      "bytes": 608,
+      "sha256": "02f2204f15093797109ac75fe693373cc731a025c110f844f37aa72addd6ad61",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/UPSTREAM_DELTA_REVIEW.json",
+      "revision": null,
+      "bytes": 8086,
+      "sha256": "b7a976922d0c8593ca3088d71858903f437dd9038e8a3250030be2f563d4f5af",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/UPSTREAM_FRESHNESS.json",
+      "revision": null,
+      "bytes": 626,
+      "sha256": "2f53b5801a0a6fd42f26f4d12d9c7a7d0743c64a537c1ef2b4b9e7cf68535163",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/WORK_IN_PROGRESS.json",
+      "revision": null,
+      "bytes": 701,
+      "sha256": "8b67b717f297e68cd9af02f20a592349cd23d2bd553e0172895f1743e9e67784",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/analyze_evidence.py",
+      "revision": null,
+      "bytes": 17614,
+      "sha256": "141dac36cf5d0aa2d8a402092f20d1f1024f6a962078ff4baded02a67e0779fc",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/bounded_json.py",
+      "revision": null,
+      "bytes": 4089,
+      "sha256": "42d8c411b7cd752dc3abc2e09089a1d97a4302bcae15d145b6a515c57bbc83cd",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/build_manifest.py",
+      "revision": null,
+      "bytes": 3490,
+      "sha256": "481fd9a608933b294f0cd2e62469edea3bf5e159337c177b3d580014af0dcb48",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/capture_tree_book.gd",
+      "revision": null,
+      "bytes": 20193,
+      "sha256": "4bd88066abcdcab962ed7b662f9bdb510362137ea20a344c4aa53920513cc2e2",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/capture_tree_book_guard_v1.gd",
+      "revision": null,
+      "bytes": 20030,
+      "sha256": "e3cf5e86ba204ccb9c52963881815357ae1a6e0b472c6c777ad5057f833118bb",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/gates.log",
+      "revision": null,
+      "bytes": 889,
+      "sha256": "b537feaa3b3a7ee4230e54d8f648105d4556ac36687376c4122cd07c12484042",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1613,
+      "sha256": "538dac34348c5609da7e6b49621ca576a3699e1fc5e5a64449b7be8c8758bb4f",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "c346a751075d4a2e4c3f00b245a66cc870139380b5f301bb7ed372624f2ef442",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/before_main_reload_venue_restored.png",
+      "revision": null,
+      "bytes": 1516284,
+      "sha256": "49f9e1b76838db0a031c0ffc161ae6526f72a61018aeaa57f25123f1d06a4883",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 405528,
+      "sha256": "a77b7ea774184e6fa677412833eb02633e9d89c9024fd6202c14b183a228cf6f",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/capture_tree_book.gd",
+      "revision": null,
+      "bytes": 20030,
+      "sha256": "e3cf5e86ba204ccb9c52963881815357ae1a6e0b472c6c777ad5057f833118bb",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/carry_start.png",
+      "revision": null,
+      "bytes": 584167,
+      "sha256": "2f7bb6b73b4b164c62e0d8daff7d20c28b51ed6afc7633d00f51f3f069828905",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice0_correct_pressed.png",
+      "revision": null,
+      "bytes": 559274,
+      "sha256": "030ec35d8993e6f32825850b3fd9a8dafdc2e0f038e75787870c8b597bed95b6",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice0_correct_released.png",
+      "revision": null,
+      "bytes": 542668,
+      "sha256": "4526edd5618e3f49dd4a3e37bc06fb29653a46b8725c8c86d92bfbd9e531ec61",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice0_help1.png",
+      "revision": null,
+      "bytes": 555056,
+      "sha256": "c0757e308e54d2f3dc2292a61a65deb455dc03c9f82a112df7dd83f3424fa44c",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice0_help2.png",
+      "revision": null,
+      "bytes": 557408,
+      "sha256": "b31c9256a7591a44c14d3fdda373379e696e247276a9e8247a83abc860ba1aae",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice0_ready.png",
+      "revision": null,
+      "bytes": 555290,
+      "sha256": "27acbd895cd80547b74607f83ca8ac1e1b94b53e070e1b5673db45ec466a8156",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice0_tip_pressed.png",
+      "revision": null,
+      "bytes": 558660,
+      "sha256": "32b81fbe7bd9a1b4851b900d6c392a77c870ae5fb6165c9b3a5b98591aa9a749",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice0_tip_released.png",
+      "revision": null,
+      "bytes": 558196,
+      "sha256": "7cc488c97e9d8005d053c8cdea2e0328f231a0047a9f4efeb59211b5692b68a6",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice1_correct_pressed.png",
+      "revision": null,
+      "bytes": 545625,
+      "sha256": "b430883e6958150725a054e7bbbc63bbaa91ffc150197908a35feb3f7cce885b",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice1_correct_released.png",
+      "revision": null,
+      "bytes": 585260,
+      "sha256": "31a82a61bd94912525d16f5da24c605ff50fdefaae299f71cdf798c1a9978112",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice1_help1.png",
+      "revision": null,
+      "bytes": 542990,
+      "sha256": "80ed6ad4dbf7dfd6f7384c007ec1dbb0291abd4b557eeb34fda448b476caa304",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice1_help2.png",
+      "revision": null,
+      "bytes": 545129,
+      "sha256": "d80c7c734c7284839b3ccf009edcb41a866f23f5e6bc05a4d0d1920a56a07f06",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice1_ready.png",
+      "revision": null,
+      "bytes": 542666,
+      "sha256": "9764606df69ad791e88b97219a143173f76fe95df456a4796f7c59a71f25224c",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice1_tip_pressed.png",
+      "revision": null,
+      "bytes": 544835,
+      "sha256": "bf7423f5532d6894fc9a4516bb9358bb7c195847bbc098c23b114ce5d6d7f782",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice1_tip_released.png",
+      "revision": null,
+      "bytes": 544622,
+      "sha256": "a19b855562742a93ccfe6dc9fdc5c8c17692a2c00069b123ae2cd5b21cff838e",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice2_correct_pressed.png",
+      "revision": null,
+      "bytes": 591774,
+      "sha256": "6da7e5e08c8c11e86f3e8ad14d051c6e1a53330f55e22910c5164d891806379c",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice2_help1.png",
+      "revision": null,
+      "bytes": 586566,
+      "sha256": "313ce7335932856b23ad20d01fedefd702b17c7af66592500d6b57db904c6e9b",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice2_help2.png",
+      "revision": null,
+      "bytes": 589557,
+      "sha256": "bfc8d6501b331f8df66b4170f0caf89561a95d7ddbf9462520189e13cbc8b70e",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice2_ready.png",
+      "revision": null,
+      "bytes": 585261,
+      "sha256": "1c50b9fbf2309710e65a98ea07ab31d39e14ba0bc0c9623ba6ef54b9376c04ba",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice2_tip_pressed.png",
+      "revision": null,
+      "bytes": 590631,
+      "sha256": "8c0a6f1e5b1a453f6942aa27101fd5a1aca9f9d90b8f58b2822d988acf96b378",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/choice2_tip_released.png",
+      "revision": null,
+      "bytes": 590580,
+      "sha256": "f9023e63a8704467fad1cb391fb3081ccae6f1ec8c4301a5738311c369f9faec",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/engine.log",
+      "revision": null,
+      "bytes": 1843,
+      "sha256": "7c9b9182de8dad21df2e97a7c876901f538b8730af0c5113219b180ebca039e7",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/final_venue_restored.png",
+      "revision": null,
+      "bytes": 1416411,
+      "sha256": "f82ff5f6c7fd2978bbeb8704bc9136257fbe1e27f281cb4f747e8ea8676e45ce",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/first_book_open.png",
+      "revision": null,
+      "bytes": 555331,
+      "sha256": "fa7942c4ed0f438a12c343a4cb328895b34ac29efcc199ed8b46f5f3b4818fab",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/first_opera_room.png",
+      "revision": null,
+      "bytes": 1195931,
+      "sha256": "c69a8182b89cc0a3fd758360385a05e62d77ace116b7ebf67490199ac332a158",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/first_venue_open.png",
+      "revision": null,
+      "bytes": 1416509,
+      "sha256": "a6db3c3fb8acee600543db7f3f7f41316623546bab182e496f67d89805429a78",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/healthy_complete.png",
+      "revision": null,
+      "bytes": 523160,
+      "sha256": "24ae73fb1f0c5a438683de913a5cbd4acc92fe91ce11499bc4ad7b4529ddd303",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/healthy_reopen_book_open.png",
+      "revision": null,
+      "bytes": 523184,
+      "sha256": "aad7d52473bc34546167d179381878e656d2c3a248a741d39aee02349fabaa41",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/healthy_venue_restored.png",
+      "revision": null,
+      "bytes": 1416620,
+      "sha256": "13566140660dd7aecfc85d506d18175e87656c59365012347a790a697a68bfc7",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/partial_reopen_book_open.png",
+      "revision": null,
+      "bytes": 569268,
+      "sha256": "8611b768f88412ec3c603e87811b7bfb4238ce3ceab9dae639333ee5a32b7aba",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/partial_venue_restored.png",
+      "revision": null,
+      "bytes": 1516395,
+      "sha256": "d3ad0186cc7c2f31a5d454ab3792f9d8ec1cba6353f8ead517e696dd0e6f2247",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/reload_book_open.png",
+      "revision": null,
+      "bytes": 584246,
+      "sha256": "a2bb94bb40e4dde94af105af4476b8486638a2c4625722d8fc17d553c2cf848a",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/reload_opera_room.png",
+      "revision": null,
+      "bytes": 1195800,
+      "sha256": "4661d8ea187680864aede2d1d0d1be8ef9a5225c56aaa730a285ad8c6257a52a",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/reload_venue_open.png",
+      "revision": null,
+      "bytes": 1416519,
+      "sha256": "d0b93411253dab2690876e83b435def41c28ac23a4b04da2035262be0a428880",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/replay_started.png",
+      "revision": null,
+      "bytes": 555145,
+      "sha256": "07f2dd37d5db87836b47c2520d05045c55939cb01d8ff56ec02e789b37a2f0a3",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/treatment_help.png",
+      "revision": null,
+      "bytes": 567782,
+      "sha256": "afe3d8593d0abf11b883aa9da02bd5fd63662d67dfe86b56e80e5b6375910c48",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/treatment_partial_canceled.png",
+      "revision": null,
+      "bytes": 569739,
+      "sha256": "798b9cf40d1600c6c75a735338a5ad5488105334092bb6e0164a6219d8f17698",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/treatment_partial_pressed.png",
+      "revision": null,
+      "bytes": 564805,
+      "sha256": "f70814d6662746f6ff4d8c4d5d5b12aa4260d7954b7ce52709bb224cbe07ec77",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/treatment_ready.png",
+      "revision": null,
+      "bytes": 566977,
+      "sha256": "18ce50dd4c31ace88a7175f76eada69c858547fd9143048c65e86de9744e5fe9",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/treatment_tip_pressed.png",
+      "revision": null,
+      "bytes": 567356,
+      "sha256": "b4a58b92055dba76ec0c9eb2c0bd91250e691b5b862a791a5ae2ee5c9e85070b",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt1_tree_book_1280/treatment_tip_released.png",
+      "revision": null,
+      "bytes": 567371,
+      "sha256": "53e73a54a247c831e0abb423b88ce804c332768e81e8767f42753247e5f5ec6f",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1613,
+      "sha256": "596d1ce8bda3050dc948a7db235bac623dcea4e967f791d196429f43da5749df",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "185d1341ca125a873eaba256bbfb995df997c2ae88570867ffd0c299a64f93c3",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/before_main_reload_venue_restored.png",
+      "revision": null,
+      "bytes": 1516295,
+      "sha256": "78435a26cf4a7176c0abb8d74b15c1f81f2ce1eaece59815136e0c2c8b23cbb2",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 404696,
+      "sha256": "fadaca0e99e770d732a390ebe0303d8850f1c642b62f937184c4a9e7dff914d0",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/capture_tree_book.gd",
+      "revision": null,
+      "bytes": 20193,
+      "sha256": "4bd88066abcdcab962ed7b662f9bdb510362137ea20a344c4aa53920513cc2e2",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/carry_start.png",
+      "revision": null,
+      "bytes": 584238,
+      "sha256": "8afc84a15d91c3a6718d4fd9786f312d561fdc6182d0414dfd21281af6299b0b",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice0_correct_pressed.png",
+      "revision": null,
+      "bytes": 559323,
+      "sha256": "bd1291747faba4e43c29ae95c45264446927c2220bd3b3fb123c5958151aa4bd",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice0_correct_released.png",
+      "revision": null,
+      "bytes": 542694,
+      "sha256": "5240c646ab8430edfcfc332514a2e915275fc6205e9432cf1518b5ccf8a3ac01",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice0_help1.png",
+      "revision": null,
+      "bytes": 555066,
+      "sha256": "1ed8fb775d939235c40d19c0108d5d21624061221b6d4311a86d2c92ae51b95e",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice0_help2.png",
+      "revision": null,
+      "bytes": 557349,
+      "sha256": "745def720d1cdbd8660e237e6e324785020193250343d78e72fb1b18b7829b44",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice0_ready.png",
+      "revision": null,
+      "bytes": 555286,
+      "sha256": "7f345bc8534d6ee17fc0f385d2910df9e7e4c8b7f7272d03bfb21532751a099d",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice0_tip_pressed.png",
+      "revision": null,
+      "bytes": 558566,
+      "sha256": "091515692730fdde1d948ab3e9811f58c65f29b2c807947e3591ab5bc9e491d0",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice0_tip_released.png",
+      "revision": null,
+      "bytes": 558231,
+      "sha256": "a55ddeb5b2d366374c6e200594ec2a063f413f4dbb05d493c01efd7635c3b69a",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice1_correct_pressed.png",
+      "revision": null,
+      "bytes": 545629,
+      "sha256": "024debeaf81dde5c1a3d15b89f7686ea7e60457b189c90169bd50a4c96dee15a",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice1_correct_released.png",
+      "revision": null,
+      "bytes": 585217,
+      "sha256": "46f25f8f933bd28fc5f534f17516f995dfb103ec98630d0cdc843872fc05728d",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice1_help1.png",
+      "revision": null,
+      "bytes": 543005,
+      "sha256": "36c9b4c8ed4d7dc06436a5810970d706d163039129d01e3040d61df5a706dad8",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice1_help2.png",
+      "revision": null,
+      "bytes": 545118,
+      "sha256": "f848e0a030a6cb5468d39d8904c28b94bb3ead1a9447be100c8454cfcadb7976",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice1_ready.png",
+      "revision": null,
+      "bytes": 542663,
+      "sha256": "2c07ad2811f02da14799e25c687ad7105c68880616ccf05bd5c579d9b9645cb6",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice1_tip_pressed.png",
+      "revision": null,
+      "bytes": 544928,
+      "sha256": "bbac689f4b45d83433afb839b8c36778d26c83dfea51c22400aba8fd087541be",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice1_tip_released.png",
+      "revision": null,
+      "bytes": 544681,
+      "sha256": "666e238f024dd1708bd6fd725b87ec9e278fefa5ee357e2ae78953f0649368cf",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice2_correct_pressed.png",
+      "revision": null,
+      "bytes": 591761,
+      "sha256": "8ea1037ca032e1a2bd765df6f4be610b318d8de8056f664f61fd8e4c4d2f3165",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice2_help1.png",
+      "revision": null,
+      "bytes": 586595,
+      "sha256": "907cf25a70348b89ea128081cb95417a528a5e2571ae6b8a36e17b0d96a3e998",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice2_help2.png",
+      "revision": null,
+      "bytes": 589563,
+      "sha256": "ccb1071017b5f099856ed38796b1a80c50dc81c8f4da12ebf7e2c7f92d0c2ce7",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice2_ready.png",
+      "revision": null,
+      "bytes": 585255,
+      "sha256": "cd237c4b02e5d8fea32b9c53efe23edf49809daa8f9ba78a2535f66cb1fbf8c1",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice2_tip_pressed.png",
+      "revision": null,
+      "bytes": 590600,
+      "sha256": "5e645ae3bcc5cb475e0fa744f2045b4d437bd53fc9792738c020eb346d0bea14",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice2_tip_released.png",
+      "revision": null,
+      "bytes": 590464,
+      "sha256": "3609f26965748b0434fd23da99eb9a5a2caae923d2339d79748ca1abf51c1c56",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/engine.log",
+      "revision": null,
+      "bytes": 1808,
+      "sha256": "1695ce1ca1e5b3a30aeac8db8c18088cf9b49e4f06dc0274291e0e54360fb00f",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/final_venue_restored.png",
+      "revision": null,
+      "bytes": 1416485,
+      "sha256": "06d372293c00e3948be2973976c7c196e86c8fc2dc34d230d5d217e516dd48a2",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/first_book_open.png",
+      "revision": null,
+      "bytes": 555296,
+      "sha256": "541ca3aaafe7ad0ad86b27c5e49d6c04a9e3166b90ddd6bec6d728d46c82f5ac",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/first_opera_room.png",
+      "revision": null,
+      "bytes": 1195642,
+      "sha256": "66404bbf778ccb18514be91ef0092e52c367fc37279728cf9f9c5a51574d2d60",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/first_venue_open.png",
+      "revision": null,
+      "bytes": 1416524,
+      "sha256": "ca85d67ebf6e86c56174f82031d5664121995205bf6bd6288cc8add1d6756fc8",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/healthy_complete.png",
+      "revision": null,
+      "bytes": 523176,
+      "sha256": "560af7b69eee3e8f0cd49044cb055a5b3b6790523d0828119abd133b15570869",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/healthy_reopen_book_open.png",
+      "revision": null,
+      "bytes": 523172,
+      "sha256": "71927107c2f920a17d16b99a422ce42bab323be12249e6d31347ed353e5c327c",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/healthy_venue_restored.png",
+      "revision": null,
+      "bytes": 1416617,
+      "sha256": "3d0b4a9a4c54c5bfa8a4fcc4acc368784eb08d8a5d3911363ff0ac2b90997cb1",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/partial_reopen_book_open.png",
+      "revision": null,
+      "bytes": 569286,
+      "sha256": "dcbd41ca1572e0668c2b27964c701480c4ea9e350ef712e4cb44f58b5e3af849",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/partial_venue_restored.png",
+      "revision": null,
+      "bytes": 1516447,
+      "sha256": "8b9337353da62f83af124b85a6bfbd57bf63f487049eba850c2060a895792487",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/reload_book_open.png",
+      "revision": null,
+      "bytes": 584257,
+      "sha256": "077318764754c6ac4cd370b7a43f70b5b406faf953f578eb3adc2b787db1e04b",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/reload_opera_room.png",
+      "revision": null,
+      "bytes": 1195681,
+      "sha256": "3bcb52cf84e07e12469f7c5a615d95276ae875b5911ea61005d452b3bb623109",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/reload_venue_open.png",
+      "revision": null,
+      "bytes": 1416512,
+      "sha256": "f43be45f5fb4c669613d0e0074fcfaf8d5d6a5c5640a34eaf60ac014b4b8e057",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/replay_started.png",
+      "revision": null,
+      "bytes": 555133,
+      "sha256": "f1c7c8d66111878712af03f32df56a3c1393b135d236940e8fab3bb910f98b96",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/treatment_help.png",
+      "revision": null,
+      "bytes": 567729,
+      "sha256": "8dbb7230ccf8c2d9fb9c1a88f07ad045cb485c19217fd5d160f029e4c6efe5a6",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/treatment_partial_canceled.png",
+      "revision": null,
+      "bytes": 569688,
+      "sha256": "96b8de85956dc495a33b8cf4b8b9a5753be452303b370631f673bf6faf6fd8e9",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/treatment_partial_pressed.png",
+      "revision": null,
+      "bytes": 564769,
+      "sha256": "1eecf4e861188c309baf6ea910b110990ac16087eb1a64ece053b8ce74819c25",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/treatment_ready.png",
+      "revision": null,
+      "bytes": 566984,
+      "sha256": "393ebd031b64b1cf44686b7b92d03bd44a906106bd8b617e2e1c7cb7efae70cb",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/treatment_tip_pressed.png",
+      "revision": null,
+      "bytes": 567480,
+      "sha256": "e8bfe302ad269a5d79925bdba7ee43f5e081e3e72b20f27350519d70f896e48b",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/treatment_tip_released.png",
+      "revision": null,
+      "bytes": 567382,
+      "sha256": "257b2d29393538801fd5c75035029a171069ee477bcc7ec549dff2f30adcaf8d",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/LAUNCH.json",
+      "revision": null,
+      "bytes": 1613,
+      "sha256": "b97286d7ee8ac0165cecd522692623f4f3980fd15e5650583d91a860e0e66100",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "04fe72d1abc945c33d1441d7531fd1b5b2dd69f5f000f566fd0aed7f19af38b3",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/before_main_reload_venue_restored.png",
+      "revision": null,
+      "bytes": 1548833,
+      "sha256": "c092d1f6fe44ef1a6bd46af5be1584f1ed225153597bf6b11dd81e8ab32e1fc9",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/capture_manifest.json",
+      "revision": null,
+      "bytes": 405844,
+      "sha256": "5e889611c200a17d0764ef01b7bb8eaea58fca48a2de7134f08cd37ef07a8828",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/capture_tree_book.gd",
+      "revision": null,
+      "bytes": 20193,
+      "sha256": "4bd88066abcdcab962ed7b662f9bdb510362137ea20a344c4aa53920513cc2e2",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/carry_start.png",
+      "revision": null,
+      "bytes": 589397,
+      "sha256": "3234dadd444b8cca5b35a7954555f860da0caffdcfab069fee0107586adb26ad",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice0_correct_pressed.png",
+      "revision": null,
+      "bytes": 563701,
+      "sha256": "1f78db6fb3a69b0b8d01a92b5ec164003c66aaaed6ea29a3c88c9fdb0e668913",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice0_correct_released.png",
+      "revision": null,
+      "bytes": 547628,
+      "sha256": "86c1725de15b2a7f6ec728430c517a0a7907431f18277cfb9c1593424dfecbf3",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice0_help1.png",
+      "revision": null,
+      "bytes": 559787,
+      "sha256": "e5c79e73ffb3725dde8cf4343ec130ee296c2abd7b0d6212b4944e88a8af513b",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice0_help2.png",
+      "revision": null,
+      "bytes": 562086,
+      "sha256": "dd4a0de5c1d57973040ba85d783dc69576a0eed6294111b76875071d9e73f059",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice0_ready.png",
+      "revision": null,
+      "bytes": 562637,
+      "sha256": "af75dda05391e70c27683c37d11f87f560f7fea427389e977d581db14244f7d3",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice0_tip_pressed.png",
+      "revision": null,
+      "bytes": 563450,
+      "sha256": "286391bbd866ee754e98857f2a281ef7e92349f0c5d1ac82df875778d879c58d",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice0_tip_released.png",
+      "revision": null,
+      "bytes": 563029,
+      "sha256": "3485802890b01bf91633a564f0731d0725c9dd04675b5a2097bf630d222aa6f9",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice1_correct_pressed.png",
+      "revision": null,
+      "bytes": 550138,
+      "sha256": "6461210b80292282f130242721cd6a86e2b08c55d3951c9225297ae4f5354c64",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice1_correct_released.png",
+      "revision": null,
+      "bytes": 590022,
+      "sha256": "f1083988288ac0dd91ab7ca9ab8c146bfe267e54e0bb3d7e7fa95301d88bf57f",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice1_help1.png",
+      "revision": null,
+      "bytes": 547734,
+      "sha256": "296fbbbdea36378f799a969fe33f0f048659c11c7c7c23d1f7bde4684d75fa31",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice1_help2.png",
+      "revision": null,
+      "bytes": 549754,
+      "sha256": "b2ba4af512ea9753a175275f1d8432f1a9ec0689908b7343efe730d83ce0aead",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice1_ready.png",
+      "revision": null,
+      "bytes": 547680,
+      "sha256": "5d208275a4bdbdf03b946b75bc1a3f1db735d7818d821bf64568439cd6adaf42",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice1_tip_pressed.png",
+      "revision": null,
+      "bytes": 549502,
+      "sha256": "aa3df8848f9ae668bbe0a2427ee4747f7f139b90f84a4eaae9d2412c389926bb",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice1_tip_released.png",
+      "revision": null,
+      "bytes": 549308,
+      "sha256": "78a74e4b3ef32029f620f8dd5c26ac54902fa673cacd39ce6992878dbed2b98f",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice2_correct_pressed.png",
+      "revision": null,
+      "bytes": 596509,
+      "sha256": "e0e68336bec3ef7744fd2b572f64aa7550e957d014d219ac0b6e975fe032f94a",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice2_help1.png",
+      "revision": null,
+      "bytes": 591436,
+      "sha256": "9302fb6900729a96f6c1f4a19f378062d28deaa0abe7a4c07438ea6d2cdb3889",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice2_help2.png",
+      "revision": null,
+      "bytes": 594185,
+      "sha256": "7d55ae2f7e68b5318343bf3cf8b050caa2952d9b68e7dd0c56468117536df2ed",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice2_ready.png",
+      "revision": null,
+      "bytes": 590083,
+      "sha256": "6b359d85e88da98889dacf0d80dd23a092414d9bc2269deb77fa4a149035735f",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice2_tip_pressed.png",
+      "revision": null,
+      "bytes": 595370,
+      "sha256": "318bc69f0044a9ed4b65d84f60ac3ab9916aabd4bb8964c5a26141312e16db6e",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice2_tip_released.png",
+      "revision": null,
+      "bytes": 595271,
+      "sha256": "d49e682fcfcd51345a6d6232a55521a24bb11024bcf9333e12a19264ad03a0f2",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/engine.log",
+      "revision": null,
+      "bytes": 1808,
+      "sha256": "1695ce1ca1e5b3a30aeac8db8c18088cf9b49e4f06dc0274291e0e54360fb00f",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/final_venue_restored.png",
+      "revision": null,
+      "bytes": 1447731,
+      "sha256": "47f27799040d19b68d336d7a1b57f493ce8bf6a702a35cc58baeaab3febfccd4",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/first_book_open.png",
+      "revision": null,
+      "bytes": 562591,
+      "sha256": "c9a09c602c4fa59b1d29af7bc4083f8640dbce80091f99b56c050c19028e5322",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/first_opera_room.png",
+      "revision": null,
+      "bytes": 1233677,
+      "sha256": "0c0fea971c6602cde47b5fcdf69f4752364ebe182079582d9012e55644ee8530",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/first_venue_open.png",
+      "revision": null,
+      "bytes": 1447888,
+      "sha256": "bed4ad407980b75313afa7ded6eae1a2f53ebdbcdae6bb753668ff09a9aa25e2",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/healthy_complete.png",
+      "revision": null,
+      "bytes": 526570,
+      "sha256": "f65fbce7a3147c5af568014a775be0a6203aeae5cdaf3b8e2e0a1d43eb68d9b4",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/healthy_reopen_book_open.png",
+      "revision": null,
+      "bytes": 526559,
+      "sha256": "08e0fe259bbf5f37a7120311cecd9641f46d4c055b3ec819a8f7a38d0745fd5d",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/healthy_venue_restored.png",
+      "revision": null,
+      "bytes": 1447855,
+      "sha256": "b83e45d56eb62feb1a0d6fecb33ee2f5c1a8f54a6daa351976e4a90cdf8f328b",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/partial_reopen_book_open.png",
+      "revision": null,
+      "bytes": 573985,
+      "sha256": "7af13ec572c1c7ac3305b7f772d63fcc62bda265301bdd856ab60adb4738dbc0",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/partial_venue_restored.png",
+      "revision": null,
+      "bytes": 1549211,
+      "sha256": "d11042ee4175bb5303dc3d9d1052831d1dd48ecae277612bff64d63b421d06fe",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/reload_book_open.png",
+      "revision": null,
+      "bytes": 588428,
+      "sha256": "905aa3b1b730a3dcd17e71f2369ea98ea52c3bd0cd88ea11960e53893ca1507c",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/reload_opera_room.png",
+      "revision": null,
+      "bytes": 1233828,
+      "sha256": "f0c05bce58ff3a3776e2e400bee77412fc8069a74365a1cfeaefed5b32560062",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/reload_venue_open.png",
+      "revision": null,
+      "bytes": 1447905,
+      "sha256": "6d43e626a5e1bb0786747c52fbec175a86f9cf6c384e8de3a39f621d0bd3987a",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/replay_started.png",
+      "revision": null,
+      "bytes": 562451,
+      "sha256": "fb8de428237db12da3d4d9befe5b2cea60758f89c21f6b1eb95e0dc0305b6905",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/treatment_help.png",
+      "revision": null,
+      "bytes": 572621,
+      "sha256": "2054d31033957008713372e09c564f37034d5ff3d6f26c1cad6f1376edfc3ee5",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/treatment_partial_canceled.png",
+      "revision": null,
+      "bytes": 574480,
+      "sha256": "ab14d0ae15f7e9c36bd78018c2db1fa190bfcd89ed22c6e41f365dc898b6fd28",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/treatment_partial_pressed.png",
+      "revision": null,
+      "bytes": 569952,
+      "sha256": "16e12ab33216608a36ff6f297e982d7b43116195219eb4f1fe639216bf995e23",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/treatment_ready.png",
+      "revision": null,
+      "bytes": 571874,
+      "sha256": "e6189da6af040ac1b9ca4d91c1e38edcec7d9445c29e618fa23580f45e402bbd",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/treatment_tip_pressed.png",
+      "revision": null,
+      "bytes": 572446,
+      "sha256": "701b8802e7a7438522d82821caaee6deb603f20b96b4cc46fef0c26e50213b96",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/treatment_tip_released.png",
+      "revision": null,
+      "bytes": 572303,
+      "sha256": "f19e39b60505c60c20aa596200c77dc40527284325b5150fde24ae61fc2e7670",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/per_piece.json",
+      "revision": null,
+      "bytes": 1514813,
+      "sha256": "3363802a6c7af1c1959010d6381e81d64f3150a0ad65573fbe6cba8777c193df",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/run_native.py",
+      "revision": null,
+      "bytes": 4723,
+      "sha256": "d21d19b55e49299855119939c9c7e7e4534297196a3d53d87409195ddf4c3810",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/scene_coverage.json",
+      "revision": null,
+      "bytes": 953187,
+      "sha256": "1666215fe10967e8478a0aabb4f69306669961032af0c74da96e39f0f95306a2",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/tally.json",
+      "revision": null,
+      "bytes": 405598,
+      "sha256": "75df18641bfc54b328004bea2a26a19d016da4fe4ac36cf703eead5285fc461f",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/upstream_doorframe_delta.json",
+      "revision": null,
+      "bytes": 38963,
+      "sha256": "88f1678045f09c97fa75a23ceefde778f47757e4bd3016113985805331dc96cd",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/validate.py",
+      "revision": null,
+      "bytes": 9026,
+      "sha256": "97d04300825f2b1c5015d16636d570cdc9794f24ec02a12fad75cb4b323bd38e",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/verify_remote.py",
+      "revision": null,
+      "bytes": 3368,
+      "sha256": "fa7c9e9df1013dbd3d56fe6a165eee24241168252191551aa13f8b2517861d64",
+      "role": "Current R74 bounded embedded source evidence; no acceptance"
+    },
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_opera_exact.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 757381,
+      "sha256": "3d107eca1ad32cae40ac9bfa298d02c3ab1e94475b873f1905eedcc1ece64d42",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_royal_exact.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 961018,
+      "sha256": "eae0fbef272947cea857b4a80ffe3a15da8f10761eae9abda71a88420bbcd2d9",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_small_exact.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 298586,
+      "sha256": "4603157688afb263d20e9ce47b23ed3f24b1ba518f6104b62b592a05fb698c10",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 243732,
+      "sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6242,
+      "sha256": "da2d19422b20b6a8cce724a441e09db80f4ac105757a4131233920054ac79c94",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "scripts/probe_castle_door_language.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9813,
+      "sha256": "75918e67face762686ad8cabd5ad01c5442bc2cfeb89640b9ed68fd7ffc12e75",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "scripts/probe_castle_door_visual_capture.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8379,
+      "sha256": "9e7b9eecc256d9a5a142609653b70fa80c570723ca00546402961ebad25f3fb7",
+      "role": "Exact current source/art/license/domain dependency"
+    },
+    {
+      "path": "shaders/castle_door_frame_glow.gdshader",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5830,
+      "sha256": "26d052deea78357f345a0a290da5ef4df4f5d8ba446b79666ba3e3b119b96267",
+      "role": "Exact current source/art/license/domain dependency"
+    }
+  ],
+  "required_file_count": 237,
+  "required_bytes": 113177561,
+  "payload_sha256": "335ecad33c949683a8dec385a401ddcac089340bd142820eaac30a90b1ca782c",
+  "historical_parent": {
+    "receipt": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+    "prior_payload": "5a46e06c26be03099967e665d7407b507f9cf010",
+    "freshly_reverified_transitive_payload": false
+  },
+  "metrics": {
+    "revision": "FV-AUDIT-20261015-R74",
+    "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+    "topic_baseline": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+    "native_cases": 3,
+    "healthy_cases": 2,
+    "healthy_checks": 96,
+    "failed_fixture_cases_retained": 1,
+    "raw_frames": 123,
+    "new_bounded_contexts": 78,
+    "new_excluded_diagnostics": 45,
+    "retained_bounded": 6200,
+    "retained_excluded": 3268,
+    "retained_native_events": 9468,
+    "new_roles": 11,
+    "new_families": 1,
+    "known_roles": 254,
+    "known_families": 35,
+    "existing_partial_roles": 75,
+    "existing_partial_families": 15,
+    "supplemental_partial_roles": 30,
+    "catalogue_partial": 92,
+    "catalogue_without_current_slice": 84,
+    "catalogue_complete": 0,
+    "new_alias_credits": 0,
+    "healthy_full_hint_cycles": 8,
+    "healthy_tip_misses": 8,
+    "generation_calls": 0,
+    "new_drawing_samples": 0,
+    "new_runtime_assets": 0,
+    "approved": 0,
+    "integrated": 0,
+    "runtime_verified_replacements": 0,
+    "accepted_removed": 0,
+    "all_game_artwork_total": null,
+    "distinct_screen_total": null,
+    "regression_total": null,
+    "mission_complete": false,
+    "cases": [
+      {
+        "case": "attempt1_tree_book_1280",
+        "exit_code": 1,
+        "raw_frames": 41,
+        "bounded": 0,
+        "excluded": 41,
+        "checks": 48,
+        "passing_checks": 47,
+        "source_faults": 4,
+        "source_bytes_unchanged": 4420,
+        "sidecars_exact": 4041,
+        "normal_names_exact": 11,
+        "partial_dose": 0.291671666666667,
+        "new_main_reload": "NEW_MAIN_IN_SAME_OS_PROCESS_ONLY",
+        "actual_child_or_device_acceptance": false
+      },
+      {
+        "case": "attempt2_tree_book_1280",
+        "exit_code": 0,
+        "raw_frames": 41,
+        "bounded": 39,
+        "excluded": 2,
+        "checks": 48,
+        "passing_checks": 48,
+        "source_faults": 4,
+        "source_bytes_unchanged": 4420,
+        "sidecars_exact": 4041,
+        "normal_names_exact": 11,
+        "partial_dose": 0.291666666666667,
+        "new_main_reload": "NEW_MAIN_IN_SAME_OS_PROCESS_ONLY",
+        "actual_child_or_device_acceptance": false
+      },
+      {
+        "case": "attempt2_tree_book_1600",
+        "exit_code": 0,
+        "raw_frames": 41,
+        "bounded": 39,
+        "excluded": 2,
+        "checks": 48,
+        "passing_checks": 48,
+        "source_faults": 4,
+        "source_bytes_unchanged": 4420,
+        "sidecars_exact": 4041,
+        "normal_names_exact": 11,
+        "partial_dose": 0.291674666666667,
+        "new_main_reload": "NEW_MAIN_IN_SAME_OS_PROCESS_ONLY",
+        "actual_child_or_device_acceptance": false
+      }
+    ],
+    "limits": "Bounded synthetic embedded source context. Phase1no production changes; source defects not repaired, finalQA11/motion/allcaller/device/child/owner still open; standalone catalogue alias uncredited; failed fixture41 frames excluded. R72 ImageGen request unchanged/unapproved.",
+    "upstream_freshness_limit": {
+      "origin_dev": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "runtime_changed_paths": [
+        "assets/flats/castle/door_cues/door_frame_opera_exact.png",
+        "assets/flats/castle/door_cues/door_frame_royal_exact.png",
+        "assets/flats/castle/door_cues/door_frame_small_exact.png",
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/castle_door_cue.gd",
+        "scripts/probe_castle_door_language.gd",
+        "scripts/probe_castle_door_visual_capture.gd",
+        "shaders/castle_door_frame_glow.gdshader"
+      ],
+      "capture_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "new_head_runtime_reviewed": false,
+      "selected_book_source_entry_art_save_exact": 15,
+      "review": "UPSTREAM_DELTA_REVIEW.json"
+    }
+  },
+  "post_publication_records": "Receipt metadata anonymously checked separately after push to avoid recursive self-hash claim.",
+  "accepted_removed": 0,
+  "mission_complete": false
+}

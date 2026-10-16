@@ -1,0 +1,26 @@
+{
+  "status": "RETAINED_FAILED_FIXTURE_JSON_VALUE_TYPE_COMPARISON",
+  "case": "native/attempt1_tree_book_1280",
+  "executed_fixture_sha256": "e3cf5e86ba204ccb9c52963881815357ae1a6e0b472c6c777ad5057f833118bb",
+  "retained_png_count": 41,
+  "failed_check": "private unknown sentinel retained",
+  "actual_seed_marker": {
+    "keep": [
+      4,
+      7
+    ],
+    "token": "R74_SYNTHETIC_ONLY"
+  },
+  "actual_recorded_disk_marker": {
+    "keep": [
+      4.0,
+      7.0
+    ],
+    "token": "R74_SYNTHETIC_ONLY"
+  },
+  "diagnosis": "Same token/array numeric values preserved in all recorded saves, including new Main reload. Direct Variant dictionary equality distinguishes seed integer array from JSON float array. This is a fixture comparison failure, not source save loss.",
+  "correction": "Use established source-audit _state_equal JSON roundtrip on both values; preserve all original source, clock, input and profile behavior. Fresh corrected runs required; never rewrite failed raw metadata.",
+  "initial_case_context_credit": 0,
+  "initial_case_classification": "EXCLUDED_FIXTURE_GUARD_DIAGNOSTIC",
+  "source_pointer_failure_retained": true
+}
