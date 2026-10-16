@@ -86,6 +86,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/PIXEL_EVIDENCE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/REPRODUCTION.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/REVIEW.json",
@@ -94,6 +95,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/SOURCE_RETURN_FAILURE_SCOPE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/STAGED_2D_WORDING_CORRECTION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/TWO_D_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/UPSTREAM_FRESHNESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/WORK_IN_PROGRESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/base_capture.gd",
@@ -211,6 +213,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/native/attempt3_revealed_1280/capture_manifest.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/native/attempt3_revealed_1280/engine.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r69_fairy_route_context/syntax_gates.py",
@@ -228,6 +231,11 @@
       "command": "Evidence identity/parser/inference/exact-engine/document/audit/2D and remote delivery",
       "result": "PASS",
       "evidence": "FIXTURE_SYNTAX_GATES/GATES: parser/inference/exact-engine check-only;62PNGdecoded hashes,4 observer cases55 checks; source occlusion and Back failures preserved. History/frozen5/unions, document authority/development,54tests/6stress. Staged+committed2D separately before push; no acceptance credit."
+    },
+    {
+      "command": "Anonymous exact immutable payload manifest and every required file",
+      "result": "PASS",
+      "evidence": "Payload5166c0e92dbe6c1804fafe19201cc857f7a5db26;263 files/134729845bytes;REMOTE_VERIFICATION.json;2026-10-16T01:11:42.777124+00:00;publication is not creative acceptance."
     }
   ],
   "acceptance_gaps": "Phase1 source-bound audit only. No runtime changes or art generation/adoption. Full rescue/fountain/mission/alternate callers, QA11/freshOS/device/child/owner, strict2D and whole-game inventory remain open;0 accepted removals."

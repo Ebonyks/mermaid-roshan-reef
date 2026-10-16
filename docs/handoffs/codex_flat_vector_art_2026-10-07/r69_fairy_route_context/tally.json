@@ -20,7 +20,7 @@
     "INACTIVE_ARCHIVE"
   ],
   "mission_status": "ACTIVE; zero-vector removal NOT achieved",
-  "phase": "R69 current Fairy route audit; source purple occlusion and Back return failures open; no production repair or accepted removal",
+  "phase": "R69 Fairy route context published;4 observer cases55 checks62 native40 bounded22 excluded;source art and Back contracts FAIL;production unchanged,acceptance/removal open",
   "named_piece_records": 224,
   "named_family_count": 29,
   "named_status_counts": {
@@ -1593,8 +1593,16 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "state": "SEALED_PAYLOAD_SNAPSHOT",
-    "verification_authority": "CURRENT.json R69_publication and current immutable tally/REMOTE_VERIFICATION/FINAL_BYTE_RECEIPT, verified after payload publication",
+    "state": "PUBLISHED_PAYLOAD_ANONYMOUSLY_VERIFIED",
+    "payload_revision": "5166c0e92dbe6c1804fafe19201cc857f7a5db26",
+    "manifest_sha256": "716d298e34865193c1fe546167dcca366d11a5ae79e26a4aa585c05b58bae294",
+    "payload_sha256": "88d0e64cee0174d66ab2f02097c4f18b18497213d0bbf8ed1b39522376a483b2",
+    "required_files": 263,
+    "required_bytes": 134729845,
+    "checked_at_utc": "2026-10-16T01:11:42.777124+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "creative_acceptance": false,
+    "production_adoption": false,
     "accepted_removed": 0
   },
   "independent_style_review": {
@@ -5255,7 +5263,41 @@
     "review": "REVIEW.json",
     "source_failures": "SOURCE_FAILURES.json",
     "piece_records": "PIECE_RECORDS.json",
-    "catalogue_bindings": "CATALOGUE_BINDINGS.json"
+    "catalogue_bindings": "CATALOGUE_BINDINGS.json",
+    "current_ci_snapshot": {
+      "checked_at_utc": "2026-10-16T01:13:19.646852+00:00",
+      "runs": [
+        {
+          "conclusion": "",
+          "databaseId": 38833772030,
+          "headSha": "5166c0e92dbe6c1804fafe19201cc857f7a5db26",
+          "status": "in_progress",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38833772030"
+        },
+        {
+          "conclusion": "cancelled",
+          "databaseId": 38827560935,
+          "headSha": "fe7ad2cb55205dd21035cc59beca0d2d918b3920",
+          "status": "completed",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38827560935"
+        },
+        {
+          "conclusion": "cancelled",
+          "databaseId": 38827262939,
+          "headSha": "4e7ed624af0169d5d19b2027f73091f65e73f33d",
+          "status": "completed",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38827262939"
+        },
+        {
+          "conclusion": "cancelled",
+          "databaseId": 38826897157,
+          "headSha": "05ad9e5fb60f16d1cffd95f8a164d634632fb2ae",
+          "status": "completed",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38826897157"
+        }
+      ],
+      "scope": "Observed exact heads only; pending/cancelled is not green or acceptance."
+    }
   },
   "inherited_r68_reference_base": {
     "payload": "05ad9e5fb60f16d1cffd95f8a164d634632fb2ae",
