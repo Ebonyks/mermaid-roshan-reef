@@ -1,0 +1,42 @@
+{
+  "status": "PASS_FINAL_RECEIPT_REVIEW",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r74_tree_book_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "930239087c925804707184f01d7c89c94024414652ac66a3b4241f75d165b227",
+      "output": "warning: in the working copy of 'audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md', LF will be replaced by CRLF the next time Git touches it\nR74_VALIDATION_PASS 123raw/78bounded/45excluded;96checks8misses;11newroles254/35;history/frozen/source/provenance guards;0acceptance;globalunknown\r\n",
+      "checked_at_utc": "2026-10-16T06:36:09.638288+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "e077f8077f121f77fab1989ce599081e8b073b50128cfa49aba293317f7465df",
+      "output": "DOCAUTH|INVENTORY=787|LEDGER=787|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T06:36:20.925257+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T06:36:28.716650+00:00"
+    }
+  ],
+  "log_sha256": "525f1cc02f49fc3d21161db9fab74b1e36a5cdfbcadffcaec333ccc35b95f94d",
+  "scope": "All3 evidence/document gates passed. Final staged+committed2D required before push. No finalQA11/art/runtime/device/child/owner or global zero-art acceptance."
+}

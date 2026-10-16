@@ -252,8 +252,8 @@
     "receipt": "REMOTE_VERIFICATION.json",
     "own_receipt_scope": "Final receipt own changed metadata bytes/head checked after push; not recursively self-hashed."
   },
-  "current_two_d_evidence": "r73_hand_consumer_audit/TWO_D_GATES.json",
-  "current_ci_snapshot": "r73_hand_consumer_audit/TOPIC_CI.json",
+  "current_two_d_evidence": "r74_tree_book_context/TWO_D_GATES.json",
+  "current_ci_snapshot": "r74_tree_book_context/TOPIC_CI.json",
   "current_new_art_export_request": "r72_skyway_hand_reuse/NEW_ART_REVIEW_REQUEST.json",
   "immutable_r72_payload_revision": "1b771fafcc68506eed8212a1cc9b5981bc25b0a2",
   "immutable_r72_final_revision": "e4ff0ae20c0edfc567221396d4613b1fc4b1d067",
@@ -378,5 +378,16 @@
       "selected_book_source_entry_art_save_exact": 15,
       "review": "UPSTREAM_DELTA_REVIEW.json"
     }
+  },
+  "r74_publication": {
+    "state": "R74_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "23ace33abc1d74b938dbaead53a0b4e421c22e1a",
+    "required_files": 237,
+    "required_bytes": 113177561,
+    "manifest_sha256": "0c100cf1dba21d22b1ce6728edf404c9ca9a6a9003ca0e56aa462fb5f0f9c561",
+    "checked_at_utc": "2026-10-16T06:35:37.174832+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final receipt own changed bytes/head checked after push without recursive self hash."
   }
 }

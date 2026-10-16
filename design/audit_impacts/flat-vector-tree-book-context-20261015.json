@@ -80,12 +80,15 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/PREPARATION_HISTORY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/PROVENANCE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/REPRODUCTION_CHECK.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/SOURCE_BINDINGS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/SOURCE_GUARDS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/SUMMARY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/SUPPLEMENTAL_NAVIGATION_BINDING.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/TOPIC_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/TWO_D_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/UPSTREAM_DELTA_REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/UPSTREAM_FRESHNESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/WORK_IN_PROGRESS.json",
@@ -234,6 +237,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/treatment_tip_pressed.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/treatment_tip_released.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/tally.json",
@@ -269,13 +273,18 @@
     },
     {
       "command": "Audit authority/development54tests/6stress and actual staged+committed2D perpush; exact-source CI separately scoped",
-      "result": "PENDING",
-      "evidence": "Document/evidence54tests/6stress PASS; actual staged+committed2D required before each push, not claimed prematurely."
+      "result": "PASS",
+      "evidence": "GATES evidence/document54tests/6stress PASS; actual payload staged+committed2D outputs in TWO_D_GATES. Strict2D unsatisfied; final receipt runs its own actual pair before push."
     },
     {
       "command": "Publish same authorized public GitHub branch/path, anonymously verify manifest/every declared file and final metadata",
-      "result": "PENDING",
-      "evidence": "R74 pre-recorded scope; no completion claimed."
+      "result": "PASS",
+      "evidence": "Immutable public payload manifest/all required files anonymously byte-verified at 23ace33abc1d74b938dbaead53a0b4e421c22e1a; final metadata separately checked after push."
+    },
+    {
+      "command": "Anonymous immutable HTTPS manifest/index/fragments and every declared source/context/evidence file plus public repository API",
+      "result": "PASS",
+      "evidence": "237files/113177561bytes at 23ace33abc1d74b938dbaead53a0b4e421c22e1a; manifestSHA256 0c100cf1dba21d22b1ce6728edf404c9ca9a6a9003ca0e56aa462fb5f0f9c561; time 2026-10-16T06:35:37.174832+00:00. R74 source-pinned native diagnostics/11newpartialroles only;0replacement/generation/acceptance/removal. New upstream doorframe head not native-reviewed. R72 exact ImageGen request remains unapproved."
     }
   ],
   "acceptance_gaps": "Native diagnostic current-context only. Source fullgraph/native/dynamic closure, finalQA11/strict2D, every source/candidate art identity/style/motion/device/child/owner lane, whole-game piece/screen/regression denominator and zero-art satisfaction remain open. No production implementation or new generation/export."

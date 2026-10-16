@@ -8,7 +8,14 @@
   "accepted_removed": 0,
   "mission_complete": false,
   "publication": {
-    "state": "PREPUBLICATION_NOT_DELIVERED",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "state": "R74_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "23ace33abc1d74b938dbaead53a0b4e421c22e1a",
+    "required_files": 237,
+    "required_bytes": 113177561,
+    "manifest_sha256": "0c100cf1dba21d22b1ce6728edf404c9ca9a6a9003ca0e56aa462fb5f0f9c561",
+    "checked_at_utc": "2026-10-16T06:35:37.174832+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final receipt own changed bytes/head checked after push without recursive self hash."
   }
 }

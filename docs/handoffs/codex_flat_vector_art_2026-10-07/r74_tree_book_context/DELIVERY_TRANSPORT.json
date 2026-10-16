@@ -2,5 +2,30 @@
   "state": "PAYLOAD_NOT_YET_PUBLISHED",
   "method": "Original exact Git objects/commit through existing authorized gh, same public durable topic; nonforce only. Prior large normal-pack reset avoided; no new failed pack claimed. Anonymous every-required-file verification follows.",
   "runtime_or_art_changes": [],
-  "generation_calls": 0
+  "generation_calls": 0,
+  "payload_transport": {
+    "status": "EXACT_GIT_OBJECTS_AND_ORIGINAL_COMMIT_PUBLISHED_NON_FORCE",
+    "baseline": "0f99b32d98729d11f114dbebcf5b90aba39ca545",
+    "revision": "23ace33abc1d74b938dbaead53a0b4e421c22e1a",
+    "tree": "f5e90e5a32396f6a5ec6627ff80b064eb6ccd40f",
+    "new_blob_count": 179,
+    "changed_file_count": 188,
+    "checked_at_utc": "2026-10-16T06:35:27.049123+00:00",
+    "existing_gh_authorization_only": true,
+    "credential_value_extracted_or_printed": false,
+    "transport_reason": "Prior R39 ordinary114MiB Git pack reset; direct exact-object safe path used forR72, no failedR74 pack claimed.",
+    "access_mode": "Authenticated Git object write to same owner-authorized public repository/durable branch; anonymous required-file verification follows",
+    "no_runtime_or_source_tree_change_from_verified_commit": true
+  },
+  "payload_verification": {
+    "state": "R74_PAYLOAD_ALL_REQUIRED_FILES_ANONYMOUSLY_VERIFIED",
+    "revision": "23ace33abc1d74b938dbaead53a0b4e421c22e1a",
+    "required_files": 237,
+    "required_bytes": 113177561,
+    "manifest_sha256": "0c100cf1dba21d22b1ce6728edf404c9ca9a6a9003ca0e56aa462fb5f0f9c561",
+    "checked_at_utc": "2026-10-16T06:35:37.174832+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "own_receipt_scope": "Final receipt own changed bytes/head checked after push without recursive self hash."
+  }
 }
