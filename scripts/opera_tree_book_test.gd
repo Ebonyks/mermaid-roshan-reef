@@ -22,9 +22,11 @@ const LEAF_PREVIEW_RECT := Rect2(701, 118, 142, 142)
 # The touch target is the actual canopy, beside the authored bottle nozzle.
 const TREATMENT_TREE_RECT := Rect2(745, 135, 440, 490)
 const TREATMENT_ACTOR_RECT := Rect2(210, 175, 590, 500)
-const LEAF_RECT := Rect2(790, 215, 320, 180)
+const LEAF_RECT := Rect2(770, 195, 390, 255)
 const SPRAY_NOZZLE := Vector2(692, 392)
 const SPRAY_CONTACT := Vector2(850, 385)
+# Measured lower fingertip: native (217,446) in the512x512 source, fitted to85px.
+const HINT_TIP := Vector2(36, 74)
 const BACK_RECT := Rect2(14, 14, 110, 110)
 const REPLAY_RECT := Rect2(90, 548, 110, 110)
 const SPRAY_SECONDS := 1.6
@@ -277,6 +279,10 @@ func treatment_pose() -> int:
 		return 2 if spray_active() else 1
 	return 0
 
+func treatment_hint_rect() -> Rect2:
+	# Place the pictured fingertip on the same leaf socket as the spray contact.
+	return Rect2(SPRAY_CONTACT - HINT_TIP + Vector2(0, sin(elapsed * 3) * 7), Vector2(85, 85))
+
 func treatment_actor_rect() -> Rect2:
 	var rect := TREATMENT_ACTOR_RECT
 	var pose := treatment_pose()
@@ -437,7 +443,7 @@ func _draw_treatment() -> void:
 				draw_circle(point, 3.0 + phase * 2.0, Color("#60cee2"))
 		else:
 			draw_arc(SPRAY_CONTACT, 43, 0, TAU, 48, Color("#daa955"), 4, true)
-			_fit(hand, Rect2(SPRAY_CONTACT - Vector2(25, 22 + sin(elapsed * 3) * 7), Vector2(85, 85)))
+			_fit(hand, treatment_hint_rect())
 		var meter := Rect2(805, 630, 320, 12)
 		draw_rect(meter, Color("#d3dfcb"))
 		meter.size.x *= treatment

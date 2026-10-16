@@ -61,6 +61,8 @@ func run(host: Node, main: ReefMain = null) -> bool:
 	check("treatment target belongs to the patient canopy",
 		OperaTreeBookTest.TREATMENT_TREE_RECT.encloses(OperaTreeBookTest.LEAF_RECT)
 		and OperaTreeBookTest.LEAF_RECT.has_point(OperaTreeBookTest.SPRAY_CONTACT))
+	check("pictured hand stays inside the actual canopy target",
+		OperaTreeBookTest.LEAF_RECT.encloses(level.treatment_hint_rect()))
 	var leaves := OperaTreeBookTest.LEAF_RECT.get_center()
 	var bottle := OperaTreeBookTest.SPRAY_NOZZLE
 	touch(level, 1, true, bottle)

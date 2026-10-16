@@ -39,8 +39,8 @@ func _run() -> void:
 	await shot("01_approach")
 	level.advance(0.55)
 	await shot("02_ready")
-	await touch(true, OperaTreeBookTest.SPRAY_CONTACT)
-	check("real viewport touch owns visible canopy", level.spray_active())
+	await touch(true, level.treatment_hint_rect().position + OperaTreeBookTest.HINT_TIP)
+	check("pictured fingertip touch owns visible canopy", level.spray_active())
 	for tick: int in range(8):
 		level.advance(0.1)
 	check("intentional hold gives partial healing", level.treatment > 0.4 and level.treatment < 0.6)
@@ -50,7 +50,7 @@ func _run() -> void:
 	level.advance(1.0)
 	check("release stops spray and preserves healing", not level.spray_active() and is_equal_approx(dose, level.treatment))
 	await shot("04_released")
-	await touch(true, OperaTreeBookTest.SPRAY_CONTACT)
+	await touch(true, level.treatment_hint_rect().position + OperaTreeBookTest.HINT_TIP)
 	for tick: int in range(12):
 		level.advance(0.1)
 	check("earned healthy endpoint", level.stage == 5 and level.treatment == 1.0)
@@ -59,8 +59,8 @@ func _run() -> void:
 	root.size = Vector2i(1920, 900)
 	await process_frame
 	level.restore_progress({"version": 1, "patient": "orange_spots", "stage": 4, "treatment": 0.4})
-	await touch(true, OperaTreeBookTest.SPRAY_CONTACT)
-	check("wide viewport maps same canopy touch", level.spray_active())
+	await touch(true, level.treatment_hint_rect().position + OperaTreeBookTest.HINT_TIP)
+	check("wide viewport maps pictured fingertip touch", level.spray_active())
 	level.advance(0.1)
 	await shot("06_wide_touch")
 	level.shutdown()

@@ -82,7 +82,15 @@ Reproduce the new treatment and wide-touch captures with
 `--rendering-method mobile --script tools/capture_arborist_spray.gd` and disposable user data.
 The older review images and counts above describe the September 30 build only.
 
-October 15 machine verification:57 focused and64 integrated Tree Book checks pass;
+Initial October 15 source `db1d8f78` machine verification:57 focused and64 integrated Tree Book checks pass;
 the full unchanged local suite completes82/82 ordered trusted probes with zero exits
 and no trusted failure markers. [Exact source/log/capture receipt](../assets_src/review/arborist_spray_20261015/VERIFICATION.json).
 Published-head CI is tracked separately from these local results.
+
+The final pictured-tip correction measures the hand's native fingertip at(217,446) in
+its512x512 source and binds the drawn85px hint to the same touch socket. The390x255
+canopy target covers its complete pictured cue and all the visible leaf cluster.
+Actual viewport touches at the fingertip pass in both review sizes;58 focused checks pass.
+The corrected source passes58 focused and65 integrated Tree Book checks, and the full
+local82-probe suite completes with82 zero exits and no trusted failure markers.
+Exact published-head CI is still independently required before dev integration.
