@@ -1,0 +1,44 @@
+{
+  "sample_id": "FV-CAND-R82-RING-01",
+  "role_id": "FV-7976FC8C2881",
+  "observation_scope_id": "FVS-38151AC2830B",
+  "source": {
+    "path": "assets/opera/worlds/props/fx_telegraph_ring.png",
+    "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+    "sha256": "12077afe02fa842d7e257d22110cc64df13a63510d2cd8c86fd4c7a06062572e",
+    "bytes": 175108,
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "fit_disposition": "Chosen bounded candidate: actual brush-shaded gold/lavender open ring, source512square retained. Alarm ticks/meaning/new-use fit remain unaccepted.",
+    "new_use_accepted": false
+  },
+  "source_center_alpha": 0,
+  "method": "Whole existing accepted512square bitmap reused in110square TextureRect; source white RGB/own alpha preserved; original Panel source tween supplies fade/free. Original FlatStyle replaced with Empty only in ignored local prototype; no source pixel edit/crop/warp/relight/new tween/input owner.",
+  "source_peak_visual_alpha_change": "Original StyleBox fill alpha0.5 is replaced by authored ring alpha up to1.0 following original Panel fade. This is an explicit local visual change, not source-equivalent opacity.",
+  "state": "NONRUNTIME_REUSE_SAMPLE_AWAITING_NEW_USE_REVIEW",
+  "native_aspects": [
+    [
+      1280,
+      720
+    ],
+    [
+      1600,
+      720
+    ]
+  ],
+  "review_gaps": [
+    "Alarm/target meaning of connected ticks; all-scene neutral touch interpretation unaccepted",
+    "Bright rim/peak alpha/occlusion and full motion/device/child/owner/caller states",
+    "Separate child instance/ancestor RGB telemetry and authoritative QA11 remain open"
+  ],
+  "approved": false,
+  "integrated": false,
+  "reuse_ready": false,
+  "drawing_required": null,
+  "runtime_verified_replacement": false,
+  "accepted_removed": 0,
+  "generation_calls": 0
+}

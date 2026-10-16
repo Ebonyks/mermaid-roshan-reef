@@ -1,0 +1,110 @@
+{
+  "status": "PASS_SOURCE_AND_SEPARATE_RING_REUSE_ONLY",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r82_touch_flash_reuse\\test_reuse_evidence.py"
+      ],
+      "exit_code": 0,
+      "sha256": "d6e0e88141c2faddf8287cd25a79fcfba122da893747ce646df53907b84f1ff6",
+      "checked_at_utc": "2026-10-16T13:08:41.679812+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r82_touch_flash_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "1718664689f7069f87f7a0f8d9158b6ec4b8d1996351f68522977bf10541e15f",
+      "checked_at_utc": "2026-10-16T13:09:05.614541+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "d641ff978a7b499b4fe4c274841167d75f6b1ec89246921c72385beb876742d6",
+      "checked_at_utc": "2026-10-16T13:09:15.752682+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-16T13:09:24.192298+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "sha256": "c8454cd3fea8bae14d5e236b07c72879d31030fc5b07e24ee2193f4d8ba64c42",
+      "checked_at_utc": "2026-10-16T13:09:33.847932+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-16T13:09:34.923742+00:00"
+    }
+  ],
+  "raw_log_sha256": "d71e49f3f6fd054b72b6f0090e8d4b10ca4047857c394eae48b3ce71acc233b5",
+  "scope": "14adversarial evidence tests; two exact4.7.2Mobile/Speedy native cases/84checks/39frames:19source16candidate4bootstrap.4source4candidate lifecycles; whole accepted existing bitmap/original Panel/input/fade/free retained.263roles35families/76existingpartial unchanged;one local sample awaits new-use review.4425runtime/4088sidecars/11normal save-name guards unchanged;39nonruntime capture license rows. Document authority/development54unit6stress PASS; actual staged/committed2D separately before every push. No production or acceptance.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r82_touch_flash_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "1718664689f7069f87f7a0f8d9158b6ec4b8d1996351f68522977bf10541e15f",
+      "output": "R82_VALIDATION_PASS 2cases84checks39raw19source20excluded;4source4candidate;wholeRing/originalPanel/fade/free;1sample;263/35;76partial;39licenses;0production/acceptance;globalunknown\r\n",
+      "checked_at_utc": "2026-10-16T13:12:27.024859+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "d641ff978a7b499b4fe4c274841167d75f6b1ec89246921c72385beb876742d6",
+      "output": "DOCAUTH|INVENTORY=795|LEDGER=795|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T13:12:36.774443+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T13:12:44.360205+00:00"
+    }
+  ]
+}

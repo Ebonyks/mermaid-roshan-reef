@@ -1,0 +1,72 @@
+{
+  "review_type": "Codex agent partial source/candidate same-scene review; not human/child/owner acceptance",
+  "role_id": "FV-7976FC8C2881",
+  "observation_scope_id": "FVS-38151AC2830B",
+  "sample_id": "FV-CAND-R82-RING-01",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "axes": [
+    {
+      "axis": "contour",
+      "observation": "Original feedback is a perfect filled circle. Candidate whole authored ring has connected irregular ticks and a painted violet edge; original source proportions are retained. Tick/alarm interpretation remains open.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_REVIEW_OPEN"
+    },
+    {
+      "axis": "material",
+      "observation": "The candidate visibly carries broad brush shading and creamy highlight bands at the sampled size. It replaces the mathematical fill only in the ignored observer, with actual source context captured separately.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_REVIEW_OPEN"
+    },
+    {
+      "axis": "palette",
+      "observation": "Source gold/cream/lavender RGB and whole bitmap are unchanged; child modulation is white. Warm gold relates to the same-scene equipment/castle trim. No whole-game palette statistic or literal framebuffer RGB equality is claimed.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_REVIEW_OPEN"
+    },
+    {
+      "axis": "light",
+      "observation": "Source highlight/shadow is retained without relighting or rotation. This is a screen-facing feedback layer; new-use lighting/style acceptance is not inferred from source eligibility.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_REVIEW_OPEN"
+    },
+    {
+      "axis": "perspective",
+      "observation": "Ground-telegraph source appearance is reused as a screen-space ring without warping; whether its apparent target/alarm vocabulary suits neutral touch remains unaccepted.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_REVIEW_OPEN"
+    },
+    {
+      "axis": "scale",
+      "observation": "Full512square bitmap fits the unchanged110square source Panel at both widths. Original hit/input ownership and Panel bounds are retained. Phone readability and all-scene sizing remain open.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_REVIEW_OPEN"
+    },
+    {
+      "axis": "contact",
+      "observation": "Actual released screen point, original Panel and controller remain authoritative. The image is a mouse-ignored child and source Panel fade/free owns its lifetime; no new input owner or tween is introduced.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_REVIEW_OPEN"
+    },
+    {
+      "axis": "occlusion",
+      "observation": "The authored center is transparent and actual onset views keep clouds/scenery visible through the hole. Bright rim/ticks still cover detail, and candidate peak image alpha is1.0 versus original fill0.5; exact underlying-scene/device occlusion remains open.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_REVIEW_OPEN"
+    },
+    {
+      "axis": "readability",
+      "observation": "An open ring avoids a literal reward star, but connected alarm ticks may imply warning/selection. Agent partial context review supplies no child/owner meaning acceptance.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_REVIEW_OPEN"
+    },
+    {
+      "axis": "action-state",
+      "observation": "Four source and four separate candidate lifecycles record onset/decay/freed under original input. Parent natural teardown is observed. Source tween0.35s is retained; instrumented wall time, separate child-instance/ancestor RGB telemetry and authoritative full runtime/device acceptance remain open.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_REVIEW_OPEN"
+    }
+  ],
+  "captures": "CAPTURE_INDEX.json",
+  "measurements": "FLASH_LIFECYCLE.json",
+  "same_scene_hashes": "SOURCE_BINDINGS.json",
+  "source_inventory": "REUSE_INVENTORY.json",
+  "source_context_and_candidate_separated": true,
+  "current_role_samples_awaiting_review": 1,
+  "reuse_ready": false,
+  "drawing_required": null,
+  "approved": false,
+  "integrated": false,
+  "runtime_verified_replacement": false,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

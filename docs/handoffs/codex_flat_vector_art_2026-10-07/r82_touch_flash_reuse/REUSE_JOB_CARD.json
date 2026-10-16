@@ -1,0 +1,35 @@
+{
+  "id": "FV-CAND-R82-RING-01",
+  "action": "released touch feedback appears, fades and frees",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "source_asset": {
+    "path": "assets/opera/worlds/props/fx_telegraph_ring.png",
+    "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+    "sha256": "12077afe02fa842d7e257d22110cc64df13a63510d2cd8c86fd4c7a06062572e",
+    "bytes": 175108,
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "fit_disposition": "Chosen bounded candidate: actual brush-shaded gold/lavender open ring, source512square retained. Alarm ticks/meaning/new-use fit remain unaccepted.",
+    "new_use_accepted": false
+  },
+  "fixed_parts": [
+    "original Panel geometry/input/mouse-ignore/controller/tween/free",
+    "whole source bitmap aspect/RGB/highlight/contour"
+  ],
+  "moving_parts": "Original Panel alpha only; no authored character motion or new Tween",
+  "entry": "actual original touch release creates Panel",
+  "exit": "original source Tween queue_free",
+  "method": "Whole existing painted bitmap as TextureRect child; original StyleBoxFlat replaced by Empty only in nonruntime observer",
+  "native_attempts": 2,
+  "generated_takes": 0,
+  "generation_calls": 0,
+  "monetary_spend": 0,
+  "pixel_edits": "NONE",
+  "source_acceptance_scope": "Existing generated ground telegraph cutout; neutral touch use unaccepted",
+  "evidence": "FLASH_LIFECYCLE.json/CAPTURE_INDEX.json",
+  "required_review": "new-use semantics/peak opacity/occlusion/readability, direct child/ancestor telemetry, all touch states/callers, QA11/device/child/owner",
+  "final_candidate_accepted": false
+}

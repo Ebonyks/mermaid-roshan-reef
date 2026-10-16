@@ -5,3 +5,5 @@
 Current R80: [playground cue source-input audit and painted-star reuse sample](r80_playground_cue_reuse/README.md), [canonical tally](r80_playground_cue_reuse/tally.json). Two native cases / 84 checks; 61 raw frames, 39 source + 22 excluded. Source slide/swing glow-center gap confirmed; one separate existing-source sample awaits new-use review. Known 263 roles / 35 families and zero accepted removals; production unchanged, global denominator unknown.
 
 Current R81: [TouchUI flash ownership](r81_touch_flash_ownership/README.md), [canonical tally](r81_touch_flash_ownership/tally.json). Four original flash lifecycles /52 checks /23 frames bind the R80 yellow disk to existing touch-material subpart.263 roles /35 families unchanged;76 existing partial roles, zero accepted removals and unknown whole-game total.
+
+Current R82: [local painted-ring touch-feedback reuse](r82_touch_flash_reuse/README.md), [canonical tally](r82_touch_flash_reuse/tally.json). One whole-source sample,4original4candidate lifecycles /84checks /39frames; production unchanged.263roles /35families,76existingpartial, zero accepted and global denominator unknown.

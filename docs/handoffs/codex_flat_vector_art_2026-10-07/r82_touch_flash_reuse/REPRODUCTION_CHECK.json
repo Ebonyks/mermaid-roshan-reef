@@ -1,0 +1,58 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r82_touch_flash_reuse\\derive_evidence.py"
+  ],
+  "derived_file_count": 7,
+  "files": [
+    {
+      "path": "CAPTURE_INDEX.json",
+      "bytes": 23407,
+      "sha256": "5572274ba79ae8396ca03d4ddfa499a2a017a689e24392372ccded921d7b98b1",
+      "byte_identical": true
+    },
+    {
+      "path": "FLASH_LIFECYCLE.json",
+      "bytes": 293447,
+      "sha256": "4f18c91b4cd9847106a940dc91e36fe4ec0839350d75e2ed39f9f018d69dffd7",
+      "byte_identical": true
+    },
+    {
+      "path": "SOURCE_BINDINGS.json",
+      "bytes": 179381,
+      "sha256": "cb63d54f4f5ed1dba0ae696f5efb82282a54e58d57bea33087373a7afb780af6",
+      "byte_identical": true
+    },
+    {
+      "path": "DELIVERY_SOURCE_REFERENCES.json",
+      "bytes": 144500,
+      "sha256": "70846bafa75128a73dbce4a1858bc5a55c699b267916a4942e6aeecd956c6027",
+      "byte_identical": true
+    },
+    {
+      "path": "CANDIDATE_SAMPLE.json",
+      "bytes": 1833,
+      "sha256": "46b956b87c68f4dbf68753c87c377434f22fe759dfeeb369e4a20a36ea279781",
+      "byte_identical": true
+    },
+    {
+      "path": "CAPTURE_PROVENANCE.json",
+      "bytes": 30624,
+      "sha256": "443061bb1f8f23674ec1e211c44953b4e0a1b2f839f0ddc75c926b6c8eb07b7c",
+      "byte_identical": true
+    },
+    {
+      "path": "SUMMARY.json",
+      "bytes": 2084,
+      "sha256": "1c3d13f97769bac083e35abab29e31c7cac0dd7bfa2b579ea3230829708958f7",
+      "byte_identical": true
+    }
+  ],
+  "all_byte_identical": true,
+  "native_reruns": 0,
+  "exit_code": 0,
+  "output": "R82_DERIVED 39raw19source20excluded;84checks;4source4candidate;1reuseSample;263/35;0production/acceptance\r\n",
+  "checked_at_utc": "2026-10-16T13:05:14.467426+00:00",
+  "scope": "Fresh deterministic native/source derivation; retained current R81 AST graph is reference-only, no new AST scan or acceptance."
+}

@@ -1,0 +1,7 @@
+from pathlib import Path
+import subprocess,hashlib,json,shutil,datetime
+P=Path(__file__).resolve().parent;W=Path(r'C:/Users/Peter/.codex/worktrees/flat-vector-dev-context-20261015/mermaid-roshan-reef');dst=W/'export/flat_vector_r82';dst.mkdir(exist_ok=True,parents=True);shutil.copyfile(P/'capture_entry.gd',dst/'capture_entry.gd');G=subprocess.check_output(['python','-B','tools/resolve_godot.py'],cwd=W,text=True).strip();rows=[]
+for cmd in [['python','-B','-m','gdtoolkit.parser',str(P/'capture_entry.gd')],['python','-B','tools/lint_inference.py',str(P/'capture_entry.gd')],[G,'--headless','--path',str(W),'--check-only','--script','res://export/flat_vector_r82/capture_entry.gd']]:
+ q=subprocess.run(cmd,cwd=W,stdout=subprocess.PIPE,stderr=subprocess.STDOUT);rows.append({'command':cmd,'exit_code':q.returncode,'sha256':hashlib.sha256(q.stdout).hexdigest(),'output':q.stdout.decode(errors='replace')});print('R82_SYNTAX',q.returncode,cmd[2],q.stdout.decode(errors='replace')[-1500:],flush=True)
+record={'status':'PASS_BEFORE_NATIVE'if all(x['exit_code']==0 for x in rows)else'FAIL_BEFORE_NATIVE','checks':rows,'fixture_files':[{'path':'capture_entry.gd','sha256':hashlib.sha256((P/'capture_entry.gd').read_bytes()).hexdigest()}],'checked_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()};(P/'FIXTURE_SYNTAX_GATES.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8',newline='\n')
+assert record['status']=='PASS_BEFORE_NATIVE'
