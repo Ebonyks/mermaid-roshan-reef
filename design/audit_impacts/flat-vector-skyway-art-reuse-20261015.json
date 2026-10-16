@@ -84,6 +84,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/PIXEL_EVIDENCE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/REFERENCE_RESOLUTION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/REPRODUCTION.md",
@@ -91,6 +92,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/SOURCE_BINDINGS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/SOURCE_LINEAGE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/TWO_D_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/UPSTREAM_FRESHNESS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/WIDE_REUSE_GAP.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/WORK_IN_PROGRESS.json",
@@ -238,6 +240,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/engine.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/native/attempt3_cover_1600/skyway_reuse.gd",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r70_skyway_art_reuse/skyway_reuse.gd",
@@ -256,6 +259,11 @@
       "command": "Nonproduction same-source native comparison, evidence/document/parser/inference/2D and GitHub delivery gates",
       "result": "PASS",
       "evidence": "FIXTURE_SYNTAX_GATES/GATES: corrected parser/inference/exact-engine check-only;89PNG hashes,2cover cases52checks/four exact source signatures. Initial syntax and17-frame camera observer failure preserved. Source art/Back and crop/nativequality/hand/fallback acceptance gaps remain. History/frozen5/unions and document authority/development54tests/6stress. Actual staged+committed2D separately; no acceptance credit."
+    },
+    {
+      "command": "Anonymous exact immutable payload manifest and every required file",
+      "result": "PASS",
+      "evidence": "Payload12b4823566d55799a798c999334c5a47b04e2686;289 files/198912343bytes;REMOTE_VERIFICATION.json;2026-10-16T02:02:24.074552+00:00;publication is not creative acceptance."
     }
   ],
   "acceptance_gaps": "Phase1 nonruntime prototype only. Source garden Back failure, full art/style/foreground contact, fallback/resource failure, all-caller/QA11/device/child/owner/strict2D and whole-game inventory remain open;0 accepted removals."
