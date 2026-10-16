@@ -1,0 +1,175 @@
+{
+  "reviewer": "Codex source inspection only; no new pixels/native runtime or human/device acceptance",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "functions": [
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "function": "_ready",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+      "body_sha256": "876e42783728fcb483e4ababde4f775e8498d744b893cdf0449ba4fec1f4f239",
+      "start_line": 23,
+      "end_line": 33,
+      "body": "func _ready() -> void:\n\tmouse_filter = Control.MOUSE_FILTER_IGNORE\n\tset_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)\n\tif ResourceLoader.exists(HAND_PATH):\n\t\thand_texture = load(HAND_PATH) as Texture2D\n\tif ResourceLoader.exists(TAP_CHIP_PATH):\n\t\ttap_chip = load(TAP_CHIP_PATH) as Texture2D\n\tif ResourceLoader.exists(HOLD_CHIP_PATH):\n\t\thold_chip = load(HOLD_CHIP_PATH) as Texture2D\n\nfunc _process(delta: float) -> void:\n"
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "function": "_draw",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+      "body_sha256": "ccc236acb68c3e10cf366481de55b937fa1564c2a7bb6c140b9596a4490d77bb",
+      "start_line": 53,
+      "end_line": 82,
+      "body": "func _draw() -> void:\n\tif anchor == Vector2.ZERO:\n\t\treturn\n\tvar pressing: bool = _pressing()\n\tvar halo: float = 30.0 if pressing else 20.0\n\tdraw_circle(anchor, halo, Color(cue_color, 0.28))\n\tif hand_texture != null:\n\t\tvar hand_size := Vector2(82.0, 82.0)\n\t\tvar hand_origin: Vector2 = anchor - hand_size * Vector2(0.435, 0.875)\n\t\thand_origin.y -= 0.0 if pressing else 10.0\n\t\tdraw_texture_rect(hand_texture, Rect2(hand_origin, hand_size), false)\n\telse:\n\t\tdraw_circle(anchor, 13.0, Color(1.0, 0.98, 0.88, 0.95))\n\tif pressing:\n\t\tvar ring: float = 18.0 + fmod(t * 46.0, 26.0)\n\t\tdraw_arc(anchor, ring, 0.0, TAU, 32, Color(cue_color, 0.7), 3.0, true)\n\tif mode == \"hold\" and pressing:\n\t\tvar full_t: float = float(HitEngine.CHARGE_STAGE_T[2])\n\t\tvar cycle: float = fmod(t, full_t + 1.1)\n\t\tvar grow: float = clampf((cycle - 0.7) / full_t, 0.0, 1.0)\n\t\tvar stage_col: Color = HitEngine.CHARGE_COLORS[clampi(int(grow * 3.0), 0, 2)]\n\t\tdraw_arc(anchor, 34.0 + grow * 26.0, -PI * 0.5,\n\t\t\t-PI * 0.5 + TAU * maxf(grow, 0.06), 40,\n\t\t\tColor(stage_col.r, stage_col.g, stage_col.b, 0.85), 5.0, true)\n\tvar chip: Texture2D = hold_chip if mode == \"hold\" else tap_chip\n\tif show_chip and chip != null and mode != \"\":\n\t\tvar chip_size := Vector2(82.0, 82.0)\n\t\tdraw_texture_rect(chip, Rect2(anchor + Vector2(54.0, -105.0), chip_size), false)\n"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_load_widget_texture",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "body_sha256": "4adf0912df64b651fc03d0391cb6f369cb0a6d55d6a15e14fda5561d583b4c83",
+      "start_line": 745,
+      "end_line": 749,
+      "body": "func _load_widget_texture(path: String) -> Texture2D:\n\treturn load(path) as Texture2D if ResourceLoader.exists(path) else null\n\n\nfunc _load_widget_set() -> void:\n"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_load_widget_set",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "body_sha256": "e9f8a49591b4d77f7579f16772e240c6cfa80d7da848568e63524fecdba35e93",
+      "start_line": 749,
+      "end_line": 816,
+      "body": "func _load_widget_set() -> void:\n\twidget_template = visual_context.get_slice(\"_\", 0) if not visual_context.is_empty() else \"\"\n\tif visual_context == \"chapter2_basket_fill\":\n\t\twidget_template = \"target\"\n\telif visual_context in [\"chapter2_basket_delivery\", \"chapter2_rocket_park\"]:\n\t\twidget_template = \"push\"\n\twidget_backdrop = null\n\tretired_widget_backdrop_path = \"\"\n\twidget_mover = null\n\twidget_overlay = null\n\tpour_scene_texture = null\n\tpour_empty_mover_texture = null\n\tpour_demo_hand_texture = null\n\twidget_stamp = null\n\twidget_shared = null\n\tif widget_template.is_empty():\n\t\treturn\n\tvar prefix := \"res://assets/opera/worlds/widgets/widget_%s\" % visual_context\n\t# The legacy family base is a pale clipboard/easel card. Keep its path only\n\t# for audit/provenance; runtime composes isolated role art and code-native\n\t# themed scenery directly over the room focus instead of loading its pixels.\n\tvar legacy_backdrop_path := \"%s.png\" % prefix\n\tif ResourceLoader.exists(legacy_backdrop_path):\n\t\tretired_widget_backdrop_path = legacy_backdrop_path\n\tmatch widget_template:\n\t\t\"gauge\":\n\t\t\twidget_mover = _load_widget_texture(\"res://assets/opera/worlds/widgets/widget_gauge_shared_needle.png\")\n\t\t\twidget_overlay = _load_widget_texture(\"%s_success.png\" % prefix)\n\t\t\"track\":\n\t\t\twidget_mover = _load_widget_texture(\"%s_mover.png\" % prefix)\n\t\t\twidget_shared = _load_widget_texture(\"res://assets/opera/worlds/widgets/widget_track_shared_hit.png\")\n\t\t\"pour\":\n\t\t\twidget_mover = _load_widget_texture(\"%s_mover.png\" % prefix)\n\t\t\twidget_overlay = _load_widget_texture(\"%s_fill.png\" % prefix)\n\t\t\tif visual_context == \"pour_candymaker\":\n\t\t\t\t# This replacement is a coherent full-bleed workshop surface, not the\n\t\t\t\t# retired framed widget family. Keep it scoped to SYRUP so the shared\n\t\t\t\t# borderless widget_backdrop contract remains intact.\n\t\t\t\tpour_scene_texture = _load_widget_texture(\"%s.png\" % prefix)\n\t\t\t\tpour_empty_mover_texture = _load_widget_texture(\"%s_mover_empty.png\" % prefix)\n\t\t\t\tpour_demo_hand_texture = _load_widget_texture(\n\t\t\t\t\t\"res://assets/castle/training/ghost_hand.png\")\n\t\t\"basin\":\n\t\t\twidget_overlay = _load_widget_texture(\"%s_bubbles.png\" % prefix)\n\t\t\twidget_shared = _load_widget_texture(\"res://assets/opera/worlds/widgets/widget_basin_shared_shine.png\")\n\t\t\"charge\":\n\t\t\twidget_mover = _load_widget_texture(\"%s_glow.png\" % prefix)\n\t\t\twidget_overlay = _load_widget_texture(\"%s_full.png\" % prefix)\n\t\t\"crank\":\n\t\t\twidget_mover = _load_widget_texture(\"%s_mover.png\" % prefix)\n\t\t\twidget_overlay = _load_widget_texture(\"%s_progress.png\" % prefix)\n\t\t\"trace\":\n\t\t\twidget_overlay = _load_widget_texture(\"%s_lit.png\" % prefix)\n\t\t\"push\":\n\t\t\twidget_mover = _load_widget_texture(\"%s_mover.png\" % prefix)\n\t\t\tvar down := visual_context.ends_with(\"_boxer\") or visual_context.ends_with(\"_nursery\")\n\t\t\tvar shared_name := \"arrow_down\" if down else \"arrow_lr\"\n\t\t\twidget_shared = _load_widget_texture(\"res://assets/opera/worlds/widgets/widget_push_shared_%s.png\" % shared_name)\n\t\t\"target\":\n\t\t\twidget_mover = _load_widget_texture(\"%s_mover.png\" % prefix)\n\t\t\twidget_stamp = _load_widget_texture(\"%s_mark.png\" % prefix)\n\t\t\twidget_overlay = _load_widget_texture(\"%s_success.png\" % prefix)\n\t\t\"lanes\":\n\t\t\twidget_mover = _load_widget_texture(\"%s_lit.png\" % prefix)\n\t\t\twidget_shared = _load_widget_texture(\"res://assets/opera/worlds/widgets/widget_lanes_shared_pick.png\")\n\n\nfunc note_input() -> void:\n"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_demo_finger",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "body_sha256": "9c0bdd5307e53a38cc0cfbd9fed1593e47a0a2e8ae8fc6458ed9878acae01b27",
+      "start_line": 4277,
+      "end_line": 4299,
+      "body": "func _draw_demo_finger() -> void:\n\tvar pose := _demo_finger_pose()\n\tvar at: Vector2 = pose.get(\"at\", size * 0.5)\n\tvar pressing := bool(pose.get(\"pressing\", false))\n\tif _is_candymaker_pour() and pour_demo_hand_texture != null:\n\t\t# A literal hand is clearer than the generic concentric-dot hint against the\n\t\t# detailed workbench, and avoids reintroducing unexplained rings behind it.\n\t\tvar side := 58.0 if pressing else 54.0\n\t\tvar fingertip_uv := Vector2(0.455, 0.91)\n\t\tvar hand_rect := Rect2(at - fingertip_uv * side, Vector2.ONE * side)\n\t\tdraw_texture_rect(pour_demo_hand_texture, hand_rect, false,\n\t\t\tColor(1.0, 1.0, 1.0, 0.96))\n\t\treturn\n\tvar halo := 30.0 if pressing else 20.0\n\tdraw_circle(at, halo, Color(0.22, 0.14, 0.52, 0.18))\n\tdraw_circle(at, 14.5, Color(\"#382485\"))\n\tdraw_circle(at, 12.0, Color(1.0, 0.98, 0.86, 0.98))\n\tif pressing:\n\t\tvar ring := 18.0 + fmod(demo_t * 46.0, 26.0)\n\t\tdraw_arc(at, ring, 0.0, TAU, 24, Color(1.0, 0.95, 0.6, 0.6), 4.0)\n\n\nfunc _xray_home_point() -> Vector2:\n"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_is_candymaker_pour",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "body_sha256": "a4bcd7e296003c83778a1ec7c8eedb82623dfdbfff1cf79b788d1bab9f3c3222",
+      "start_line": 6006,
+      "end_line": 6010,
+      "body": "func _is_candymaker_pour() -> bool:\n\treturn mode == \"pourt\" and visual_context == \"pour_candymaker\"\n\n\nfunc _pour_bowl_rect() -> Rect2:\n"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "function": "_build_practice_book",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "body_sha256": "fe7dd3afb251a5a3d3810ede148c4f2d1da91c626067da0d231925cd33a12f5e",
+      "start_line": 446,
+      "end_line": 470,
+      "body": "func _build_practice_book() -> void:\n\tpractice_book = TextureButton.new()\n\tpractice_book.name = \"TreeBookPractice\"\n\tpractice_book.position = Vector2(1032, 552)\n\tpractice_book.size = Vector2(174, 131)\n\tpractice_book.texture_normal = load(\"res://assets/opera/tree_book_test/book.png\") as Texture2D\n\tpractice_book.ignore_texture_size = true\n\tpractice_book.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED\n\tpractice_book.tooltip_text = \"Tree Book practice\"\n\tpractice_book.pressed.connect(open_tree_book)\n\tadd_child(practice_book)\n\tvar tree := TextureRect.new()\n\ttree.position = Vector2(58, 33)\n\ttree.size = Vector2(66, 64)\n\tvar atlas := AtlasTexture.new()\n\tatlas.atlas = load(\"res://assets/opera/tree_book_test/patient.png\") as Texture2D\n\tatlas.region = Rect2(0, 0, 512, 512)\n\ttree.texture = atlas\n\ttree.expand_mode = TextureRect.EXPAND_IGNORE_SIZE\n\ttree.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED\n\ttree.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\tpractice_book.add_child(tree)\n\n\nfunc _build_playtest_elevator() -> void:\n"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "function": "open_tree_book",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "body_sha256": "b71585c01933a38259b6c28434ef6cbefa9a07939433b0fbe92e5df55ada9187",
+      "start_line": 490,
+      "end_line": 506,
+      "body": "func open_tree_book() -> void:\n\tif not visible or not accepting_input or tree_book_test != null:\n\t\treturn\n\taccepting_input = false\n\tm._set_world_controls_enabled(false, \"tree_book_practice\")\n\trefresh(m.opera_stars)\n\tif guide_pointer != null:\n\t\tguide_pointer.hide()\n\ttree_book_test = OperaTreeBookTest.new()\n\ttree_book_test.setup(m, m.save_data.get(OperaTreeBookTest.SAVE_KEY, {}))\n\ttree_book_test.checkpoint_changed.connect(_save_tree_book)\n\ttree_book_test.close_requested.connect(_close_tree_book)\n\tadd_child(tree_book_test)\n\tm._navigation_push(\"arborist_tree_book_test\", tree_book_test, Callable(self, \"_close_tree_book\"))\n\n\nfunc _save_tree_book(checkpoint: Dictionary) -> void:\n"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "function": "_save_tree_book",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "body_sha256": "c1134ec651eaa7a46a3242ad408b15c64276405769ca6dd0c3cb72565164b422",
+      "start_line": 506,
+      "end_line": 511,
+      "body": "func _save_tree_book(checkpoint: Dictionary) -> void:\n\tm.save_data[OperaTreeBookTest.SAVE_KEY] = checkpoint\n\tm._queue_save()\n\n\nfunc _close_tree_book(restore_venue: bool = true) -> void:\n"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "function": "_ready",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "body_sha256": "86164c43e685159b538247cd594e7f94a9c123e7cd1671d5fe076993ff989b95",
+      "start_line": 57,
+      "end_line": 89,
+      "body": "func _ready() -> void:\n\tname = \"OperaTreeBookTest\"\n\tsize = Vector2(1280, 720)\n\tmouse_filter = Control.MOUSE_FILTER_STOP\n\tclip_contents = true\n\tif m == null:\n\t\tset_anchors_preset(Control.PRESET_TOP_LEFT)\n\t\tget_viewport().size_changed.connect(_fit_standalone)\n\t\t_fit_standalone()\n\tz_index = 60\n\tfor file: String in [\"book.png\", \"roshan_book.png\", \"patient.png\",\n\t\t\t\"leaves_medicine.png\", \"spray_poses.png\", \"lagoon_tree_bigleaf_maple.png\",\n\t\t\t\"lagoon_tree_pacific_dogwood.png\", \"sky_lagoon_tree_sticker_tall_v1.png\"]:\n\t\ttextures[file] = load(ART + file) as Texture2D\n\thand = load(\"res://assets/castle/training/ghost_hand.png\") as Texture2D\n\tfont = ThemeDB.fallback_font\n\tinstruction = Label.new()\n\tinstruction.position = Vector2(170, 25)\n\tinstruction.size = Vector2(930, 80)\n\tinstruction.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER\n\tinstruction.vertical_alignment = VERTICAL_ALIGNMENT_CENTER\n\tStorybookUI.style_label(instruction, 30, Color(\"#334b60\"), 0)\n\tinstruction.add_theme_color_override(\"font_color\", Color(\"#334b60\"))\n\tinstruction.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\tadd_child(instruction)\n\tvoice = AudioStreamPlayer.new()\n\tadd_child(voice)\n\tif m == null:\n\t\tclose_requested.connect(func() -> void: get_tree().quit())\n\t_announce()\n\tqueue_redraw()\n\nfunc _fit_standalone() -> void:\n"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "function": "_draw",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "body_sha256": "b7fa43699b9f3b390d20d104113b98ec49ffa6133a595f7b6b2d5498c6fd62af",
+      "start_line": 338,
+      "end_line": 410,
+      "body": "func _draw() -> void:\n\tif textures.is_empty():\n\t\treturn\n\tdraw_rect(Rect2(0, 0, 1280, 720), Color(\"#e5f2e8\"))\n\t_panel(Rect2(690, 101, 558, 590), Color(\"#f5f3df\"), Color(\"#adcdb8\"), 40)\n\tdraw_arc(Vector2(1090, 672), 450, PI, TAU, 60, Color(\"#d4e5ce\"), 24, true)\n\t_fit(_tex(\"book.png\"), Rect2(18, 120, 660, 568))\n\tif m == null:\n\t\t_panel(BACK_RECT, Color(\"#fff6de\"), Color(\"#7d9b99\"))\n\t\tdraw_line(Vector2(92, 68), Vector2(44, 68), Color(\"#426878\"), 8, true)\n\t\tdraw_polyline(PackedVector2Array([Vector2(63,47),Vector2(42,68),Vector2(63,89)]),\n\t\t\tColor(\"#426878\"),8,true)\n\tfor step: int in range(3):\n\t\tdraw_circle(Vector2(579+step*44, 112), 12, Color(\"#e4b664\") if stage > step else Color(\"#bdccc0\"))\n\t_fit(patient_texture(stage == 5), PATIENT_RECT)\n\tif stage < 5:\n\t\tdraw_line(LEAF_RECT.get_center(),Vector2(1000,210),Color(\"#d6c6a0\"),3,true)\n\t\t_panel(LEAF_RECT, Color(\"#fffdf0\"), Color(\"#daaa68\"), 64)\n\t\t_fit(leaf_texture(1), LEAF_RECT.grow(-12))\n\tif stage < 2:\n\t\t_fit(_tex(\"roshan_book.png\"), Rect2(704, 359, 310, 330))\n\tif stage < 3:\n\t\tfor slot: int in range(4):\n\t\t\tvar rect := choice_rect(slot)\n\t\t\tif wrong_time > 0 and wrong_slot == slot:\n\t\t\t\trect.position.x += sin(wrong_time*40.0)*8.0\n\t\t\tvar target := slot == answer_slot()\n\t\t\tvar edge := Color(\"#d7b55d\") if target and help_level > 0 else Color(\"#a9bcb1\")\n\t\t\t_panel(rect, Color(\"#fffbee\"), edge, 20)\n\t\t\tif slot == pressed_choice:\n\t\t\t\t_panel(rect.grow(-4), Color(\"#e0efcf\"), edge, 18)\n\t\t\tvar value: int = ORDERS[stage][slot]\n\t\t\tif stage == 0:\n\t\t\t\tif value == 0:\n\t\t\t\t\t_fit(patient_texture(false), rect.grow(-9))\n\t\t\t\telse:\n\t\t\t\t\t_fit(_tex([\"lagoon_tree_bigleaf_maple.png\",\n\t\t\t\t\t\t\"lagoon_tree_pacific_dogwood.png\",\"sky_lagoon_tree_sticker_tall_v1.png\"][value-1]),rect.grow(-12))\n\t\t\telse:\n\t\t\t\t_fit(leaf_texture(value,stage==2),rect.grow(-12))\n\t\t\tif target and help_level == 2:\n\t\t\t\t_fit(hand,Rect2(rect.end-Vector2(68,55+sin(elapsed*3)*9),Vector2(80,80)))\n\tif stage == 2:\n\t\t_fit(leaf_texture(1),Rect2(132,231,165,210))\n\t\t_fit(leaf_texture(1,true),Rect2(380,231,170,210))\n\t\tdraw_line(Vector2(304,330),Vector2(360,330),Color(\"#da9d56\"),7,true)\n\t\tdraw_polyline(PackedVector2Array([Vector2(344,312),Vector2(362,330),Vector2(344,348)]),Color(\"#da9d56\"),7,true)\n\t\tdraw_string(font,Vector2(166,503),\"Spots\",HORIZONTAL_ALIGNMENT_LEFT,-1,28,Color(\"#4b6374\"))\n\t\tdraw_string(font,Vector2(411,503),\"Spray\",HORIZONTAL_ALIGNMENT_LEFT,-1,28,Color(\"#4b6374\"))\n\tif stage >= 3:\n\t\tvar pose := 0\n\t\tif stage == 4:\n\t\t\tpose = 2 if pointer_id != -99 and LEAF_RECT.has_point(pointer_position) else 1\n\t\telif stage == 5:\n\t\t\tpose = 3\n\t\tvar actor_x := lerpf(675,735,approach) if stage == 3 else 735.0\n\t\tvar actor_y := lerpf(340,100,approach) if stage == 3 else 100.0\n\t\t_fit(pose_texture(pose),Rect2(actor_x,actor_y,350,350))\n\t\tif stage == 4:\n\t\t\t_fit(leaf_texture(1,true),Rect2(192,234,310,270))\n\t\t\tdraw_arc(LEAF_RECT.get_center(),80,-PI/2,-PI/2+TAU*treatment,48,Color(\"#57bba3\"),10,true)\n\t\t\tif help_level > 0:\n\t\t\t\t_fit(hand,Rect2(LEAF_RECT.position+Vector2(80,78+sin(elapsed*3)*10),Vector2(95,95)))\n\t\telif stage == 3:\n\t\t\t_fit(leaf_texture(1,true),Rect2(192,234,310,270))\n\t\telse:\n\t\t\t_panel(Rect2(169,227,327,286),Color(\"#fff7d0\"),Color(\"#e0bd69\"),54)\n\t\t\t_fit(patient_texture(true),Rect2(194,244,275,250))\n\t\t\t_panel(REPLAY_RECT,Color(\"#e7f0d3\"),Color(\"#819d8c\"))\n\t\t\tdraw_arc(REPLAY_RECT.get_center(),31,-PI*0.65,PI*0.88,32,Color(\"#527b73\"),7,true)\n\t\t\tdraw_circle(REPLAY_RECT.get_center()+Vector2(-27,15),9,Color(\"#527b73\"))\n"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "function": "_build_new_game_confirmation",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "file_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "body_sha256": "fba956f2fc0acd80faa891f8dccd49a41071e373850171c0f10080a09c2f3198",
+      "start_line": 215,
+      "end_line": 274,
+      "body": "func _build_new_game_confirmation(stage: Control) -> void:\n\t_confirm_root = Control.new()\n\t_confirm_root.name = \"StartMenuNewGameConfirmation\"\n\t_confirm_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)\n\t_confirm_root.visible = false\n\tstage.add_child(_confirm_root)\n\tvar dim := StorybookUI.add_dim(_confirm_root, Color(0.025, 0.06, 0.16, 0.76))\n\tdim.mouse_filter = Control.MOUSE_FILTER_STOP\n\tvar shell_rect := Rect2(270, 164, 740, 426)\n\tvar shell := StorybookUI.add_panel(\n\t\t_confirm_root, shell_rect, StorybookUI.PURPLE, Color(0.94, 0.97, 1.0, 0.99), 62)\n\tshell.name = \"StartMenuNewGameShell\"\n\tStorybookUI.adorn_panel(_confirm_root, shell_rect, \"StartNewGame\")\n\tvar title := Label.new()\n\ttitle.text = \"START A NEW GAME?\"\n\ttitle.position = Vector2(330, 210)\n\ttitle.size = Vector2(620, 64)\n\ttitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER\n\tStorybookUI.style_label(title, 40, StorybookUI.INK, 4)\n\t_confirm_root.add_child(title)\n\tvar note := Label.new()\n\tnote.text = \"Your saved adventure will be kept for a grown-up to restore.\"\n\tnote.position = Vector2(350, 278)\n\tnote.size = Vector2(580, 132)\n\tnote.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART\n\tnote.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER\n\tnote.vertical_alignment = VERTICAL_ALIGNMENT_CENTER\n\t# This warning protects the child's saved progress; it is child/safety copy,\n\t# not an adult-caption exception. Keep the exact wording and give its three\n\t# wrapped lines enough height at the 1280x720 base canvas.\n\tStorybookUI.style_label(note, 28, StorybookUI.INK_SOFT, 2,\n\t\tStorybookUI.ROLE_STATUS)\n\tnote.max_lines_visible = 3\n\t_confirm_root.add_child(note)\n\tvar keep := _menu_button(\n\t\t_confirm_root, \"StartMenuKeepGameButton\", \"\u21a9  KEEP GAME\", Rect2(320, 420, 300, 118), \"gold\", 30)\n\tkeep.pressed.connect(_cancel_new_game)\n\tvar start := _menu_button(\n\t\t_confirm_root, \"StartMenuConfirmNewGameButton\", \"\u2605  START NEW\", Rect2(660, 420, 300, 118), \"secondary\", 30)\n\tstart.set_meta(\"hold_to_confirm_seconds\", NEW_GAME_HOLD_SECONDS)\n\tstart.button_down.connect(_begin_new_game_hold.bind(start))\n\tstart.button_up.connect(_cancel_new_game_hold)\n\t_add_new_game_hold_cue(start)\n\tvar hand := Sprite2D.new()\n\thand.name = \"StartMenuKeepGameGhostHand\"\n\thand.texture = load(\"res://assets/castle/training/ghost_hand.png\") as Texture2D\n\thand.position = Vector2(606.0, 400.0)\n\thand.scale = Vector2.ONE * 0.14\n\thand.z_index = 2\n\thand.set_meta(\"visual_pointer\", true)\n\thand.set_meta(\"target_on_screen\", true)\n\thand.set_meta(\"actionable_target\", true)\n\t_confirm_root.add_child(hand)\n\tvar hand_tween: Tween = hand.create_tween().set_loops()\n\thand_tween.tween_property(hand, \"position:y\", 414.0, 0.42) \\\n\t\t.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)\n\thand_tween.tween_property(hand, \"position:y\", 400.0, 0.42) \\\n\t\t.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)\n\nfunc _add_new_game_hold_cue(button: Button) -> void:\n"
+    }
+  ],
+  "findings": [
+    {
+      "id": "FVHC-DEPENDENCY-ENCOUNTER-FALLBACK",
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "functions": [
+        "_ready",
+        "_draw"
+      ],
+      "fact": "ResourceLoader.exists leaves hand_texture null if missing. With nonzero anchor, _draw always paints a halo, then paints the hand if nonnull or a13px circle otherwise; pressing/hold modes add arcs. These are visible drawing instructions, distinct from mouse_filter=IGNORE functional input disposition.",
+      "scope": "Conditional current source behavior, not a fresh observation or allmode/runtime proof",
+      "required_closure": "Retain functional cue/timing, replace and review the normal texture and procedural fallback/halo/press/hold roles in every caller. No removal credit from file deletion."
+    },
+    {
+      "id": "FVHC-DEPENDENCY-CANDY-FALLBACK",
+      "path": "scripts/opera_gesture_surface.gd",
+      "functions": [
+        "_load_widget_texture",
+        "_load_widget_set",
+        "_draw_demo_finger",
+        "_is_candymaker_pour"
+      ],
+      "fact": "CandyMaker pour loads the shared ghost hand through the guarded widget loader. _draw_demo_finger returns after drawing that texture only when CandyMaker predicate and nonnull texture both hold. Otherwise it paints a halo/two circles and a pressed arc, including the missing-texture path.",
+      "required_closure": "Review each semantic guide role and mode. A painted bitmap does not retire generic circles/rings or prove all shared gesture callers; keep original input/guide state functional."
+    },
+    {
+      "id": "FVHC-DEPENDENCY-TREEBOOK-ENTRY",
+      "path": "scripts/opera_house_venue_2d.gd",
+      "functions": [
+        "_build_practice_book",
+        "open_tree_book",
+        "_save_tree_book"
+      ],
+      "fact": "The venue practice picture connects pressed to open_tree_book, which constructs OperaTreeBookTest, binds its saved checkpoint, adds it as a child and pushes a navigation owner. The book loads the hand and _draw renders it for the answer when stage<3/help_level==2. Filename test is not a production-exclusion proof.",
+      "required_closure": "Preserve TreeBookPractice/open/close/navigation and checkpoint SAVE_KEY. Bind actual ordinary venue entry/help-state/return/reload/context before artwork or allcaller acceptance. Source evidence does not prove current runtime reachability."
+    },
+    {
+      "id": "FVHC-DEPENDENCY-MENU-CONFIRMATION",
+      "path": "scripts/start_menu.gd",
+      "functions": [
+        "_build_new_game_confirmation"
+      ],
+      "fact": "A Sprite2D hand is created in the new-game confirmation, points toward KeepGame and bobs. This is independent of Skyway pointer node registration; source marks target/actionable metadata but that is not measured touch proof.",
+      "required_closure": "Preserve keep-game/cancel/hold-gated new-game save safety. Bind exact native confirmation geometry/state/style before any later substitution."
+    }
+  ],
+  "new_native_captures": 0,
+  "new_artwork_reviews": 0,
+  "accepted_removed": 0,
+  "global_caller_closure": false
+}

@@ -1,0 +1,15 @@
+{
+  "gdtoolkit_version": "4.5.0",
+  "scanner_sha256": "356dca0b7643598f5644bb4fa27d94809097013a1f7d60bcc01aa6b7d6ddc1cb",
+  "parsed_scripts": 312,
+  "source_formats": ".gd/.tscn/.tres/.gdshader/.godot under scripts/scenes/shaders/project.godot",
+  "proven": "Exact listed-source literal/basename row census, AST function boundaries, full file/body bytes, direct same-function assignments and source-candidate incoming references.12 named function bodies bind four reviewed source dependencies; no blanket whole-function review.",
+  "not_proven": [
+    "Runtime execution/visible state/scene context/geometry",
+    "Complete dataflow: generic identifier occurrence is not object identity or a call",
+    "Dynamic paths,JSON/native/UID/resourcepack/plugin/export closure",
+    "Full inheritance/callback/value domains/cancel/reload/allcaller closure",
+    "Art/style/device/child/owner/QA11 acceptance"
+  ],
+  "algorithm_history": "Initial exact-path-only draft omitted the basename-only probe assertion; final scanner includes it. Local texture-name leakage risk was corrected by restricting cross-method selection to declared class fields. No old source/runtime/canonical file was edited. Draft outputs are superseded before publication; no new live consumer or rendering credit inferred."
+}

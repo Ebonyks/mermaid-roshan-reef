@@ -1,0 +1,100 @@
+{
+  "status": "PASS_SOURCE_CONSUMER_AUDIT_ONLY",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r73_hand_consumer_audit\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "c57887a09252f63ee9352a73a88f8db752ffdb0e55ca4ceb065c9fc725d50580",
+      "checked_at_utc": "2026-10-16T05:33:31.849427+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "f9d80d9d514be48905dab80fceaa40eae450075884a212a1226f9526b774f790",
+      "checked_at_utc": "2026-10-16T05:33:43.150971+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-16T05:33:51.700859+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "sha256": "b0e62c7cb426df13b90f744d5036d261340fae74c9e39495ccd3c68ff0900edc",
+      "checked_at_utc": "2026-10-16T05:34:01.641877+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-16T05:34:02.736338+00:00"
+    }
+  ],
+  "raw_log_sha256": "34e87a9111332288e8920668f4a037062605d9a207dd7858d6c094f4949d6336",
+  "scope": "Exact source/body/AST/canonical/history and4420runtime/4041sidecar/11normal hash guards, document authority/development54tests/6stress. No changed GDScript or runtime/art asset; engine/parser/inference/full runtime repetitions not applicable to this source-only packet. Exact-source CI retains its own scope. Actual staged+committed2D before each push; strict remains unsatisfied. No runtime/creative/device/child/owner or global allcaller acceptance.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r73_hand_consumer_audit\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "c57887a09252f63ee9352a73a88f8db752ffdb0e55ca4ceb065c9fc725d50580",
+      "output": "R73_EVIDENCE_PASS;318text312AST;18refs16same_render_candidates2probe_requirements;127function_bindings12branch_bodies;2conditional_primitive_fallbacks;0newcontext/art/removal;globalunknown\r\n",
+      "checked_at_utc": "2026-10-16T05:34:48.392581+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "f9d80d9d514be48905dab80fceaa40eae450075884a212a1226f9526b774f790",
+      "output": "DOCAUTH|INVENTORY=786|LEDGER=786|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T05:34:59.306643+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T05:35:07.005366+00:00"
+    }
+  ]
+}

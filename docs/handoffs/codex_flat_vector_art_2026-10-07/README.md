@@ -1,3 +1,7 @@
+# Current R73 shared-hand source consumer audit
+
+[Open R73](r73_hand_consumer_audit/README.md).16existing candidate source consumers plus2probe requirements; conditional circles/ring fallbacks and venue tree-book/menu dependencies remain open. No new art/context/removal credit; R72ImageGen export permission remains pending. [Current tally](r73_hand_consumer_audit/tally.json).
+
 # Current R72 Skyway painted-hand reuse audit
 
 [Open R72](r72_skyway_hand_reuse/README.md). Two existing-art crops failed standalone cue quality despite successful source input. The published two-image new-art request requires explicit ImageGen export authorization. No generation, production change or accepted removal. [Tally](r72_skyway_hand_reuse/tally.json) and [routing/history](CURRENT.json) supersede older current labels below.

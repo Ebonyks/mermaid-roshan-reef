@@ -1,0 +1,3117 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "resource": "res://assets/castle/training/ghost_hand.png",
+  "literal_rows": [
+    {
+      "line": 28,
+      "text": "const POINTER_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 19,
+      "text": "const GHOST_HAND := preload(\"res://assets/castle/training/ghost_hand.png\")",
+      "path": "scripts/boss_splash_2d.gd",
+      "file_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 247,
+      "text": "\tpointer = _picture(\"GuideHand\", \"res://assets/castle/training/ghost_hand.png\",",
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "file_sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "_build_controls"
+    },
+    {
+      "line": 5,
+      "text": "const HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "file_sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 12,
+      "text": "const SAFE_HAND := preload(\"res://assets/castle/training/ghost_hand.png\")",
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "file_sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 21,
+      "text": "const POINTER := \"res://assets/castle/training/ghost_hand.png\"",
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "file_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 43,
+      "text": "const POINTER_TEXTURE := \"res://assets/castle/training/ghost_hand.png\"",
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "file_sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 63,
+      "text": "const POINTER_TEXTURE := \"res://assets/castle/training/ghost_hand.png\"",
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "file_sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 16,
+      "text": "const POINTER := preload(\"res://assets/castle/training/ghost_hand.png\")",
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "file_sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 30,
+      "text": "const GUIDE_HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "file_sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 36,
+      "text": "const GUIDE_HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "file_sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 28,
+      "text": "const GUIDE_HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "file_sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 790,
+      "text": "\t\t\t\t\t\"res://assets/castle/training/ghost_hand.png\")",
+      "path": "scripts/opera_gesture_surface.gd",
+      "file_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "_load_widget_set"
+    },
+    {
+      "line": 18,
+      "text": "const GHOST_HAND_TEXTURE := \"res://assets/castle/training/ghost_hand.png\"",
+      "path": "scripts/opera_house_venue_2d.gd",
+      "file_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 71,
+      "text": "\thand = load(\"res://assets/castle/training/ghost_hand.png\") as Texture2D",
+      "path": "scripts/opera_tree_book_test.gd",
+      "file_sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "_ready"
+    },
+    {
+      "line": 16,
+      "text": "\t\"res://assets/castle/training/ghost_hand.png\",",
+      "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+      "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "TOP_LEVEL"
+    },
+    {
+      "line": 590,
+      "text": "\t\t\tand surface.pour_demo_hand_texture.resource_path.ends_with(\"ghost_hand.png\") \\",
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "_init"
+    },
+    {
+      "line": 260,
+      "text": "\thand.texture = load(\"res://assets/castle/training/ghost_hand.png\") as Texture2D",
+      "path": "scripts/start_menu.gd",
+      "file_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "function": "_build_new_game_confirmation"
+    }
+  ],
+  "consumers": [
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "class_name": "FairyConservatoryHandoff2D",
+      "file_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "POINTER_PATH"
+      ],
+      "declared_field_bindings": [
+        "_pointer"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "start",
+          "line": 101,
+          "target": "_pointer",
+          "text": "\t_pointer = _make_sprite(\"HandoffPointer\", POINTER_PATH)",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "start",
+        "teardown",
+        "tick",
+        "audit_snapshot",
+        "_layout_world",
+        "_refresh_state"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/main.gd",
+          "line": 23,
+          "text": "\t\"res://scripts/arena/fairy_conservatory_handoff_2d.gd\"",
+          "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_fairy_conservatory_handoff.gd",
+          "line": 4,
+          "text": "const Handoff := preload(\"res://scripts/arena/fairy_conservatory_handoff_2d.gd\")",
+          "file_sha256": "3d57dea550657ff8903937dede613bec619919a0bbd3331f99d461cadb17c7ce",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/main.gd",
+          "line": 2199,
+          "text": "\tvar script_value: Variant = load(FAIRY_CONSERVATORY_HANDOFF_PATH)",
+          "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "FAIRY_CONSERVATORY_HANDOFF_PATH",
+          "alias_declaration_line": 22,
+          "function": "_start_fairy_conservatory_handoff_now",
+          "body_sha256": "32394068e1921ef65e4c4d4db5681b8951a1b7541d1ae06c6254862c0a772b5f"
+        },
+        {
+          "path": "scripts/probe_fairy_conservatory_handoff.gd",
+          "line": 22,
+          "text": "\t_handoff = Handoff.new()",
+          "file_sha256": "3d57dea550657ff8903937dede613bec619919a0bbd3331f99d461cadb17c7ce",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "Handoff",
+          "alias_declaration_line": 4,
+          "function": "_run",
+          "body_sha256": "bbce0540225c6abc0309a4de3c1dd60f3255313b9cc5eaa219eb06148cb57956"
+        },
+        {
+          "path": "scripts/probe_fairy_conservatory_handoff.gd",
+          "line": 79,
+          "text": "\tvar return_handoff := Handoff.new()",
+          "file_sha256": "3d57dea550657ff8903937dede613bec619919a0bbd3331f99d461cadb17c7ce",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "Handoff",
+          "alias_declaration_line": 4,
+          "function": "_run",
+          "body_sha256": "bbce0540225c6abc0309a4de3c1dd60f3255313b9cc5eaa219eb06148cb57956"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-FBABCB36026C",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "class_name": "BossSplash2D",
+      "file_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "GHOST_HAND"
+      ],
+      "declared_field_bindings": [
+        "_hand"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "_build_character",
+          "line": 155,
+          "target": "_hand.texture",
+          "text": "\t_hand.texture = GHOST_HAND",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "_build_character",
+        "_process"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/games/dust_boss.gd",
+          "line": 7,
+          "text": "const BossSplash2DLogic = preload(\"res://scripts/boss_splash_2d.gd\")",
+          "file_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/games/dust_boss.gd",
+          "line": 279,
+          "text": "\tvar splash := BossSplash2DLogic.new() as BossSplash2D",
+          "file_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BossSplash2DLogic",
+          "alias_declaration_line": 7,
+          "function": "_show_boss_splash",
+          "body_sha256": "04088c36b5e4c7f3972284e82ed84d097a42d1954a78fb9cbca0c57a87a2f218"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-19C2B83B6B19",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "class_name": "ChapterTwoLawnFinale2D",
+      "file_sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [],
+      "declared_field_bindings": [
+        "pointer"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "_build_controls",
+          "line": 247,
+          "target": "pointer",
+          "text": "\tpointer = _picture(\"GuideHand\", \"res://assets/castle/training/ghost_hand.png\",",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "_build_controls",
+        "tick"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/main.gd",
+          "line": 6048,
+          "text": "\tchapter2_lawn_view = ChapterTwoLawnFinale2D.new()",
+          "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_start_chapter2_lawn",
+          "body_sha256": "5ad8fe7b181b8ce79ec0362e85ae26d85e5941ac94328af2bc1a2a58053d07f2"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1795,
+          "text": "\tvar passive_start := float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)[\"elapsed\"])",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1797,
+          "text": "\t\treturn float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)[\"elapsed\"]) - passive_start >= 21.0, 5.0)",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1799,
+          "text": "\t\tand float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)[\"elapsed\"]) - passive_start >= 21.0",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1801,
+          "text": "\tawait _route_tap(lawn, ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1806,
+          "text": "\t\t\tand String((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)[\"mode\"]) == \"story\", 15.0)",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1813,
+          "text": "\t\t\treturn float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)[\"beat_elapsed\"]) >= threshold, 5.0)",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1815,
+          "text": "\t\t\tawait _route_tap(lawn, ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1820,
+          "text": "\tpassive_start = float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)[\"elapsed\"])",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1822,
+          "text": "\t\treturn float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)[\"elapsed\"]) - passive_start >= 21.0, 5.0)",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1824,
+          "text": "\t\tand float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)[\"elapsed\"]) - passive_start >= 21.0",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1834,
+          "text": "\t\t\t\tawait _route_tap(lawn, ChapterTwoLawnFinale2D.ORIGIN + safe * ChapterTwoLawnFinale2D.PROJECTION)",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1842,
+          "text": "\t\tawait _route_tap(lawn, ChapterTwoLawnFinale2D.KING_RECT.get_center())",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1846,
+          "text": "\t\t\t\tor String((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)[\"mode\"]) == \"tell\", 5.0)",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1852,
+          "text": "\t\t\treturn float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)[\"beat_elapsed\"]) >= 0.5, 5.0)",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1854,
+          "text": "\t\t\tawait _route_tap(lawn, ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1861,
+          "text": "\t\treturn float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)[\"beat_elapsed\"]) >= 0.5, 5.0)",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1863,
+          "text": "\t\tawait _route_tap(lawn, ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_lawn_and_freeplay",
+          "body_sha256": "2b9b18dbfe94f3154dc3d99d7d8e43c73d8dff2afd63585662f86b9f0f094acc"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 46,
+          "text": "\tscene = ChapterTwoLawnFinale2D.new()",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 64,
+          "text": "\t_tap(ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 81,
+          "text": "\t_tap(ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 85,
+          "text": "\t_tap(ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 93,
+          "text": "\t_tap(ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 100,
+          "text": "\t\tand (scene.art[\"Roshan\"] as Control).position.distance_to(ChapterTwoLawnFinale2D.IGNITION_REACH_POSITION) < 0.1)",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 109,
+          "text": "\t_tap(ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 119,
+          "text": "\t\t_tap(ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 146,
+          "text": "\t\t\t_tap(ChapterTwoLawnFinale2D.KING_RECT.get_center())",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 150,
+          "text": "\t\t\tscene._point_event(ChapterTwoLawnFinale2D.KING_RECT.get_center(), false, 77)",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 155,
+          "text": "\t\t_tap(ChapterTwoLawnFinale2D.KING_RECT.get_center())",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 162,
+          "text": "\t_tap(ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 171,
+          "text": "\t_tap(ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 174,
+          "text": "\t_tap(ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "b368ef32e1a9b8d7c39c9148ba1ac15161a4b7dfd38ffab2f9aff674e8f174e9"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 200,
+          "text": "\tscene = ChapterTwoLawnFinale2D.new()",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_reload",
+          "body_sha256": "2da721a9afb36add8ba7d24503fb4d0b377e461004f353abb3d23a8f21460d3e"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 248,
+          "text": "\t\tbutton.distance_to(ChapterTwoLawnFinale2D.IGNITION_POINT) < 0.1)",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_check_scale_and_contacts",
+          "body_sha256": "24bcc3738aeb619410e87cbfe5c2efde3a47b8c89f332377e1709618508344ef"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 250,
+          "text": "\t\t(ChapterTwoLawnFinale2D.IGNITION_REACH_POSITION + Vector2(16, 77)).distance_to(button) < 1.0)",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_check_scale_and_contacts",
+          "body_sha256": "24bcc3738aeb619410e87cbfe5c2efde3a47b8c89f332377e1709618508344ef"
+        },
+        {
+          "path": "scripts/probe_chapter2_lawn.gd",
+          "line": 252,
+          "text": "\t\tscene._screen(ChapterTwoLawnFinale2D.BOSS_POINT).distance_to(Vector2(king.get_center().x, king.end.y)) < 2.0)",
+          "file_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_check_scale_and_contacts",
+          "body_sha256": "24bcc3738aeb619410e87cbfe5c2efde3a47b8c89f332377e1709618508344ef"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-C177809F2CA0",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "class_name": "EncounterGestureGuide2D",
+      "file_sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "HAND_PATH"
+      ],
+      "declared_field_bindings": [
+        "hand_texture"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "_ready",
+          "line": 27,
+          "target": "hand_texture",
+          "text": "\t\thand_texture = load(HAND_PATH) as Texture2D",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "_ready",
+        "_draw"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/combat_tutorial.gd",
+          "line": 142,
+          "text": "\tdemo = EncounterGestureGuide2D.new()",
+          "file_sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_build_stage",
+          "body_sha256": "015bc5086d1328eb07e164f885260751b8768842773952843d14d833b18c857c"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-E0916E2B8A4C",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "class_name": "EncounterTelegraph2D",
+      "file_sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "SAFE_HAND"
+      ],
+      "declared_field_bindings": [
+        "_safe_hand"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "_ready",
+          "line": 39,
+          "target": "_safe_hand.texture",
+          "text": "\t_safe_hand.texture = SAFE_HAND",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "_ready",
+        "_process",
+        "_update_safe_hand"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/combat_arena.gd",
+          "line": 237,
+          "text": "\t\tboss_telegraph = EncounterTelegraph2D.new()",
+          "file_sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_build_hud",
+          "body_sha256": "bc6c5d4bc5b57d98a0de7ee1726d8294f14c8451ebd13335c69d398706d4baf1"
+        },
+        {
+          "path": "scripts/dust_boss_telegraph_2d.gd",
+          "line": 2,
+          "text": "extends \"res://scripts/encounter_telegraph_2d.gd\"",
+          "file_sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-9AC204BB483B",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "class_name": "FairyRestorationPrototype",
+      "file_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "POINTER"
+      ],
+      "declared_field_bindings": [
+        "_hand"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "_rebuild",
+          "line": 157,
+          "target": "_hand",
+          "text": "\t_hand = _sprite(POINTER, Vector2.ZERO, Vector2(88, 88))",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "_rebuild",
+        "_process"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scenes/fairy_restoration_prototype.tscn",
+          "line": 3,
+          "text": "[ext_resource type=\"Script\" path=\"res://scripts/fairy_restoration_prototype.gd\" id=\"1\"]",
+          "file_sha256": "8daee0e0a0bc6e78eb4d74d65ada04e732de21259cf6610c0009e830276057ff",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_fairy_restoration.gd",
+          "line": 3,
+          "text": "const Prototype := preload(\"res://scripts/fairy_restoration_prototype.gd\")",
+          "file_sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_fairy_restoration.gd",
+          "line": 58,
+          "text": "\t\t\"godot\": Engine.get_version_info().string, \"script_sha256\": FileAccess.get_sha256(\"res://scripts/fairy_restoration_prototype.gd\")})",
+          "file_sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "_capture",
+          "body_sha256": "f694f1901a6b7b6190028a0f7a10e42fcc3dcd298cad7a2af303e1905981021b"
+        },
+        {
+          "path": "scripts/probe_fairy_restoration.gd",
+          "line": 75,
+          "text": "\tstage = Prototype.new()",
+          "file_sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "Prototype",
+          "alias_declaration_line": 3,
+          "function": "_run",
+          "body_sha256": "8fa5a469ff6bce6e91f5cd0e7a5b9e199f3d0b038ea94e2fabbbfcdcfca22d03"
+        },
+        {
+          "path": "scripts/probe_fairy_restoration.gd",
+          "line": 203,
+          "text": "\tvar fresh := Prototype.new()",
+          "file_sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "Prototype",
+          "alias_declaration_line": 3,
+          "function": "_run",
+          "body_sha256": "8fa5a469ff6bce6e91f5cd0e7a5b9e199f3d0b038ea94e2fabbbfcdcfca22d03"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-873B7CAE423B",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "class_name": "DayOneBathroomCleaning",
+      "file_sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "POINTER_TEXTURE"
+      ],
+      "declared_field_bindings": [
+        "_pointer"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "_build_presentation",
+          "line": 494,
+          "target": "_pointer.texture",
+          "text": "\t_pointer.texture = load(POINTER_TEXTURE) as Texture2D",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "_build_presentation",
+        "audit_snapshot",
+        "_process",
+        "_update_demonstration_motion",
+        "_pulse_pointer",
+        "_finish_sink",
+        "_build_tub_visuals",
+        "_begin_sink_tool_travel",
+        "_finish_sink_tool_travel",
+        "_begin_brush_tool_travel",
+        "_build_tub_drain_prompt",
+        "_begin_tub_drain_reaction",
+        "_update_tool_from_gesture",
+        "_begin_toilet",
+        "_finish_toilet"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 11,
+          "text": "\t\"res://scripts/games/day_one_bathroom_cleaning.gd\")",
+          "file_sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_castle_pool_life_2d.gd",
+          "line": 24,
+          "text": "\t\t\"res://scripts/games/day_one_bathroom_cleaning.gd\")",
+          "file_sha256": "e3a6118904c327625625f86f948014133ed9cb8a3686a818424d5bd80f232708",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "_init",
+          "body_sha256": "38b683afa779c5077725d6fece2cb656d6fd72df0777d4d725d01c702c33508a"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_bunny.gd",
+          "line": 14,
+          "text": "\t\"res://scripts/games/day_one_bathroom_cleaning.gd\")",
+          "file_sha256": "11572f42eaefe255f8682b6960da694a56518c23b8937311548c24a959684895",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 7,
+          "text": "\t\"res://scripts/games/day_one_bathroom_cleaning.gd\")",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 609,
+          "text": "\t\t\"res://scripts/games/day_one_bathroom_cleaning.gd\")",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "_probe_contextual_voice_wiring",
+          "body_sha256": "be4ed67e9d9574cddcebb3f5ec7fc63683c2ee5f18a603f024b5ff178fe2cc39"
+        },
+        {
+          "path": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 314,
+          "text": "\t\t_cleaning_stage = DAY_ONE_BATHROOM_CLEANING.new() \\",
+          "file_sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "DAY_ONE_BATHROOM_CLEANING",
+          "alias_declaration_line": 10,
+          "function": "begin_cleaning_handoff",
+          "body_sha256": "20a146b58d6505832f30dffe160bfb55d42e232281b7c6f7baf2e56dc5c13c78"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_bunny.gd",
+          "line": 53,
+          "text": "\tvar early := BATHROOM_CLEANING.new() as DayOneBathroomCleaning",
+          "file_sha256": "11572f42eaefe255f8682b6960da694a56518c23b8937311548c24a959684895",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 13,
+          "function": "_run_probe",
+          "body_sha256": "d097d08fcc6ec0c75c7d848f0921a9cecb2254be642a796766c37eb88335a86e"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_bunny.gd",
+          "line": 71,
+          "text": "\tvar cleaning := BATHROOM_CLEANING.new() as DayOneBathroomCleaning",
+          "file_sha256": "11572f42eaefe255f8682b6960da694a56518c23b8937311548c24a959684895",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 13,
+          "function": "_run_probe",
+          "body_sha256": "d097d08fcc6ec0c75c7d848f0921a9cecb2254be642a796766c37eb88335a86e"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_bunny.gd",
+          "line": 150,
+          "text": "\tvar restored := BATHROOM_CLEANING.new() as DayOneBathroomCleaning",
+          "file_sha256": "11572f42eaefe255f8682b6960da694a56518c23b8937311548c24a959684895",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 13,
+          "function": "_run_probe",
+          "body_sha256": "d097d08fcc6ec0c75c7d848f0921a9cecb2254be642a796766c37eb88335a86e"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 171,
+          "text": "\tvar restored: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \\",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 6,
+          "function": "_run_probe",
+          "body_sha256": "fcd043dcaf2668631630bf8ad5c461119cea2fa40c0316d99c3af53e2de46f84"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 289,
+          "text": "\tvar cleaning: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \\",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 6,
+          "function": "_probe_cleaning_gestures",
+          "body_sha256": "a3c3d7f9359c3cae9add0a98eebd62b376788484dee5fb14098f25af55a85404"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 302,
+          "text": "\tvar release_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \\",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 6,
+          "function": "_probe_cleaning_gestures",
+          "body_sha256": "a3c3d7f9359c3cae9add0a98eebd62b376788484dee5fb14098f25af55a85404"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 322,
+          "text": "\tvar held_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \\",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 6,
+          "function": "_probe_cleaning_gestures",
+          "body_sha256": "a3c3d7f9359c3cae9add0a98eebd62b376788484dee5fb14098f25af55a85404"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 402,
+          "text": "\tvar lifted_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \\",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 6,
+          "function": "_probe_cleaning_gestures",
+          "body_sha256": "a3c3d7f9359c3cae9add0a98eebd62b376788484dee5fb14098f25af55a85404"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 440,
+          "text": "\tvar focus_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \\",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 6,
+          "function": "_probe_cleaning_gestures",
+          "body_sha256": "a3c3d7f9359c3cae9add0a98eebd62b376788484dee5fb14098f25af55a85404"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 455,
+          "text": "\tvar prompt_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \\",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 6,
+          "function": "_probe_cleaning_gestures",
+          "body_sha256": "a3c3d7f9359c3cae9add0a98eebd62b376788484dee5fb14098f25af55a85404"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 476,
+          "text": "\tvar tub_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \\",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 6,
+          "function": "_probe_cleaning_gestures",
+          "body_sha256": "a3c3d7f9359c3cae9add0a98eebd62b376788484dee5fb14098f25af55a85404"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 573,
+          "text": "\tvar interrupted: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \\",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANING",
+          "alias_declaration_line": 6,
+          "function": "_probe_cleaning_gestures",
+          "body_sha256": "a3c3d7f9359c3cae9add0a98eebd62b376788484dee5fb14098f25af55a85404"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-7EFC33F8AAB3",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "class_name": "DayOneBathroomCleanup",
+      "file_sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "POINTER_TEXTURE"
+      ],
+      "declared_field_bindings": [
+        "_pointer"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "_build_guidance",
+          "line": 720,
+          "target": "_pointer.texture",
+          "text": "\t_pointer.texture = load(POINTER_TEXTURE) as Texture2D",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "_build_guidance",
+        "audit_snapshot",
+        "_process",
+        "_refresh_guidance",
+        "_pointer_bounds"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/main.gd",
+          "line": 16,
+          "text": "\t\"res://scripts/games/day_one_bathroom_cleanup.gd\")",
+          "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_bunny.gd",
+          "line": 16,
+          "text": "\t\"res://scripts/games/day_one_bathroom_cleanup.gd\")",
+          "file_sha256": "11572f42eaefe255f8682b6960da694a56518c23b8937311548c24a959684895",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 5,
+          "text": "\t\"res://scripts/games/day_one_bathroom_cleanup.gd\")",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 607,
+          "text": "\t\t\"res://scripts/games/day_one_bathroom_cleanup.gd\")",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "_probe_contextual_voice_wiring",
+          "body_sha256": "be4ed67e9d9574cddcebb3f5ec7fc63683c2ee5f18a603f024b5ff178fe2cc39"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_integration.gd",
+          "line": 26,
+          "text": "\t\"res://scripts/games/day_one_bathroom_cleanup.gd\": [",
+          "file_sha256": "e0ad83990468fb3506fe46319fae32894cec45f85c5f01bf736e2f60dc087cac",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_integration.gd",
+          "line": 127,
+          "text": "\t\t\"res://scripts/games/day_one_bathroom_cleanup.gd\")",
+          "file_sha256": "e0ad83990468fb3506fe46319fae32894cec45f85c5f01bf736e2f60dc087cac",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "_probe_wiring",
+          "body_sha256": "338b7d9a8658cffd61eaa31ead0f4b94eb30bbaca2f18662779cc8ef4d3247ed"
+        },
+        {
+          "path": "scripts/main.gd",
+          "line": 6445,
+          "text": "\t_day_one_bathroom_cleanup = DayOneBathroomCleanupLogic.new() \\",
+          "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "DayOneBathroomCleanupLogic",
+          "alias_declaration_line": 15,
+          "function": "_sync_day_one_bathroom_cleanup",
+          "body_sha256": "54b4ffa5ca1a835bdc5ccd99d89b5036f55d9212533c22f8e3886e467dd97a6e"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_bunny.gd",
+          "line": 176,
+          "text": "\tvar wrapper := BATHROOM_CLEANUP.new() as DayOneBathroomCleanup",
+          "file_sha256": "11572f42eaefe255f8682b6960da694a56518c23b8937311548c24a959684895",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANUP",
+          "alias_declaration_line": 15,
+          "function": "_run_probe",
+          "body_sha256": "d097d08fcc6ec0c75c7d848f0921a9cecb2254be642a796766c37eb88335a86e"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 59,
+          "text": "\tvar hunt: DayOneBathroomCleanup = BATHROOM_CLEANUP.new() \\",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANUP",
+          "alias_declaration_line": 4,
+          "function": "_run_probe",
+          "body_sha256": "fcd043dcaf2668631630bf8ad5c461119cea2fa40c0316d99c3af53e2de46f84"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 200,
+          "text": "\tvar room := BATHROOM_CLEANUP.new() as DayOneBathroomCleanup",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANUP",
+          "alias_declaration_line": 4,
+          "function": "_probe_sink_room_graphics",
+          "body_sha256": "f21fd09f527a48dc15f58edb3b0de37e8146a46cb170bf5dd8fc9a56b5b41b90"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 243,
+          "text": "\tvar outline: PackedVector2Array = sink.polygon.slice(0, BATHROOM_CLEANUP.CLEAN_SINK_OUTLINE.size())",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANUP",
+          "alias_declaration_line": 4,
+          "function": "_probe_sink_room_graphics",
+          "body_sha256": "f21fd09f527a48dc15f58edb3b0de37e8146a46cb170bf5dd8fc9a56b5b41b90"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 251,
+          "text": "\tvar resumed := BATHROOM_CLEANUP.new() as DayOneBathroomCleanup",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "BATHROOM_CLEANUP",
+          "alias_declaration_line": 4,
+          "function": "_probe_sink_room_graphics",
+          "body_sha256": "f21fd09f527a48dc15f58edb3b0de37e8146a46cb170bf5dd8fc9a56b5b41b90"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_integration.gd",
+          "line": 116,
+          "text": "\tfor path_value: Variant in REQUIRED_WIRING:",
+          "file_sha256": "e0ad83990468fb3506fe46319fae32894cec45f85c5f01bf736e2f60dc087cac",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "REQUIRED_WIRING",
+          "alias_declaration_line": 5,
+          "function": "_probe_wiring",
+          "body_sha256": "338b7d9a8658cffd61eaa31ead0f4b94eb30bbaca2f18662779cc8ef4d3247ed"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_integration.gd",
+          "line": 120,
+          "text": "\t\tfor token_value: Variant in REQUIRED_WIRING[path]:",
+          "file_sha256": "e0ad83990468fb3506fe46319fae32894cec45f85c5f01bf736e2f60dc087cac",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "REQUIRED_WIRING",
+          "alias_declaration_line": 5,
+          "function": "_probe_wiring",
+          "body_sha256": "338b7d9a8658cffd61eaa31ead0f4b94eb30bbaca2f18662779cc8ef4d3247ed"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-86F8126D61AE",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "class_name": "DayOneBathroomToilet",
+      "file_sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "POINTER"
+      ],
+      "declared_field_bindings": [
+        "_pointer"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "setup",
+          "line": 91,
+          "target": "_pointer.texture",
+          "text": "\t_pointer.texture = POINTER",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "setup",
+        "_notification",
+        "move_gesture",
+        "_process",
+        "audit_snapshot"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/games/day_one_bathroom_cleaning.gd",
+          "line": 909,
+          "text": "\t_toilet_stage = preload(\"res://scripts/games/day_one_bathroom_toilet.gd\").new() as DayOneBathroomToilet",
+          "file_sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "_begin_toilet",
+          "body_sha256": "d2a7f4409754ed36ae80aa74b7959c25b8de3a851510c83729339d071f30c43a"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 658,
+          "text": "\tvar center := DayOneBathroomToilet.CENTER",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_toilet",
+          "body_sha256": "ff1cc2ee5bf042801d043ac506b8e28bf226f177805c055a42b8c22b468490fe"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 709,
+          "text": "\tvar toilet := DayOneBathroomToilet.new()",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_toilet_lifecycle",
+          "body_sha256": "43ba40c95a68479d3ee52de6ffd8fa273e002bb8ec2b4ac29736e5ef22f54765"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+          "line": 713,
+          "text": "\tvar center := DayOneBathroomToilet.CENTER",
+          "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_toilet_lifecycle",
+          "body_sha256": "43ba40c95a68479d3ee52de6ffd8fa273e002bb8ec2b4ac29736e5ef22f54765"
+        },
+        {
+          "path": "scripts/probe_day_one_bathroom_shots.gd",
+          "line": 238,
+          "text": "\tvar toilet_center := DayOneBathroomToilet.CENTER",
+          "file_sha256": "069bb0daf6dcaa274c95f4a81cad4c4fc678cc2e53cec9b6d746a4b24f931a16",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "d85247e04b78aa6cc643a8122a84488b20dd042f9d62ac715ad9ed11cbad0e7d"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-DBBC2802B93D",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "class_name": "PoolSeahorseRescueActivity",
+      "file_sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "GUIDE_HAND_PATH"
+      ],
+      "declared_field_bindings": [
+        "_guide_hand"
+      ],
+      "local_binding_names": [
+        "guide_texture"
+      ],
+      "binding_edges": [
+        {
+          "function": "_build_activity_art",
+          "line": 502,
+          "target": "guide_texture",
+          "text": "\tvar guide_texture := load(GUIDE_HAND_PATH) as Texture2D",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        },
+        {
+          "function": "_build_activity_art",
+          "line": 506,
+          "target": "_guide_hand.texture",
+          "text": "\t\t_guide_hand.texture = guide_texture",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "audit_snapshot",
+        "_build_activity_art",
+        "_update_guide_hand",
+        "_clear_owned_children"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/games/day_one_pool_cleanup.gd",
+          "line": 15,
+          "text": "\t\"res://scripts/games/pool_seahorse_rescue_activity.gd\")",
+          "file_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 7,
+          "text": "const POOL_SEAHORSE := preload(\"res://scripts/games/pool_seahorse_rescue_activity.gd\")",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/games/day_one_pool_cleanup.gd",
+          "line": 391,
+          "text": "\tseahorse_activity = POOL_SEAHORSE_ACTIVITY.new() as PoolSeahorseRescueActivity",
+          "file_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "POOL_SEAHORSE_ACTIVITY",
+          "alias_declaration_line": 14,
+          "function": "_build_activities",
+          "body_sha256": "ae00e136ef622669c7b0fc8a0eb337f32bcc2763f2fc67383074d20edb4d517d"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 141,
+          "text": "\tvar restored_seahorse: PoolSeahorseRescueActivity = POOL_SEAHORSE.new()",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "POOL_SEAHORSE",
+          "alias_declaration_line": 7,
+          "function": "_run_probe",
+          "body_sha256": "92cb09918b77f525e5e5da3ed093eb670325a9779b689acf357b9ff48254d68e"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 515,
+          "text": "\tvar activity: PoolSeahorseRescueActivity = POOL_SEAHORSE.new()",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "POOL_SEAHORSE",
+          "alias_declaration_line": 7,
+          "function": "_probe_seahorse_mouth_contact",
+          "body_sha256": "15c7838106fcc297c1adeb31181a4a1652234427d8f66947cecef9616e019951"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 578,
+          "text": "\tvar activity: PoolSeahorseRescueActivity = POOL_SEAHORSE.new()",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "POOL_SEAHORSE",
+          "alias_declaration_line": 7,
+          "function": "_probe_seahorse_input_contract",
+          "body_sha256": "3aab106cec09adb28299068834a6be48e9db7da874e5a1308f22e185316037aa"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 693,
+          "text": "\tvar seahorse: PoolSeahorseRescueActivity = POOL_SEAHORSE.new()",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "POOL_SEAHORSE",
+          "alias_declaration_line": 7,
+          "function": "_probe_contact_action",
+          "body_sha256": "8420b4a2fa6fe2eff47fd9feb3120e9fa92abf1d6f5e9692c2e43a34d30a85b9"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-77F9F4A353D9",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "class_name": "PoolSkimmerActivity",
+      "file_sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "GUIDE_HAND_PATH"
+      ],
+      "declared_field_bindings": [
+        "_demo_pointer"
+      ],
+      "local_binding_names": [
+        "guide_texture"
+      ],
+      "binding_edges": [
+        {
+          "function": "_build_activity_art",
+          "line": 536,
+          "target": "guide_texture",
+          "text": "\tvar guide_texture := load(GUIDE_HAND_PATH) as Texture2D",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        },
+        {
+          "function": "_build_activity_art",
+          "line": 537,
+          "target": "_demo_pointer.texture",
+          "text": "\t_demo_pointer.texture = guide_texture",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "audit_snapshot",
+        "_build_activity_art",
+        "start",
+        "stop",
+        "_process",
+        "_begin_live_drag",
+        "_collect_item",
+        "_clear_owned_children"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/games/day_one_pool_cleanup.gd",
+          "line": 11,
+          "text": "\t\"res://scripts/games/pool_skimmer_activity.gd\")",
+          "file_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/games/day_one_pool_cleanup.gd",
+          "line": 406,
+          "text": "\t\t\tand room_basket.position.is_equal_approx(PoolSkimmerActivity.BASKET_POSITION):",
+          "file_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_build_activities",
+          "body_sha256": "ae00e136ef622669c7b0fc8a0eb337f32bcc2763f2fc67383074d20edb4d517d"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 5,
+          "text": "const POOL_SKIMMER := preload(\"res://scripts/games/pool_skimmer_activity.gd\")",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 101,
+          "text": "\t\tand room_basket.position.is_equal_approx(PoolSkimmerActivity.BASKET_POSITION)",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run_probe",
+          "body_sha256": "92cb09918b77f525e5e5da3ed093eb670325a9779b689acf357b9ff48254d68e"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 189,
+          "text": "\tfor piece: int in range(PoolSkimmerActivity.TRASH_COUNT):",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run_probe",
+          "body_sha256": "92cb09918b77f525e5e5da3ed093eb670325a9779b689acf357b9ff48254d68e"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 382,
+          "text": "\ttouch.position = PoolSkimmerActivity.TRASH_POSITIONS[0]",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_roshan_contact",
+          "body_sha256": "bf189389c909a7c44558a4a7365981b386c35fa4eee4b1287d6744fba57d4f2a"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 390,
+          "text": "\t\ttravelled > 1.0 and travelled <= PoolSkimmerActivity.SWIM_SPEED * 0.1 + 0.01",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_roshan_contact",
+          "body_sha256": "bf189389c909a7c44558a4a7365981b386c35fa4eee4b1287d6744fba57d4f2a"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 395,
+          "text": "\tsecond.position = PoolSkimmerActivity.TRASH_POSITIONS[5]",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_roshan_contact",
+          "body_sha256": "bf189389c909a7c44558a4a7365981b386c35fa4eee4b1287d6744fba57d4f2a"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 433,
+          "text": "\ttouch.position = PoolSkimmerActivity.TRASH_POSITIONS[1]",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_roshan_contact",
+          "body_sha256": "bf189389c909a7c44558a4a7365981b386c35fa4eee4b1287d6744fba57d4f2a"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 437,
+          "text": "\tdrag.position = PoolSkimmerActivity.TRASH_POSITIONS[5]",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_roshan_contact",
+          "body_sha256": "bf189389c909a7c44558a4a7365981b386c35fa4eee4b1287d6744fba57d4f2a"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 445,
+          "text": "\t\t\t<= PoolSkimmerActivity.SWIM_SPEED / 15.0 + 0.01)",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_roshan_contact",
+          "body_sha256": "bf189389c909a7c44558a4a7365981b386c35fa4eee4b1287d6744fba57d4f2a"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 459,
+          "text": "\tactivity.setup(PoolSkimmerActivity.ALL_MASK)",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_roshan_contact",
+          "body_sha256": "bf189389c909a7c44558a4a7365981b386c35fa4eee4b1287d6744fba57d4f2a"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 653,
+          "text": "\tfor item: int in range(PoolSkimmerActivity.TRASH_COUNT):",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_truthful_skimmer_lines",
+          "body_sha256": "d990e8587448377d7e8eb447d811693d3983281f6d54d9c30b6ce8fe57d74236"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 654,
+          "text": "\t\tfor count: int in range(1, PoolSkimmerActivity.TRASH_COUNT + 1):",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_truthful_skimmer_lines",
+          "body_sha256": "d990e8587448377d7e8eb447d811693d3983281f6d54d9c30b6ce8fe57d74236"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_shots.gd",
+          "line": 82,
+          "text": "\ttouch.position = PoolSkimmerActivity.TRASH_POSITIONS[0]",
+          "file_sha256": "b5d36a535a72975d7c2c2000fba5e94facde3f949ea92dbf18d85de9f9f5dafd",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run",
+          "body_sha256": "32ac12437d9ffcafbbaf1c10bee63e1816a3c7ee92057bba4fbad45f8891e942"
+        },
+        {
+          "path": "scripts/probe_overdraw.gd",
+          "line": 136,
+          "text": "\tfor piece: int in range(1, PoolSkimmerActivity.TRASH_COUNT):",
+          "file_sha256": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_measure_pool",
+          "body_sha256": "fca493964b9459dd91ca35b7a433fe18def929ca3305c50c251f3d8d37e8fab6"
+        },
+        {
+          "path": "scripts/games/day_one_pool_cleanup.gd",
+          "line": 367,
+          "text": "\tskimmer_activity = POOL_SKIMMER_ACTIVITY.new() as PoolSkimmerActivity",
+          "file_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "POOL_SKIMMER_ACTIVITY",
+          "alias_declaration_line": 10,
+          "function": "_build_activities",
+          "body_sha256": "ae00e136ef622669c7b0fc8a0eb337f32bcc2763f2fc67383074d20edb4d517d"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 139,
+          "text": "\tvar restored_skimmer: PoolSkimmerActivity = POOL_SKIMMER.new()",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "POOL_SKIMMER",
+          "alias_declaration_line": 5,
+          "function": "_run_probe",
+          "body_sha256": "92cb09918b77f525e5e5da3ed093eb670325a9779b689acf357b9ff48254d68e"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 369,
+          "text": "\tvar activity: PoolSkimmerActivity = POOL_SKIMMER.new()",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "POOL_SKIMMER",
+          "alias_declaration_line": 5,
+          "function": "_probe_roshan_contact",
+          "body_sha256": "bf189389c909a7c44558a4a7365981b386c35fa4eee4b1287d6744fba57d4f2a"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-0C02E9BA9F06",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "class_name": "PoolWaterfallActivity",
+      "file_sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "GUIDE_HAND_PATH"
+      ],
+      "declared_field_bindings": [
+        "_guide_hand"
+      ],
+      "local_binding_names": [
+        "texture"
+      ],
+      "binding_edges": [
+        {
+          "function": "_build_guide_hand",
+          "line": 551,
+          "target": "texture",
+          "text": "\tvar texture := load(GUIDE_HAND_PATH) as Texture2D",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        },
+        {
+          "function": "_build_guide_hand",
+          "line": 556,
+          "target": "_guide_hand.texture",
+          "text": "\t_guide_hand.texture = texture",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "audit_snapshot",
+        "_build_guide_hand",
+        "_free_owned_nodes",
+        "_update_guide_hand"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/games/day_one_pool_cleanup.gd",
+          "line": 13,
+          "text": "\t\"res://scripts/games/pool_waterfall_activity.gd\")",
+          "file_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 6,
+          "text": "const POOL_WATERFALL := preload(\"res://scripts/games/pool_waterfall_activity.gd\")",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/games/day_one_pool_cleanup.gd",
+          "line": 379,
+          "text": "\twaterfall_activity = POOL_WATERFALL_ACTIVITY.new() as PoolWaterfallActivity",
+          "file_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "POOL_WATERFALL_ACTIVITY",
+          "alias_declaration_line": 12,
+          "function": "_build_activities",
+          "body_sha256": "ae00e136ef622669c7b0fc8a0eb337f32bcc2763f2fc67383074d20edb4d517d"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 140,
+          "text": "\tvar restored_waterfall: PoolWaterfallActivity = POOL_WATERFALL.new()",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "POOL_WATERFALL",
+          "alias_declaration_line": 6,
+          "function": "_run_probe",
+          "body_sha256": "92cb09918b77f525e5e5da3ed093eb670325a9779b689acf357b9ff48254d68e"
+        },
+        {
+          "path": "scripts/probe_day_one_pool_cleanup.gd",
+          "line": 723,
+          "text": "\tvar waterfall: PoolWaterfallActivity = POOL_WATERFALL.new()",
+          "file_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "POOL_WATERFALL",
+          "alias_declaration_line": 6,
+          "function": "_probe_contact_action",
+          "body_sha256": "8420b4a2fa6fe2eff47fd9feb3120e9fa92abf1d6f5e9692c2e43a34d30a85b9"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-5AD2289F7166",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "class_name": "OperaGestureSurface",
+      "file_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [],
+      "declared_field_bindings": [
+        "pour_demo_hand_texture"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "_load_widget_set",
+          "line": 789,
+          "target": "pour_demo_hand_texture",
+          "text": "\t\t\t\tpour_demo_hand_texture = _load_widget_texture(",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "_load_widget_set",
+        "_draw_demo_finger"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/opera_ballet_surface.gd",
+          "line": 2,
+          "text": "extends OperaGestureSurface",
+          "file_sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/opera_boxing_surface.gd",
+          "line": 2,
+          "text": "extends OperaGestureSurface",
+          "file_sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/opera_career_world_2d.gd",
+          "line": 30,
+          "text": "const GestureSurface := preload(\"res://scripts/opera_gesture_surface.gd\")",
+          "file_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/opera_chef_surface.gd",
+          "line": 2,
+          "text": "extends OperaGestureSurface",
+          "file_sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/opera_geology_surface.gd",
+          "line": 2,
+          "text": "extends OperaGestureSurface",
+          "file_sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/opera_racer_surface.gd",
+          "line": 2,
+          "text": "extends OperaGestureSurface",
+          "file_sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/opera_teacher_surface.gd",
+          "line": 2,
+          "text": "extends OperaGestureSurface",
+          "file_sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1159,
+          "text": "\t\t\t\tfor row in range(OperaGestureSurface.PAINT_GRID_ROWS):",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_drive_phase",
+          "body_sha256": "8baab55ccfb73bda0d7659fc8b716a92f483fb706d36dbd79b2e46e83c71d314"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1160,
+          "text": "\t\t\t\t\tfor column in range(OperaGestureSurface.PAINT_GRID_COLS):",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_drive_phase",
+          "body_sha256": "8baab55ccfb73bda0d7659fc8b716a92f483fb706d36dbd79b2e46e83c71d314"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1161,
+          "text": "\t\t\t\t\t\tvar x := column if row % 2 == 0 else OperaGestureSurface.PAINT_GRID_COLS - 1 - column",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_drive_phase",
+          "body_sha256": "8baab55ccfb73bda0d7659fc8b716a92f483fb706d36dbd79b2e46e83c71d314"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1163,
+          "text": "\t\t\t\t\t\t\t(float(x) + 0.5) / float(OperaGestureSurface.PAINT_GRID_COLS),",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_drive_phase",
+          "body_sha256": "8baab55ccfb73bda0d7659fc8b716a92f483fb706d36dbd79b2e46e83c71d314"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1164,
+          "text": "\t\t\t\t\t\t\t(float(row) + 0.5) / float(OperaGestureSurface.PAINT_GRID_ROWS)))",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_drive_phase",
+          "body_sha256": "8baab55ccfb73bda0d7659fc8b716a92f483fb706d36dbd79b2e46e83c71d314"
+        },
+        {
+          "path": "scripts/probe_chapter2.gd",
+          "line": 1198,
+          "text": "\t\t\t\t\tvar verse: Array = OperaGestureSurface.ECHO_VERSES[clampi(surface.echo_verse, 0, 2)]",
+          "file_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_route_drive_phase",
+          "body_sha256": "8baab55ccfb73bda0d7659fc8b716a92f483fb706d36dbd79b2e46e83c71d314"
+        },
+        {
+          "path": "scripts/probe_opera_2d.gd",
+          "line": 543,
+          "text": "\t\t\tvar picnic_anchors: Array = OperaGestureSurface.TARGET_ANCHORS.get(",
+          "file_sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "5facddc95e5bc1b69baebe2be75980830c4fd18a94aa4b63d8048cff5562c5b0"
+        },
+        {
+          "path": "scripts/probe_opera_2d.gd",
+          "line": 958,
+          "text": "\t\t\t\tand not OperaGestureSurface.DRAWS_FRAMED_WIDGET_BACKDROPS \\",
+          "file_sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "5facddc95e5bc1b69baebe2be75980830c4fd18a94aa4b63d8048cff5562c5b0"
+        },
+        {
+          "path": "scripts/probe_opera_2d.gd",
+          "line": 988,
+          "text": "\t\t\t\t\tvar painter_free := not OperaGestureSurface.TARGET_ANCHORS.has(context) \\",
+          "file_sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "5facddc95e5bc1b69baebe2be75980830c4fd18a94aa4b63d8048cff5562c5b0"
+        },
+        {
+          "path": "scripts/probe_opera_2d.gd",
+          "line": 995,
+          "text": "\t\t\t\t\tvar anchors: Array = OperaGestureSurface.TARGET_ANCHORS.get(context, [])",
+          "file_sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "5facddc95e5bc1b69baebe2be75980830c4fd18a94aa4b63d8048cff5562c5b0"
+        },
+        {
+          "path": "scripts/probe_opera_2d.gd",
+          "line": 1034,
+          "text": "\t\t\t\tworld.surface._farm_tick(OperaGestureSurface.FARM_FLIGHT_DURATION + 0.01)",
+          "file_sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "5facddc95e5bc1b69baebe2be75980830c4fd18a94aa4b63d8048cff5562c5b0"
+        },
+        {
+          "path": "scripts/probe_opera_2d.gd",
+          "line": 1041,
+          "text": "\t\t\t\tworld.surface._farm_tick(OperaGestureSurface.FARM_FLIGHT_DURATION + 0.01)",
+          "file_sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "5facddc95e5bc1b69baebe2be75980830c4fd18a94aa4b63d8048cff5562c5b0"
+        },
+        {
+          "path": "scripts/probe_opera_2d.gd",
+          "line": 1668,
+          "text": "\t\tand not OperaGestureSurface.DRAWS_CARD_BACKING",
+          "file_sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_audit_diegetic_room_flow",
+          "body_sha256": "29b0235d324d92b6abeec20b05c074df90bc82e2c9684ef37fea84fe365237ba"
+        },
+        {
+          "path": "scripts/probe_opera_2d_balance.gd",
+          "line": 241,
+          "text": "\t\t\t\t\t\t\t\tvar verse: Array = OperaGestureSurface.ECHO_VERSES[world.surface.echo_verse]",
+          "file_sha256": "bafc7d595550580552369de1f5728651ccb8af2478ffe01127775dea719b95c3",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_play",
+          "body_sha256": "4660a040bf062d8b4c4808227549bb509eebca12c5e46fb62aa13e9a7d938cd0"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 536,
+          "text": "\tvar surface := OperaGestureSurface.new()",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 542,
+          "text": "\t\tnot OperaGestureSurface.DRAWS_CAUSAL_RECTANGLE_BACKDROPS)",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 670,
+          "text": "\t\t\"res://scripts/opera_gesture_surface.gd\")",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 724,
+          "text": "\tfor round_index in range(OperaGestureSurface.PIPE_ROUNDS.size()):",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 737,
+          "text": "\tfor cell in range(OperaGestureSurface.PIPE_COLS * OperaGestureSurface.PIPE_ROWS):",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 743,
+          "text": "\tfor round_data: Dictionary in OperaGestureSurface.PIPE_ROUNDS:",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 756,
+          "text": "\t\tfor round_data: Dictionary in OperaGestureSurface.PIPE_ROUNDS:",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 819,
+          "text": "\t\tsurface.xray_complete and surface.xray_found_count == OperaGestureSurface.XRAY_SPOTS.size()",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 820,
+          "text": "\t\tand _paid_count(\"xray_scan\") == OperaGestureSurface.XRAY_SPOTS.size())",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1149,
+          "text": "\tfor clue_slot in range(OperaGestureSurface.CLUE_BOARD_COUNT):",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1171,
+          "text": "\tfor garden_hole in range(OperaGestureSurface.GARDEN_HOLES.size()):",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1322,
+          "text": "\tfor clue_index in range(OperaGestureSurface.CLUE_BOARD_COUNT):",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1329,
+          "text": "\t\tand surface.clue_index == OperaGestureSurface.CLUE_BOARD_COUNT",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1330,
+          "text": "\t\tand _paid_count(\"clue_board\") == OperaGestureSurface.CLUE_BOARD_COUNT)",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1363,
+          "text": "\tfor hole_index in range(OperaGestureSurface.GARDEN_HOLES.size()):",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1372,
+          "text": "\t\tsurface.garden_planted == OperaGestureSurface.GARDEN_HOLES.size()",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1373,
+          "text": "\t\tand _paid_count(\"garden_plant\") == OperaGestureSurface.GARDEN_HOLES.size()",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1455,
+          "text": "\t\t\t== OperaGestureSurface.NURSERY_BOTTLE_PATH",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1580,
+          "text": "\t\tand surface.candy_type == int(OperaGestureSurface.CANDY_SEQUENCE[0]))",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1603,
+          "text": "\tfor sorted_piece in range(OperaGestureSurface.CANDY_SEQUENCE.size()):",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1612,
+          "text": "\t\t\t\tsurface.candy_type == int(OperaGestureSurface.CANDY_SEQUENCE[1]))",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1614,
+          "text": "\t\tsurface.candy_complete and surface.candy_sorted == OperaGestureSurface.CANDY_SEQUENCE.size()",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1615,
+          "text": "\t\tand _paid_count(\"candy_sort\") == OperaGestureSurface.CANDY_SEQUENCE.size())",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1633,
+          "text": "\tfor row in range(OperaGestureSurface.PAINT_GRID_ROWS):",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1637,
+          "text": "\t\t\t* (float(row) + 0.5) / float(OperaGestureSurface.PAINT_GRID_ROWS)",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1645,
+          "text": "\t\tand surface.paint_coverage() >= OperaGestureSurface.PAINT_REQUIRED_COVERAGE)",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1688,
+          "text": "\tsurface._farm_tick(OperaGestureSurface.FARM_FLIGHT_DURATION * 0.5)",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1692,
+          "text": "\tsurface._farm_tick(OperaGestureSurface.FARM_FLIGHT_DURATION * 0.5 + 0.01)",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1696,
+          "text": "\tfor landing in range(1, OperaGestureSurface.FARM_LOB_GOAL):",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1706,
+          "text": "\t\tsurface.farm_complete and surface.farm_landed == OperaGestureSurface.FARM_LOB_GOAL",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_gesture_quality.gd",
+          "line": 1707,
+          "text": "\t\tand _paid_count(\"farm_lob\") == OperaGestureSurface.FARM_LOB_GOAL",
+          "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "4cdeef50298c3bf9dc10e8d54dfca79e279e8082d1a7eece8e5103fd5550643a"
+        },
+        {
+          "path": "scripts/probe_opera_performance.gd",
+          "line": 317,
+          "text": "\tvar first_note := int(OperaGestureSurface.ECHO_VERSES[0][0])",
+          "file_sha256": "ab9af4d9e5b90d4e3224de5145412ae7bfd4e8c763285b31938205dee1656152",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_current_mechanic_restore",
+          "body_sha256": "7275eed66c003f7856c39e558aaaea9a2db694c4e33f0a977dec16485a2d1382"
+        },
+        {
+          "path": "scripts/probe_opera_performance.gd",
+          "line": 340,
+          "text": "\tvar second_note := int(OperaGestureSurface.ECHO_VERSES[0][1])",
+          "file_sha256": "ab9af4d9e5b90d4e3224de5145412ae7bfd4e8c763285b31938205dee1656152",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_probe_current_mechanic_restore",
+          "body_sha256": "7275eed66c003f7856c39e558aaaea9a2db694c4e33f0a977dec16485a2d1382"
+        },
+        {
+          "path": "scripts/probe_opera_pipe.gd",
+          "line": 48,
+          "text": "\tvar surface := OperaGestureSurface.new()",
+          "file_sha256": "5ad9f1953ecc666d9b9e21a1d250294a37e9d0159c515fdf250b7dbd6eaae9c2",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "7776f17101e34d94378a3116ae6f8cdad19f40fd51a79141a811970b739c3816"
+        },
+        {
+          "path": "scripts/opera_career_world_2d.gd",
+          "line": 788,
+          "text": "\t\t\tperformance_rival_surface = GestureSurface.new()",
+          "file_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "GestureSurface",
+          "alias_declaration_line": 30,
+          "function": "setup",
+          "body_sha256": "9a04375065637dfb83394fbd7e69e655363076e9aeb65c18c971aa3a37d1d901"
+        },
+        {
+          "path": "scripts/opera_career_world_2d.gd",
+          "line": 1328,
+          "text": "\t\tsurface = GestureSurface.new() as OperaGestureSurface",
+          "file_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "GestureSurface",
+          "alias_declaration_line": 30,
+          "function": "_build_world",
+          "body_sha256": "9a22acf0ab377e4530ada42ac81ae7fa7fc6ab92b17b288663c9299692238e60"
+        },
+        {
+          "path": "scripts/opera_career_world_2d.gd",
+          "line": 5251,
+          "text": "\t\t\t\"echo_verse\": clampi(surface.echo_verse, 0, GestureSurface.ECHO_VERSES.size()),",
+          "file_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "GestureSurface",
+          "alias_declaration_line": 30,
+          "function": "_performance_current_snapshot",
+          "body_sha256": "72dad5fee8ac8b58b36c1ee0004b7d47f928a6020af4ceba75386d5bde15add3"
+        },
+        {
+          "path": "scripts/opera_career_world_2d.gd",
+          "line": 5280,
+          "text": "\t\tGestureSurface.ECHO_VERSES.size())",
+          "file_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "GestureSurface",
+          "alias_declaration_line": 30,
+          "function": "_performance_apply_current_restore",
+          "body_sha256": "43ae383c791898e61e8ac6fa2eca460d0fd73c1110367d54e11b3744393d7feb"
+        },
+        {
+          "path": "scripts/opera_career_world_2d.gd",
+          "line": 5288,
+          "text": "\tif restored_verse < GestureSurface.ECHO_VERSES.size() \\",
+          "file_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "GestureSurface",
+          "alias_declaration_line": 30,
+          "function": "_performance_apply_current_restore",
+          "body_sha256": "43ae383c791898e61e8ac6fa2eca460d0fd73c1110367d54e11b3744393d7feb"
+        },
+        {
+          "path": "scripts/opera_career_world_2d.gd",
+          "line": 5293,
+          "text": "\t\tvar verse: Array = GestureSurface.ECHO_VERSES[restored_verse]",
+          "file_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "GestureSurface",
+          "alias_declaration_line": 30,
+          "function": "_performance_apply_current_restore",
+          "body_sha256": "43ae383c791898e61e8ac6fa2eca460d0fd73c1110367d54e11b3744393d7feb"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-2A2E09232341",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "class_name": "OperaHouseVenue2D",
+      "file_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "GHOST_HAND_TEXTURE"
+      ],
+      "declared_field_bindings": [
+        "guide_pointer"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "_build_guide_pointer",
+          "line": 360,
+          "target": "guide_pointer.texture",
+          "text": "\tguide_pointer.texture = load(GHOST_HAND_TEXTURE) as Texture2D",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "_build_guide_pointer",
+        "close",
+        "guide_current_floor",
+        "_update_guide_pointer",
+        "_process",
+        "open_tree_book"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/castle_career_routes.gd",
+          "line": 218,
+          "text": "\t\topera_venue = OperaHouseVenue2D.new()",
+          "file_sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_rebuild_room",
+          "body_sha256": "b759f5350497bf71cea5a4552d4103b8c07b4bb0706984176bd82d846ae1f631"
+        },
+        {
+          "path": "scripts/probe_ui_system.gd",
+          "line": 185,
+          "text": "\t\t\"res://scripts/opera_house_venue_2d.gd\")",
+          "file_sha256": "871337431bb6f9518cd5e40e4b8bd41688303d013872841e2f24ab9faa2a1e2f",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "_check_storybook_coverage",
+          "body_sha256": "1b5dd84c07f98360f883cc5620b12c28d7ac38452190466af4ea2acf70260538"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-35CF0B73C2DF",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "class_name": "OperaTreeBookTest",
+      "file_sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [],
+      "declared_field_bindings": [
+        "hand"
+      ],
+      "local_binding_names": [],
+      "binding_edges": [
+        {
+          "function": "_ready",
+          "line": 71,
+          "target": "hand",
+          "text": "\thand = load(\"res://assets/castle/training/ghost_hand.png\") as Texture2D",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "_ready",
+        "_draw"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scenes/arborist_tree_book_test.tscn",
+          "line": 3,
+          "text": "[ext_resource type=\"Script\" path=\"res://scripts/opera_tree_book_test.gd\" id=\"1\"]",
+          "file_sha256": "42e3654eb4d95a464dfb93eb0c72b2240529e366bb9cf58f5e75640b58cf92fc",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/opera_house_venue_2d.gd",
+          "line": 498,
+          "text": "\ttree_book_test = OperaTreeBookTest.new()",
+          "file_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "open_tree_book",
+          "body_sha256": "b71585c01933a38259b6c28434ef6cbefa9a07939433b0fbe92e5df55ada9187"
+        },
+        {
+          "path": "scripts/opera_house_venue_2d.gd",
+          "line": 499,
+          "text": "\ttree_book_test.setup(m, m.save_data.get(OperaTreeBookTest.SAVE_KEY, {}))",
+          "file_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "open_tree_book",
+          "body_sha256": "b71585c01933a38259b6c28434ef6cbefa9a07939433b0fbe92e5df55ada9187"
+        },
+        {
+          "path": "scripts/opera_house_venue_2d.gd",
+          "line": 507,
+          "text": "\tm.save_data[OperaTreeBookTest.SAVE_KEY] = checkpoint",
+          "file_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_save_tree_book",
+          "body_sha256": "c1134ec651eaa7a46a3242ad408b15c64276405769ca6dd0c3cb72565164b422"
+        },
+        {
+          "path": "scripts/tree_book_test_checks.gd",
+          "line": 23,
+          "text": "\tvar level := OperaTreeBookTest.new()",
+          "file_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "run",
+          "body_sha256": "5ffecbff2eb1695e8cc5ecfe63690590c3582813ea2e3f467b99a130d694eda4"
+        },
+        {
+          "path": "scripts/tree_book_test_checks.gd",
+          "line": 26,
+          "text": "\tfor cue: String in OperaTreeBookTest.CUES + [\"try_tree\", \"try_spots\"]:",
+          "file_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "run",
+          "body_sha256": "5ffecbff2eb1695e8cc5ecfe63690590c3582813ea2e3f467b99a130d694eda4"
+        },
+        {
+          "path": "scripts/tree_book_test_checks.gd",
+          "line": 31,
+          "text": "\t\t\tOperaTreeBookTest.ORDERS[step].size() == 4",
+          "file_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "run",
+          "body_sha256": "5ffecbff2eb1695e8cc5ecfe63690590c3582813ea2e3f467b99a130d694eda4"
+        },
+        {
+          "path": "scripts/tree_book_test_checks.gd",
+          "line": 32,
+          "text": "\t\t\tand OperaTreeBookTest.ORDERS[step].count(OperaTreeBookTest.ANSWERS[step]) == 1)",
+          "file_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "run",
+          "body_sha256": "5ffecbff2eb1695e8cc5ecfe63690590c3582813ea2e3f467b99a130d694eda4"
+        },
+        {
+          "path": "scripts/tree_book_test_checks.gd",
+          "line": 61,
+          "text": "\ttouch(level,1,true,OperaTreeBookTest.LEAF_RECT.get_center())",
+          "file_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "run",
+          "body_sha256": "5ffecbff2eb1695e8cc5ecfe63690590c3582813ea2e3f467b99a130d694eda4"
+        },
+        {
+          "path": "scripts/tree_book_test_checks.gd",
+          "line": 76,
+          "text": "\ttouch(level,1,true,OperaTreeBookTest.LEAF_RECT.get_center())",
+          "file_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "run",
+          "body_sha256": "5ffecbff2eb1695e8cc5ecfe63690590c3582813ea2e3f467b99a130d694eda4"
+        },
+        {
+          "path": "scripts/tree_book_test_checks.gd",
+          "line": 83,
+          "text": "\ttap(level,OperaTreeBookTest.REPLAY_RECT.get_center())",
+          "file_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "run",
+          "body_sha256": "5ffecbff2eb1695e8cc5ecfe63690590c3582813ea2e3f467b99a130d694eda4"
+        },
+        {
+          "path": "scripts/tree_book_test_checks.gd",
+          "line": 96,
+          "text": "\t\tvar previous: Variant = main.save_data.get(OperaTreeBookTest.SAVE_KEY)",
+          "file_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "run",
+          "body_sha256": "5ffecbff2eb1695e8cc5ecfe63690590c3582813ea2e3f467b99a130d694eda4"
+        },
+        {
+          "path": "scripts/tree_book_test_checks.gd",
+          "line": 126,
+          "text": "\t\t\tand on_disk.get(OperaTreeBookTest.SAVE_KEY, {}).get(\"stage\") == 1)",
+          "file_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "run",
+          "body_sha256": "5ffecbff2eb1695e8cc5ecfe63690590c3582813ea2e3f467b99a130d694eda4"
+        },
+        {
+          "path": "scripts/tree_book_test_checks.gd",
+          "line": 140,
+          "text": "\t\t\tmain.save_data.erase(OperaTreeBookTest.SAVE_KEY)",
+          "file_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "run",
+          "body_sha256": "5ffecbff2eb1695e8cc5ecfe63690590c3582813ea2e3f467b99a130d694eda4"
+        },
+        {
+          "path": "scripts/tree_book_test_checks.gd",
+          "line": 142,
+          "text": "\t\t\tmain.save_data[OperaTreeBookTest.SAVE_KEY] = previous",
+          "file_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "run",
+          "body_sha256": "5ffecbff2eb1695e8cc5ecfe63690590c3582813ea2e3f467b99a130d694eda4"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-841F23715C90",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+      "class_name": null,
+      "file_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [
+        "RUNTIME_ASSETS"
+      ],
+      "declared_field_bindings": [],
+      "local_binding_names": [],
+      "binding_edges": [],
+      "selected_local_functions": [
+        "_run_probe"
+      ],
+      "incoming_source_candidates": [],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-B62EF56329B5",
+      "classification": "PROBE_ASSET_REQUIREMENT",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "class_name": null,
+      "file_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [],
+      "declared_field_bindings": [],
+      "local_binding_names": [],
+      "binding_edges": [],
+      "selected_local_functions": [],
+      "incoming_source_candidates": [],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-BEBC32B924B0",
+      "classification": "PROBE_ASSET_REQUIREMENT",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "class_name": "StartMenu",
+      "file_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "literal_reference_count": 1,
+      "top_level_asset_aliases": [],
+      "declared_field_bindings": [],
+      "local_binding_names": [
+        "hand",
+        "hand_tween"
+      ],
+      "binding_edges": [
+        {
+          "function": "_build_new_game_confirmation",
+          "line": 260,
+          "target": "hand.texture",
+          "text": "\thand.texture = load(\"res://assets/castle/training/ghost_hand.png\") as Texture2D",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        },
+        {
+          "function": "_build_new_game_confirmation",
+          "line": 268,
+          "target": "hand_tween",
+          "text": "\tvar hand_tween: Tween = hand.create_tween().set_loops()",
+          "rhs_scope": "EXPLICIT_SAME_FUNCTION_SOURCE_VALUE_CANDIDATE"
+        }
+      ],
+      "selected_local_functions": [
+        "_build_new_game_confirmation"
+      ],
+      "incoming_source_candidates": [
+        {
+          "path": "scripts/main.gd",
+          "line": 12,
+          "text": "const StartMenuLogic = preload(\"res://scripts/start_menu.gd\")",
+          "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 94,
+          "text": "\tawait _wait(StartMenu.NEW_GAME_ARM_DELAY_SECONDS + 0.2)",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "f1b7fdd247ff0cc751bfe648286e5a06f93a3fd0f3ea5a28a296dd6fbb8e0974"
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 97,
+          "text": "\tawait _wait(StartMenu.NEW_GAME_HOLD_SECONDS * 0.4)",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "f1b7fdd247ff0cc751bfe648286e5a06f93a3fd0f3ea5a28a296dd6fbb8e0974"
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 100,
+          "text": "\tawait _wait(StartMenu.NEW_GAME_HOLD_SECONDS + 0.3)",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "f1b7fdd247ff0cc751bfe648286e5a06f93a3fd0f3ea5a28a296dd6fbb8e0974"
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 111,
+          "text": "\tawait _wait(StartMenu.NEW_GAME_HOLD_SECONDS + 0.1)",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "f1b7fdd247ff0cc751bfe648286e5a06f93a3fd0f3ea5a28a296dd6fbb8e0974"
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 116,
+          "text": "\tawait _wait(StartMenu.NEW_GAME_ARM_DELAY_SECONDS + 0.2)",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_init",
+          "body_sha256": "f1b7fdd247ff0cc751bfe648286e5a06f93a3fd0f3ea5a28a296dd6fbb8e0974"
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 160,
+          "text": "\t\tif not consume_reset_marker_only or root.has_meta(StartMenu.DAY_ONE_AFTER_RESET_META):",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_show_headless_menu",
+          "body_sha256": "7842e7de778c0bb34db290bc2492538ed046a9259b5c2bd88fbcedfa5c511f62"
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 173,
+          "text": "\tawait _wait(StartMenu.NEW_GAME_HOLD_SECONDS * 0.70)",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_full_hold_real_reload",
+          "body_sha256": "a487ac70514907dd0433f5e9465f52fed3de987fa824857bc55a8f187f202519"
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 192,
+          "text": "\t\tnot root.has_meta(StartMenu.DAY_ONE_AFTER_RESET_META))",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_full_hold_real_reload",
+          "body_sha256": "a487ac70514907dd0433f5e9465f52fed3de987fa824857bc55a8f187f202519"
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 204,
+          "text": "\tawait _wait(StartMenu.NEW_GAME_HOLD_SECONDS + 0.25)",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_full_hold_real_reload",
+          "body_sha256": "a487ac70514907dd0433f5e9465f52fed3de987fa824857bc55a8f187f202519"
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 310,
+          "text": "\t\tand not root.has_meta(StartMenu.DAY_ONE_AFTER_RESET_META) and scene_boots == 1",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_run_child_resume",
+          "body_sha256": "fee38847dbf22b3466df2f8b70971076ec12625a03a93186399c4be4e5c32abe"
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 410,
+          "text": "\tif root.has_meta(StartMenu.DAY_ONE_AFTER_RESET_META):",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_finish",
+          "body_sha256": "227bb46ba1ace56c26da55ef0761a47d24b2bca50fe4bef45df2ad64bd630f60"
+        },
+        {
+          "path": "scripts/probe_start_menu_new_game.gd",
+          "line": 411,
+          "text": "\t\troot.remove_meta(StartMenu.DAY_ONE_AFTER_RESET_META)",
+          "file_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "AST_CLASS_IDENTIFIER",
+          "function": "_finish",
+          "body_sha256": "227bb46ba1ace56c26da55ef0761a47d24b2bca50fe4bef45df2ad64bd630f60"
+        },
+        {
+          "path": "scripts/probe_start_menu_routing.gd",
+          "line": 7,
+          "text": "const START_MENU := preload(\"res://scripts/start_menu.gd\")",
+          "file_sha256": "cb78dc83a64764bbff81aec0835f8354fbb20cc886cf9ca1e60f80792a4c19d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "TOP_LEVEL",
+          "body_sha256": null
+        },
+        {
+          "path": "scripts/probe_start_menu_routing.gd",
+          "line": 52,
+          "text": "\tvar menu_source: String = FileAccess.get_file_as_string(\"res://scripts/start_menu.gd\")",
+          "file_sha256": "cb78dc83a64764bbff81aec0835f8354fbb20cc886cf9ca1e60f80792a4c19d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "_probe_wiring",
+          "body_sha256": "024e550f2d379618a9ac6d096888cc848bb69f456a18aacee775594543cb820b"
+        },
+        {
+          "path": "scripts/probe_start_menu_routing.gd",
+          "line": 135,
+          "text": "\treturn FileAccess.get_file_as_string(\"res://scripts/start_menu.gd\")",
+          "file_sha256": "cb78dc83a64764bbff81aec0835f8354fbb20cc886cf9ca1e60f80792a4c19d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "menu_source_for_hold",
+          "body_sha256": "8a99933367bdd101c6b4b5a92810224c224e31bd7669f1d8ff9a80ced9cf64dd"
+        },
+        {
+          "path": "scripts/probe_ui_system.gd",
+          "line": 392,
+          "text": "\t\t{\"path\": \"res://scripts/start_menu.gd\", \"markers\": [",
+          "file_sha256": "871337431bb6f9518cd5e40e4b8bd41688303d013872841e2f24ab9faa2a1e2f",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "_check_type_c_layout_contract",
+          "body_sha256": "2a9cd2693c09ac76eff2362745deb6b979e7738c6fc11bbafcbe1e7d8ae5ceee"
+        },
+        {
+          "path": "scripts/probe_ui_system.gd",
+          "line": 400,
+          "text": "\t\tif String(spec[\"path\"]) == \"res://scripts/start_menu.gd\":",
+          "file_sha256": "871337431bb6f9518cd5e40e4b8bd41688303d013872841e2f24ab9faa2a1e2f",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "LITERAL_SCRIPT_RESOURCE",
+          "function": "_check_type_c_layout_contract",
+          "body_sha256": "2a9cd2693c09ac76eff2362745deb6b979e7738c6fc11bbafcbe1e7d8ae5ceee"
+        },
+        {
+          "path": "scripts/main.gd",
+          "line": 1156,
+          "text": "\t\t_start_menu = StartMenuLogic.new(self)",
+          "file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "StartMenuLogic",
+          "alias_declaration_line": 12,
+          "function": "_start_menu_ref",
+          "body_sha256": "1a10f72ce4ebe42adbcf49c1b9ca641adaf786d89eea60d601888bffc2247b13"
+        },
+        {
+          "path": "scripts/probe_start_menu_routing.gd",
+          "line": 19,
+          "text": "\t\tSTART_MENU.continue_day_one_mode({\"day_one_active\": true}))",
+          "file_sha256": "cb78dc83a64764bbff81aec0835f8354fbb20cc886cf9ca1e60f80792a4c19d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "START_MENU",
+          "alias_declaration_line": 7,
+          "function": "_init",
+          "body_sha256": "8ccaa5be45db56c5b89659e2547953d8d1d25cc134ab5bd69b59ec33156a0aba"
+        },
+        {
+          "path": "scripts/probe_start_menu_routing.gd",
+          "line": 21,
+          "text": "\t\tnot START_MENU.continue_day_one_mode({\"legacy\": true}))",
+          "file_sha256": "cb78dc83a64764bbff81aec0835f8354fbb20cc886cf9ca1e60f80792a4c19d8",
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "matched_as": "SAME_FILE_TOP_LEVEL_SCRIPT_ALIAS",
+          "script_alias": "START_MENU",
+          "alias_declaration_line": 7,
+          "function": "_init",
+          "body_sha256": "8ccaa5be45db56c5b89659e2547953d8d1d25cc134ab5bd69b59ec33156a0aba"
+        }
+      ],
+      "reachability_status": "SOURCE_BRANCHES_ONLY_NO_RUNTIME_OR_ALLCALLER_CLOSURE",
+      "consumer_id": "FVHC-5FA00B6405D5",
+      "classification": "CANDIDATE_RENDERING_SOURCE_NOT_RUNTIME_PROOF",
+      "individual_artwork_role_split": "UNRESOLVED_NOT_ADDED_TO_ARTWORK_DENOMINATOR",
+      "scope_note": "Incoming class/type/resource/alias occurrences are source candidates; binding expansion is lexical and does not resolve aliases through arbitrary values, inheritance/native code or indirect dispatch. No absence-of-link retirement claim."
+    }
+  ],
+  "prior_r17_source": "182f2e522a330b89bf7329b26516583160f343e0",
+  "prior_r17_paths": [
+    "scripts/arena/fairy_conservatory_handoff_2d.gd",
+    "scripts/boss_splash_2d.gd",
+    "scripts/chapter_two_lawn_finale_2d.gd",
+    "scripts/encounter_gesture_guide_2d.gd",
+    "scripts/encounter_telegraph_2d.gd",
+    "scripts/fairy_restoration_prototype.gd",
+    "scripts/games/day_one_bathroom_cleaning.gd",
+    "scripts/games/day_one_bathroom_cleanup.gd",
+    "scripts/games/day_one_bathroom_toilet.gd",
+    "scripts/games/pool_seahorse_rescue_activity.gd",
+    "scripts/games/pool_skimmer_activity.gd",
+    "scripts/games/pool_waterfall_activity.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house_venue_2d.gd",
+    "scripts/opera_tree_book_test.gd",
+    "scripts/start_menu.gd"
+  ],
+  "same_non_probe_paths": [
+    "scripts/arena/fairy_conservatory_handoff_2d.gd",
+    "scripts/boss_splash_2d.gd",
+    "scripts/chapter_two_lawn_finale_2d.gd",
+    "scripts/encounter_gesture_guide_2d.gd",
+    "scripts/encounter_telegraph_2d.gd",
+    "scripts/fairy_restoration_prototype.gd",
+    "scripts/games/day_one_bathroom_cleaning.gd",
+    "scripts/games/day_one_bathroom_cleanup.gd",
+    "scripts/games/day_one_bathroom_toilet.gd",
+    "scripts/games/pool_seahorse_rescue_activity.gd",
+    "scripts/games/pool_skimmer_activity.gd",
+    "scripts/games/pool_waterfall_activity.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house_venue_2d.gd",
+    "scripts/opera_tree_book_test.gd",
+    "scripts/start_menu.gd"
+  ],
+  "added_reference_paths": [
+    "scripts/probe_day_one_bathroom_cleanup.gd",
+    "scripts/probe_opera_gesture_quality.gd"
+  ],
+  "removed_reference_paths": [],
+  "method": "AST bounded function/constant data plus explicit local loading-property occurrence expansion and one-edge incoming script/class references. These are source candidates, not proofs of execution. Missing alias/value/native/dynamic/cancel/fallback closure stays open."
+}

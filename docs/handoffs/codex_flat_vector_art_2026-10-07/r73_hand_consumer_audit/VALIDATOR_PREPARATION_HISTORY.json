@@ -1,0 +1,5 @@
+{
+  "attempt1": "FAIL before publication: validator compared the current tally phase label as if it were historical immutable content; AssertionError(tally.json,phase).",
+  "correction": "Current revision/phase/publication fields may change in the new R73 namespace. All other inherited fields, old namespaces and frozen root bytes still must match. No source/runtime fixture or historical evidence was edited.",
+  "source_runtime_failure_claimed": false
+}

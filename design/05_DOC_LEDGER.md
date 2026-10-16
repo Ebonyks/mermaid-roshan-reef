@@ -1363,3 +1363,5 @@ release/device/child/owner authority retain precedence.
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; R72 finite painted pointing-gesture reuse audit. Two crop variants rejected for standalone quality; source mechanics retain scope. New-art export request blocked until explicit owner authorization;0acceptedremovals, global totals unknown. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; exact source/private engine/geometry/source-metadata correction/history/gates and two-phase publication. No QA11/device/child/owner or production acceptance. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r73_hand_consumer_audit/README.md` | 🔵 | `SUPPORTING_CURRENT`; R73 exact current shared-hand source/candidate consumer reconciliation.16same non-probe sources plus2probe requirements, conditional primitive fallbacks, actual venue tree-book source construction, independent safe menu confirmation; no runtime/art/context/acceptance/removal increment. Global denominators/caller/QA11/device/child/owner remain open. |
