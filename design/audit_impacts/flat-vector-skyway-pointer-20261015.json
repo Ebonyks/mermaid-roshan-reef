@@ -404,6 +404,11 @@
       "command": "Anonymous exact immutable payload manifest and every required file",
       "result": "PASS",
       "evidence": "Payload69688371157886eb544c23fb331f1669c9cb84aa;387 files/306520733bytes;REMOTE_VERIFICATION.json;2026-10-16T03:31:16.288029+00:00;publication is not creative acceptance."
+    },
+    {
+      "command": "Anonymous receipt metadata plus fresh upstream reconciliation",
+      "result": "PASS",
+      "evidence": "Receipt33bb9da478f9dac1cf8fc4c9a602a94236d65bee;10 metadata files exact;FINAL_BYTE_RECEIPT.json;origin/dev5120b6d59885dd057937aaf284e73681d8eac9f5, runtime deltaempty. Finalproof self/IP pair verified separately after push."
     }
   ],
   "acceptance_gaps": "Nonproduction candidate only. Existing art source scene/garden return, wide crop/nativequality, hint/voice/fallback/caller/inventory/QA11/device/child/owner and strict2D remain open;0 accepted removals."
