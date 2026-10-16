@@ -1,0 +1,49 @@
+{
+  "status": "FAIL_BEFORE_NATIVE",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r81_touch_flash_ownership\\capture_entry.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r81_touch_flash_ownership\\capture_entry.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r81/capture_entry.gd"
+      ],
+      "exit_code": 1,
+      "sha256": "d6426c7dd9c34cc103ac95c4c6ff1068c23b123fca48396fe43c3b25f3e0b3d2",
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nSCRIPT ERROR: Parse Error: Cannot infer the type of \"id\" variable because the value doesn't have a set type.\r\n   at: GDScript::reload (res://export/flat_vector_r81/capture_entry.gd:272)\r\nSCRIPT ERROR: Parse Error: The variable type is being inferred from a Variant value, so it will be typed as Variant. (Warning treated as error.)\r\n   at: GDScript::reload (res://export/flat_vector_r81/capture_entry.gd:271)\r\nERROR: Failed to load script \"res://export/flat_vector_r81/capture_entry.gd\" with error \"Parse error\".\r\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\r\n"
+    }
+  ],
+  "fixture_files": [
+    {
+      "path": "capture_entry.gd",
+      "sha256": "75c93629254fb6f22f2715aa1df6da59fcbbce10ffc7acd7b80c43edb3718dcd"
+    }
+  ],
+  "checked_at_utc": "2026-10-16T12:17:08.177411+00:00"
+}

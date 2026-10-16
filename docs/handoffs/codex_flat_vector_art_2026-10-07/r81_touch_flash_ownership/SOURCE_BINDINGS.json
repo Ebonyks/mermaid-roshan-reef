@@ -1,0 +1,2862 @@
+{
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "source_functions": [
+    {
+      "path": "scripts/main.gd",
+      "function": "_ready",
+      "line": 1012,
+      "end_line": 1091,
+      "text": "func _ready() -> void:\n\tBootSplashOverlayLogic.show(self)\n\tfor jmap in EXTRA_JOY_MAPPINGS:\n\t\tInput.add_joy_mapping(String(jmap), true)\n\tInput.joy_connection_changed.connect(func(_dev: int, _conn: bool):\n\t\tjoy_ev_axis.clear()   # never let a departed pad leave phantom input behind\n\t\tjoy_ev_btn.clear()\n\t\tif not _conn:\n\t\t\t_forget_melody_pad_device(_dev)\n\t\t\t_forget_slide_canvas_pad_device(_dev)\n\t\t_refresh_joy_mapped())\n\t_refresh_joy_mapped()\n\t_build_environment()\n\t# The legacy 3D reef world (terrain, water, flora, creatures, pearls, friend\n\t# pillars and portals) was retired on 2026-09-23: nothing the child can reach\n\t# uses it, so it is no longer built at boot or ticked per frame.\n\t_build_friends()\n\t_build_player()\n\t_build_hud()\n\t_build_fade_cover()\n\t_living_world_ref().setup()\n\t_apply_cel_shading()\n\t# (the storybook page frame \u2014 dotted border + corner bubbles \u2014 was removed\n\t# here, owner request 2026-07-21: the screen was getting too busy)\n\tget_tree().node_added.connect(_hook_button_taps)\n\tvoice = AudioStreamPlayer.new()\n\tvoice.stream = load(\"res://assets/audio/voices/filler_v1/yay.ogg\")\n\tvoice.bus = \"Voice\"\n\tadd_child(voice)\n\tchime = AudioStreamPlayer.new()\n\tchime.stream = load(\"res://assets/audio/chime.ogg\")\n\tchime.bus = \"SFX\"\n\tchime.volume_db = -4.0\n\tadd_child(chime)\n\thop_sfx = AudioStreamPlayer.new()\n\thop_sfx.stream = load(\"res://assets/audio/hop_boing.ogg\")\n\thop_sfx.bus = \"SFX\"\n\thop_sfx.volume_db = -12.0   # a scoot is many hops \u2014 keep the boing well under the chime\n\tadd_child(hop_sfx)\n\tpeng_giggle = AudioStreamPlayer.new()\n\tpeng_giggle.stream = load(\"res://assets/audio/penguin_giggle.ogg\")\n\tpeng_giggle.bus = \"SFX\"\n\tpeng_giggle.volume_db = -3.0\n\tadd_child(peng_giggle)\n\tbuy_sound = AudioStreamPlayer.new()\n\tbuy_sound.stream = load(\"res://assets/audio/buy.ogg\")\n\tbuy_sound.bus = \"SFX\"\n\tbeans_sfx = AudioStreamPlayer.new()\n\tbeans_sfx.bus = \"SFX\"\n\tvar banjo_st: AudioStream = load(\"res://assets/audio/music/banjo.ogg\")\n\tif banjo_st is AudioStreamOggVorbis:\n\t\t(banjo_st as AudioStreamOggVorbis).loop = true\n\tbeans_sfx.stream = banjo_st\n\tbeans_sfx.volume_db = -7.0\n\tadd_child(beans_sfx)\n\tadd_child(buy_sound)\n\tfor vp in range(4):\n\t\tvar ap := AudioStreamPlayer.new()\n\t\tap.bus = \"Voice\"\n\t\tadd_child(ap)\n\t\tvoice_pool.append(ap)\n\ttouch_ui = preload(\"res://scripts/touch_ui.gd\").new()\n\tadd_child(touch_ui)\n\tif OS.has_feature(\"editor\") or \"--dev-mode\" in OS.get_cmdline_user_args():\n\t\tdev_mode = preload(\"res://scripts/dev_mode.gd\").new()\n\t\tadd_child(dev_mode)\n\t_build_pause()\n\t_load_save()\n\t_init_touch_experiment()\n\t# Display builds defer the authored gatehouse entry until the start menu\n\t# knows whether this is a direct Continue or a fresh Day 1 adventure.\n\t# Headless probes retain their established self-directed bootstrap.\n\t_collection_ref().build()\n\tif DisplayServer.get_name() == \"headless\":\n\t\tif first_session:\n\t\t\t_build_intro()\n\telse:\n\t\t_build_start_menu()\n\t_warm_shaders()         # precompile the hot runtime shaders behind the intro\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_unhandled_input",
+      "line": 1176,
+      "end_line": 1190,
+      "text": "func _unhandled_input(ev: InputEvent) -> void:\n\t# gamepad/keyboard advance for the storybook intro (taps and clicks land on\n\t# the invisible full-screen button; this covers A/B/Start, Space and Enter)\n\tif start_menu_active or not intro_active:\n\t\treturn\n\tvar advance := false\n\tif ev is InputEventJoypadButton and (ev as InputEventJoypadButton).pressed:\n\t\tvar bi: int = (ev as InputEventJoypadButton).button_index\n\t\tadvance = bi == JOY_BUTTON_A or bi == JOY_BUTTON_B or bi == JOY_BUTTON_START\n\telif ev is InputEventKey and (ev as InputEventKey).pressed and not (ev as InputEventKey).echo:\n\t\tvar kc: int = (ev as InputEventKey).physical_keycode\n\t\tadvance = kc == KEY_SPACE or kc == KEY_ENTER\n\tif advance:\n\t\t_intro_next()\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_on_touch_world",
+      "line": 4588,
+      "end_line": 4648,
+      "text": "func _on_touch_world(screen_pos: Vector2) -> void:\n\t_living_world_ref().note_activity()\n\tif game == \"melody\":\n\t\tif _melody_input_gated():\n\t\t\t(_game_obj(\"melody\", MelodyGame) as MelodyGame).cancel_input()\n\t\t\treturn\n\t\t# Release-side compatibility for callers which emit only world_touched.\n\t\tvar melody: MelodyGame = _game_obj(\"melody\", MelodyGame) as MelodyGame\n\t\tmelody.handle_touch_press(screen_pos, MELODY_LEGACY_TOUCH_SOURCE)\n\t\tmelody.handle_touch_release(MELODY_LEGACY_TOUCH_SOURCE)\n\t\treturn\n\tif _slide_canvas_fish_route_active():\n\t\tif _slide_canvas_input_gated():\n\t\t\t(_game_obj(\"race\", SlideRaceGame) as SlideRaceGame).cancel_input()\n\t\t\treturn\n\t\t# Release-side compatibility for non-raw callers. The ordinary app route is\n\t\t# claimed earlier in _input and never reaches this fallback.\n\t\tvar slide: SlideRaceGame = _game_obj(\"race\", SlideRaceGame) as SlideRaceGame\n\t\tslide.handle_touch_press(screen_pos, SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)\n\t\tslide.handle_touch_release(SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)\n\t\treturn\n\tif _world_tap_gated():\n\t\treturn\n\tif game == \"level2\" and String(g.get(\"phase\", \"\")) == \"promenade\":\n\t\t_lagoon_promenade_ref().handle_touch(screen_pos)\n\t\treturn\n\t# ENEMY PRIORITY RULE: enemies are always in the forefront of the stage.\n\t# Every active hit engine gets first refusal on the tap \u2014 an enemy\n\t# overlapping any prop/friend/interactable takes the touch, and only a\n\t# tap that hits no enemy falls through to the interaction director.\n\t# (Level design opts an encounter out via HitEngine.tap_priority.)\n\tfor engine_value: Variant in hit_engines:\n\t\tvar engine: HitEngine = engine_value as HitEngine\n\t\tif engine == null or not engine.tap_priority:\n\t\t\tcontinue\n\t\tvar enemy: Dictionary = engine.tap_pick(screen_pos)\n\t\tif not enemy.is_empty():\n\t\t\tengine.hit(enemy, 1, \"tap\")\n\t\t\treturn\n\tvar arena: CombatArena = _combat_arena_ref()\n\tif arena != null:\n\t\tarena.on_world_tap(screen_pos)\n\t\treturn\n\tif game == \"dustboss\":\n\t\t# The boss is an ENEMY and obeys the same forefront rule: in Hybrid\n\t\t# touch the finger goes ON him, and that must be the bonk. Without this\n\t\t# the most natural thing a 4-year-old can do \u2014 tap the big fluffy\n\t\t# thing \u2014 fell through to tap-to-move and did nothing at all\n\t\t# (2026-08-02 boss stress test).\n\t\t_game_obj(\"dustboss\", DustBossGame).on_world_tap(screen_pos)\n\t\treturn\n\tif game != \"\" and game != \"level2\" and touch_ui != null:\n\t\t# Button-free activity language: tap the visible play scene to perform\n\t\t# its contextual jump/boost/use action. Direct enemy and authored-object\n\t\t# taps above retain first claim.\n\t\ttouch_ui.pulse_context_action(screen_pos)\n\t\treturn\n\t_interaction_ref().on_world_touch(screen_pos)\n\n# The live hit-engine client, if a battle is running: a standalone arena\n# (overworld/galaxy encounters) or the arena inside either dungeon.",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_process",
+      "line": 8165,
+      "end_line": 8405,
+      "text": "func _process(delta: float) -> void:\n\t# Legacy activity callbacks can restore an empty world ID. Once the authored\n\t# session starts, that ID must recover to Canvas before processing reef input.\n\tif _authored_world_session and game == \"\" and mg_kind == \"\" \\\n\t\t\tand not start_menu_active and not intro_active:\n\t\t_exit_level2_now()\n\t_sync_pause_surface_layer()\n\tvar slide_canvas_active: bool = _slide_canvas_fish_route_active()\n\tvar slide_canvas_return_was_active: bool = _slide_canvas_return_guard_active()\n\tif slide_canvas_return_was_active:\n\t\t_tick_slide_canvas_return_guard()\n\tif not slide_canvas_active and not slide_canvas_return_was_active:\n\t\t_living_world_ref().tick(delta)\n\t\tif _fx_water != null:\n\t\t\t_fx_water.tick(delta)   # cutaways keep water FX; opaque fish Canvas suspends them\n\t# camera watchdog (CAMERA_AUDIT_2026_07 P0): if a torn-down mode freed the\n\t# current camera without restoring one (kart/galaxy teardown guards,\n\t# cancel(false) paths), fall back to Roshan instead of a black screen\n\tvar vp_cam := active_viewport_camera()\n\tvar sky_canvas_active: bool = game == \"level2\" \\\n\t\tand String(g.get(\"phase\", \"\")) == \"promenade\"\n\tvar melody_canvas_active: bool = game == \"melody\"\n\tvar fairy_conservatory_canvas_active: bool = game == \"fairy_conservatory\"\n\tvar opaque_canvas_active: bool = sky_canvas_active or melody_canvas_active \\\n\t\tor fairy_conservatory_canvas_active \\\n\t\tor slide_canvas_active\n\t# Player creates its compatibility camera deferred during boot. Direct phone\n\t# entry can therefore reach Sky before that compatibility camera joins the tree; disarm\n\t# the late arrival as well as the synchronous entry path above.\n\tif slide_canvas_active and vp_cam != null and vp_cam.is_inside_tree():\n\t\t# Clear whichever camera actually owned the Viewport, not merely the\n\t\t# compatibility player camera. Exact ownership is restored on teardown.\n\t\tvp_cam.clear_current(false)\n\telif opaque_canvas_active and player != null and player.cam != null \\\n\t\t\tand player.cam.is_inside_tree() and player.cam.current:\n\t\tplayer.cam.clear_current(false)\n\telif not opaque_canvas_active and vp_cam == null \\\n\t\t\tand player != null and player.cam != null and player.cam.is_inside_tree():\n\t\tplayer.snap_cam()\n\t\tplayer.cam.make_current()\n\tif save_dirty:\n\t\tsave_retry_t -= delta\n\t\tif save_retry_t <= 0.0:\n\t\t\t_write_save()\n\telif save_pending:\n\t\tsave_pending_age += maxf(delta, 0.0)\n\t\tsave_pending_t -= delta\n\t\tif save_pending_t <= 0.0 or save_pending_age > 4.0:\n\t\t\t_write_save()\n\t_audio_ref().tick_dialogue(delta)\n\t_audio_ref().tick_voice()\n\tif msg_timer > 0.0:\n\t\tmsg_timer -= delta\n\t\tif msg_timer <= 0.0:\n\t\t\thud_msg.text = \"\"\n\tif hud_msg != null:\n\t\thud_msg.visible = hud_msg.text != \"\"\n\t_sync_castle_voice_caption()\n\tif hud_game != null:\n\t\t# Activity-specific picture HUDs own their own surfaces; this legacy\n\t\t# free-roam sentence card is intentionally never persistent.\n\t\thud_game.visible = false\n\tif pose_t >= 0.0:\n\t\tpose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)\n\t_tick_contact_shadow()\n\t_tick_ambience_duck(delta)\n\tif mic_sys != null:\n\t\tmic_sys.tick(delta)   # no-op unless a battle armed the microphone\n\tif slide_canvas_return_was_active:\n\t\t_neutralize_slide_canvas_overlay_poll()\n\telif slide_canvas_active and (_slide_canvas_input_context_blocks_input() \\\n\t\t\tor _slide_canvas_overlay_axis_wait_neutral):\n\t\t_neutralize_slide_canvas_overlay_poll()\n\telse:\n\t\t_tick_overlay_pads(delta)\n\t\t_tick_pad_cursor(delta)\n\tif fps_lbl != null and pause_panel != null and pause_panel.visible:\n\t\tfps_lbl.text = \"FPS: %d   (%s)\" % [Engine.get_frames_per_second(), quality]\n\tif speech_t > 0.0:\n\t\tspeech_t -= delta\n\t\tif speech_t <= 0.0 and speech_layer != null:\n\t\t\tspeech_layer.visible = false\n\tif player == null:\n\t\treturn\n\tif intro_active or day_two_transition_active:\n\t\treturn\n\tif slide_canvas_return_was_active:\n\t\t# Even the second neutral sample is a quarantine frame. The controls block\n\t\t# may retire above, but the returned world cannot consume a level until a\n\t\t# genuinely fresh event arrives on a later frame.\n\t\treturn\n\tvar ppos: Vector3 = player.position\n\tif melody_canvas_active:\n\t\t# Melody owns the complete visible and interactive world. Preserve the\n\t\t# shared save/audio/pause work above, tick its controller exactly once,\n\t\t# and suspend every hidden spatial system until synchronous teardown.\n\t\tif touch_ui != null:\n\t\t\ttouch_ui.set_action_label(\"PLAY\")\n\t\t# Some platforms continue producing frames between focus-out/paused and\n\t\t# resumed/focus-in. Those frames are not gameplay time and cannot advance\n\t\t# Melody's medal clock, motion, neutral guard, or controller state.\n\t\tif _melody_input_context_lost():\n\t\t\treturn\n\t\t_tick_game(delta)\n\t\treturn\n\tif slide_canvas_active:\n\t\t# Harper and Fiona's fish slide is a complete Canvas world. Keep the shared\n\t\t# save/audio/pause seams above, but suspend every hidden Reef system and\n\t\t# tick its controller exactly once through _tick_game (after g.t advances).\n\t\tvar slide_canvas := _game_obj(\"race\", SlideRaceGame) as SlideRaceGame\n\t\tslide_canvas.refresh_canvas_layout()\n\t\tif _slide_canvas_input_context_lost():\n\t\t\treturn\n\t\tif _slide_canvas_overlay_axis_wait_neutral:\n\t\t\t# Restore the controller's source-free boundary without advancing g.t,\n\t\t\t# then keep the ride frozen until two trustworthy neutral polls retire\n\t\t\t# every held overlay/gamepad source.\n\t\t\tslide_canvas.retire_input_context_restore_guard()\n\t\t\treturn\n\t\t# Sticker Book and the other full-screen overlays resume SceneTree so their\n\t\t# own UI can animate. They must nevertheless freeze the ride itself: a\n\t\t# previously latched steer may never finish or award the game behind them.\n\t\tif _slide_canvas_overlay_owns_input():\n\t\t\t# Context restoration normally spends one source-free controller tick.\n\t\t\t# An overlay suppresses that tick, so retire only the guard here without\n\t\t\t# advancing g.t/progress; otherwise its own visible Back button deadlocks.\n\t\t\tslide_canvas.retire_input_context_restore_guard()\n\t\t\treturn\n\t\t_tick_game(delta)\n\t\treturn\n\tif sky_canvas_active:\n\t\t# The opaque Canvas promenade is a complete world slice. Its controller\n\t\t# is the sole movement, camera, interaction, collection and proximity\n\t\t# owner; the hidden player is only a legacy return coordinate.\n\t\tg[\"t\"] = float(g.get(\"t\", 0.0)) + delta\n\t\t_companion_ref().tick_canvas_care(delta)\n\t\t_lagoon_promenade_ref().tick(delta)\n\t\tif touch_ui != null:\n\t\t\ttouch_ui.set_action_label(_lagoon_promenade_ref().action_label())\n\t\treturn\n\tif touch_uses_explicit_interactions():\n\t\t_tap_move_ref().tick(delta)\n\t\t_interaction_ref().tick(delta, ppos)\n\t_collection_ref().tick(delta, ppos)\n\t# KartGame owns the visible scene and input while racing. Keep the small\n\t# global timer/audio work above, but suspend hidden reef collectibles,\n\t# characters, foliage, movers and culling instead of paying for two worlds.\n\tif game == \"kart\":\n\t\tif touch_ui != null and kart_game != null and kart_game.has_method(\"action_label\"):\n\t\t\ttouch_ui.set_action_label(String(kart_game.action_label()))\n\t\treturn\n\tif game == \"level2\":\n\t\tg[\"t\"] = float(g[\"t\"]) + delta\n\t\t_tick_level2(delta, ppos)\n\telif game == \"north\":\n\t\t_tick_northern(delta, ppos)\n\telif game == \"galaxy\":\n\t\tpass   # the GalaxyLevel node ticks itself\n\telif game == \"chapter2_lawn\":\n\t\tif is_instance_valid(chapter2_lawn_view):\n\t\t\tchapter2_lawn_view.tick(delta)\n\telif game == \"fairy_conservatory\":\n\t\tif fairy_conservatory_handoff != null \\\n\t\t\t\tand is_instance_valid(fairy_conservatory_handoff) \\\n\t\t\t\tand fairy_conservatory_handoff.has_method(\"tick\"):\n\t\t\tfairy_conservatory_handoff.call(\"tick\", delta)\n\telif game == \"ember\":\n\t\tpass   # the EmberFortressLevel node ticks itself\n\telif game == \"combat\":\n\t\tpass   # the CombatArena node owns movement, camera and encounter logic\n\telif game == \"stuffie\":\n\t\tpass   # the StuffieBattle node owns the creature, camera and dodge QTE\n\telif game == \"dungeon\" or game == \"emberdun\":\n\t\tpass   # DungeonLevel sequences the battles and visual puzzles\n\telif game == \"opera\":\n\t\tpass   # OperaHouse sequences the thirteen Canvas career shows\n\telif game == \"kitchen_cooking\":\n\t\tpass   # The fridge portal's OperaAct owns the cooking gesture chain\n\telif game != \"\":\n\t\t_tick_game(delta)\n\t_tick_wall_fade(delta)\n\t_companion_ref().tick(delta)\n\t_tick_beans(delta)\n\tcull_timer -= delta\n\tif cull_timer <= 0.0:\n\t\tcull_timer = 0.7\n\t\tvar lim: float = 95.0 if quality == \"speedy\" else 160.0\n\t\tfor i3 in range(anim_cull.size() - 1, -1, -1):\n\t\t\tvar ac: Dictionary = anim_cull[i3]\n\t\t\tif not is_instance_valid(ac[\"node\"]) or not is_instance_valid(ac[\"ap\"]):\n\t\t\t\tanim_cull.remove_at(i3)\n\t\t\t\tcontinue\n\t\t\tvar nd: Node3D = ac[\"node\"]\n\t\t\tvar ap2: AnimationPlayer = ac[\"ap\"]\n\t\t\tvar near: bool = nd.position.distance_to(ppos) < lim\n\t\t\tif near and not ap2.is_playing():\n\t\t\t\tap2.play()\n\t\t\telif not near and ap2.is_playing():\n\t\t\t\tap2.pause()\n\tif touch_ui != null:\n\t\tvar act_lbl := \"JUMP\"\n\t\tif game == \"level2\" and String(g.get(\"phase\", \"\")) == \"promenade\":\n\t\t\tact_lbl = _lagoon_promenade_ref().action_label()\n\t\telif touch_uses_explicit_interactions() and touch_focus_ready:\n\t\t\tfor touch_item_value: Variant in touch_interactables:\n\t\t\t\tvar touch_item: Dictionary = touch_item_value as Dictionary\n\t\t\t\tif String(touch_item.get(\"id\", \"\")) == touch_focus_id:\n\t\t\t\t\tact_lbl = String(touch_item.get(\"verb\", \"GO\"))\n\t\t\t\t\tbreak\n\t\telif _collection_ref().has_nearby():\n\t\t\tact_lbl = \"CATCH!\"\n\t\telif game == \"fetch\" and String(g.get(\"phase\", \"\")) == \"aim\":\n\t\t\tact_lbl = \"THROW\"\n\t\telif game == \"shop\":\n\t\t\tact_lbl = \"BUY\"\n\t\telif game == \"fairyshoot\":\n\t\t\tact_lbl = \"SPARKLE\"\n\t\telif game == \"kart\" and kart_game != null and kart_game.has_method(\"action_label\"):\n\t\t\tact_lbl = String(kart_game.action_label())   # GO! on the pick screens, TURBO in the race\n\t\telif game == \"combat\" and combat_game != null:\n\t\t\tact_lbl = \"ICE\" if combat_game.kind == \"ice\" else \"FIRE\"\n\t\telif game == \"dustboss\":\n\t\t\tact_lbl = String(_game_obj(\"dustboss\", DustBossGame).action_label())\n\t\telif game == \"stuffie\" and stuffie_game != null:\n\t\t\tact_lbl = stuffie_game.action_label()   # PECK / CLAW\n\t\telif (game == \"dungeon\" or game == \"emberdun\") and dungeon_game != null:\n\t\t\tact_lbl = dungeon_game.action_label()\n\t\telif game == \"opera\" and opera_game != null:\n\t\t\tact_lbl = opera_game.action_label()\n\t\telif game == \"kitchen_cooking\":\n\t\t\tact_lbl = _castle_rooms_ref().kitchen_action_label()\n\t\ttouch_ui.set_action_label(act_lbl)\n\n# ===================== BIOLUMINESCENT LIFE =====================\n# ============== PHYSICS LAB (dev-mode experiment \u2014 cleanse later) ==============\n# Two engine experiments for the Lenovo M11 (Helio G88 / Mali-G52) grading run,\n# both triggerable from Developer Mode:\n#  1. foliage_push_enabled \u2014 GPU foliage interaction: Roshan's position/speed\n#     feed the (memoized) sway shaders once per frame; blades part around her.\n#  2. Jolt props \u2014 real RigidBody3D barrels/balls (Jolt engine, see\n#     project.godot [physics]) spawned near Roshan, shoved by her swim wake.",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "function": "_ready",
+      "line": 97,
+      "end_line": 136,
+      "text": "func _ready() -> void:\n\tlayer = 9\n\tprocess_mode = Node.PROCESS_MODE_ALWAYS\n\t_root = Control.new()\n\t_root.set_anchors_preset(Control.PRESET_FULL_RECT)\n\t_root.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\tadd_child(_root)\n\t# A fixed ghost wheel teaches the bottom-left ownership before the first\n\t# drag; the real drag-anywhere stick still appears under the finger.\n\t_stick_hint = _circle(Color(0.28, 0.42, 0.62, 0.48), 90.0, StorybookUI.MINT, 7)\n\t_stick_hint.name = \"TouchShellPad\"\n\t_stick_hint.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)\n\t_stick_hint.offset_left = 26.0\n\t_stick_hint.offset_top = -206.0\n\t_stick_hint.offset_right = 206.0\n\t_stick_hint.offset_bottom = -26.0\n\t_stick_hint.visible = false\n\t_root.add_child(_stick_hint)\n\tvar hint_arrows := Label.new()\n\thint_arrows.name = \"TouchDirectionHints\"\n\thint_arrows.text = \"\u25b2\\n\u25c0   \u25b6\\n\u25bc\"\n\thint_arrows.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)\n\thint_arrows.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER\n\thint_arrows.vertical_alignment = VERTICAL_ALIGNMENT_CENTER\n\thint_arrows.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\tStorybookUI.style_label(hint_arrows, 27, StorybookUI.PEARL_BLUE, 6)\n\t_stick_hint.add_child(hint_arrows)\n\tStorybookUI.add_shell_crest(_stick_hint, Rect2(55, 128, 70, 50), \"TouchPadShellCrest\")\n\t_base = _circle(Color(0.28, 0.42, 0.62, 0.58), 105.0, StorybookUI.MINT, 7)\n\t_knob = _circle(Color(0.64, 1.0, 0.84, 0.86), 46.0, StorybookUI.INK, 4)\n\t_base.visible = false\n\t_knob.visible = false\n\t_root.add_child(_base)\n\t_root.add_child(_knob)\n\tcall_deferred(\"_rest_stick\")\n\t# The fixed jump/action bubble is retired. World taps and activity-owned\n\t# gestures remain the child-facing vocabulary: tap points, drag travels, and\n\t# a deliberate hold performs the context action.\n\tset_mode(control_mode)\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "function": "_process",
+      "line": 137,
+      "end_line": 163,
+      "text": "func _process(delta: float) -> void:\n\tif get_tree().paused:\n\t\tvar main: Node = get_parent()\n\t\tif main != null and main.has_method(\n\t\t\t\t\"_retire_paused_slide_canvas_restore_boundary\"):\n\t\t\tmain.call(\"_retire_paused_slide_canvas_restore_boundary\")\n\tif _pulse > 0.0:\n\t\t_pulse -= delta\n\t\tif _pulse <= 0.0 and _jump_fingers.is_empty() and _action_fingers.is_empty():\n\t\t\taction_down = false\n\t# Classic retains its short second-finger hold. Hybrid has no invisible\n\t# hold-anywhere command; direct scene taps are routed by ReefMain.\n\tif control_mode == \"classic\" and not _pend.is_empty():\n\t\tvar now := Time.get_ticks_msec()\n\t\tfor idx: Variant in _pend.keys():\n\t\t\tif now - int(_pend[idx][\"ms\"]) >= JUMP_HOLD_MS:\n\t\t\t\t_jump_fingers[idx] = true\n\t\t\t\taction_down = true\n\t\t\t\t_arm_action_edge()\n\t\t\t\t_flash(_pend[idx][\"pos\"])\n\t\t\t\t_pend.erase(idx)\n\tif action_just:\n\t\tif _action_edge_frames > 0:\n\t\t\t_action_edge_frames -= 1\n\t\telse:\n\t\t\taction_just = false\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "function": "_circle",
+      "line": 164,
+      "end_line": 176,
+      "text": "func _circle(col: Color, rad: float, outline: Color = Color.TRANSPARENT, border_width: int = 0) -> Panel:\n\tvar p := Panel.new()\n\tvar sb := StyleBoxFlat.new()\n\tsb.bg_color = col\n\tsb.set_corner_radius_all(int(rad))\n\tif border_width > 0:\n\t\tsb.border_color = outline\n\t\tsb.set_border_width_all(border_width)\n\tp.add_theme_stylebox_override(\"panel\", sb)\n\tp.size = Vector2(rad * 2.0, rad * 2.0)\n\tp.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\treturn p\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "function": "_flash",
+      "line": 189,
+      "end_line": 196,
+      "text": "func _flash(pos: Vector2) -> void:\n\tvar flash := _circle(Color(1.0, 0.95, 0.5, 0.5), 55.0)\n\tflash.position = pos - flash.size * 0.5\n\t_root.add_child(flash)\n\tvar tw := flash.create_tween()\n\ttw.tween_property(flash, \"modulate:a\", 0.0, 0.35)\n\ttw.tween_callback(flash.queue_free)\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "function": "_release_stick",
+      "line": 266,
+      "end_line": 298,
+      "text": "func _release_stick() -> void:\n\tif drag_mode:\n\t\tdrag_active = false\n\t\t_touch_idx = -1\n\t\tstick_vec = Vector2.ZERO\n\t\treturn\n\t# A short Classic press normally remains the shipped jump/action. The Canvas\n\t# promenade needs the actual target coordinate, so it receives the same\n\t# unmoved release exactly once and decides between focus, play, Reef or travel.\n\tif control_mode == \"classic\" and not _moved \\\n\t\t\tand (Time.get_ticks_msec() - _press_ms) <= TAP_MS:\n\t\tif _classic_world_tap_active():\n\t\t\tworld_touched.emit(_press_pos)\n\t\t\t_flash(_press_pos)\n\t\telse:\n\t\t\t_jump_pulse()\n\t\t\t_flash(_origin)\n\telif control_mode == \"hybrid\" and not _moved:\n\t\t# The thumb bay is an accessibility stick, not a hole in the world. A\n\t\t# press that never became a drag is still a tap on whatever is painted\n\t\t# underneath, so tap-to-travel and tap-to-select keep working in the\n\t\t# lower-left corner exactly as they do everywhere else. No TAP_MS gate:\n\t\t# a four-year-old's deliberate press is slow, and the world-tap owner\n\t\t# elsewhere in this router has no time limit either.\n\t\tworld_touched.emit(_press_pos)\n\t\t_flash(_press_pos)\n\tif _manual_emitted:\n\t\tmanual_move_ended.emit()\n\t_touch_idx = -1\n\t_manual_emitted = false\n\tstick_vec = Vector2.ZERO\n\t_rest_stick()\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "function": "pulse_context_action",
+      "line": 609,
+      "end_line": 614,
+      "text": "func pulse_context_action(screen_pos: Vector2) -> void:\n\tif control_mode != \"hybrid\" or not world_controls_enabled:\n\t\treturn\n\t_jump_pulse()\n\t_flash(screen_pos)\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "function": "_unhandled_input",
+      "line": 664,
+      "end_line": 674,
+      "text": "func _unhandled_input(ev: InputEvent) -> void:\n\tif not wants_touch() or not world_controls_enabled:\n\t\treturn\n\tif encounter_press.is_valid():\n\t\t_encounter_unhandled_input(ev)\n\t\treturn\n\tif control_mode == \"hybrid\":\n\t\t_hybrid_unhandled_input(ev)\n\telse:\n\t\t_classic_unhandled_input(ev)\n",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "function": "_hybrid_unhandled_input",
+      "line": 688,
+      "end_line": 797,
+      "text": "func _hybrid_unhandled_input(ev: InputEvent) -> void:\n\tif ev is InputEventScreenTouch:\n\t\tvar touch := ev as InputEventScreenTouch\n\t\tif touch.pressed:\n\t\t\tif _action_hit(touch.position):\n\t\t\t\t_claim_action(touch.index)\n\t\t\telif _touch_idx == -1 and movement_zone().has_point(touch.position):\n\t\t\t\ttouch_owners[touch.index] = TouchOwner.STICK\n\t\t\t\t_press(touch.position, touch.index)\n\t\t\telse:\n\t\t\t\ttouch_owners[touch.index] = TouchOwner.WORLD_INTERACT\n\t\t\t\t_world_pend[touch.index] = {\n\t\t\t\t\t\"pos\": touch.position,\n\t\t\t\t\t\"moved\": false,\n\t\t\t\t\t\"ms\": Time.get_ticks_msec(),\n\t\t\t\t}\n\t\t\t\tif world_press_probe.is_valid() and bool(world_press_probe.call(touch.position)):\n\t\t\t\t\t_world_pend[touch.index][\"consumed\"] = true\n\t\t\t\t\t_flash(touch.position)\n\t\telse:\n\t\t\tvar owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))\n\t\t\tif owner == TouchOwner.STICK and touch.index == _touch_idx:\n\t\t\t\t_release_stick()\n\t\t\telif owner == TouchOwner.ACTION:\n\t\t\t\t_release_action(touch.index)\n\t\t\telif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(touch.index):\n\t\t\t\tvar world_data: Dictionary = _world_pend[touch.index]\n\t\t\t\tif owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get(\"moved\", false)) and not bool(world_data.get(\"consumed\", false)):\n\t\t\t\t\tworld_touched.emit(touch.position)\n\t\t\t\t\t_flash(touch.position)\n\t\t\t\tif bool(world_data.get(\"consumed\", false)) and world_press_release.is_valid():\n\t\t\t\t\tworld_press_release.call()\n\t\t\t\t_world_swipe(world_data, touch.position)\n\t\t\t\t_world_pend.erase(touch.index)\n\t\t\ttouch_owners.erase(touch.index)\n\telif ev is InputEventScreenDrag:\n\t\tvar drag := ev as InputEventScreenDrag\n\t\tvar owner: int = int(touch_owners.get(drag.index, TouchOwner.NONE))\n\t\tif owner == TouchOwner.STICK and drag.index == _touch_idx:\n\t\t\t_drag(drag.position)\n\t\telif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) \\\n\t\t\t\tand _world_pend.has(drag.index):\n\t\t\tvar world_data: Dictionary = _world_pend[drag.index]\n\t\t\tworld_data[\"last\"] = drag.position\n\t\t\tif (drag.position - (world_data[\"pos\"] as Vector2)).length() > TAP_SLOP:\n\t\t\t\t# only the finger that press-fired may cancel its own charge \u2014\n\t\t\t\t# a sibling finger wobbling 22px elsewhere must not (alpha\n\t\t\t\t# audit 2026-08-05: any second finger killed every held charge)\n\t\t\t\tif not bool(world_data.get(\"moved\", false)) and bool(world_data.get(\"consumed\", false)) \\\n\t\t\t\t\t\tand world_press_drag.is_valid():\n\t\t\t\t\tworld_press_drag.call()   # a travelling finger is not a charge\n\t\t\t\tworld_data[\"moved\"] = true\n\t\t\t\ttouch_owners[drag.index] = TouchOwner.WORLD_MOVE\n\telif ev is InputEventMouseButton:\n\t\tvar mouse_button := ev as InputEventMouseButton\n\t\tif mouse_button.device == InputEvent.DEVICE_ID_EMULATION or mouse_button.button_index != MOUSE_BUTTON_LEFT:\n\t\t\treturn\n\t\tif mouse_button.pressed:\n\t\t\tif _action_hit(mouse_button.position):\n\t\t\t\t_claim_action(99)\n\t\t\telif _touch_idx == -1 and movement_zone().has_point(mouse_button.position):\n\t\t\t\ttouch_owners[99] = TouchOwner.STICK\n\t\t\t\t_press(mouse_button.position, 99)\n\t\t\telse:\n\t\t\t\ttouch_owners[99] = TouchOwner.WORLD_INTERACT\n\t\t\t\t_world_pend[99] = {\n\t\t\t\t\t\"pos\": mouse_button.position,\n\t\t\t\t\t\"moved\": false,\n\t\t\t\t\t\"ms\": Time.get_ticks_msec(),\n\t\t\t\t}\n\t\t\t\tif world_press_probe.is_valid() and bool(world_press_probe.call(mouse_button.position)):\n\t\t\t\t\t_world_pend[99][\"consumed\"] = true\n\t\t\t\t\t_flash(mouse_button.position)\n\t\telse:\n\t\t\tvar owner: int = int(touch_owners.get(99, TouchOwner.NONE))\n\t\t\tif owner == TouchOwner.STICK and _touch_idx == 99:\n\t\t\t\t_release_stick()\n\t\t\telif owner == TouchOwner.ACTION:\n\t\t\t\t_release_action(99)\n\t\t\telif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(99):\n\t\t\t\tvar world_data: Dictionary = _world_pend[99]\n\t\t\t\tif owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get(\"moved\", false)) and not bool(world_data.get(\"consumed\", false)):\n\t\t\t\t\tworld_touched.emit(mouse_button.position)\n\t\t\t\t\t_flash(mouse_button.position)\n\t\t\t\tif bool(world_data.get(\"consumed\", false)) and world_press_release.is_valid():\n\t\t\t\t\tworld_press_release.call()\n\t\t\t\t_world_swipe(world_data, mouse_button.position)\n\t\t\t\t_world_pend.erase(99)\n\t\t\ttouch_owners.erase(99)\n\telif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:\n\t\tvar mouse_motion := ev as InputEventMouseMotion\n\t\tif mouse_motion.device != InputEvent.DEVICE_ID_EMULATION:\n\t\t\t_drag(mouse_motion.position)\n\telif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) in \\\n\t\t\t[TouchOwner.WORLD_INTERACT, TouchOwner.WORLD_MOVE]:\n\t\tvar world_motion := ev as InputEventMouseMotion\n\t\tif world_motion.device != InputEvent.DEVICE_ID_EMULATION and _world_pend.has(99):\n\t\t\tvar world_data: Dictionary = _world_pend[99]\n\t\t\tworld_data[\"last\"] = world_motion.position\n\t\t\tif (world_motion.position - (world_data[\"pos\"] as Vector2)).length() > TAP_SLOP:\n\t\t\t\tif not bool(world_data.get(\"moved\", false)) and world_press_drag.is_valid():\n\t\t\t\t\tworld_press_drag.call()\n\t\t\t\tworld_data[\"moved\"] = true\n\t\t\t\ttouch_owners[99] = TouchOwner.WORLD_MOVE\n\n# A world touch that travelled is reported to the combat layer as a swipe.\n# Non-combat drags simply find no hit engine listening and cost nothing.\n# A stroke that press-fired on an enemy already spent itself as tap+charge \u2014\n# it never doubles as a slash on lift (one stroke, one verb; without this a\n# single drag over an enemy dealt tap 1 + slice 2 in one gesture).",
+      "probe_or_test_filename": false
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "function": "_classic_unhandled_input",
+      "line": 811,
+      "end_line": 862,
+      "text": "func _classic_unhandled_input(ev: InputEvent) -> void:\n\tif ev is InputEventScreenTouch:\n\t\tvar touch := ev as InputEventScreenTouch\n\t\tif touch.pressed:\n\t\t\tif _touch_idx == -1:\n\t\t\t\t_press(touch.position, touch.index)\n\t\t\telif touch.index != _touch_idx:\n\t\t\t\t_pend[touch.index] = {\"pos\": touch.position, \"ms\": Time.get_ticks_msec()}\n\t\telse:\n\t\t\tif touch.index == _touch_idx:\n\t\t\t\t_release_stick()\n\t\t\telif _pend.has(touch.index):\n\t\t\t\t_pend.erase(touch.index)\n\t\t\t\t_jump_pulse()\n\t\t\t\t_flash(touch.position)\n\t\t\telif touch.index == _look_idx:\n\t\t\t\t_look_idx = -1\n\t\t\telif _jump_fingers.has(touch.index):\n\t\t\t\t_jump_fingers.erase(touch.index)\n\t\t\t\tif _jump_fingers.is_empty() and _pulse <= 0.0:\n\t\t\t\t\taction_down = false\n\telif ev is InputEventScreenDrag:\n\t\tvar drag := ev as InputEventScreenDrag\n\t\tif drag.index == _touch_idx:\n\t\t\t_drag(drag.position)\n\t\telif _pend.has(drag.index):\n\t\t\tif (drag.position - (_pend[drag.index][\"pos\"] as Vector2)).length() > TAP_SLOP:\n\t\t\t\t_pend.erase(drag.index)\n\t\t\t\tif _look_idx == -1:\n\t\t\t\t\t_look_idx = drag.index\n\t\t\t\telse:\n\t\t\t\t\t_jump_fingers[drag.index] = true\n\t\t\t\t\taction_down = true\n\t\t\t\t\t_arm_action_edge()\n\t\telif drag.index == _look_idx:\n\t\t\t_look_dx += drag.relative.x\n\t\t\t_look_dy += drag.relative.y\n\telif ev is InputEventMouseButton:\n\t\tvar mouse_button := ev as InputEventMouseButton\n\t\tif mouse_button.device == InputEvent.DEVICE_ID_EMULATION:\n\t\t\treturn\n\t\tif mouse_button.button_index == MOUSE_BUTTON_LEFT:\n\t\t\tif mouse_button.pressed and _touch_idx == -1:\n\t\t\t\t_press(mouse_button.position, 99)\n\t\t\telif not mouse_button.pressed and _touch_idx == 99:\n\t\t\t\t_release_stick()\n\telif ev is InputEventMouseMotion and _touch_idx == 99:\n\t\tvar mouse_motion := ev as InputEventMouseMotion\n\t\tif mouse_motion.device == InputEvent.DEVICE_ID_EMULATION:\n\t\t\treturn\n\t\t_drag(mouse_motion.position)\n",
+      "probe_or_test_filename": false
+    }
+  ],
+  "exact_sources": [
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3685006,
+      "sha256": "048a0b8d6a235fa1e29d3cf5cce9d6c2b21613eb4e63e89a2bcf4f6eaed49c16"
+    },
+    {
+      "path": "assets/art35/cards/mg/star_star.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 518527,
+      "sha256": "3a8dce7bc1721fd1c6b97b0f8148c1f9a9b176d8a5a28c5855cb3501a74fdcf7"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 219621,
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
+    },
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 123283,
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/bootstrap_newgame_arm_delay",
+        "attempt1_entry_source_1600/bootstrap_newgame_arm_delay"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 396741,
+      "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/cinematics/day_one_story/d1_opening.ogv",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13727156,
+      "sha256": "207e3c37693bc204052f619cbbaec402fd05e2e41535ed1ae59f81bf118bfa49"
+    },
+    {
+      "path": "assets/cinematics/day_one_story/story_clips.json",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1968,
+      "sha256": "a815d7c4c5f5813519c501b609dd51faa84b719303a1f04d3d39b7564655f835"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1326003,
+      "sha256": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1112475,
+      "sha256": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1119885,
+      "sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1235978,
+      "sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1564115,
+      "sha256": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1478823,
+      "sha256": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1556321,
+      "sha256": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1645750,
+      "sha256": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1758075,
+      "sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1608993,
+      "sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1715536,
+      "sha256": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1657023,
+      "sha256": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/mg/star.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 868379,
+      "sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98"
+    },
+    {
+      "path": "assets/props/story/play_swing_frame.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 410877,
+      "sha256": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/props/story/play_swing_seat.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 265290,
+      "sha256": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 220380,
+      "sha256": "723a3a473845c506aeb45fe1ff1b5da5ea4794495dbd4c7a4946918016fa63ff",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/animals/raccoon_idle_atlas.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 191044,
+      "sha256": "3ed12de88641330134844cdc37927aecf022ae74187f4b4deb2193a3c282d9dc",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/source_entry"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 170895,
+      "sha256": "16df695e8ec6a489d86a058e5055c67b245436996358abbdae5f353306fa3e7f"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_1.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 184746,
+      "sha256": "0e1db3a136639564f413a0231bf68f3c674504a123a307e177d813582ee9e69f"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_2.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 179967,
+      "sha256": "70eb05744c49074f528c7eb1f976789e265aa7fbf7d715e7d13badf5949345e9"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_3.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 170843,
+      "sha256": "d38c35d27cbc88c769bb361b6934f831c48ef2840ccd6c907d8b1ad1201e0d55"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 171408,
+      "sha256": "023a1bfefb4393c6d9f7373f29f337b7fff0a83049e81c71a73aecc233f14bf3"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 169142,
+      "sha256": "9011deb46e28fdcc533bb6482510902f651ecce723e86c6b985bd255a1cb4e62"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 179326,
+      "sha256": "cb6cd27d5357bb59542bbdf95ef3fbf751759ce07046ea3607ec449c6a5d9613"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 169637,
+      "sha256": "8ec11afaf899b21548e4fdeeabc945cb90f5b62e6410a6319afaf22834e03271"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 189896,
+      "sha256": "0a7564e805b59a12caa99bf836a736dfe8002640b71dc9608ce7f48b0d04c7f2"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 182853,
+      "sha256": "a1992271f30286b15e27fb0036735eb3fc74cd364aa2908e10d57db7aba445cf"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2_v2.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 209967,
+      "sha256": "211868892df1963e70300f71a02eb076b401d0af2dc2549ac229806cb99b7598"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3_v2.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 184044,
+      "sha256": "07cf65c0cc32189ca704a321e08ed9f90a6db04c666f6f086d4e8f99f33eb4be"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1355,
+      "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1412255,
+      "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 16828,
+      "sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4937,
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 218626,
+      "sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 52560,
+      "sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 174961,
+      "sha256": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12563,
+      "sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 137320,
+      "sha256": "d82ceecb13213d903f228d143ae77b69cbdb80cb293fa1995bc855719791b7e8",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/slide_before",
+        "attempt1_entry_source_1280/slide_decay",
+        "attempt1_entry_source_1280/slide_freed",
+        "attempt1_entry_source_1280/slide_onset",
+        "attempt1_entry_source_1280/source_entry",
+        "attempt1_entry_source_1280/source_travel_1",
+        "attempt1_entry_source_1280/swing_before",
+        "attempt1_entry_source_1280/swing_decay",
+        "attempt1_entry_source_1280/swing_freed",
+        "attempt1_entry_source_1280/swing_onset",
+        "attempt1_entry_source_1600/slide_before",
+        "attempt1_entry_source_1600/slide_decay",
+        "attempt1_entry_source_1600/slide_freed",
+        "attempt1_entry_source_1600/slide_onset",
+        "attempt1_entry_source_1600/source_entry",
+        "attempt1_entry_source_1600/swing_before",
+        "attempt1_entry_source_1600/swing_decay",
+        "attempt1_entry_source_1600/swing_freed",
+        "attempt1_entry_source_1600/swing_onset"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "assets/terrain/star_detail.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 80600,
+      "sha256": "3a24f772808a71a6af37913bc58fb3d395e2849ef3f343172fb5e876baf8119e"
+    },
+    {
+      "path": "assets/ui/boot_splash_mermaid_roshan.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1848681,
+      "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+      "present_in_native_scene_snapshot_ids": [
+        "attempt1_entry_source_1280/bootstrap_menu",
+        "attempt1_entry_source_1280/bootstrap_newgame_arm_delay",
+        "attempt1_entry_source_1600/bootstrap_menu",
+        "attempt1_entry_source_1600/bootstrap_newgame_arm_delay"
+      ],
+      "qualification": "Scene-tree presence may be offscreen/occluded; use exact captures for visual context. No pixel/acceptance credit from source binding alone."
+    },
+    {
+      "path": "project.godot",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1762,
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 221,
+      "sha256": "1de477913ac3db6efe5d66d04967279dc9b66217bea01afeeddb4d98ef692f21"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 48767,
+      "sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 243732,
+      "sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 29438,
+      "sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10369,
+      "sha256": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2548,
+      "sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10043,
+      "sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14672,
+      "sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34"
+    },
+    {
+      "path": "scripts/arena/northern_kingdom.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 75975,
+      "sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 135470,
+      "sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_layout.json",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6453,
+      "sha256": "680173a909a4fddfadbc89f45d891159067bf5e776936f56f47e2295a2c338fe"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 73828,
+      "sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11752,
+      "sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 31745,
+      "sha256": "35ccacfec6860ceb984a5f91c6f8532f643d75c5739efa1f8f825164b175b76e"
+    },
+    {
+      "path": "scripts/boot_splash_overlay.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1586,
+      "sha256": "d90b8692f1632eedcd957a6ca46539aa3ad85b87d3abe93c20cd9cfc0dc64b0d"
+    },
+    {
+      "path": "scripts/boss_encounter_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4152,
+      "sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9032,
+      "sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2"
+    },
+    {
+      "path": "scripts/camera_kit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8461,
+      "sha256": "ec980456ed35789e273ea7b28964e63959277ecc61eb8438251bfe012bb0927b"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15000,
+      "sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6242,
+      "sha256": "da2d19422b20b6a8cce724a441e09db80f4ac105757a4131233920054ac79c94"
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2664,
+      "sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 19430,
+      "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 22903,
+      "sha256": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 38925,
+      "sha256": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b"
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3611,
+      "sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 35950,
+      "sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813"
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 25519,
+      "sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2887,
+      "sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61"
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 23340,
+      "sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87"
+    },
+    {
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6208,
+      "sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4138,
+      "sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d"
+    },
+    {
+      "path": "scripts/chapter_two_voice_catalog.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2729,
+      "sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 16314,
+      "sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a"
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 44298,
+      "sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8"
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11873,
+      "sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 25280,
+      "sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 65658,
+      "sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13414,
+      "sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57"
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21869,
+      "sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7540,
+      "sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4954,
+      "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac"
+    },
+    {
+      "path": "scripts/day_one_contextual_voice_catalog.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 39205,
+      "sha256": "c14e8403fb36e82b2a3c6eb20eb0d5839424707046c64c3ded52893918ada75b"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 29053,
+      "sha256": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf"
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17269,
+      "sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1"
+    },
+    {
+      "path": "scripts/day_one_story_clips.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8389,
+      "sha256": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a"
+    },
+    {
+      "path": "scripts/day_two_transition_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17434,
+      "sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d"
+    },
+    {
+      "path": "scripts/debug_export_stage_pathfinding.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 25281,
+      "sha256": "771e7d06e7b7ed206bb8ae23d056f55dfbabe39aff28246ad260d716a8203736"
+    },
+    {
+      "path": "scripts/dev_mode.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 48385,
+      "sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7418,
+      "sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941"
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9176,
+      "sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab"
+    },
+    {
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 22095,
+      "sha256": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33"
+    },
+    {
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4759,
+      "sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4"
+    },
+    {
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10814,
+      "sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982"
+    },
+    {
+      "path": "scripts/dust_bunny_ai.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3015,
+      "sha256": "129f1fb65b4854b6fbd481932883a5240c9dc289aa985cb2ba258d3e3025c55b"
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12899,
+      "sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739"
+    },
+    {
+      "path": "scripts/dust_bunny_sprite.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4332,
+      "sha256": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 51545,
+      "sha256": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9"
+    },
+    {
+      "path": "scripts/encounter_attack_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 716,
+      "sha256": "f427ccd622a7bde0308998976bba7141a7b6b8bdc21e4fa562537af014617bed"
+    },
+    {
+      "path": "scripts/encounter_contract_checks.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10066,
+      "sha256": "910c876867420ddf2b1e9249512910c0838894285e3d07af755ce82195aae639"
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3050,
+      "sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f"
+    },
+    {
+      "path": "scripts/encounter_navigation_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2735,
+      "sha256": "e8d0fc1913b781fe0494a11dc2e642b7088c27d3f12077e81c950171e0819e71"
+    },
+    {
+      "path": "scripts/encounter_patterns_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6506,
+      "sha256": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe"
+    },
+    {
+      "path": "scripts/encounter_phase_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 326,
+      "sha256": "b78240e2844a33dc55d021286ef612b344ee8022701de7324f0732d53c36ddda"
+    },
+    {
+      "path": "scripts/encounter_profile_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2079,
+      "sha256": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971"
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6553,
+      "sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29"
+    },
+    {
+      "path": "scripts/encounter_warning_cue_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1144,
+      "sha256": "750a09cad16bd8517551aab6b091d37f2d76bcb0b517b4d51ce0c553e2b2fb59"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21759,
+      "sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe"
+    },
+    {
+      "path": "scripts/fashion_designer.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8785,
+      "sha256": "f3c6165baa08f6e99f21d4d02782d1b1f1658ad348aae0e79a4f79740442165d"
+    },
+    {
+      "path": "scripts/fashion_designer_test_case.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8406,
+      "sha256": "9dcbba0a3ffd837db69b702e03a0262987c1b6abb7447e76cbc302dceb777d22"
+    },
+    {
+      "path": "scripts/fashion_dressing_input.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5196,
+      "sha256": "45d02a87cf842a5deb427f15269f776cb4c430b0272ceea7add8d037df7ceadf"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1096,
+      "sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6931,
+      "sha256": "d5b440608b63510446196233ef5fb559c006b0a90c5dcee74516e84dba5e1cfc"
+    },
+    {
+      "path": "scripts/fashion_parts_test_case.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9524,
+      "sha256": "27399d2be439afe62e653b9d484cb36a28828412e1cd50a950af5a7d8b750351"
+    },
+    {
+      "path": "scripts/fashion_skin_catalog.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 160,
+      "sha256": "c71d558cff766d25cd7835657f7e0e10ebe268d8e74a7b4c2e083b8b28adf548"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7240,
+      "sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad"
+    },
+    {
+      "path": "scripts/fashion_skin_engine_test_case.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9462,
+      "sha256": "dc77bc632c87a4587f24fcd317d3e185f833fa1e822f049a558eed69c90648ed"
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12825,
+      "sha256": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59"
+    },
+    {
+      "path": "scripts/fx_water.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12218,
+      "sha256": "e33ff31788951f89715cc926cbbfc9a05bb8e6324b76c9e0137ce2b658f5d4c0"
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 73159,
+      "sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59"
+    },
+    {
+      "path": "scripts/games/brawl.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 22123,
+      "sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7"
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17044,
+      "sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36313,
+      "sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36097,
+      "sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8553,
+      "sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36"
+    },
+    {
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9785,
+      "sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3"
+    },
+    {
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3856,
+      "sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 28592,
+      "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44"
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13306,
+      "sha256": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 42786,
+      "sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d"
+    },
+    {
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 243,
+      "sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c"
+    },
+    {
+      "path": "scripts/games/fairy.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 30308,
+      "sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679"
+    },
+    {
+      "path": "scripts/games/fetch.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14405,
+      "sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805"
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 42980,
+      "sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e"
+    },
+    {
+      "path": "scripts/games/octagon_stage.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15858,
+      "sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 32556,
+      "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 22256,
+      "sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 22079,
+      "sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 20079,
+      "sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da"
+    },
+    {
+      "path": "scripts/games/seek.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 23600,
+      "sha256": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17821,
+      "sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585"
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 42173,
+      "sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7"
+    },
+    {
+      "path": "scripts/games/slide_race.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 68216,
+      "sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f"
+    },
+    {
+      "path": "scripts/games/treasure.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4905,
+      "sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c"
+    },
+    {
+      "path": "scripts/hit_engine.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36221,
+      "sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c"
+    },
+    {
+      "path": "scripts/imp_ai.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 20764,
+      "sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e"
+    },
+    {
+      "path": "scripts/interaction_affordance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4599,
+      "sha256": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644"
+    },
+    {
+      "path": "scripts/interaction_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8800,
+      "sha256": "22d206cc7e278b9e46557f20d358e0fd80b3dec26fae61bf6d2f51aedd86c5ab"
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7412,
+      "sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb"
+    },
+    {
+      "path": "scripts/juice.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4139,
+      "sha256": "a356054344800d52edddb531108cd50f6d941582ea44d123b8397d5663de0fb4"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 128753,
+      "sha256": "0c5ce86e7361ea04287ba322709461a4a9feb84603307cefa20f7d55b4ea5caa"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5116,
+      "sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8"
+    },
+    {
+      "path": "scripts/landmark_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10065,
+      "sha256": "01e8e9bb7332ab76decfa093a98ed6b1940e8d9b424221fd8b27a9591ea300e0"
+    },
+    {
+      "path": "scripts/light_rig.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6085,
+      "sha256": "09e97441be4aa77a390e813298d1848a5d5f5c291d2efbcbf706cf10e3611551"
+    },
+    {
+      "path": "scripts/living_world.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14317,
+      "sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14155,
+      "sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e"
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 33453,
+      "sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 370863,
+      "sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417"
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12895,
+      "sha256": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d"
+    },
+    {
+      "path": "scripts/mic_input.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 24216,
+      "sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3749,
+      "sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7685,
+      "sha256": "9e2fa238b904db3b0548f3b76ddd647f6e27934f4a3148da3c893b04ccf135a3"
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 25366,
+      "sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b"
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 27480,
+      "sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 241013,
+      "sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11406,
+      "sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb"
+    },
+    {
+      "path": "scripts/opera_competition.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8801,
+      "sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 33298,
+      "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 242776,
+      "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459"
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 25931,
+      "sha256": "713a43c5e2245f5dd4496a1a1909a5ba7c3bbd6961ebe4a8dd3db34e89b57222"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17056,
+      "sha256": "5b13d622520753a2682aba0a834cd397475e1695d3f6d235a7700e2e2a3e088c"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 18361,
+      "sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243"
+    },
+    {
+      "path": "scripts/opera_imp_clips.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3293,
+      "sha256": "e061de84be9831d4e9662c11d3440461078c505b4b1484d499fdf1fa37df0797"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6331,
+      "sha256": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7933,
+      "sha256": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9606,
+      "sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431"
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7696,
+      "sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb"
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1533,
+      "sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 18753,
+      "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6876,
+      "sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 905,
+      "sha256": "dd353ac7377557900f15d3b98a317f8ad5da33a5f6d4d0b4635f8b50740ecad4"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 48376,
+      "sha256": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f"
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15132,
+      "sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14435,
+      "sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 26218,
+      "sha256": "37a9bf06e2c2b777086543ca48fb54b3634ccc8d5a1620a6f03668e6dff0e740"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14689,
+      "sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800"
+    },
+    {
+      "path": "scripts/painter/painter_document.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6373,
+      "sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff"
+    },
+    {
+      "path": "scripts/painter/painter_guided_probe.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5671,
+      "sha256": "356738628280b63dcb6885726538f85033267386f123bb1c7f0672188e3bb5a0"
+    },
+    {
+      "path": "scripts/painter/painter_probe.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10991,
+      "sha256": "288ce1900225597006e16c2ddc23ddf8990df131ad9d5b5b4162daea5f8aee9c"
+    },
+    {
+      "path": "scripts/painter/painter_studio.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17837,
+      "sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a"
+    },
+    {
+      "path": "scripts/painter/painter_template.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3614,
+      "sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746"
+    },
+    {
+      "path": "scripts/painter/vendor/painter_flood_fill.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5888,
+      "sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c"
+    },
+    {
+      "path": "scripts/partner_assist.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3506,
+      "sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13628,
+      "sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0"
+    },
+    {
+      "path": "scripts/physics.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13998,
+      "sha256": "39a8a3ecf72e79ff797d2f6eb067ad3d186626a282d044af6f8ce64a57a78cce"
+    },
+    {
+      "path": "scripts/player.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 47872,
+      "sha256": "91ae8a4e9dccc090c7e1ce86bbec387ff8c761951e794e9d93b3c753be7c49b8"
+    },
+    {
+      "path": "scripts/probe.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 467,
+      "sha256": "ea448c210f0f9bd5e72192c98678129037c27c3da6340f130046f9c0c4d3eedb"
+    },
+    {
+      "path": "scripts/probe_alpha_milestone_save.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5058,
+      "sha256": "a489a5b8221e2c658183ae745ef803c0622889f6791c16c69e190c6f5382ff27"
+    },
+    {
+      "path": "scripts/probe_anim_lab.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1402,
+      "sha256": "d3f4c44ba6ea48d8be715566f5c19cf9397fb304fce7891aaa96d7e88dc9cfde"
+    },
+    {
+      "path": "scripts/probe_aq_ref.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1690,
+      "sha256": "96eb39b2ac7347c045f6c950c8c0dc3e058af9594284e5480156c0905f3b35bd"
+    },
+    {
+      "path": "scripts/probe_aquatic2.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3008,
+      "sha256": "ec5c083cb87192192d34bef61909446f4e2507371fd171fb27761144b816fd1d"
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15455,
+      "sha256": "bed079ec48075b154715101d6bd61ac700590c32d43c8cb5265476ee9370258c"
+    },
+    {
+      "path": "scripts/probe_art_manifest.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13089,
+      "sha256": "0e12eb251a3ad47bb0d6e67885c32b08995f36effbd1c37c6826b83ef6fa7324"
+    },
+    {
+      "path": "scripts/probe_audio.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5889,
+      "sha256": "14360c356e8f1b3034fed30bd4cb7cde35adc4754ebfee83c882843a39e2ae78"
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 258006,
+      "sha256": "79ef070b36b4188c2995a9dab0e0df99efd7469937267b4ac49cd58e2bd0d4cb"
+    },
+    {
+      "path": "scripts/probe_basement.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10323,
+      "sha256": "93c9559622c211bc2b838343bc415978a78e904cbfe5e5608fd0152eaf1a9358"
+    },
+    {
+      "path": "scripts/probe_bathroom_integration.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 37255,
+      "sha256": "9ece4ba9b7c3ab0cea901cc8586e0bc9c492cf42acd24f6c5c4e5358bfaab2e2"
+    },
+    {
+      "path": "scripts/probe_bathroom_props.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3859,
+      "sha256": "e054e3e0dfecfac60092a0d53af9561aeddc25dc875769f6249273fc9b21e73f"
+    },
+    {
+      "path": "scripts/probe_boot_display.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6592,
+      "sha256": "6789deb6af82abfe5c5007610c7da5f60a56ddd62edbb602c938decac1096130"
+    },
+    {
+      "path": "scripts/probe_camera.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6765,
+      "sha256": "6ed68fd06bbd30e0823dfceada40eaa260e1a93e96dc62c673db98e3daabb424"
+    },
+    {
+      "path": "scripts/probe_castle_cam.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6137,
+      "sha256": "5f20a771fe3c628af84ce1647bc52d70df55fa551a745bf6895139fbbe2ba5e5"
+    },
+    {
+      "path": "scripts/probe_castle_canvas2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 20101,
+      "sha256": "a62ceb2931cb0cf1ff015f9144b99f9a9a41ee5d684f3498059b5b647a8242d7"
+    },
+    {
+      "path": "scripts/probe_castle_door_language.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9813,
+      "sha256": "75918e67face762686ad8cabd5ad01c5442bc2cfeb89640b9ed68fd7ffc12e75"
+    },
+    {
+      "path": "scripts/probe_castle_door_visual_capture.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8379,
+      "sha256": "9e7b9eecc256d9a5a142609653b70fa80c570723ca00546402961ebad25f3fb7"
+    },
+    {
+      "path": "scripts/probe_castle_mobile_capture.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8643,
+      "sha256": "6ef116981f77ac4546045d7d354554a48356bd2a1e2e19639838eb6163609126"
+    },
+    {
+      "path": "scripts/probe_castle_pearl_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 256,
+      "sha256": "718266c7d3073b88f864b2d3c391afbef9eb2096b80a1e59d459b9b73719386f"
+    },
+    {
+      "path": "scripts/probe_castle_pool_life_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3915,
+      "sha256": "e3a6118904c327625625f86f948014133ed9cb8a3686a818424d5bd80f232708"
+    },
+    {
+      "path": "scripts/probe_castle_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3041,
+      "sha256": "5d8cfc789564a5a2bfec70e1121d632e159eaaf44d59033fe7b17f55f285999e"
+    },
+    {
+      "path": "scripts/probe_castle_shots_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6199,
+      "sha256": "7f2c3a74daad7d28577298caccc2ca98861c8674a576c4dfe0f76d5c2b25d03b"
+    },
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 92096,
+      "sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e"
+    },
+    {
+      "path": "scripts/probe_chapter2_farmer_resume.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21779,
+      "sha256": "391476ed0a7603a2c972ebe4c9e6e5d4c3ffa5732ad411249bae0a00b361df2a"
+    },
+    {
+      "path": "scripts/probe_chapter2_lawn.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12454,
+      "sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94"
+    },
+    {
+      "path": "scripts/probe_chuck.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1950,
+      "sha256": "1ced289dca74a3f847ff8968d4925b53becf53a5e90d80a274c7b624138ce759"
+    },
+    {
+      "path": "scripts/probe_collection.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3475,
+      "sha256": "c071175071874f16572bdb3cba940088415c830e4c77b38404b672643197956c"
+    },
+    {
+      "path": "scripts/probe_combat.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9009,
+      "sha256": "48c87ff11aa0749598067207371c06b7963bbf2e3fbde34eb0c1ebf1d3ba4793"
+    },
+    {
+      "path": "scripts/probe_combat_tutorial.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10876,
+      "sha256": "011fd3503929e53059c4abf93cbbc41eaeacd813415ce3db44f77f2770410630"
+    },
+    {
+      "path": "scripts/probe_creatures.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1964,
+      "sha256": "1c8456acf2f44413c109ffc67714959e7d900c8fdaeaac3b4c461522d94af033"
+    },
+    {
+      "path": "scripts/probe_crown.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 33021,
+      "sha256": "2b1deb2cb1fa71fac67fa9b331408cb68bf4ed2a0a5ebaece439f538d5c47b24"
+    },
+    {
+      "path": "scripts/probe_dance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3125,
+      "sha256": "91d6ab9f51863709cb754569ddc1398da70513f5279b927e4d67d0bc77b2b29b"
+    },
+    {
+      "path": "scripts/probe_day_one_art_attack_state.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13143,
+      "sha256": "49361c6470bd8aa137af417e03aa14e9d0038ac907af05303ea3cf6dbe279ed3"
+    },
+    {
+      "path": "scripts/probe_day_one_art_studio_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3886,
+      "sha256": "0a9dc0cd4d4b1502cc7ecf2d4ff819773a7a43bc05f330bd87fb367dd9b5873a"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_bunny.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14017,
+      "sha256": "11572f42eaefe255f8682b6960da694a56518c23b8937311548c24a959684895"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36174,
+      "sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_integration.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9075,
+      "sha256": "e0ad83990468fb3506fe46319fae32894cec45f85c5f01bf736e2f60dc087cac"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_movie_handoff.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5618,
+      "sha256": "a12cb8aff301348284b86faa6ef07064abdcfb6bebd7b1f5daaf383001cba305"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12210,
+      "sha256": "069bb0daf6dcaa274c95f4a81cad4c4fc678cc2e53cec9b6d746a4b24f931a16"
+    },
+    {
+      "path": "scripts/probe_day_one_castle_dressing.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5841,
+      "sha256": "cbdfbe8cca0c92c78dd5562e66f73cf07e2e2091db877b2016f3411119143c82"
+    },
+    {
+      "path": "scripts/probe_day_one_contextual_voice.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3172,
+      "sha256": "9167f0095236e9966fc53d9ebdab5949d44082e91e6a03c46dd57e770cef1b18"
+    },
+    {
+      "path": "scripts/probe_day_one_d8_revisits.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4238,
+      "sha256": "aee7b1ad437ded36aaf1c7c517e6e2fbe1151b329e4af1e1f0dbe1222796ae3f"
+    },
+    {
+      "path": "scripts/probe_day_one_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8414,
+      "sha256": "3385a3a3c38c075126075d290c8def3a65118b2859670b183fa6416a764586e0"
+    },
+    {
+      "path": "scripts/probe_day_one_handoffs.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3810,
+      "sha256": "f19c9e76056c61cf8136a26e1027f4b907d6377f433ca7aa02ab06260718ae71"
+    },
+    {
+      "path": "scripts/probe_day_one_integration.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6011,
+      "sha256": "a5b158a699b7a32f5cf5bb035620f236114140643a30a7dba8fe5637e123a0ae"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_cleanup.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36294,
+      "sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6141,
+      "sha256": "b5d36a535a72975d7c2c2000fba5e94facde3f949ea92dbf18d85de9f9f5dafd"
+    },
+    {
+      "path": "scripts/probe_day_one_story_clips.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11399,
+      "sha256": "210e1637b7d14fcd942a2480814d0726c8a3008e5c19770dec127b042b4ba2e1"
+    },
+    {
+      "path": "scripts/probe_day_one_voice.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3506,
+      "sha256": "056e9c9158654bb462410d0a0a299dcdb19cc03532d11201142b72d2bbd334bb"
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 28478,
+      "sha256": "7908a93152d3aed66195eaf1f7b372fe7ed86d0dec12338680423e5b5c615611"
+    },
+    {
+      "path": "scripts/probe_dungeon.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9910,
+      "sha256": "081d763e8836d8767aa647c80df26402ab67c273ac776202e7c7a89b98157bef"
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 36448,
+      "sha256": "0ab73140c9d202c1c80533fb7304d61f44fe3b1ba4b3a37b257d3e13be7a1263"
+    },
+    {
+      "path": "scripts/probe_dust_boss_balance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5316,
+      "sha256": "f4940fb4b5d6398e5d1fab94fdf92f4666c2302ff6c36f533312c6f3956be235"
+    },
+    {
+      "path": "scripts/probe_dust_boss_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5810,
+      "sha256": "b3345765e089d6d56595e905f16746cff09a3f4c01bfea096b0dd9e3406b3794"
+    },
+    {
+      "path": "scripts/probe_dust_bunny.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3662,
+      "sha256": "103bd3ff509df3d5a612faa4fd00ce66b3f85885a8c51e622496ec5211d36735"
+    },
+    {
+      "path": "scripts/probe_dust_bunny_boss.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11374,
+      "sha256": "348413471e2d2ae7adf4b7a9554f2180cb26e948897996f8e032b9f27a8a3d6d"
+    },
+    {
+      "path": "scripts/probe_ember.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11489,
+      "sha256": "7242fedd587854ec1de6b6f9913b5c71f7322b469727622403d07535d8964673"
+    },
+    {
+      "path": "scripts/probe_ember_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3982,
+      "sha256": "61f7722b735e18cbe771864fbc9e298fdd36788ed98365d4d10dcc1d05c10e3a"
+    },
+    {
+      "path": "scripts/probe_fable_audit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4088,
+      "sha256": "3ef6191d3c25933d2a72eb07d26b9e41953a1cddb0a467f2eafc08ae5189af51"
+    },
+    {
+      "path": "scripts/probe_fable_kit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3845,
+      "sha256": "e431067b4f080a62f68c658033a2ec592d96b3fdedc419ad47ae0d7089e2d404"
+    },
+    {
+      "path": "scripts/probe_fairy_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2727,
+      "sha256": "b6043069021eb19bb8a94a1d5a98a1109f29f93b8ae2d277bbe970ca25b5e26e"
+    },
+    {
+      "path": "scripts/probe_fairy_conservatory_handoff.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4910,
+      "sha256": "3d57dea550657ff8903937dede613bec619919a0bbd3331f99d461cadb17c7ce"
+    },
+    {
+      "path": "scripts/probe_fairy_conservatory_route.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5356,
+      "sha256": "acd22101ed22eeace09014bffd0ad071a83a2f9587831951775716f2eb2db83a"
+    },
+    {
+      "path": "scripts/probe_fairy_restoration.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10293,
+      "sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a"
+    },
+    {
+      "path": "scripts/probe_fetch.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1380,
+      "sha256": "394df697279ae83894967ca44e5724d61da98dc3e473337fcdeb2eefba5e4b59"
+    },
+    {
+      "path": "scripts/probe_galaxy_peek.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2705,
+      "sha256": "a6e33fc764ff9d5f55080b4f8e7986e74ad5768255010dda56c12dff9c7a11c9"
+    },
+    {
+      "path": "scripts/probe_galaxy_state.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8951,
+      "sha256": "37b564bcf73b37a4c38f08213af58a47ebb0c4554d8d539b445f24987afa38ad"
+    },
+    {
+      "path": "scripts/probe_garden_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1462,
+      "sha256": "17894d0dd1070508108956bed19d9ad056f9089a2bf855dae45f4dafecfd0dec"
+    },
+    {
+      "path": "scripts/probe_heading.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 993,
+      "sha256": "96e370796521188ddc7f5d22c69398a7412b7f41ef372deea8150bbe50a0ec13"
+    },
+    {
+      "path": "scripts/probe_hit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12850,
+      "sha256": "a472adaf30aae6d20e07835f73b2a8a74a0cf41eb50ca0dc32db746d0b0df226"
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6662,
+      "sha256": "810a4cab317b459f8e280a5c959de2ee9b8c46a378b2dc79ab21010ac70cd214"
+    },
+    {
+      "path": "scripts/probe_imp_ai.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11703,
+      "sha256": "69c38ecdd142fdedacb68c7995ec41338e84333aeeb09d7359d648610b4a260d"
+    },
+    {
+      "path": "scripts/probe_imp_animation_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9858,
+      "sha256": "3e0a7a8db8fa72df607799a3a8cd5f5e3d70d59f16e66743eac59b15ce0f850a"
+    },
+    {
+      "path": "scripts/probe_interaction.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 40701,
+      "sha256": "46c39f611758851372e904bf67200808ac884e42e8de205c588466f38151fb3f"
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21193,
+      "sha256": "7914d0edb8cece8a12dd2e3213a93b7307ddda49da02422f46081eaad89814a6"
+    },
+    {
+      "path": "scripts/probe_kitchen_props.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5920,
+      "sha256": "5b0b5f839439540331160bfc1dde572b20d93d577ee3aad4601423550768cde3"
+    },
+    {
+      "path": "scripts/probe_l2.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 55993,
+      "sha256": "4f6350c9eada515f8671be18d3a897ade7974da0aab5725107cfffa92d2434c2"
+    },
+    {
+      "path": "scripts/probe_l2_living_cards.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11230,
+      "sha256": "a05d3bb578c16339e2154dcccb5fcbe3976c286a67e0ed531388e21372c9cab4"
+    },
+    {
+      "path": "scripts/probe_l2_reenter.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3220,
+      "sha256": "4a753fbfe0c51a93630f610f2da089e0381c8b1a980750df6476bcb7611a93cd"
+    },
+    {
+      "path": "scripts/probe_living_world.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14876,
+      "sha256": "034d914bfb39042b9e264d873ffc95c64bb1423e22df4c134be19958f392be41"
+    },
+    {
+      "path": "scripts/probe_load.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12496,
+      "sha256": "698a51a2f3f6dbb72e1c7070baa04af21dd255756ab88919bd15dab03efe1bb2"
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 113295,
+      "sha256": "2a3be501e7999c6c62533b539d33c26d5bd246838670a9bd695694d885eddb0d"
+    },
+    {
+      "path": "scripts/probe_mg2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15110,
+      "sha256": "f37008aa1844e82b761921c914df83756c87ed3508c53d555ce95842e139555b"
+    },
+    {
+      "path": "scripts/probe_mic.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 10479,
+      "sha256": "00ede493070f7ab68d35da9f5297244772aa00095196b76d3ee1b06bd7882b19"
+    },
+    {
+      "path": "scripts/probe_mouselook.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3137,
+      "sha256": "e21289452def93c1cbd88ab3df48a04e043cbcd61a0c8d0df36a9111ec9fa49f"
+    },
+    {
+      "path": "scripts/probe_northern.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8147,
+      "sha256": "5ded882b3ffebd1e9611ff43d1d069680543ffe7aec958094c11b402c1e4801d"
+    },
+    {
+      "path": "scripts/probe_northern_art_audit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4169,
+      "sha256": "940fbd7bbae151b325c36fe2c86b5e143a48a3cb66a6d816d4933c3c4cc28992"
+    },
+    {
+      "path": "scripts/probe_ocean_kingdoms.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4680,
+      "sha256": "abc55cfb52424e44970f905b2b298537c6b0f43dafe750ef879e2dd967e3a3b0"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 42855,
+      "sha256": "7ae3134a6197f8dfe0ac3a415c67ed02bcf5a8f9dfe02c96c5880bff5033d1c0"
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 151346,
+      "sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8"
+    },
+    {
+      "path": "scripts/probe_opera_2d_balance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12134,
+      "sha256": "bafc7d595550580552369de1f5728651ccb8af2478ffe01127775dea719b95c3"
+    },
+    {
+      "path": "scripts/probe_opera_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 31860,
+      "sha256": "77ca60f8c50fb60836f5f6445ccd52ebb03445fdc9d948fa2c21002dd05947e0"
+    },
+    {
+      "path": "scripts/probe_opera_balance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 348,
+      "sha256": "c0351582019b13a7b7d8d51e6d5ac1e8d09f1f11b7fe6e5e7da2826a5f5113ba"
+    },
+    {
+      "path": "scripts/probe_opera_detective.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6755,
+      "sha256": "4ea70a97288fd0c0feba2fe4d7382d9319a3345538010916c99a3ed54304f7ea"
+    },
+    {
+      "path": "scripts/probe_opera_diegetic_paths.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 18568,
+      "sha256": "6f7c6a451e9669885e514c18b107013b4bd11e4afa503b3dd1587785fe2aa81e"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 92518,
+      "sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458"
+    },
+    {
+      "path": "scripts/probe_opera_mastery.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7375,
+      "sha256": "7d7a38da9517de21c3f4b5b74c5857410b04fab51dcb4f3449c84c6d94152782"
+    },
+    {
+      "path": "scripts/probe_opera_nursery.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11058,
+      "sha256": "b79612ce95275915902fe7d7a334e4b2d45ce866be977be6b46f6551356bd7f9"
+    },
+    {
+      "path": "scripts/probe_opera_performance.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 19836,
+      "sha256": "ab9af4d9e5b90d4e3224de5145412ae7bfd4e8c763285b31938205dee1656152"
+    },
+    {
+      "path": "scripts/probe_opera_pipe.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4308,
+      "sha256": "5ad9f1953ecc666d9b9e21a1d250294a37e9d0159c515fdf250b7dbd6eaae9c2"
+    },
+    {
+      "path": "scripts/probe_overdraw.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 44097,
+      "sha256": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433"
+    },
+    {
+      "path": "scripts/probe_painter.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 585,
+      "sha256": "8084b3475c1ab3ff668be78216471e129718aacfc2d90ae5437f0218e332cd88"
+    },
+    {
+      "path": "scripts/probe_partner.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4437,
+      "sha256": "1309875b832c3f80b5945515148d562145838913bc65d3f54851af6a40cf47a3"
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 18681,
+      "sha256": "e266e523af5c629f98ca8b52acfd931de7659b455a58634ccde6a917f3b50e97"
+    },
+    {
+      "path": "scripts/probe_peng_pal.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2647,
+      "sha256": "0084bb4d8ac1f4b97869457554a51708fe2b2ed2e091a4d85fc2377503a61afa"
+    },
+    {
+      "path": "scripts/probe_penguin_beak.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 486,
+      "sha256": "69f32b2482e621501380aa953d52bb0ae230105b78a9f2cb25dd4a8486708286"
+    },
+    {
+      "path": "scripts/probe_penguin_face.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2468,
+      "sha256": "2a038330d9bb60d0382a62a6b4ccb2524827c476416ddf8a6f98f9fb4c63ce9d"
+    },
+    {
+      "path": "scripts/probe_pg_water.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2412,
+      "sha256": "dbc065c22259e16fdebc8feee124620cd74a66f6132d77dec6ee426ab277c610"
+    },
+    {
+      "path": "scripts/probe_pg_wide.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1634,
+      "sha256": "14f277647806d166f77740625053f38f2df1970914df64c51c1f237cb01794c4"
+    },
+    {
+      "path": "scripts/probe_playground_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7210,
+      "sha256": "4bb1f21d49a526a02e8c29d8e0d44a8d6ff9b5ad7b86d885ecacdcfdd385c988"
+    },
+    {
+      "path": "scripts/probe_props.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12951,
+      "sha256": "7175e1342e2f54e609ca801c131601305239e6f84499294c2f6c4647937f1240"
+    },
+    {
+      "path": "scripts/probe_race_feel.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9724,
+      "sha256": "5eb883cdca4a6221fd0ccd07d86cf7670c6a95aa9bbdc22ef77066390ab7c372"
+    },
+    {
+      "path": "scripts/probe_rank.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 17994,
+      "sha256": "51a50bd847052b0f578b478929d98ab4f3bae27cef0e0c0b65ef76dbfda6d0c2"
+    },
+    {
+      "path": "scripts/probe_reef_districts.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5349,
+      "sha256": "17ae88e94945694fe4547216d0fe0262d3be38c987cfa10c946feedeb2eb2f54"
+    },
+    {
+      "path": "scripts/probe_reef_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1898,
+      "sha256": "8ec9908b5ca952e1c9080c1cac075fd541c1abec5cae0f61f0aa6c55eba49b5f"
+    },
+    {
+      "path": "scripts/probe_river_profile.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1200,
+      "sha256": "fd0a40360f704fd537b2abd44ce61668e095a2970fa82259d9f48733dac7b939"
+    },
+    {
+      "path": "scripts/probe_save_recovery.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 19238,
+      "sha256": "5210bdca9be34fb530411460073fc06281f7df48754219cfaae20ad306d5f135"
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 30620,
+      "sha256": "f8fc20152b00f7b0e80d5a24610fd00aff7943098fed50789698cb2136ff0739"
+    },
+    {
+      "path": "scripts/probe_skins.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2699,
+      "sha256": "c25092a82d2722579ff1d1d41eddb51fb499438a2c1ff959b5fbfc584b6f0763"
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_animals.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 23290,
+      "sha256": "fcde9f8ec2a518776a94ca2d116dbf12f00ef02f6d7a7be1f32de27495c5966a"
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 57814,
+      "sha256": "ab91b10e1abe0ced1b0288e568d73b6987d35a084c52ff4a612935ca5c215151"
+    },
+    {
+      "path": "scripts/probe_stage_navigation_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2424,
+      "sha256": "4532005e0033392a3f2ee37d7ff3f20ee46083e4230e2a515db1a2467958cbaf"
+    },
+    {
+      "path": "scripts/probe_start_menu_new_game.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 19332,
+      "sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69"
+    },
+    {
+      "path": "scripts/probe_start_menu_routing.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6989,
+      "sha256": "cb78dc83a64764bbff81aec0835f8354fbb20cc886cf9ca1e60f80792a4c19d8"
+    },
+    {
+      "path": "scripts/probe_stuffie.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 34871,
+      "sha256": "6a70cad9c8b4a992061af670a4d75c7db1afab671a7a1f6b2ecea9d0ea899286"
+    },
+    {
+      "path": "scripts/probe_texture_seams.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2221,
+      "sha256": "ffe196d19782bba373ff06f7764382b1164e9a3605a4bed176b4e0adbcad400a"
+    },
+    {
+      "path": "scripts/probe_throne.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21411,
+      "sha256": "e1f37bcc4c328caa013d6d24ded2154ce47a5a5f884e5926a2508a1dc0c64a15"
+    },
+    {
+      "path": "scripts/probe_throne_shots.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2338,
+      "sha256": "0917812438b062bee51adf567a8a8265161d263c722eee5d5309b72b82668e37"
+    },
+    {
+      "path": "scripts/probe_touch_adversary.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12078,
+      "sha256": "5e9dc0fe8cb3b806f244eb7699ba46a5fdbb614ce945f7f178f15a065c056bdf"
+    },
+    {
+      "path": "scripts/probe_touch_look.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5321,
+      "sha256": "bd29130a50f3936919534d4a183d7c91e38d9059457e86d5ef9ac93f71641adb"
+    },
+    {
+      "path": "scripts/probe_touch_router.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15163,
+      "sha256": "508a7b07ebc81c20504de626d4385544cc4440333785c85cec7e2c3916a6e334"
+    },
+    {
+      "path": "scripts/probe_touch_stress.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 20783,
+      "sha256": "8cb81fdbb115d46ca67c5263ce1905b3fcfdfd7d629480c27396c865391d5832"
+    },
+    {
+      "path": "scripts/probe_toy_anim.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2031,
+      "sha256": "6f5d5a06d7841cb035513649cd734cafc8ec1aa09411e96615e949e6c635c5b0"
+    },
+    {
+      "path": "scripts/probe_train.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3101,
+      "sha256": "07d450f692623e6ed8ff0fee27046b6e18c94c2cdc566df71bddef4696d3c8d2"
+    },
+    {
+      "path": "scripts/probe_tree_book_test.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 271,
+      "sha256": "81bbb378b8b70ce2c12925602892614c94e215e18419973b87f1fdd0b916dfb6"
+    },
+    {
+      "path": "scripts/probe_ui.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 191,
+      "sha256": "bb5403c37599646886809c92af9ae82dc4c0335d28b60409e9b5331f0c9165a1"
+    },
+    {
+      "path": "scripts/probe_ui_system.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 39336,
+      "sha256": "871337431bb6f9518cd5e40e4b8bd41688303d013872841e2f24ab9faa2a1e2f"
+    },
+    {
+      "path": "scripts/probe_upstairs.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 4380,
+      "sha256": "a7b57f7f8d3602180721acdf5a7dd9af63b8c14f9e207783ac50c319a82ca3f9"
+    },
+    {
+      "path": "scripts/probe_verbs.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 13254,
+      "sha256": "0b2f612e6d050f6a5fbc30292d739e0eb132cb9efb592a922af5aece558d63c4"
+    },
+    {
+      "path": "scripts/probe_visual_audit.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 67835,
+      "sha256": "2422faa70bd47b947b51e96543d761364e0fea106c03b6145fe57498b5201a60"
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 21163,
+      "sha256": "1cd4051f2886982b13f3b1aa2f35febb21ec0f9db99787d0b8f83039fd0d0c05"
+    },
+    {
+      "path": "scripts/rainbow_friend_follower.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2983,
+      "sha256": "745c323c562a51628c0d8b268e07dd640fe7d6b0e22aedd975bd4a7ccd1f72cb"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 16731,
+      "sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b"
+    },
+    {
+      "path": "scripts/roshan_sprite_anchors.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2361,
+      "sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5"
+    },
+    {
+      "path": "scripts/roshan_sprite_frames.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9541,
+      "sha256": "41860fcd11e0ee071cc1c7c8bacc8242160b209b73c3a5d4bc1d2eda4a908d81"
+    },
+    {
+      "path": "scripts/roshan_sprite_loop.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 11251,
+      "sha256": "73663a09ec2bf6f3f87d37596a7bcd1818346d744492deb109cac4a31e65362e"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 46616,
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1920,
+      "sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08"
+    },
+    {
+      "path": "scripts/sprite_transition_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 7902,
+      "sha256": "0a5c87ff8c4eb812bc2b352382f069c82771f1f39860e9adece4b35a04bf4bd5"
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3261,
+      "sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 18908,
+      "sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771"
+    },
+    {
+      "path": "scripts/story_art.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5234,
+      "sha256": "3ff0367f3be0801e4a40f233d42cf66baef8a952948b373c2a33ffab6f176f8b"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 16107,
+      "sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 24254,
+      "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4"
+    },
+    {
+      "path": "scripts/tap_move_director.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6058,
+      "sha256": "dbe2d50e6b0dfb40b0f24f7cc9a73065c267209cd6a399e3fde601af4ce2a263"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6662,
+      "sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 39214,
+      "sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d"
+    },
+    {
+      "path": "scripts/tree_book_test_checks.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6920,
+      "sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14633,
+      "sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573"
+    }
+  ],
+  "source_owner_graph": "SOURCE_OWNER_GRAPH.json",
+  "prior_observation": {
+    "revision": "89bca453942eb91a2fd23a486373aafde2f33658",
+    "scope_id": "FVS-38151AC2830B",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r80_playground_cue_reuse/UNRESOLVED_VISIBLE_SCOPES.json",
+    "sha256": "94fdbd2b8972b5529f0fdbc6b0d35c7e8cd7209ac1fda72fa506f437cbb8de14"
+  },
+  "source_or_candidate_acceptance": false
+}

@@ -1,0 +1,69 @@
+{
+  "review_type": "Codex agent narrow same-scene partial source-subpart review; not human/child/owner acceptance",
+  "role_id": "FV-7976FC8C2881",
+  "observation_scope_id": "FVS-38151AC2830B",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "axes": [
+    {
+      "axis": "contour",
+      "observation": "The new source-owned panel is a perfect filled rounded circle with no authored contour, unlike irregular cloud/shell/leaf edges in these exact scenes.",
+      "disposition": "PARTIAL_SOURCE_CONTEXT_ARTWORK_REPAIR_OPEN"
+    },
+    {
+      "axis": "material",
+      "observation": "Uniform StyleBoxFlat fill overlays the painted scene. Source is procedural mathematical art; no raster extension count or geometry exemption is used.",
+      "disposition": "PARTIAL_SOURCE_CONTEXT_ARTWORK_REPAIR_OPEN"
+    },
+    {
+      "axis": "palette",
+      "observation": "Source yellow RGBA(1,.95,.5,.5) is preserved and measured. It relates to scene gold highlights but washes cloud colour; source palette similarity alone does not accept material.",
+      "disposition": "PARTIAL_SOURCE_CONTEXT_ARTWORK_REPAIR_OPEN"
+    },
+    {
+      "axis": "light",
+      "observation": "The screen-space uniform fill has no authored directional highlight/shadow, unlike painted equipment and castle surfaces.",
+      "disposition": "PARTIAL_SOURCE_CONTEXT_ARTWORK_REPAIR_OPEN"
+    },
+    {
+      "axis": "perspective",
+      "observation": "It is a screen-facing touch feedback layer, not a world prop. UI purpose still requires painted style congruency under the zero-flat-art target.",
+      "disposition": "PARTIAL_SOURCE_CONTEXT_ARTWORK_REPAIR_OPEN"
+    },
+    {
+      "axis": "scale",
+      "observation": "Source size110/radius55 is observed at both aspects; native center matches the actual input. Child occlusion/readability and device sizing remain unaccepted.",
+      "disposition": "PARTIAL_SOURCE_CONTEXT_ARTWORK_REPAIR_OPEN"
+    },
+    {
+      "axis": "contact",
+      "observation": "The panel follows the released screen point. It supplies visual touch feedback and ignores mouse input; input ownership/controller remain separate functional logic.",
+      "disposition": "PARTIAL_SOURCE_CONTEXT_ARTWORK_REPAIR_OPEN"
+    },
+    {
+      "axis": "occlusion",
+      "observation": "Actual onset/decay captures show cloud/scenery under the translucent yellow disk. Natural freeing is observed; other underlying targets and phone visibility remain unreviewed.",
+      "disposition": "PARTIAL_SOURCE_CONTEXT_ARTWORK_REPAIR_OPEN"
+    },
+    {
+      "axis": "readability",
+      "observation": "Brief feedback makes a touch visible, but a large disk can resemble the separate focus glow. No child recognition or owner approval is inferred.",
+      "disposition": "PARTIAL_SOURCE_CONTEXT_ARTWORK_REPAIR_OPEN"
+    },
+    {
+      "axis": "action-state",
+      "observation": "Four original source trials record onset, decreasing alpha and same-instance tree exit/freed state. Source tween is0.35s; observed instrumented wall lifetime includes capture work and does not establish uninstrumented/device timing.",
+      "disposition": "PARTIAL_SOURCE_CONTEXT_ARTWORK_REPAIR_OPEN"
+    }
+  ],
+  "captures": "CAPTURE_INDEX.json",
+  "measurements": "FLASH_LIFECYCLE.json",
+  "same_scene_hashes": "SOURCE_BINDINGS.json",
+  "full_parent_role_reviewed": false,
+  "reuse_ready": false,
+  "drawing_required": null,
+  "approved": false,
+  "integrated": false,
+  "runtime_verified_replacement": false,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

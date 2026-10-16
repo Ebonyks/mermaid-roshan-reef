@@ -1,0 +1,73 @@
+{
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r81_touch_flash_ownership\\scan_flash_owner.py"
+      ],
+      "exit_code": 0,
+      "output": "R81_PARSED 100 of 313\r\nR81_PARSED 200 of 313\r\nR81_PARSED 300 of 313\r\nR81_SOURCE_SUMMARY {\"parsed_scripts\": 313, \"named_target_calls\": 16, \"non_test_named_target_calls\": 15, \"non_test_touch_ui_flash_calls\": 10, \"allcaller_closure\": false, \"global_legacy_unreachability_proved\": false}\r\n",
+      "sha256": "52be7893755f12cdc3f1242fc2667ad9aacce958a49eaf69bb7f4ae765b3f31f"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r81_touch_flash_ownership\\derive_evidence.py"
+      ],
+      "exit_code": 0,
+      "output": "R81_DERIVED 23raw19source4excluded;52checks;4selectedflashlifecycles;263/35;76partialexisting;0production/acceptance\r\n",
+      "sha256": "9d2db2c5616018fcc11a148e0d9e2f10001e50885f367e970cccd7aabf459e9c"
+    }
+  ],
+  "derived_file_count": 7,
+  "files": [
+    {
+      "path": "SOURCE_OWNER_GRAPH.json",
+      "bytes": 155275,
+      "sha256": "4212856302491c3fbe7197a2ada010bba3e9e330a59806f43bd80fd92b500819",
+      "byte_identical": true
+    },
+    {
+      "path": "CAPTURE_INDEX.json",
+      "bytes": 11987,
+      "sha256": "95f9f1b37d66b26d574a9902cd0a77ed3d0176ddcd665362e930bf8eccfb145a",
+      "byte_identical": true
+    },
+    {
+      "path": "FLASH_LIFECYCLE.json",
+      "bytes": 147754,
+      "sha256": "4d46c9dbb7f4f6dfcfd9956a0d5752d1d3c2b4b9325a54f193c32862fc1c3b5e",
+      "byte_identical": true
+    },
+    {
+      "path": "OWNER_DISPOSITION.json",
+      "bytes": 1434,
+      "sha256": "55b73f38971562fd5f1ff0dcc30d2e20b4603caab01e7522b1edec86c2de72e5",
+      "byte_identical": true
+    },
+    {
+      "path": "SOURCE_BINDINGS.json",
+      "bytes": 149453,
+      "sha256": "8328ced9130f0e6c55c1495ad3a1e9ae45e1ae518c46b42e4dad60a949476299",
+      "byte_identical": true
+    },
+    {
+      "path": "DELIVERY_SOURCE_REFERENCES.json",
+      "bytes": 114542,
+      "sha256": "54fbc263cabdd67d1cf3e5e4cdffe5c8889be9476d3e1b5074807bdefed87342",
+      "byte_identical": true
+    },
+    {
+      "path": "SUMMARY.json",
+      "bytes": 2189,
+      "sha256": "318f60a2dc20e382974b082af2f743dbf09e815fe4ea76b56784af461f71a0cd",
+      "byte_identical": true
+    }
+  ],
+  "all_byte_identical": true,
+  "native_reruns": 0,
+  "checked_at_utc": "2026-10-16T12:29:33.612640+00:00",
+  "scope": "Fresh exact AST extraction plus native/source derivation; no relabelled captures or performance/acceptance claims."
+}

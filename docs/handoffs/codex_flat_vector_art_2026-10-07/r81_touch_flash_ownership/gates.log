@@ -1,0 +1,31 @@
+test_candidate_cannot_count_as_source (__main__.FlashEvidence.test_candidate_cannot_count_as_source) ... ok
+test_geometry (__main__.FlashEvidence.test_geometry) ... ok
+test_no_fade (__main__.FlashEvidence.test_no_fade) ... ok
+test_not_freed (__main__.FlashEvidence.test_not_freed) ... ok
+test_recolor (__main__.FlashEvidence.test_recolor) ... ok
+test_source_flash (__main__.FlashEvidence.test_source_flash) ... ok
+test_visual_override (__main__.FlashEvidence.test_visual_override) ... ok
+test_wrong_input (__main__.FlashEvidence.test_wrong_input) ... ok
+test_comments_strings_not_calls (__main__.SourceAST.test_comments_strings_not_calls) ... ok
+test_guard_retained (__main__.SourceAST.test_guard_retained) ... ok
+test_invalid_source_fails (__main__.SourceAST.test_invalid_source_fails) ... ok
+test_literal_reflection_separate (__main__.SourceAST.test_literal_reflection_separate) ... ok
+test_local_named (__main__.SourceAST.test_local_named) ... ok
+test_other_receiver_stays_other (__main__.SourceAST.test_other_receiver_stays_other) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.158s
+
+OK
+R81_VALIDATION_PASS 313AST16named10local;2cases52checks23raw19bounded4excluded;4flashlifecycles;263/35;76partialexisting;0production/acceptance;globalunknown
+DOCAUTH|INVENTORY=794|LEDGER=794|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df
+AUDITDEV|RESULT|ALL OK
+......................................................
+----------------------------------------------------------------------
+Ran 54 tests in 7.684s
+
+OK
+DOCAUTH|STRESS|6/6
+DOCAUTH|STRESS|6/6

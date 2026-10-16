@@ -1,0 +1,31 @@
+{
+  "id": "FV-7976FC8C2881",
+  "family": "shared_ui",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "observed_subpart": "TouchUI._flash -> _circle",
+  "scope_id": "FVS-38151AC2830B",
+  "status": "NARROW_FLASH_SUBPART_PARTIAL_CONTEXT_VISIBLE_FLAT_ART_OPEN",
+  "owner_disposition": "OWNER_DISPOSITION.json",
+  "review": "REVIEW.json",
+  "source_visible_artwork": true,
+  "functional_invisible_geometry_exemption": false,
+  "unreviewed_parent_parts": [
+    "other _circle consumers in _ready",
+    "Classic movement and jump states",
+    "press/context-action paths",
+    "other underlying target/scene and input-gated states"
+  ],
+  "fully_context_reviewed": false,
+  "reuse_ready": false,
+  "drawing_required": null,
+  "acceptance_evidence": {
+    "candidate": null,
+    "integration": null,
+    "replacement_runtime": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null
+  },
+  "accepted_removed": 0
+}

@@ -1,0 +1,4291 @@
+{
+  "role_id": "FV-7976FC8C2881",
+  "observation_scope_id": "FVS-38151AC2830B",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "trials": [
+    {
+      "actual_input": true,
+      "after_world": {
+        "actor": {
+          "flip_h": false,
+          "native_origin": [
+            643.180908203125,
+            525.210083007813
+          ],
+          "position": [
+            2869.59521484375,
+            1493.93090820313
+          ],
+          "rotation": 0.0,
+          "scale": [
+            1.4921875,
+            1.4921875
+          ],
+          "texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+          "visible": true
+        },
+        "focus": "",
+        "game": "level2",
+        "legacy_lagoon_constructed": false,
+        "master_x": 2768.87255859375,
+        "nodes": [
+          {
+            "class": "Control",
+            "name": "SkyLagoonViewport",
+            "native_rect": [
+              -365.661102294922,
+              0.0,
+              450.0,
+              253.125
+            ],
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonMasterSpace",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonBase",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase",
+            "z_index": -500
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c0",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c1",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c2",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c3",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c3",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c4",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c4",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c5",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c5",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c0",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c1",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c2",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c3",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c3",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c4",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c4",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c5",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c5",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonRearMural",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRearMural",
+            "z_index": -400
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonRear",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear",
+            "z_index": -400
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRearCloud",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear/SkyLagoonRearCloud",
+            "scale": [
+              2.5,
+              2.5
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonLandmarks",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks",
+            "z_index": -300
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_0",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_1",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_2",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonCastleFourTower",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonCastleFourTower",
+            "scale": [
+              1.18460702896118,
+              1.18460702896118
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonReefPlane",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonReefPlane",
+            "scale": [
+              0.75,
+              0.75
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonInteractive",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSlide",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+            "scale": [
+              1.5048543214798,
+              1.5048543214798
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonPromenadeSwingFrame",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+            "scale": [
+              0.667593896389008,
+              0.667593896389008
+            ],
+            "texture_path": "res://assets/props/story/play_swing_frame.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SwingSeatPivot",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SwingSeatAndRopes",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot/SwingSeatAndRopes",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/props/story/play_swing_seat.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSeesaw",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+            "scale": [
+              1.57738089561462,
+              1.57738089561462
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSlideContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlideContactShadow",
+            "scale": [
+              1.953125,
+              0.3125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonPromenadeSwingFrameContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrameContactShadow",
+            "scale": [
+              2.265625,
+              0.328125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSeesawContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesawContactShadow",
+            "scale": [
+              1.6796875,
+              0.296875
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_slide",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+            "scale": [
+              1.08670091629028,
+              1.08670091629028
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerFill",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_swing",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+            "scale": [
+              1.08670091629028,
+              1.08670091629028
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerFill",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_seesaw",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+            "scale": [
+              1.1064590215683,
+              1.1064590215683
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerFill",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonCastleDoorFocus",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_castle_gate",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "scale": [
+              1.16666662693024,
+              1.16666662693024
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "z_index": 4
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonAnimalPool",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPool",
+            "scale": [
+              0.95703125,
+              0.95703125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonAnimalPoolContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPoolContactShadow",
+            "scale": [
+              0.56640625,
+              0.296875
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonActors",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors",
+            "z_index": 100
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRoshan",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshan",
+            "scale": [
+              1.4921875,
+              1.4921875
+            ],
+            "texture_path": "res://assets/characters/roshan_25d/roshan_directional.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRoshanContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshanContactShadow",
+            "scale": [
+              0.68359375,
+              0.375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonForegroundMural",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural",
+            "z_index": 300
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonForegroundTree",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural/SkyLagoonForegroundTree",
+            "scale": [
+              0.921052634716034,
+              0.921052634716034
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonForeground",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground",
+            "z_index": 300
+          },
+          {
+            "class": "Camera2D",
+            "name": "SkyLagoonCamera2D",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonCamera2D",
+            "z_index": 0
+          }
+        ],
+        "phase": "promenade",
+        "play": {
+          "dur": null,
+          "frame_index": -1,
+          "kind": "",
+          "phase": "",
+          "t": null
+        },
+        "promenade_constructed": true,
+        "targets": [
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              530.8232421875,
+              232.654510498047
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+            "highlight_position": [
+              2550.0,
+              661.772827148438
+            ],
+            "highlight_scale": [
+              1.08670091629028,
+              1.08670091629028
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "slide",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+            "payload": "slide",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    518.597839355469,
+                    259.397552490234
+                  ],
+                  [
+                    543.048645019531,
+                    259.397552490234
+                  ],
+                  [
+                    537.700012207031,
+                    271.240875244141
+                  ],
+                  [
+                    530.8232421875,
+                    281.556060791016
+                  ],
+                  [
+                    523.946472167969,
+                    271.240875244141
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    522.418273925781,
+                    261.307769775391
+                  ],
+                  [
+                    539.228210449219,
+                    261.307769775391
+                  ],
+                  [
+                    535.025695800781,
+                    270.476806640625
+                  ],
+                  [
+                    530.8232421875,
+                    278.11767578125
+                  ],
+                  [
+                    526.620788574219,
+                    270.476806640625
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              2550.0,
+              1090.0
+            ],
+            "radius_px": 118.0,
+            "source_hit_point": [
+              530.823303222656,
+              383.203125
+            ],
+            "source_texture": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              759.3388671875,
+              272.299499511719
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+            "highlight_position": [
+              3200.0,
+              774.540771484375
+            ],
+            "highlight_scale": [
+              1.08670091629028,
+              1.08670091629028
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "swing",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+            "payload": "swing",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    747.113464355469,
+                    299.042541503906
+                  ],
+                  [
+                    771.564270019531,
+                    299.042541503906
+                  ],
+                  [
+                    766.215637207031,
+                    310.885864257813
+                  ],
+                  [
+                    759.3388671875,
+                    321.201049804688
+                  ],
+                  [
+                    752.462097167969,
+                    310.885864257813
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    750.933898925781,
+                    300.952758789063
+                  ],
+                  [
+                    767.743835449219,
+                    300.952758789063
+                  ],
+                  [
+                    763.541320800781,
+                    310.121795654297
+                  ],
+                  [
+                    759.3388671875,
+                    317.762664794922
+                  ],
+                  [
+                    755.136413574219,
+                    310.121795654297
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              3200.0,
+              1150.0
+            ],
+            "radius_px": 110.0,
+            "source_hit_point": [
+              759.338928222656,
+              404.296875
+            ],
+            "source_texture": "res://assets/props/story/play_swing_frame.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              979.4169921875,
+              391.543365478516
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+            "highlight_position": [
+              3826.0,
+              1113.72338867188
+            ],
+            "highlight_scale": [
+              1.1064590215683,
+              1.1064590215683
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "seesaw",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+            "payload": "seesaw",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    966.969299316406,
+                    418.772644042969
+                  ],
+                  [
+                    991.864685058594,
+                    418.772644042969
+                  ],
+                  [
+                    986.418823242188,
+                    430.831298828125
+                  ],
+                  [
+                    979.4169921875,
+                    441.334014892578
+                  ],
+                  [
+                    972.415161132813,
+                    430.831298828125
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    970.859252929688,
+                    420.717590332031
+                  ],
+                  [
+                    987.974731445313,
+                    420.717590332031
+                  ],
+                  [
+                    983.695861816406,
+                    430.053314208984
+                  ],
+                  [
+                    979.4169921875,
+                    437.833129882813
+                  ],
+                  [
+                    975.138122558594,
+                    430.053314208984
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              3826.0,
+              1367.5
+            ],
+            "radius_px": 110.0,
+            "source_hit_point": [
+              979.417053222656,
+              480.76171875
+            ],
+            "source_texture": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.0799999982118607,
+              0.140000000596046,
+              0.449999988079071
+            ],
+            "highlight_native_origin": [
+              1487.30688476563,
+              403.383422851563
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "highlight_position": [
+              5270.66455078125,
+              1147.40173339844
+            ],
+            "highlight_scale": [
+              1.16666662693024,
+              1.16666662693024
+            ],
+            "highlight_texture_class": "CompressedTexture2D",
+            "id": "castle_gate",
+            "kind": "castle",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+            "payload": "",
+            "pointers": [],
+            "position_master": [
+              5270.66455078125,
+              1147.40173339844
+            ],
+            "radius_px": 128.0,
+            "source_hit_point": [
+              1487.30688476563,
+              403.383422851563
+            ],
+            "source_texture": ""
+          }
+        ],
+        "walk_goal": "(2559.253, 1648.872)",
+        "wall_pics_count": 0
+      },
+      "consumer": "slide",
+      "decay": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.223738580942154,
+        "instance_id": 293819386961,
+        "modulate_alpha": 0.447477161884308,
+        "native_rect": [
+          281.9736328125,
+          177.654510498047,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@696",
+        "position": [
+          281.9736328125,
+          177.654510498047
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 52420,
+        "visible": true
+      },
+      "freed": true,
+      "instance_id": 293819386961,
+      "native_point": [
+        336.9736328125,
+        232.654510498047
+      ],
+      "onset": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.48868191242218,
+        "instance_id": 293819386961,
+        "modulate_alpha": 0.97736382484436,
+        "native_rect": [
+          281.9736328125,
+          177.654510498047,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@696",
+        "position": [
+          281.9736328125,
+          177.654510498047
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 52133,
+        "visible": true
+      },
+      "release_ticks_msec": 51874,
+      "source_controller_unchanged": true,
+      "visual_override": false,
+      "case": "attempt1_entry_source_1280",
+      "observed_instrumented_wall_lifetime_msec": 580,
+      "source_configured_tween_seconds": 0.35,
+      "lifetime_qualification": "Observed wall time includes synchronous framebuffer read/write and observer work. It does not prove uninstrumented timing, target-device latency/performance or exact0.35s wall duration."
+    },
+    {
+      "actual_input": true,
+      "after_world": {
+        "actor": {
+          "flip_h": true,
+          "native_origin": [
+            616.770324707031,
+            524.594177246094
+          ],
+          "position": [
+            3090.86328125,
+            1492.17895507813
+          ],
+          "rotation": 0.0,
+          "scale": [
+            1.4921875,
+            1.4921875
+          ],
+          "texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+          "visible": true
+        },
+        "focus": "",
+        "game": "level2",
+        "legacy_lagoon_constructed": false,
+        "master_x": 3191.5859375,
+        "nodes": [
+          {
+            "class": "Control",
+            "name": "SkyLagoonViewport",
+            "native_rect": [
+              -469.861267089844,
+              0.0,
+              450.0,
+              253.125
+            ],
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonMasterSpace",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonBase",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase",
+            "z_index": -500
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c0",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c1",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c2",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c3",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c3",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c4",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c4",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c5",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c5",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c0",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c1",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c2",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c3",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c3",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c4",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c4",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c5",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c5",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonRearMural",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRearMural",
+            "z_index": -400
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonRear",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear",
+            "z_index": -400
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRearCloud",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear/SkyLagoonRearCloud",
+            "scale": [
+              2.5,
+              2.5
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonLandmarks",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks",
+            "z_index": -300
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_0",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_1",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_2",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonCastleFourTower",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonCastleFourTower",
+            "scale": [
+              1.18460702896118,
+              1.18460702896118
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonReefPlane",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonReefPlane",
+            "scale": [
+              0.75,
+              0.75
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonInteractive",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSlide",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+            "scale": [
+              1.5048543214798,
+              1.5048543214798
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonPromenadeSwingFrame",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+            "scale": [
+              0.667593896389008,
+              0.667593896389008
+            ],
+            "texture_path": "res://assets/props/story/play_swing_frame.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SwingSeatPivot",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SwingSeatAndRopes",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot/SwingSeatAndRopes",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/props/story/play_swing_seat.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSeesaw",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+            "scale": [
+              1.57738089561462,
+              1.57738089561462
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSlideContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlideContactShadow",
+            "scale": [
+              1.953125,
+              0.3125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonPromenadeSwingFrameContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrameContactShadow",
+            "scale": [
+              2.265625,
+              0.328125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSeesawContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesawContactShadow",
+            "scale": [
+              1.6796875,
+              0.296875
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_slide",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+            "scale": [
+              1.08644866943359,
+              1.08644866943359
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerFill",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_swing",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+            "scale": [
+              1.08644866943359,
+              1.08644866943359
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerFill",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_seesaw",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+            "scale": [
+              1.10620224475861,
+              1.10620224475861
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerFill",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonCastleDoorFocus",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_castle_gate",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "scale": [
+              1.16666662693024,
+              1.16666662693024
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "z_index": 4
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonAnimalPool",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPool",
+            "scale": [
+              0.95703125,
+              0.95703125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonAnimalPoolContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPoolContactShadow",
+            "scale": [
+              0.56640625,
+              0.296875
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonActors",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors",
+            "z_index": 100
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRoshan",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshan",
+            "scale": [
+              1.4921875,
+              1.4921875
+            ],
+            "texture_path": "res://assets/characters/roshan_25d/roshan_directional.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRoshanContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshanContactShadow",
+            "scale": [
+              0.68359375,
+              0.375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonForegroundMural",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural",
+            "z_index": 300
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonForegroundTree",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural/SkyLagoonForegroundTree",
+            "scale": [
+              0.921052634716034,
+              0.921052634716034
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonForeground",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground",
+            "z_index": 300
+          },
+          {
+            "class": "Camera2D",
+            "name": "SkyLagoonCamera2D",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonCamera2D",
+            "z_index": 0
+          }
+        ],
+        "phase": "promenade",
+        "play": {
+          "dur": null,
+          "frame_index": -1,
+          "kind": "",
+          "phase": "",
+          "t": null
+        },
+        "promenade_constructed": true,
+        "targets": [
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              426.623107910156,
+              232.654510498047
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+            "highlight_position": [
+              2550.0,
+              661.772827148438
+            ],
+            "highlight_scale": [
+              1.08644866943359,
+              1.08644866943359
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "slide",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+            "payload": "slide",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    414.400573730469,
+                    259.391326904297
+                  ],
+                  [
+                    438.845642089844,
+                    259.391326904297
+                  ],
+                  [
+                    433.498291015625,
+                    271.23193359375
+                  ],
+                  [
+                    426.623107910156,
+                    281.544708251953
+                  ],
+                  [
+                    419.747924804688,
+                    271.23193359375
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    418.220092773438,
+                    261.301116943359
+                  ],
+                  [
+                    435.026123046875,
+                    261.301116943359
+                  ],
+                  [
+                    430.824615478516,
+                    270.468017578125
+                  ],
+                  [
+                    426.623107910156,
+                    278.107116699219
+                  ],
+                  [
+                    422.421600341797,
+                    270.468017578125
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              2550.0,
+              1090.0
+            ],
+            "radius_px": 118.0,
+            "source_hit_point": [
+              426.623138427734,
+              383.203125
+            ],
+            "source_texture": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              655.138732910156,
+              272.299499511719
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+            "highlight_position": [
+              3200.0,
+              774.540771484375
+            ],
+            "highlight_scale": [
+              1.08644866943359,
+              1.08644866943359
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "swing",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+            "payload": "swing",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    642.916198730469,
+                    299.036315917969
+                  ],
+                  [
+                    667.361267089844,
+                    299.036315917969
+                  ],
+                  [
+                    662.013916015625,
+                    310.876922607422
+                  ],
+                  [
+                    655.138732910156,
+                    321.189697265625
+                  ],
+                  [
+                    648.263549804688,
+                    310.876922607422
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    646.735717773438,
+                    300.946105957031
+                  ],
+                  [
+                    663.541748046875,
+                    300.946105957031
+                  ],
+                  [
+                    659.340209960938,
+                    310.113006591797
+                  ],
+                  [
+                    655.138732910156,
+                    317.752105712891
+                  ],
+                  [
+                    650.937255859375,
+                    310.113006591797
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              3200.0,
+              1150.0
+            ],
+            "radius_px": 110.0,
+            "source_hit_point": [
+              655.138793945313,
+              404.296875
+            ],
+            "source_texture": "res://assets/props/story/play_swing_frame.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              875.216857910156,
+              391.543365478516
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+            "highlight_position": [
+              3826.0,
+              1113.72338867188
+            ],
+            "highlight_scale": [
+              1.10620224475861,
+              1.10620224475861
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "seesaw",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+            "payload": "seesaw",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    862.772094726563,
+                    418.766296386719
+                  ],
+                  [
+                    887.66162109375,
+                    418.766296386719
+                  ],
+                  [
+                    882.217041015625,
+                    430.822204589844
+                  ],
+                  [
+                    875.216857910156,
+                    441.322479248047
+                  ],
+                  [
+                    868.216674804688,
+                    430.822204589844
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    866.661071777344,
+                    420.710815429688
+                  ],
+                  [
+                    883.772644042969,
+                    420.710815429688
+                  ],
+                  [
+                    879.494750976563,
+                    430.044403076172
+                  ],
+                  [
+                    875.216857910156,
+                    437.822387695313
+                  ],
+                  [
+                    870.93896484375,
+                    430.044403076172
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              3826.0,
+              1367.5
+            ],
+            "radius_px": 110.0,
+            "source_hit_point": [
+              875.216918945313,
+              480.76171875
+            ],
+            "source_texture": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.0799999982118607,
+              0.140000000596046,
+              0.449999988079071
+            ],
+            "highlight_native_origin": [
+              1383.10668945313,
+              403.383422851563
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "highlight_position": [
+              5270.66455078125,
+              1147.40173339844
+            ],
+            "highlight_scale": [
+              1.16666662693024,
+              1.16666662693024
+            ],
+            "highlight_texture_class": "CompressedTexture2D",
+            "id": "castle_gate",
+            "kind": "castle",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+            "payload": "",
+            "pointers": [],
+            "position_master": [
+              5270.66455078125,
+              1147.40173339844
+            ],
+            "radius_px": 128.0,
+            "source_hit_point": [
+              1383.10681152344,
+              403.383422851563
+            ],
+            "source_texture": ""
+          }
+        ],
+        "walk_goal": "<null>",
+        "wall_pics_count": 0
+      },
+      "consumer": "swing",
+      "decay": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.244769990444183,
+        "instance_id": 296117865540,
+        "modulate_alpha": 0.489539980888367,
+        "native_rect": [
+          776.002685546875,
+          217.299499511719,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@698",
+        "position": [
+          776.002685546875,
+          217.299499511719
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 54777,
+        "visible": true
+      },
+      "freed": true,
+      "instance_id": 296117865540,
+      "native_point": [
+        831.002685546875,
+        272.299499511719
+      ],
+      "onset": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.496600955724716,
+        "instance_id": 296117865540,
+        "modulate_alpha": 0.993201911449432,
+        "native_rect": [
+          776.002685546875,
+          217.299499511719,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@698",
+        "position": [
+          776.002685546875,
+          217.299499511719
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 54459,
+        "visible": true
+      },
+      "release_ticks_msec": 54183,
+      "source_controller_unchanged": true,
+      "visual_override": false,
+      "case": "attempt1_entry_source_1280",
+      "observed_instrumented_wall_lifetime_msec": 662,
+      "source_configured_tween_seconds": 0.35,
+      "lifetime_qualification": "Observed wall time includes synchronous framebuffer read/write and observer work. It does not prove uninstrumented timing, target-device latency/performance or exact0.35s wall duration."
+    },
+    {
+      "actual_input": true,
+      "after_world": {
+        "actor": {
+          "flip_h": false,
+          "native_origin": [
+            835.755187988281,
+            526.84228515625
+          ],
+          "position": [
+            3970.14794921875,
+            1498.57360839844
+          ],
+          "rotation": 0.0,
+          "scale": [
+            1.4921875,
+            1.4921875
+          ],
+          "texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+          "visible": true
+        },
+        "focus": "",
+        "game": "level2",
+        "legacy_lagoon_constructed": false,
+        "master_x": 3869.42529296875,
+        "nodes": [
+          {
+            "class": "Control",
+            "name": "SkyLagoonViewport",
+            "native_rect": [
+              -559.999938964844,
+              0.0,
+              562.5,
+              253.125
+            ],
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonMasterSpace",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonBase",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase",
+            "z_index": -500
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c0",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c1",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c2",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c3",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c3",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c4",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c4",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c5",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c5",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c0",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c1",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c2",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c3",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c3",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c4",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c4",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c5",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c5",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonRearMural",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRearMural",
+            "z_index": -400
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonRear",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear",
+            "z_index": -400
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRearCloud",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear/SkyLagoonRearCloud",
+            "scale": [
+              2.5,
+              2.5
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonLandmarks",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks",
+            "z_index": -300
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_0",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_1",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_2",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonCastleFourTower",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonCastleFourTower",
+            "scale": [
+              1.18460702896118,
+              1.18460702896118
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonReefPlane",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonReefPlane",
+            "scale": [
+              0.75,
+              0.75
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonInteractive",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSlide",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+            "scale": [
+              1.5048543214798,
+              1.5048543214798
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonPromenadeSwingFrame",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+            "scale": [
+              0.667593896389008,
+              0.667593896389008
+            ],
+            "texture_path": "res://assets/props/story/play_swing_frame.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SwingSeatPivot",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SwingSeatAndRopes",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot/SwingSeatAndRopes",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/props/story/play_swing_seat.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSeesaw",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+            "scale": [
+              1.57738089561462,
+              1.57738089561462
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSlideContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlideContactShadow",
+            "scale": [
+              1.953125,
+              0.3125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonPromenadeSwingFrameContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrameContactShadow",
+            "scale": [
+              2.265625,
+              0.328125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSeesawContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesawContactShadow",
+            "scale": [
+              1.6796875,
+              0.296875
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_slide",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+            "scale": [
+              1.08781206607819,
+              1.08781206607819
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerFill",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_swing",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+            "scale": [
+              1.08781206607819,
+              1.08781206607819
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerFill",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_seesaw",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+            "scale": [
+              1.10759043693542,
+              1.10759043693542
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerFill",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonCastleDoorFocus",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_castle_gate",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "scale": [
+              1.16666662693024,
+              1.16666662693024
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "z_index": 4
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonAnimalPool",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPool",
+            "scale": [
+              0.95703125,
+              0.95703125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonAnimalPoolContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPoolContactShadow",
+            "scale": [
+              0.56640625,
+              0.296875
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonActors",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors",
+            "z_index": 100
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRoshan",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshan",
+            "scale": [
+              1.4921875,
+              1.4921875
+            ],
+            "texture_path": "res://assets/characters/roshan_25d/roshan_directional.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRoshanContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshanContactShadow",
+            "scale": [
+              0.68359375,
+              0.375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonForegroundMural",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural",
+            "z_index": 300
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonForegroundTree",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural/SkyLagoonForegroundTree",
+            "scale": [
+              0.921052634716034,
+              0.921052634716034
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonForeground",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground",
+            "z_index": 300
+          },
+          {
+            "class": "Camera2D",
+            "name": "SkyLagoonCamera2D",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonCamera2D",
+            "z_index": 0
+          }
+        ],
+        "phase": "promenade",
+        "play": {
+          "dur": null,
+          "frame_index": -1,
+          "kind": "",
+          "phase": "",
+          "t": null
+        },
+        "promenade_constructed": true,
+        "targets": [
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              336.484436035156,
+              232.654510498047
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+            "highlight_position": [
+              2550.0,
+              661.772827148438
+            ],
+            "highlight_scale": [
+              1.08781206607819,
+              1.08781206607819
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "slide",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+            "payload": "slide",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    324.246551513672,
+                    259.424896240234
+                  ],
+                  [
+                    348.722320556641,
+                    259.424896240234
+                  ],
+                  [
+                    343.368255615234,
+                    271.280334472656
+                  ],
+                  [
+                    336.484436035156,
+                    281.606048583984
+                  ],
+                  [
+                    329.600616455078,
+                    271.280334472656
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    328.070892333984,
+                    261.337066650391
+                  ],
+                  [
+                    344.897979736328,
+                    261.337066650391
+                  ],
+                  [
+                    340.691223144531,
+                    270.515472412109
+                  ],
+                  [
+                    336.484436035156,
+                    278.164154052734
+                  ],
+                  [
+                    332.277648925781,
+                    270.515472412109
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              2550.0,
+              1090.0
+            ],
+            "radius_px": 118.0,
+            "source_hit_point": [
+              336.484375,
+              383.203125
+            ],
+            "source_texture": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              565.000061035156,
+              272.299499511719
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+            "highlight_position": [
+              3200.0,
+              774.540771484375
+            ],
+            "highlight_scale": [
+              1.08781206607819,
+              1.08781206607819
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "swing",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+            "payload": "swing",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    552.762145996094,
+                    299.069885253906
+                  ],
+                  [
+                    577.237976074219,
+                    299.069885253906
+                  ],
+                  [
+                    571.883850097656,
+                    310.925323486328
+                  ],
+                  [
+                    565.000061035156,
+                    321.251037597656
+                  ],
+                  [
+                    558.116271972656,
+                    310.925323486328
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    556.586486816406,
+                    300.982055664063
+                  ],
+                  [
+                    573.413635253906,
+                    300.982055664063
+                  ],
+                  [
+                    569.206848144531,
+                    310.160461425781
+                  ],
+                  [
+                    565.000061035156,
+                    317.809143066406
+                  ],
+                  [
+                    560.793273925781,
+                    310.160461425781
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              3200.0,
+              1150.0
+            ],
+            "radius_px": 110.0,
+            "source_hit_point": [
+              565.0,
+              404.296875
+            ],
+            "source_texture": "res://assets/props/story/play_swing_frame.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              785.078186035156,
+              391.543365478516
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+            "highlight_position": [
+              3826.0,
+              1113.72338867188
+            ],
+            "highlight_scale": [
+              1.10759043693542,
+              1.10759043693542
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "seesaw",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+            "payload": "seesaw",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    772.617797851563,
+                    418.800476074219
+                  ],
+                  [
+                    797.53857421875,
+                    418.800476074219
+                  ],
+                  [
+                    792.087158203125,
+                    430.871490478516
+                  ],
+                  [
+                    785.078186035156,
+                    441.384948730469
+                  ],
+                  [
+                    778.069213867188,
+                    430.871490478516
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    776.511657714844,
+                    420.747406005859
+                  ],
+                  [
+                    793.644714355469,
+                    420.747406005859
+                  ],
+                  [
+                    789.361450195313,
+                    430.092712402344
+                  ],
+                  [
+                    785.078186035156,
+                    437.880432128906
+                  ],
+                  [
+                    780.794921875,
+                    430.092712402344
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              3826.0,
+              1367.5
+            ],
+            "radius_px": 110.0,
+            "source_hit_point": [
+              785.078125,
+              480.76171875
+            ],
+            "source_texture": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.0799999982118607,
+              0.140000000596046,
+              0.449999988079071
+            ],
+            "highlight_native_origin": [
+              1292.96801757813,
+              403.383422851563
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "highlight_position": [
+              5270.66455078125,
+              1147.40173339844
+            ],
+            "highlight_scale": [
+              1.16666662693024,
+              1.16666662693024
+            ],
+            "highlight_texture_class": "CompressedTexture2D",
+            "id": "castle_gate",
+            "kind": "castle",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+            "payload": "",
+            "pointers": [],
+            "position_master": [
+              5270.66455078125,
+              1147.40173339844
+            ],
+            "radius_px": 128.0,
+            "source_hit_point": [
+              1292.96801757813,
+              403.383422851563
+            ],
+            "source_texture": ""
+          }
+        ],
+        "walk_goal": "(2559.379, 1648.87)",
+        "wall_pics_count": 0
+      },
+      "consumer": "slide",
+      "decay": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.247888088226318,
+        "instance_id": 292141665359,
+        "modulate_alpha": 0.495776176452637,
+        "native_rect": [
+          281.484436035156,
+          177.654510498047,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@694",
+        "position": [
+          281.484436035156,
+          177.654510498047
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 50836,
+        "visible": true
+      },
+      "freed": true,
+      "instance_id": 292141665359,
+      "native_point": [
+        336.484436035156,
+        232.654510498047
+      ],
+      "onset": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.488179534673691,
+        "instance_id": 292141665359,
+        "modulate_alpha": 0.976359069347382,
+        "native_rect": [
+          281.484436035156,
+          177.654510498047,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@694",
+        "position": [
+          281.484436035156,
+          177.654510498047
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 50522,
+        "visible": true
+      },
+      "release_ticks_msec": 50237,
+      "source_controller_unchanged": true,
+      "visual_override": false,
+      "case": "attempt1_entry_source_1600",
+      "observed_instrumented_wall_lifetime_msec": 632,
+      "source_configured_tween_seconds": 0.35,
+      "lifetime_qualification": "Observed wall time includes synchronous framebuffer read/write and observer work. It does not prove uninstrumented timing, target-device latency/performance or exact0.35s wall duration."
+    },
+    {
+      "actual_input": true,
+      "after_world": {
+        "actor": {
+          "flip_h": false,
+          "native_origin": [
+            821.824829101563,
+            524.594482421875
+          ],
+          "position": [
+            3292.400390625,
+            1492.17980957031
+          ],
+          "rotation": 0.0,
+          "scale": [
+            1.4921875,
+            1.4921875
+          ],
+          "texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+          "visible": true
+        },
+        "focus": "",
+        "game": "level2",
+        "legacy_lagoon_constructed": false,
+        "master_x": 3191.677734375,
+        "nodes": [
+          {
+            "class": "Control",
+            "name": "SkyLagoonViewport",
+            "native_rect": [
+              -335.659698486328,
+              0.0,
+              562.5,
+              253.125
+            ],
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonMasterSpace",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonBase",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase",
+            "z_index": -500
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c0",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c1",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c2",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c3",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c3",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c4",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c4",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r0_c5",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c5",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c0",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c1",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c2",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c3",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c3",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c4",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c4",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonBackdrop_r1_c5",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c5",
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "texture_path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonRearMural",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRearMural",
+            "z_index": -400
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonRear",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear",
+            "z_index": -400
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRearCloud",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear/SkyLagoonRearCloud",
+            "scale": [
+              2.5,
+              2.5
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonLandmarks",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks",
+            "z_index": -300
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_0",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_0",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_1",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_1",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSmoke_2",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_2",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonCastleFourTower",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonCastleFourTower",
+            "scale": [
+              1.18460702896118,
+              1.18460702896118
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonReefPlane",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonReefPlane",
+            "scale": [
+              0.75,
+              0.75
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonInteractive",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSlide",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+            "scale": [
+              1.5048543214798,
+              1.5048543214798
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonPromenadeSwingFrame",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+            "scale": [
+              0.667593896389008,
+              0.667593896389008
+            ],
+            "texture_path": "res://assets/props/story/play_swing_frame.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SwingSeatPivot",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SwingSeatAndRopes",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot/SwingSeatAndRopes",
+            "scale": [
+              0.52734375,
+              0.52734375
+            ],
+            "texture_path": "res://assets/props/story/play_swing_seat.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSeesaw",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+            "scale": [
+              1.57738089561462,
+              1.57738089561462
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSlideContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlideContactShadow",
+            "scale": [
+              1.953125,
+              0.3125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonPromenadeSwingFrameContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrameContactShadow",
+            "scale": [
+              2.265625,
+              0.328125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonSeesawContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesawContactShadow",
+            "scale": [
+              1.6796875,
+              0.296875
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_slide",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+            "scale": [
+              1.08777248859406,
+              1.08777248859406
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerFill",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_swing",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+            "scale": [
+              1.08777248859406,
+              1.08777248859406
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerFill",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_seesaw",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+            "scale": [
+              1.10755014419556,
+              1.10755014419556
+            ],
+            "texture_path": "",
+            "z_index": 4
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerOutline",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerOutline",
+            "z_index": 0
+          },
+          {
+            "class": "Polygon2D",
+            "name": "PointerFill",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerFill",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonCastleDoorFocus",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonFocus_castle_gate",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "scale": [
+              1.16666662693024,
+              1.16666662693024
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+            "z_index": 4
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonAnimalPool",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPool",
+            "scale": [
+              0.95703125,
+              0.95703125
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonAnimalPoolContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPoolContactShadow",
+            "scale": [
+              0.56640625,
+              0.296875
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonActors",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors",
+            "z_index": 100
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRoshan",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshan",
+            "scale": [
+              1.4921875,
+              1.4921875
+            ],
+            "texture_path": "res://assets/characters/roshan_25d/roshan_directional.png",
+            "z_index": 0
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonRoshanContactShadow",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshanContactShadow",
+            "scale": [
+              0.68359375,
+              0.375
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+            "z_index": -1
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonForegroundMural",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural",
+            "z_index": 300
+          },
+          {
+            "centered": true,
+            "class": "Sprite2D",
+            "name": "SkyLagoonForegroundTree",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural/SkyLagoonForegroundTree",
+            "scale": [
+              0.921052634716034,
+              0.921052634716034
+            ],
+            "texture_path": "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+            "z_index": 0
+          },
+          {
+            "class": "Node2D",
+            "name": "SkyLagoonForeground",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground",
+            "z_index": 300
+          },
+          {
+            "class": "Camera2D",
+            "name": "SkyLagoonCamera2D",
+            "path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonCamera2D",
+            "z_index": 0
+          }
+        ],
+        "phase": "promenade",
+        "play": {
+          "dur": null,
+          "frame_index": -1,
+          "kind": "",
+          "phase": "",
+          "t": null
+        },
+        "promenade_constructed": true,
+        "targets": [
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              560.82470703125,
+              232.654510498047
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+            "highlight_position": [
+              2550.0,
+              661.772827148438
+            ],
+            "highlight_scale": [
+              1.08777248859406,
+              1.08777248859406
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "slide",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+            "payload": "slide",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    548.587280273438,
+                    259.423919677734
+                  ],
+                  [
+                    573.062133789063,
+                    259.423919677734
+                  ],
+                  [
+                    567.708251953125,
+                    271.278930664063
+                  ],
+                  [
+                    560.82470703125,
+                    281.604278564453
+                  ],
+                  [
+                    553.941162109375,
+                    271.278930664063
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    552.411437988281,
+                    261.335998535156
+                  ],
+                  [
+                    569.237976074219,
+                    261.335998535156
+                  ],
+                  [
+                    565.031311035156,
+                    270.514099121094
+                  ],
+                  [
+                    560.82470703125,
+                    278.162475585938
+                  ],
+                  [
+                    556.618103027344,
+                    270.514099121094
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              2550.0,
+              1090.0
+            ],
+            "radius_px": 118.0,
+            "source_hit_point": [
+              560.824584960938,
+              383.203125
+            ],
+            "source_texture": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              789.34033203125,
+              272.299499511719
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+            "highlight_position": [
+              3200.0,
+              774.540771484375
+            ],
+            "highlight_scale": [
+              1.08777248859406,
+              1.08777248859406
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "swing",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+            "payload": "swing",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    777.102905273438,
+                    299.068908691406
+                  ],
+                  [
+                    801.577758789063,
+                    299.068908691406
+                  ],
+                  [
+                    796.223876953125,
+                    310.923919677734
+                  ],
+                  [
+                    789.34033203125,
+                    321.249267578125
+                  ],
+                  [
+                    782.456787109375,
+                    310.923919677734
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    780.927062988281,
+                    300.980987548828
+                  ],
+                  [
+                    797.753601074219,
+                    300.980987548828
+                  ],
+                  [
+                    793.546936035156,
+                    310.159088134766
+                  ],
+                  [
+                    789.34033203125,
+                    317.807495117188
+                  ],
+                  [
+                    785.133728027344,
+                    310.159088134766
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              3200.0,
+              1150.0
+            ],
+            "radius_px": 110.0,
+            "source_hit_point": [
+              789.340209960938,
+              404.296875
+            ],
+            "source_texture": "res://assets/props/story/play_swing_frame.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.720000028610229,
+              0.200000002980232,
+              0.0549999997019768
+            ],
+            "highlight_native_origin": [
+              1009.41845703125,
+              391.543365478516
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+            "highlight_position": [
+              3826.0,
+              1113.72338867188
+            ],
+            "highlight_scale": [
+              1.10755014419556,
+              1.10755014419556
+            ],
+            "highlight_texture_class": "GradientTexture2D",
+            "id": "seesaw",
+            "kind": "playground",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+            "payload": "seesaw",
+            "pointers": [
+              {
+                "color": [
+                  0.100000001490116,
+                  0.159999996423721,
+                  0.340000003576279,
+                  0.959999978542328
+                ],
+                "name": "PointerOutline",
+                "native_vertices": [
+                  [
+                    996.95849609375,
+                    418.799468994141
+                  ],
+                  [
+                    1021.87841796875,
+                    418.799468994141
+                  ],
+                  [
+                    1016.42718505859,
+                    430.870056152344
+                  ],
+                  [
+                    1009.41845703125,
+                    441.383117675781
+                  ],
+                  [
+                    1002.40972900391,
+                    430.870056152344
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "name": "PointerFill",
+                "native_vertices": [
+                  [
+                    1000.85223388672,
+                    420.746337890625
+                  ],
+                  [
+                    1017.98468017578,
+                    420.746337890625
+                  ],
+                  [
+                    1013.70153808594,
+                    430.09130859375
+                  ],
+                  [
+                    1009.41845703125,
+                    437.878753662109
+                  ],
+                  [
+                    1005.13537597656,
+                    430.09130859375
+                  ]
+                ]
+              }
+            ],
+            "position_master": [
+              3826.0,
+              1367.5
+            ],
+            "radius_px": 110.0,
+            "source_hit_point": [
+              1009.41833496094,
+              480.76171875
+            ],
+            "source_texture": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png"
+          },
+          {
+            "highlight_color": [
+              1.0,
+              0.0799999982118607,
+              0.140000000596046,
+              0.449999988079071
+            ],
+            "highlight_native_origin": [
+              1517.30834960938,
+              403.383422851563
+            ],
+            "highlight_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_castle_gate",
+            "highlight_position": [
+              5270.66455078125,
+              1147.40173339844
+            ],
+            "highlight_scale": [
+              1.16666662693024,
+              1.16666662693024
+            ],
+            "highlight_texture_class": "CompressedTexture2D",
+            "id": "castle_gate",
+            "kind": "castle",
+            "node_path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+            "payload": "",
+            "pointers": [],
+            "position_master": [
+              5270.66455078125,
+              1147.40173339844
+            ],
+            "radius_px": 128.0,
+            "source_hit_point": [
+              1517.30822753906,
+              403.383422851563
+            ],
+            "source_texture": ""
+          }
+        ],
+        "walk_goal": "<null>",
+        "wall_pics_count": 0
+      },
+      "consumer": "swing",
+      "decay": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.227067142724991,
+        "instance_id": 295144787019,
+        "modulate_alpha": 0.454134285449982,
+        "native_rect": [
+          549.19287109375,
+          217.299499511719,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@697",
+        "position": [
+          549.19287109375,
+          217.299499511719
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 53312,
+        "visible": true
+      },
+      "freed": true,
+      "instance_id": 295144787019,
+      "native_point": [
+        604.19287109375,
+        272.299499511719
+      ],
+      "onset": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.488180011510849,
+        "instance_id": 295144787019,
+        "modulate_alpha": 0.976360023021698,
+        "native_rect": [
+          549.19287109375,
+          217.299499511719,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@697",
+        "position": [
+          549.19287109375,
+          217.299499511719
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 52970,
+        "visible": true
+      },
+      "release_ticks_msec": 52671,
+      "source_controller_unchanged": true,
+      "visual_override": false,
+      "case": "attempt1_entry_source_1600",
+      "observed_instrumented_wall_lifetime_msec": 675,
+      "source_configured_tween_seconds": 0.35,
+      "lifetime_qualification": "Observed wall time includes synchronous framebuffer read/write and observer work. It does not prove uninstrumented timing, target-device latency/performance or exact0.35s wall duration."
+    }
+  ],
+  "selected_trial_lifecycles": 4,
+  "all_observed_created_instances": 8,
+  "lifecycle_events": [
+    {
+      "event": "child_entered_tree",
+      "panel": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.5,
+        "instance_id": 293114743886,
+        "modulate_alpha": 1.0,
+        "native_rect": [
+          237.091613769531,
+          328.203125,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@695",
+        "position": [
+          237.091613769531,
+          328.203125
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 50878,
+        "visible": true
+      },
+      "ticks_msec": 50878,
+      "case": "attempt1_entry_source_1280"
+    },
+    {
+      "event": "tree_exiting",
+      "instance_id": 293114743886,
+      "ticks_msec": 51244,
+      "case": "attempt1_entry_source_1280"
+    },
+    {
+      "event": "child_entered_tree",
+      "panel": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.5,
+        "instance_id": 293819386961,
+        "modulate_alpha": 1.0,
+        "native_rect": [
+          281.9736328125,
+          177.654510498047,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@696",
+        "position": [
+          281.9736328125,
+          177.654510498047
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 51874,
+        "visible": true
+      },
+      "ticks_msec": 51874,
+      "case": "attempt1_entry_source_1280"
+    },
+    {
+      "event": "tree_exiting",
+      "instance_id": 293819386961,
+      "ticks_msec": 52454,
+      "case": "attempt1_entry_source_1280"
+    },
+    {
+      "event": "child_entered_tree",
+      "panel": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.5,
+        "instance_id": 295413222671,
+        "modulate_alpha": 1.0,
+        "native_rect": [
+          704.338928222656,
+          349.296875,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@697",
+        "position": [
+          704.338928222656,
+          349.296875
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 53147,
+        "visible": true
+      },
+      "ticks_msec": 53147,
+      "case": "attempt1_entry_source_1280"
+    },
+    {
+      "event": "tree_exiting",
+      "instance_id": 295413222671,
+      "ticks_msec": 53513,
+      "case": "attempt1_entry_source_1280"
+    },
+    {
+      "event": "child_entered_tree",
+      "panel": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.5,
+        "instance_id": 296117865540,
+        "modulate_alpha": 1.0,
+        "native_rect": [
+          776.002685546875,
+          217.299499511719,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@698",
+        "position": [
+          776.002685546875,
+          217.299499511719
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 54183,
+        "visible": true
+      },
+      "ticks_msec": 54183,
+      "case": "attempt1_entry_source_1280"
+    },
+    {
+      "event": "tree_exiting",
+      "instance_id": 296117865540,
+      "ticks_msec": 54845,
+      "case": "attempt1_entry_source_1280"
+    },
+    {
+      "event": "child_entered_tree",
+      "panel": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.5,
+        "instance_id": 291437022274,
+        "modulate_alpha": 1.0,
+        "native_rect": [
+          281.484375,
+          328.203125,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@693",
+        "position": [
+          281.484375,
+          328.203125
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 49211,
+        "visible": true
+      },
+      "ticks_msec": 49211,
+      "case": "attempt1_entry_source_1600"
+    },
+    {
+      "event": "tree_exiting",
+      "instance_id": 291437022274,
+      "ticks_msec": 49577,
+      "case": "attempt1_entry_source_1600"
+    },
+    {
+      "event": "child_entered_tree",
+      "panel": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.5,
+        "instance_id": 292141665359,
+        "modulate_alpha": 1.0,
+        "native_rect": [
+          281.484436035156,
+          177.654510498047,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@694",
+        "position": [
+          281.484436035156,
+          177.654510498047
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 50238,
+        "visible": true
+      },
+      "ticks_msec": 50238,
+      "case": "attempt1_entry_source_1600"
+    },
+    {
+      "event": "tree_exiting",
+      "instance_id": 292141665359,
+      "ticks_msec": 50870,
+      "case": "attempt1_entry_source_1600"
+    },
+    {
+      "event": "child_entered_tree",
+      "panel": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.5,
+        "instance_id": 294440143948,
+        "modulate_alpha": 1.0,
+        "native_rect": [
+          510.0,
+          349.296875,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@696",
+        "position": [
+          510.0,
+          349.296875
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 51630,
+        "visible": true
+      },
+      "ticks_msec": 51630,
+      "case": "attempt1_entry_source_1600"
+    },
+    {
+      "event": "tree_exiting",
+      "instance_id": 294440143948,
+      "ticks_msec": 51996,
+      "case": "attempt1_entry_source_1600"
+    },
+    {
+      "event": "child_entered_tree",
+      "panel": {
+        "class": "Panel",
+        "corner_radius": 55,
+        "effective_style_alpha": 0.5,
+        "instance_id": 295144787019,
+        "modulate_alpha": 1.0,
+        "native_rect": [
+          549.19287109375,
+          217.299499511719,
+          110.0,
+          110.0
+        ],
+        "parent_path": "/root/Main/@CanvasLayer@374/@Control@375",
+        "path": "/root/Main/@CanvasLayer@374/@Control@375/@Panel@697",
+        "position": [
+          549.19287109375,
+          217.299499511719
+        ],
+        "rgba": [
+          1.0,
+          0.949999988079071,
+          0.5,
+          0.5
+        ],
+        "size": [
+          110.0,
+          110.0
+        ],
+        "ticks_msec": 52671,
+        "visible": true
+      },
+      "ticks_msec": 52671,
+      "case": "attempt1_entry_source_1600"
+    },
+    {
+      "event": "tree_exiting",
+      "instance_id": 295144787019,
+      "ticks_msec": 53346,
+      "case": "attempt1_entry_source_1600"
+    }
+  ],
+  "nominal_source_radius": 55,
+  "nominal_source_size": [
+    110,
+    110
+  ],
+  "source_configured_fade_seconds": 0.35,
+  "actual_native_input": true,
+  "source_panel_is_visible_artwork": true,
+  "functional_invisible_geometry_exempted": false,
+  "visual_overrides": false,
+  "accepted_removed": 0,
+  "device_performance_proved": false
+}

@@ -1,0 +1,27 @@
+{
+  "observation_scope_id": "FVS-38151AC2830B",
+  "source_owner": "scripts/touch_ui.gd::_flash -> _circle",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "source_panel_material": "StyleBoxFlat Color(1,.95,.5,.5),corner55,size110; alpha tween and queue_free",
+  "actual_owner_proved": "Original TouchUI _root child_entered_tree; exact panel geometry/style/point and source script, same instance natural alpha decline/tree exit, no observer visual creation",
+  "receiver_path": "TouchUI._hybrid_unhandled_input unconsumed release emits world_touched then _flash even if Main promenade callback chooses walk/no target",
+  "parent_role_id": "FV-7976FC8C2881",
+  "parent_role_name": "Movement-pad/button material",
+  "parent_family": "shared_ui",
+  "registration": "Exact current subpart under existing broad file-scope record; no duplicate new role or independent design count inferred. Other hidden pad/knob/classic/press/context states and a final per-design split remain unresolved.",
+  "new_roles": 0,
+  "new_families": 0,
+  "new_partial_existing_role_ids": [
+    "FV-7976FC8C2881"
+  ],
+  "new_alias_credits": 0,
+  "existing_partial_alias": "ui.touch",
+  "source_ownership_resolved_for_this_observation": true,
+  "flat_artwork_still_present": true,
+  "allcaller_closure": false,
+  "fully_context_reviewed": false,
+  "approved": false,
+  "integrated": false,
+  "accepted_removed": 0,
+  "mission_complete": false
+}
