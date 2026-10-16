@@ -1,0 +1,100 @@
+{
+  "status": "PASS_TREE_BOOK_REGISTRATION_DIAGNOSTIC_ONLY",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "c25611398b8bfc21fd786165d137381c8803a92e847f7ab451aee0feec3b7a76",
+      "checked_at_utc": "2026-10-16T07:37:17.011949+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "e86de8349fd8b8bf557dc877644fd943d530c9b14f5d977f9c3b3ae10ffd3b50",
+      "checked_at_utc": "2026-10-16T07:37:27.306712+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-16T07:37:35.964852+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "sha256": "60baad8941e9f4e38c7294b2e8b750b9f38eded9445d659d9ceca73861e45bca",
+      "checked_at_utc": "2026-10-16T07:37:47.644296+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-16T07:37:49.290381+00:00"
+    }
+  ],
+  "raw_log_sha256": "677997122c5e4d94d4760b047d758439baeefc2d5e866b75b86f19f786de5e90",
+  "scope": "Actual native raw/source/pointer/role/private-save/history validator, original source4425/import4088/11normal-name guards, all archived fixture parser/inference and exact4.7.2 native preflight. Document authority/development54tests/6stress. Staged+committed2D separately required before every push. Native diagnostics grant no replacement, finalQA11, device/child/owner, global caller or zero-art acceptance.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "c25611398b8bfc21fd786165d137381c8803a92e847f7ab451aee0feec3b7a76",
+      "output": "R75_VALIDATION_PASS 230raw78bounded152excluded;324checks;source8miss/final8advance+primaryleaf;V1rejected;state/source/import/frozen/history guards;0art/acceptance;globalunknown\r\n",
+      "checked_at_utc": "2026-10-16T07:40:42.679205+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "e86de8349fd8b8bf557dc877644fd943d530c9b14f5d977f9c3b3ae10ffd3b50",
+      "output": "DOCAUTH|INVENTORY=788|LEDGER=788|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T07:40:52.203182+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T07:40:59.336037+00:00"
+    }
+  ]
+}

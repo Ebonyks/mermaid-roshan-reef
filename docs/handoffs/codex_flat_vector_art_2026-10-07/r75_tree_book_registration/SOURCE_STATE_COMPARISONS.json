@@ -1,0 +1,888 @@
+{
+  "status": "ORIGINAL_SOURCE_INPUT_STATE_CLOCK_TARGETS_PRESERVED_AT_ATTACH_DETACH",
+  "comparisons": [
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob plus36or44px upward offset"
+      ],
+      "event": "attach_first",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob plus36or44px upward offset"
+      ],
+      "event": "attach_partial_reopen",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob plus36or44px upward offset"
+      ],
+      "event": "attach_reload",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob plus36or44px upward offset"
+      ],
+      "event": "attach_healthy_reopen",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "event": "detach_restore",
+      "restored_original_hand": true,
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob plus36or44px upward offset"
+      ],
+      "event": "attach_first",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob plus36or44px upward offset"
+      ],
+      "event": "attach_partial_reopen",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob plus36or44px upward offset"
+      ],
+      "event": "attach_reload",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob plus36or44px upward offset"
+      ],
+      "event": "attach_healthy_reopen",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "event": "detach_restore",
+      "restored_original_hand": true,
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "after": {
+        "approach": 0.0,
+        "caption": "Which tree? Find the same tree.",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 0,
+          "treatment": 0.0,
+          "version": 1
+        },
+        "choices": [
+          "[P: (122.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (122.0, 395.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 395.0), S: (178.0, 180.0)]"
+        ],
+        "closing": false,
+        "elapsed": 0.196840666666666,
+        "help_level": 0,
+        "idle_seconds": 0.196840666666666,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 128094045710,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1280\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 0,
+        "suspended": false,
+        "treatment": 0.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob choice36up/treatment51left114up"
+      ],
+      "before": {
+        "approach": 0.0,
+        "caption": "Which tree? Find the same tree.",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 0,
+          "treatment": 0.0,
+          "version": 1
+        },
+        "choices": [
+          "[P: (122.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (122.0, 395.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 395.0), S: (178.0, 180.0)]"
+        ],
+        "closing": false,
+        "elapsed": 0.196840666666666,
+        "help_level": 0,
+        "idle_seconds": 0.196840666666666,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 128094045710,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1280\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 0,
+        "suspended": false,
+        "treatment": 0.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "event": "attach_first",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "after": {
+        "approach": 0.0,
+        "caption": "Hold this leaf. Spray, spray!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 4,
+          "treatment": 0.574752333333335,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.196012666666665,
+        "help_level": 0,
+        "idle_seconds": 0.196012666666665,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 128094045710,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1280\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 4,
+        "suspended": false,
+        "treatment": 0.574752333333335,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob choice36up/treatment51left114up"
+      ],
+      "before": {
+        "approach": 0.0,
+        "caption": "Hold this leaf. Spray, spray!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 4,
+          "treatment": 0.574752333333335,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.196012666666665,
+        "help_level": 0,
+        "idle_seconds": 0.196012666666665,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 128094045710,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1280\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 4,
+        "suspended": false,
+        "treatment": 0.574752333333335,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "event": "attach_partial_reopen",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "after": {
+        "approach": 0.0,
+        "caption": "Hold this leaf. Spray, spray!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 4,
+          "treatment": 0.574752333333335,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.212534666666665,
+        "help_level": 0,
+        "idle_seconds": 0.212534666666665,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 524036344982,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1280\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 4,
+        "suspended": false,
+        "treatment": 0.574752333333335,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob choice36up/treatment51left114up"
+      ],
+      "before": {
+        "approach": 0.0,
+        "caption": "Hold this leaf. Spray, spray!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 4,
+          "treatment": 0.574752333333335,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.212534666666665,
+        "help_level": 0,
+        "idle_seconds": 0.212534666666665,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 524036344982,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1280\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 4,
+        "suspended": false,
+        "treatment": 0.574752333333335,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "event": "attach_reload",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "after": {
+        "approach": 0.0,
+        "caption": "Our tree feels better!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 5,
+          "treatment": 1.0,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.183846333333331,
+        "help_level": 0,
+        "idle_seconds": 0.0,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 524036344982,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1280\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 5,
+        "suspended": false,
+        "treatment": 1.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob choice36up/treatment51left114up"
+      ],
+      "before": {
+        "approach": 0.0,
+        "caption": "Our tree feels better!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 5,
+          "treatment": 1.0,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.183846333333331,
+        "help_level": 0,
+        "idle_seconds": 0.0,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 524036344982,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1280\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 5,
+        "suspended": false,
+        "treatment": 1.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "event": "attach_healthy_reopen",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "after": {
+        "approach": 0.0,
+        "caption": "Which tree? Find the same tree.",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 0,
+          "treatment": 0.0,
+          "version": 1
+        },
+        "choices": [
+          "[P: (122.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (122.0, 395.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 395.0), S: (178.0, 180.0)]"
+        ],
+        "closing": false,
+        "elapsed": 0.350512999999998,
+        "help_level": 0,
+        "idle_seconds": 0.15,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 524036344982,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1280\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 0,
+        "suspended": false,
+        "treatment": 0.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "before": {
+        "approach": 0.0,
+        "caption": "Which tree? Find the same tree.",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 0,
+          "treatment": 0.0,
+          "version": 1
+        },
+        "choices": [
+          "[P: (122.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (122.0, 395.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 395.0), S: (178.0, 180.0)]"
+        ],
+        "closing": false,
+        "elapsed": 0.350512999999998,
+        "help_level": 0,
+        "idle_seconds": 0.15,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 524036344982,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1280\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 0,
+        "suspended": false,
+        "treatment": 0.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "event": "detach_restore",
+      "restored_original_hand": true,
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "after": {
+        "approach": 0.0,
+        "caption": "Which tree? Find the same tree.",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 0,
+          "treatment": 0.0,
+          "version": 1
+        },
+        "choices": [
+          "[P: (122.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (122.0, 395.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 395.0), S: (178.0, 180.0)]"
+        ],
+        "closing": false,
+        "elapsed": 0.204592666666667,
+        "help_level": 0,
+        "idle_seconds": 0.204592666666667,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 128094045710,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1600\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 0,
+        "suspended": false,
+        "treatment": 0.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob choice36up/treatment51left114up"
+      ],
+      "before": {
+        "approach": 0.0,
+        "caption": "Which tree? Find the same tree.",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 0,
+          "treatment": 0.0,
+          "version": 1
+        },
+        "choices": [
+          "[P: (122.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (122.0, 395.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 395.0), S: (178.0, 180.0)]"
+        ],
+        "closing": false,
+        "elapsed": 0.204592666666667,
+        "help_level": 0,
+        "idle_seconds": 0.204592666666667,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 128094045710,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1600\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 0,
+        "suspended": false,
+        "treatment": 0.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "event": "attach_first",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "after": {
+        "approach": 0.0,
+        "caption": "Hold this leaf. Spray, spray!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 4,
+          "treatment": 0.558338333333333,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.185831999999999,
+        "help_level": 0,
+        "idle_seconds": 0.185831999999999,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 128094045710,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1600\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 4,
+        "suspended": false,
+        "treatment": 0.558338333333333,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob choice36up/treatment51left114up"
+      ],
+      "before": {
+        "approach": 0.0,
+        "caption": "Hold this leaf. Spray, spray!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 4,
+          "treatment": 0.558338333333333,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.185831999999999,
+        "help_level": 0,
+        "idle_seconds": 0.185831999999999,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 128094045710,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1600\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 4,
+        "suspended": false,
+        "treatment": 0.558338333333333,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "event": "attach_partial_reopen",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "after": {
+        "approach": 0.0,
+        "caption": "Hold this leaf. Spray, spray!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 4,
+          "treatment": 0.558338333333333,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.197013666666665,
+        "help_level": 0,
+        "idle_seconds": 0.197013666666665,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 523818241174,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1600\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 4,
+        "suspended": false,
+        "treatment": 0.558338333333333,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob choice36up/treatment51left114up"
+      ],
+      "before": {
+        "approach": 0.0,
+        "caption": "Hold this leaf. Spray, spray!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 4,
+          "treatment": 0.558338333333333,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.197013666666665,
+        "help_level": 0,
+        "idle_seconds": 0.197013666666665,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 523818241174,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1600\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 4,
+        "suspended": false,
+        "treatment": 0.558338333333333,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "event": "attach_reload",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "after": {
+        "approach": 0.0,
+        "caption": "Our tree feels better!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 5,
+          "treatment": 1.0,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.208129666666665,
+        "help_level": 0,
+        "idle_seconds": 0.0,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 523818241174,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1600\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 5,
+        "suspended": false,
+        "treatment": 1.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "allowed_visual_changes": [
+        "book.hand:null suppresses only original _fit(hand)",
+        "fixture-owned child uses same texture/80or95square/source bob choice36up/treatment51left114up"
+      ],
+      "before": {
+        "approach": 0.0,
+        "caption": "Our tree feels better!",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 5,
+          "treatment": 1.0,
+          "version": 1
+        },
+        "choices": [],
+        "closing": false,
+        "elapsed": 0.208129666666665,
+        "help_level": 0,
+        "idle_seconds": 0.0,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 523818241174,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1600\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 5,
+        "suspended": false,
+        "treatment": 1.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "event": "attach_healthy_reopen",
+      "source_signature_unchanged": true
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "after": {
+        "approach": 0.0,
+        "caption": "Which tree? Find the same tree.",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 0,
+          "treatment": 0.0,
+          "version": 1
+        },
+        "choices": [
+          "[P: (122.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (122.0, 395.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 395.0), S: (178.0, 180.0)]"
+        ],
+        "closing": false,
+        "elapsed": 0.385349333333333,
+        "help_level": 0,
+        "idle_seconds": 0.170569,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 523818241174,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1600\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 0,
+        "suspended": false,
+        "treatment": 0.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "before": {
+        "approach": 0.0,
+        "caption": "Which tree? Find the same tree.",
+        "checkpoint": {
+          "patient": "orange_spots",
+          "stage": 0,
+          "treatment": 0.0,
+          "version": 1
+        },
+        "choices": [
+          "[P: (122.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 198.0), S: (178.0, 180.0)]",
+          "[P: (122.0, 395.0), S: (178.0, 180.0)]",
+          "[P: (374.0, 395.0), S: (178.0, 180.0)]"
+        ],
+        "closing": false,
+        "elapsed": 0.385349333333333,
+        "help_level": 0,
+        "idle_seconds": 0.170569,
+        "leaf_rect": "[P: (701.0, 118.0), S: (142.0, 142.0)]",
+        "main": 523818241174,
+        "navigation": "arborist_tree_book_test",
+        "pointer_id": -99,
+        "pointer_position": "(-1000.0, -1000.0)",
+        "pressed_choice": -1,
+        "private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-tree-book-registration-20261015\\attempt2_tree_book_registered_1600\\output/private_profile/reef_save.json",
+        "script": "res://scripts/opera_tree_book_test.gd",
+        "stage": 0,
+        "suspended": false,
+        "treatment": 0.0,
+        "wrong_slot": -1,
+        "wrong_time": 0.0
+      },
+      "event": "detach_restore",
+      "restored_original_hand": true,
+      "source_signature_unchanged": true
+    }
+  ],
+  "teardown": [
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "checks": []
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "checks": []
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "checks": [
+        {
+          "event": "partial",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "before_main_reload",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "healthy",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "final",
+          "source_teardown_disposed_preview": true
+        }
+      ]
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "checks": [
+        {
+          "event": "partial",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "before_main_reload",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "healthy",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "final",
+          "source_teardown_disposed_preview": true
+        }
+      ]
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "checks": [
+        {
+          "event": "partial",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "before_main_reload",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "healthy",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "final",
+          "source_teardown_disposed_preview": true
+        }
+      ]
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "checks": [
+        {
+          "event": "partial",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "before_main_reload",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "healthy",
+          "source_teardown_disposed_preview": true
+        },
+        {
+          "event": "final",
+          "source_teardown_disposed_preview": true
+        }
+      ]
+    }
+  ],
+  "scope": "V2keeps full actual before/after signature dictionaries; v1original boolean records retained, no reconstructed v1raw signatures. Private save/normal/source raw guards separate in eachcase manifest/RESULT."
+}

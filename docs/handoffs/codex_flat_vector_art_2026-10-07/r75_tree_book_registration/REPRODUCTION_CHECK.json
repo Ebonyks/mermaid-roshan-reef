@@ -1,0 +1,43 @@
+{
+  "status": "PASS_FRESH_SCRATCH_SIX_EXACT_DERIVED_OUTPUTS",
+  "scanner_sha256": "322f059b7d9d27223922dcb41b7d6d3012f3ed93136a62e1a6b50a29fe8c431c",
+  "outputs": [
+    {
+      "path": "CAPTURE_INDEX.json",
+      "logical_exact": true,
+      "index_or_raw_bytes_exact": true,
+      "sha256": "96f7171d8a630e18e0343485ab1300d719da76bef46c9560aebfff8b6a22371a"
+    },
+    {
+      "path": "POINTER_MEASUREMENTS.json",
+      "logical_exact": true,
+      "index_or_raw_bytes_exact": true,
+      "sha256": "b1e469395ad82a33ab427ce5e9ab95bc060be1259301686f2eb9424dbf27a270"
+    },
+    {
+      "path": "SEMANTIC_TARGET_CHECK.json",
+      "logical_exact": true,
+      "index_or_raw_bytes_exact": true,
+      "sha256": "242e8834d8b332649007b902b0b4f092afff8a183aa197e43478247e87595261"
+    },
+    {
+      "path": "SOURCE_STATE_COMPARISONS.json",
+      "logical_exact": true,
+      "index_or_raw_bytes_exact": true,
+      "sha256": "d4e7f933019179fb4ea046d4d73159b04fe9d8d1aeec51c703e7a101a4b305be"
+    },
+    {
+      "path": "SOURCE_BINDINGS.json",
+      "logical_exact": true,
+      "index_or_raw_bytes_exact": true,
+      "sha256": "c738213c8d64a141bf5cff07409092135b5d4d4272f8ec2e35f69d2fa743c4da"
+    },
+    {
+      "path": "SUMMARY.json",
+      "logical_exact": true,
+      "index_or_raw_bytes_exact": true,
+      "sha256": "dfd4defa185110dbfd3403669261ad2b89a8d6a2ee3ede15d17903a6f024e0fb"
+    }
+  ],
+  "scope": "Actual independent fresh scratch run derives6complete logical JSON outputs, same header/raw bytes and deterministic fragments. No source/runtime/save/image editing or new native run."
+}

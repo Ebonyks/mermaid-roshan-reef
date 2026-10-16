@@ -1,0 +1,81 @@
+{
+  "status": "EXECUTED_DIAGNOSTICS_NO_ART_ACCEPTANCE",
+  "stable_id": "FVR-C6005BD0881E",
+  "family": "tree_book_practice",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "source_asset": {
+    "path": "assets/castle/training/ghost_hand.png",
+    "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+    "dimensions": [
+      512,
+      512
+    ],
+    "source_alpha64_fingertip": [
+      217,
+      447
+    ],
+    "pixel_edits": []
+  },
+  "published_context": "../r74_tree_book_context/PIECE_CONTEXT_REVIEWS.json at715c7a230c159e70acae1cd0ddad727e88910cb9; current dependencies anonymously reverified before preview",
+  "declared_changes": [
+    "Temporarily suppress only source book.hand drawing resource; _fit(null) has no fallback and hand is not read by input/state callbacks.",
+    "Fixture-owned Node2D child/Sprite2D uses the same texture,80square choices/95square treatment, source elapsed*3 sine and hostCanvas transform.",
+    "Keep original x/scale and move choice cue36px upward, treatment44px upward.",
+    "Restore original hand on detach; source Back/newMain teardown owns child lifetime."
+  ],
+  "expected_choice_inset_y_px": [
+    12.15625,
+    30.15625
+  ],
+  "expected_treatment_inset_y_px": [
+    15.060546875,
+    35.060546875
+  ],
+  "expected_production_effect": "None; diagnostic only. Does not paint the flat hand or authorize a shared global asset change.",
+  "required_controls": [
+    "Fresh original-source currentN cases both1280/1600 before preview",
+    "Actual fullbob cycles and liveSprite transformed sourcealpha tip independently checked against original targets",
+    "Real tip input must advance three source choices and increase source treatment without target/progress/helper writes",
+    "Source private save/cancel/Back/reopen/newMain/replay/currency/sentinel and normal11 hashes unchanged",
+    "Source script/art/import raw bytes exact; reference/source same-scene comparisons reviewed",
+    "Separate candidate geometry from material/identity/integration/QA11/device/child/owner evidence"
+  ],
+  "visual_risks": [
+    "Upward palm may obscure choice or leaf artwork; inspect actual same-scene states.",
+    "Hand remains flat and unlike neighboring painted book/trees/Roshan, so it cannot meet zero-flat-art target.",
+    "Global caption occlusion and ambient overlay/wide-margin ownership stay open."
+  ],
+  "new_art_generation_calls": 0,
+  "new_runtime_assets": 0,
+  "new_roles": 0,
+  "drawing_required": null,
+  "reuse_ready": false,
+  "approved": false,
+  "integrated": false,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "first_variant_status": "Original-target input passes; treatment semantic placement rejected after actual image inspection: tip points at spots badge. Raw37frames/aspect and all positive checks retained, not accepted.",
+  "second_variant_before_execution": {
+    "status": "UNEXECUTED_LEAF_SILHOUETTE_PLACEMENT",
+    "choice_offsets": {
+      "x": 0,
+      "y": -36
+    },
+    "treatment_offsets": {
+      "x": -51,
+      "y": -114
+    },
+    "requirement": "Actual transformed sourcealpha tip must remain in original rect and projected primary painted leaf component through natural fullcycle, then actual input advances. Full source signatures and restoration/teardown logged; finalQA11/creative/device/child/owner not established.",
+    "source_texture_pixels_unchanged": true
+  },
+  "historical_status_before_execution": "UNEXECUTED_REGISTRATION_PREVIEW_BRIEF",
+  "original_declared_changes_scope": "The original declaration/inset values above describe preserved first variant. The second_variant_before_execution object records the later pre-execution extension.",
+  "execution_evidence": {
+    "summary": "SUMMARY.json",
+    "review": "REVIEW.json",
+    "semantic": "SEMANTIC_TARGET_CHECK.json",
+    "final_cases": 2,
+    "final_observer_checks": 114,
+    "accepted_removed": 0
+  }
+}

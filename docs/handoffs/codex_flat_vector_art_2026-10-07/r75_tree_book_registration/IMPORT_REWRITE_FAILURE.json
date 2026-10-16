@@ -1,0 +1,10 @@
+{
+  "status": "IMPORT_TRACKED_BYTE_GUARD_FAILED_NO_NATIVE_CAPTURE",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "generated_changed_count": 0,
+  "changes": [],
+  "raw_import_log": "source_import.log",
+  "scope": "Actual terminal importer completed its logging but rewrote tracked .import files; wrapper assertion failed before baseline/native launch. Only generated .import changes identified; exact private backups retained before restoring published source bytes. No runtime source/art or normal-save contents repaired/modified.",
+  "recovery": "Restore each listed generated .import from exact HEAD bytes only after byte-identical private backup. New imported .godot cache and newly generated ignored sidecars remain; subsequent source-byte guards and original native callbacks must pass.",
+  "subsequent_diagnosis": "Initial normalized Git diff reported zero while raw import guard/status still showed1102EOL-only changes. Recovery attempt stopped at clean-tree assertion with no files changed. Full tracked-source scan found0non-EOLdiffs. See IMPORT_EOL_RECOVERY for backed-up exact raw CRLF restoration and separate import-result limits."
+}

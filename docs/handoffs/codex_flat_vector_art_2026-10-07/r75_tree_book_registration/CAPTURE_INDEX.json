@@ -1,0 +1,3562 @@
+{
+  "cases": [
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "raw_frames": 41,
+      "bounded": 39,
+      "excluded": 2,
+      "observer_checks": 48,
+      "observer_passes": 48,
+      "tip_input_advances": 0,
+      "partial_dose": 0.291665666666667,
+      "source_runtime_count": 4425,
+      "sidecar_count": 4088,
+      "normal_names": 11,
+      "observer_status": "PASS",
+      "semantic_or_art_acceptance": false
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "raw_frames": 41,
+      "bounded": 39,
+      "excluded": 2,
+      "observer_checks": 48,
+      "observer_passes": 48,
+      "tip_input_advances": 0,
+      "partial_dose": 0.291677666666667,
+      "source_runtime_count": 4425,
+      "sidecar_count": 4088,
+      "normal_names": 11,
+      "observer_status": "PASS",
+      "semantic_or_art_acceptance": false
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "raw_frames": 37,
+      "bounded": 0,
+      "excluded": 37,
+      "observer_checks": 57,
+      "observer_passes": 57,
+      "tip_input_advances": 4,
+      "partial_dose": 0.558340333333333,
+      "source_runtime_count": 4425,
+      "sidecar_count": 4088,
+      "normal_names": 11,
+      "observer_status": "PASS",
+      "semantic_or_art_acceptance": false
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "raw_frames": 37,
+      "bounded": 0,
+      "excluded": 37,
+      "observer_checks": 57,
+      "observer_passes": 57,
+      "tip_input_advances": 4,
+      "partial_dose": 0.558330333333333,
+      "source_runtime_count": 4425,
+      "sidecar_count": 4088,
+      "normal_names": 11,
+      "observer_status": "PASS",
+      "semantic_or_art_acceptance": false
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "raw_frames": 37,
+      "bounded": 0,
+      "excluded": 37,
+      "observer_checks": 57,
+      "observer_passes": 57,
+      "tip_input_advances": 4,
+      "partial_dose": 0.574752333333335,
+      "source_runtime_count": 4425,
+      "sidecar_count": 4088,
+      "normal_names": 11,
+      "observer_status": "PASS",
+      "semantic_or_art_acceptance": false
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "raw_frames": 37,
+      "bounded": 0,
+      "excluded": 37,
+      "observer_checks": 57,
+      "observer_passes": 57,
+      "tip_input_advances": 4,
+      "partial_dose": 0.558338333333333,
+      "source_runtime_count": 4425,
+      "sidecar_count": 4088,
+      "normal_names": 11,
+      "observer_status": "PASS",
+      "semantic_or_art_acceptance": false
+    }
+  ],
+  "files": [
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "first_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/first_opera_room.png",
+      "bytes": 1195804,
+      "sha256": "e9bb3663615b0107a9b3f0ea2c8360259d9e4cf295e579ad73780df9d37a5cf4",
+      "decoded_rgba_sha256": "227642e5b773a49b1c07b06c71f2ef254be9db2f86de257b280e02afc7368771",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Startup room outside selected book context"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "first_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/first_venue_open.png",
+      "bytes": 1416512,
+      "sha256": "1b2d39b459eb6a0a9a15b5cab43fd7ffcf6a2879c4a392963dc55760671d37f5",
+      "decoded_rgba_sha256": "6acbf196410f19efd62e180412e5c29015d9d51fce084b0c7ddde3ade5124cd1",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "first_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/first_book_open.png",
+      "bytes": 555334,
+      "sha256": "737afc3b84c6beb5c60b24b99f119f9cf39fa478c2d4c63d8f37273c1bf34299",
+      "decoded_rgba_sha256": "28c2ace6358629eba3f35ed8a76c8af318014c6d5008669787f0d5376c4fbbca",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_ready.png",
+      "bytes": 555275,
+      "sha256": "cf4741cfe3e7db09f6f3cd9b3772176408fcdb286b446a960ded9192dc9f1144",
+      "decoded_rgba_sha256": "50112b5deb5ced79d3bf2a7dce72f3c76475685e69c9567123e56ec85fe3e741",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_help1.png",
+      "bytes": 555055,
+      "sha256": "1ebe9461b724d7710b1ac15f332da9944b81ff57bb5f9120e8692b2ae91724fe",
+      "decoded_rgba_sha256": "14cd7bbbfffddcb3314eb4b93b715fc3c6b10f2c594da480f2c3f0b75d100ba0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_help2.png",
+      "bytes": 557361,
+      "sha256": "88eed60b6f46d3583ec3008c423056cf9474a1fc42c61f8f069f0ba8eed2355c",
+      "decoded_rgba_sha256": "db7a68f90714d79edb004b77bc896ed6ac3563652133792e6d56c320c36d1cda",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_tip_pressed.png",
+      "bytes": 558690,
+      "sha256": "da1ad012e3ac10ddf7bb52f4648017e34aa8916d56880bd460ed24e4b7c8d9db",
+      "decoded_rgba_sha256": "72743bda6a48c8f5d80b20cac1b8bcbba0c620b542654d03e02bd13a094b5f44",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_tip_released.png",
+      "bytes": 558080,
+      "sha256": "52a71792088f991d2e8a8c961ea7b22b9b41aaa863cfc033b42377cde36edfcf",
+      "decoded_rgba_sha256": "daaafcace05fc741b1b9df270ed549e091b7f4c6f314680d9aa9bbd4e0f77542",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_correct_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_correct_pressed.png",
+      "bytes": 559076,
+      "sha256": "81ef49167651ed0f7743c7bdfec49e8b6fa83ec3c3455e9438a0985c0c113d35",
+      "decoded_rgba_sha256": "9d8a653fe249a2ba20ef41d6d0babe6ccb1de6e22df000b612876b24f21a12a6",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_correct_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_correct_released.png",
+      "bytes": 542671,
+      "sha256": "6f23be47c903a6fb4d3d009db556367a729572b754385b9cadda32077ebd2360",
+      "decoded_rgba_sha256": "04a41641befdf3f58fb151f25f4b807200f505ded8947be8ec4622fa93cf95bb",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_ready.png",
+      "bytes": 542654,
+      "sha256": "1504691ccf70936bd80b50483243fe84c48fab6c4829e3fe3f8c2d8b6e1835ed",
+      "decoded_rgba_sha256": "6af99fbf0209158c5a1ce0de123604fef0fa64b1d613a2292038165c2da8efd2",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_help1.png",
+      "bytes": 543055,
+      "sha256": "b1ee1491ca975910ab986186cb0bb629ed36c52d11fbe3947e776a0ab015ddde",
+      "decoded_rgba_sha256": "f234e960d5d8a88236eb53f1fbbbff091a1492b3979386510e7edc6527e18988",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_help2.png",
+      "bytes": 545049,
+      "sha256": "2b12d8fa58501386a565b54b5530ddeacf11a52c2fa01140f10870e9f7f36864",
+      "decoded_rgba_sha256": "7afc2bc9ef606d06ebbab0010972ebdddf8952117109ea0598bbc40628258708",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_tip_pressed.png",
+      "bytes": 544856,
+      "sha256": "a11a8f7b27ff7a01c9cd5d98ad1ee69086682f6f125dce66aa0a2fb7aa527a93",
+      "decoded_rgba_sha256": "124b9df0726d733ba38d8078ae7664938f5f701736cfbff963c01e75134ff4ff",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_tip_released.png",
+      "bytes": 544642,
+      "sha256": "f7ba77c8537127659100a67b5bc4d81d9e4cde60268b9b1fe39fedb189339f98",
+      "decoded_rgba_sha256": "889b3ea397fe195894dfc7223ab855f32844b663b082356deda392529b54473a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_correct_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_correct_pressed.png",
+      "bytes": 545542,
+      "sha256": "b33ff92f64ab052d6bf284613ed9a67a23be88294bbb548e9ef366812a7daef4",
+      "decoded_rgba_sha256": "5625e54ae053d89f79eb287ab973e1b3b2bfd2be81a5f715294bd043bedc6205",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_correct_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_correct_released.png",
+      "bytes": 585285,
+      "sha256": "dc20d32e991116a632f5fa29540da1dd1f51f04c46147b64da00d909fb3313f6",
+      "decoded_rgba_sha256": "09554555f1ae271287c20fcda66ded1cc05b7bad3570401f91b6206e2602b86b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_ready.png",
+      "bytes": 585279,
+      "sha256": "861623133330c54b023c3c5d28ddbf8fc2fc8f1c06e4a6886b03d0e43762c9cb",
+      "decoded_rgba_sha256": "5ee7d2b07d4275e1e7cf0a31a89d94a1e74f6623bfe344d438280ad5061323dc",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_help1.png",
+      "bytes": 586612,
+      "sha256": "8c5e7239f3410452bf2f8ccf3c89c5fbef4afc35f89c90ea7852789a0ab1363f",
+      "decoded_rgba_sha256": "4bb7a3b2da11ead0e6957f10bdfd4f1244dac7671b1df88236c8d9b3d3fba284",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_help2.png",
+      "bytes": 589571,
+      "sha256": "0dbcecf4197b261db23decce41fdc27bc6c524ba69ba769fb17cb256097cc9e8",
+      "decoded_rgba_sha256": "a6b92cfb395ad29eb4e68fc916f2200bb343484f452e2fefbcab7388af7309cd",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_tip_pressed.png",
+      "bytes": 590606,
+      "sha256": "7a810d8a8b466fe8a8024bb48eb261a935b6b8a72513b7bee711a15be2db74bf",
+      "decoded_rgba_sha256": "3f62f1f086537c454911bc53fd765945786ef37b55f7d2d0d60a03895f72bbef",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_tip_released.png",
+      "bytes": 590477,
+      "sha256": "8706e437fbbf878d4a09e367695e936bdc7d909f2b9567fbe82445c13242d49b",
+      "decoded_rgba_sha256": "d2c262dfca92d11038bed9974b1a1d6936c4e40609c5db036d592fc77a7b639e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_correct_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_correct_pressed.png",
+      "bytes": 591721,
+      "sha256": "5f8bc91313995424088a620289b3d3452d5566823553eca5ff217aaabf46d229",
+      "decoded_rgba_sha256": "70d84ddaf8d24f1e7b740af5f851653c7ef2a912f4aa86e87c127c8ee4a5f65f",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "carry_start",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/carry_start.png",
+      "bytes": 584234,
+      "sha256": "5546161c2dd0f22a08dc8bab5b305a3b3702da79c5a72487a552331be8019857",
+      "decoded_rgba_sha256": "0669878282d6701b250a6f14cac161c6054d2d483e4d3aa0b313b553d36947c1",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_ready.png",
+      "bytes": 566976,
+      "sha256": "55364c1da6a54fb8bbe98fb7c1c1ac0f01e8fdfebe535082065d9dc853317c4a",
+      "decoded_rgba_sha256": "2ea1568c28678b08684728c3cae26b1241e11ef12722ac5284a74bd794e92691",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_help",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_help.png",
+      "bytes": 567765,
+      "sha256": "ee7b9576547ee2b14498a800a904d4acbd18377ab6522147d8471f7220a963bc",
+      "decoded_rgba_sha256": "f4fa64909ea248971d54f390837688f07f210e865ffdcb9f9972473bec998343",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_tip_pressed.png",
+      "bytes": 567488,
+      "sha256": "c1733b22e7ec63ed2eb41d9e6ce2cd8129fbdb9c24ff0b64c8970641a1c5141d",
+      "decoded_rgba_sha256": "9ef1d47cc760471af564dc964c17740fa5dad70ea054beb39b40d6d7841204de",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_tip_released.png",
+      "bytes": 567311,
+      "sha256": "cc794fd0bec18a65a8ec8da6647963dce4ceb08d938c175880a1531adf747db0",
+      "decoded_rgba_sha256": "a00c8e2f2f397c01a6ce1a626241c2dc2c8aa028adef68857fbef92c908c1830",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_partial_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_partial_pressed.png",
+      "bytes": 564874,
+      "sha256": "45a22add3bc8291e7857135115988e5372ea48ff77b3b84b76de759baceb4b89",
+      "decoded_rgba_sha256": "70b0ff5f946b3e43524f7be8279f059f10bed695a8b96505dd1bfc845242f05e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_partial_canceled",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_partial_canceled.png",
+      "bytes": 569668,
+      "sha256": "59d5abb08c2286693dcabb979aaece13057909bd6b36b8180b9d6e95d794102d",
+      "decoded_rgba_sha256": "b3eea4ec2e483dd9441472fcf01c502c025caf445c1ce789ca7fd565a9e8f11b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "partial_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/partial_venue_restored.png",
+      "bytes": 1516506,
+      "sha256": "530a7fc7379e47a55eec8898487b5febd56afd1c884f04808a2f4bdd8ea3c8fa",
+      "decoded_rgba_sha256": "0b6ec0e69f96ec31a39db375f0c79ab3cd6a05baf67cdd2c9d2b2e13d7333351",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "partial_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/partial_reopen_book_open.png",
+      "bytes": 569295,
+      "sha256": "a83e66a3665e548ec2f96591839592b1df5678c7c3d8fbb2778031ed55a9bb21",
+      "decoded_rgba_sha256": "dd71583c60ca3b7d08754446916147fcc76b009a7f37c1530e5a21757def92b0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "before_main_reload_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/before_main_reload_venue_restored.png",
+      "bytes": 1516307,
+      "sha256": "7bc18291964f6871af84f554710e44eff82f774dc4bcf0da87b5b338e4392f79",
+      "decoded_rgba_sha256": "32062bb94b6b9c53050144d3c2a40f9fd2bb7cacdc56e0fe80819018d8cb42d5",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "reload_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/reload_opera_room.png",
+      "bytes": 1195829,
+      "sha256": "b3c7328a909c4c493abc2391ecc678a86d387fd26e6f6924986459b8b0e9c937",
+      "decoded_rgba_sha256": "f76548928da6bd572a21043ae116f4549114dc384892b1c5126651d76e6affea",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Startup room outside selected book context"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "reload_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/reload_venue_open.png",
+      "bytes": 1416507,
+      "sha256": "ae4449024e974a93e4996a6f46f179fcc441ef7d7b6fde3aef01a9bc5cf3ba01",
+      "decoded_rgba_sha256": "258d2c3bf62f6e05868a86414d584f4e87a87e6320f78a01292234e28f685148",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "reload_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/reload_book_open.png",
+      "bytes": 584258,
+      "sha256": "5e5a92cc7a7da77e78a0796b6ba5cd71fc1c5994e706051b581beecb40bb42e9",
+      "decoded_rgba_sha256": "4fbb7d89338b70c965b514f27b4820f30020c073fe1bc7d4175b243d8a4aa0e5",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "healthy_complete",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/healthy_complete.png",
+      "bytes": 523195,
+      "sha256": "0262f2a6aec35e86923fdd1e1868d287a8264b4a89db653cef2799de60062d42",
+      "decoded_rgba_sha256": "d7165f503eeb8c72d3bad3e78fec3e8bd68b124bb72a9350da7f6aed91587c12",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "healthy_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/healthy_venue_restored.png",
+      "bytes": 1416603,
+      "sha256": "3c2d95bc59102cc3f8467b832cce3e254f73f52b68ac1d0811f7e4648b2881ce",
+      "decoded_rgba_sha256": "1563ceb5f3f9ac47d844581b227d1f1b1cdfb1c20bbaccb2f4c6fd95b059f957",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "healthy_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/healthy_reopen_book_open.png",
+      "bytes": 523176,
+      "sha256": "76ebeb76abbb9318f69bd1785cf59075f540a06eca2d328d608a3ec33cd4f739",
+      "decoded_rgba_sha256": "c5dcdf794b62b4956039aa6144b92d83e5215eb091a05846c61ad2caaba42374",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "replay_started",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/replay_started.png",
+      "bytes": 555142,
+      "sha256": "0ba3f106c82375b6045b4f7acec5e3c91fdcdfab6bda72485650d957850aab98",
+      "decoded_rgba_sha256": "b8d24c0e6aa59b1fd344c082b14db7145a02ce01401c6ebad53c66c9070c189d",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1280",
+      "variant": "SOURCE_CONTROL",
+      "id": "final_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/final_venue_restored.png",
+      "bytes": 1416469,
+      "sha256": "628b67ffb17cfe3fc16c94831d9a73e6b127510f99e49a4e6cabe80e212e1da3",
+      "decoded_rgba_sha256": "788cd315162619bf7342cd17dd8f1a29f242eb7a128c8ab3848a55b93caf7879",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "first_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/first_opera_room.png",
+      "bytes": 1233799,
+      "sha256": "73ac1ee82c17f5cf5be23c9691ab6e37a03450ea0d5f26a1f11bcae5557ba4b2",
+      "decoded_rgba_sha256": "a51760bf803387d6db8a2a280569e3208aea3ac8812257231d72315f9a3a5acd",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Startup room outside selected book context"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "first_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/first_venue_open.png",
+      "bytes": 1447896,
+      "sha256": "3fbcbf10e474aeebe6b8f9b657815a1766105871f9a0d2eb17e6db64ac39ff37",
+      "decoded_rgba_sha256": "561f4f2677f18a22736e5e66048b9ed57e52e180c3d0e376311242105cbefa52",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "first_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/first_book_open.png",
+      "bytes": 562623,
+      "sha256": "cd57d01248412a8c76235fef44e606cca60999c48299fc231bcb9ec007310b8d",
+      "decoded_rgba_sha256": "d060370ecb965abee62a42124d25b63e3c95383906921e2bce2685ec7dd6bb15",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_ready.png",
+      "bytes": 562642,
+      "sha256": "e8dece97e11b61ed4829c11e2b501a4429c69b9f9299d51faab51565215eb082",
+      "decoded_rgba_sha256": "a06cf9e6f05da7a56daf5269c5a57fb826b19cb1b5d2aac42baa5c769b4c0b89",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_help1.png",
+      "bytes": 559769,
+      "sha256": "bb9a4e15b834fd9557fb3f2a2200c14ce2fb00432bf06af3c42a446715038537",
+      "decoded_rgba_sha256": "7a76c99d01e0dfceda93481509e8830cde2d3493a4b54618bb4378abb3bf6a41",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_help2.png",
+      "bytes": 562111,
+      "sha256": "b3588e6b031272246be1fa5718f2f5b12c74b5eb9aeed7d22b7b8f48dbe7a8c4",
+      "decoded_rgba_sha256": "380f83738c6e72d6dcc9f58e318d3c9418771e21343c384694bdacff5898efec",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_tip_pressed.png",
+      "bytes": 563433,
+      "sha256": "e862fb4ca839f03fb13cc7272f327c338f09a6ef07aae8d737e44df0de2f2618",
+      "decoded_rgba_sha256": "dfef09835e1d88a3c6742a9c0e438f6def3ab85d1c34427a67406a1e0bf43d69",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_tip_released.png",
+      "bytes": 562940,
+      "sha256": "ac562b8db12250b17ec81c1949479ae9cdde3521a66dbe660c33854dd13fdbab",
+      "decoded_rgba_sha256": "a335d2a2797da25e4ec7c6f3248dcab82f4e3d748dc515e7271255db1969f5c8",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_correct_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_correct_pressed.png",
+      "bytes": 563969,
+      "sha256": "9225cac551843d26fc5041005db827256c175fb1684fc084dbcc468bebb2af7f",
+      "decoded_rgba_sha256": "09a533ca0ff4b60a64916aa5d7c99e1b52db258f11a5e47b3d804b6844994241",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice0_correct_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_correct_released.png",
+      "bytes": 547589,
+      "sha256": "ad3d4c03fdac15b4ab4b701d7e7e6b8aedc9fb6d6b369fab8a5e5b0c41d5c9d8",
+      "decoded_rgba_sha256": "5824795c0e53bc7e5684d4343f9d490d15aad372e0e120a8b8a8288719ed3af1",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_ready.png",
+      "bytes": 547577,
+      "sha256": "7edd21c0b41bfce2bd6d107404e349c91f9b8123c4d33e7e72b48cef3d89b169",
+      "decoded_rgba_sha256": "4f9903bf3e0e0a8a7293a8b6896feba82496df9eaffa62a1a91120cdc089035b",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_help1.png",
+      "bytes": 547741,
+      "sha256": "ac5c749b8ac8cdc20c4194e1bb721e0fa7593ab474ff3b90d8b6ea5adccc1ded",
+      "decoded_rgba_sha256": "06f4bbf72cd4125c4d8028e8317255ab5074a9fe857586f9200cea2bdb44bc0d",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_help2.png",
+      "bytes": 549762,
+      "sha256": "363b9d5554472c896178ec844c9606352249141e1c5772eb1a32aaae42d984c5",
+      "decoded_rgba_sha256": "7ff0b4bfab159dbddde7be4fa20ea862428e9f3f2d6ea9addc19cf0646778ce8",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_tip_pressed.png",
+      "bytes": 549539,
+      "sha256": "fa29cc0b91fe5bc6d2a11f1d0cce92395de3e41a69c1b08e00f80f04f3dc6d8f",
+      "decoded_rgba_sha256": "9c71ecbbf80e75373d26096df0686da1cb93eb48f40def80ceed83f33afda3a9",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_tip_released.png",
+      "bytes": 549224,
+      "sha256": "373735804d6ca06d47b10910d4234e45246c9175773741b80115e41666f8c737",
+      "decoded_rgba_sha256": "e6a04f09137bb13967a26fcc5fac48b25898646f657e496655646376548f218b",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_correct_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_correct_pressed.png",
+      "bytes": 550218,
+      "sha256": "91126b36ebb7a40e75475ccad13fd7fd42467037c6e2f5fcfb77299115e25864",
+      "decoded_rgba_sha256": "d684e22e8325fc495e83e23368e51ab3f197b21f12d2767570b15bd8d486b957",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice1_correct_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_correct_released.png",
+      "bytes": 589947,
+      "sha256": "aaba25f6e044bdc83e5b0166b6acaec2e261d7ca83ec0384a7aed8597eef4202",
+      "decoded_rgba_sha256": "4f596ea165f0c53fcd3f2dd1f3c0625669744e73fae59e8e815a1579763c7f47",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_ready.png",
+      "bytes": 590077,
+      "sha256": "19248f174eb650a0060d8e77ac34dcc7098d4e718815c2e69944805b4867d658",
+      "decoded_rgba_sha256": "ccee7523a9868fee20e0001c3c7e59aac2d793f2be70ca989ca5ca9a27921082",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_help1.png",
+      "bytes": 591462,
+      "sha256": "002ca2dfc34f2cdb6c684acbb8d4739558a22c1882d87074b14ed03d543f4d01",
+      "decoded_rgba_sha256": "acc15212d585ce20d8d6556c3eeda493ab2648e437c27a21dffd00f67e169683",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_help2.png",
+      "bytes": 594258,
+      "sha256": "922d14a8b0b39b8c84b6fe9d58e7f0d04387ac543b17f29b11b6dffd215feb56",
+      "decoded_rgba_sha256": "39069a9b3ea4c73aeeb341dbf8351f072439058a8256ac3b0e83479622451beb",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_tip_pressed.png",
+      "bytes": 595429,
+      "sha256": "dbcfa9a1d7b19f69f7be4faa61a6e61bb18b73be4afd57e862588370904b1ad3",
+      "decoded_rgba_sha256": "691f16b8cc8938e3f492d3592b43672d2443b7d61ea0afcab31ce493721a5192",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_tip_released.png",
+      "bytes": 595226,
+      "sha256": "8fd5d33d622c20fafad02b2bd3f52fc16571239f2bd809eba6b8b67916de1464",
+      "decoded_rgba_sha256": "2e289eef62ca2aa8443eabd75f1a42ab7db835d003c5f7d7d6fecda5321a7e63",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "choice2_correct_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_correct_pressed.png",
+      "bytes": 596682,
+      "sha256": "481c149de2b085e31eebb47badea097dfdecff388e54b1113ad16604ab874c35",
+      "decoded_rgba_sha256": "8dd62af0b23c56b6cda3624c98b15da20031f4619dfbcb2f8b697e0659b700a3",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "carry_start",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/carry_start.png",
+      "bytes": 589385,
+      "sha256": "f7e22d26bdbfae0a9194eb3cf2ac67d4cfba76f609abaff9c1c3ddfc5c477c3f",
+      "decoded_rgba_sha256": "19128def80a4844913434a3fd0181f35883b40cd3d1baa73c3a413e7134f31cd",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_ready.png",
+      "bytes": 571861,
+      "sha256": "f88d6fdbb10ff42641e790bbcdf9cdc7938a48f55f2af42a31f907b3aac9f1af",
+      "decoded_rgba_sha256": "a23d8b6acb01695aad30fcc9231f7a7868e6ba0899e165fc1d9f2b31c94387d5",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_help",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_help.png",
+      "bytes": 572594,
+      "sha256": "a054754c7cc41ebe676f70ac15b0a3709bb66dd0189131e04c3d70cec7ddb1dd",
+      "decoded_rgba_sha256": "28f0a39f4933b03b7ea52e5417e0a715bfc41d2fbd95327b131ae430220cbd09",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_tip_pressed.png",
+      "bytes": 572397,
+      "sha256": "f032650839a8661b9649387630b92aea8d0951237e22ad762e37b56b745a1f50",
+      "decoded_rgba_sha256": "b7ddd04b3142a2a31b0568f6fbb92d9a4aa6ab30205a0de490ad91615ee79692",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_tip_released.png",
+      "bytes": 572368,
+      "sha256": "b392db8efd792fdf026bedcc33b9be5aedd332ab6b05728b6b517130c159e82a",
+      "decoded_rgba_sha256": "45b3301423b745d6c473c1e6cd8e9fc8cce79f557d5caf315e817b120fdb6849",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_partial_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_partial_pressed.png",
+      "bytes": 569985,
+      "sha256": "77e6d550d2bd63768fef021bd8bf4f3ca431491c2ea30be856ccaa53462cf41a",
+      "decoded_rgba_sha256": "f5bf1ac9ab8af77333ae65ed1539708846ba857c98063c498f9c0cd3bed1f9f5",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "treatment_partial_canceled",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_partial_canceled.png",
+      "bytes": 574390,
+      "sha256": "9339ec791a911dd6920293f003137ed7ee7744e14ce47186bb6c57a06fb09886",
+      "decoded_rgba_sha256": "36409bf4e15bd529a5be5bce222a5093d708d70e52bd60a9268727c803ba6dc3",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "partial_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/partial_venue_restored.png",
+      "bytes": 1549096,
+      "sha256": "c29258b38a8d70a4b6bead6e3432dbb14bcf35dfe96028e2d2900f061db914a0",
+      "decoded_rgba_sha256": "66583153a3e255d3ac2363959ebde75ca2c6c7471d34a1326f71471500fe1985",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "partial_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/partial_reopen_book_open.png",
+      "bytes": 573953,
+      "sha256": "6099f24fab843958465abc254ade02584b67ca299dbcd52a47f0a1ea3a4a93e3",
+      "decoded_rgba_sha256": "d1c88f9bb7e2acdf74fd7ccc326cdeedae5ccad854970a9e8d44e80a930420f9",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "before_main_reload_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/before_main_reload_venue_restored.png",
+      "bytes": 1548832,
+      "sha256": "7972ef5c2c215b6bfde162e8b143716d210aa6e9fc51a9b278be944e5c616ef2",
+      "decoded_rgba_sha256": "7aeb8c01dbc84da3af465f4cac383815e5165df61af0e0afe66153d3ec82c9a4",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "reload_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/reload_opera_room.png",
+      "bytes": 1233708,
+      "sha256": "ca0840d8fea4cd01977debb6a53f7b1e1e6f40f8acfff77a1bd3535c0b72daf4",
+      "decoded_rgba_sha256": "70a331f7e2bed695738d84163e9dc125221fd1bffc288cf66b6721ce0d7d8359",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Startup room outside selected book context"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "reload_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/reload_venue_open.png",
+      "bytes": 1447896,
+      "sha256": "bd21862d8cd6a86d8f41a7441aee0a55177a75e834bbdd223a35176eb09a6a30",
+      "decoded_rgba_sha256": "c69956d429f61c3e196413cd4567049e6c7b6e8386b4970a6ee32098b0b9cc9c",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "reload_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/reload_book_open.png",
+      "bytes": 588369,
+      "sha256": "e7f29ff84956164817a649840bd5d13d419f85ae4b7cd8771ef2dfa6f90daf74",
+      "decoded_rgba_sha256": "826a103555d2c089ff101e9bb5a95e81c000fc1a0946b98a52f6e20ce78ebc13",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "healthy_complete",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/healthy_complete.png",
+      "bytes": 526548,
+      "sha256": "69d7a7c3fbcb9ed61ef0b1f1f9595b335e169db83b44e4476d69d7dbe8efcb58",
+      "decoded_rgba_sha256": "355c007565cd2e4cb9bad84eb7926c6938cf2af8519044a7c08c919f537ac99a",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "healthy_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/healthy_venue_restored.png",
+      "bytes": 1447869,
+      "sha256": "0e96d36406b755eb7e3142b6e389ed2cd3a096005fe2a32956dc1008598cb6b3",
+      "decoded_rgba_sha256": "3b4ce5f97a7f2265f9fabd7b3b12fe23fb0728c14d6797eeed6aaec5a9542877",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "healthy_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/healthy_reopen_book_open.png",
+      "bytes": 526628,
+      "sha256": "a8829acc5ee29792136a47a71ec82aa6353b18c90f09dfc86e841feaa86ebc82",
+      "decoded_rgba_sha256": "aa89a7cd08c1087249af9118bc5128d8d352cfb4a32f10d3ff9d25d4c49b6296",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "replay_started",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/replay_started.png",
+      "bytes": 562431,
+      "sha256": "c185e1c310dc28f8c21ff9a524217195384389ad039659130caf2c966e274978",
+      "decoded_rgba_sha256": "b661b47830a29e04862bb9ce42c5c5c8a10293c87df6ee4049d7fa48c18e6d49",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_control_1600",
+      "variant": "SOURCE_CONTROL",
+      "id": "final_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/final_venue_restored.png",
+      "bytes": 1447638,
+      "sha256": "d86dc6d0b4fa6d2dbead22ba861d4e4a8087967f3886dd346bcc0b79cfc120e1",
+      "decoded_rgba_sha256": "f7e260c10e9c584226677433b6d8af975cd8be4cd14efaacb290a045a783f583",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_CURRENT_SOURCE_CONTEXT",
+      "reason": "Current original-source selected context only"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "first_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/first_opera_room.png",
+      "bytes": 1195801,
+      "sha256": "eabbcfe90d6d2ea97bd2522e04c5528eaf0707a22f2adf8f9bc40a7b1a7c9133",
+      "decoded_rgba_sha256": "6931d4679853f13df5ce4130be14db91c7c9f34da0103a2df4e0a6a2492b744a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "first_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/first_venue_open.png",
+      "bytes": 1416509,
+      "sha256": "4568ee6ac8b11ca10dacc148237dcd4b0d769c78b7bcf0cb0dd542c0a5e0923b",
+      "decoded_rgba_sha256": "fecc93101082db7b2bd70299c3bac9afb467ec31b2f0c1fed5d9c5d57d555dc7",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "first_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/first_book_open.png",
+      "bytes": 555303,
+      "sha256": "99baee579247cd9f4949d3ca3cb1a54d053a254fa1e2a4add6750d594622ceaa",
+      "decoded_rgba_sha256": "f1dac6468c211b7dc8fbeca0d9b19e6a1e9020b0847760c1d624483cd526f845",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice0_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice0_ready.png",
+      "bytes": 555260,
+      "sha256": "aef4f82ff47e890eb352dbecc1a9508c8d5e6a7075ba905bb0f408d98fe2c103",
+      "decoded_rgba_sha256": "87a72a58072db7ab4022c2bb758d6cb6be099361204b53e1efe1f13b60bf9b7e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice0_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice0_help1.png",
+      "bytes": 555043,
+      "sha256": "d4257ee05d1ded99d70c99693f164a208485cdd07c89b86e7cf9f21278aa8880",
+      "decoded_rgba_sha256": "55d44c2a8c0ed4dee05815aeb9c2a2ba236f2bbe17a0431045f50ba7d360f684",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice0_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice0_help2.png",
+      "bytes": 557339,
+      "sha256": "2e8ab9223e2fca6a92024a9e0d840ba3e24e1fd3c78ab76057a4111e6e761608",
+      "decoded_rgba_sha256": "bf6ebcbe5d4567dd7a57e75191a83e06b5bdad79fb32c1d9a79cd96e9fafaa95",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice0_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice0_tip_pressed.png",
+      "bytes": 558026,
+      "sha256": "452735aa362fe3a1eb3f14601671042ddf86f20c32cb3ff8703611f3a83350e1",
+      "decoded_rgba_sha256": "5d36302f78844ba158661f47eb320f588e92887a691ce99b5855b386a5409bcc",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice0_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice0_tip_released.png",
+      "bytes": 542729,
+      "sha256": "e1504dd769663bac1773081425a195eceeb892944cd04fb1fdc98d2ace99f045",
+      "decoded_rgba_sha256": "69523a6a24607785ac82de139488b55616c6a4f4821741c26b0b6209595def94",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice1_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice1_ready.png",
+      "bytes": 542677,
+      "sha256": "18576b4b2b0b2f75b52ead399bcafef3d94a8e73e226955135d7de4409c8249b",
+      "decoded_rgba_sha256": "f985cc4dd04b90d3347ac9909550c72b5055417930d175abb8018caad38c0ece",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice1_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice1_help1.png",
+      "bytes": 543024,
+      "sha256": "6c3bb3796802fd08f4f097d540860f1c1ca815c952c4407e23b7d4f3e6b823c2",
+      "decoded_rgba_sha256": "971feec4b3cce2523872eee55d5409817d9adb6cec451e933be06484404090f5",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice1_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice1_help2.png",
+      "bytes": 543301,
+      "sha256": "b9f2cab0d2cfa61370d62576622ed7b9cb2b203f34733a9b26e7ca60d2130646",
+      "decoded_rgba_sha256": "08298cd141f622a99dfb2e29e562bcde0968329a1f46ea828af4fd0c960fc901",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice1_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice1_tip_pressed.png",
+      "bytes": 544434,
+      "sha256": "f2b28be55fff1965e32758ae5f4ecb582bb1fe59f5359a1f5880954bc169c05b",
+      "decoded_rgba_sha256": "e0ffb7eff8453b8a62324c75722a063581ee8631cc7bcd559d36f33b7fd786f5",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice1_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice1_tip_released.png",
+      "bytes": 585292,
+      "sha256": "74e80cd9eae0c334d56b5cffc8fb360fca84d41ab8a45714abfe25ec41b0f1e1",
+      "decoded_rgba_sha256": "73aabb2d35cc676b43a1ba53eced4548ed88b0a14f5fa81d778a6a7356f24f67",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice2_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice2_ready.png",
+      "bytes": 585278,
+      "sha256": "c45ffc0a84812a3a0bac6124a54614d1901cee508dc2fe7be9906537add7fddc",
+      "decoded_rgba_sha256": "90733a724a1b49ef664cc4658c5e33d60b35469b3eab881cfb95fb4090bf06cf",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice2_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice2_help1.png",
+      "bytes": 586578,
+      "sha256": "2d1b98d850f4099b5c13b505a70b3e2826ce02658a28e80525656ee15f80fb52",
+      "decoded_rgba_sha256": "0f82394c2d497f60a43fc5f9b45bc2838e5e6010756ca30469393c81bf10d459",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice2_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice2_help2.png",
+      "bytes": 589768,
+      "sha256": "3f23ba3b75fde460cc8bb87c612e3cd565aca41090aa4df33f9e286bfcbd3ad5",
+      "decoded_rgba_sha256": "3eff5d6b231391d2e445b86a553399c9db821f8935b34c336f6b5d09afa38011",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice2_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice2_tip_pressed.png",
+      "bytes": 590637,
+      "sha256": "87a3c8c64d584e88bb6a34059a593575bee21aa16e37b72894a693f1fa13d04a",
+      "decoded_rgba_sha256": "84c47013f33a99d8ec3057d48eb359aabeda273a5be5d5679bb9afdc9e003d78",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice2_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice2_tip_released.png",
+      "bytes": 584027,
+      "sha256": "42656491262d9a9d31cf92f83b95b7e6d363d91658ecab4b8ced8154bf7ad275",
+      "decoded_rgba_sha256": "03dc350b6f8bc5d9e175a2be1a4d77bb3c023fdaa75cb1eb7c07a0cd8d7da75c",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "carry_start",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/carry_start.png",
+      "bytes": 583850,
+      "sha256": "841a2bc9b4b70de510f231dafa36e35f5962e4c4e02b8b2382c0a875abd98499",
+      "decoded_rgba_sha256": "3fc4cbde37a724b87ee1197e988f5a6e70fe73fd110b171852ffbcfada1e5c82",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_ready.png",
+      "bytes": 566840,
+      "sha256": "b98d673b93112392329408e5324d3c350921ac44ef5cfc81c080441870df11a2",
+      "decoded_rgba_sha256": "d8f6a04d88261e945d0633f6348511d8ae8b213bcb149c739a4139efb508b6fd",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_help",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_help.png",
+      "bytes": 570523,
+      "sha256": "5160d8b4cfdccc529dca2313796d281942f9a94b96d9a75c146935829aedb545",
+      "decoded_rgba_sha256": "fba0f59402f2f119425c5dd1455baea43a34c8da7b92468b98c93fd0cbaa5b75",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_tip_pressed.png",
+      "bytes": 567588,
+      "sha256": "2e3dc7b4b1b4a86980bd241f66945a6dcee3a3865680e1eb143b4303e2e3c1fa",
+      "decoded_rgba_sha256": "5c16f878ce8fab09150c8a05a8abe417b85dd85e3a6dd57bf558879de2848f2a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_tip_released.png",
+      "bytes": 571567,
+      "sha256": "29e6b1158a8657bf3ef04adeaafe5a17fddca03d4ac355e8eedc4d8a7c932f96",
+      "decoded_rgba_sha256": "d4ec6e668da338b2be38b57be1498b260729764573433b852aeadf9036a02bed",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_partial_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_partial_pressed.png",
+      "bytes": 566987,
+      "sha256": "c671221b95829bb895bdd62450e766e43c3ada8f98b9244f339b17e468cfb3f6",
+      "decoded_rgba_sha256": "9465a54db3fdc0da4ee44d0eebea15a65ea6e0b87e2e2c074c47f3e1273e363f",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_partial_canceled",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_partial_canceled.png",
+      "bytes": 571485,
+      "sha256": "4bf18a7d01c9d00477918aa96208f53ab455256e43d9e27574b844c9409f76cc",
+      "decoded_rgba_sha256": "27c7cbeae5c07cab71f3105c50e7176a96a7d1f30d4b0db643dd79dc28a46704",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "partial_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/partial_venue_restored.png",
+      "bytes": 1516404,
+      "sha256": "33bf84844527c326bcc3af8bfbe29f40124ac1b87e90b3bd2d79db05447f29b6",
+      "decoded_rgba_sha256": "d5ad4704f35d752780c5a7dc064f331af1984dcc591d34b4f717f198a28360a2",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "partial_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/partial_reopen_book_open.png",
+      "bytes": 569858,
+      "sha256": "9a5ae8e9cee503ab0d778b27afd7aad14f0e4cb11959ecf11c47fb2de74a50de",
+      "decoded_rgba_sha256": "f4f950d5c31fa8c82ee37f962e450ade5a6d337379f2ff00419d6d274053d0c5",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "before_main_reload_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/before_main_reload_venue_restored.png",
+      "bytes": 1516375,
+      "sha256": "4fad84b31d609e0288a4ac610fa948e1ceecee359ae52c92f2bad3aa03bd9ac9",
+      "decoded_rgba_sha256": "8715421f78ae5dbb3f80c358404a2f2cfa56d8122b3b4530a65115ee3ec085ea",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "reload_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/reload_opera_room.png",
+      "bytes": 1195861,
+      "sha256": "d85937f9bbc5fb2e0b88b8114aa2b661dbca00c53cffd2cee672e53c94e5f8ec",
+      "decoded_rgba_sha256": "ad5152c58309b04a7a9d1ccbfa7ede9b58c8005e53550b3f5c42a7c8a1a97869",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "reload_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/reload_venue_open.png",
+      "bytes": 1416505,
+      "sha256": "095bb7fcaf8b4228679977cdf61693136becfb080cd3aff4f2df883173d3b69d",
+      "decoded_rgba_sha256": "ec7d0102e7c76afb5c6ec6f490ddec22f5d5642fc024372ec78193e342df9ab0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "reload_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/reload_book_open.png",
+      "bytes": 584790,
+      "sha256": "e32801ed40ffa75ae3d0c2f45a67e1e3cf530871a6ef141465720dd4ff8f0acb",
+      "decoded_rgba_sha256": "6314cd1722ab8791de9ec979ac5bf3d1f68815dbeb275881d74dc556519b2468",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "healthy_complete",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/healthy_complete.png",
+      "bytes": 523250,
+      "sha256": "859be63226af05e4699de9b45933f8e730f56fa4839b838999667a9a2c4ad3da",
+      "decoded_rgba_sha256": "2a007e473c9d24f0c5911958d99276f30044cc1e5e0c766828c3a507de6cc015",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "healthy_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/healthy_venue_restored.png",
+      "bytes": 1416543,
+      "sha256": "fda193da8d323d5e885c6ea7fed3284cf431a3349a582fdccd9dfba54e9670c7",
+      "decoded_rgba_sha256": "6269f821509f319bebd2f3bed6da84980a15bfde1f292ae15f3c0c27631a7f75",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "healthy_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/healthy_reopen_book_open.png",
+      "bytes": 523179,
+      "sha256": "788ca29cffbea2a4a8364f44d09face1d79bed117e145399c32d27ae1d0b3605",
+      "decoded_rgba_sha256": "7c53994ae4efd6cc9330adc8ab6d59ebef5ac6776097fee4fc84ee7e0bdf7ce1",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "replay_started",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/replay_started.png",
+      "bytes": 555166,
+      "sha256": "cfe261995e9eedbee0fe3d783a1e1a21679ce8755322bbd34339be6fc58cbdc7",
+      "decoded_rgba_sha256": "6f46860492127cfdfaa5fe7031c6f87f364cedf208f6fe5e4bfccef0f754f275",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "candidate_detached_restore",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/candidate_detached_restore.png",
+      "bytes": 555192,
+      "sha256": "77faf47b02de1fb65cadbb11c5d99893a798f79a6a410d895166bcb75e02f580",
+      "decoded_rgba_sha256": "84df90a1bd899ff59bbf769190f5918abb82d057da44a0f92e0491629e904b05",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1280",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "final_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/final_venue_restored.png",
+      "bytes": 1416566,
+      "sha256": "c80cb3fd765579316231dd29d6af8c2e8d3e32d0cc158f9b159ee3526bc9f3ae",
+      "decoded_rgba_sha256": "9040f03f9978e6a2c22ff07e5c05da013193015bdbff9b9e8a56b6474ae94cc0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "first_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/first_opera_room.png",
+      "bytes": 1233802,
+      "sha256": "47638ab98a1362736fcab4e899eb7d084ff7302569ce884302d159d1944a72a8",
+      "decoded_rgba_sha256": "c379ba8603a7519228c960df3ce2ac809f58c4bd56a6e3769dc3b6597da57be1",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "first_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/first_venue_open.png",
+      "bytes": 1447871,
+      "sha256": "1d2279324aeabd34fb9402b22ec859cadf768824884572875dc311cf5b0b74ba",
+      "decoded_rgba_sha256": "36c7f4f7c88414cb92ca5161398dd3fb9c89d39c99b6496ad9662a24cb456168",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "first_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/first_book_open.png",
+      "bytes": 562606,
+      "sha256": "da46e32d69ca5e7dab621071ef4c020c8e2be0553377be6a1ffe3c4269093546",
+      "decoded_rgba_sha256": "8d70ca7744d324f1f7151196b794b9c523d5bd9f19b8e82e4acc3b1ff56c7de9",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice0_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice0_ready.png",
+      "bytes": 562632,
+      "sha256": "81646f237d1203626083e52b99079dcf7735dbbdb3910fcd79d68fb1e014bb5d",
+      "decoded_rgba_sha256": "bd443765efa390b82aa263e60122b5cc15e3db5af2fe3140501cc9e712b3b3a7",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice0_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice0_help1.png",
+      "bytes": 559769,
+      "sha256": "fbc4956295933dffda01e8ae9accd90562f758b4b1f48d45d4d21242e4d49cc7",
+      "decoded_rgba_sha256": "c42a3f3d85919a4135b90e04f880fecb481416312d99a4c4f42bd7f6844e1e54",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice0_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice0_help2.png",
+      "bytes": 562079,
+      "sha256": "1edb899372d541f77764c7c8db1fa765186e378e5882b88b6a58d38bf5e994f9",
+      "decoded_rgba_sha256": "3f9ed21fc05bb4ffddc49c65b737d4254ee2a04ac5ebb0b507c354f8ed112613",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice0_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice0_tip_pressed.png",
+      "bytes": 562875,
+      "sha256": "8ead70f3c705834c919f4961a3ee9823e4e9f3396869830cf35c8144c0167280",
+      "decoded_rgba_sha256": "a6a17589e362fa9474a6bfa29e0d434d4d5ceb6964578ed1695a8a049ffb5b42",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice0_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice0_tip_released.png",
+      "bytes": 547649,
+      "sha256": "fe3aa26442c333f584646470ed0429000f08230d24a3d1e95dadb58608fc8693",
+      "decoded_rgba_sha256": "866918f9575f7070db1d161b96daecf1cdab2152c7422ac94346884d35495475",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice1_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice1_ready.png",
+      "bytes": 547635,
+      "sha256": "98d5a9fb353e41a89a4b3f0fc2970bfd14fb6d24e57a68988c617021b00252a2",
+      "decoded_rgba_sha256": "e85b3aecbd73ca656e763d0b74b2fe0a668baebf8b9e1660de82d7529b978ede",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice1_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice1_help1.png",
+      "bytes": 547902,
+      "sha256": "05b6fc6fb7da6e2bb9d62f42468b47f9dc8be8053b7a8eba3d7a8d0f4109f564",
+      "decoded_rgba_sha256": "847393565e3c13e2540813879a23b21130955de87d3e57d43a99d2b2604a8131",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice1_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice1_help2.png",
+      "bytes": 548185,
+      "sha256": "e8fb8e87d685add07f12f081fdaed17d12292d5a6531277d690de91006a92c22",
+      "decoded_rgba_sha256": "e2aff822db6ceae1c4c9c231c862edd839c67f0a8276645bd494ca60fc9518d7",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice1_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice1_tip_pressed.png",
+      "bytes": 549116,
+      "sha256": "d0f468329dc9f51595ac4ca0783fab2eb9599d884440821f7b38b786b8145017",
+      "decoded_rgba_sha256": "1ae448da21049cf7b4b0cd50e25e05e91a51d6d7fb63d5900ca0c46ed26f21d3",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice1_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice1_tip_released.png",
+      "bytes": 590145,
+      "sha256": "9763e12be02c415947df921e6ab17737fc0a72e4690a48c27a47cc3f5b7d70d6",
+      "decoded_rgba_sha256": "9630e30615e199972c1f38b879ea2bf2af48fff4afb7c01a39c73b40c5055a43",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice2_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice2_ready.png",
+      "bytes": 590080,
+      "sha256": "88bc6d24c1d1d3ecbcd5be2da123ebfc2b449437f5ecf9033625251f1fb52162",
+      "decoded_rgba_sha256": "ea05606d6db0207972e0663cee14aa6220340e553c3b185ed260617d78993814",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice2_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice2_help1.png",
+      "bytes": 591340,
+      "sha256": "052c104f3ea60e35a40da56f3f887038d58b5434eeb321d8832630afbf82871a",
+      "decoded_rgba_sha256": "b2e4dbaf78101f72cf741214d257c1041c6624c2d66fa309e55f9539b976fe9e",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice2_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice2_help2.png",
+      "bytes": 594373,
+      "sha256": "4cc8265baac04b2abb807a8540dd0c6d7c8e721070c49ba407623e2278e0d0f1",
+      "decoded_rgba_sha256": "6c18e597937eb305e2cc93acf7453956a937f3569cc9e2121bd1cccaf9111188",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice2_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice2_tip_pressed.png",
+      "bytes": 595246,
+      "sha256": "597e3dd22510095118058bce4e1f2ad043839855de5b712caa37385abc417f63",
+      "decoded_rgba_sha256": "54a7da7e611158bf1b4a521be54e11cf83664d246d2e23c894df198a6f1b8e6c",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "choice2_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice2_tip_released.png",
+      "bytes": 589353,
+      "sha256": "41ade211ee4087dd171e71af603575cbafb977cc0f667cab03e885ec6e1f7d01",
+      "decoded_rgba_sha256": "8dfb6c4350137582bcd5dc3c7d8b8cd1a4792894822712cf7a1126f013c8b4bb",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "carry_start",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/carry_start.png",
+      "bytes": 589406,
+      "sha256": "75e94bcdf78905a24b996a8b4d762682e562b63e3e80ba28c375386888897b2d",
+      "decoded_rgba_sha256": "8c501839985d69a5bd7db0d501216e0abc1390a1b16b828a43ec9ed455b80331",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_ready.png",
+      "bytes": 571961,
+      "sha256": "c0918cafde488966da790d82915ff45b58a764ed85136b752a3af4f16b036e63",
+      "decoded_rgba_sha256": "c3f578163aa8555c4294a78b266c5afe14725a5067fa8168b7a21a385cd4af60",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_help",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_help.png",
+      "bytes": 575189,
+      "sha256": "a4d61c6730af5727c1387833453ae69eea8c55582ed506e0024a0de4612bbb25",
+      "decoded_rgba_sha256": "419ab5c8cc7fc5608da458b6941ee4f11a771e048d05b8f6f2685076ad6ab14a",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_tip_pressed.png",
+      "bytes": 572606,
+      "sha256": "53a30c9750a71ec0417a2f527c9c211406092a06d6520531d8fb01de2a050698",
+      "decoded_rgba_sha256": "895e5d8f4849b4962824cd51338175e39b0be33de6d1cf5b8c1aee09cdc26ab5",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_tip_released.png",
+      "bytes": 576219,
+      "sha256": "83c302e5845dc9a2242a9d49428a3ac9edd4a895f560ff0788fc3ddfa81c5936",
+      "decoded_rgba_sha256": "5ad3ea7f205ed164442806a071696b345bde185bc536a122488ddecb819b0a53",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_partial_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_partial_pressed.png",
+      "bytes": 571930,
+      "sha256": "19b006818ec8b2a73bc9e2cda66225ae15af9220508d290af091cc9b605edd27",
+      "decoded_rgba_sha256": "355b3c9174d76c2e3a4bb60d206ff5c9c5a21b97059616b15b820d702b29863b",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "treatment_partial_canceled",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_partial_canceled.png",
+      "bytes": 576189,
+      "sha256": "9b27038bd349826cda0c3f15db622b1da80674bf84603768f9ef460898122e5b",
+      "decoded_rgba_sha256": "9a1c6d6f9994bc32dc9a06a52d28c6b19b4d5b1b3f357df4b823f120b54e48f1",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "partial_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/partial_venue_restored.png",
+      "bytes": 1549124,
+      "sha256": "92d9293f832eeab9817641597c71821f53ecd4acd26237325756ab278db90063",
+      "decoded_rgba_sha256": "bfc8e52e1dbe730bdb736be97ff1a780537d9a70894b01da87a57bb43c0aaaa9",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "partial_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/partial_reopen_book_open.png",
+      "bytes": 574532,
+      "sha256": "461eea99428b452116d86017499bc4c774bf06b7d81048f141cc513954c50c26",
+      "decoded_rgba_sha256": "f9217bb82583ea31c3f8b8ce6154d816bfbd1a91cb8905325d30156de1b6c9a8",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "before_main_reload_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/before_main_reload_venue_restored.png",
+      "bytes": 1548936,
+      "sha256": "81a1f5729534d81409088f53d63715341f18b823114a23107fddf9e1fd9e3b04",
+      "decoded_rgba_sha256": "ec9fe10c946757c7ed7f2792c050c1a393475c311e2a04460955a8faa9c19131",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "reload_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/reload_opera_room.png",
+      "bytes": 1233564,
+      "sha256": "5b71715edf3c72e4e53a5183a18b3d40c88609352ccdeb4b0381b3432a79b5c3",
+      "decoded_rgba_sha256": "5a80e03a53af4b5abaf9b68929fbdad349b8df0487fdfb77ab134e418c2c12d4",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "reload_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/reload_venue_open.png",
+      "bytes": 1447862,
+      "sha256": "ad1d99faf3488d3048ec060bba1f8e9fd4baaa1c9cc5acf22018ad58a03549e1",
+      "decoded_rgba_sha256": "6d1a039c598d9bc8cce2d55a0827070b419cc64d6bf3f289fa1ea34503a511ba",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "reload_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/reload_book_open.png",
+      "bytes": 588792,
+      "sha256": "85b0a45e6b05cc5ba7ef3db2eb1356269bf67d1b87c2a3eb00a9f3bca2578dfb",
+      "decoded_rgba_sha256": "2e6d984d76e83d8fa3a5b5eee4df1a119fb2701e134874c31bfaef3ea1c034e2",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "healthy_complete",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/healthy_complete.png",
+      "bytes": 526636,
+      "sha256": "c530e73cd3fe8256254b7639ce10a0aabe503afe7b3361fe07c67835ab28e909",
+      "decoded_rgba_sha256": "a8d6bf53ea8542f816a94cf419d12b749d83a7aa6dd2a2a40f0ab38c98fb2f3d",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "healthy_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/healthy_venue_restored.png",
+      "bytes": 1447808,
+      "sha256": "d0b53015f4b6bed92229e7b5a253a23e580b7afc0ac2f347a3f3e37f76619991",
+      "decoded_rgba_sha256": "273b6ddcd576be23c408e7ee6ff36c901cb9400b59d334c0fd9a4373c798a8dc",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "healthy_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/healthy_reopen_book_open.png",
+      "bytes": 526589,
+      "sha256": "1cd500ea0d568ee110973db2559b85af24d9c7d075e7cf7cc24ef38e5b48f4c2",
+      "decoded_rgba_sha256": "7b6e4317056a83026606f55957202b68d8d848d607784177a941e32b0a5277e2",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "replay_started",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/replay_started.png",
+      "bytes": 562487,
+      "sha256": "3e7bab04eed5181a4f9ed7a6e6d4154a1d118ee55e8461d9b946d12e1f1597fc",
+      "decoded_rgba_sha256": "11f31023784afcf662c4cd18190703da18259c4e8e0e26a7e9f078910a81d732",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "candidate_detached_restore",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/candidate_detached_restore.png",
+      "bytes": 562467,
+      "sha256": "a0559747178b35bc18388f35d7ea658a4ad5dfa0cdaaf88c98baccf59a456723",
+      "decoded_rgba_sha256": "ef96b3d3d4f14aba4ba1cbf0e7aac0c12a794b76913b674b875f1bc228cb0462",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt1_tree_book_registered_1600",
+      "variant": "EDGE_V1_SEMANTIC_REJECTED",
+      "id": "final_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/final_venue_restored.png",
+      "bytes": 1447747,
+      "sha256": "7d694561eadd82b333061eb90164745248f8631d80799d83070937bf4fde8a89",
+      "decoded_rgba_sha256": "14856af0c73ed80b2a75a4567f1b13d78c33f6e6d2a9749554044957b1744099",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Rejected first semantic placement retained;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "first_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/first_opera_room.png",
+      "bytes": 1195785,
+      "sha256": "c38cadfd3dc7c9f2c5e8a41690c61f49a1ae13cd90e39f03717d8a5109d11332",
+      "decoded_rgba_sha256": "913d64289cae3c0b18cd5885a5579f220252ab90fda3fb32e10944da97e5028c",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "first_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/first_venue_open.png",
+      "bytes": 1416511,
+      "sha256": "2940d521173a985767358c3692e817d6083a20ffa9691b0cbcabd0a10221cf41",
+      "decoded_rgba_sha256": "a4bebc9552d4313e50b0d03e618331e1a4460dae6482a63d2cd7210eb36fc96f",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "first_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/first_book_open.png",
+      "bytes": 555324,
+      "sha256": "3c23dcec2930ce7cf968b56924534c7a937739834dc90485a01f52cb2d8196e1",
+      "decoded_rgba_sha256": "270e0ac039e2442f12a9a8eb66090d891e4f2c6fd4e7d3840d79b3c31129cdac",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice0_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice0_ready.png",
+      "bytes": 555249,
+      "sha256": "296ffed4484cac121cd1bf42ff7b533536f9ba26d908ab6fd2c6678ca79740ea",
+      "decoded_rgba_sha256": "b61da526905c2b4dead1a6ae456e6bfa0d463b8858575e81a1e71d34a87d7120",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice0_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice0_help1.png",
+      "bytes": 555057,
+      "sha256": "bb5247a8430541acf957f72c8b5ab0e361b29514ee3da37dd55888b5f11af1ff",
+      "decoded_rgba_sha256": "d2543565a30c6784f06dabd8f8a99f3252a9a0c12833c4f91860363118b84610",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice0_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice0_help2.png",
+      "bytes": 557374,
+      "sha256": "743e0e0768463673006b13a1d679700832c7b2d4b4d837f1816dc52c73953400",
+      "decoded_rgba_sha256": "9c0157a73755125cc491f9b454f80051f4bbf0391feeabc07618e586505886ed",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice0_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice0_tip_pressed.png",
+      "bytes": 558069,
+      "sha256": "18a85038cc9a22417b5c88c703040fffee87d3f742263c5c913a285d5a414897",
+      "decoded_rgba_sha256": "4403adc80efa27970074affa7c4459488d75b78f5168d69cb54738a54d48aa25",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice0_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice0_tip_released.png",
+      "bytes": 542718,
+      "sha256": "5486185f99e661ba235d03d030526490f5d9cc7ff7a3f0fdc0e44526bc3c0458",
+      "decoded_rgba_sha256": "8cdb07c5796b56fd6f3c7d94e8e7d1d179bce34541fecdd771f1712a528d8a75",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice1_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice1_ready.png",
+      "bytes": 542709,
+      "sha256": "38c32ba7b788d2b35b58e3cd1428d43e9700fa183862e34b7ec2044ec9a722c6",
+      "decoded_rgba_sha256": "b39bba156c1675cb8368e72c67296c47c388f60651d14afae886ef08a474f80f",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice1_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice1_help1.png",
+      "bytes": 543035,
+      "sha256": "f8718c8e82ea9f8d1656cdaa116b39860d8e85aab8c97b26c095cc7362f4d706",
+      "decoded_rgba_sha256": "e9221f64333ff428b4668d035c488555a0e8c4f6511a4328d8694ed6882ec75a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice1_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice1_help2.png",
+      "bytes": 543343,
+      "sha256": "eeafc223def80cb22e58627a1db3a08879695a838c0a5eff9ac73324a83e1603",
+      "decoded_rgba_sha256": "fef05bc20079d005392446042fd2ab6f2a5de256897b4ac5a9fa49ef28f23d50",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice1_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice1_tip_pressed.png",
+      "bytes": 544564,
+      "sha256": "96d1a4513a2596bbccbe20bbc96777047eabcccef8562713f21ea60614568ecb",
+      "decoded_rgba_sha256": "5dbf569c35753af8058a32ee2266256c97a490648a9a324b6f05378ad7658b57",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice1_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice1_tip_released.png",
+      "bytes": 585289,
+      "sha256": "cfab2366be4c2865ad2333a46ae554b984a3746c2e190955c3f130c7dd6866a2",
+      "decoded_rgba_sha256": "f18805c7e33ea55b6fd6949f26a1d7438eb746593937ed5aa6c40d8be1bf3823",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice2_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice2_ready.png",
+      "bytes": 585299,
+      "sha256": "d039c7ee6aa72492f08d511c64b5dde6b1972eea74ed8ab3c2a8d81678257c20",
+      "decoded_rgba_sha256": "ffd9b6cc596243a63eb7ad0e040c92be6d8db4e176fef46a5e82e37a67ca3eda",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice2_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice2_help1.png",
+      "bytes": 586575,
+      "sha256": "1ef3f781784a75ff50d0c9729af58f75f66b82542fb7ce9abcabb26e1a4710b9",
+      "decoded_rgba_sha256": "8b8803e331f190033b36e6b4d53cd54d8d47922652ea524bb9c073c466262f06",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice2_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice2_help2.png",
+      "bytes": 589680,
+      "sha256": "dddb199efcccc1c90c87bd1ff7da1a7c2b551482b97ab56d26363e6666e1cba2",
+      "decoded_rgba_sha256": "5d4ebe11981bd395c4cc0f4cae802480d3a39005e6a6acdfff783958b52f94fa",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice2_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice2_tip_pressed.png",
+      "bytes": 590694,
+      "sha256": "c358c8225e5660f63a74f2e62bc4cf38179387c79202850259e19f2abb2affd3",
+      "decoded_rgba_sha256": "31170b3b98a601b96dd2c9a8f56906b232e2b142174d2b7ec6c9314f74fddb2b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice2_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice2_tip_released.png",
+      "bytes": 584267,
+      "sha256": "ca8b4caec98fbcd3a855451ae4a8426390f8fa17c8a4c2ae0f28989e99740638",
+      "decoded_rgba_sha256": "e223816529fa85f706585b9ee13433ee8cf78975aaa03bc2c44d778d993f11c9",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "carry_start",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/carry_start.png",
+      "bytes": 584034,
+      "sha256": "ff08aed130401c4c839913236c0d4af13696be8210fc9c668de06aa7ec2fb77c",
+      "decoded_rgba_sha256": "c9e5cf1b6e819183d78a9ca3f00b14fb1f976970176aa979e479330ac03dd13e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_ready.png",
+      "bytes": 566944,
+      "sha256": "a16c5c224d278ff4fa6c50e634f29f8f522739831069bcef5c0546800352a44f",
+      "decoded_rgba_sha256": "e2405dadabdfeb26d3f6c194090d625a71b517e6643ed4c51d3dc538a764a6f6",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_help",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_help.png",
+      "bytes": 572089,
+      "sha256": "75e167118c3b226ac2c947b1e929dd4d8fee4aed1aee31cdf27f9251fbac5eda",
+      "decoded_rgba_sha256": "563e07525eb04024b5d2ec64eab77c08a8d061b3867bae5e95c23e518aa5c76c",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_tip_pressed.png",
+      "bytes": 568758,
+      "sha256": "635dc3dc06dff4f158fe20242f69f117b89961fa5cdf07bab9c06c759467d2ed",
+      "decoded_rgba_sha256": "0872511b65089d63d19af701b496b0867df8f153053d9820f25868fe7157160a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_tip_released.png",
+      "bytes": 572752,
+      "sha256": "2dd5e4c9627c3d27c71c17a1962f0c60c187c9396641a4e44d5c7a9ca6d1b327",
+      "decoded_rgba_sha256": "24e1ee8e44459b152cab860808fa7510272e7acc3376f9e88b31bb15b7b212fe",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_partial_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_partial_pressed.png",
+      "bytes": 568726,
+      "sha256": "8cc2f74f99b09d59e7fafcf46ec572015e914f633af3a0e003510d34069152ab",
+      "decoded_rgba_sha256": "5bfe9af4d08c5523a8e6c6824601ed9a3c9fea561b21aca3eda3962e443f423c",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_partial_canceled",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_partial_canceled.png",
+      "bytes": 572989,
+      "sha256": "90c9f9d15497b6572c2a0dbf1d1723e20ffeac3951402315b2c2fb4f0a86d2b2",
+      "decoded_rgba_sha256": "47b9356ef409a3d9532aaaddd0a421b6d816bb801a1c7dbfc5dc26bb968f0f13",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "partial_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/partial_venue_restored.png",
+      "bytes": 1516416,
+      "sha256": "88f2f4650b4d68389b94acc53159d544f7df6a2b1348b6910885d30d259c7542",
+      "decoded_rgba_sha256": "82cc3e71316fb296088bad286828375763fa0f49a45f207a1fbeb99565c89e90",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "partial_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/partial_reopen_book_open.png",
+      "bytes": 569975,
+      "sha256": "615731ab7c1afe07fc341b744ca95f2f7a00731cc90fb9d1f3585f86c9064eab",
+      "decoded_rgba_sha256": "167c59fd9fbda948fcbf6cd1fa7fcccfbe5b27677b2161d2fa7a30822865ed41",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "before_main_reload_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/before_main_reload_venue_restored.png",
+      "bytes": 1516429,
+      "sha256": "cf462761c17b664e890e80e0884950bcb4a8e7d9366f057711837b32ef2441fb",
+      "decoded_rgba_sha256": "83bc7429c25e920126565d59e78f5b007f4094c59bc603a0042ac794a988491e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "reload_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/reload_opera_room.png",
+      "bytes": 1195597,
+      "sha256": "89c9cb3ff0062f27dc48afee42bfa452ef314ac2ca4546efee4d222b1b769e53",
+      "decoded_rgba_sha256": "5ee12ee7cf112f8ae1f6a0aa81e32c66a557ffa74280b6c507433f3769ea6fd2",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "reload_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/reload_venue_open.png",
+      "bytes": 1416511,
+      "sha256": "95ec4ae8006f2c0b144e5a0f8e99ab7fa68a7522dad1ed97fa3fcf06906443a9",
+      "decoded_rgba_sha256": "c03e0631f3070c02be8941642fb6a53a55077ad315f3180495ed76674aaf793f",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "reload_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/reload_book_open.png",
+      "bytes": 584931,
+      "sha256": "fbe8e840c66d166225b1ad3774e12c9c092cd7262684a6522c7bb0795469b523",
+      "decoded_rgba_sha256": "e9a773553a4b9ce63959cbdf61e54900b0073fc378a4955e70fabefe75a7e9b0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "healthy_complete",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/healthy_complete.png",
+      "bytes": 523198,
+      "sha256": "5158b805eb434b86124dd9d303cc695d6ce6d234269748e9949f0a43b73479f3",
+      "decoded_rgba_sha256": "e6f1e2d1010edefe1abd966c49b5bba26547f8f0d1c8879aae4083939796f34e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "healthy_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/healthy_venue_restored.png",
+      "bytes": 1416534,
+      "sha256": "5104b734f4074887fed733ae630e9f00dc51f9f345f8c1730ba19abad6e5da6f",
+      "decoded_rgba_sha256": "9e9ee309ac21576b70582d6bc9317d8e2233535a646a98c2bf44f671db8f8636",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "healthy_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/healthy_reopen_book_open.png",
+      "bytes": 523174,
+      "sha256": "7cfc74029f2050f18ab38f99fc74a90f50902af36c284f8aee6d26940660ad94",
+      "decoded_rgba_sha256": "e7c9539b48723ff8ad215c2944b66466da9c5c19467e4c2419244b3bbb8e70db",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "replay_started",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/replay_started.png",
+      "bytes": 555168,
+      "sha256": "d469ab15814a7612f3e2768312c2c88f2778b7fc3c81f3e7974c0a66256420ec",
+      "decoded_rgba_sha256": "7790a84f8c5e9630d0e9c9e882aa714ce43678c8c4cfed1f931d57770e3908e8",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "candidate_detached_restore",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/candidate_detached_restore.png",
+      "bytes": 555208,
+      "sha256": "4108e59d74c4c65e07a2bc91c2d50c47a76d733b61cad54a3e72687eefe4a16b",
+      "decoded_rgba_sha256": "b63bd7032e92df5e1523913a30876e349d294d3cf861aea5f721d2a147509032",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1280",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "final_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/final_venue_restored.png",
+      "bytes": 1416545,
+      "sha256": "1c85be772aa79969f24af48f4934a1dcc8208c08068b6675be30eb893cdfab0f",
+      "decoded_rgba_sha256": "3ec1f2eb906df1006192d4184388f4ecbfede362ec09cf93d86dfb720805df4e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "first_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/first_opera_room.png",
+      "bytes": 1233789,
+      "sha256": "d6c552c41c8cfb1f904b3def2953f57fba45cf2e3f61e31876b461946b4cb337",
+      "decoded_rgba_sha256": "da1fbd0ad72c5f268ca5ca5e7e853b163536a9adb4e01bd6dc05e21972d3b959",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "first_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/first_venue_open.png",
+      "bytes": 1447887,
+      "sha256": "c7c9f5ac12581cdfc43c90d69e17918f7395898203e0511843e86558068cab08",
+      "decoded_rgba_sha256": "f8ebce9a266d4d72ef39ef76ac44f41fbc82e829ff22c1d96f9a06f8d0db128b",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "first_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/first_book_open.png",
+      "bytes": 562608,
+      "sha256": "515a6a69fb75dba3b403a27583e63e158dfd1e2d43885754a947ea8fb3f62b91",
+      "decoded_rgba_sha256": "4889a497563d30e82beb2448b5f2f08b9b3cfb76d4fcd338074e49ca10b71911",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice0_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice0_ready.png",
+      "bytes": 562641,
+      "sha256": "8564f5904341168858c971d8007973ef75b103761d2fc154c6c5a3621f965112",
+      "decoded_rgba_sha256": "4c670256df2d76d17f54d24751ad9fd8b17f13a9119a88958464d3b98b3c65e0",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice0_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice0_help1.png",
+      "bytes": 559734,
+      "sha256": "6866bbb7aa1c7fc9cc959df13f7fcfbe3a6ca681bfef74925c35db7f57ba6a3d",
+      "decoded_rgba_sha256": "9acdd1a0d2410ff117ad3e05efe3afa77c40c21a656b1676f3a925eb39ffb61a",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice0_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice0_help2.png",
+      "bytes": 562037,
+      "sha256": "a1f12fe42cbe71e4f77a8ea0d260f9056635a1044cf77f0f7389d925099ef87d",
+      "decoded_rgba_sha256": "763d46d8e6cf8c41b08a9064bf843ad51ac9240dcce48092aa7ef3bf9e658799",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice0_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice0_tip_pressed.png",
+      "bytes": 562881,
+      "sha256": "feedd95b2bd9058c496f7c44f17a3deb2717bef4e9913912f44c21917772d362",
+      "decoded_rgba_sha256": "01651419e69546f464cc6f156771362f23799c55f6785994b09ed6d26edbd52c",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice0_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice0_tip_released.png",
+      "bytes": 547681,
+      "sha256": "afba542d15d89237524b8fb70a7b7f10aa3eb55123859241ea1f3448114bb745",
+      "decoded_rgba_sha256": "81148c13b2e8005afd4d0be9d076b8ca5579c49a4b737cdab6618ee8640f1f8a",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice1_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice1_ready.png",
+      "bytes": 547542,
+      "sha256": "eca1a003676bb8b18274ddd37a4eecc4e14688cb6e0dca37bf8d7682a0215265",
+      "decoded_rgba_sha256": "a59589fd5d1ebf135bda7791eb19686b3265667c506447007379144210470cbb",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice1_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice1_help1.png",
+      "bytes": 547871,
+      "sha256": "553cc294d28f0cd5ed8a43a4f2d89295017821c4aa98a6ad00592e337e43c73a",
+      "decoded_rgba_sha256": "1b5aa8ea375e9d6085cb2c71a011ebd37c05c781b2518fe8dd462717df604383",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice1_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice1_help2.png",
+      "bytes": 548164,
+      "sha256": "aeb401f8a4e554243640ae789c38e059a2f63aa5364b5be94a4c302ec3785286",
+      "decoded_rgba_sha256": "9023ca98ecab40491fe9a000a8acde46a246721ca20c156b7e4edd5cff818d70",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice1_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice1_tip_pressed.png",
+      "bytes": 549009,
+      "sha256": "dd7c003256732b1c6c24515fdbd11903e29f4ebff7f167d082320d46e99fb732",
+      "decoded_rgba_sha256": "888d2d28534090cf3640280dcaf85a2c8f99a2389cf922995ed78fd6e0f92b16",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice1_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice1_tip_released.png",
+      "bytes": 590075,
+      "sha256": "2cf76e649db9636a688a6a514fe546f12c60fe5f39e237032980b13ed352526e",
+      "decoded_rgba_sha256": "2520b71072ca7420c77c0243e61794785b780feeab8a078bcc782989f2b710ac",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice2_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice2_ready.png",
+      "bytes": 590104,
+      "sha256": "176d805ea92f8f902c985718472b01cda130fb659d93134953be9fa0e022cfb3",
+      "decoded_rgba_sha256": "52d600b2628a4bb7666bfd0d3dccf1eda32d47a86d40c2fe654d9eee22e29bd3",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice2_help1",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice2_help1.png",
+      "bytes": 591370,
+      "sha256": "1dbdcad4e782bb9f4896f6919bfe668594610020db0d5ecdbb282735155371db",
+      "decoded_rgba_sha256": "a8e119b4d8255448d8b27e207400135a4653b6c5f92d988ff34dbb89fd5080e5",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice2_help2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice2_help2.png",
+      "bytes": 594339,
+      "sha256": "422c4ce2b910fd50d323dce9e00f2b63d7af97329af44f48eb9c4ddd949bcb33",
+      "decoded_rgba_sha256": "8713a9a82485b8b2a8255a86dc61562086565a9d0dcd0b4c094a59c01673c066",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice2_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice2_tip_pressed.png",
+      "bytes": 595293,
+      "sha256": "c84ae7442906fed139aa4a638c94c4680ac825ed0e2f240bfb1e202a9d1963e2",
+      "decoded_rgba_sha256": "bd37a1b03e5b3327bdbd782c81463765cb925003e58f6fbf9517eb2fac69d39c",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "choice2_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice2_tip_released.png",
+      "bytes": 589287,
+      "sha256": "729cc538ec2da8089ad2fc35e6965b9e060f468639bfb8ea91edf4e8e8ebcd81",
+      "decoded_rgba_sha256": "c8e055471f72797511c95ed28728ae638835b9840f70837db32b8eb752d5937c",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "carry_start",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/carry_start.png",
+      "bytes": 589186,
+      "sha256": "23de2a37a823809911e70e704b546b4ba8d8b84c80e8ed15d19730032f9bbb23",
+      "decoded_rgba_sha256": "efbe7abfc3f67f21c1050bec85be2abfd1a32b2f333eb58a394a4d732fd81013",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_ready",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_ready.png",
+      "bytes": 572012,
+      "sha256": "396e7807188155f4ce1079644834492fdba1f14777f106c8fbee2cb0c2040ffb",
+      "decoded_rgba_sha256": "fcca256bbd7199ac2225c9995ed933bd95202bb3c028373f39ec8d7e05f4aecb",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_help",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_help.png",
+      "bytes": 576461,
+      "sha256": "2c2eed2f785a20846f3b4883c02464c0d843406d484b46f29145c02142127c62",
+      "decoded_rgba_sha256": "3c03239f33e8503ed4a25d374c2c0e2df9c104f1c96d0b9063a1a5adc4f91428",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_tip_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_tip_pressed.png",
+      "bytes": 573420,
+      "sha256": "727b8c085e4ff07812f120eaf554729532841127f6e3a942573b7cf6c61bade1",
+      "decoded_rgba_sha256": "26c0c0f93b524addae608fa760882e8154816685734c5d2cbd9dae67447323f0",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_tip_released",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_tip_released.png",
+      "bytes": 577268,
+      "sha256": "8561a0906f1d079f5372c31da3b35d1cc43f40013e492eab5cea35631cc4c373",
+      "decoded_rgba_sha256": "df5f5892d458a3c28270927a16c5b5b2998c6f33dc606c878083f18888a86c9f",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_partial_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_partial_pressed.png",
+      "bytes": 573406,
+      "sha256": "ce336a9bad62749c326bc4637052dcd9304969d0aeea26a704babd4b085f4e8e",
+      "decoded_rgba_sha256": "d7f279a55e2dd765301f13c46f687b7026737e1b4831d1310870cff34bdaa8fb",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "treatment_partial_canceled",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_partial_canceled.png",
+      "bytes": 577242,
+      "sha256": "eb1ab9b7b09a11efa4abaebf7e0711eccc757d6b443b301388555e42d15fdd1c",
+      "decoded_rgba_sha256": "6ad0e5cddf9b10e2956d17fda9e18f5c3c8025addbfc408500750e70e1a0d082",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "partial_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/partial_venue_restored.png",
+      "bytes": 1549125,
+      "sha256": "2894576e41dc1cb792b0ac6afca4639202e5b1df8a9f0b17baf2a7186d05e727",
+      "decoded_rgba_sha256": "485961ad5ddac93b6d5a436983aa3e1057f9496034d1f1d99ebf96b1576adb5f",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "partial_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/partial_reopen_book_open.png",
+      "bytes": 574536,
+      "sha256": "b29b9cb786bd18611f0d656a4d14821674c663181495878925609c68715f737a",
+      "decoded_rgba_sha256": "a8f4d104c124cbf0e51d9f3ed78d3652d0d90f6c7d6d01e3617de5b57f39b965",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "before_main_reload_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/before_main_reload_venue_restored.png",
+      "bytes": 1549003,
+      "sha256": "46fe513953f4ec11bcfdc9c7287d55bec515d80defb3280dee53c4bd32215159",
+      "decoded_rgba_sha256": "fd6adf6588e5740f7f0553fe3fd13a76de457da796cceaa0e4ffa443a09275f6",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "reload_opera_room",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/reload_opera_room.png",
+      "bytes": 1233640,
+      "sha256": "1b5997303f670de023c19f4b715a9a32afb95db75054be34baa16775d860d756",
+      "decoded_rgba_sha256": "09bea8f6b1d9bc945550ba0db78dea2983fc3ca8b1fcac4fcb18e3a1165c1606",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "reload_venue_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/reload_venue_open.png",
+      "bytes": 1447887,
+      "sha256": "153f93d748eb23d05f841bdbe5407ae484202db991a1bff70351c0b99f5f4411",
+      "decoded_rgba_sha256": "ede584f3d1e78a780dc1023b4b24d52dcdef625e1eb3e311734c37a5d8ffc0af",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "reload_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/reload_book_open.png",
+      "bytes": 588823,
+      "sha256": "6292e625f940385d092ff54a522e50879307d47b19a74fcd323e165a6113ed26",
+      "decoded_rgba_sha256": "8c8358db44d0b6dc09783857c269ae765509ec5ff641387adfdef56eda152cc7",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "healthy_complete",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/healthy_complete.png",
+      "bytes": 526638,
+      "sha256": "e13745db70adf5a75e35550b2c72cd17018c1758314d498877c8a4878b5b3ab4",
+      "decoded_rgba_sha256": "8df945e508ff8c9d7472d4e4a9b95e9c57709e0e801b040ba17ed9b05cff4730",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "healthy_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/healthy_venue_restored.png",
+      "bytes": 1447801,
+      "sha256": "3ebe4a5b0a6f60e51c707d33536ab149ba95738379a96cc38863ef66bb0e2a87",
+      "decoded_rgba_sha256": "40c8eb7677ea951628eb68a84557fe5816e1bb80b63e5efb306095c3e50cc0eb",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "healthy_reopen_book_open",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/healthy_reopen_book_open.png",
+      "bytes": 526560,
+      "sha256": "9e0495bf1176d8d3f019e87fa14fd3214b799600b008aa62f017f7aa768919fd",
+      "decoded_rgba_sha256": "7ae227077d1fc75e8461ca4b90c78a1d7009fae4e3e84813729a656896998700",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "replay_started",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/replay_started.png",
+      "bytes": 562488,
+      "sha256": "39c4dd737b038c30919d22a6e5eb649f6aa3f3cdc1cbf45c62e28d89c9ff62dd",
+      "decoded_rgba_sha256": "1ea2b2e3f31d58933ecc848c0f60c510a511fef3b1f64b74e261dbe317b871d5",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "candidate_detached_restore",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/candidate_detached_restore.png",
+      "bytes": 562503,
+      "sha256": "f11325df5362095f43c41aa849a59c52a97c0c641214933d5b4c507b1c1ecb54",
+      "decoded_rgba_sha256": "11223196337c41e7b4e50f98f2f4d662055bf526e938f32cbb2c40d56e748540",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    },
+    {
+      "case": "attempt2_tree_book_registered_1600",
+      "variant": "LEAF_SILHOUETTE_V2",
+      "id": "final_venue_restored",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/final_venue_restored.png",
+      "bytes": 1447737,
+      "sha256": "7d9b6d48a80516a5d6671b855859e56ac835ade4f235e27696d27b1de85285bf",
+      "decoded_rgba_sha256": "0e1d501aaf68318b9bbfef72a42d9d00d1a013a7edb0a9735e47d9b8ab4e3f61",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_DIAGNOSTIC",
+      "reason": "Nonproduction geometry preview;0source-context/acceptance credit"
+    }
+  ],
+  "raw_frames": 230,
+  "bounded_source_contexts": 78,
+  "excluded_diagnostics": 152,
+  "scope": "Every230actual raw PNG retained. Only78new current original-source contexts credited; all148candidateframes plus4startup frames excluded from current source inventory review credits. No pixel edits, new artwork or complete route/acceptance."
+}

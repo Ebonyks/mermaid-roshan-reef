@@ -1,0 +1,124 @@
+{
+  "status": "PASS_ALL_ARCHIVED_FIXTURES",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\capture_tree_book_edge_v1.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_control_1280\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_control_1280\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_control_1600\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_control_1600\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_registered_1280\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_registered_1280\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_registered_1600\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_registered_1600\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt2_tree_book_registered_1280\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt2_tree_book_registered_1280\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt2_tree_book_registered_1600\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt2_tree_book_registered_1600\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\registration_preview_edge_v1.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\capture_tree_book_edge_v1.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_control_1280\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_control_1280\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_control_1600\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_control_1600\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_registered_1280\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_registered_1280\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_registered_1600\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt1_tree_book_registered_1600\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt2_tree_book_registered_1280\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt2_tree_book_registered_1280\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt2_tree_book_registered_1600\\capture_tree_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\native\\attempt2_tree_book_registered_1600\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\registration_preview.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r75_tree_book_registration\\registration_preview_edge_v1.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    }
+  ],
+  "fixture_files": [
+    {
+      "path": "capture_tree_book.gd",
+      "sha256": "b4388333e066be9265eb7580d15284e0729f80f808e5e80c3043d46b3f3ad78a"
+    },
+    {
+      "path": "capture_tree_book_edge_v1.gd",
+      "sha256": "7e7fcc8fd5b1236cc3e8b810314c80e503d4bd10e40ce1deaaef43693ee96b88"
+    },
+    {
+      "path": "native/attempt1_tree_book_control_1280/capture_tree_book.gd",
+      "sha256": "7e7fcc8fd5b1236cc3e8b810314c80e503d4bd10e40ce1deaaef43693ee96b88"
+    },
+    {
+      "path": "native/attempt1_tree_book_control_1280/registration_preview.gd",
+      "sha256": "32b6a7dc4c3eeeab341b4e35a531245f1c40a8bf74af84704bc0a70f314bf84b"
+    },
+    {
+      "path": "native/attempt1_tree_book_control_1600/capture_tree_book.gd",
+      "sha256": "7e7fcc8fd5b1236cc3e8b810314c80e503d4bd10e40ce1deaaef43693ee96b88"
+    },
+    {
+      "path": "native/attempt1_tree_book_control_1600/registration_preview.gd",
+      "sha256": "32b6a7dc4c3eeeab341b4e35a531245f1c40a8bf74af84704bc0a70f314bf84b"
+    },
+    {
+      "path": "native/attempt1_tree_book_registered_1280/capture_tree_book.gd",
+      "sha256": "7e7fcc8fd5b1236cc3e8b810314c80e503d4bd10e40ce1deaaef43693ee96b88"
+    },
+    {
+      "path": "native/attempt1_tree_book_registered_1280/registration_preview.gd",
+      "sha256": "32b6a7dc4c3eeeab341b4e35a531245f1c40a8bf74af84704bc0a70f314bf84b"
+    },
+    {
+      "path": "native/attempt1_tree_book_registered_1600/capture_tree_book.gd",
+      "sha256": "7e7fcc8fd5b1236cc3e8b810314c80e503d4bd10e40ce1deaaef43693ee96b88"
+    },
+    {
+      "path": "native/attempt1_tree_book_registered_1600/registration_preview.gd",
+      "sha256": "32b6a7dc4c3eeeab341b4e35a531245f1c40a8bf74af84704bc0a70f314bf84b"
+    },
+    {
+      "path": "native/attempt2_tree_book_registered_1280/capture_tree_book.gd",
+      "sha256": "b4388333e066be9265eb7580d15284e0729f80f808e5e80c3043d46b3f3ad78a"
+    },
+    {
+      "path": "native/attempt2_tree_book_registered_1280/registration_preview.gd",
+      "sha256": "8ce6d1b99363800d26791d707e43e13f00003ca18e42307337a07c66265064b1"
+    },
+    {
+      "path": "native/attempt2_tree_book_registered_1600/capture_tree_book.gd",
+      "sha256": "b4388333e066be9265eb7580d15284e0729f80f808e5e80c3043d46b3f3ad78a"
+    },
+    {
+      "path": "native/attempt2_tree_book_registered_1600/registration_preview.gd",
+      "sha256": "8ce6d1b99363800d26791d707e43e13f00003ca18e42307337a07c66265064b1"
+    },
+    {
+      "path": "registration_preview.gd",
+      "sha256": "8ce6d1b99363800d26791d707e43e13f00003ca18e42307337a07c66265064b1"
+    },
+    {
+      "path": "registration_preview_edge_v1.gd",
+      "sha256": "32b6a7dc4c3eeeab341b4e35a531245f1c40a8bf74af84704bc0a70f314bf84b"
+    }
+  ]
+}

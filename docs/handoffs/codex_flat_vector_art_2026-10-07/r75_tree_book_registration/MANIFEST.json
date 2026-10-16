@@ -1,0 +1,2902 @@
+{
+  "schema": "reef.flat_vector_delta_manifest/1",
+  "revision": "FV-AUDIT-20261015-R75",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/flat-vector-r6-20261012",
+  "audited_source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "topic_baseline": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+  "files": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/glyph_inventory.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 136505,
+      "sha256": "19f3e0335f9b3af55b8c83f541eed52336107807c9b073057f412897ca2fcaa9",
+      "role": "Frozen original registry byte-preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 1103788,
+      "sha256": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9",
+      "role": "Frozen original registry byte-preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/RUNTIME_BYTE_BASELINE.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 1106570,
+      "sha256": "60e556d68dcd3e826407e7a4f15341a52e2b7fa5216c67907ca68d521de335e7",
+      "role": "Retained exact prior raw source/import baseline used for EOL recovery"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/FINAL_BYTE_RECEIPT.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 1852,
+      "sha256": "d5999f818fb02a780224aa2e232560598734f5924d8f12919f4d4881f8d4795c",
+      "role": "Prior exact unapproved ImageGen request/receipt; no retry/export"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/NEW_ART_REVIEW_REQUEST.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 3050,
+      "sha256": "ca4dc61d8800c018fc334dc714919b60c70aaa1061f2e6991fd2c960cced20dc",
+      "role": "Prior exact unapproved ImageGen request/receipt; no retry/export"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/README.md",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 5769,
+      "sha256": "bfde9f1a741106babf553f85f45030908346f8ebc4dd15c754dac5db402dc787",
+      "role": "Prior exact unapproved ImageGen request/receipt; no retry/export"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/CAPTURE_INDEX.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 76002,
+      "sha256": "7bc2c4d310be936efee09470a0f2bdc6cdfaf97084ba7363a590a9468245683d",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/CONGRUENCY_BACKLOG.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 417236,
+      "sha256": "4711e72d661847fccbda3151e7478871c0d685b7825f9c6dad8da4d90b4044fb",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 5283,
+      "sha256": "e1f139d88e5fdea35f623ade1e33d06bacbca3c50b8535521603137f7939d565",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/CURRENT_KNOWN_ROLE_UNION.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 34271,
+      "sha256": "017498ce68d2aeeee05d85ed8c9ead8017966862177ca2b518630332801ab006",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/CURRENT_PARTIAL_CONTEXT_UNION.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 16834,
+      "sha256": "fe873703cd524a43791b2afa4bb1e0d0a5d4332bb2698fa67d761fa40a743cd0",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/FINAL_BYTE_RECEIPT.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 2376,
+      "sha256": "50a59bcea802de1ada678ee916ef2d9d35c9ed07bd5e5c4685462a8686ff8cec",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/MANIFEST.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 86582,
+      "sha256": "0c100cf1dba21d22b1ce6728edf404c9ca9a6a9003ca0e56aa462fb5f0f9c561",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/PIECE_CONTEXT_REVIEWS.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 67525,
+      "sha256": "8188f4d2b3af277ebb96919f4329694a52fb30e9e0af49119dee32c0f29f4b01",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/README.md",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 5986,
+      "sha256": "a50a3ddd1bab6c1ceb33b538a679a514556b75876ee726ac8be1d81a8286ceea",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/REMOTE_VERIFICATION.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 159331,
+      "sha256": "66b983a261a745a3f186e6949bf484307c9766cf4f0890247fa639018f6a8449",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/SOURCE_BINDINGS.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 1651,
+      "sha256": "f1fdc1dad7146f8f053709a168a747489f57645912f0106056eca4b2f447ecf7",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/SOURCE_GUARDS.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 452,
+      "sha256": "777721b62dda44c577ac3c4bcd0d06f9cb4aea6932f3b8b4567cf0dd5e52a6fa",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/SUMMARY.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 3599,
+      "sha256": "0da38bfd0bc34675e39fd0fc42024352bb11db8581d22b15de0ca46690bea2ef",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/WORK_IN_PROGRESS.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 1284,
+      "sha256": "cf7b4447a47c4b8fcf2da0858b5e90059409ab4bd155dfeebb9620f37d13d78a",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice0_help2.png",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 557349,
+      "sha256": "745def720d1cdbd8660e237e6e324785020193250343d78e72fb1b18b7829b44",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice1_help2.png",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 545118,
+      "sha256": "f848e0a030a6cb5468d39d8904c28b94bb3ead1a9447be100c8454cfcadb7976",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/choice2_help2.png",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 589563,
+      "sha256": "ccb1071017b5f099856ed38796b1a80c50dc81c8f4da12ebf7e2c7f92d0c2ce7",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/healthy_complete.png",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 523176,
+      "sha256": "560af7b69eee3e8f0cd49044cb055a5b3b6790523d0828119abd133b15570869",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/replay_started.png",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 555133,
+      "sha256": "f1c7c8d66111878712af03f32df56a3c1393b135d236940e8fab3bb910f98b96",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1280/treatment_partial_pressed.png",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 564769,
+      "sha256": "1eecf4e861188c309baf6ea910b110990ac16087eb1a64ece053b8ce74819c25",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/choice0_help2.png",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 562086,
+      "sha256": "dd4a0de5c1d57973040ba85d783dc69576a0eed6294111b76875071d9e73f059",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/healthy_complete.png",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 526570,
+      "sha256": "f65fbce7a3147c5af568014a775be0a6203aeae5cdaf3b8e2e0a1d43eb68d9b4",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/native/attempt2_tree_book_1600/treatment_help.png",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 572621,
+      "sha256": "2054d31033957008713372e09c564f37034d5ff3d6f26c1cad6f1376edfc3ee5",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/per_piece.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 1515353,
+      "sha256": "82a0c251bfa730c908a1564b06ee0ab106484a6a4f2c62451cec0b1c3423efff",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/scene_coverage.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 953767,
+      "sha256": "5c6be847b5f6fc33dc8f32ecb372527dee4db30568bd16639559422d0a258c62",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r74_tree_book_context/tally.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 406178,
+      "sha256": "4c6a8df818d6f2fb6433d74abe722ddec9e04a3cf5aedc927df4adab776a5424",
+      "role": "Immutable prior R74 canonical/history; no renewed transitive native/acceptance claim"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 438160,
+      "sha256": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f",
+      "role": "Frozen original registry byte-preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/source_scopes.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 306677,
+      "sha256": "a1aca7b3bacc6124a1d0938f126803b6ea022b8f8de1ee224ef78ab5a8ef6951",
+      "role": "Frozen original registry byte-preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json",
+      "revision": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+      "bytes": 7990,
+      "sha256": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a",
+      "role": "Frozen original registry byte-preserved"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": null,
+      "bytes": 297849,
+      "sha256": "03a420be63207b5813af889d14ce15f7ed3f966455dd8ed19e79be4a9575718f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": null,
+      "bytes": 245348,
+      "sha256": "7f8297cc53a0e0a768e7ab1dd30b30c8271c7c8f10911febbf15aa5804d052b6",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": null,
+      "bytes": 257272,
+      "sha256": "0f8cbfdca2515ca75053e35ac09b33b6a269a81c6b26e7e92945fc92660c0f86",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-tree-book-registration-20261015.json",
+      "revision": null,
+      "bytes": 50313,
+      "sha256": "5adbd7e465e041770ec577bae0bb0ddce28fe4ece4b3c1df27d6100f307afe40",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": null,
+      "bytes": 30261,
+      "sha256": "9b1440b03352f34e7aa1d1866e0a9a90acaaf3981b7b5b478c311bee5286f85d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": null,
+      "bytes": 482,
+      "sha256": "ce1df05a9a0eac7530b8aa51f0cc77e9df63d8151abc58ce2a67a17e12b18bdd",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/.gdignore",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/.gitattributes",
+      "revision": null,
+      "bytes": 23,
+      "sha256": "8598e83c918afde63676db335e91ec7fa02ebc4a531334c50e03f74041c49232",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/ALL_FIXTURE_GATES.json",
+      "revision": null,
+      "bytes": 10523,
+      "sha256": "44318c01fe518e330701e043112e3636b52f609e8633be1e4f08466afa2c647f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/CANDIDATE_BRIEF.json",
+      "revision": null,
+      "bytes": 3998,
+      "sha256": "52c7458ee9976edecfd8252fefde70c31f26a9f6cd2fc47753ae2ec8779a9a7a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/CAPTURE_INDEX.json",
+      "revision": null,
+      "bytes": 161135,
+      "sha256": "96f7171d8a630e18e0343485ab1300d719da76bef46c9560aebfff8b6a22371a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/CONGRUENCY_BACKLOG.json",
+      "revision": null,
+      "bytes": 423232,
+      "sha256": "c7564aa5c462448c206dfc4c53b5f07ad0c43d636f609670b337a6688810c272",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/CONTEXT_PREREQUISITE.json",
+      "revision": null,
+      "bytes": 23919,
+      "sha256": "eb4ced333c5c711a209be9acb8136b82e255822e0e1f449740003fb9e1fb7ed0",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+      "revision": null,
+      "bytes": 5642,
+      "sha256": "420b98d1405ee0286e9cf5481047a5c75aa2e32bb331a3ccdcea592bb937eb3d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/CURRENT_KNOWN_ROLE_UNION.json",
+      "revision": null,
+      "bytes": 34630,
+      "sha256": "271d55ad889e02db02ef5775822e53c0e39d0a95c0bd905d5bb5935603fb0397",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/CURRENT_PARTIAL_CONTEXT_UNION.json",
+      "revision": null,
+      "bytes": 17193,
+      "sha256": "a1347f7cff8f7f338c03dbf04ae3b25aa61aeb7c63f8bccc658dadc0f8491cd9",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/DELIVERY_SOURCE_REFERENCES.json",
+      "revision": null,
+      "bytes": 12427,
+      "sha256": "3ce49cd47f8d491a415b0a249e6d1d721883349863b016d38cbd13394de5972f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/DELIVERY_TRANSPORT.json",
+      "revision": null,
+      "bytes": 334,
+      "sha256": "97044e9bf28fa5ca0b3a5435930f3a2a08398e89b03b751ffc9bae8c69e479c2",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/FIXTURE_SYNTAX_GATES.json",
+      "revision": null,
+      "bytes": 2393,
+      "sha256": "249c7b4040a34f00c05edd3bceac27774de2661d6f992a45e88a38635fb8833a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/FIXTURE_SYNTAX_GATES_EDGE_V1.json",
+      "revision": null,
+      "bytes": 2357,
+      "sha256": "9b0b1325556b45ac9759687bb106729c378c973077144df3d713b6bfd9105ed4",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/GATES.json",
+      "revision": null,
+      "bytes": 3736,
+      "sha256": "e056db29593a55dc4d2c39f72cdbb5f43527c3f80bc8c5d1b47ffe5d6ccbd33d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/IMPORT_EOL_RECOVERY.json",
+      "revision": null,
+      "bytes": 500466,
+      "sha256": "28264c6f732e0900252d26d87ff3bce402f60f8680b2b531d4e8e432aa165935",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/IMPORT_REWRITE_FAILURE.json",
+      "revision": null,
+      "bytes": 1179,
+      "sha256": "7e0cdcb48eafeab42ee441fe0eac51275ea097c71f89f13b6579c6c2fcde135d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/IMPORT_SIDECAR_DELTA.json",
+      "revision": null,
+      "bytes": 6240,
+      "sha256": "6ebd59bc28d07f8cf64f1e127c4bc2b2dd1f08d885c7d0a5b6469d49ea3fb74f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/LEAF_COMPONENT_BINDING.json",
+      "revision": null,
+      "bytes": 1545,
+      "sha256": "0600683ffeae7532932095b79b2fef1dc547a60442cdbabcede09fb9d098a195",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/PLAN.json",
+      "revision": null,
+      "bytes": 5611,
+      "sha256": "d4c08dca438f673450b30f84ba03d96ff8f4fe93f047404a17c7340d6083fb9e",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/POINTER_MEASUREMENTS.json",
+      "revision": null,
+      "bytes": 46343,
+      "sha256": "b1e469395ad82a33ab427ce5e9ab95bc060be1259301686f2eb9424dbf27a270",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/PREPARATION_HISTORY.json",
+      "revision": null,
+      "bytes": 1474,
+      "sha256": "a73eff61e9b8c369a0d0f671755487e8069374f788f676fe3acd49f47ded9265",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/PROVENANCE.json",
+      "revision": null,
+      "bytes": 1057,
+      "sha256": "411316ec7de70fdc712a7627fff6fa11a637546d52ce88378ce51739694483c1",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/README.md",
+      "revision": null,
+      "bytes": 6265,
+      "sha256": "f303011bde1ce524a5bffbd03da499332872bcf49f107fc5e7587c2b127ce857",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/REPRODUCTION_CHECK.json",
+      "revision": null,
+      "bytes": 1595,
+      "sha256": "5764333b7fbbc9fea317759a7a460d6af97fb9f59caac551402a98beb3cc6a0c",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/REVIEW.json",
+      "revision": null,
+      "bytes": 13702,
+      "sha256": "a6102566d284c92a31e7044c54d4b6b96226bb458d823ffad2d3eae2c010a1ea",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/RUNTIME_BYTE_BASELINE.json",
+      "revision": null,
+      "bytes": 1121888,
+      "sha256": "ba78355b0738e69d9d1f0f943100cdcfbbc2b7dba7af4d885f83a0a2253cafe9",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SEMANTIC_TARGET_CHECK.json",
+      "revision": null,
+      "bytes": 76278,
+      "sha256": "242e8834d8b332649007b902b0b4f092afff8a183aa197e43478247e87595261",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SOURCE_BINDINGS.json",
+      "revision": null,
+      "bytes": 1581,
+      "sha256": "c738213c8d64a141bf5cff07409092135b5d4d4272f8ec2e35f69d2fa743c4da",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SOURCE_GIT_OBJECT_PROOF.json",
+      "revision": null,
+      "bytes": 1330180,
+      "sha256": "007c0fcf9303dc8a0182ded7e31f772c8595e4846a33519501c8905d8d524266",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SOURCE_GUARDS.json",
+      "revision": null,
+      "bytes": 451,
+      "sha256": "4de8e8e5097ca7e9bc33cd3be8530007fd2ba8109a9ece54e93af91cab88b89d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SOURCE_STATE_COMPARISONS.json",
+      "revision": null,
+      "bytes": 32139,
+      "sha256": "d4e7f933019179fb4ea046d4d73159b04fe9d8d1aeec51c703e7a101a4b305be",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SUMMARY.json",
+      "revision": null,
+      "bytes": 5425,
+      "sha256": "dfd4defa185110dbfd3403669261ad2b89a8d6a2ee3ede15d17903a6f024e0fb",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/SUPPLEMENTAL_CURRENT_DEPENDENCIES.json",
+      "revision": null,
+      "bytes": 3960,
+      "sha256": "ad067480a58d85f1b3304a09644cdc48c8f613e84ab8761035cdd56486d5d5ac",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/UPSTREAM_FRESHNESS.json",
+      "revision": null,
+      "bytes": 214,
+      "sha256": "0f4c34c195a4565cd94922c7865fb97360361b5dca8280483c1654199c20230f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/WORK_IN_PROGRESS.json",
+      "revision": null,
+      "bytes": 673,
+      "sha256": "0249c64a7fcdb9acc92ed43c150069ade8845d499e5f81d5d071909efba7c5c9",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/bounded_json.py",
+      "revision": null,
+      "bytes": 4089,
+      "sha256": "42d8c411b7cd752dc3abc2e09089a1d97a4302bcae15d145b6a515c57bbc83cd",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/build_manifest.py",
+      "revision": null,
+      "bytes": 3611,
+      "sha256": "72dc95fa06fa25f6b5f7223002aa9b6923795a97b4be71156f761178ccbdda28",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/capture_tree_book.gd",
+      "revision": null,
+      "bytes": 23873,
+      "sha256": "b4388333e066be9265eb7580d15284e0729f80f808e5e80c3043d46b3f3ad78a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/capture_tree_book_edge_v1.gd",
+      "revision": null,
+      "bytes": 23800,
+      "sha256": "7e7fcc8fd5b1236cc3e8b810314c80e503d4bd10e40ce1deaaef43693ee96b88",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/derive_evidence.py",
+      "revision": null,
+      "bytes": 13904,
+      "sha256": "322f059b7d9d27223922dcb41b7d6d3012f3ed93136a62e1a6b50a29fe8c431c",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/gates.log",
+      "revision": null,
+      "bytes": 536,
+      "sha256": "677997122c5e4d94d4760b047d758439baeefc2d5e866b75b86f19f786de5e90",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/import_generated_lf_backup.zip",
+      "revision": null,
+      "bytes": 707995,
+      "sha256": "37eb2f97c03c9cea1fd3785c3de7d1707f7cb493900aa5e10ff93c07e07700e4",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1916,
+      "sha256": "0a17f8addbd987c9b82987cb650c5620b804cd5e854e058a6693bde8575c745a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "0ceef6b2ded9cbb5ac3ed7a7cf587a8ce95a5582967450de5a9c041f0ee86e58",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/before_main_reload_venue_restored.png",
+      "revision": null,
+      "bytes": 1516307,
+      "sha256": "7bc18291964f6871af84f554710e44eff82f774dc4bcf0da87b5b338e4392f79",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 409062,
+      "sha256": "c24e56dac366af06e2b49a90e4ae374080f542d8adc85c160ff1a02df5997a6e",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/capture_tree_book.gd",
+      "revision": null,
+      "bytes": 23800,
+      "sha256": "7e7fcc8fd5b1236cc3e8b810314c80e503d4bd10e40ce1deaaef43693ee96b88",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/carry_start.png",
+      "revision": null,
+      "bytes": 584234,
+      "sha256": "5546161c2dd0f22a08dc8bab5b305a3b3702da79c5a72487a552331be8019857",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_correct_pressed.png",
+      "revision": null,
+      "bytes": 559076,
+      "sha256": "81ef49167651ed0f7743c7bdfec49e8b6fa83ec3c3455e9438a0985c0c113d35",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_correct_released.png",
+      "revision": null,
+      "bytes": 542671,
+      "sha256": "6f23be47c903a6fb4d3d009db556367a729572b754385b9cadda32077ebd2360",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_help1.png",
+      "revision": null,
+      "bytes": 555055,
+      "sha256": "1ebe9461b724d7710b1ac15f332da9944b81ff57bb5f9120e8692b2ae91724fe",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_help2.png",
+      "revision": null,
+      "bytes": 557361,
+      "sha256": "88eed60b6f46d3583ec3008c423056cf9474a1fc42c61f8f069f0ba8eed2355c",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_ready.png",
+      "revision": null,
+      "bytes": 555275,
+      "sha256": "cf4741cfe3e7db09f6f3cd9b3772176408fcdb286b446a960ded9192dc9f1144",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_tip_pressed.png",
+      "revision": null,
+      "bytes": 558690,
+      "sha256": "da1ad012e3ac10ddf7bb52f4648017e34aa8916d56880bd460ed24e4b7c8d9db",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice0_tip_released.png",
+      "revision": null,
+      "bytes": 558080,
+      "sha256": "52a71792088f991d2e8a8c961ea7b22b9b41aaa863cfc033b42377cde36edfcf",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_correct_pressed.png",
+      "revision": null,
+      "bytes": 545542,
+      "sha256": "b33ff92f64ab052d6bf284613ed9a67a23be88294bbb548e9ef366812a7daef4",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_correct_released.png",
+      "revision": null,
+      "bytes": 585285,
+      "sha256": "dc20d32e991116a632f5fa29540da1dd1f51f04c46147b64da00d909fb3313f6",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_help1.png",
+      "revision": null,
+      "bytes": 543055,
+      "sha256": "b1ee1491ca975910ab986186cb0bb629ed36c52d11fbe3947e776a0ab015ddde",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_help2.png",
+      "revision": null,
+      "bytes": 545049,
+      "sha256": "2b12d8fa58501386a565b54b5530ddeacf11a52c2fa01140f10870e9f7f36864",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_ready.png",
+      "revision": null,
+      "bytes": 542654,
+      "sha256": "1504691ccf70936bd80b50483243fe84c48fab6c4829e3fe3f8c2d8b6e1835ed",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_tip_pressed.png",
+      "revision": null,
+      "bytes": 544856,
+      "sha256": "a11a8f7b27ff7a01c9cd5d98ad1ee69086682f6f125dce66aa0a2fb7aa527a93",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice1_tip_released.png",
+      "revision": null,
+      "bytes": 544642,
+      "sha256": "f7ba77c8537127659100a67b5bc4d81d9e4cde60268b9b1fe39fedb189339f98",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_correct_pressed.png",
+      "revision": null,
+      "bytes": 591721,
+      "sha256": "5f8bc91313995424088a620289b3d3452d5566823553eca5ff217aaabf46d229",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_help1.png",
+      "revision": null,
+      "bytes": 586612,
+      "sha256": "8c5e7239f3410452bf2f8ccf3c89c5fbef4afc35f89c90ea7852789a0ab1363f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_help2.png",
+      "revision": null,
+      "bytes": 589571,
+      "sha256": "0dbcecf4197b261db23decce41fdc27bc6c524ba69ba769fb17cb256097cc9e8",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_ready.png",
+      "revision": null,
+      "bytes": 585279,
+      "sha256": "861623133330c54b023c3c5d28ddbf8fc2fc8f1c06e4a6886b03d0e43762c9cb",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_tip_pressed.png",
+      "revision": null,
+      "bytes": 590606,
+      "sha256": "7a810d8a8b466fe8a8024bb48eb261a935b6b8a72513b7bee711a15be2db74bf",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/choice2_tip_released.png",
+      "revision": null,
+      "bytes": 590477,
+      "sha256": "8706e437fbbf878d4a09e367695e936bdc7d909f2b9567fbe82445c13242d49b",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/engine.log",
+      "revision": null,
+      "bytes": 1808,
+      "sha256": "e12ddc443e8e59dd3998c3a3d5aafb637dc605dee970a4da4d8b391e15ebe918",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/final_venue_restored.png",
+      "revision": null,
+      "bytes": 1416469,
+      "sha256": "628b67ffb17cfe3fc16c94831d9a73e6b127510f99e49a4e6cabe80e212e1da3",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/first_book_open.png",
+      "revision": null,
+      "bytes": 555334,
+      "sha256": "737afc3b84c6beb5c60b24b99f119f9cf39fa478c2d4c63d8f37273c1bf34299",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/first_opera_room.png",
+      "revision": null,
+      "bytes": 1195804,
+      "sha256": "e9bb3663615b0107a9b3f0ea2c8360259d9e4cf295e579ad73780df9d37a5cf4",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/first_venue_open.png",
+      "revision": null,
+      "bytes": 1416512,
+      "sha256": "1b2d39b459eb6a0a9a15b5cab43fd7ffcf6a2879c4a392963dc55760671d37f5",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/healthy_complete.png",
+      "revision": null,
+      "bytes": 523195,
+      "sha256": "0262f2a6aec35e86923fdd1e1868d287a8264b4a89db653cef2799de60062d42",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/healthy_reopen_book_open.png",
+      "revision": null,
+      "bytes": 523176,
+      "sha256": "76ebeb76abbb9318f69bd1785cf59075f540a06eca2d328d608a3ec33cd4f739",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/healthy_venue_restored.png",
+      "revision": null,
+      "bytes": 1416603,
+      "sha256": "3c2d95bc59102cc3f8467b832cce3e254f73f52b68ac1d0811f7e4648b2881ce",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/partial_reopen_book_open.png",
+      "revision": null,
+      "bytes": 569295,
+      "sha256": "a83e66a3665e548ec2f96591839592b1df5678c7c3d8fbb2778031ed55a9bb21",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/partial_venue_restored.png",
+      "revision": null,
+      "bytes": 1516506,
+      "sha256": "530a7fc7379e47a55eec8898487b5febd56afd1c884f04808a2f4bdd8ea3c8fa",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/registration_preview.gd",
+      "revision": null,
+      "bytes": 3516,
+      "sha256": "32b6a7dc4c3eeeab341b4e35a531245f1c40a8bf74af84704bc0a70f314bf84b",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/reload_book_open.png",
+      "revision": null,
+      "bytes": 584258,
+      "sha256": "5e5a92cc7a7da77e78a0796b6ba5cd71fc1c5994e706051b581beecb40bb42e9",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/reload_opera_room.png",
+      "revision": null,
+      "bytes": 1195829,
+      "sha256": "b3c7328a909c4c493abc2391ecc678a86d387fd26e6f6924986459b8b0e9c937",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/reload_venue_open.png",
+      "revision": null,
+      "bytes": 1416507,
+      "sha256": "ae4449024e974a93e4996a6f46f179fcc441ef7d7b6fde3aef01a9bc5cf3ba01",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/replay_started.png",
+      "revision": null,
+      "bytes": 555142,
+      "sha256": "0ba3f106c82375b6045b4f7acec5e3c91fdcdfab6bda72485650d957850aab98",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_help.png",
+      "revision": null,
+      "bytes": 567765,
+      "sha256": "ee7b9576547ee2b14498a800a904d4acbd18377ab6522147d8471f7220a963bc",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_partial_canceled.png",
+      "revision": null,
+      "bytes": 569668,
+      "sha256": "59d5abb08c2286693dcabb979aaece13057909bd6b36b8180b9d6e95d794102d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_partial_pressed.png",
+      "revision": null,
+      "bytes": 564874,
+      "sha256": "45a22add3bc8291e7857135115988e5372ea48ff77b3b84b76de759baceb4b89",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_ready.png",
+      "revision": null,
+      "bytes": 566976,
+      "sha256": "55364c1da6a54fb8bbe98fb7c1c1ac0f01e8fdfebe535082065d9dc853317c4a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_tip_pressed.png",
+      "revision": null,
+      "bytes": 567488,
+      "sha256": "c1733b22e7ec63ed2eb41d9e6ce2cd8129fbdb9c24ff0b64c8970641a1c5141d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1280/treatment_tip_released.png",
+      "revision": null,
+      "bytes": 567311,
+      "sha256": "cc794fd0bec18a65a8ec8da6647963dce4ceb08d938c175880a1531adf747db0",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/LAUNCH.json",
+      "revision": null,
+      "bytes": 1916,
+      "sha256": "1607889c3518f1f66eb151ea362d5b1a87b86bbfb4468a7be2eb3fc62cefde94",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "b5e8bf4d692c00312e1893306e6ad0eefa58fe9f883238b258fa695c6dd03a26",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/before_main_reload_venue_restored.png",
+      "revision": null,
+      "bytes": 1548832,
+      "sha256": "7972ef5c2c215b6bfde162e8b143716d210aa6e9fc51a9b278be944e5c616ef2",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/capture_manifest.json",
+      "revision": null,
+      "bytes": 409737,
+      "sha256": "383267e2cef8508ad15b190572dcb528da89255df77f843d4ccab06deaf29bdf",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/capture_tree_book.gd",
+      "revision": null,
+      "bytes": 23800,
+      "sha256": "7e7fcc8fd5b1236cc3e8b810314c80e503d4bd10e40ce1deaaef43693ee96b88",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/carry_start.png",
+      "revision": null,
+      "bytes": 589385,
+      "sha256": "f7e22d26bdbfae0a9194eb3cf2ac67d4cfba76f609abaff9c1c3ddfc5c477c3f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_correct_pressed.png",
+      "revision": null,
+      "bytes": 563969,
+      "sha256": "9225cac551843d26fc5041005db827256c175fb1684fc084dbcc468bebb2af7f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_correct_released.png",
+      "revision": null,
+      "bytes": 547589,
+      "sha256": "ad3d4c03fdac15b4ab4b701d7e7e6b8aedc9fb6d6b369fab8a5e5b0c41d5c9d8",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_help1.png",
+      "revision": null,
+      "bytes": 559769,
+      "sha256": "bb9a4e15b834fd9557fb3f2a2200c14ce2fb00432bf06af3c42a446715038537",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_help2.png",
+      "revision": null,
+      "bytes": 562111,
+      "sha256": "b3588e6b031272246be1fa5718f2f5b12c74b5eb9aeed7d22b7b8f48dbe7a8c4",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_ready.png",
+      "revision": null,
+      "bytes": 562642,
+      "sha256": "e8dece97e11b61ed4829c11e2b501a4429c69b9f9299d51faab51565215eb082",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_tip_pressed.png",
+      "revision": null,
+      "bytes": 563433,
+      "sha256": "e862fb4ca839f03fb13cc7272f327c338f09a6ef07aae8d737e44df0de2f2618",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice0_tip_released.png",
+      "revision": null,
+      "bytes": 562940,
+      "sha256": "ac562b8db12250b17ec81c1949479ae9cdde3521a66dbe660c33854dd13fdbab",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_correct_pressed.png",
+      "revision": null,
+      "bytes": 550218,
+      "sha256": "91126b36ebb7a40e75475ccad13fd7fd42467037c6e2f5fcfb77299115e25864",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_correct_released.png",
+      "revision": null,
+      "bytes": 589947,
+      "sha256": "aaba25f6e044bdc83e5b0166b6acaec2e261d7ca83ec0384a7aed8597eef4202",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_help1.png",
+      "revision": null,
+      "bytes": 547741,
+      "sha256": "ac5c749b8ac8cdc20c4194e1bb721e0fa7593ab474ff3b90d8b6ea5adccc1ded",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_help2.png",
+      "revision": null,
+      "bytes": 549762,
+      "sha256": "363b9d5554472c896178ec844c9606352249141e1c5772eb1a32aaae42d984c5",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_ready.png",
+      "revision": null,
+      "bytes": 547577,
+      "sha256": "7edd21c0b41bfce2bd6d107404e349c91f9b8123c4d33e7e72b48cef3d89b169",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_tip_pressed.png",
+      "revision": null,
+      "bytes": 549539,
+      "sha256": "fa29cc0b91fe5bc6d2a11f1d0cce92395de3e41a69c1b08e00f80f04f3dc6d8f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice1_tip_released.png",
+      "revision": null,
+      "bytes": 549224,
+      "sha256": "373735804d6ca06d47b10910d4234e45246c9175773741b80115e41666f8c737",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_correct_pressed.png",
+      "revision": null,
+      "bytes": 596682,
+      "sha256": "481c149de2b085e31eebb47badea097dfdecff388e54b1113ad16604ab874c35",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_help1.png",
+      "revision": null,
+      "bytes": 591462,
+      "sha256": "002ca2dfc34f2cdb6c684acbb8d4739558a22c1882d87074b14ed03d543f4d01",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_help2.png",
+      "revision": null,
+      "bytes": 594258,
+      "sha256": "922d14a8b0b39b8c84b6fe9d58e7f0d04387ac543b17f29b11b6dffd215feb56",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_ready.png",
+      "revision": null,
+      "bytes": 590077,
+      "sha256": "19248f174eb650a0060d8e77ac34dcc7098d4e718815c2e69944805b4867d658",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_tip_pressed.png",
+      "revision": null,
+      "bytes": 595429,
+      "sha256": "dbcfa9a1d7b19f69f7be4faa61a6e61bb18b73be4afd57e862588370904b1ad3",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/choice2_tip_released.png",
+      "revision": null,
+      "bytes": 595226,
+      "sha256": "8fd5d33d622c20fafad02b2bd3f52fc16571239f2bd809eba6b8b67916de1464",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/engine.log",
+      "revision": null,
+      "bytes": 1808,
+      "sha256": "e12ddc443e8e59dd3998c3a3d5aafb637dc605dee970a4da4d8b391e15ebe918",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/final_venue_restored.png",
+      "revision": null,
+      "bytes": 1447638,
+      "sha256": "d86dc6d0b4fa6d2dbead22ba861d4e4a8087967f3886dd346bcc0b79cfc120e1",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/first_book_open.png",
+      "revision": null,
+      "bytes": 562623,
+      "sha256": "cd57d01248412a8c76235fef44e606cca60999c48299fc231bcb9ec007310b8d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/first_opera_room.png",
+      "revision": null,
+      "bytes": 1233799,
+      "sha256": "73ac1ee82c17f5cf5be23c9691ab6e37a03450ea0d5f26a1f11bcae5557ba4b2",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/first_venue_open.png",
+      "revision": null,
+      "bytes": 1447896,
+      "sha256": "3fbcbf10e474aeebe6b8f9b657815a1766105871f9a0d2eb17e6db64ac39ff37",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/healthy_complete.png",
+      "revision": null,
+      "bytes": 526548,
+      "sha256": "69d7a7c3fbcb9ed61ef0b1f1f9595b335e169db83b44e4476d69d7dbe8efcb58",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/healthy_reopen_book_open.png",
+      "revision": null,
+      "bytes": 526628,
+      "sha256": "a8829acc5ee29792136a47a71ec82aa6353b18c90f09dfc86e841feaa86ebc82",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/healthy_venue_restored.png",
+      "revision": null,
+      "bytes": 1447869,
+      "sha256": "0e96d36406b755eb7e3142b6e389ed2cd3a096005fe2a32956dc1008598cb6b3",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/partial_reopen_book_open.png",
+      "revision": null,
+      "bytes": 573953,
+      "sha256": "6099f24fab843958465abc254ade02584b67ca299dbcd52a47f0a1ea3a4a93e3",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/partial_venue_restored.png",
+      "revision": null,
+      "bytes": 1549096,
+      "sha256": "c29258b38a8d70a4b6bead6e3432dbb14bcf35dfe96028e2d2900f061db914a0",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/registration_preview.gd",
+      "revision": null,
+      "bytes": 3516,
+      "sha256": "32b6a7dc4c3eeeab341b4e35a531245f1c40a8bf74af84704bc0a70f314bf84b",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/reload_book_open.png",
+      "revision": null,
+      "bytes": 588369,
+      "sha256": "e7f29ff84956164817a649840bd5d13d419f85ae4b7cd8771ef2dfa6f90daf74",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/reload_opera_room.png",
+      "revision": null,
+      "bytes": 1233708,
+      "sha256": "ca0840d8fea4cd01977debb6a53f7b1e1e6f40f8acfff77a1bd3535c0b72daf4",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/reload_venue_open.png",
+      "revision": null,
+      "bytes": 1447896,
+      "sha256": "bd21862d8cd6a86d8f41a7441aee0a55177a75e834bbdd223a35176eb09a6a30",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/replay_started.png",
+      "revision": null,
+      "bytes": 562431,
+      "sha256": "c185e1c310dc28f8c21ff9a524217195384389ad039659130caf2c966e274978",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_help.png",
+      "revision": null,
+      "bytes": 572594,
+      "sha256": "a054754c7cc41ebe676f70ac15b0a3709bb66dd0189131e04c3d70cec7ddb1dd",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_partial_canceled.png",
+      "revision": null,
+      "bytes": 574390,
+      "sha256": "9339ec791a911dd6920293f003137ed7ee7744e14ce47186bb6c57a06fb09886",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_partial_pressed.png",
+      "revision": null,
+      "bytes": 569985,
+      "sha256": "77e6d550d2bd63768fef021bd8bf4f3ca431491c2ea30be856ccaa53462cf41a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_ready.png",
+      "revision": null,
+      "bytes": 571861,
+      "sha256": "f88d6fdbb10ff42641e790bbcdf9cdc7938a48f55f2af42a31f907b3aac9f1af",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_tip_pressed.png",
+      "revision": null,
+      "bytes": 572397,
+      "sha256": "f032650839a8661b9649387630b92aea8d0951237e22ad762e37b56b745a1f50",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_control_1600/treatment_tip_released.png",
+      "revision": null,
+      "bytes": 572368,
+      "sha256": "b392db8efd792fdf026bedcc33b9be5aedd332ab6b05728b6b517130c159e82a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1919,
+      "sha256": "764d4cae3ea0435c71133ac61709fee66763a5c5f29a04dec5eec4e239e71095",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "45a111186f0f53684c0a85e412c7eac5cce262f72aab7de6c1c8d50a4a668b48",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/before_main_reload_venue_restored.png",
+      "revision": null,
+      "bytes": 1516375,
+      "sha256": "4fad84b31d609e0288a4ac610fa948e1ceecee359ae52c92f2bad3aa03bd9ac9",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/candidate_detached_restore.png",
+      "revision": null,
+      "bytes": 555192,
+      "sha256": "77faf47b02de1fb65cadbb11c5d99893a798f79a6a410d895166bcb75e02f580",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 442679,
+      "sha256": "66cd1111f1b0e5c11451ff4a0d2bb94eb2711e09b69eed44fa2b1aa0bfdc04e5",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/capture_tree_book.gd",
+      "revision": null,
+      "bytes": 23800,
+      "sha256": "7e7fcc8fd5b1236cc3e8b810314c80e503d4bd10e40ce1deaaef43693ee96b88",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/carry_start.png",
+      "revision": null,
+      "bytes": 583850,
+      "sha256": "841a2bc9b4b70de510f231dafa36e35f5962e4c4e02b8b2382c0a875abd98499",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice0_help1.png",
+      "revision": null,
+      "bytes": 555043,
+      "sha256": "d4257ee05d1ded99d70c99693f164a208485cdd07c89b86e7cf9f21278aa8880",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice0_help2.png",
+      "revision": null,
+      "bytes": 557339,
+      "sha256": "2e8ab9223e2fca6a92024a9e0d840ba3e24e1fd3c78ab76057a4111e6e761608",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice0_ready.png",
+      "revision": null,
+      "bytes": 555260,
+      "sha256": "aef4f82ff47e890eb352dbecc1a9508c8d5e6a7075ba905bb0f408d98fe2c103",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice0_tip_pressed.png",
+      "revision": null,
+      "bytes": 558026,
+      "sha256": "452735aa362fe3a1eb3f14601671042ddf86f20c32cb3ff8703611f3a83350e1",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice0_tip_released.png",
+      "revision": null,
+      "bytes": 542729,
+      "sha256": "e1504dd769663bac1773081425a195eceeb892944cd04fb1fdc98d2ace99f045",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice1_help1.png",
+      "revision": null,
+      "bytes": 543024,
+      "sha256": "6c3bb3796802fd08f4f097d540860f1c1ca815c952c4407e23b7d4f3e6b823c2",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice1_help2.png",
+      "revision": null,
+      "bytes": 543301,
+      "sha256": "b9f2cab0d2cfa61370d62576622ed7b9cb2b203f34733a9b26e7ca60d2130646",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice1_ready.png",
+      "revision": null,
+      "bytes": 542677,
+      "sha256": "18576b4b2b0b2f75b52ead399bcafef3d94a8e73e226955135d7de4409c8249b",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice1_tip_pressed.png",
+      "revision": null,
+      "bytes": 544434,
+      "sha256": "f2b28be55fff1965e32758ae5f4ecb582bb1fe59f5359a1f5880954bc169c05b",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice1_tip_released.png",
+      "revision": null,
+      "bytes": 585292,
+      "sha256": "74e80cd9eae0c334d56b5cffc8fb360fca84d41ab8a45714abfe25ec41b0f1e1",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice2_help1.png",
+      "revision": null,
+      "bytes": 586578,
+      "sha256": "2d1b98d850f4099b5c13b505a70b3e2826ce02658a28e80525656ee15f80fb52",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice2_help2.png",
+      "revision": null,
+      "bytes": 589768,
+      "sha256": "3f23ba3b75fde460cc8bb87c612e3cd565aca41090aa4df33f9e286bfcbd3ad5",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice2_ready.png",
+      "revision": null,
+      "bytes": 585278,
+      "sha256": "c45ffc0a84812a3a0bac6124a54614d1901cee508dc2fe7be9906537add7fddc",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice2_tip_pressed.png",
+      "revision": null,
+      "bytes": 590637,
+      "sha256": "87a3c8c64d584e88bb6a34059a593575bee21aa16e37b72894a693f1fa13d04a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/choice2_tip_released.png",
+      "revision": null,
+      "bytes": 584027,
+      "sha256": "42656491262d9a9d31cf92f83b95b7e6d363d91658ecab4b8ced8154bf7ad275",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/engine.log",
+      "revision": null,
+      "bytes": 1633,
+      "sha256": "ead0c3591fede95f163940f933bf56d1aaddf3da0e7b8823989ad172353d70cc",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/final_venue_restored.png",
+      "revision": null,
+      "bytes": 1416566,
+      "sha256": "c80cb3fd765579316231dd29d6af8c2e8d3e32d0cc158f9b159ee3526bc9f3ae",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/first_book_open.png",
+      "revision": null,
+      "bytes": 555303,
+      "sha256": "99baee579247cd9f4949d3ca3cb1a54d053a254fa1e2a4add6750d594622ceaa",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/first_opera_room.png",
+      "revision": null,
+      "bytes": 1195801,
+      "sha256": "eabbcfe90d6d2ea97bd2522e04c5528eaf0707a22f2adf8f9bc40a7b1a7c9133",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/first_venue_open.png",
+      "revision": null,
+      "bytes": 1416509,
+      "sha256": "4568ee6ac8b11ca10dacc148237dcd4b0d769c78b7bcf0cb0dd542c0a5e0923b",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/healthy_complete.png",
+      "revision": null,
+      "bytes": 523250,
+      "sha256": "859be63226af05e4699de9b45933f8e730f56fa4839b838999667a9a2c4ad3da",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/healthy_reopen_book_open.png",
+      "revision": null,
+      "bytes": 523179,
+      "sha256": "788ca29cffbea2a4a8364f44d09face1d79bed117e145399c32d27ae1d0b3605",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/healthy_venue_restored.png",
+      "revision": null,
+      "bytes": 1416543,
+      "sha256": "fda193da8d323d5e885c6ea7fed3284cf431a3349a582fdccd9dfba54e9670c7",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/partial_reopen_book_open.png",
+      "revision": null,
+      "bytes": 569858,
+      "sha256": "9a5ae8e9cee503ab0d778b27afd7aad14f0e4cb11959ecf11c47fb2de74a50de",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/partial_venue_restored.png",
+      "revision": null,
+      "bytes": 1516404,
+      "sha256": "33bf84844527c326bcc3af8bfbe29f40124ac1b87e90b3bd2d79db05447f29b6",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/registration_preview.gd",
+      "revision": null,
+      "bytes": 3516,
+      "sha256": "32b6a7dc4c3eeeab341b4e35a531245f1c40a8bf74af84704bc0a70f314bf84b",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/reload_book_open.png",
+      "revision": null,
+      "bytes": 584790,
+      "sha256": "e32801ed40ffa75ae3d0c2f45a67e1e3cf530871a6ef141465720dd4ff8f0acb",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/reload_opera_room.png",
+      "revision": null,
+      "bytes": 1195861,
+      "sha256": "d85937f9bbc5fb2e0b88b8114aa2b661dbca00c53cffd2cee672e53c94e5f8ec",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/reload_venue_open.png",
+      "revision": null,
+      "bytes": 1416505,
+      "sha256": "095bb7fcaf8b4228679977cdf61693136becfb080cd3aff4f2df883173d3b69d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/replay_started.png",
+      "revision": null,
+      "bytes": 555166,
+      "sha256": "cfe261995e9eedbee0fe3d783a1e1a21679ce8755322bbd34339be6fc58cbdc7",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_help.png",
+      "revision": null,
+      "bytes": 570523,
+      "sha256": "5160d8b4cfdccc529dca2313796d281942f9a94b96d9a75c146935829aedb545",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_partial_canceled.png",
+      "revision": null,
+      "bytes": 571485,
+      "sha256": "4bf18a7d01c9d00477918aa96208f53ab455256e43d9e27574b844c9409f76cc",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_partial_pressed.png",
+      "revision": null,
+      "bytes": 566987,
+      "sha256": "c671221b95829bb895bdd62450e766e43c3ada8f98b9244f339b17e468cfb3f6",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_ready.png",
+      "revision": null,
+      "bytes": 566840,
+      "sha256": "b98d673b93112392329408e5324d3c350921ac44ef5cfc81c080441870df11a2",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_tip_pressed.png",
+      "revision": null,
+      "bytes": 567588,
+      "sha256": "2e3dc7b4b1b4a86980bd241f66945a6dcee3a3865680e1eb143b4303e2e3c1fa",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1280/treatment_tip_released.png",
+      "revision": null,
+      "bytes": 571567,
+      "sha256": "29e6b1158a8657bf3ef04adeaafe5a17fddca03d4ac355e8eedc4d8a7c932f96",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/LAUNCH.json",
+      "revision": null,
+      "bytes": 1919,
+      "sha256": "965e38db2ad392ed399ba0f5eef3e32f7fb8be32c2186b746f6df00bbc7a7103",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "88901f84c4c51a5b2ec6d85454f9cc9c20e6ad74eff7bfeedcec2b3437c6fc56",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/before_main_reload_venue_restored.png",
+      "revision": null,
+      "bytes": 1548936,
+      "sha256": "81a1f5729534d81409088f53d63715341f18b823114a23107fddf9e1fd9e3b04",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/candidate_detached_restore.png",
+      "revision": null,
+      "bytes": 562467,
+      "sha256": "a0559747178b35bc18388f35d7ea658a4ad5dfa0cdaaf88c98baccf59a456723",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/capture_manifest.json",
+      "revision": null,
+      "bytes": 442608,
+      "sha256": "6d26bd5644d92a46b10751608e7742cfe90e33f3bd413cae92f5b422970bac94",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/capture_tree_book.gd",
+      "revision": null,
+      "bytes": 23800,
+      "sha256": "7e7fcc8fd5b1236cc3e8b810314c80e503d4bd10e40ce1deaaef43693ee96b88",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/carry_start.png",
+      "revision": null,
+      "bytes": 589406,
+      "sha256": "75e94bcdf78905a24b996a8b4d762682e562b63e3e80ba28c375386888897b2d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice0_help1.png",
+      "revision": null,
+      "bytes": 559769,
+      "sha256": "fbc4956295933dffda01e8ae9accd90562f758b4b1f48d45d4d21242e4d49cc7",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice0_help2.png",
+      "revision": null,
+      "bytes": 562079,
+      "sha256": "1edb899372d541f77764c7c8db1fa765186e378e5882b88b6a58d38bf5e994f9",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice0_ready.png",
+      "revision": null,
+      "bytes": 562632,
+      "sha256": "81646f237d1203626083e52b99079dcf7735dbbdb3910fcd79d68fb1e014bb5d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice0_tip_pressed.png",
+      "revision": null,
+      "bytes": 562875,
+      "sha256": "8ead70f3c705834c919f4961a3ee9823e4e9f3396869830cf35c8144c0167280",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice0_tip_released.png",
+      "revision": null,
+      "bytes": 547649,
+      "sha256": "fe3aa26442c333f584646470ed0429000f08230d24a3d1e95dadb58608fc8693",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice1_help1.png",
+      "revision": null,
+      "bytes": 547902,
+      "sha256": "05b6fc6fb7da6e2bb9d62f42468b47f9dc8be8053b7a8eba3d7a8d0f4109f564",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice1_help2.png",
+      "revision": null,
+      "bytes": 548185,
+      "sha256": "e8fb8e87d685add07f12f081fdaed17d12292d5a6531277d690de91006a92c22",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice1_ready.png",
+      "revision": null,
+      "bytes": 547635,
+      "sha256": "98d5a9fb353e41a89a4b3f0fc2970bfd14fb6d24e57a68988c617021b00252a2",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice1_tip_pressed.png",
+      "revision": null,
+      "bytes": 549116,
+      "sha256": "d0f468329dc9f51595ac4ca0783fab2eb9599d884440821f7b38b786b8145017",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice1_tip_released.png",
+      "revision": null,
+      "bytes": 590145,
+      "sha256": "9763e12be02c415947df921e6ab17737fc0a72e4690a48c27a47cc3f5b7d70d6",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice2_help1.png",
+      "revision": null,
+      "bytes": 591340,
+      "sha256": "052c104f3ea60e35a40da56f3f887038d58b5434eeb321d8832630afbf82871a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice2_help2.png",
+      "revision": null,
+      "bytes": 594373,
+      "sha256": "4cc8265baac04b2abb807a8540dd0c6d7c8e721070c49ba407623e2278e0d0f1",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice2_ready.png",
+      "revision": null,
+      "bytes": 590080,
+      "sha256": "88bc6d24c1d1d3ecbcd5be2da123ebfc2b449437f5ecf9033625251f1fb52162",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice2_tip_pressed.png",
+      "revision": null,
+      "bytes": 595246,
+      "sha256": "597e3dd22510095118058bce4e1f2ad043839855de5b712caa37385abc417f63",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/choice2_tip_released.png",
+      "revision": null,
+      "bytes": 589353,
+      "sha256": "41ade211ee4087dd171e71af603575cbafb977cc0f667cab03e885ec6e1f7d01",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/engine.log",
+      "revision": null,
+      "bytes": 1633,
+      "sha256": "ead0c3591fede95f163940f933bf56d1aaddf3da0e7b8823989ad172353d70cc",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/final_venue_restored.png",
+      "revision": null,
+      "bytes": 1447747,
+      "sha256": "7d694561eadd82b333061eb90164745248f8631d80799d83070937bf4fde8a89",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/first_book_open.png",
+      "revision": null,
+      "bytes": 562606,
+      "sha256": "da46e32d69ca5e7dab621071ef4c020c8e2be0553377be6a1ffe3c4269093546",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/first_opera_room.png",
+      "revision": null,
+      "bytes": 1233802,
+      "sha256": "47638ab98a1362736fcab4e899eb7d084ff7302569ce884302d159d1944a72a8",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/first_venue_open.png",
+      "revision": null,
+      "bytes": 1447871,
+      "sha256": "1d2279324aeabd34fb9402b22ec859cadf768824884572875dc311cf5b0b74ba",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/healthy_complete.png",
+      "revision": null,
+      "bytes": 526636,
+      "sha256": "c530e73cd3fe8256254b7639ce10a0aabe503afe7b3361fe07c67835ab28e909",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/healthy_reopen_book_open.png",
+      "revision": null,
+      "bytes": 526589,
+      "sha256": "1cd500ea0d568ee110973db2559b85af24d9c7d075e7cf7cc24ef38e5b48f4c2",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/healthy_venue_restored.png",
+      "revision": null,
+      "bytes": 1447808,
+      "sha256": "d0b53015f4b6bed92229e7b5a253a23e580b7afc0ac2f347a3f3e37f76619991",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/partial_reopen_book_open.png",
+      "revision": null,
+      "bytes": 574532,
+      "sha256": "461eea99428b452116d86017499bc4c774bf06b7d81048f141cc513954c50c26",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/partial_venue_restored.png",
+      "revision": null,
+      "bytes": 1549124,
+      "sha256": "92d9293f832eeab9817641597c71821f53ecd4acd26237325756ab278db90063",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/registration_preview.gd",
+      "revision": null,
+      "bytes": 3516,
+      "sha256": "32b6a7dc4c3eeeab341b4e35a531245f1c40a8bf74af84704bc0a70f314bf84b",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/reload_book_open.png",
+      "revision": null,
+      "bytes": 588792,
+      "sha256": "85b0a45e6b05cc5ba7ef3db2eb1356269bf67d1b87c2a3eb00a9f3bca2578dfb",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/reload_opera_room.png",
+      "revision": null,
+      "bytes": 1233564,
+      "sha256": "5b71715edf3c72e4e53a5183a18b3d40c88609352ccdeb4b0381b3432a79b5c3",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/reload_venue_open.png",
+      "revision": null,
+      "bytes": 1447862,
+      "sha256": "ad1d99faf3488d3048ec060bba1f8e9fd4baaa1c9cc5acf22018ad58a03549e1",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/replay_started.png",
+      "revision": null,
+      "bytes": 562487,
+      "sha256": "3e7bab04eed5181a4f9ed7a6e6d4154a1d118ee55e8461d9b946d12e1f1597fc",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_help.png",
+      "revision": null,
+      "bytes": 575189,
+      "sha256": "a4d61c6730af5727c1387833453ae69eea8c55582ed506e0024a0de4612bbb25",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_partial_canceled.png",
+      "revision": null,
+      "bytes": 576189,
+      "sha256": "9b27038bd349826cda0c3f15db622b1da80674bf84603768f9ef460898122e5b",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_partial_pressed.png",
+      "revision": null,
+      "bytes": 571930,
+      "sha256": "19b006818ec8b2a73bc9e2cda66225ae15af9220508d290af091cc9b605edd27",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_ready.png",
+      "revision": null,
+      "bytes": 571961,
+      "sha256": "c0918cafde488966da790d82915ff45b58a764ed85136b752a3af4f16b036e63",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_tip_pressed.png",
+      "revision": null,
+      "bytes": 572606,
+      "sha256": "53a30c9750a71ec0417a2f527c9c211406092a06d6520531d8fb01de2a050698",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt1_tree_book_registered_1600/treatment_tip_released.png",
+      "revision": null,
+      "bytes": 576219,
+      "sha256": "83c302e5845dc9a2242a9d49428a3ac9edd4a895f560ff0788fc3ddfa81c5936",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/LAUNCH.json",
+      "revision": null,
+      "bytes": 1919,
+      "sha256": "c91e5f0acb95a45d8d105b012d909877fde30f59089fbee5354e42af8c081c74",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "b846b0e685b2acee2a135cc936377b977d72a703192786513c2bf06cfd7e6569",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/before_main_reload_venue_restored.png",
+      "revision": null,
+      "bytes": 1516429,
+      "sha256": "cf462761c17b664e890e80e0884950bcb4a8e7d9366f057711837b32ef2441fb",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/candidate_detached_restore.png",
+      "revision": null,
+      "bytes": 555208,
+      "sha256": "4108e59d74c4c65e07a2bc91c2d50c47a76d733b61cad54a3e72687eefe4a16b",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/capture_manifest.json",
+      "revision": null,
+      "bytes": 508057,
+      "sha256": "435277adf9461e12c86b8052cc129bd88ff4843142b5cf65ce11d0f49efddc4c",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/capture_tree_book.gd",
+      "revision": null,
+      "bytes": 23873,
+      "sha256": "b4388333e066be9265eb7580d15284e0729f80f808e5e80c3043d46b3f3ad78a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/carry_start.png",
+      "revision": null,
+      "bytes": 584034,
+      "sha256": "ff08aed130401c4c839913236c0d4af13696be8210fc9c668de06aa7ec2fb77c",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice0_help1.png",
+      "revision": null,
+      "bytes": 555057,
+      "sha256": "bb5247a8430541acf957f72c8b5ab0e361b29514ee3da37dd55888b5f11af1ff",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice0_help2.png",
+      "revision": null,
+      "bytes": 557374,
+      "sha256": "743e0e0768463673006b13a1d679700832c7b2d4b4d837f1816dc52c73953400",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice0_ready.png",
+      "revision": null,
+      "bytes": 555249,
+      "sha256": "296ffed4484cac121cd1bf42ff7b533536f9ba26d908ab6fd2c6678ca79740ea",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice0_tip_pressed.png",
+      "revision": null,
+      "bytes": 558069,
+      "sha256": "18a85038cc9a22417b5c88c703040fffee87d3f742263c5c913a285d5a414897",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice0_tip_released.png",
+      "revision": null,
+      "bytes": 542718,
+      "sha256": "5486185f99e661ba235d03d030526490f5d9cc7ff7a3f0fdc0e44526bc3c0458",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice1_help1.png",
+      "revision": null,
+      "bytes": 543035,
+      "sha256": "f8718c8e82ea9f8d1656cdaa116b39860d8e85aab8c97b26c095cc7362f4d706",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice1_help2.png",
+      "revision": null,
+      "bytes": 543343,
+      "sha256": "eeafc223def80cb22e58627a1db3a08879695a838c0a5eff9ac73324a83e1603",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice1_ready.png",
+      "revision": null,
+      "bytes": 542709,
+      "sha256": "38c32ba7b788d2b35b58e3cd1428d43e9700fa183862e34b7ec2044ec9a722c6",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice1_tip_pressed.png",
+      "revision": null,
+      "bytes": 544564,
+      "sha256": "96d1a4513a2596bbccbe20bbc96777047eabcccef8562713f21ea60614568ecb",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice1_tip_released.png",
+      "revision": null,
+      "bytes": 585289,
+      "sha256": "cfab2366be4c2865ad2333a46ae554b984a3746c2e190955c3f130c7dd6866a2",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice2_help1.png",
+      "revision": null,
+      "bytes": 586575,
+      "sha256": "1ef3f781784a75ff50d0c9729af58f75f66b82542fb7ce9abcabb26e1a4710b9",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice2_help2.png",
+      "revision": null,
+      "bytes": 589680,
+      "sha256": "dddb199efcccc1c90c87bd1ff7da1a7c2b551482b97ab56d26363e6666e1cba2",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice2_ready.png",
+      "revision": null,
+      "bytes": 585299,
+      "sha256": "d039c7ee6aa72492f08d511c64b5dde6b1972eea74ed8ab3c2a8d81678257c20",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice2_tip_pressed.png",
+      "revision": null,
+      "bytes": 590694,
+      "sha256": "c358c8225e5660f63a74f2e62bc4cf38179387c79202850259e19f2abb2affd3",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/choice2_tip_released.png",
+      "revision": null,
+      "bytes": 584267,
+      "sha256": "ca8b4caec98fbcd3a855451ae4a8426390f8fa17c8a4c2ae0f28989e99740638",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/engine.log",
+      "revision": null,
+      "bytes": 1633,
+      "sha256": "ead0c3591fede95f163940f933bf56d1aaddf3da0e7b8823989ad172353d70cc",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/final_venue_restored.png",
+      "revision": null,
+      "bytes": 1416545,
+      "sha256": "1c85be772aa79969f24af48f4934a1dcc8208c08068b6675be30eb893cdfab0f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/first_book_open.png",
+      "revision": null,
+      "bytes": 555324,
+      "sha256": "3c23dcec2930ce7cf968b56924534c7a937739834dc90485a01f52cb2d8196e1",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/first_opera_room.png",
+      "revision": null,
+      "bytes": 1195785,
+      "sha256": "c38cadfd3dc7c9f2c5e8a41690c61f49a1ae13cd90e39f03717d8a5109d11332",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/first_venue_open.png",
+      "revision": null,
+      "bytes": 1416511,
+      "sha256": "2940d521173a985767358c3692e817d6083a20ffa9691b0cbcabd0a10221cf41",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/healthy_complete.png",
+      "revision": null,
+      "bytes": 523198,
+      "sha256": "5158b805eb434b86124dd9d303cc695d6ce6d234269748e9949f0a43b73479f3",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/healthy_reopen_book_open.png",
+      "revision": null,
+      "bytes": 523174,
+      "sha256": "7cfc74029f2050f18ab38f99fc74a90f50902af36c284f8aee6d26940660ad94",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/healthy_venue_restored.png",
+      "revision": null,
+      "bytes": 1416534,
+      "sha256": "5104b734f4074887fed733ae630e9f00dc51f9f345f8c1730ba19abad6e5da6f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/partial_reopen_book_open.png",
+      "revision": null,
+      "bytes": 569975,
+      "sha256": "615731ab7c1afe07fc341b744ca95f2f7a00731cc90fb9d1f3585f86c9064eab",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/partial_venue_restored.png",
+      "revision": null,
+      "bytes": 1516416,
+      "sha256": "88f2f4650b4d68389b94acc53159d544f7df6a2b1348b6910885d30d259c7542",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/registration_preview.gd",
+      "revision": null,
+      "bytes": 4185,
+      "sha256": "8ce6d1b99363800d26791d707e43e13f00003ca18e42307337a07c66265064b1",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/reload_book_open.png",
+      "revision": null,
+      "bytes": 584931,
+      "sha256": "fbe8e840c66d166225b1ad3774e12c9c092cd7262684a6522c7bb0795469b523",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/reload_opera_room.png",
+      "revision": null,
+      "bytes": 1195597,
+      "sha256": "89c9cb3ff0062f27dc48afee42bfa452ef314ac2ca4546efee4d222b1b769e53",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/reload_venue_open.png",
+      "revision": null,
+      "bytes": 1416511,
+      "sha256": "95ec4ae8006f2c0b144e5a0f8e99ab7fa68a7522dad1ed97fa3fcf06906443a9",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/replay_started.png",
+      "revision": null,
+      "bytes": 555168,
+      "sha256": "d469ab15814a7612f3e2768312c2c88f2778b7fc3c81f3e7974c0a66256420ec",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_help.png",
+      "revision": null,
+      "bytes": 572089,
+      "sha256": "75e167118c3b226ac2c947b1e929dd4d8fee4aed1aee31cdf27f9251fbac5eda",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_partial_canceled.png",
+      "revision": null,
+      "bytes": 572989,
+      "sha256": "90c9f9d15497b6572c2a0dbf1d1723e20ffeac3951402315b2c2fb4f0a86d2b2",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_partial_pressed.png",
+      "revision": null,
+      "bytes": 568726,
+      "sha256": "8cc2f74f99b09d59e7fafcf46ec572015e914f633af3a0e003510d34069152ab",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_ready.png",
+      "revision": null,
+      "bytes": 566944,
+      "sha256": "a16c5c224d278ff4fa6c50e634f29f8f522739831069bcef5c0546800352a44f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_tip_pressed.png",
+      "revision": null,
+      "bytes": 568758,
+      "sha256": "635dc3dc06dff4f158fe20242f69f117b89961fa5cdf07bab9c06c759467d2ed",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1280/treatment_tip_released.png",
+      "revision": null,
+      "bytes": 572752,
+      "sha256": "2dd5e4c9627c3d27c71c17a1962f0c60c187c9396641a4e44d5c7a9ca6d1b327",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/LAUNCH.json",
+      "revision": null,
+      "bytes": 1919,
+      "sha256": "5484412db07d93efd7250a1cc8e3b76de2087815143e8cc2945918cef5821be7",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/RESULT.json",
+      "revision": null,
+      "bytes": 1358,
+      "sha256": "34eb8c752c6c0bf7c7073726bbbe6765e0eb053465e7d4f7d00a5f1ee90ab557",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/before_main_reload_venue_restored.png",
+      "revision": null,
+      "bytes": 1549003,
+      "sha256": "46fe513953f4ec11bcfdc9c7287d55bec515d80defb3280dee53c4bd32215159",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/candidate_detached_restore.png",
+      "revision": null,
+      "bytes": 562503,
+      "sha256": "f11325df5362095f43c41aa849a59c52a97c0c641214933d5b4c507b1c1ecb54",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/capture_manifest.json",
+      "revision": null,
+      "bytes": 507207,
+      "sha256": "8bc58ce86e27e68c78ecfc83febfd43a27f3cb216aa80c8664ddc2006493edbe",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/capture_tree_book.gd",
+      "revision": null,
+      "bytes": 23873,
+      "sha256": "b4388333e066be9265eb7580d15284e0729f80f808e5e80c3043d46b3f3ad78a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/carry_start.png",
+      "revision": null,
+      "bytes": 589186,
+      "sha256": "23de2a37a823809911e70e704b546b4ba8d8b84c80e8ed15d19730032f9bbb23",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice0_help1.png",
+      "revision": null,
+      "bytes": 559734,
+      "sha256": "6866bbb7aa1c7fc9cc959df13f7fcfbe3a6ca681bfef74925c35db7f57ba6a3d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice0_help2.png",
+      "revision": null,
+      "bytes": 562037,
+      "sha256": "a1f12fe42cbe71e4f77a8ea0d260f9056635a1044cf77f0f7389d925099ef87d",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice0_ready.png",
+      "revision": null,
+      "bytes": 562641,
+      "sha256": "8564f5904341168858c971d8007973ef75b103761d2fc154c6c5a3621f965112",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice0_tip_pressed.png",
+      "revision": null,
+      "bytes": 562881,
+      "sha256": "feedd95b2bd9058c496f7c44f17a3deb2717bef4e9913912f44c21917772d362",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice0_tip_released.png",
+      "revision": null,
+      "bytes": 547681,
+      "sha256": "afba542d15d89237524b8fb70a7b7f10aa3eb55123859241ea1f3448114bb745",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice1_help1.png",
+      "revision": null,
+      "bytes": 547871,
+      "sha256": "553cc294d28f0cd5ed8a43a4f2d89295017821c4aa98a6ad00592e337e43c73a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice1_help2.png",
+      "revision": null,
+      "bytes": 548164,
+      "sha256": "aeb401f8a4e554243640ae789c38e059a2f63aa5364b5be94a4c302ec3785286",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice1_ready.png",
+      "revision": null,
+      "bytes": 547542,
+      "sha256": "eca1a003676bb8b18274ddd37a4eecc4e14688cb6e0dca37bf8d7682a0215265",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice1_tip_pressed.png",
+      "revision": null,
+      "bytes": 549009,
+      "sha256": "dd7c003256732b1c6c24515fdbd11903e29f4ebff7f167d082320d46e99fb732",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice1_tip_released.png",
+      "revision": null,
+      "bytes": 590075,
+      "sha256": "2cf76e649db9636a688a6a514fe546f12c60fe5f39e237032980b13ed352526e",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice2_help1.png",
+      "revision": null,
+      "bytes": 591370,
+      "sha256": "1dbdcad4e782bb9f4896f6919bfe668594610020db0d5ecdbb282735155371db",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice2_help2.png",
+      "revision": null,
+      "bytes": 594339,
+      "sha256": "422c4ce2b910fd50d323dce9e00f2b63d7af97329af44f48eb9c4ddd949bcb33",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice2_ready.png",
+      "revision": null,
+      "bytes": 590104,
+      "sha256": "176d805ea92f8f902c985718472b01cda130fb659d93134953be9fa0e022cfb3",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice2_tip_pressed.png",
+      "revision": null,
+      "bytes": 595293,
+      "sha256": "c84ae7442906fed139aa4a638c94c4680ac825ed0e2f240bfb1e202a9d1963e2",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/choice2_tip_released.png",
+      "revision": null,
+      "bytes": 589287,
+      "sha256": "729cc538ec2da8089ad2fc35e6965b9e060f468639bfb8ea91edf4e8e8ebcd81",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/engine.log",
+      "revision": null,
+      "bytes": 1633,
+      "sha256": "ead0c3591fede95f163940f933bf56d1aaddf3da0e7b8823989ad172353d70cc",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/final_venue_restored.png",
+      "revision": null,
+      "bytes": 1447737,
+      "sha256": "7d9b6d48a80516a5d6671b855859e56ac835ade4f235e27696d27b1de85285bf",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/first_book_open.png",
+      "revision": null,
+      "bytes": 562608,
+      "sha256": "515a6a69fb75dba3b403a27583e63e158dfd1e2d43885754a947ea8fb3f62b91",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/first_opera_room.png",
+      "revision": null,
+      "bytes": 1233789,
+      "sha256": "d6c552c41c8cfb1f904b3def2953f57fba45cf2e3f61e31876b461946b4cb337",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/first_venue_open.png",
+      "revision": null,
+      "bytes": 1447887,
+      "sha256": "c7c9f5ac12581cdfc43c90d69e17918f7395898203e0511843e86558068cab08",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/healthy_complete.png",
+      "revision": null,
+      "bytes": 526638,
+      "sha256": "e13745db70adf5a75e35550b2c72cd17018c1758314d498877c8a4878b5b3ab4",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/healthy_reopen_book_open.png",
+      "revision": null,
+      "bytes": 526560,
+      "sha256": "9e0495bf1176d8d3f019e87fa14fd3214b799600b008aa62f017f7aa768919fd",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/healthy_venue_restored.png",
+      "revision": null,
+      "bytes": 1447801,
+      "sha256": "3ebe4a5b0a6f60e51c707d33536ab149ba95738379a96cc38863ef66bb0e2a87",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/partial_reopen_book_open.png",
+      "revision": null,
+      "bytes": 574536,
+      "sha256": "b29b9cb786bd18611f0d656a4d14821674c663181495878925609c68715f737a",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/partial_venue_restored.png",
+      "revision": null,
+      "bytes": 1549125,
+      "sha256": "2894576e41dc1cb792b0ac6afca4639202e5b1df8a9f0b17baf2a7186d05e727",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/registration_preview.gd",
+      "revision": null,
+      "bytes": 4185,
+      "sha256": "8ce6d1b99363800d26791d707e43e13f00003ca18e42307337a07c66265064b1",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/reload_book_open.png",
+      "revision": null,
+      "bytes": 588823,
+      "sha256": "6292e625f940385d092ff54a522e50879307d47b19a74fcd323e165a6113ed26",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/reload_opera_room.png",
+      "revision": null,
+      "bytes": 1233640,
+      "sha256": "1b5997303f670de023c19f4b715a9a32afb95db75054be34baa16775d860d756",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/reload_venue_open.png",
+      "revision": null,
+      "bytes": 1447887,
+      "sha256": "153f93d748eb23d05f841bdbe5407ae484202db991a1bff70351c0b99f5f4411",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/replay_started.png",
+      "revision": null,
+      "bytes": 562488,
+      "sha256": "39c4dd737b038c30919d22a6e5eb649f6aa3f3cdc1cbf45c62e28d89c9ff62dd",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_help.png",
+      "revision": null,
+      "bytes": 576461,
+      "sha256": "2c2eed2f785a20846f3b4883c02464c0d843406d484b46f29145c02142127c62",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_partial_canceled.png",
+      "revision": null,
+      "bytes": 577242,
+      "sha256": "eb1ab9b7b09a11efa4abaebf7e0711eccc757d6b443b301388555e42d15fdd1c",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_partial_pressed.png",
+      "revision": null,
+      "bytes": 573406,
+      "sha256": "ce336a9bad62749c326bc4637052dcd9304969d0aeea26a704babd4b085f4e8e",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_ready.png",
+      "revision": null,
+      "bytes": 572012,
+      "sha256": "396e7807188155f4ce1079644834492fdba1f14777f106c8fbee2cb0c2040ffb",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_tip_pressed.png",
+      "revision": null,
+      "bytes": 573420,
+      "sha256": "727b8c085e4ff07812f120eaf554729532841127f6e3a942573b7cf6c61bade1",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/native/attempt2_tree_book_registered_1600/treatment_tip_released.png",
+      "revision": null,
+      "bytes": 577268,
+      "sha256": "8561a0906f1d079f5372c31da3b35d1cc43f40013e492eab5cea35631cc4c373",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/per_piece.json",
+      "revision": null,
+      "bytes": 1521411,
+      "sha256": "9bbd13d6dbe11746956412cddd265aa75b7dff876e850f39a2bd28f8588d7db8",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/registration_preview.gd",
+      "revision": null,
+      "bytes": 4185,
+      "sha256": "8ce6d1b99363800d26791d707e43e13f00003ca18e42307337a07c66265064b1",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/registration_preview_edge_v1.gd",
+      "revision": null,
+      "bytes": 3516,
+      "sha256": "32b6a7dc4c3eeeab341b4e35a531245f1c40a8bf74af84704bc0a70f314bf84b",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/run_native.py",
+      "revision": null,
+      "bytes": 5457,
+      "sha256": "a7dec0214d9bcfef019339c8244187c593a56472c42873cb5ef5d886554e3896",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/scene_coverage.json",
+      "revision": null,
+      "bytes": 959511,
+      "sha256": "fef93c902c7090e0f9592e41c44155125fd28726f5d9493ee9220e97ef01e581",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/source_import.log",
+      "revision": null,
+      "bytes": 249646,
+      "sha256": "4ca5515335d66c6659f5681bb9939e7adccc082d42fe08e296177176c5007dd5",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/tally.json",
+      "revision": null,
+      "bytes": 411566,
+      "sha256": "052e544871b0de7cb5b15a1437e205f403b2ce428202ae729100c351a122cf5f",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/validate.py",
+      "revision": null,
+      "bytes": 10540,
+      "sha256": "8a7e539a8ddf80b0b870afd21a25645f6bcd1dc6f74a0aa52ac0379948d98acd",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r75_tree_book_registration/verify_remote.py",
+      "revision": null,
+      "bytes": 3368,
+      "sha256": "b8280fd4f21d0ca0b1a7620557874ca92fe52f4f2558726e60493e487bf583d7",
+      "role": "Current R75 source-bound hand registration diagnostics;0acceptance"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3685006,
+      "sha256": "048a0b8d6a235fa1e29d3cf5cce9d6c2b21613eb4e63e89a2bcf4f6eaed49c16",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 123283,
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_opera_exact.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 757381,
+      "sha256": "3d107eca1ad32cae40ac9bfa298d02c3ab1e94475b873f1905eedcc1ece64d42",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_royal_exact.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 961018,
+      "sha256": "eae0fbef272947cea857b4a80ffe3a15da8f10761eae9abda71a88420bbcd2d9",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_small_exact.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 298586,
+      "sha256": "4603157688afb263d20e9ce47b23ed3f24b1ba518f6104b62b592a05fb698c10",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/book.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 725412,
+      "sha256": "4516c82b24804b081154edd5fb507c072619a26782b9bbfabd1b5ff05d28c70f",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/lagoon_tree_bigleaf_maple.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 111557,
+      "sha256": "6d1be41b48707e686140b30f610ed5a9f18e22be435f832a01199370a1ddacc9",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/lagoon_tree_pacific_dogwood.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 109596,
+      "sha256": "e92e41cf81ccfdc251960a7c5599d6984b82ebb1cfc89f3f7cf0704b5dd565eb",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/leaves_medicine.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 739632,
+      "sha256": "5fedb4067df5d3d9a736594139ceaac08f08ce33558596a20e00e003e0eabd1c",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/patient.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 762363,
+      "sha256": "a1a77f01b2d0a57d896f1c831132ce6cf61efe6204fb3de09a58f271c7087d34",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/roshan_book.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 831266,
+      "sha256": "ae849978740b10e0309f435c7062338d1ef75736b3291577bd99e522f4be4347",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/sky_lagoon_tree_sticker_tall_v1.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 134450,
+      "sha256": "78d833ddea8f0efde6dd383827e808fa6cdcfeaa7df12d6400dba626001427c2",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets/opera/tree_book_test/spray_poses.png",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 956362,
+      "sha256": "0c7dd79d7d845dcef394f6fbe4e6f766b236b747a48df0b277208818c1fa1f95",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "assets_src/imagegen/arborist_test_20260930/PROVENANCE.json",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8588,
+      "sha256": "980f22edbe1eb6960ea02d944c65f5a6ebd58dc764f4187fdda43be0e2703e56",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "design/ARBORIST_TREE_BOOK_HANDOFF_2026-09-29.md",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 12438,
+      "sha256": "b3c15524ad05c80f669490b7fad8463198cccbd3cc988cc599e8428e0c1c5f87",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "project.godot",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1762,
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 221,
+      "sha256": "1de477913ac3db6efe5d66d04967279dc9b66217bea01afeeddb4d98ef692f21",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 243732,
+      "sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 15000,
+      "sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 6242,
+      "sha256": "da2d19422b20b6a8cce724a441e09db80f4ac105757a4131233920054ac79c94",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 370863,
+      "sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 3749,
+      "sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 18361,
+      "sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 14435,
+      "sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "scripts/probe_castle_door_language.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 9813,
+      "sha256": "75918e67face762686ad8cabd5ad01c5442bc2cfeb89640b9ed68fd7ffc12e75",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "scripts/probe_castle_door_visual_capture.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 8379,
+      "sha256": "9e7b9eecc256d9a5a142609653b70fa80c570723ca00546402961ebad25f3fb7",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 46616,
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "shaders/castle_door_frame_glow.gdshader",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 5830,
+      "sha256": "26d052deea78357f345a0a290da5ef4df4f5d8ba446b79666ba3e3b119b96267",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 1392,
+      "sha256": "7fe925d2d12927d152a27f3a614ff62c9b0e6fe02991396a6837e8f5c06d0f5b",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    },
+    {
+      "path": "tools/resolve_godot.py",
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "bytes": 2490,
+      "sha256": "feacf82f033b45b1e259103cb6a30bcd803bd56231b2673026bb38ce734b2d8f",
+      "role": "Exact selected current-source/painted-context/provenance or immutable prior context dependency"
+    }
+  ],
+  "required_file_count": 389,
+  "required_bytes": 204697650,
+  "payload_sha256": "f476a28a576874c8d1b8f5d38ff7dd05fb1756b8e21e83ad1a4705829203c092",
+  "historical_parent": {
+    "receipt": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+    "prior_payload": "23ace33abc1d74b938dbaead53a0b4e421c22e1a",
+    "freshly_reverified_transitive_payload": false
+  },
+  "metrics": {
+    "revision": "FV-AUDIT-20261015-R75",
+    "topic_baseline": "715c7a230c159e70acae1cd0ddad727e88910cb9",
+    "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+    "stable_id": "FVR-C6005BD0881E",
+    "family": "tree_book_practice",
+    "native_cases": 6,
+    "source_control_cases": 2,
+    "source_control_checks": 96,
+    "rejected_first_variant_cases": 2,
+    "rejected_first_variant_checks": 114,
+    "final_variant_cases": 2,
+    "final_variant_checks": 114,
+    "all_observer_checks": 324,
+    "source_hint_tip_misses": 8,
+    "first_variant_input_advances": 8,
+    "final_variant_input_advances": 8,
+    "new_native_frames": 230,
+    "new_bounded_contexts": 78,
+    "new_excluded_diagnostics": 152,
+    "retained_bounded": 6278,
+    "retained_excluded": 3420,
+    "retained_native_events": 9698,
+    "known_roles": 254,
+    "known_families": 35,
+    "new_roles": 0,
+    "new_families": 0,
+    "existing_partial_roles": 75,
+    "existing_partial_families": 15,
+    "supplemental_partial_roles": 30,
+    "catalogue_partial": 92,
+    "catalogue_without_current_slice": 84,
+    "catalogue_complete": 0,
+    "new_alias_credits": 0,
+    "source_original_status": "UNCHANGED_FLAT_HAND_AND_REPRODUCED_TIP_FAILURES",
+    "first_variant_status": "INPUT_PASSES_TREATMENT_SEMANTIC_PLACEMENT_REJECTED",
+    "final_variant_status": "ORIGINAL_PIXEL_GEOMETRY_AND_PROJECTED_PRIMARY_LEAF_PREVIEW_ONLY",
+    "registration_candidates_awaiting_review": 1,
+    "new_drawing_samples": 0,
+    "drawing_required": null,
+    "reuse_ready": false,
+    "generation_calls": 0,
+    "new_runtime_assets": 0,
+    "approved": 0,
+    "integrated": 0,
+    "runtime_verified_replacements": 0,
+    "accepted_removed": 0,
+    "all_game_artwork_total": null,
+    "distinct_screen_total": null,
+    "regression_total": null,
+    "allcaller_closure": false,
+    "mission_complete": false,
+    "cases": [
+      {
+        "case": "attempt1_tree_book_control_1280",
+        "variant": "SOURCE_CONTROL",
+        "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+        "raw_frames": 41,
+        "bounded": 39,
+        "excluded": 2,
+        "observer_checks": 48,
+        "observer_passes": 48,
+        "tip_input_advances": 0,
+        "partial_dose": 0.291665666666667,
+        "source_runtime_count": 4425,
+        "sidecar_count": 4088,
+        "normal_names": 11,
+        "observer_status": "PASS",
+        "semantic_or_art_acceptance": false
+      },
+      {
+        "case": "attempt1_tree_book_control_1600",
+        "variant": "SOURCE_CONTROL",
+        "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+        "raw_frames": 41,
+        "bounded": 39,
+        "excluded": 2,
+        "observer_checks": 48,
+        "observer_passes": 48,
+        "tip_input_advances": 0,
+        "partial_dose": 0.291677666666667,
+        "source_runtime_count": 4425,
+        "sidecar_count": 4088,
+        "normal_names": 11,
+        "observer_status": "PASS",
+        "semantic_or_art_acceptance": false
+      },
+      {
+        "case": "attempt1_tree_book_registered_1280",
+        "variant": "EDGE_V1_SEMANTIC_REJECTED",
+        "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+        "raw_frames": 37,
+        "bounded": 0,
+        "excluded": 37,
+        "observer_checks": 57,
+        "observer_passes": 57,
+        "tip_input_advances": 4,
+        "partial_dose": 0.558340333333333,
+        "source_runtime_count": 4425,
+        "sidecar_count": 4088,
+        "normal_names": 11,
+        "observer_status": "PASS",
+        "semantic_or_art_acceptance": false
+      },
+      {
+        "case": "attempt1_tree_book_registered_1600",
+        "variant": "EDGE_V1_SEMANTIC_REJECTED",
+        "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+        "raw_frames": 37,
+        "bounded": 0,
+        "excluded": 37,
+        "observer_checks": 57,
+        "observer_passes": 57,
+        "tip_input_advances": 4,
+        "partial_dose": 0.558330333333333,
+        "source_runtime_count": 4425,
+        "sidecar_count": 4088,
+        "normal_names": 11,
+        "observer_status": "PASS",
+        "semantic_or_art_acceptance": false
+      },
+      {
+        "case": "attempt2_tree_book_registered_1280",
+        "variant": "LEAF_SILHOUETTE_V2",
+        "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+        "raw_frames": 37,
+        "bounded": 0,
+        "excluded": 37,
+        "observer_checks": 57,
+        "observer_passes": 57,
+        "tip_input_advances": 4,
+        "partial_dose": 0.574752333333335,
+        "source_runtime_count": 4425,
+        "sidecar_count": 4088,
+        "normal_names": 11,
+        "observer_status": "PASS",
+        "semantic_or_art_acceptance": false
+      },
+      {
+        "case": "attempt2_tree_book_registered_1600",
+        "variant": "LEAF_SILHOUETTE_V2",
+        "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+        "raw_frames": 37,
+        "bounded": 0,
+        "excluded": 37,
+        "observer_checks": 57,
+        "observer_passes": 57,
+        "tip_input_advances": 4,
+        "partial_dose": 0.558338333333333,
+        "source_runtime_count": 4425,
+        "sidecar_count": 4088,
+        "normal_names": 11,
+        "observer_status": "PASS",
+        "semantic_or_art_acceptance": false
+      }
+    ],
+    "limits": "Original-source synthetic native controls and visual-only candidate diagnostics. Source hand remains flat, material/contour congruency and painted replacement unresolved. Source-projected alpha-component proof is not independent DL-QA-11/live occlusion, final human/art, actual device/child/owner or global zero-art acceptance. Initial headless import raw-byte guard failure and exact EOL recovery kept separate."
+  },
+  "post_publication_records": "Receipt own metadata bytes/head anonymously checked after push separately, avoiding recursive self hash.",
+  "accepted_removed": 0,
+  "mission_complete": false
+}
