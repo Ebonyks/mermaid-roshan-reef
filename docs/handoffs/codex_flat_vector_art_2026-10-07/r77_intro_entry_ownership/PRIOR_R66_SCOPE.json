@@ -1,0 +1,56 @@
+{
+  "source_comparisons": [
+    {
+      "path": "scripts/main.gd",
+      "prior_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "current_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "prior_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "current_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "exact_equal": true
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "prior_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "current_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "prior_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "current_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "exact_equal": true
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "prior_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "current_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "prior_sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "current_sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "exact_equal": true
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "prior_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "current_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "prior_sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "current_sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "exact_equal": true
+    },
+    {
+      "path": "scripts/day_one_story_clips.gd",
+      "prior_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "current_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "prior_sha256": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a",
+      "current_sha256": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a",
+      "exact_equal": true
+    },
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "prior_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "current_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "prior_sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "current_sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "exact_equal": true
+    }
+  ],
+  "prior_handoff": "../r66_display_entry_context/README.md",
+  "prior_context": "R66 already records original NewGame holds/private archive/reload and natural opening,3startup role contexts and gate mask FVR-42846B2A5A82. R77 refreshes entry at currentN, adds named guard/owner crosswalk and separate KeepGamehand role; it does not claim first-ever entry validation.",
+  "legacy_continue_policy_mismatch": "OPEN_NOT_REPAIRED_OR_RETESTED_BY_R77_FRESH_DAYONE_PROFILES",
+  "gate_mask": "Existing FVR-42846B2A5A82 observed again in after_opening/continued_dayone; no new role or acceptance."
+}

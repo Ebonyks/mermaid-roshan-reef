@@ -1,0 +1,56 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r77_intro_entry_ownership\\userdir_preflight.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r77_intro_entry_ownership\\userdir_preflight.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r77/userdir_preflight.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--script",
+        "res://export/flat_vector_r77/userdir_preflight.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "d6544d504cdffecb118248aad106a39f006a763edbc978ab25b8ccc7952d3141",
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nR77_USERDIR_PREFLIGHT|{\"Main_loaded\":false,\"after_path\":\"C:/Users/Peter/AppData/Roaming/mermaid-roshan-r77-userdir-preflight-20261016/reef_save.json\",\"engine\":{\"build\":\"official\",\"hash\":\"ed1daf0bf001b61586d9930840f2f1394092c079\",\"hex\":263938,\"major\":4,\"minor\":7,\"patch\":2,\"status\":\"stable\",\"string\":\"4.7.2-stable (official)\",\"timestamp\":0},\"normal_path\":\"C:/Users/Peter/AppData/Roaming/Godot/app_userdata/Mermaid Roshan Reef of Light/reef_save.json\",\"remapped\":true,\"save_contents_read\":false,\"save_files_written\":false}\r\n"
+    }
+  ],
+  "fixture_sha256": "4d38cef70441fb5e41f909df6d1c005ad6b1afa4872342061c07a960985584a4",
+  "scope": "No Main instantiation or normal save content read/write. No snapshot/restore fallback."
+}

@@ -1,0 +1,50 @@
+{
+  "source_texture": "assets/castle/training/ghost_hand.png",
+  "source_landmark": [
+    217,
+    447
+  ],
+  "source_size": [
+    512,
+    512
+  ],
+  "source_centered": true,
+  "source_scale": 0.14,
+  "method": "Original Sprite2D transform of source fingertip landmark relative to center, natural bob and actual input. Bot geometry is not independent liveAlpha/QA11/child comprehension.",
+  "cases": [
+    {
+      "case": "attempt3_entry_source_1280",
+      "sample_count": 32,
+      "all_inside": true,
+      "span_ms": 1000,
+      "hand_y_min": 400.0126953125,
+      "hand_y_max": 413.994537353516,
+      "maximum_projection_error_px": 2.1972655986246536e-05,
+      "native_tip_x_range": [
+        600.539978027344,
+        600.539978027344
+      ],
+      "input_result": "ORIGINAL_KEEP_GAME_CANCELED_WITHOUT_RESET",
+      "new_main_to_after_opening_ms": 32190,
+      "original_source_inputs_and_time_scale": true,
+      "QA11_live_semantic_contact_accepted": false
+    },
+    {
+      "case": "attempt3_entry_source_1600",
+      "sample_count": 32,
+      "all_inside": true,
+      "span_ms": 1000,
+      "hand_y_min": 400.003784179688,
+      "hand_y_max": 413.984344482422,
+      "maximum_projection_error_px": 2.1972655986246536e-05,
+      "native_tip_x_range": [
+        760.539978027344,
+        760.539978027344
+      ],
+      "input_result": "ORIGINAL_KEEP_GAME_CANCELED_WITHOUT_RESET",
+      "new_main_to_after_opening_ms": 32191,
+      "original_source_inputs_and_time_scale": true,
+      "QA11_live_semantic_contact_accepted": false
+    }
+  ]
+}

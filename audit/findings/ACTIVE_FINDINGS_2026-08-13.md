@@ -430,6 +430,9 @@ poses as broken motion.
 
 2026-10-16 R76 scoped evidence: [care UI context](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r76_stuffie_care_context/README.md), [impact](../../design/audit_impacts/flat-vector-stuffie-care-context-20261016.json). Seven semantic care pictogram/progress roles added after current native two-width neighbor review,261known/35families.86healthy input/save checks do not approve glossy glyph material, live acknowledgement or title occlusion. All88frames/36failed-observer diagnostics retained; no production/art/removal acceptance or finding lifecycle change. Unknown global denominator and finalQA11/device/child/owner remain open.
 
+
+2026-10-16 R77 scoped evidence: [entry ownership/hand audit](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r77_intro_entry_ownership/README.md), [impact](../../design/audit_impacts/flat-vector-intro-entry-20261016.json). New KeepGamehand role is visibly flat beside the painted splash; source geometry/input works,262known/35families.313-script named guard and actual original display entry50checks distinguish retained headless intro from StartMenu; no global unreachability or alias credit. First cache-error18frames/prelaunch0 retained;54raw32bounded22excluded. Source/import/normal-save bytes unchanged,0production/art/removal acceptance and lifecycle unchanged. R66legacyContinue and finalQA11/device/child/owner/global gaps stay open.
+
 ## MA-VIS-009
 
 | Field | Value |

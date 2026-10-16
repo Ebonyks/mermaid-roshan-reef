@@ -1,0 +1,110 @@
+{
+  "status": "PASS_INTRO_ENTRY_CONTEXT_ONLY",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r77_intro_entry_ownership\\test_intro_entry.py"
+      ],
+      "exit_code": 0,
+      "sha256": "5b017138044e6c4091c2340e5f4694f8efa1683520d37cb1085774905e1839fb",
+      "checked_at_utc": "2026-10-16T09:41:26.658190+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r77_intro_entry_ownership\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "d483014e85a7d09567839d9ea77254a0cd48e06f08c5e7328d268fabbbd3fcc4",
+      "checked_at_utc": "2026-10-16T09:42:07.350813+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "6bdfc89a0d80d6abbf16b128310b1490ef27adcb241b286ed47bf90091eb6758",
+      "checked_at_utc": "2026-10-16T09:42:17.740631+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-16T09:42:25.664509+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "sha256": "23d03effd17612a12103839c8200f5e6565f899a371da70340706c4516163520",
+      "checked_at_utc": "2026-10-16T09:42:35.601700+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-16T09:42:36.630714+00:00"
+    }
+  ],
+  "raw_log_sha256": "911804128cfbbd9d3e6fae55d759479e9e01c02578490ea23067207883c46027",
+  "scope": "Actual54raw/32bounded/22excluded intro-entry validator;50healthy input/save checks,1new hand role,313currentASTsources and10extraction tests, unchanged source4425/import4088/11normal-name guards and exact4.7.2 native preflight. Document authority/development54tests/6stress. Staged+committed2D separately required before every push. Native diagnostics grant no replacement, finalQA11, device/child/owner, global caller or zero-art acceptance.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r77_intro_entry_ownership\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "d483014e85a7d09567839d9ea77254a0cd48e06f08c5e7328d268fabbbd3fcc4",
+      "output": "R77_VALIDATION_PASS 54raw32bounded22excluded;50healthy+10ASTtests;313sourceguard;sourcehand64samples+realcancel;262/35;0art/runtime/acceptance/globalunknown\r\n",
+      "checked_at_utc": "2026-10-16T09:45:07.394505+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "6bdfc89a0d80d6abbf16b128310b1490ef27adcb241b286ed47bf90091eb6758",
+      "output": "DOCAUTH|INVENTORY=790|LEDGER=790|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T09:45:17.860782+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-16T09:45:25.870196+00:00"
+    }
+  ]
+}

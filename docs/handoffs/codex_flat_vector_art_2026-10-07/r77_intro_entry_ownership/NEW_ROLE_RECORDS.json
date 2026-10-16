@@ -1,0 +1,122 @@
+{
+  "records": [
+    {
+      "id": "FVR-67E362D1DE53",
+      "stable_id_input": "scripts/start_menu.gd::_build_new_game_confirmation::Keep Game instructional hand",
+      "name": "Keep Game instructional hand",
+      "family": "shared_ui",
+      "count_unit": "Named semantic art role/state family, not another file or every repeated sample",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "evidence_level": "PARTIAL_CURRENT_ORIGINAL_DISPLAY_ENTRY_CONTEXT",
+      "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "source": {
+        "path": "scripts/start_menu.gd",
+        "function": "_build_new_game_confirmation",
+        "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+        "file_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+        "body_sha256": "fba8ce5690f10b4faf6d5c156612aa538a6c1594b2a2b8bb061c9635e4df1ef3",
+        "start_line": 215,
+        "end_line": 273,
+        "hash_mode": "Exact Git LF complete file/function through next function boundary"
+      },
+      "texture": {
+        "path": "assets/castle/training/ghost_hand.png",
+        "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+        "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+        "bytes": 123283,
+        "role": "Exact current source config/entry, original source hand/painted same-scene splash or owner-directed opening clip/provenance; no new art/motion or approval"
+      },
+      "same_scene_references": [
+        {
+          "path": "assets/ui/boot_splash_mermaid_roshan.png",
+          "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+          "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+          "bytes": 1848681,
+          "role": "Exact current source config/entry, original source hand/painted same-scene splash or owner-directed opening clip/provenance; no new art/motion or approval"
+        }
+      ],
+      "native_evidence": [
+        {
+          "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r77_intro_entry_ownership/native/attempt3_entry_source_1280/keep_ready.png",
+          "case": "attempt3_entry_source_1280",
+          "id": "keep_ready",
+          "bytes": 678739,
+          "sha256": "22676efa52e42893e38ffe90414025bded9e610639fbf6e5177f1ed18d188923",
+          "decoded_rgba_sha256": "08f152bc7707dbc59d471ce05d86e752b330da5636a50c57b0d0b2048ab55dfb",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "classification": "BOUNDED_CURRENT_DISPLAY_ENTRY"
+        },
+        {
+          "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r77_intro_entry_ownership/native/attempt3_entry_source_1280/intentional_hold_half.png",
+          "case": "attempt3_entry_source_1280",
+          "id": "intentional_hold_half",
+          "bytes": 678650,
+          "sha256": "c9793fe98abff62a52f7c6734779a5c413dea20570e439ac055ab03b80004c69",
+          "decoded_rgba_sha256": "62b3a2de4cb175aec75db95dbefdb74e1a88aaa451d6a1ff6d7ebe33b368ec29",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "classification": "BOUNDED_CURRENT_DISPLAY_ENTRY"
+        },
+        {
+          "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r77_intro_entry_ownership/native/attempt3_entry_source_1600/keep_ready.png",
+          "case": "attempt3_entry_source_1600",
+          "id": "keep_ready",
+          "bytes": 691487,
+          "sha256": "9d4fd4a306d43539cf62b477a5700b8c5c78a9ad84ec7249d93b37fb61b4621b",
+          "decoded_rgba_sha256": "1da04d5c5f910431e1fc2d1f905926be10512e9064e08e650c7eea1ff79b29a2",
+          "dimensions": [
+            1600,
+            720
+          ],
+          "classification": "BOUNDED_CURRENT_DISPLAY_ENTRY"
+        },
+        {
+          "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r77_intro_entry_ownership/native/attempt3_entry_source_1600/short_release_no_reset.png",
+          "case": "attempt3_entry_source_1600",
+          "id": "short_release_no_reset",
+          "bytes": 691467,
+          "sha256": "21484217e1a506e3c0a3d622b3176005e8c046342b82026971e393ce4b2d80f4",
+          "decoded_rgba_sha256": "77bbd0c680e5c053a0b11eea094b670ca9987b41b2d7c9902969d7d8dd076a62",
+          "dimensions": [
+            1600,
+            720
+          ],
+          "classification": "BOUNDED_CURRENT_DISPLAY_ENTRY"
+        }
+      ],
+      "comparison": {
+        "contour": "The small generic down-pointing hand has a thin dark contour and simple finger masses, beside the more detailed painted family/castle splash. The rectangular UI shell/button contour roles already have IDs.",
+        "material": "Hand fill is almost uniform pale peach with line-only finger detail; it lacks the authored painted value bands of the background. Source hand stays unchanged; no painted replacement is accepted.",
+        "palette": "Warm peach separates from the pale paper shell and gold KeepGame button, but source character/castle colors carry more authored pastel variation. No global source-color average is used.",
+        "light": "No shared painted light/shadow is established for the hand. The glowing button/sheen is separate already-counted native UI material.",
+        "perspective": "A frontal down-pointing UI hand supplies one pictorial direction, without a world-space prop or floor-contact requirement.",
+        "scale": "Source512square at0.14 is71.68square before alpha footprint; the actual target is300x118. At both aspects the pointer remains small relative to safety text/target. Device readability remains open.",
+        "contact": "Across64natural-cycle samples, the original source fingertip landmark remains inside KeepGame; actual tip input cancels without resetting. This is source-projected geometry and original-input evidence, not independent liveAlpha/QA11 or child comprehension.",
+        "occlusion": "The hand sits between safety copy and KeepGame upper-right edge, above the shared shell. At1600, the splash is centered with blue side margins and ambient glyphs continue into those margins. No whole-screen occlusion acceptance is claimed.",
+        "readability": "Adult confirmation copy and PRESS AND HOLD distinguish the two choices in these views; the small hand suggests the safe KeepGame target. Child/device comprehension and exact human style review remain open.",
+        "action_state": "Natural bob stays400..414localY. Keep-tip input cancels, short StartNew hold preserves private hashes, intentional hold archives the private options save/reloads Main and plays the opening, then original Continue preserves this DayOne profile. R66 legacy Continue mismatch is not repaired/retested here."
+      },
+      "target_specific_observation": "Visible flat hand points at safe KeepGame target. Original geometry/input contract passes here; painted material/style and device/child/owner remain open. Same source PNG used in other semantic contexts does not close this one.",
+      "context_reviewed": "PARTIAL_BOUNDED_ONLY",
+      "full_context_review_complete": false,
+      "reuse_ready": false,
+      "drawing_required": null,
+      "samples_awaiting_review": 0,
+      "approved": false,
+      "integrated": false,
+      "runtime_verified_replacement": false,
+      "device_acceptance": "PENDING",
+      "child_acceptance": "PENDING",
+      "owner_acceptance": "PENDING",
+      "accepted_removed": 0,
+      "fallbacks_retired": false
+    }
+  ],
+  "count": 1,
+  "dedup": "Source bitmap is shared with existing Skyway/tree-book hand roles, but this function/target is a distinct semantic role. Existing start-menu inset/sheen,sparkle,holdfill and gate focus mask IDs retained; repeated samples/scene aliases add no pieces."
+}
