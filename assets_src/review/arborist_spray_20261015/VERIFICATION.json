@@ -375,7 +375,7 @@
     "sha256": "20e1cec65ce16ca5f74ffaab6485e256431736ac68ff1b033a923c178eafe59d",
     "scope": "Parser, inference lint, document authority, complete change coverage and whitespace; repeat after final metadata binding before publication."
   },
-  "source_binding": "Corrected frozen GDScript hashes match the fully tested worktree; bind the forthcoming implementation commit after commit. Previous source/candidate results remain explicitly historical.",
+  "source_binding": "Corrected58/65/82 source: all three changed GDScript/test/capture blobs match exact tested LF hashes at 2f1808755a4f41999c6a9184727c2cb1c9abd82d. Follow-up binding is metadata only; published-head CI remains independent. Other runtime scripts/scenes/assets are unchanged from baseline5120b6d5.",
   "previous_candidate_revision": "db1d8f78bfcd32aa005840bc6ce71c12c91dea52",
   "previous_full_local_ci": {
     "result": "PASS",
@@ -702,5 +702,7 @@
         "canonicalization": "CRLF to LF and display-only trailing space removal; exact raw bytes retained in raw_logs_v2.zip."
       }
     ]
-  }
+  },
+  "implementation_source_commit": "2f1808755a4f41999c6a9184727c2cb1c9abd82d",
+  "advisory_exit_diagnostics": "The final unmodified probe_props reports8 ObjectDB instances/4 resources still in use at exit, with process exit0 and all assertions OK. These existing cleanup diagnostics are preserved in the raw log; no zero-warning or external-acceptance claim is made."
 }
