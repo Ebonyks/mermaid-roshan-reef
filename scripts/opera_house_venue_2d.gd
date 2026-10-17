@@ -3,8 +3,8 @@ extends Control
 ## True-2D reconstruction of the July 21 three-floor Pearl Opera House.
 ##
 ## The accepted master painting supplies every visible portal. Controls are
-## invisible physical portal hit regions; there is no card grid, career
-## crest, floating door frame, completion pearl, or all-career menu.
+## physical portal hit regions. Reused career pictures identify the owner-requested
+## four-door waves; the accepted background and Roshan source art are unchanged.
 
 const CANVAS_SIZE := Vector2(1280.0, 720.0)
 const TILE_ROOT := \
@@ -21,30 +21,20 @@ const FLOOR_NAMES: Array[String] = [
 	"Starlight Balcony",
 	"Grand Gallery",
 ]
-const LEGACY_FLOOR_ACT_INDICES: Array[int] = [2, 8, 13]
-const FLOOR_ACTOR_POSITIONS: Array[Vector2] = [
-	Vector2(584.0, 548.0),
-	Vector2(584.0, 354.0),
-	Vector2(584.0, 166.0),
+# Owner correction 2026-10-17: four foyer jobs, then four balcony jobs.
+# The existing Magician remains reachable in the upper gallery after those eight.
+const FIRST_WAVE: Array[int] = [6, 0, 3, 10]
+const SECOND_WAVE: Array[int] = [2, 13, 11, 1]
+const FIRST_WAVE_MASK := 0x0449
+const DOOR_X: Array[float] = [382.0, 513.0, 643.0, 773.0]
+const FLOOR_Y: Array[float] = [526.0, 352.0, 190.0]
+const SAFE_FEET := Vector2(640.0, 704.0)
+const FOOT_OFFSET := Vector2(56.0, 124.0)
+const WALK_SPEED := 420.0
+const FLOOR_AREAS: Array[Rect2] = [
+	Rect2(350, 510, 590, 42), Rect2(355, 526, 195, 178),
+	Rect2(730, 526, 195, 178), Rect2(170, 690, 910, 20),
 ]
-const LEGACY_PORTAL_RECTS := {
-	2: Rect2(674.0, 408.0, 126.0, 166.0),
-	8: Rect2(900.0, 236.0, 126.0, 160.0),
-	13: Rect2(830.0, 63.0, 126.0, 156.0),
-}
-# Four painted foyer doors become the opening Chapter 2 tutorial set. These
-# rectangles are measured from the accepted venue painting; no floating cards
-# or duplicate door art are added.
-const CHAPTER2_PORTAL_RECTS := {
-	0: Rect2(382.0, 408.0, 126.0, 166.0),
-	1: Rect2(526.0, 408.0, 126.0, 166.0),
-	2: Rect2(674.0, 408.0, 126.0, 166.0),
-	3: Rect2(817.0, 408.0, 126.0, 166.0),
-}
-const CHAPTER2_SECOND_WAVE_PORTAL_RECTS := {
-	11: Rect2(382.0, 220.0, 126.0, 156.0),
-	13: Rect2(817.0, 220.0, 126.0, 156.0),
-}
 var m: ReefMain
 var launch_career: Callable
 var buttons: Array[Button] = []
@@ -59,7 +49,18 @@ var floor_glow: ColorRect
 var guide_button: Button
 var guide_pointer: Sprite2D
 var guide_pointer_base := Vector2.ZERO
+var pending_act := -1
 var motion: Tween
+var navigation := StageNavigation2D.new()
+var feet := SAFE_FEET
+var touch_owner := -1
+var touch_start := Vector2.ZERO
+var touch_dragged := false
+var suppress_portal_press := false
+var last_guide_act := -1
+var last_refresh_mask := -1
+var last_refresh_objective := ""
+var background_input: Control
 var elapsed := 0.0
 var practice_book: TextureButton
 var tree_book_test: OperaTreeBookTest
@@ -77,6 +78,7 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	z_index = 42
 	_configure_portals()
+	_configure_walk_lanes()
 	set_meta("historical_layout_commit", HISTORICAL_LAYOUT_COMMIT)
 	set_meta("true_2d_venue", true)
 	set_meta("historical_floor_count", 3)
@@ -99,11 +101,16 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 
 
 func open(star_mask: int) -> void:
-	m._navigation_push("opera_venue", self, Callable(self, "close"))
+	m._navigation_push("opera_venue", self, Callable(self, "_go_back"))
 	visible = true
 	accepting_input = true
 	refresh(star_mask)
 	guide_current_floor()
+
+
+func _go_back() -> void:
+	close()
+	m._castle_rooms_ref().show_room("main_hall", true)
 
 
 func close() -> void:
@@ -111,6 +118,7 @@ func close() -> void:
 		job_playtest_menu.shutdown()
 	_close_tree_book(false)
 	m._navigation_remove("opera_venue")
+	_cancel_travel()
 	accepting_input = false
 	guide_button = null
 	if guide_pointer != null:
@@ -130,63 +138,82 @@ func is_chapter2_tutorial_mode() -> bool:
 
 
 func career_buttons() -> Array[Button]:
-	# Keep the established room-route order stable even though the physical
-	# venue is built from ground floor upward.
-	var ordered: Array[Button] = []
-	var requested_order: Array[int] = active_act_indices.duplicate()
-	if not chapter2_tutorial_mode and not (m != null and m.chapter2_is_active()):
-		requested_order = [2, 13, 8]
-	for act_index: int in requested_order:
-		for button: Button in buttons:
-			if int(button.get_meta("act_index", -1)) == act_index:
-				ordered.append(button)
-				break
-	return ordered
+	return buttons.duplicate()
 
 
 func refresh(star_mask: int) -> void:
+	# sync() runs every frame. Rebuild button/guide state only when its inputs
+	# change, so director entry copies and focus selection are not frame work.
+	var stamp: int = star_mask | (m.chapter2_party_piece_mask << 18) \
+		| (int(m.chapter2_is_active()) << 36) | (int(accepting_input) << 37) \
+		| (int(pending_act >= 0) << 38) | (int(m.chapter2_party_started) << 39) \
+		| (int(m.chapter2_ember_king_crashed) << 40) \
+		| (int(m.day_one_jobs_locked()) << 41) | (int(is_visible_in_tree()) << 42)
+	if stamp == last_refresh_mask and m.chapter2_active_objective == last_refresh_objective:
+		return
+	last_refresh_mask = stamp
+	last_refresh_objective = m.chapter2_active_objective
 	if practice_book != null:
 		practice_book.disabled = not accepting_input
 	for button: Button in buttons:
 		var act_index := int(button.get_meta("act_index", -1))
 		var complete := _portal_is_complete(act_index, star_mask)
-		var chapter2_complete := chapter2_tutorial_mode \
-			or (m != null and m.chapter2_is_active())
-		button.disabled = not accepting_input \
-			or not m.chapter2_can_start_opera_act(act_index) \
-			or (chapter2_complete and complete)
+		button.disabled = (not accepting_input and pending_act < 0) or not can_enter(act_index)
 		button.set_meta("complete", complete)
-		button.set_meta("chapter2_skill_complete",
-			chapter2_tutorial_mode and complete)
-		button.set_meta("chapter2_party_complete",
-			m != null and m.chapter2_is_active() and not chapter2_tutorial_mode \
-			and complete)
-	if actor != null:
-		actor.position = FLOOR_ACTOR_POSITIONS[floor_index]
-	if floor_glow != null:
-		floor_glow.position.y = FLOOR_ACTOR_POSITIONS[floor_index].y + 118.0
+		var picture := button.get_node_or_null("CareerPicture") as TextureRect
+		if picture != null:
+			picture.modulate.a = 0.28 if button.disabled and not complete else 1.0
+	_update_actor()
 	guide_current_floor()
+	var next_act := int(guide_button.get_meta("act_index", -1)) if guide_button != null else -1
+	if is_visible_in_tree() and accepting_input and m.opera_game == null \
+			and next_act >= 0 and next_act != last_guide_act:
+		last_guide_act = next_act
+		_speak_guide()
+
+
+func second_wave_is_open() -> bool:
+	var mask := m.chapter2_party_piece_mask if m.chapter2_is_active() else m.opera_stars
+	return (mask & FIRST_WAVE_MASK) == FIRST_WAVE_MASK
+
+
+func can_enter(act_index: int) -> bool:
+	if not active_act_indices.has(act_index) or m.day_one_jobs_locked():
+		return false
+	if SECOND_WAVE.has(act_index) and not second_wave_is_open():
+		return false
+	if act_index == 8 and (m.chapter2_is_active()
+			or (m.opera_stars & ChapterTwoPartyPlan.ALL_PARTY_MASK)
+			!= ChapterTwoPartyPlan.ALL_PARTY_MASK):
+		return false
+	if not m.chapter2_is_active():
+		return true
+	if act_index == ChapterTwoDirector.ACT_BALLERINA:
+		return m._chapter_two_ref().can_start_stuffie_ballet()
+	if act_index == ChapterTwoDirector.ACT_DETECTIVE:
+		return m._chapter_two_ref().room_plot_action("library") \
+			== ChapterTwoDirector.ACTION_DETECTIVE_SEARCH
+	return m.chapter2_can_start_opera_act(act_index)
 
 
 func guide_current_floor() -> bool:
 	guide_button = null
 	if not visible or not accepting_input:
 		return false
-	var candidates: Array[Button] = []
+	var fallback: Button = null
 	for button: Button in buttons:
-		if not button.disabled:
-			candidates.append(button)
-	for button: Button in candidates:
+		if button.disabled:
+			continue
+		if fallback == null:
+			fallback = button
 		var act_index := int(button.get_meta("act_index", -1))
 		if not _portal_is_complete(act_index, m.opera_stars):
 			guide_button = button
-			if button.is_inside_tree():
-				button.grab_focus()
-			_update_guide_pointer()
-			return true
-	if not candidates.is_empty():
-		guide_button = candidates[0]
-		if guide_button.is_inside_tree():
+			break
+	if guide_button == null:
+		guide_button = fallback
+	if guide_button != null:
+		if guide_button.is_inside_tree() and not guide_button.has_focus():
 			guide_button.grab_focus()
 		_update_guide_pointer()
 		return true
@@ -213,46 +240,16 @@ func _portal_is_complete(act_index: int, star_mask: int) -> bool:
 
 
 func _configure_portals() -> void:
-	# The four-door surface lasts only while the Chapter 2 director is asking
-	# for Opera skill lessons. Candle/ballet plot beats and post-onboarding
-	# free play use the historical room-distributed Opera routes again.
-	chapter2_tutorial_mode = m != null and m.chapter2_is_active() \
-		and m._chapter_two_ref().is_opera_priority()
-	active_act_indices.clear()
-	portal_rects.clear()
-	act_floors.clear()
-	if chapter2_tutorial_mode:
-		active_act_indices = m.chapter2_initial_tutorial_act_indices()
-		for act_index: int in active_act_indices:
-			portal_rects[act_index] = CHAPTER2_PORTAL_RECTS[act_index]
-			act_floors[act_index] = 0
-		return
-	if m != null and m.chapter2_is_active():
-		# The venue shows only the eight-career birthday roster. Ballerina and
-		# Detective remain room-owned plot actions; their normal doors are not
-		# duplicated here. The first wave is supplied by the director mask, and
-		# the second wave appears after Painter completes.
-		for act_index: int in ChapterTwoPartyPlan.GUIDE_ORDER:
-			if act_index in [ChapterTwoDirector.ACT_BALLERINA,
-					ChapterTwoDirector.ACT_DETECTIVE]:
-				continue
-			if (int(m._chapter_two_ref().unlocked_opera_mask) & (1 << act_index)) == 0:
-				continue
-			active_act_indices.append(act_index)
-			var rect: Rect2 = CHAPTER2_PORTAL_RECTS.get(
-				active_act_indices.size() - 1,
-				CHAPTER2_SECOND_WAVE_PORTAL_RECTS.get(act_index,
-					Rect2(0.0, 0.0, 126.0, 156.0)))
-			if active_act_indices.size() > CHAPTER2_PORTAL_RECTS.size():
-				rect = CHAPTER2_SECOND_WAVE_PORTAL_RECTS.get(act_index, rect)
-			portal_rects[act_index] = rect
-			act_floors[act_index] = 0
-		return
-	active_act_indices = LEGACY_FLOOR_ACT_INDICES.duplicate()
-	for legacy_floor in range(active_act_indices.size()):
-		var act_index := active_act_indices[legacy_floor]
-		portal_rects[act_index] = LEGACY_PORTAL_RECTS[act_index]
-		act_floors[act_index] = legacy_floor
+	chapter2_tutorial_mode = false
+	active_act_indices.assign(FIRST_WAVE + SECOND_WAVE + [8])
+	for slot: int in range(active_act_indices.size()):
+		var act_index := active_act_indices[slot]
+		var floor_id := mini(slot / 4, 2)
+		var column := slot % 4
+		portal_rects[act_index] = Rect2(DOOR_X[column],
+			408.0 if floor_id == 0 else (220.0 if floor_id == 1 else 63.0),
+			126.0, 166.0 if floor_id == 0 else 156.0)
+		act_floors[act_index] = floor_id
 
 
 func _build_background_tiles() -> void:
@@ -291,12 +288,14 @@ func _build_input_blocker() -> void:
 	blocker.mouse_filter = Control.MOUSE_FILTER_STOP
 	blocker.z_index = 1
 	add_child(blocker)
+	background_input = blocker
+	blocker.gui_input.connect(_floor_input)
 
 
 func _build_floor_glow() -> void:
 	floor_glow = ColorRect.new()
 	floor_glow.name = "CurrentFloorFootlight"
-	floor_glow.position = Vector2(292.0, 666.0)
+	floor_glow.position = Vector2(292.0, 708.0)
 	floor_glow.size = Vector2(696.0, 5.0)
 	floor_glow.color = Color(1.0, 0.84, 0.42, 0.58)
 	floor_glow.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -307,20 +306,15 @@ func _build_floor_glow() -> void:
 func _build_actor() -> void:
 	actor = TextureRect.new()
 	actor.name = "LobbyRoshanCutout"
-	actor.position = FLOOR_ACTOR_POSITIONS[0]
+	actor.position = SAFE_FEET - FOOT_OFFSET
 	actor.size = Vector2(112.0, 132.0)
 	actor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	actor.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	actor.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	actor.texture = load(FashionOutfitRenderer.path(m, ROSHAN_TEXTURE)) as Texture2D
-	actor.z_index = 5
+	actor.z_index = 9
 	actor.set_meta("source_asset_role", "character")
 	add_child(actor)
-	var idle := actor.create_tween().set_loops()
-	idle.tween_property(actor, "rotation", -0.018, 0.75) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	idle.tween_property(actor, "rotation", 0.018, 0.75) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 
 func _build_portals() -> void:
@@ -341,6 +335,11 @@ func _build_portals() -> void:
 		button.set_meta("act_index", act_index)
 		button.set_meta("castle_room_id", "opera_hall")
 		button.set_meta("floor_index", portal_floor)
+		button.set_meta("object_id", "opera.foyer.act.%02d" % act_index)
+		button.set_meta("approach_point", Vector2(rect.get_center().x, FLOOR_Y[portal_floor]))
+		button.set_meta("arrival_radius", 6.0)
+		button.set_meta("action", "enter_career")
+		button.set_meta("return_target", "opera_hall")
 		button.set_meta("presentation",
 			"chapter2_initial_tutorial_portal" if chapter2_tutorial_mode \
 			else "historical_three_floor_portal")
@@ -349,7 +348,9 @@ func _build_portals() -> void:
 		button.set_meta("floating_decoration", false)
 		button.set_meta("screen_hit_size", rect.size)
 		_style_portal_button(button)
-		button.pressed.connect(_choose_career.bind(act_index))
+		button.pressed.connect(_on_portal_pressed.bind(act_index))
+		button.gui_input.connect(_portal_input.bind(act_index))
+		_build_career_picture(button, act_index)
 		add_child(button)
 		buttons.append(button)
 
@@ -372,7 +373,7 @@ func _update_guide_pointer() -> void:
 	guide_pointer_base = guide_button.position + Vector2(
 		guide_button.size.x * 0.5, -10.0)
 	guide_pointer.position = guide_pointer_base
-	guide_pointer.visible = chapter2_tutorial_mode
+	guide_pointer.visible = true
 
 
 func _style_portal_button(button: Button) -> void:
@@ -403,35 +404,236 @@ func _outline_style(border: Color, fill: Color, width: int,
 
 
 func _choose_career(act_index: int) -> void:
-	if not accepting_input or not portal_rects.has(act_index) \
-			or not m.chapter2_can_start_opera_act(act_index):
+	if (not accepting_input and pending_act < 0) or not can_enter(act_index):
 		return
-	floor_index = int(act_floors.get(act_index, 0))
-	accepting_input = false
-	refresh(m.opera_stars)
-	var rect: Rect2 = portal_rects[act_index]
-	var target := Vector2(
-		rect.get_center().x - actor.size.x * 0.5,
-		FLOOR_ACTOR_POSITIONS[floor_index].y)
-	_start_motion()
-	motion.tween_property(actor, "position", target, 0.55) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	motion.tween_callback(_launch_selected.bind(act_index))
+	guide_button = _button_for_act(act_index)
+	var target: Vector2 = guide_button.get_meta("approach_point") as Vector2
+	_update_guide_pointer()
+	_speak_career(act_index)
+	travel_to(target, act_index)
+
+
+func travel_to(target: Vector2, act_index: int = -1) -> void:
+	if not accepting_input and pending_act < 0:
+		return
+	_cancel_travel()
+	var destination := _walkable_point(target)
+	var lanes: Array[PackedVector2Array] = navigation.branches.duplicate()
+	lanes.append(PackedVector2Array([feet, navigation.nearest_point(feet)]))
+	lanes.append(PackedVector2Array([destination, navigation.nearest_point(destination)]))
+	navigation.configure(lanes)
+	var path := navigation.route(feet, destination)
+	_configure_walk_lanes()
+	if path.is_empty():
+		return
+	motion = create_tween()
+	for index in range(1, path.size()):
+		motion.tween_method(_set_feet, path[index - 1], path[index],
+			maxf(0.02, path[index - 1].distance_to(path[index]) / WALK_SPEED))
+	if act_index >= 0:
+		pending_act = act_index
+		accepting_input = false
+		motion.tween_callback(_launch_selected.bind(act_index))
 
 
 func _launch_selected(act_index: int) -> void:
+	pending_act = -1
 	accepting_input = true
-	if launch_career.is_valid():
+	var button := _button_for_act(act_index)
+	var arrived := button != null and feet.distance_to(
+		button.get_meta("approach_point") as Vector2) <= float(button.get_meta("arrival_radius"))
+	if is_visible_in_tree() and arrived and can_enter(act_index) and launch_career.is_valid():
 		launch_career.call(act_index)
+	refresh(m.opera_stars)
 
 
-func _start_motion() -> void:
+func _cancel_travel() -> void:
+	if pending_act >= 0:
+		accepting_input = true
+	pending_act = -1
 	if motion != null and motion.is_valid():
 		motion.kill()
-	motion = create_tween()
+	motion = null
+	touch_owner = -1
+
+
+func _set_feet(point: Vector2) -> void:
+	feet = _walkable_point(point)
+	_update_actor()
+
+
+func _walkable_point(point: Vector2) -> Vector2:
+	for area: Rect2 in FLOOR_AREAS:
+		if area.has_point(point):
+			return point
+	return navigation.nearest_point(point)
+
+
+func _update_actor() -> void:
+	if actor == null:
+		return
+	floor_index = 0 if feet.y > 410.0 else (1 if feet.y > 260.0 else 2)
+	var actor_scale := 1.0 if floor_index == 0 else 0.80
+	actor.scale = Vector2.ONE * actor_scale
+	actor.position = feet - FOOT_OFFSET * actor_scale
+
+
+func _configure_walk_lanes() -> void:
+	# Floor aisles avoid the three sofas; stair corners follow the painting.
+	# The right brass lift connects the upper gallery without crossing a wall.
+	var lanes: Array[PackedVector2Array] = [
+		PackedVector2Array([Vector2(180, 704), Vector2(1080, 704)]),
+		PackedVector2Array([Vector2(350, 526), Vector2(940, 526)]),
+		PackedVector2Array([Vector2(450, 704), Vector2(450, 526)]),
+		PackedVector2Array([Vector2(830, 704), Vector2(830, 526)]),
+		PackedVector2Array([Vector2(350, 526), Vector2(270, 526),
+			Vector2(248, 500), Vector2(292, 430), Vector2(350, 352)]),
+		PackedVector2Array([Vector2(940, 526), Vector2(1010, 526),
+			Vector2(1032, 500), Vector2(988, 430), Vector2(930, 352)]),
+		PackedVector2Array([Vector2(350, 352), Vector2(930, 352)]),
+		PackedVector2Array([Vector2(1010, 526), Vector2(1090, 526),
+			Vector2(1090, 190), Vector2(930, 190), Vector2(350, 190)]),
+	]
+	navigation.configure(lanes)
+
+
+func _floor_input(event: InputEvent) -> void:
+	if not visible or (not accepting_input and pending_act < 0):
+		return
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		if touch.pressed and touch_owner == -1:
+			_cancel_travel()
+			touch_owner = touch.index
+			touch_start = touch.position
+			touch_dragged = false
+		elif not touch.pressed and touch.index == touch_owner:
+			touch_owner = -1
+			if touch.canceled:
+				_cancel_travel()
+			else:
+				_commit_floor_release(touch.position)
+	elif event is InputEventScreenDrag:
+		var drag := event as InputEventScreenDrag
+		if drag.index == touch_owner:
+			touch_dragged = touch_start.distance_to(drag.position) > 16.0
+	elif event is InputEventMouseButton:
+		var mouse := event as InputEventMouseButton
+		if mouse.button_index == MOUSE_BUTTON_LEFT:
+			if mouse.pressed and touch_owner == -1:
+				_cancel_travel()
+				touch_owner = -2
+			elif not mouse.pressed and touch_owner == -2:
+				touch_owner = -1
+				_commit_floor_release(mouse.position)
+	background_input.accept_event()
+
+
+func _commit_floor_release(point: Vector2) -> void:
+	for button: Button in buttons:
+		if not button.disabled and Rect2(button.position, button.size).has_point(point):
+			touch_dragged = false
+			_choose_career(int(button.get_meta("act_index")))
+			return
+	travel_to(point)
+
+
+func _on_portal_pressed(act_index: int) -> void:
+	# Screen touches are committed below by their owning finger. This signal
+	# retains ordinary mouse, keyboard and accessibility button activation.
+	if not suppress_portal_press and touch_owner == -1:
+		_choose_career(act_index)
+
+
+func _clear_portal_suppression() -> void:
+	suppress_portal_press = false
+
+
+func _portal_input(event: InputEvent, act_index: int) -> void:
+	if event is InputEventScreenTouch:
+		suppress_portal_press = true
+		call_deferred("_clear_portal_suppression")
+		var touch := event as InputEventScreenTouch
+		var button := _button_for_act(act_index)
+		if touch.pressed and touch_owner == -1:
+			_cancel_travel()
+			touch_owner = touch.index
+			touch_start = touch.position + button.position
+			touch_dragged = false
+		elif not touch.pressed and touch.index == touch_owner:
+			touch_owner = -1
+			if touch.canceled:
+				_cancel_travel()
+			else:
+				_commit_floor_release(touch.position + button.position)
+	elif event is InputEventMouseButton:
+		var mouse := event as InputEventMouseButton
+		if mouse.button_index != MOUSE_BUTTON_LEFT:
+			return
+		suppress_portal_press = true
+		call_deferred("_clear_portal_suppression")
+		if mouse.pressed and touch_owner == -1:
+			_cancel_travel()
+			touch_owner = -2
+		elif not mouse.pressed and touch_owner == -2:
+			touch_owner = -1
+			var button := _button_for_act(act_index)
+			_commit_floor_release(mouse.position + button.position)
+	elif event is InputEventScreenDrag:
+		var drag := event as InputEventScreenDrag
+		if drag.index == touch_owner:
+			touch_dragged = true
+
+
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_PAUSED]:
+		_cancel_travel()
+		accepting_input = visible and tree_book_test == null \
+			and (job_playtest_menu == null or not job_playtest_menu.session_open)
+
+
+func _button_for_act(act_index: int) -> Button:
+	for button: Button in buttons:
+		if int(button.get_meta("act_index", -1)) == act_index:
+			return button
+	return null
+
+
+func _speak_guide() -> void:
+	if guide_button != null:
+		_speak_career(int(guide_button.get_meta("act_index")))
+
+
+func _speak_career(act_index: int) -> void:
+	m._audio_ref().chapter_two_prompt("op_" + String(
+		(OperaHouse.ACTS[act_index] as Dictionary).get("costume", "")) + "_work")
+
+
+func _build_career_picture(button: Button, act_index: int) -> void:
+	var crest_file := String(CastleCareerRoutes.CAREER_CREST_FILES.get(
+		String((OperaHouse.ACTS[act_index] as Dictionary).get("costume", "")), ""))
+	if crest_file.is_empty():
+		return
+	var picture := TextureRect.new()
+	picture.name = "CareerPicture"
+	picture.position = Vector2(31, 48)
+	picture.size = Vector2(64, 64)
+	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	picture.texture = load(CastleCareerRoutes.CREST_ROOT + crest_file) as Texture2D
+	button.add_child(picture)
 
 
 func _process(delta: float) -> void:
+	if is_visible_in_tree() and (accepting_input or pending_act >= 0):
+		var axis := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		axis += Vector2(float(Input.is_physical_key_pressed(KEY_D)) - float(Input.is_physical_key_pressed(KEY_A)),
+			float(Input.is_physical_key_pressed(KEY_S)) - float(Input.is_physical_key_pressed(KEY_W)))
+		axis = axis.limit_length()
+		if axis.length_squared() > 0.01:
+			_cancel_travel()
+			_set_feet(feet + axis * WALK_SPEED * delta)
 	if not visible or guide_button == null or not is_instance_valid(guide_button):
 		return
 	elapsed += delta
@@ -446,6 +648,7 @@ func _process(delta: float) -> void:
 func _build_practice_book() -> void:
 	practice_book = TextureButton.new()
 	practice_book.name = "TreeBookPractice"
+	practice_book.z_index = 8
 	practice_book.position = Vector2(1032, 552)
 	practice_book.size = Vector2(174, 131)
 	practice_book.texture_normal = load("res://assets/opera/tree_book_test/book.png") as Texture2D
@@ -488,8 +691,9 @@ func _build_playtest_elevator() -> void:
 
 
 func open_tree_book() -> void:
-	if not visible or not accepting_input or tree_book_test != null:
+	if not visible or not accepting_input or tree_book_test != null or touch_owner >= 0:
 		return
+	_cancel_travel()
 	accepting_input = false
 	m._set_world_controls_enabled(false, "tree_book_practice")
 	refresh(m.opera_stars)

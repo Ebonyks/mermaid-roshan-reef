@@ -1,0 +1,55 @@
+{
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "branch": "codex/opera-foyer-movement-20261017",
+  "sources": {
+    "scripts/main.gd": {
+      "raw_sha256": "c794693c31a10956b728175b7c57656d977b8cedc3646420acb666a81000f049",
+      "git_blob": "94494add1470ad4572700bf99b6085c35b061da4"
+    },
+    "scripts/castle_career_routes.gd": {
+      "raw_sha256": "3df4e796cdcef1b389b17504790af2cdad4fc3793fa2f4d6aaa21fd28f6623f6",
+      "git_blob": "4e859437418225133ddbeeea2208c62ebf12eb79"
+    },
+    "scripts/opera_house_venue_2d.gd": {
+      "raw_sha256": "286e98c777f4257b638dacc8b02e5887c1179c040febeae7ed367e3ce776a2a5",
+      "git_blob": "6b90ba8a34eda365007f9a8500bfb86095f53c8a"
+    },
+    "scripts/chapter_two_director.gd": {
+      "raw_sha256": "142661b254e139286eacb7b60ee190293ae482de71c576865f9c86443b3c9e3e",
+      "git_blob": "64957c7db680c47a38e5f83a59c88db78edbc539"
+    },
+    "scripts/opera_job_playtest_menu.gd": {
+      "raw_sha256": "8958490602ca14e83c0e596595755ebba2a781d97e8282fe3d20ee65b58b77ae",
+      "git_blob": "1cd9e43418b26f12d9c42b2dc87d992f8dd6b857"
+    },
+    "scripts/probe_opera.gd": {
+      "raw_sha256": "7072dfe6702bdd8cebd2e2e8cfb62e23ab051b55fb6e2496169a1b77ae9a3983",
+      "git_blob": "5acaf24b28b38e4f2eb3613d72f78af04a21842c"
+    },
+    "scripts/probe_opera_2d.gd": {
+      "raw_sha256": "b0c7085fac6a80004fe93e69903ed692d853224cd662d7815ecb9319155093fb",
+      "git_blob": "7ec7335c59e5fd2fb12e2fc87a71d08e01033b7b"
+    }
+  },
+  "claim": "Exact final raw bytes and canonical Git blobs: six unchanged implementation sources plus the probe-only foyer-contract correction. Failed full-run source and corrected per-probe verification retain distinct pins.",
+  "reconciled_integration_head": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "task_snapshot": "cad344a071b4d7b8f851e44b51ee162a845afcbb",
+  "reconciliation": "Fast-forwarded clean topic to current dev, then applied retained task snapshot. Three documentation files auto-merged; no conflicts. All six candidate Git blobs and raw hashes remain identical after restoring their authored LF bytes. R91 collection changes are preserved and the full gate repeats on the combined source.",
+  "probe_contract_revision": {
+    "scope": "Probe-only correction for explicitly requested four-bottom/four-balcony foyer. Preserve exact canonical homes, no3D, targets and transparent styles; require exactly one bounded input-ignoring approved crest child. Independently hardcode the displayed9-job vector, check initial locks and count only unchanged canonical homes for uniqueness. No production runtime change.",
+    "file": "scripts/probe_opera_2d.gd",
+    "before_sha256": "440ca7095d1800bbc641e05ff727ad47f403a2ad253f398fb570a86af6f598f0",
+    "before_git_blob": "a2b0a088389554838208feb08931f45882e5c19a",
+    "after_sha256": "b0c7085fac6a80004fe93e69903ed692d853224cd662d7815ecb9319155093fb",
+    "after_git_blob": "7ec7335c59e5fd2fb12e2fc87a71d08e01033b7b",
+    "failed_full_receipt": "full-ci-05-native.json",
+    "failed_full_log": "full-ci-05.log",
+    "failed_full_bad_exits": {
+      "probe_opera_2d": "1",
+      "probe_dust_boss_balance": "127",
+      "probe_start_menu_new_game": "127"
+    },
+    "unchanged_runtime_claim": "All 1612 earlier tracked script/tool/project hashes matched before this single probe correction; six implementation files remain identical.",
+    "retry_requirement": "Corrected full Opera2D plus unchanged balance/Start New (exit127 with no final verdict, causes unestablished). Preserve red history. AGENTS probe-by-probe validation before commit and exact-head remote full CI before integration."
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "scope": "Literal native logs/receipts; scoped -text only, runtime source text policy is unchanged. Original native transcripts restored from retained staging after Git stash text checkout.",
+  "checks": [
+    {
+      "receipt": "chapter2-01.json",
+      "log": "chapter2-01.log",
+      "raw_sha256": "e2d1669d4bbdf7b91895e757ef902922737b174238a944e021f18735b6506b5c"
+    },
+    {
+      "receipt": "focused-01.json",
+      "log": "focused-01.log",
+      "raw_sha256": "a475f0cb81edf66b0bcb4decce60c30840652ce40f5080116c45990314b23a36"
+    },
+    {
+      "receipt": "focused-02.json",
+      "log": "focused-02.log",
+      "raw_sha256": "82858d636b85499a9edb16ba18c2e671048065fbc46a0b8b370c313e742bb6bc"
+    },
+    {
+      "receipt": "focused-03.json",
+      "log": "focused-03.log",
+      "raw_sha256": "d054ebc2be40c960debc28a3a7f29f5ef5534530535fbb3fd7893164e5fdcbbf"
+    },
+    {
+      "receipt": "focused-04.json",
+      "log": "focused-04.log",
+      "raw_sha256": "d90a3317395a093232fde0e2853347613280785971927e5f6a60d9f5f3a5945a"
+    },
+    {
+      "receipt": "focused-05.json",
+      "log": "focused-05.log",
+      "raw_sha256": "523a2397a6f7dade2058b66decd2de757d2a03a024d50118b42cfb52183b7893"
+    },
+    {
+      "receipt": "lint-final.json",
+      "log": "lint-final.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "parser-final.json",
+      "log": "parser-final.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "full-ci-05-launcher.json",
+      "log": "full-ci-05-launcher.log",
+      "raw_sha256": "29a8e055e50372bb3cae59d7847d76ecef7c829495e2b15f00c2a649a8bb7d10"
+    },
+    {
+      "receipt": "full-ci-05-native.json",
+      "log": "full-ci-05.log",
+      "raw_sha256": "e95f39741237aa97454a7591fe5e019816e98f70cc22f416c9b3849d2ffa9ab6"
+    },
+    {
+      "receipt": "rollback-01.json",
+      "log": "rollback-01.log",
+      "raw_sha256": "c38a66ecfaefd4bd86374176f03c1136b434cea89d96a2c13eb6f941d721531f"
+    },
+    {
+      "receipt": "parser-02.json",
+      "log": "parser-02.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "lint-02.json",
+      "log": "lint-02.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "analyzer-02.json",
+      "log": "analyzer-02.log",
+      "raw_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "receipt": "opera2d-02.json",
+      "log": "opera2d-02.log",
+      "raw_sha256": "aa86e420bf371f20dd2b045b4f9fbef68802693b03c7227745206b8ed89b915e"
+    },
+    {
+      "receipt": "dust-balance-02.json",
+      "log": "dust-balance-02.log",
+      "raw_sha256": "8cc29bc05de1b11bb3b12cd23325774508d9baaa62ec38a6129a07f11df333b0"
+    },
+    {
+      "receipt": "start-new-02.json",
+      "log": "start-new-02.log",
+      "raw_sha256": "69ce2c90322bf00de796e083e8444747cf065995a4d862daa335781a7a99ec4b"
+    }
+  ],
+  "predecessor": {
+    "receipt": "audit/remove_opera_anteroom_20261017/focused.json",
+    "log": "audit/remove_opera_anteroom_20261017/focused.log",
+    "raw_sha256": "2b75a43599cd5663731639a13011d6cc3d0fe91b3dac023b05a922d3f9460a8c",
+    "matches_original_receipt": true
+  }
+}

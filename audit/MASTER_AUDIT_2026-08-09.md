@@ -64,6 +64,10 @@ active-fact checks; do not hand-copy its counts into planning rules.
 
 
 <!-- AUDIT_TASK_INDEX_START -->
+Owner-reported [Opera foyer movement and game-door repair](../design/audit_impacts/opera-foyer-movement-20261017.json) (2026-10-17) adds travel/arrival routing and four-bottom/four-balcony progression using the existing birthday roster and masks. Candidate machine evidence and visual/device/child/owner acceptance remain separate; [manual rollback record CHG-100](MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#opera-foyer-movement-and-four-door-waves-chg-100) preserves the scope and source-binding requirement. `MA-OPERA-012` and `MA-PLAY-003` lifecycles remain open at their existing states.
+
+Owner-requested [Opera antechamber removal](../design/audit_impacts/remove-opera-anteroom-20261017.json) (2026-10-17) makes the existing three-floor venue the immediate Opera destination and makes one Back return to the Castle Main Hall. The logical room ID and career/save ownership are retained. Candidate verification and unavailable Godot AI refresh are tracked separately; `MA-OPERA-012` remains pending external acceptance.
+
 
 Owner-reported 2026-10-15 [doorframe restoration](../design/audit_impacts/restore-doorframes-20261015.json) recovers the unmerged `10ddff27` painted-frame cues onto current dev, preserving later attention feedback. Exact local verification passes all 82 trusted probes after the unchanged 96-frame interaction binding is revalidated; the initial failed gate is preserved. Remote CI/integration and authoritative visual/device/child/owner acceptance remain separate; no finding closure or game-wide satisfaction is claimed.
 

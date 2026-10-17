@@ -31,10 +31,11 @@ func setup(main: ReefMain, owner_venue: OperaHouseVenue2D) -> void:
 
 
 func open() -> void:
-	if not ENABLED or session_open or not venue.accepting_input or not _owns_venue():
+	if not ENABLED or session_open or not venue.accepting_input or venue.touch_owner >= 0 or not _owns_venue():
 		return
 	if job_buttons.is_empty():
 		_build_menu()
+	venue._cancel_travel()
 	session_open = true
 	venue.accepting_input = false
 	venue.refresh(m.opera_stars)

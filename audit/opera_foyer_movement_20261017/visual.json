@@ -1,0 +1,85 @@
+{
+	"captures": [
+		{
+			"active_act": -1,
+			"feet": [
+				480.0,
+				610.0
+			],
+			"game": "level2",
+			"label": "floor",
+			"path": "res://tmp/foyer-evidence/visual_floor.png",
+			"room": "opera_hall",
+			"save_error": 0,
+			"second_wave_open": false,
+			"sha256": "67f8240aefc8b73e50986975fa2d1a6cadd9d0068a387841eff1cea00128bbb7"
+		},
+		{
+			"active_act": -1,
+			"feet": [
+				445.0,
+				352.0
+			],
+			"game": "level2",
+			"label": "balcony",
+			"path": "res://tmp/foyer-evidence/visual_balcony.png",
+			"room": "opera_hall",
+			"save_error": 0,
+			"second_wave_open": true,
+			"sha256": "d6279be52d2587d9c40ca2932b933b6428d03a0707af932e649a4980fea4b0d8"
+		},
+		{
+			"active_act": 2,
+			"feet": [
+				445.0,
+				352.0
+			],
+			"game": "opera",
+			"label": "game",
+			"path": "res://tmp/foyer-evidence/visual_game.png",
+			"room": "opera_hall",
+			"save_error": 0,
+			"second_wave_open": true,
+			"sha256": "cf2e9eb770a03ac80b280a457061ff515de645c9e3db81b9442e0cb661e44ac0"
+		},
+		{
+			"active_act": -1,
+			"feet": [
+				445.0,
+				352.0
+			],
+			"game": "level2",
+			"label": "return",
+			"path": "res://tmp/foyer-evidence/visual_return.png",
+			"room": "opera_hall",
+			"save_error": 0,
+			"second_wave_open": true,
+			"sha256": "9df8058cb5af4683331c18525ce813623e7c8831bf27c5a94e6681c8314e9638"
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"renderer": "mobile",
+	"scope": "Diagnostic desktop Mobile offscreen SubViewport in a hidden Windows render process. Fixture sets freeplay first-wave bits only to inspect unlocked balcony; not earned progress. No authoritative visual/device/child/owner acceptance or game-wide satisfaction.",
+	"size": [
+		1280,
+		720
+	],
+	"source_sha256": {
+		"scripts/castle_career_routes.gd": "3df4e796cdcef1b389b17504790af2cdad4fc3793fa2f4d6aaa21fd28f6623f6",
+		"scripts/chapter_two_director.gd": "142661b254e139286eacb7b60ee190293ae482de71c576865f9c86443b3c9e3e",
+		"scripts/main.gd": "c794693c31a10956b728175b7c57656d977b8cedc3646420acb666a81000f049",
+		"scripts/opera_house_venue_2d.gd": "286e98c777f4257b638dacc8b02e5887c1179c040febeae7ed367e3ce776a2a5",
+		"scripts/opera_job_playtest_menu.gd": "8958490602ca14e83c0e596595755ebba2a781d97e8282fe3d20ee65b58b77ae",
+		"scripts/probe_opera.gd": "7072dfe6702bdd8cebd2e2e8cfb62e23ab051b55fb6e2496169a1b77ae9a3983"
+	}
+}

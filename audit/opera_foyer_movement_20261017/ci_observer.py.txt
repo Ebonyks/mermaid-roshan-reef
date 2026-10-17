@@ -1,0 +1,26 @@
+import ctypes,ctypes.wintypes as w,hashlib,json,re,subprocess,time
+from pathlib import Path
+r=Path.cwd();out=r/'tmp/foyer-evidence';pid=140240
+k=ctypes.WinDLL('kernel32',use_last_error=True)
+k.OpenProcess.argtypes=[w.DWORD,w.BOOL,w.DWORD];k.OpenProcess.restype=w.HANDLE
+k.WaitForSingleObject.argtypes=[w.HANDLE,w.DWORD];k.WaitForSingleObject.restype=w.DWORD
+k.GetExitCodeProcess.argtypes=[w.HANDLE,ctypes.POINTER(w.DWORD)];k.GetExitCodeProcess.restype=w.BOOL
+k.CloseHandle.argtypes=[w.HANDLE]
+h=k.OpenProcess(0x101000,False,pid);assert h,ctypes.get_last_error()
+paths=subprocess.check_output(['git','ls-files','scripts','tools','project.godot'],text=True).splitlines()
+before={p:hashlib.sha256((r/p).read_bytes()).hexdigest() for p in paths if (r/p).is_file()}
+binding=json.loads((r/'audit/opera_foyer_movement_20261017/source_binding.json').read_text())
+for p,rec in binding['sources'].items(): assert before[p]==rec['raw_sha256'],p
+started=time.time();last=0
+while k.WaitForSingleObject(h,1000)==258:
+ if time.time()-last>45:
+  print('CI_NATIVE_OBSERVER|same original scripts/ci.sh process|PID140240|running',flush=True);last=time.time()
+ assert time.time()-started<21600,'Observer six-hour bound exceeded; no success claimed'
+code=w.DWORD();assert k.GetExitCodeProcess(h,ctypes.byref(code));k.CloseHandle(h)
+after={p:hashlib.sha256((r/p).read_bytes()).hexdigest() for p in before if (r/p).is_file()}
+log=out/'full-ci-05.log';raw=log.read_bytes();text=raw.decode('utf-8','replace')
+exits=re.findall(r'^PROBE (\S+) process exit: (\d+)\s*$',text,re.M)
+receipt={'command':['bash','--noprofile','--norc','scripts/ci.sh'],'pid':pid,'working_directory':str(r),'process_directory_verified':'Native PEB CurrentDirectory equals this worktree before opening the process handle; process creation 2026-10-17T13:00:19-07:00 matches full-ci-05 launcher.','exit_code':code.value,'probe_exit_codes':dict(exits),'probe_count':len(exits),'observer_seconds':round(time.time()-started,3),'source_sha256':before,'changed_sources':[p for p in before if after.get(p)!=before[p]],'log_sha256':hashlib.sha256(raw).hexdigest(),'claim':'Read-only Windows process-handle observer of the SAME original uninterrupted full-ci-05 scripts/ci.sh. No source, command, gate, process or timeout is changed. An outer launcher deadline alone does not establish this process verdict. Actual process must exit0, all82 probes must exit0 and frozen sources must match. Human/device/child/owner acceptance remains separate.'}
+(out/'full-ci-05-native.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({k:v for k,v in receipt.items() if k!='source_sha256'}),flush=True)
+assert code.value==0 and len(exits)==82 and all(v=='0' for _,v in exits) and not receipt['changed_sources'], 'Native full CI did not pass'

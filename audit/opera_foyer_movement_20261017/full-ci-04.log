@@ -1,0 +1,300 @@
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.689s
+
+OK
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+........s...............................
+----------------------------------------------------------------------
+Ran 40 tests in 138.758s
+
+OK (skipped=1)
+TYPOGRAPHY_AUDIT status=OPEN
+FONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING
+GLYPHS observed=133 unclassified=0 critical=124 critical_unresolved=124
+LABEL3D current=36 baseline=45 files=11 delta=-9
+LABEL3D_FILE  7 scripts/arena/sky_lagoon.gd
+LABEL3D_FILE  2 scripts/collection_system.gd
+LABEL3D_FILE  1 scripts/combat_arena.gd
+LABEL3D_FILE 11 scripts/companion.gd
+LABEL3D_FILE  1 scripts/dungeon_puzzle_room.gd
+LABEL3D_FILE  2 scripts/galaxy.gd
+LABEL3D_FILE  4 scripts/games/shop.gd
+LABEL3D_FILE  4 scripts/kart.gd
+LABEL3D_FILE  2 scripts/main.gd
+LABEL3D_FILE  1 scripts/reef_districts.gd
+LABEL3D_FILE  1 scripts/stuffie_battle.gd
+OPEN font authority, coverage, and/or device evidence remains unresolved
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.312s
+
+OK
+ROSHAN2D| stress: 8 falsification cases ALL OK
+ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+...........................................................................
+----------------------------------------------------------------------
+Ran 75 tests in 223.421s
+
+OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.302s
+
+OK
+naive 256px grid :      0 px of Roshan clipped,      0 px ghost
+shipped windows  :      0 px of Roshan clipped,      0 px ghost
+                   (0.00% -> 0.00% of her art lost)
+playground poses :     12 whole, single-silhouette 512px frames
+OK: every Roshan frame renders whole
+PROBE_PARITY|stress missing loop: OK
+PROBE_PARITY|stress duplicate probe: OK
+PROBE_PARITY|stress local/remote mismatch: OK
+PROBE_PARITY|stress missing probe file: OK
+PROBE_PARITY|stress missing separate invocation: OK
+PROBE_PARITY|stress missing parity gate: OK
+PROBE_PARITY|stress missing local music verifier: OK
+PROBE_PARITY|stress missing pinned music verifier: OK
+PROBE_PARITY|result: ALL OK
+.........................................
+----------------------------------------------------------------------
+Ran 41 tests in 0.971s
+
+OK
+DOCAUTH|STRESS|6/6
+DOCAUTH|STRESS|6/6
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 42.053s
+
+OK
+.....................................EE.F..EEEE......EEEE..........................................................................
+======================================================================
+ERROR: test_roadmap_health_observes_absent_stale_current_and_source_invalid_states (tools.tests.test_study_game.StudyGameTests.test_roadmap_health_observes_absent_stale_current_and_source_invalid_states)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 234, in test_roadmap_health_observes_absent_stale_current_and_source_invalid_states
+    self.fixture(root)
+    ~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 89, in fixture
+    baseline = self.git(root, "rev-parse", "HEAD")
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 31, in git
+    return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          check=True, env=environment).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_runner_collects_findings_lessons_motion_and_reproducible_report (tools.tests.test_study_game.StudyGameTests.test_runner_collects_findings_lessons_motion_and_reproducible_report)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 276, in test_runner_collects_findings_lessons_motion_and_reproducible_report
+    baseline = self.fixture(root)
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 35, in fixture
+    self.git(root, "init", "-q")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 31, in git
+    return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          check=True, env=environment).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_unknown_step_missing_ambiguous_or_coarse_boundary_windows_stay_unmeasured (tools.tests.test_study_game.StudyGameTests.test_unknown_step_missing_ambiguous_or_coarse_boundary_windows_stay_unmeasured)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 163, in test_unknown_step_missing_ambiguous_or_coarse_boundary_windows_stay_unmeasured
+    self.fixture(root)
+    ~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 35, in fixture
+    self.git(root, "init", "-q")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 31, in git
+    return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          check=True, env=environment).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_unknown_step_real_github_format_uses_unique_job_windows (tools.tests.test_study_game.StudyGameTests.test_unknown_step_real_github_format_uses_unique_job_windows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 145, in test_unknown_step_real_github_format_uses_unique_job_windows
+    self.fixture(root)
+    ~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 35, in fixture
+    self.git(root, "init", "-q")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 31, in git
+    return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          check=True, env=environment).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_unknown_step_registered_legacy_protocol_can_resolve_boundary_owner (tools.tests.test_study_game.StudyGameTests.test_unknown_step_registered_legacy_protocol_can_resolve_boundary_owner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 187, in test_unknown_step_registered_legacy_protocol_can_resolve_boundary_owner
+    self.fixture(root)
+    ~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 35, in fixture
+    self.git(root, "init", "-q")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 31, in git
+    return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          check=True, env=environment).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_unknown_step_unique_wrapper_id_is_explicit_result_evidence (tools.tests.test_study_game.StudyGameTests.test_unknown_step_unique_wrapper_id_is_explicit_result_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 212, in test_unknown_step_unique_wrapper_id_is_explicit_result_evidence
+    self.fixture(root)
+    ~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 35, in fixture
+    self.git(root, "init", "-q")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 31, in git
+    return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          check=True, env=environment).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_compact_study_drops_duplicates_and_raw_output (tools.tests.test_study_game.StudyReportTests.test_compact_study_drops_duplicates_and_raw_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 604, in test_compact_study_drops_duplicates_and_raw_output
+    data = self.collected(root)
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 539, in collected
+    self.fixture(root)
+    ~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 35, in fixture
+    self.git(root, "init", "-q")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 31, in git
+    return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          check=True, env=environment).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_dirty_tree_is_refused_but_cycle_outputs_are_allowed (tools.tests.test_study_game.StudyReportTests.test_dirty_tree_is_refused_but_cycle_outputs_are_allowed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 545, in test_dirty_tree_is_refused_but_cycle_outputs_are_allowed
+    self.fixture(root)
+    ~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 35, in fixture
+    self.git(root, "init", "-q")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 31, in git
+    return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          check=True, env=environment).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_judgement_drives_prompts_and_questions (tools.tests.test_study_game.StudyReportTests.test_judgement_drives_prompts_and_questions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 577, in test_judgement_drives_prompts_and_questions
+    data = self.collected(root)
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 539, in collected
+    self.fixture(root)
+    ~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 35, in fixture
+    self.git(root, "init", "-q")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 31, in git
+    return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          check=True, env=environment).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_report_is_short_plain_and_free_of_raw_machine_text (tools.tests.test_study_game.StudyReportTests.test_report_is_short_plain_and_free_of_raw_machine_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 559, in test_report_is_short_plain_and_free_of_raw_machine_text
+    data = self.collected(root)
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 539, in collected
+    self.fixture(root)
+    ~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 35, in fixture
+    self.git(root, "init", "-q")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 31, in git
+    return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          check=True, env=environment).stdout.strip()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+FAIL: test_sensor_timeout_empty_nonzero_and_truncation_preserve_evidence (tools.tests.test_study_game.StudyGameTests.test_sensor_timeout_empty_nonzero_and_truncation_preserve_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_study_game.py", line 293, in test_sensor_timeout_empty_nonzero_and_truncation_preserve_evidence
+    self.assertEqual("EMPTY", study.execute(root, [sys.executable, "-c", "pass"])["status"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'EMPTY' != 'FAIL'
+- EMPTY
++ FAIL
+
+
+----------------------------------------------------------------------
+Ran 131 tests in 155.724s
+
+FAILED (failures=1, errors=10)
+GOLDSTAR|RENDER|design/reference/GOLD_STAR.md
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale
+SELF-IMPROVEMENT LOOP CONTRACT TEST FAIL

@@ -1,0 +1,83 @@
+extends SceneTree
+
+var main: ReefMain
+var view: SubViewport
+var captures: Array[Dictionary] = []
+
+func _init() -> void:
+	root.size = Vector2i(1280, 720)
+	root.hide()
+	view = SubViewport.new()
+	view.size = Vector2i(1280, 720)
+	view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	root.add_child(view)
+	main = (load("res://scenes/main.tscn") as PackedScene).instantiate() as ReefMain
+	view.add_child(main)
+	await process_frame
+	await process_frame
+	main.day_one_active = false
+	main.chapter2_active = false
+	main.opera_stars = 0
+	main.start_menu_active = false
+	if main.start_menu_layer != null:
+		main.start_menu_layer.hide()
+	main._skip_intro()
+	main.game = "level2"
+	main.g["t"] = 0.0
+	main._enter_castle_interior_now(false)
+	await create_timer(2.0).timeout
+	main._castle_rooms_ref().show_room("opera_hall", false)
+	await create_timer(2.0).timeout
+	var venue := main._castle_career_routes_ref().opera_venue
+	venue.travel_to(Vector2(480, 610))
+	await create_timer(2.0).timeout
+	await _capture("floor", venue)
+	# Deliberate review fixture, not progress earned by a child or production save.
+	main.opera_stars = OperaHouseVenue2D.FIRST_WAVE_MASK
+	venue.refresh(main.opera_stars)
+	venue.travel_to(Vector2(445, 352))
+	await create_timer(3.0).timeout
+	await _capture("balcony", venue)
+	var button := main._castle_career_routes_ref().button_for_act(2)
+	var touch := InputEventScreenTouch.new()
+	touch.index = 440
+	touch.position = button.get_global_transform_with_canvas() * (button.size * 0.5)
+	touch.pressed = true
+	view.push_input(touch, false)
+	touch = touch.duplicate() as InputEventScreenTouch
+	touch.pressed = false
+	view.push_input(touch, false)
+	await create_timer(4.0).timeout
+	await _capture("game", venue)
+	if main.opera_game != null:
+		(main.opera_game as OperaHouse)._leave_early()
+	await create_timer(1.5).timeout
+	await _capture("return", venue)
+	var sources := {}
+	for path: String in ["scripts/main.gd", "scripts/castle_career_routes.gd",
+			"scripts/opera_house_venue_2d.gd", "scripts/chapter_two_director.gd",
+			"scripts/opera_job_playtest_menu.gd", "scripts/probe_opera.gd"]:
+		sources[path] = FileAccess.get_sha256("res://" + path)
+	var receipt := {"engine": Engine.get_version_info(),
+		"renderer": RenderingServer.get_current_rendering_method(),
+		"size": [view.size.x, view.size.y], "captures": captures,
+		"source_sha256": sources,
+		"scope": "Diagnostic desktop Mobile offscreen SubViewport in a hidden Windows render process. Fixture sets freeplay first-wave bits only to inspect unlocked balcony; not earned progress. No authoritative visual/device/child/owner acceptance or game-wide satisfaction."}
+	var file := FileAccess.open("res://tmp/foyer-evidence/visual.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(receipt, "\t"))
+	file.close()
+	print("FOYERVISUAL|DONE|", JSON.stringify(receipt))
+	quit(0)
+
+func _capture(label: String, venue: OperaHouseVenue2D) -> void:
+	await process_frame
+	RenderingServer.force_draw(false)
+	await process_frame
+	var pixels := view.get_texture().get_image()
+	var path := "res://tmp/foyer-evidence/visual_" + label + ".png"
+	var result := pixels.save_png(path) if pixels != null else ERR_CANT_CREATE
+	captures.append({"label": label, "path": path, "save_error": result,
+		"sha256": FileAccess.get_sha256(path), "game": main.game,
+		"room": main.castle_room_id, "feet": [venue.feet.x, venue.feet.y],
+		"second_wave_open": venue.second_wave_is_open(),
+		"active_act": main.opera_active_act_index})

@@ -1,0 +1,56 @@
+import hashlib,json,re,shutil
+from pathlib import Path
+r=Path('.').resolve();t=r/'tmp/foyer-evidence';a=r/'audit/opera_foyer_movement_20261017'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+full=json.loads((a/'full-ci-05-native.json').read_text());full_log=a/'full-ci-05.log'
+assert sha(full_log)==full['log_sha256'] and not full['changed_sources']
+ci=(r/'scripts/ci.sh').read_text();expected=re.search(r'for p in (.*?); do',ci,re.S).group(1).split()
+assert len(expected)==82 and len(set(expected))==82 and full['probe_count']==82 and set(full['probe_exit_codes'])==set(expected)
+bad={k:v for k,v in full['probe_exit_codes'].items() if v!='0'}
+assert bad=={'probe_opera_2d':'1','probe_dust_boss_balance':'127','probe_start_menu_new_game':'127'},bad
+retries={'probe_opera_2d':'opera2d-02','probe_dust_boss_balance':'dust-balance-02','probe_start_menu_new_game':'start-new-02'}
+receipts={};reference=None
+failure_re=re.search(r"FAILURE_RE='([^']+)'",ci).group(1)
+for program,name in retries.items():
+ d=json.loads((t/(name+'.json')).read_text());assert d['exit_code']==0 and not d['changed_sources'],name
+ assert 'scripts/'+program+'.gd' in d['command'],name
+ assert sha(t/(name+'.log'))==d['log_sha256'],name
+ text=(t/(name+'.log')).read_text(encoding='utf-8',errors='replace');assert not re.search(failure_re,text),name
+ if reference is None:reference=d['source_sha256']
+ assert d['source_sha256']==reference,name
+ receipts[program]=d
+ for suffix in ['.json','.log']:shutil.copyfile(t/(name+suffix),a/(name+suffix))
+changed=[p for p in reference if reference[p]!=full['source_sha256'].get(p)]
+assert changed==['scripts/probe_opera_2d.gd'],changed
+assert set(reference)==set(full['source_sha256'])
+for p,h in reference.items():assert sha(r/p)==h,p
+imports=[p for p in reference if p.startswith('scripts/') and p.endswith('.gd') and p!=changed[0] and 'probe_opera_2d.gd' in (r/p).read_text(encoding='utf-8')]
+assert not imports,imports
+binding=json.loads((a/'source_binding.json').read_text())
+for p,rec in binding['sources'].items():assert reference[p]==rec['raw_sha256'],p
+for name in ['parser-02','lint-02','analyzer-02']:
+ d=json.loads((a/(name+'.json')).read_text());assert d['exit_code']==0 and not d['changed_sources'] and d['source_sha256']==reference,name
+ assert sha(a/(name+'.log'))==d['log_sha256'],name
+probes={p:{'result':'PASS','receipt':(retries[p]+'.json' if p in retries else 'full-ci-05-native.json'),'log':(retries[p]+'.log' if p in retries else 'full-ci-05.log'),'source_note':('final corrected probe pin' if p in retries else 'identical tested program/production; only unrelated standalone test differs')} for p in expected}
+profile=t/'start-new-02-profile/APPDATA/Godot/app_userdata/Mermaid Roshan Reef of Light';extras=[]
+for suffix,dest in [('.fresh-process.json','start_new_fresh_process.json'),('.fresh-process.log','start_new_fresh_process.log')]:
+ paths=list(profile.glob('probe_start_menu_new_game_save_*'+suffix));assert len(paths)==1,paths
+ shutil.copyfile(paths[0],a/dest);extras.append({'path':dest,'source':str(paths[0]),'sha256':sha(a/dest),'role':'disposable Start New independent verifier evidence'})
+child=json.loads((a/'start_new_fresh_process.json').read_text());assert child['finished'] and child['failures']==0 and child['process_id']!=child['parent_process_id']
+d={'result':'PASS','lane':'AGENTS.md Build & test documented probe-by-probe alternative','scope':'All82 trusted gameplay programs verified, preserving the failed full attempt and source-bound targeted reruns. This is NOT a zero-exit full-ci-05 claim. Final authority/development gates and exact published-head full CI remain separately required.','full_attempt':{'receipt':'full-ci-05-native.json','raw_native_shell_exit':full['exit_code'],'log':'full-ci-05.log','log_sha256':full['log_sha256'],'bad_exits':bad},'final_source_count':len(reference),'changed_since_full_attempt':changed,'change_reason':'Explicit owner-requested foyer exception, not a behavior regression. Only the standalone Opera2D test changes; six implementation files and every other script/tool/project source are unchanged. No other GDScript names/loads this test file. Parser/lint/native analyzer and its complete15-career run pass. Unexplained exit127 histories remain preserved; their unchanged native reruns pass.','final_source_sha256':reference,'preflight':'All blocking preflight gates reached the trusted probe loop in the full attempt. Their tool/runtime sources remain identical; final changed-probe parser/lint/analyzer pass. Metadata authority/development/rollback checks are re-run before commit.','programs':probes,'extra_artifacts':extras,'acceptance':'Diagnostic/local machine verification only. Formal visual/listening, second aspect, target-device, child, owner and master-audit satisfaction remain open.'}
+(a/'probe_by_probe_verification.json').write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8',newline='\n')
+p=a/'raw_log_bytes.json';d=json.loads(p.read_text())
+for name in retries.values():
+ rec=json.loads((a/(name+'.json')).read_text());entry={'receipt':name+'.json','log':name+'.log','raw_sha256':rec['log_sha256']}
+ if not any(c['receipt']==entry['receipt'] for c in d['checks']):d['checks'].append(entry)
+p.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8',newline='\n')
+p=r/'design/audit_impacts/opera-foyer-movement-20261017.json';d=json.loads(p.read_text());names=['probe_by_probe_verification.json','start_new_fresh_process.json','start_new_fresh_process.log']+[n+s for n in retries.values() for s in ['.json','.log']]
+for n in names:
+ rel='audit/opera_foyer_movement_20261017/'+n
+ if rel not in d['files']:d['files'].append(rel)
+for v in d['validation']:
+ if v['command'].startswith('AGENTS.md documented'):v.update(result='PASS',evidence='probe_by_probe_verification.json reconciles all82 unique trusted programs, identical runtime/tool sources, the single standalone-probe correction, exact parser/lint/analyzer receipts and all3 successful targeted reruns. Full attempt remains FAIL and all raw logs are retained. Start New independent child receipt/log are retained. Final authority/development and exact-head remote full CI remain required.')
+d['acceptance_gaps']=d['acceptance_gaps'].replace('Full-ci-05 FAIL remains retained; documented probe-by-probe final local verification, published-head CI and integration are pending until their receipts complete.','Full-ci-05 FAIL remains retained; documented probe-by-probe verification passes all82. Final authority/development checks, published-head full CI and integration are pending until complete.')
+p.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8',newline='\n')
+p=r/'audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md';s=p.read_text();s+='\nCHG-100 final local gameplay verification: the documented probe-by-probe alternative verifies all82 trusted programs at unchanged production bytes. Corrected full Opera2D passes in63.646s, unchanged balance in254.977s, and unchanged Start New plus its independent actual Continue verifier in38.572s. [Reconciliation](opera_foyer_movement_20261017/probe_by_probe_verification.json) binds all1612 source paths, every program receipt and preserved red full-run history. No zero-exit full-ci-05, formal visual/device/child/owner, integration or release claim is made. Final metadata gates and exact-head remote full CI remain required.\n';p.write_text(s,encoding='utf-8',newline='\n')
+print('LOCAL_PROBE_BY_PROBE|ALL OK|82/82 trusted programs|1612 source paths|six implementation files unchanged|failed full attempt retained')

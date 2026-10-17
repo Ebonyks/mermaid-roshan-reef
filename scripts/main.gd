@@ -2704,7 +2704,7 @@ func _start_opera_from_room(act_index: int, room_id: String) -> void:
 		return
 	opera_pending_act_index = act_index
 	opera_return_room = room_id
-	opera_plot_context = ""
+	opera_plot_context = CastleCareerRoutes.foyer_plot_context(self, act_index) if room_id == "opera_hall" else ""
 	castle_rooms.suspend()
 	_fade_cut(_start_opera_now)
 
@@ -5967,12 +5967,11 @@ func chapter2_can_start_opera_act(act_index: int) -> bool:
 
 
 func chapter2_opera_route_matches(room_id: String, act_index: int) -> bool:
+	if room_id == "opera_hall":
+		return CastleCareerRoutes.foyer_can_launch(self, act_index)
 	if not chapter2_is_active():
 		return CastleCareerRoutes.route_matches(room_id, act_index)
 	var director := _chapter_two_ref()
-	if director.tutorial_phase_is_active():
-		return room_id == "opera_hall" \
-			and director.can_start_opera_tutorial(act_index)
 	var party_entry := ChapterTwoPartyPlan.entry_for_act(act_index)
 	return director.can_start_chapter2_act(act_index) \
 		and String(party_entry.get("room", "")) == room_id

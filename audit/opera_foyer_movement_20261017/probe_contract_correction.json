@@ -1,0 +1,17 @@
+{
+  "scope": "Probe-only correction for explicitly requested four-bottom/four-balcony foyer. Preserve exact canonical homes, no3D, targets and transparent styles; require exactly one bounded input-ignoring approved crest child. Independently hardcode the displayed9-job vector, check initial locks and count only unchanged canonical homes for uniqueness. No production runtime change.",
+  "file": "scripts/probe_opera_2d.gd",
+  "before_sha256": "440ca7095d1800bbc641e05ff727ad47f403a2ad253f398fb570a86af6f598f0",
+  "before_git_blob": "a2b0a088389554838208feb08931f45882e5c19a",
+  "after_sha256": "b0c7085fac6a80004fe93e69903ed692d853224cd662d7815ecb9319155093fb",
+  "after_git_blob": "7ec7335c59e5fd2fb12e2fc87a71d08e01033b7b",
+  "failed_full_receipt": "full-ci-05-native.json",
+  "failed_full_log": "full-ci-05.log",
+  "failed_full_bad_exits": {
+    "probe_opera_2d": "1",
+    "probe_dust_boss_balance": "127",
+    "probe_start_menu_new_game": "127"
+  },
+  "unchanged_runtime_claim": "All 1612 earlier tracked script/tool/project hashes matched before this single probe correction; six implementation files remain identical.",
+  "retry_requirement": "Corrected full Opera2D plus unchanged balance/Start New (exit127 with no final verdict, causes unestablished). Preserve red history. AGENTS probe-by-probe validation before commit and exact-head remote full CI before integration."
+}

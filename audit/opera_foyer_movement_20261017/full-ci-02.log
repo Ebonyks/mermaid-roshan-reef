@@ -1,0 +1,164 @@
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.435s
+
+OK
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+........s...............................
+----------------------------------------------------------------------
+Ran 40 tests in 134.213s
+
+OK (skipped=1)
+TYPOGRAPHY_AUDIT status=OPEN
+FONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING
+GLYPHS observed=133 unclassified=0 critical=124 critical_unresolved=124
+LABEL3D current=36 baseline=45 files=11 delta=-9
+LABEL3D_FILE  7 scripts/arena/sky_lagoon.gd
+LABEL3D_FILE  2 scripts/collection_system.gd
+LABEL3D_FILE  1 scripts/combat_arena.gd
+LABEL3D_FILE 11 scripts/companion.gd
+LABEL3D_FILE  1 scripts/dungeon_puzzle_room.gd
+LABEL3D_FILE  2 scripts/galaxy.gd
+LABEL3D_FILE  4 scripts/games/shop.gd
+LABEL3D_FILE  4 scripts/kart.gd
+LABEL3D_FILE  2 scripts/main.gd
+LABEL3D_FILE  1 scripts/reef_districts.gd
+LABEL3D_FILE  1 scripts/stuffie_battle.gd
+OPEN font authority, coverage, and/or device evidence remains unresolved
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.386s
+
+OK
+ROSHAN2D| stress: 8 falsification cases ALL OK
+ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+...................E........E.E..E.E...................E...................
+======================================================================
+ERROR: test_committed_source_fixtures_do_not_block_shrink_but_real_models_do (tools.tests.test_audit_game_2d.Game2DAuditTests.test_committed_source_fixtures_do_not_block_shrink_but_real_models_do)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1562, in test_committed_source_fixtures_do_not_block_shrink_but_real_models_do
+    git("init", "-q")
+    ~~~^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1541, in git
+    subprocess.run(
+    ~~~~~~~~~~~~~~^
+    	["git", "-C", str(root), *args], check=True,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    	stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', '-C', 'C:\\Users\\Peter\\AppData\\Local\\Temp\\test-game-2d-0o_w5a82', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_expansion_stays_red_after_an_unrelated_commit (tools.tests.test_audit_game_2d.Game2DAuditTests.test_expansion_stays_red_after_an_unrelated_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1335, in test_expansion_stays_red_after_an_unrelated_commit
+    git("init", "-q")
+    ~~~^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1330, in git
+    subprocess.run(
+    ~~~~~~~~~~~~~~^
+    	["git", "-C", str(root), *args], check=True,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    	stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', '-C', 'C:\\Users\\Peter\\AppData\\Local\\Temp\\test-game-2d-history-sticky-vcw7jlel', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_git_worktree_active_untracked_sidecar_and_magic_model_are_debt (tools.tests.test_audit_game_2d.Game2DAuditTests.test_git_worktree_active_untracked_sidecar_and_magic_model_are_debt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1197, in test_git_worktree_active_untracked_sidecar_and_magic_model_are_debt
+    subprocess.run(
+    ~~~~~~~~~~~~~~^
+    	["git", "-C", str(root), "init", "-q"], check=True,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    	stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', '-C', 'C:\\Users\\Peter\\AppData\\Local\\Temp\\test-game-2d-untracked-active-ejavy2m_', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_initial_ceiling_rejects_expansion_in_depth_one_clone (tools.tests.test_audit_game_2d.Game2DAuditTests.test_initial_ceiling_rejects_expansion_in_depth_one_clone)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1403, in test_initial_ceiling_rejects_expansion_in_depth_one_clone
+    git(root, "init", "-q")
+    ~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1398, in git
+    return subprocess.run(
+           ~~~~~~~~~~~~~~^
+    	["git", "-C", str(repository), *args], check=True,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    	stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', '-C', 'C:\\Users\\Peter\\AppData\\Local\\Temp\\test-game-2d-shallow-source-rlz08lf7', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_manifest_cannot_expand_to_bless_new_repository_debt (tools.tests.test_audit_game_2d.Game2DAuditTests.test_manifest_cannot_expand_to_bless_new_repository_debt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1302, in test_manifest_cannot_expand_to_bless_new_repository_debt
+    git("init", "-q")
+    ~~~^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1297, in git
+    subprocess.run(
+    ~~~~~~~~~~~~~~^
+    	["git", "-C", str(root), *args], check=True,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    	stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', '-C', 'C:\\Users\\Peter\\AppData\\Local\\Temp\\test-game-2d-history-ao5vmc_t', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_refresh_cannot_reintroduce_debt_removed_in_git_history (tools.tests.test_audit_game_2d.Game2DAuditTests.test_refresh_cannot_reintroduce_debt_removed_in_git_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1507, in test_refresh_cannot_reintroduce_debt_removed_in_git_history
+    git("init", "-q")
+    ~~~^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1502, in git
+    subprocess.run(
+    ~~~~~~~~~~~~~~^
+    	["git", "-C", str(root), *args], check=True,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    	stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', '-C', 'C:\\Users\\Peter\\AppData\\Local\\Temp\\test-game-2d-nuu8j6mp', 'init', '-q']' returned non-zero exit status 3221225794.
+
+----------------------------------------------------------------------
+Ran 75 tests in 131.121s
+
+FAILED (errors=6)
+GAME2D| stress: 14 falsification/control assertions ALL OK
+GAME-WIDE 2D AUDIT CONTRACT TEST FAIL
