@@ -1,0 +1,37 @@
+{
+  "schema": "roshan-motion-reference-return-v1",
+  "handoff_id": "roshan_swim_motion_auditions_2026-09-12",
+  "pass": "take-03-reserved",
+  "instructions": "Reserved casual set generated in Grok Build with imagine_image_to_video on locked painted 8-view openings. MP4s are playable in Reef Imagine Bridge; GitHub text API cannot store the binaries. Owner asked for less personality after take-01/02 read as emergency swimming. DELIVERY_ACCEPTED remains false.",
+  "source_packet_commit": "f98ef836df35fc75657473755354b418f9c7d17f",
+  "stale_commit_not_used_for_status": "ca4dd1963ad36aab420d5f228189231dae924c73",
+  "candidates": [
+    {"sample_id":"RSW-01","take":3,"video_path":"RSW-01_take-03.mp4","sha256":"027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d","prompt_sha256":"8eb97e31ccb05197f0c07f06f9f4c281270d0dcd5d8d854d1ec44e46ca19e538","disposition":"comparison_candidate"},
+    {"sample_id":"RSW-02","take":3,"video_path":"RSW-02_take-03.mp4","sha256":"7095f4de8cb39f3ed30ccf0952af287e040d73422adc685aa67c07ff7e1a48b4","prompt_sha256":"0b2fb310f1037372a3a0e0ba0b4da9024bb5c042272e8b36e8aeb89f35365d63","disposition":"comparison_candidate"},
+    {"sample_id":"RSW-03","take":3,"video_path":"RSW-03_take-03.mp4","sha256":"a24e44bf84bc7aa3f8679fddf482058442ee49f3009c22521a5cfca032692715","prompt_sha256":"e9a376dcf2a53a3f32e8eee6b45e08711224fe53d19940820dc2dcaece731d85","disposition":"comparison_candidate"},
+    {"sample_id":"RSW-04","take":3,"video_path":"RSW-04_take-03.mp4","sha256":"072741097f2b43af119a9b65fbb23d4904adfd109fe4a3c19c4ea2a3f6f27a42","prompt_sha256":"5254253dec58c1f6b56025cd1734a368a2b749bbfe5c5a20ace19851fab4cb2a","disposition":"comparison_candidate"},
+    {"sample_id":"RSW-05","take":3,"video_path":"RSW-05_take-03.mp4","sha256":"f0327efa16a8821f8d77b17198a761de9b5001e8fe0a3138512b9616708d51ea","prompt_sha256":"ec6841bfbc78e3a2bc950f68a6b2f35462698c40eae7f6b59bc766837bf5f1c2","disposition":"comparison_candidate"},
+    {"sample_id":"RSW-06","take":3,"video_path":"RSW-06_take-03.mp4","sha256":"9478b60c3f182c3b491fc3af854f7f6d85cc08346150ed1d1fdaf996c11a70e7","prompt_sha256":"339d29efe94a1c3a9a480c54f2801ceca9c4abc901ac8bbe65e062e2ec0280ec","disposition":"comparison_candidate"},
+    {"sample_id":"RSW-07","take":3,"video_path":"RSW-07_take-03.mp4","sha256":"678edf78e584624202cdc9bf5f301512095e0c68f612f7313befcd65d3400483","prompt_sha256":"d8c6a46251a6a745da48820169c9e45b664bdc09e245011d6fcabab59e5aff28","disposition":"inspiration_only"},
+    {"sample_id":"RSW-08","take":3,"video_path":"RSW-08_take-03.mp4","sha256":"092e8b4659a7156d0dd7e5f1157e7f80216500e66f628f0fa20c05c51ba83128","prompt_sha256":"cd8dbd816b7adb35b1f0f1c67d4c4883f51f8b6f3d9dc26c6491a8ae290632b5","disposition":"inspiration_only"}
+  ],
+  "note": "Full per-shot reviews, scores, knockouts and useful_fragments live in Reef Imagine Bridge public/packet/returns/RETURN_MANIFEST.take-03.json. This GitHub copy carries hashes and dispositions for Codex intake. Playable MP4s are not on GitHub.",
+  "shortlist": [
+    {"sample_id":"RSW-03","reason":"Soft glance without emergency reach; identity holds."},
+    {"sample_id":"RSW-05","reason":"Patient idle, then a stroll. Reserved energy."},
+    {"sample_id":"RSW-01","reason":"Quiet diagonal swim t2.5-t4; discard t8 camera-facing."},
+    {"sample_id":"RSW-04","reason":"Shallow bank, no extra fauna."}
+  ],
+  "claims": {
+    "ARCHIVE_COMPLETE": true,
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false,
+    "VIDEO_TOOL_VERIFIED": true,
+    "OPENING_LAYOUT_OWNER_CONFIRMED": false,
+    "CORE_ART_HELD_ON_TAKE03": true,
+    "CORE_ART_LOST_ON_TAKE01": true
+  },
+  "attempts_used": 17,
+  "maximum_generation_attempts": 10,
+  "owner_override": "Owner requested a reserved set after take-01/02 read as emergency swimming. Packet cap of 10 was superseded for this pass."
+}
