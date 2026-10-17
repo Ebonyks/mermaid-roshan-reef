@@ -1399,3 +1399,5 @@ release/device/child/owner authority retain precedence.
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/README.md` | 🟢 | `SUPPORTING_EVIDENCE`; exactDevCI55minute timeout and one retry, no workflow/runtime edit. Prior sourcebranch green and two partial integrations retained; no APK/creative/accepted-removal or new frame credit. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_WORKFLOW.md` | 🟢 | `BINDING_OPERATIONAL`; applies existing October13/17 owner commission: per-item replacement production, approved reuse first, exact export blocks and unchanged technical/acceptance rules. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/README.md` | 🔵 | `SUPPORTING_CURRENT`; first actual painted Skyway hand candidate after failed reuse and exact owner export authorization. One take, no runtime/acceptance/removal credit; native size/alpha/context gates open. |

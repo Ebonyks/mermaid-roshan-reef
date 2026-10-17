@@ -1,0 +1,66 @@
+{
+  "id": "flat-vector-painted-hand-candidate-20261017",
+  "baseline": "c3c68f89b250921b72dca2b6aff9f41ee99e1172",
+  "scope": "Produce and publish the first real painted Skyway hand candidate after failed approved-source reuse and explicit owner authorization for exactly two public inputs. Candidate-only; no runtime or protected-original edits. Synchronize existing stable role and production queue without changing acceptance or coverage totals.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-11",
+    "DL-VIS-03"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-TYPE-004"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-painted-hand-candidate-20261017.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/CONGRUENCY_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/GENERATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/OWNER_AUTHORIZATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/PROMPT.txt",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/TECHNICAL_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/VALIDATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/gate_logs/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/gate_logs/development.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/gate_logs/units.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/hand_take01.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/verify_runtime_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "Exact owner-authorized inputs, prompt and single built-in ImageGen output binding",
+      "result": "PASS",
+      "evidence": "OWNER_AUTHORIZATION.json;GENERATION.json;TECHNICAL_REVIEW.json;CONGRUENCY_REVIEW.json. One actual generation, no cost/model/seed inference."
+    },
+    {
+      "command": "Authority/development54unit and exact candidate/inputs/frozen roots/count consistency",
+      "result": "PASS",
+      "evidence": "GATES.json;VALIDATION.json. Actual staged/committed2D and anonymous immutable delivery follow."
+    }
+  ],
+  "acceptance_gaps": "Retained raw source is1254square, not runtime-size ready. Very faint nonzero-alpha speckles and gold contour need native-size/alpha review and a suitable <=1024 orPOT runtime derivative before import. No candidate native context, formalQA11, device, child or owner acceptance. Global artwork/coverage/fallback/caller totals remain open."
+}

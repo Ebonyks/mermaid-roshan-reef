@@ -1,0 +1,71 @@
+{
+  "candidate": "hand_take01.png",
+  "sha256": "b10923462ca5947ee360db49b0fa8a33ca2fd660fb1fb85767a638c67853ecec",
+  "format": "PNG",
+  "mode": "RGBA",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "decode": "PASS",
+  "alpha_zero_pixels": 1177655,
+  "alpha_partial_pixels": 394287,
+  "alpha_opaque_pixels": 574,
+  "outer_border_max_alpha": 0,
+  "alpha_threshold_bounds": {
+    "0": {
+      "pixels": 394861,
+      "bbox": [
+        35,
+        41,
+        1208,
+        1238
+      ]
+    },
+    "8": {
+      "pixels": 385003,
+      "bbox": [
+        284,
+        84,
+        950,
+        1093
+      ]
+    },
+    "64": {
+      "pixels": 383639,
+      "bbox": [
+        284,
+        86,
+        950,
+        1093
+      ]
+    },
+    "128": {
+      "pixels": 382543,
+      "bbox": [
+        284,
+        87,
+        949,
+        1092
+      ]
+    },
+    "240": {
+      "pixels": 380056,
+      "bbox": [
+        285,
+        88,
+        949,
+        1092
+      ]
+    }
+  },
+  "finding": "Real transparent outer field. Alpha1-8speckles extend beyond the visible hand, and most visible pixels are alpha252-253. No claim of perfectly clean alpha.",
+  "requested_size": [
+    1024,
+    1024
+  ],
+  "returned_size_matches_requested": false,
+  "runtime_size_gate": "NOT_READY:1254is greater than1024 and not power-of-two. Preserve native master; a declared runtime-size derivative and in-context import/filter test remain needed.",
+  "image_modifications_performed": false,
+  "engine_tests": "NOT_APPLICABLE to this ignored nonruntime PNG and evidence-only revision; no source/runtime change. Existing production test operation is separate."
+}

@@ -1,0 +1,44 @@
+{
+  "status": "PASS_CANDIDATE_BYTES_AND_DOCUMENT_SCOPE_RUNTIME_ACCEPTANCE_PENDING",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/gate_logs/authority.log",
+      "sha256": "5925cf40026b5f32e60ce91ca5705cafa417acc8acd8d5d4d347ff815772f0b4"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/gate_logs/development.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/gate_logs/units.log",
+      "sha256": "a608e88b9b0579fc7a67c019d985e157eb01255a628f882722e397720bb52fb5"
+    }
+  ],
+  "runtime_changed": false,
+  "generation_calls": 1,
+  "native_output_preserved": true,
+  "technical_readiness": "PENDING: raw1254square native master is not a compliant runtime texture and faint alpha speckles remain. No source/rendering/runtime/device/creative gate is inferred from this documentation pass."
+}

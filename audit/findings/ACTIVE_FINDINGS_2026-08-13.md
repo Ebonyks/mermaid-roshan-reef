@@ -376,6 +376,8 @@ poses as broken motion.
 
 2026-10-17 owner correction: [Phase2 workflow](../../docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_WORKFLOW.md) and replacement-first automation supersede stale full-inventory pixel gates. Exact named ImageGen export permission remains pending. No artwork, acceptance, tally or lifecycle change.
 
+2026-10-17 [R93 painted hand](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/README.md): exact two-image export now explicitly owner-authorized; one actual built-in ImageGen take retained for existing Skyway hand role. Historical rejection preserved. Native size/alpha and all in-context/adoption evidence remain open. No finding closure, integration or accepted-removal credit.
+
 ## MA-VIS-007
 
 | Field | Value |

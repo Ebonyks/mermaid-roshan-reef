@@ -12,7 +12,7 @@
     },
     {
       "id": "FVR-47ADC102790E",
-      "state": "FAILED_REUSE_GAP_EXPORT_PERMISSION_PENDING",
+      "state": "PAINTED_CANDIDATE_RETAINED_REVIEW_AND_RUNTIME_DERIVATION_PENDING",
       "request": "FVR-47ADC102790E-R72-PAINTED-HAND-EXPORT",
       "inputs": [
         {
@@ -40,8 +40,10 @@
       "reuse_failure": "r72_skyway_hand_reuse/REUSE_REJECTION.json",
       "intended_takes": 1,
       "maximum_total_takes": 2,
-      "generation_calls": 0,
-      "next": "After explicit permission for built-in ImageGen and these two inputs, confirm scene applicability and produce one painted down-index hand candidate. No general audit prerequisite."
+      "generation_calls": 1,
+      "next": "Review the actual first painted candidate. Derive a compliant runtime-size copy and test original Skyway fingertip registration/readability/overlap before adoption; no new global audit gate.",
+      "candidate": "r93_painted_hand_candidate/hand_take01.png",
+      "authorization": "r93_painted_hand_candidate/OWNER_AUTHORIZATION.json"
     }
   ],
   "global_piece_total": null,

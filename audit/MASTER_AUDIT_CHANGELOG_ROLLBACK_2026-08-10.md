@@ -2545,3 +2545,7 @@ CHG-100 canonical payload publication: `deffd85ef593e9690aaba0da64f4338aa7577eb6
 [Workflow](../docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_WORKFLOW.md), [queue](../docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json), [impact](../design/audit_impacts/flat-vector-phase2-workflow-20261017.json). Correct the audit-heavy loop using existing October13 authority and October17 owner steering. Verify the same automation is replacement-first, preserve the specific ImageGen block and in-flight CI. No runtime/art/count change. Rollback operational routing only after reconciling owner direction; preserve immutable history.
 
 CHG-101 delivery: `41b5d9b67e37922aac97f6989418fe5d95da1bc3`, 34 direct required files / 8557156 bytes anonymously exact at 2026-10-17T16:13:26.633968+00:00. No recursive archive, generation or acceptance credit.
+
+## First painted Skyway hand candidate (CHG-102)
+
+[R93](../docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/README.md), [impact](../design/audit_impacts/flat-vector-painted-hand-candidate-20261017.json). Owner authorized exactly two public inputs after the prior automatic rejection; one actual ImageGen take now preserved. Existing stable role only; no runtime, protected-source, acceptance or removal changes. Rollback restores routing and retains the unmodified candidate/provenance in history; do not rewrite the historical rejection.

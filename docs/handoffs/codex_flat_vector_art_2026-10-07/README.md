@@ -1,3 +1,7 @@
+# Current R93 painted-hand production
+
+[Actual first painted hand candidate](r93_painted_hand_candidate/README.md), [production queue](PRODUCTION_QUEUE.json). Exact two-image export is now owner-authorized and one generation has run. No acceptance or removal credit. Canonical paths are in CURRENT.json; historical sections below retain their dates.
+
 # Current R92 Dev CI evidence and full-game tally
 
 Execution follows the [Phase2 production workflow](PRODUCTION_WORKFLOW.md) and [queue](PRODUCTION_QUEUE.json). Ready failed items move to reuse or bounded new-art production. R92 remains the canonical tally; this correction adds no removal credit.

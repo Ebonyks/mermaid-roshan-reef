@@ -1,12 +1,12 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261017-R92",
-  "current_entry": "r92_dev_ci_timeout/README.md",
-  "current_per_piece": "r92_dev_ci_timeout/per_piece.json",
-  "current_scene_coverage": "r92_dev_ci_timeout/scene_coverage.json",
-  "current_tally": "r92_dev_ci_timeout/tally.json",
+  "revision": "FV-AUDIT-20261017-R93",
+  "current_entry": "r93_painted_hand_candidate/README.md",
+  "current_per_piece": "r93_painted_hand_candidate/per_piece.json",
+  "current_scene_coverage": "r93_painted_hand_candidate/scene_coverage.json",
+  "current_tally": "r93_painted_hand_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r92_dev_ci_timeout/MANIFEST.json",
+  "current_manifest": "r93_painted_hand_candidate/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
@@ -1313,7 +1313,7 @@
     "terminal_evidence": "r87_critter_navigation_context/RUNTIME_FINAL_PR_CI.json",
     "limits": "No rerun/cause attribution or acceptance inferred; same-head push success is separate from PR cancellation and optional renderer failures."
   },
-  "current_summary": "r92_dev_ci_timeout/SUMMARY.json",
+  "current_summary": "r93_painted_hand_candidate/SUMMARY.json",
   "current_catalogue_alias_set": "r90_dev_integration/CURRENT_CATALOGUE_CONTEXT_UNION.json",
   "immutable_r87_receipt_revision": "bb30d505500a7b737115f694e69e02b35efddb85",
   "r88_runtime_trial": {
@@ -1464,5 +1464,36 @@
   "production_phase": "PHASE_2_ACTIVE",
   "production_workflow": "PRODUCTION_WORKFLOW.md",
   "production_queue": "PRODUCTION_QUEUE.json",
-  "workflow_correction": "workflow_phase2_20261017/DIAGNOSIS.json"
+  "workflow_correction": "workflow_phase2_20261017/DIAGNOSIS.json",
+  "r93_painted_hand_candidate": {
+    "revision": "FV-AUDIT-20261017-R93",
+    "stable_id": "FVR-47ADC102790E",
+    "family": "fairy_conservatory",
+    "status": "PAINTED_CANDIDATE_RETAINED_REVIEW_AND_RUNTIME_DERIVATION_PENDING",
+    "candidate": "hand_take01.png",
+    "candidate_sha256": "b10923462ca5947ee360db49b0fa8a33ca2fd660fb1fb85767a638c67853ecec",
+    "generation_calls": 1,
+    "new_generated_candidate_samples": 1,
+    "samples_awaiting_review": 1,
+    "owner_export_authorized": true,
+    "historical_rejection_preserved": true,
+    "candidate_review": "CONGRUENCY_REVIEW.json",
+    "provenance": "GENERATION.json",
+    "native_source_dimensions": [
+      1254,
+      1254
+    ],
+    "runtime_size_ready": false,
+    "approved": 0,
+    "integrated": 0,
+    "runtime_verified_replacement": 0,
+    "accepted_removed": 0,
+    "full_context_review_complete": false,
+    "visible_fallback_retired": false,
+    "functional_geometry": "Original invisible touch regions unchanged; no functional-geometry removal credit.",
+    "formal_QA11": "PENDING",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING"
+  }
 }

@@ -1,0 +1,40 @@
+{
+  "stable_id": "FVR-47ADC102790E",
+  "request_id": "FVR-47ADC102790E-R72-PAINTED-HAND-EXPORT",
+  "owner_reply_verbatim": "Authorize these two images and the bounded hand replacement",
+  "question_item_id": "[\"request_user_input_async\",\"call_a39ba13965be4dbb920e471969d9b4f0\",0]",
+  "question_scope": "Automatic approval review previously blocked this export. May I send the two verified public project images—the pointing-hand sprite and its Skyway scene reference—to built-in ImageGen for one painted replacement candidate, with at most two takes? This excludes child saves/drawings and preserves the originals.",
+  "authorization_date": "2026-10-17",
+  "destination": "Built-in ImageGen only",
+  "inputs": [
+    {
+      "label": "IMAGE_1",
+      "role": "edit_target_shape_gesture",
+      "path": "assets/castle/training/ghost_hand.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "immutable_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/training/ghost_hand.png",
+      "bytes": 123283
+    },
+    {
+      "label": "IMAGE_2",
+      "role": "current_scene_style_palette_context_only",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/native/attempt2_flat_1280/06_reentry_hint_registered.png",
+      "revision": "1b771fafcc68506eed8212a1cc9b5981bc25b0a2",
+      "publication_binding": "EXACT_PAYLOAD_ANONYMOUSLY_VERIFIED",
+      "sha256": "ba872ca0030719f47ebcac25affd2f6521e17fc583d83adab457f93512ae94c7",
+      "bytes": 1644889,
+      "acceptance_scope": "Own synthetic currentD original-controller scene with inherited R70 background preview and R71 flat-hand registration. No scene pixels in hand output; background crop/nativequality and all creative acceptance remain open.",
+      "immutable_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1b771fafcc68506eed8212a1cc9b5981bc25b0a2/docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/native/attempt2_flat_1280/06_reentry_hint_registered.png"
+    }
+  ],
+  "intended_takes": 1,
+  "maximum_total_takes": 2,
+  "generation_calls": 1,
+  "authorization_scope": "These exact two images and this bounded hand job only; no general export permission, no child-data transfer, no original edits. Historical R72 rejection remains preserved. Output is a candidate; approval/adoption not granted.",
+  "historical_rejection": {
+    "revision": "1b771fafcc68506eed8212a1cc9b5981bc25b0a2",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/GENERATION_BLOCKED.json",
+    "resolved_prospectively_by_this_owner_reply": true
+  }
+}

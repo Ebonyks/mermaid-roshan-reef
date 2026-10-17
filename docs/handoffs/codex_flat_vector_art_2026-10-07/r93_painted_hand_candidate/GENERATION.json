@@ -1,0 +1,58 @@
+{
+  "stable_id": "FVR-47ADC102790E",
+  "request_id": "FVR-47ADC102790E-R72-PAINTED-HAND-EXPORT",
+  "candidate_id": "FVR-47ADC102790E-R93-TAKE01",
+  "status": "ACTUAL_FIRST_TAKE_RETAINED_FOR_REVIEW",
+  "method": "Built-in image_gen.imagegen edit; transparent_background=true",
+  "input_paths_in_order": [
+    "assets/castle/training/ghost_hand.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/native/attempt2_flat_1280/06_reentry_hint_registered.png"
+  ],
+  "inputs": [
+    {
+      "label": "IMAGE_1",
+      "role": "edit_target_shape_gesture",
+      "path": "assets/castle/training/ghost_hand.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "immutable_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/castle/training/ghost_hand.png",
+      "bytes": 123283
+    },
+    {
+      "label": "IMAGE_2",
+      "role": "current_scene_style_palette_context_only",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/native/attempt2_flat_1280/06_reentry_hint_registered.png",
+      "revision": "1b771fafcc68506eed8212a1cc9b5981bc25b0a2",
+      "publication_binding": "EXACT_PAYLOAD_ANONYMOUSLY_VERIFIED",
+      "sha256": "ba872ca0030719f47ebcac25affd2f6521e17fc583d83adab457f93512ae94c7",
+      "bytes": 1644889,
+      "acceptance_scope": "Own synthetic currentD original-controller scene with inherited R70 background preview and R71 flat-hand registration. No scene pixels in hand output; background crop/nativequality and all creative acceptance remain open.",
+      "immutable_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1b771fafcc68506eed8212a1cc9b5981bc25b0a2/docs/handoffs/codex_flat_vector_art_2026-10-07/r72_skyway_hand_reuse/native/attempt2_flat_1280/06_reentry_hint_registered.png"
+    }
+  ],
+  "prompt": "PROMPT.txt",
+  "prompt_sha256": "6cabe330ff23de27718d986db25a5c3071c73b8a775e1a6f25bb86354c977e87",
+  "prompt_modifications": "None; existing R72 prompt used verbatim as the tool prompt.",
+  "native_output": "hand_take01.png",
+  "native_output_sha256": "b10923462ca5947ee360db49b0fa8a33ca2fd660fb1fb85767a638c67853ecec",
+  "native_output_bytes": 754516,
+  "native_output_size": [
+    1254,
+    1254
+  ],
+  "native_output_mode": "RGBA",
+  "generation_calls": 1,
+  "intended_takes": 1,
+  "maximum_total_takes": 2,
+  "second_take_used": false,
+  "provider_request_id": null,
+  "provider_model_revision": null,
+  "seed": null,
+  "reported_usage": null,
+  "reported_cost": null,
+  "unexposed_metadata_limit": "Built-in result exposed PNG and output hint only. No model revision, seed, provider request id, usage or price was supplied; one actual call is recorded. Tool orchestration reported36.3seconds, not billed duration.",
+  "post_generation_edits": "None. Native PNG copied byte-for-byte; no crop, resize, repaint, thresholding or alpha modification.",
+  "original_output_preserved": true,
+  "actual_child_data_in_inputs": false,
+  "new_source_art_role": "Nonruntime review candidate for a generic instructional hand; no approved character identity redesign or runtime fallback."
+}
