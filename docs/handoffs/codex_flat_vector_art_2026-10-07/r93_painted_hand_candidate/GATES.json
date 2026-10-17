@@ -40,5 +40,49 @@
   "runtime_changed": false,
   "generation_calls": 1,
   "native_output_preserved": true,
-  "technical_readiness": "PENDING: raw1254square native master is not a compliant runtime texture and faint alpha speckles remain. No source/rendering/runtime/device/creative gate is inferred from this documentation pass."
+  "technical_readiness": "PENDING: raw1254square native master is not a compliant runtime texture and faint alpha speckles remain. No source/rendering/runtime/device/creative gate is inferred from this documentation pass.",
+  "payload_2d": {
+    "STAGED": {
+      "log": "gate_logs/PAYLOAD_STAGED_2D.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "result": "NO_REGRESSION"
+    },
+    "COMMITTED": {
+      "log": "gate_logs/PAYLOAD_COMMITTED_2D.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "result": "NO_REGRESSION"
+    }
+  },
+  "publication": {
+    "payload_revision": "88ff2a795a5796a44b1b2857874808534fcf0391",
+    "manifest_sha256": "e2638a10b0db95276ab5fe4c6a29c3bdfe1b8cbe49cc032c7f2f7243858ae7bc",
+    "required_files": 38,
+    "required_bytes": 12409883,
+    "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
+    "checked_at_utc": "2026-10-17T17:26:16.672269+00:00"
+  },
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=806|LEDGER=806|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "5925cf40026b5f32e60ce91ca5705cafa417acc8acd8d5d4d347ff815772f0b4"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    }
+  ]
 }

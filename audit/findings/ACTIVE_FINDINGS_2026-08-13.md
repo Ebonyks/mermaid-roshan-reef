@@ -378,6 +378,8 @@ poses as broken motion.
 
 2026-10-17 [R93 painted hand](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/README.md): exact two-image export now explicitly owner-authorized; one actual built-in ImageGen take retained for existing Skyway hand role. Historical rejection preserved. Native size/alpha and all in-context/adoption evidence remain open. No finding closure, integration or accepted-removal credit.
 
+R93 follow-up also records the separately verified R91 insect-tab payload (750native checks/82local probes; remoteCI pending) and terminal successful exactDevF retry2. Four bounded source artifacts published, two prior partial Dev integrations; zero complete artwork roles or accepted removals. No lifecycle closure.
+
 ## MA-VIS-007
 
 | Field | Value |

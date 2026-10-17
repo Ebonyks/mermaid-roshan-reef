@@ -5,10 +5,11 @@
     {
       "id": "ui.critter_book/tab/insect",
       "existing_site_id": "FVG-19B880B613E4",
-      "state": "LOCAL_CANDIDATE_CI_IN_FLIGHT_NOT_PUBLISHED_OR_COUNTED",
+      "state": "SOURCE_PAYLOAD_PUBLISHED_VERIFIED_LOCAL82_PASS_REMOTE_CI_PENDING",
       "branch": "codex/flat-vector-critter-insect-tab-runtime-20261017",
-      "next": "Resume the existing exact-source CI handle. Finish source publication after green; do not duplicate the book audit or restart the suite.",
-      "new_art_needed": false
+      "next": "Resume existing source-push CI and final receipt/PR publication. No engine restart, duplicate audit or adoption/acceptance inference.",
+      "new_art_needed": false,
+      "payload_revision": "92822aaf5f381e623dacf1a9dff0e20f82306c4a"
     },
     {
       "id": "FVR-47ADC102790E",

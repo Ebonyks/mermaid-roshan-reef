@@ -1,7 +1,7 @@
 {
   "id": "flat-vector-painted-hand-candidate-20261017",
   "baseline": "c3c68f89b250921b72dca2b6aff9f41ee99e1172",
-  "scope": "Produce and publish the first real painted Skyway hand candidate after failed approved-source reuse and explicit owner authorization for exactly two public inputs. Candidate-only; no runtime or protected-original edits. Synchronize existing stable role and production queue without changing acceptance or coverage totals.",
+  "scope": "Produce and publish the first real painted Skyway hand candidate after failed approved-source reuse and explicit owner authorization for exactly two public inputs. Candidate-only; no runtime or protected-original edits. Synchronize existing stable role and production queue without changing acceptance or coverage totals. Reconcile the separately published, anonymously verified R91 insect-tab bounded source candidate and terminal exactDevF retry success; retain their distinct revision/test/acceptance scopes and historical records.",
   "rules": [
     "DL-AUTH-05",
     "DL-AUTH-06",
@@ -32,15 +32,24 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/.gdignore",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/CONGRUENCY_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/DEV_CI_ATTEMPT2.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/DEV_CI_ATTEMPT2.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/DEV_CI_FINAL.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/DEV_CI_JOBS_ATTEMPT2.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/GENERATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/OWNER_AUTHORIZATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/PROMPT.txt",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/R91_PAYLOAD_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/R91_PRODUCTION_EVIDENCE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/SUMMARY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/TECHNICAL_REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/VALIDATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/gate_logs/PAYLOAD_COMMITTED_2D.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/gate_logs/PAYLOAD_STAGED_2D.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/gate_logs/authority.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/gate_logs/development.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/gate_logs/units.log",
@@ -57,9 +66,9 @@
       "evidence": "OWNER_AUTHORIZATION.json;GENERATION.json;TECHNICAL_REVIEW.json;CONGRUENCY_REVIEW.json. One actual generation, no cost/model/seed inference."
     },
     {
-      "command": "Authority/development54unit and exact candidate/inputs/frozen roots/count consistency",
+      "command": "Authority/development54unit, exact candidate/inputs/frozenroot/count checks, actualstagedcommitted2D and anonymous exact delivery",
       "result": "PASS",
-      "evidence": "GATES.json;VALIDATION.json. Actual staged/committed2D and anonymous immutable delivery follow."
+      "evidence": "GATES.json;VALIDATION.json;REMOTE_VERIFICATION.json. All declared required files verified at 88ff2a795a5796a44b1b2857874808534fcf0391. Final own metadata independently checked. No runtime/adoption/acceptance claim."
     }
   ],
   "acceptance_gaps": "Retained raw source is1254square, not runtime-size ready. Very faint nonzero-alpha speckles and gold contour need native-size/alpha review and a suitable <=1024 orPOT runtime derivative before import. No candidate native context, formalQA11, device, child or owner acceptance. Global artwork/coverage/fallback/caller totals remain open."

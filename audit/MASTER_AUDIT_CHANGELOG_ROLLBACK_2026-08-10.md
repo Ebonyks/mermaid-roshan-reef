@@ -2549,3 +2549,5 @@ CHG-101 delivery: `41b5d9b67e37922aac97f6989418fe5d95da1bc3`, 34 direct required
 ## First painted Skyway hand candidate (CHG-102)
 
 [R93](../docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/README.md), [impact](../design/audit_impacts/flat-vector-painted-hand-candidate-20261017.json). Owner authorized exactly two public inputs after the prior automatic rejection; one actual ImageGen take now preserved. Existing stable role only; no runtime, protected-source, acceptance or removal changes. Rollback restores routing and retains the unmodified candidate/provenance in history; do not rewrite the historical rejection.
+
+CHG-102 delivery: `88ff2a795a5796a44b1b2857874808534fcf0391`, 38 direct required files / 12409883 bytes anonymously exact at 2026-10-17T17:26:16.672269+00:00. One actual generated candidate; no runtime/acceptance/removal credit.
