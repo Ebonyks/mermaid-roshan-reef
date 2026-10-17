@@ -26,6 +26,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/.gdignore",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/ARTIFACT_UNITS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/CANONICAL_COMMITTED_2D.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/CANONICAL_STAGED_2D.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/CI_EVIDENCE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/CONGRUENCY_BACKLOG.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/CURRENT_CATALOGUE_CONTEXT_UNION.json",
@@ -48,6 +50,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/R88_CI_39035294472.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/RAW_LOG_BYTE_POLICY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/SOURCE_BINDINGS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/SUMMARY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/TASK_START.json",
@@ -73,9 +76,9 @@
       "evidence": "RAW_LOG_BYTE_POLICY.json: trailing whitespace belongs to raw GitHub CI data logs; initial failure retained."
     },
     {
-      "command": "Final current metadata/document/staged-and-committed2D and anonymous delivery",
-      "result": "PENDING",
-      "evidence": "Resume after scoped raw-byte policy; exact operations and receipt still required."
+      "command": "Canonical document/count/reference/frozenroot/2D and anonymous immutable delivery",
+      "result": "PASS",
+      "evidence": "VALIDATION.json/GATES.json/REMOTE_VERIFICATION.json; every required payload dependency byte-verified anonymously. Final own metadata checked separately after receipt commit. No acceptance credit."
     }
   ],
   "acceptance_gaps": "Only code integration. Existing source/new-use, critical glyphs, incomplete callers/routes/states/global inventory, formalQA11/device/child/owner and failed advisory renderer/visual evidence remain open."
