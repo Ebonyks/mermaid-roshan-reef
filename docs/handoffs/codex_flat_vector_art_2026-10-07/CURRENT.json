@@ -1460,5 +1460,9 @@
     "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
     "receipt": "r92_dev_ci_timeout/REMOTE_VERIFICATION.json",
     "own_metadata_scope": "Final receipt metadata checked separately at final commit; no recursive self hash"
-  }
+  },
+  "production_phase": "PHASE_2_ACTIVE",
+  "production_workflow": "PRODUCTION_WORKFLOW.md",
+  "production_queue": "PRODUCTION_QUEUE.json",
+  "workflow_correction": "workflow_phase2_20261017/DIAGNOSIS.json"
 }

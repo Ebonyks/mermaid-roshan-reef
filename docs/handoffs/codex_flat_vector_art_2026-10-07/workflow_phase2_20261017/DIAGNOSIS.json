@@ -1,0 +1,25 @@
+{
+  "owner_correction": "2026-10-17: project failed to become routine Phase2 replacement production; address underlying issue and wasted credits.",
+  "causes": [
+    {
+      "cause": "Active backlog still repeats full-inventory-before-pixels gate",
+      "authority_superseding_it": "OWNER_DIRECTION_20261013.json already permits ready individual repairs."
+    },
+    {
+      "cause": "Automation permits audit OR repair indefinitely",
+      "fix": "Replacement-first; context work only as a selected-item prerequisite, followed by production when permitted."
+    },
+    {
+      "cause": "Recursive archive delivery increases bookkeeping work",
+      "evidence": "R92 required2485files/1044525007bytes for CI timeout revision, not artwork progress or measured billing.",
+      "fix": "Only actual changed delivery and directly needed context/source are required; unchanged history cited immutably."
+    },
+    {
+      "cause": "Specific ImageGen export was automatically rejected",
+      "fix": "Present exact two-image request; explicit destination permission required. Other eligible production continues."
+    }
+  ],
+  "generation_calls": 0,
+  "tally_changed": false,
+  "credit_cost_total": "Not measured; no billing/refund claim."
+}

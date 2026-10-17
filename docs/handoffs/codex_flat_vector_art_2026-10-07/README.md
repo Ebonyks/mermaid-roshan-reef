@@ -1,5 +1,7 @@
 # Current R92 Dev CI evidence and full-game tally
 
+Execution follows the [Phase2 production workflow](PRODUCTION_WORKFLOW.md) and [queue](PRODUCTION_QUEUE.json). Ready failed items move to reuse or bounded new-art production. R92 remains the canonical tally; this correction adds no removal credit.
+
 Current canonical revision: [R92](r92_dev_ci_timeout/README.md). ExactDevF follow-upCI timedout after trustedprobes passed; one failed-job retry pending and no exactFAPK claim. Two partial code integrations and zero accepted removals remain unchanged. Historical sections retain their dated scopes.
 
 # Current R90 Dev integration and full-game tally

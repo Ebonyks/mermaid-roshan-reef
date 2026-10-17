@@ -374,6 +374,8 @@ poses as broken motion.
 
 2026-10-17 [R92](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/README.md) records confirmed55minute exactDevCI timeout after trustedprobes success and one failed-job retry. Prior exactsource green jobs/two partial integrations remain; no wholeDevgreen/APK/visual acceptance inferred. Lifecycle and artwork/coverage totals unchanged.
 
+2026-10-17 owner correction: [Phase2 workflow](../../docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_WORKFLOW.md) and replacement-first automation supersede stale full-inventory pixel gates. Exact named ImageGen export permission remains pending. No artwork, acceptance, tally or lifecycle change.
+
 ## MA-VIS-007
 
 | Field | Value |

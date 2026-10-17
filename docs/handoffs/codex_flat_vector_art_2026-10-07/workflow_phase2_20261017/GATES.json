@@ -1,0 +1,52 @@
+{
+  "status": "PASS_OPERATIONAL_DOCUMENT_SCOPE_ONLY",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/authority.log",
+      "sha256": "c31ace2116278f617c59304bda54492f016e978e755fe439ae7685ea0d0b5454"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/development.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/units.log",
+      "sha256": "50f9877a8c27f9e265c491ea5fdcebcc1ca3f662b1a5946a4d087c8eac442c25"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/stress.log",
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29"
+    }
+  ],
+  "limits": "No runtime/artwork/cost/creative acceptance claim. In-flight engine CI is separate and not restarted."
+}

@@ -2538,3 +2538,8 @@ CHG-098 canonical payload publication: `22069487bf303d4682df389c9dc786b9bbed8955
 [R92](../docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/README.md) records exactDevF timeout, one failed-job retry and absent exactFAPK verification. Prior green sourcebranch runs, partial code integrations and historical totals retain scope. [Impact](../design/audit_impacts/flat-vector-dev-ci-timeout-20261017.json). No runtime/workflow changes. Rollback current routing only; retain immutable timeout history and zero acceptance.
 
 CHG-100 canonical payload publication: `deffd85ef593e9690aaba0da64f4338aa7577eb6`, manifest SHA-256 `ae2eeb053e29029b5a9e720f30ff2aa71a5a7b1cc82403c6042c8602ec1d6fec`; 2485 required files / 1044525007 bytes anonymously verified at 2026-10-17T15:45:53.246265+00:00. Final own receipt metadata separately checked; acceptance and integration remain distinct.
+
+
+## Restore item-by-item Phase2 production (CHG-101)
+
+[Workflow](../docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_WORKFLOW.md), [queue](../docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json), [impact](../design/audit_impacts/flat-vector-phase2-workflow-20261017.json). Correct the audit-heavy loop using existing October13 authority and October17 owner steering. Verify the same automation is replacement-first, preserve the specific ImageGen block and in-flight CI. No runtime/art/count change. Rollback operational routing only after reconciling owner direction; preserve immutable history.

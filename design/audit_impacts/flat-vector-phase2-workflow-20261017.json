@@ -1,0 +1,61 @@
+{
+  "id": "flat-vector-phase2-workflow-20261017",
+  "baseline": "fd3ee0b8441bfc60422a7966d0598c20d6bee8d2",
+  "scope": "Correct the audit-heavy production loop after owner October17 steering: supersede stale full-inventory pixel gates using existing October13 authority, verify replacement-first automation, bind actionable queue and exact export blocker. No runtime, artwork or tally change.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-11",
+    "DL-VIS-03"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-TYPE-004"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-phase2-workflow-20261017.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_BACKLOG.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_WORKFLOW.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/AUTOMATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/AUTOMATION_PROMPT.txt",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/DIAGNOSIS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/GENERATION_INPUT_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/VALIDATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/development.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/stress.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/units.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/verify_runtime_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "Saved automation and historical gate/rejection readback",
+      "result": "PASS",
+      "evidence": "workflow_phase2_20261017/DIAGNOSIS.json and AUTOMATION.json; same cadence/chat; no export permission inferred."
+    },
+    {
+      "command": "Authority/development54unit/6stress and workflow/frozenroot consistency",
+      "result": "PASS",
+      "evidence": "VALIDATION.json/GATES.json. Actual staged/committed2D and anonymous immutable delivery follow."
+    }
+  ],
+  "acceptance_gaps": "Workflow repair is not art acceptance. Named ImageGen export, in-flight R91CI/publication, formalQA11/device/child/owner and whole-game scope remain open."
+}
