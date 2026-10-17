@@ -127,7 +127,8 @@
     "audit/opera_foyer_movement_20261017/start-new-02.log",
     "audit/opera_foyer_movement_20261017/verify_probes.py.txt",
     "audit/opera_foyer_movement_20261017/governance_final.json",
-    "audit/opera_foyer_movement_20261017/governance_driver.py.txt"
+    "audit/opera_foyer_movement_20261017/governance_driver.py.txt",
+    "audit/opera_foyer_movement_20261017/implementation_binding.json"
   ],
   "validation": [
     {
@@ -184,9 +185,14 @@
       "command": "python -X utf8 -B -m unittest tools.tests.test_plan_audit_rollback",
       "result": "PASS",
       "evidence": "rollback-01.json/log:25 tests pass; CHG-100 is manual/nonemitting and sealed inventory unchanged."
+    },
+    {
+      "command": "Bind actual implementation commit to all tested raw sources and literal audit artifacts",
+      "result": "PASS",
+      "evidence": "audit/opera_foyer_movement_20261017/implementation_binding.json: implementation 14cf8ed9218d2fff7033113782417bcae0df7965, parent 39b0e158db7de3d0c178c4444f97c04fda75bec5, 1612 tested source mappings {'literal': 911, 'CRLF_to_Git_LF': 701}, seven changed scripts literal and 80 native evidence files literal; no asset content delta. Metadata-only followup/exact-head CI remain separate."
     }
   ],
-  "acceptance_gaps": "Full-ci-05 FAIL remains retained; documented probe-by-probe verification passes all82. Final authority/development checks pass. Published-head full CI and integration remain pending until complete. Diagnostic desktop Mobile renders are scoped evidence, not authoritative visual/contact, target Lenovo M11, child or owner acceptance. Full game-wide per-object geometry, strict-zero 2D and master satisfaction remain open. Source art and voices are reused unchanged; exact human listening/readability and whole-silhouette/rail/lift presentation remain acceptance work. Godot AI isolated preview is refreshed; intermittent port8000 errors and a stopped diagnostic-error run are retained in live_preview.json, with no formal acceptance transfer. Formal second supported aspect remains pending under DL-QA-12; CHG-100 exact implementation-commit binding follows the first gated commit before integration.",
+  "acceptance_gaps": "Full-ci-05 FAIL remains retained; documented probe-by-probe verification passes all82. Final authority/development checks pass. Published-head full CI and integration remain pending until complete. Diagnostic desktop Mobile renders are scoped evidence, not authoritative visual/contact, target Lenovo M11, child or owner acceptance. Full game-wide per-object geometry, strict-zero 2D and master satisfaction remain open. Source art and voices are reused unchanged; exact human listening/readability and whole-silhouette/rail/lift presentation remain acceptance work. Godot AI isolated preview is refreshed; intermittent port8000 errors and a stopped diagnostic-error run are retained in live_preview.json, with no formal acceptance transfer. Formal second supported aspect remains pending under DL-QA-12; CHG-100 implementation source is bound to 14cf8ed9218d2fff7033113782417bcae0df7965; exact published metadata-head CI and integration remain pending.",
   "references_used": [
     {
       "path": "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md",
@@ -224,7 +230,8 @@
     "change_id": "CHG-100",
     "class": "manual_reconstruction",
     "record": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#opera-foyer-movement-and-four-door-waves-chg-100",
-    "source_commit": "PENDING after final native gate; bind actual implementation before integration",
-    "sealed_planner_inventory_changed": false
+    "source_commit": "14cf8ed9218d2fff7033113782417bcae0df7965",
+    "sealed_planner_inventory_changed": false,
+    "source_binding": "audit/opera_foyer_movement_20261017/implementation_binding.json"
   }
 }
