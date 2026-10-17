@@ -125,5 +125,42 @@
       "sha256": "d95290b1cdd6d0543f96700a87d24ed2358ab752613e7dc0adf02b770db8b61d",
       "checked_at_utc": "2026-10-17T04:38:49.454711+00:00"
     }
+  ],
+  "payload_actual_staged_2d": {
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "log": "PAYLOAD_STAGED_2D.log",
+    "status": "NO_REGRESSION"
+  },
+  "payload_actual_committed_2d": {
+    "revision": "b1c8ca973187138c7a251b3a8b43de4c1a01eefd",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "log": "PAYLOAD_COMMITTED_2D.log",
+    "status": "NO_REGRESSION"
+  },
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=705|LEDGER=705|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "8abe14d0b60da35e8867c7ebad46af372e4f3368aa3ba0747da86337b9aa2bd4",
+      "checked_at_utc": "2026-10-17T04:42:39.973167+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|dd799b2d43871b29d1d6e0503646308a194dad1e\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "d95290b1cdd6d0543f96700a87d24ed2358ab752613e7dc0adf02b770db8b61d",
+      "checked_at_utc": "2026-10-17T04:42:42.418352+00:00"
+    }
   ]
 }
