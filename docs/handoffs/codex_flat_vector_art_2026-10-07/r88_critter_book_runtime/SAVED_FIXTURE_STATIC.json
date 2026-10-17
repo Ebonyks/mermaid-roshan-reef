@@ -1,0 +1,36 @@
+[
+  {
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "gdtoolkit.parser",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r88_critter_book_runtime\\capture_saved.gd"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r88_critter_book_runtime\\capture_saved.gd"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef",
+      "--check-only",
+      "--script",
+      "res://export/flat_vector_r88/capture_saved.gd"
+    ],
+    "exit_code": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n"
+  }
+]

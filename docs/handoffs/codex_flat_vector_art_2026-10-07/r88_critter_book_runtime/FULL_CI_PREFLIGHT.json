@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=705|LEDGER=705|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "8abe14d0b60da35e8867c7ebad46af372e4f3368aa3ba0747da86337b9aa2bd4"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|dd799b2d43871b29d1d6e0503646308a194dad1e\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "d95290b1cdd6d0543f96700a87d24ed2358ab752613e7dc0adf02b770db8b61d"
+    }
+  ],
+  "trusted_ci_script_sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+  "expected_unchanged_probes": 82,
+  "current_native_source_pin_sha256": "40dadce4138790acdeac3947ee9ccef5a9c9612d893cbe55316b0a9fb91402c3"
+}

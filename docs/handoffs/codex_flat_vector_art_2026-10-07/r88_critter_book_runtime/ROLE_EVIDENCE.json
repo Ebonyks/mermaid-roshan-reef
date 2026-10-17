@@ -1,0 +1,39 @@
+{
+  "status": "WORK_BRANCH_IMPLEMENTED_LOCAL82_NATIVE606_PUBLICATION_PENDING",
+  "implementation_id": "FV-IMPL-R88-CRITTER-BOOK-01",
+  "book_piece_ids": [
+    "FV-E9E82E0C6703",
+    "FV-2ABD73BAFFE0",
+    "FV-AB474EF3699E"
+  ],
+  "family": "shared_ui",
+  "whole_family_complete": false,
+  "scope": "Book board/cards/tabs, decorative shell/pearls/title/help and usable bounds only; explicit verbatim published navigation dependency. Existing shared helpers/critical category/habitat glyphs and other consumers remain open.",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "runtime_changes": [
+    "scripts/collection_system.gd",
+    "scripts/navigation_controller.gd",
+    "scripts/pause_menu.gd",
+    "scripts/storybook_ui.gd"
+  ],
+  "source_reuse": "REUSE_PLAN.json, NAVIGATION_DEPENDENCY.json, SOURCE_IMPORT_BINDINGS.json",
+  "current_native_checks": 606,
+  "current_cases": 8,
+  "current_frames": 100,
+  "all_retained_frames": 349,
+  "all_new_frames_excluded_current_dev_coverage": true,
+  "full_ci": {
+    "probe_count": 82,
+    "log_sha256": "99041edfd65f0b5a9b8c28ebc961e7477ae6cea8ca061ec518e96f412aec7089",
+    "evidence": "full_ci/FULL_CI_RESULT.json"
+  },
+  "new_generation_calls": 0,
+  "new_runtime_art_files": 0,
+  "new_roles": 0,
+  "new_families": 0,
+  "approved": 0,
+  "dev_integrated": 0,
+  "runtime_verified_formal": 0,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

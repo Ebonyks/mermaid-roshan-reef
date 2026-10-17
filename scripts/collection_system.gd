@@ -6,6 +6,8 @@ extends RefCounted
 var m: ReefMain
 
 const TOTAL := 18
+const BOOK_CARD: Texture2D = preload("res://assets/fashion/skin_engine_v2/ui/wardrobe_card.png")
+const BOOK_PANEL: Texture2D = preload("res://assets/fashion/skin_engine_v2/ui/wardrobe_panel.png")
 const CATCH_RADIUS := 9.0
 const CATEGORY_ORDER := ["fish", "insect", "bird"]
 const CATEGORY_ICON := {"fish": "🐟", "insect": "🦋", "bird": "🐦"}
@@ -284,7 +286,7 @@ func open_book() -> void:
 		Callable(self, "close_book"))
 	m._set_world_controls_enabled(false, "collection")
 	m.collection_layer = CanvasLayer.new()
-	m.collection_layer.layer = 25
+	m.collection_layer.layer = 28
 	m.add_child(m.collection_layer)
 	var root_control := Control.new()
 	root_control.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -324,27 +326,32 @@ func _draw_book() -> void:
 	for child: Node in stage.get_children():
 		child.queue_free()
 	var panel := Panel.new()
+	panel.name = "CritterBookPanel"
 	panel.position = Vector2(34, 24)
 	panel.size = Vector2(1212, 672)
-	var panel_style := StorybookUI.panel_style(StorybookUI.MINT, Color(0.91, 0.97, 1.0, 0.99), 48, 5)
-	panel.add_theme_stylebox_override("panel", panel_style)
+	panel.add_theme_stylebox_override("panel", _book_frame_style())
 	stage.add_child(panel)
-	StorybookUI.adorn_panel(stage, Rect2(34, 24, 1212, 672), "CritterBook")
+	_add_book_shell(stage, Rect2(150, 43, 64, 48), "CritterBookShellCrest")
 
 	var title := Label.new()
-	title.text = "🐚  My Critter Book   %d / %d" % [caught_count(), TOTAL]
-	StorybookUI.style_label(title, 46, StorybookUI.INK, 4)
-	title.position = Vector2(70, 34)
+	title.name = "CritterBookTitle"
+	title.text = "My Critter Book   %d / %d" % [caught_count(), TOTAL]
+	StorybookUI.style_label(title, 46, StorybookUI.INK, 4, StorybookUI.ROLE_TITLE)
+	title.position = Vector2(230, 34)
+	title.size = Vector2(970, 70)
+	title.autowrap_mode = TextServer.AUTOWRAP_OFF
+	title.max_lines_visible = 1
+	title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	stage.add_child(title)
 
 	for i in range(CATEGORY_ORDER.size()):
 		var category: String = CATEGORY_ORDER[i]
 		var tab := Button.new()
+		tab.name = "CritterBookTab_%s" % category
 		tab.text = "%s  %d / 6" % [String(CATEGORY_ICON[category]), caught_count(category)]
-		tab.add_theme_font_size_override("font_size", 30)
-		tab.position = Vector2(88 + float(i) * 270.0, 92)
+		tab.position = Vector2(88 + float(i) * 270.0, 122)
 		tab.custom_minimum_size = Vector2(242, 110)
-		StorybookUI.style_button(tab, "selected" if category == m.collection_category else "secondary", 30, 28)
+		_style_book_tab(tab, category == m.collection_category)
 		tab.pressed.connect(_switch_category.bind(category))
 		stage.add_child(tab)
 
@@ -356,35 +363,99 @@ func _draw_book() -> void:
 		var d: Dictionary = visible_defs[i]
 		var caught: bool = bool(m.critter_collection.get(String(d["id"]), false))
 		var card_color: Color = d["color"]
-		var card_fill: Color = card_color.lightened(0.58) if caught else Color(0.88, 0.90, 0.98, 0.96)
-		var card := StorybookUI.add_panel(stage, Rect2(82 + float(i % 3) * 388.0, 212 + float(i / 3) * 208.0, 356, 192), card_color if caught else StorybookUI.LAVENDER, card_fill, 24)
+		var card := Panel.new()
 		card.name = "CritterCard_%s" % String(d["id"])
+		card.position = Vector2(82 + float(i % 2) * 556.0, 244 + float(i / 2) * 126.0)
+		card.size = Vector2(540, 116)
+		var paper: Color = Color.WHITE.lerp(card_color, 0.12) if caught else Color.WHITE
+		card.add_theme_stylebox_override("panel", _book_frame_style(paper))
+		stage.add_child(card)
 		var icon := Label.new()
+		icon.name = "CritterBookCategoryOrUnknown"
 		icon.text = String(CATEGORY_ICON[m.collection_category]) if caught else "?"
-		StorybookUI.style_label(icon, 68, StorybookUI.INK, 3)
-		icon.position = Vector2(22, 23)
+		StorybookUI.style_label(icon, 68, StorybookUI.INK, 3, StorybookUI.ROLE_STATUS)
+		icon.position = Vector2(22, 10)
 		icon.size = Vector2(96, 96)
 		icon.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		card.add_child(icon)
 		var name_label := Label.new()
+		name_label.name = "CritterBookSpeciesName"
 		name_label.text = String(d["name"]) if caught else "Mystery Friend"
-		StorybookUI.style_label(name_label, 29 if caught else 25, StorybookUI.INK if caught else StorybookUI.MUTED, 2)
-		name_label.position = Vector2(122, 30)
-		name_label.size = Vector2(220, 74)
+		StorybookUI.style_label(name_label, 29 if caught else 28, StorybookUI.INK if caught else StorybookUI.MUTED, 2)
+		name_label.position = Vector2(126, 12)
+		name_label.size = Vector2(388, 42)
 		name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		card.add_child(name_label)
 		var habitat := Label.new()
+		habitat.name = "CritterBookHabitat"
 		var habitat_id := String(d["habitat"])
 		habitat.text = "%s  %s" % [String(HABITAT_ICON[habitat_id]), String(HABITAT_LABEL[habitat_id])]
 		StorybookUI.style_label(habitat, 28, StorybookUI.INK_SOFT, 2,
 			StorybookUI.ROLE_STATUS)
-		habitat.position = Vector2(28, 134)
-		habitat.size = Vector2(300, 54)
+		habitat.position = Vector2(126, 60)
+		habitat.size = Vector2(388, 44)
 		habitat.max_lines_visible = 2
 		card.add_child(habitat)
 
 	var help := Label.new()
-	help.text = "✦  Swim close to a sparkling critter, then tap CATCH!  ✦"
-	StorybookUI.style_label(help, 25, StorybookUI.INK_SOFT, 2)
-	help.position = Vector2(230, 638)
+	help.name = "CritterBookHelp"
+	help.text = "Swim close to a sparkling critter, then tap CATCH!"
+	StorybookUI.style_label(help, 25, StorybookUI.INK_SOFT, 2, StorybookUI.ROLE_ADULT_CAPTION)
+	help.position = Vector2(88, 640)
+	help.size = Vector2(1104, 38)
+	help.autowrap_mode = TextServer.AUTOWRAP_OFF
+	help.max_lines_visible = 1
+	help.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	help.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	stage.add_child(help)
+
+
+func _book_frame_style(tint: Color = Color.WHITE, pressed: bool = false,
+		border_only: bool = false) -> StyleBoxTexture:
+	var style := StyleBoxTexture.new()
+	style.texture = BOOK_CARD
+	# Preserve the painted corners; only the paper and straight borders stretch.
+	style.region_rect = Rect2(10, 23, 222, 209)
+	for side: int in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
+		style.set_texture_margin(side, 36.0)
+	style.content_margin_left = 18.0
+	style.content_margin_right = 18.0
+	style.content_margin_top = 12.0
+	style.content_margin_bottom = 12.0
+	style.modulate_color = tint
+	style.draw_center = not border_only
+	if pressed:
+		style.expand_margin_top = -2.0
+		style.expand_margin_bottom = -2.0
+	return style
+
+
+func _style_book_tab(tab: Button, selected: bool) -> void:
+	# Shared typography and native input stay authoritative. All six visual
+	# states are replaced synchronously, before this Button enters the tree.
+	StorybookUI.style_button(tab, "selected" if selected else "secondary", 30, 28)
+	var normal_tint: Color = Color(1.0, 0.95, 0.83) if selected else Color.WHITE
+	tab.add_theme_stylebox_override("normal", _book_frame_style(normal_tint))
+	tab.add_theme_stylebox_override("hover", _book_frame_style(Color(1.0, 0.95, 0.83)))
+	tab.add_theme_stylebox_override("pressed", _book_frame_style(Color(1.0, 0.86, 0.64), true))
+	tab.add_theme_stylebox_override("hover_pressed", _book_frame_style(Color(1.0, 0.86, 0.64), true))
+	tab.add_theme_stylebox_override("focus", _book_frame_style(Color(1.0, 0.86, 0.64), false, true))
+	tab.add_theme_stylebox_override("disabled", _book_frame_style(Color(0.65, 0.65, 0.70, 0.65)))
+	if selected:
+		_add_book_shell(tab, Rect2(101, 0, 40, 30), "CritterBookSelectedShell")
+
+
+func _add_book_shell(parent: Control, rect: Rect2, node_name: String) -> void:
+	var shell := TextureRect.new()
+	shell.name = node_name
+	var crop := AtlasTexture.new()
+	crop.atlas = BOOK_PANEL
+	crop.region = Rect2(430, 0, 165, 116)
+	# Set the minimum-size policy before assigning/sizing an AtlasTexture.
+	shell.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	shell.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	shell.texture = crop
+	shell.position = rect.position
+	shell.size = rect.size
+	shell.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	parent.add_child(shell)

@@ -1,0 +1,200 @@
+{
+  "attempt1": {
+    "case": "native/attempt1_critter_1280",
+    "engine_exit": 1,
+    "raw_frames": 14,
+    "all_frames_excluded": true,
+    "errors": [
+      "book_initial_captured_view actual board/cards/all six native button states painted with original large targets/callback",
+      "book_after_natural_caption_hold actual board/cards/all six native button states painted with original large targets/callback",
+      "book_insect_tab_held actual board/cards/all six native button states painted with original large targets/callback",
+      "book_insects_selected title/help actual shaped width and viewport fit",
+      "book_insects_selected actual board/cards/all six native button states painted with original large targets/callback",
+      "book_birds_selected actual board/cards/all six native button states painted with original large targets/callback",
+      "book_bird_repeat title/help actual shaped width and viewport fit",
+      "book_bird_repeat actual board/cards/all six native button states painted with original large targets/callback",
+      "book_actual_reentry actual board/cards/all six native button states painted with original large targets/callback"
+    ],
+    "code_sha256": "bf0fed8067a5b80652d15a12f604b6b76ff35a64000c356ef922a3035ef398df",
+    "retained_code": "attempt1_collection_system.log",
+    "retained_fixture": "attempt1_capture_entry.log",
+    "genuine_fit_failure": "AtlasTexture minimum165x116 clamped shell sizes before expand_mode; header and selection crop covered text. Set expand_mode before texture and size. No source pixel edit.",
+    "observer_failure1": "Expected total callback1; actual source audio_director.gd:755 connects _ui_tap in addition to original _switch_category. Verify exact methods and bindings, not guessed count.",
+    "observer_failure2": "Original queue_free redraw can cause automatic node names. Direct label snapshots prove970/1104widths remained; use shared typography role metadata for title/help rather than name lookup.",
+    "normal11_and_known_source_sidecar_guards_unchanged": true
+  },
+  "fixed_code_sha256": "ba519ddcdbd06d5bb4b76e38ce0d84d5d74fe706c0cbc30ce51339405483ab4b",
+  "checked_at_utc": "2026-10-17T10:07:42.175444+00:00",
+  "acceptance_credit": 0,
+  "three_column_attempt2": {
+    "cases": [
+      "native/attempt2_critter_1280",
+      "native/attempt2_critter_1600"
+    ],
+    "native_checks": 140,
+    "frames": 28,
+    "default_input_passed": true,
+    "status": "SUPERSEDED_BY_REQUIRED_EXPANSION_FAILURE",
+    "code_sha256": "ba519ddcdbd06d5bb4b76e38ce0d84d5d74fe706c0cbc30ce51339405483ab4b",
+    "retained_code": "attempt2_three_column_collection_system.log",
+    "all_frames_excluded": true
+  },
+  "required_expansion_negative": {
+    "case": "native/negative_expansion_1280",
+    "frames": 4,
+    "expected_detected": true,
+    "errors": [
+      "expected_habitat_expansion_overflow current card text floor and bounds"
+    ],
+    "actual_overflowing_labels": [
+      {
+        "clip": false,
+        "font_class": "FontFile",
+        "font_path": "",
+        "font_size": 28,
+        "line_count": 2,
+        "line_height": 39,
+        "max_lines": 2,
+        "name": "CritterBookHabitat",
+        "position": [
+          28.0,
+          134.0
+        ],
+        "role": "status",
+        "size": [
+          300.0,
+          78.0
+        ],
+        "text": "\ud83c\udf0a  Ocean Garden extra",
+        "unwrapped_width": 323.0,
+        "wrap_mode": 3
+      },
+      {
+        "clip": false,
+        "font_class": "FontFile",
+        "font_path": "",
+        "font_size": 28,
+        "line_count": 2,
+        "line_height": 39,
+        "max_lines": 2,
+        "name": "CritterBookHabitat",
+        "position": [
+          28.0,
+          134.0
+        ],
+        "role": "status",
+        "size": [
+          300.0,
+          78.0
+        ],
+        "text": "\ud83c\udf0a  Ocean Garden extra",
+        "unwrapped_width": 323.0,
+        "wrap_mode": 3
+      },
+      {
+        "clip": false,
+        "font_class": "FontFile",
+        "font_path": "",
+        "font_size": 28,
+        "line_count": 2,
+        "line_height": 39,
+        "max_lines": 2,
+        "name": "CritterBookHabitat",
+        "position": [
+          28.0,
+          134.0
+        ],
+        "role": "status",
+        "size": [
+          300.0,
+          78.0
+        ],
+        "text": "\ud83c\udf0a  Ocean Garden extra",
+        "unwrapped_width": 323.0,
+        "wrap_mode": 3
+      },
+      {
+        "clip": false,
+        "font_class": "FontFile",
+        "font_path": "",
+        "font_size": 28,
+        "line_count": 2,
+        "line_height": 39,
+        "max_lines": 2,
+        "name": "CritterBookHabitat",
+        "position": [
+          28.0,
+          134.0
+        ],
+        "role": "status",
+        "size": [
+          300.0,
+          78.0
+        ],
+        "text": "\ud83d\udca7  Lagoon River extra",
+        "unwrapped_width": 305.0,
+        "wrap_mode": 3
+      },
+      {
+        "clip": false,
+        "font_class": "FontFile",
+        "font_path": "",
+        "font_size": 28,
+        "line_count": 2,
+        "line_height": 39,
+        "max_lines": 2,
+        "name": "CritterBookHabitat",
+        "position": [
+          28.0,
+          134.0
+        ],
+        "role": "status",
+        "size": [
+          300.0,
+          78.0
+        ],
+        "text": "\ud83d\udca7  Lagoon River extra",
+        "unwrapped_width": 305.0,
+        "wrap_mode": 3
+      }
+    ],
+    "layout_change_reason": "Actual live label height78 +y134 =212 outside192px card; font28preserved. Two wider cards per row provide388px slot instead of300 without shrinking child text."
+  },
+  "current_code_sha256": "db5fe1876a8e79074e84c54c12bfecb545b73b9ef9face71987c01dcc6a0c0e1",
+  "saved_partial_attempt3": {
+    "case": "native/attempt3_saved_partial_1280",
+    "engine_exit": 1,
+    "frames": 15,
+    "all_frames_excluded": true,
+    "errors": [
+      "private unknown future field retained"
+    ],
+    "guard_cause": "Strict nested JSON integer/float comparison, not lost data. Source private token/keep3,7 values independently byte-read inside owned test temp and semantically equal.",
+    "private_profile_inside_owned_job": true,
+    "independent_private_unknown_semantic_equal": true,
+    "actual_unknown": {
+      "keep": [
+        3.0,
+        7.0
+      ],
+      "token": "R88_SYNTHETIC_ONLY"
+    },
+    "expected_unknown": {
+      "keep": [
+        3,
+        7
+      ],
+      "token": "R88_SYNTHETIC_ONLY"
+    },
+    "retained_fixture": "attempt3_saved_fixture.log",
+    "fixed_fixture_sha256": "535000deed4a59cdcc6621e100ea5f0c1901745081f523c44db31feaf477a2b7",
+    "source_code_changed": false
+  },
+  "full_ci_attempt1_hook_failure": {
+    "result": "81/82zero; UI system one failed node-hook assertion",
+    "evidence": "full_ci_attempt1/FULL_CI_RESULT.json",
+    "source_snapshots": "ATTEMPT5_SOURCE_AND_FIXTURES.json",
+    "repair": "Actual painted header TextureRect retains original CritterBookShellCrest name. No source pixel, crest bounds, glyph, save/input body or trusted probe changed. Observer checks rendering class/resource, not absence of a semantic name.",
+    "new_attempt": "attempt6; all prior100attempt5frames remain retained historical diagnostics."
+  }
+}

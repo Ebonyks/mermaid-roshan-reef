@@ -1,0 +1,39 @@
+{
+  "revision": "684e34f06ebce6a70065847b5ecb69547ea8a128",
+  "pull_request": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/35",
+  "source_payload": "9f6ae4fd0782d8f3333715725a8e96e83443cc3f",
+  "source_canonical_receipt": "f685ed29a7788d5b0dec63359c35efa00048a5a7",
+  "reason": "Match already published R87actualscene/backmaterial and avoid leaving this reused implementation isolated in a second overlapping PR. No new navigation logic/artwork invented.",
+  "prior_verification": "Exact same F source passed local82/R86native64/R87native74 and pushCI39017513094; PR39017549705 cancelled during optional capture. Combined candidate must independently pass current machine gates.",
+  "files": [
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "684e34f06ebce6a70065847b5ecb69547ea8a128",
+      "before_working_sha256": "137404cf953e2f40b0a21924c22e8f5a7bd63aee3e7f81ae71543cceefbdab31",
+      "after_sha256": "9ec09a6bdc926fee8a841bb0db97b39d40b9db0916d62a543c7aa5785c7f056c",
+      "after_bytes": 18593,
+      "anonymous_exact": true,
+      "verbatim": true
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "revision": "684e34f06ebce6a70065847b5ecb69547ea8a128",
+      "before_working_sha256": "28ad120339ff9f178f57cb59d820ea208a6d7aad988d56ea72d3afb64099423c",
+      "after_sha256": "036f4cf18d0ccf8866b7989bbcf5dcac9d9095632892be915afa83b622c5b10d",
+      "after_bytes": 13595,
+      "anonymous_exact": true,
+      "verbatim": true
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "revision": "684e34f06ebce6a70065847b5ecb69547ea8a128",
+      "before_working_sha256": "a0d371c8fe7462dcff0659f34f0457d2fc4f61316c3e5f59c364175530a4d579",
+      "after_sha256": "1b10fccd7d9b67bd4088948b98a83b64b7ef163461b2d4d7e0df7a881ab9c5ad",
+      "after_bytes": 3720,
+      "anonymous_exact": true,
+      "verbatim": true
+    }
+  ],
+  "checked_at_utc": "2026-10-17T10:36:40.497559+00:00",
+  "creative_device_child_owner_acceptance": false
+}

@@ -1,0 +1,10 @@
+{
+  "stage": "Pre-CI document coverage gate, before engine launch",
+  "failure": "Impact validation result used unsupported FAIL_RETAINED_NODE_HOOK; the invalid impact was rejected, causing secondary missing-coverage reports.",
+  "correction": "Supported FAIL enum, same retained full82/UI-hook failure evidence; no finding/test/schema change.",
+  "raw_log": "CI_ATTEMPT2_SCHEMA_PREFLIGHT_FAILURE.log",
+  "raw_log_sha256": "ddc166cbbbabbbf26e77e1a9d3305026fb29916ae4db52fdb1ec66f903d9b8de",
+  "engine_started": false,
+  "new_frames": 0,
+  "checked_at_utc": "2026-10-17T11:55:46.606092+00:00"
+}

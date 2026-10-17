@@ -1,0 +1,65 @@
+{
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "stable_role_ids": {
+    "book": "FV-1CABD96A7D49",
+    "bubble": "FV-286EA25FDB27",
+    "fish": "FV-42C4AAA91230"
+  },
+  "family": "shared_ambience",
+  "same_scene_reference": "native/attempt7_saved_full_1600/saved_initial_fish.png",
+  "visual_observation": "Directly viewed corrected attempt7current1600full-saved fish frame: faint flat open-book shape remains at the left margin. This is one of the existing8currentpartialviews; bubble/idlefish states were not newly viewed.",
+  "source_observation": "Current LivingWorld resolves collection_layer to overlay.critter_book; catalogue requests book/bubble/idlefish, and LivingWorldCanvas draws its book with polygons/lines. An exact native ownership/idle-state observation is still needed before any caller repair/coverage claim.",
+  "source_references": [
+    {
+      "path": "scripts/living_world.gd",
+      "lines": [
+        132,
+        145
+      ],
+      "lf_sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
+      "evidence_kind": "Current source ownership/expression only; not formal runtime proof"
+    },
+    {
+      "path": "scripts/living_world.gd",
+      "lines": [
+        241,
+        259
+      ],
+      "lf_sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
+      "evidence_kind": "Current source ownership/expression only; not formal runtime proof"
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "lines": [
+        138,
+        142
+      ],
+      "lf_sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e",
+      "evidence_kind": "Current source ownership/expression only; not formal runtime proof"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "lines": [
+        32,
+        71
+      ],
+      "lf_sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "evidence_kind": "Current source ownership/expression only; not formal runtime proof"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "lines": [
+        272,
+        283
+      ],
+      "lf_sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "evidence_kind": "Current source ownership/expression only; not formal runtime proof"
+    }
+  ],
+  "count_qualification": "Already inventoried named roles; zero new roles/families/alias/current-dev credit. Frame/layout candidate does not retire shared ambience.",
+  "runtime_changes": [],
+  "accepted_removed": 0,
+  "formal_qa11_device_child_owner": "PENDING",
+  "checked_at_utc": "2026-10-17T11:54:41.876625+00:00",
+  "same_scene_sha256": "5d85426c95c434d6fda8cde568b0b8d123619b88c1aba2851159fcebde1e1a3e"
+}

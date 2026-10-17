@@ -1,0 +1,37 @@
+{
+  "engine_exit": 1,
+  "expected_negative_detected": true,
+  "normal_source_sidecar_fixture_guards": true,
+  "normal_before": {
+    "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+    ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "normal_after": {
+    "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+    ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "errors": [
+    "expected_habitat_expansion_overflow current card text floor and bounds"
+  ],
+  "log_sha256": "c3227540e7c26f3db569af52650bbc07ad5257002d74e77a984c0e655a9b9bfe",
+  "all_frames_excluded": true,
+  "acceptance_credit": 0
+}

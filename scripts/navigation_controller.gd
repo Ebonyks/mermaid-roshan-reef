@@ -100,8 +100,8 @@ func sync_button() -> void:
 	if String(button.get_meta("global_navigation_mode", "")) == mode:
 		return
 	button.set_meta("global_navigation_mode", mode)
-	StorybookUI.style_icon_button(button, "☰" if menu_mode else "↩",
-		"secondary", Vector2(112.0, 112.0), "Menu" if menu_mode else "Back")
+	StorybookUI.style_navigation_button(
+		button, "☰" if menu_mode else "↩", "Menu" if menu_mode else "Back")
 	position_button(button)
 
 
