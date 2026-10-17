@@ -53,5 +53,37 @@
       "log": "gate_logs/units.log",
       "sha256": "a4ab8f9a04530273084da2bd9e7f6cd78a0012ce9bef6b60a8ddbc2feb3b14e8"
     }
+  ],
+  "publication": {
+    "payload_revision": "194647a398f89fc52c3efbb32ff1f1c0e3e3cbca",
+    "manifest_sha256": "98a27ca6fb1c175636ece8370eee5de91aa433ab236a249b4d5243a8aa1fb596",
+    "required_files": 143,
+    "required_bytes": 51161118,
+    "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
+    "checked_at_utc": "2026-10-17T18:55:07.549536+00:00"
+  },
+  "receipt_document_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=807|LEDGER=807|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "ae5aadd6a2fc69fd3a9bc4d6fa45dd699161234c71ac87bc69eb3b1300684fd7"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    }
   ]
 }

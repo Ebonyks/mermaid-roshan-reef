@@ -2555,3 +2555,5 @@ CHG-102 delivery: `88ff2a795a5796a44b1b2857874808534fcf0391`, 38 direct required
 ## Native painted-hand fit and insect-tab Dev integration (CHG-103)
 
 [R94](../docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/README.md), [impact](../design/audit_impacts/flat-vector-painted-hand-native-20261017.json). Advance the existing one-take hand through actual-controller preview, retain unselected49pxfit, select36pxfit beside separately declaredR70painted neighbors.36frames/138checks, no new artwork generation, source-pixel edits or hand integration. R91partialtab code integratedDev39b from green exactsourcepush; redundantPR55minute cancellation remains distinct. Rollback requires normal tested Dev reconciliation for the source leaf; retain exact candidate/native/CI history. No complete role, family, owner/device/child or accepted-removal claim.
+
+CHG-103 delivery: `194647a398f89fc52c3efbb32ff1f1c0e3e3cbca`, 143 direct required files / 51161118 bytes anonymously exact at 2026-10-17T18:55:07.549536+00:00. Same one-take hand, actual native fit/context and partial Dev integration only; no new generation, acceptance or removal credit.
