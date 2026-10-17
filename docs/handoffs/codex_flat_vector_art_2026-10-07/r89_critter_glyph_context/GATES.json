@@ -1,0 +1,70 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_DOCUMENT_COUNTS_ONLY",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/gate_logs/authority.log",
+      "sha256": "2801d2eb4f35139dc7ee3fd5e3247704f368c57444bfd038fc305dfe374ffb9c",
+      "checked_at_utc": "2026-10-17T13:47:16.076325+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/gate_logs/development.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T13:47:29.583193+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/gate_logs/units.log",
+      "sha256": "8f0fcf195f6fc6d5331b32c74a3074a699dedf9f362f175c2b424f274ae0bc9c",
+      "checked_at_utc": "2026-10-17T13:47:43.454530+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/gate_logs/stress.log",
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-17T13:47:44.745621+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/gate_logs/game2d.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "checked_at_utc": "2026-10-17T13:51:53.007555+00:00"
+    }
+  ],
+  "runtime_scope": "No new runtime code or engine execution in R89. R88 exact-source native606/local82 remain historical separately published evidence; its remote CI remains separately observed.",
+  "acceptance": "No source/new-use/formalQA11/device/child/owner/whole-game or strict2Dzero acceptance.",
+  "actual_staged_committed_2d": "Bound in final receipt metadata after the exact operations."
+}

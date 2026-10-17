@@ -1,0 +1,494 @@
+{
+  "schema": "reef.critter_glyph_consumers/1",
+  "source": {
+    "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "path": "scripts/collection_system.gd",
+    "bytes": 19358,
+    "sha256": "1f32d4f684766404da25d9b1432d412f00477fd2f14c68ac546eff0db159da6a",
+    "role": "Current actual book consumer definitions; Git LF bytes; U raw text differs only by CRLF when present"
+  },
+  "stable_existing_sites": [
+    "FVG-19B880B613E4",
+    "FVG-ABB4CE6C85C9"
+  ],
+  "source_role_count_unchanged": true,
+  "source_category_glyphs": {
+    "fish": "🐟",
+    "insect": "🦋",
+    "bird": "🐦"
+  },
+  "source_habitat_glyphs": {
+    "reef": "🌊",
+    "meadow": "🌸",
+    "river": "💧",
+    "alpine": "❄"
+  },
+  "logical_configured_consumers": 39,
+  "category_tabs": 3,
+  "caught_category_slots": 18,
+  "habitat_slots": 18,
+  "maximum_simultaneous_book_glyph_widgets_per_category_page": 15,
+  "count_scope": "Configured named consumers, not unique pieces, screens, visual artwork denominator or 39 simultaneous widgets. Eighteen unknown states share the same category slots. No new persistent FVG/art-role IDs.",
+  "consumers": [
+    {
+      "key": "ui.critter_book/tab/fish",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "category_tab",
+      "category": "fish",
+      "glyph": "🐟",
+      "node": "CritterBookTab_fish",
+      "states": [
+        "normal",
+        "selected",
+        "hover",
+        "pressed",
+        "hover_pressed",
+        "focus",
+        "disabled"
+      ],
+      "runtime_qualification": "Existing R88 original controls and states; no new R89 runtime review credit"
+    },
+    {
+      "key": "ui.critter_book/tab/insect",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "category_tab",
+      "category": "insect",
+      "glyph": "🦋",
+      "node": "CritterBookTab_insect",
+      "states": [
+        "normal",
+        "selected",
+        "hover",
+        "pressed",
+        "hover_pressed",
+        "focus",
+        "disabled"
+      ],
+      "runtime_qualification": "Existing R88 original controls and states; no new R89 runtime review credit"
+    },
+    {
+      "key": "ui.critter_book/tab/bird",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "category_tab",
+      "category": "bird",
+      "glyph": "🐦",
+      "node": "CritterBookTab_bird",
+      "states": [
+        "normal",
+        "selected",
+        "hover",
+        "pressed",
+        "hover_pressed",
+        "focus",
+        "disabled"
+      ],
+      "runtime_qualification": "Existing R88 original controls and states; no new R89 runtime review credit"
+    },
+    {
+      "key": "ui.critter_book/card/coral_clownfish/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "coral_clownfish",
+      "species_name": "Coral Clownfish",
+      "category": "fish",
+      "caught_glyph": "🐟",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_coral_clownfish/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/coral_clownfish/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "coral_clownfish",
+      "habitat": "reef",
+      "glyph": "🌊",
+      "node": "CritterCard_coral_clownfish/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/pearl_seahorse/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "pearl_seahorse",
+      "species_name": "Pearl Seahorse",
+      "category": "fish",
+      "caught_glyph": "🐟",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_pearl_seahorse/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/pearl_seahorse/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "pearl_seahorse",
+      "habitat": "reef",
+      "glyph": "🌊",
+      "node": "CritterCard_pearl_seahorse/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/rainbow_angelfish/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "rainbow_angelfish",
+      "species_name": "Rainbow Angelfish",
+      "category": "fish",
+      "caught_glyph": "🐟",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_rainbow_angelfish/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/rainbow_angelfish/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "rainbow_angelfish",
+      "habitat": "reef",
+      "glyph": "🌊",
+      "node": "CritterCard_rainbow_angelfish/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/sky_koi/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "sky_koi",
+      "species_name": "Sky Koi",
+      "category": "fish",
+      "caught_glyph": "🐟",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_sky_koi/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/sky_koi/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "sky_koi",
+      "habitat": "river",
+      "glyph": "💧",
+      "node": "CritterCard_sky_koi/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/cloud_minnow/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "cloud_minnow",
+      "species_name": "Cloud Minnow",
+      "category": "fish",
+      "caught_glyph": "🐟",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_cloud_minnow/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/cloud_minnow/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "cloud_minnow",
+      "habitat": "river",
+      "glyph": "💧",
+      "node": "CritterCard_cloud_minnow/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/frostfin/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "frostfin",
+      "species_name": "Frostfin",
+      "category": "fish",
+      "caught_glyph": "🐟",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_frostfin/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/frostfin/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "frostfin",
+      "habitat": "alpine",
+      "glyph": "❄",
+      "node": "CritterCard_frostfin/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/coral_ladybug/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "coral_ladybug",
+      "species_name": "Coral Ladybug",
+      "category": "insect",
+      "caught_glyph": "🦋",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_coral_ladybug/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/coral_ladybug/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "coral_ladybug",
+      "habitat": "meadow",
+      "glyph": "🌸",
+      "node": "CritterCard_coral_ladybug/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/blue_dragonfly/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "blue_dragonfly",
+      "species_name": "Blue Dragonfly",
+      "category": "insect",
+      "caught_glyph": "🦋",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_blue_dragonfly/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/blue_dragonfly/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "blue_dragonfly",
+      "habitat": "river",
+      "glyph": "💧",
+      "node": "CritterCard_blue_dragonfly/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/moon_moth/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "moon_moth",
+      "species_name": "Moon Moth",
+      "category": "insect",
+      "caught_glyph": "🦋",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_moon_moth/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/moon_moth/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "moon_moth",
+      "habitat": "meadow",
+      "glyph": "🌸",
+      "node": "CritterCard_moon_moth/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/honeybee/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "honeybee",
+      "species_name": "Honeybee",
+      "category": "insect",
+      "caught_glyph": "🦋",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_honeybee/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/honeybee/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "honeybee",
+      "habitat": "meadow",
+      "glyph": "🌸",
+      "node": "CritterCard_honeybee/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/snow_beetle/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "snow_beetle",
+      "species_name": "Snow Beetle",
+      "category": "insect",
+      "caught_glyph": "🦋",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_snow_beetle/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/snow_beetle/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "snow_beetle",
+      "habitat": "alpine",
+      "glyph": "❄",
+      "node": "CritterCard_snow_beetle/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/crystal_butterfly/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "crystal_butterfly",
+      "species_name": "Crystal Butterfly",
+      "category": "insect",
+      "caught_glyph": "🦋",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_crystal_butterfly/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/crystal_butterfly/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "crystal_butterfly",
+      "habitat": "alpine",
+      "glyph": "❄",
+      "node": "CritterCard_crystal_butterfly/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/lagoon_bluebird/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "lagoon_bluebird",
+      "species_name": "Lagoon Bluebird",
+      "category": "bird",
+      "caught_glyph": "🐦",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_lagoon_bluebird/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/lagoon_bluebird/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "lagoon_bluebird",
+      "habitat": "meadow",
+      "glyph": "🌸",
+      "node": "CritterCard_lagoon_bluebird/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/ruby_hummingbird/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "ruby_hummingbird",
+      "species_name": "Ruby Hummingbird",
+      "category": "bird",
+      "caught_glyph": "🐦",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_ruby_hummingbird/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/ruby_hummingbird/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "ruby_hummingbird",
+      "habitat": "meadow",
+      "glyph": "🌸",
+      "node": "CritterCard_ruby_hummingbird/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/river_kingfisher/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "river_kingfisher",
+      "species_name": "River Kingfisher",
+      "category": "bird",
+      "caught_glyph": "🐦",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_river_kingfisher/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/river_kingfisher/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "river_kingfisher",
+      "habitat": "river",
+      "glyph": "💧",
+      "node": "CritterCard_river_kingfisher/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/cloud_puffin/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "cloud_puffin",
+      "species_name": "Cloud Puffin",
+      "category": "bird",
+      "caught_glyph": "🐦",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_cloud_puffin/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/cloud_puffin/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "cloud_puffin",
+      "habitat": "river",
+      "glyph": "💧",
+      "node": "CritterCard_cloud_puffin/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/snowy_owl/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "snowy_owl",
+      "species_name": "Snowy Owl",
+      "category": "bird",
+      "caught_glyph": "🐦",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_snowy_owl/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/snowy_owl/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "snowy_owl",
+      "habitat": "alpine",
+      "glyph": "❄",
+      "node": "CritterCard_snowy_owl/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    },
+    {
+      "key": "ui.critter_book/card/aurora_tern/category_or_unknown",
+      "site_id": "FVG-19B880B613E4",
+      "kind": "caught_category_or_unknown",
+      "save_id": "aurora_tern",
+      "species_name": "Aurora Tern",
+      "category": "bird",
+      "caught_glyph": "🐦",
+      "unknown_state": "?; same widget, not a new artwork or species portrait",
+      "node": "CritterCard_aurora_tern/CritterBookCategoryOrUnknown",
+      "meaning_gap": "Generic category glyph is not an individual species portrait. Child recognition not tested."
+    },
+    {
+      "key": "ui.critter_book/card/aurora_tern/habitat",
+      "site_id": "FVG-ABB4CE6C85C9",
+      "kind": "habitat",
+      "save_id": "aurora_tern",
+      "habitat": "alpine",
+      "glyph": "❄",
+      "node": "CritterCard_aurora_tern/CritterBookHabitat",
+      "meaning_gap": "Habitat picture meaning and platform/font rasterization are not accepted by source or desktop alone."
+    }
+  ],
+  "other_sites_not_closed": [
+    "FVG-BCB9EEB7A5EC",
+    "FVG-B98B5875A3C2"
+  ],
+  "r88_retired_title_help_decorations": [
+    "FVG-3C4113536B0F",
+    "FVG-0FE159C1A4B4"
+  ],
+  "retirement_scope": "Those exact constructor strings are absent only on the R88 work branch; inherited R88 evidence, no new accepted-removal or dev credit.",
+  "global_artwork_total": null
+}

@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261017-R88",
-  "current_entry": "r88_critter_book_runtime/README.md",
-  "current_per_piece": "r88_critter_book_runtime/per_piece.json",
-  "current_scene_coverage": "r88_critter_book_runtime/scene_coverage.json",
-  "current_tally": "r88_critter_book_runtime/tally.json",
-  "current_backlog": "r88_critter_book_runtime/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r88_critter_book_runtime/MANIFEST.json",
+  "revision": "FV-AUDIT-20261017-R89",
+  "current_entry": "r89_critter_glyph_context/README.md",
+  "current_per_piece": "r89_critter_glyph_context/per_piece.json",
+  "current_scene_coverage": "r89_critter_glyph_context/scene_coverage.json",
+  "current_tally": "r89_critter_glyph_context/tally.json",
+  "current_backlog": "r89_critter_glyph_context/CONGRUENCY_BACKLOG.json",
+  "current_manifest": "r89_critter_glyph_context/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r88_critter_book_runtime/GATES.json",
+  "current_ci_evidence": "r89_critter_glyph_context/GATES.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -1313,8 +1313,8 @@
     "terminal_evidence": "r87_critter_navigation_context/RUNTIME_FINAL_PR_CI.json",
     "limits": "No rerun/cause attribution or acceptance inferred; same-head push success is separate from PR cancellation and optional renderer failures."
   },
-  "current_summary": "r88_critter_book_runtime/SUMMARY.json",
-  "current_catalogue_alias_set": "r88_critter_book_runtime/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+  "current_summary": "r89_critter_glyph_context/SUMMARY.json",
+  "current_catalogue_alias_set": "r89_critter_glyph_context/CURRENT_CATALOGUE_CONTEXT_UNION.json",
   "immutable_r87_receipt_revision": "bb30d505500a7b737115f694e69e02b35efddb85",
   "r88_runtime_trial": {
     "stable_role_ids": [
@@ -1348,5 +1348,24 @@
     "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
     "receipt": "r88_critter_book_runtime/REMOTE_VERIFICATION.json",
     "own_metadata_scope": "Final receipt metadata checked separately at final commit; no recursive self hash"
+  },
+  "immutable_r88_receipt_revision": "4951bfb7e30ae348e7957046bb657c5021e1aadd",
+  "r89_critter_glyph_audit": {
+    "existing_site_ids": [
+      "FVG-19B880B613E4",
+      "FVG-ABB4CE6C85C9"
+    ],
+    "family": "shared_ui",
+    "source_runtime_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "source_inventory": "SOURCE_BINDINGS.json",
+    "source_acceptance": "SOURCE_ACCEPTANCE.json",
+    "consumer_map": "GLYPH_CONSUMERS.json",
+    "context": "CONTEXT_REFERENCE.json",
+    "partial_review": "CONGRUENCY_REVIEW.json",
+    "logical_consumers": 39,
+    "count_scope": "Configured existing semantic consumers, not 39 new art pieces or completed/reviewed roles.",
+    "new_native_artwork_role_family_alias_sample_approval_credit": 0,
+    "chosen_next_consumer": "ui.critter_book/tab/insect",
+    "mission_complete": false
   }
 }

@@ -1,4 +1,7 @@
-# Current R88 painted Critter Book candidate and full-game tally
+# Current R89 Critter Book glyph context and full-game tally
+
+Current canonical revision: [R89](r89_critter_glyph_context/README.md), binding existing semantic consumers and exact source-history limits before an insect-tab repair. No new native frame, runtime edit, source sample, role or acceptance credit. Historical R88 material repair and all earlier evidence retain their recorded scope.
+
 
 Current canonical revision: [R88](r88_critter_book_runtime/README.md), reconciling the published actual Critter Book repair.606native and82unchanged local probe checks pass;349new frame events remain excluded.263roles/35families, unknown whole-game denominators and0accepted removals/devintegration remain unchanged. Category/habitat artwork and all required acceptance remain open. Historical sections below retain their dated scopes.
 

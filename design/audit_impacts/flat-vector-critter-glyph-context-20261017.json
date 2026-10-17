@@ -1,0 +1,69 @@
+{
+  "id": "flat-vector-critter-glyph-context-20261017",
+  "scope": "R89 evidence-only current Critter Book category/habitat consumer and existing-source congruency audit. Publish current scene/source context for the insect-tab glyph before any dependent bounded repair in a separate runtime worktree. No runtime, source art, protected original, trusted probe or workflow edit here.",
+  "baseline": "4951bfb7e30ae348e7957046bb657c5021e1aadd",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-UI-06",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-TYPE-07",
+    "DL-TYPE-11",
+    "DL-TYPE-12",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-TYPE-004",
+    "MA-VIS-006"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-critter-glyph-context-20261017.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/CONGRUENCY_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/CONTEXT_REFERENCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/DEPENDENCY_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/GLYPH_CONSUMERS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/SOURCE_ACCEPTANCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/SOURCE_BINDINGS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/TASK_START.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/VALIDATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/gate_logs/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/gate_logs/development.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/gate_logs/game2d.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/gate_logs/stress.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/gate_logs/units.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/verify_runtime_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "Exact source/reference/consumer counts, document54unit/6stress/2D gates",
+      "result": "PASS",
+      "evidence": "VALIDATION.json/GATES.json with actual command logs; immutable anonymous payload delivery still pending."
+    }
+  ],
+  "acceptance_gaps": "No current source/new-use acceptance, fitted target-scale/action-state review, complete caller/natural-acquisition closure, formalQA11/device/child/owner or whole-game inventory completion. No lifecycle closure."
+}
