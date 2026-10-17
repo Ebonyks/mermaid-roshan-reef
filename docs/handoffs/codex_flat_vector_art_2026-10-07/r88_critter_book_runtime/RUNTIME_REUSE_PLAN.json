@@ -1,0 +1,21 @@
+{
+  "material_sources": [
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+      "use": "One shared painted card9slice for bookboard,6cards and3tabs; exact region10,23,222,209/margins36. No source pixel changes."
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+      "sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+      "use": "Atlas crop430,0,165,116 for header/selected shell only; same native appearance."
+    }
+  ],
+  "existing_full_panel_alternative": "R59full-panel fit consumed header space and compressed cards/text. Cardframe chosen to preserve192px cards/source child-state font sizes and avoid that crowding. This is a current new-use trial, not acceptance.",
+  "decorative_retirement": "Procedural fan/fourpearls no longer constructed; title shell emoji replaced with painted source crop; help star ornaments removed; category/habitat semanticglyphs remain explicitly open.",
+  "fallbacks": "No book fallback branches; sources are required preloads. Temporary shared helper styles replaced before native tab enters tree; all six applied states are painted.",
+  "new_generation_calls": 0,
+  "new_pngs": 0,
+  "new_use_approved": false,
+  "current_geometry": "Six540x116cards,2columns/3rows;388px names/habitats. Required130percent negative rejected old300px habitat slot. Child fonts28/29 and native68pxcategory/unknown glyph preserved; no source redraw or font shrink."
+}

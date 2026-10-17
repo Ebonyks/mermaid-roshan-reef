@@ -1,4 +1,7 @@
-# Current R87 Critter Book caller audit and full-game tally
+# Current R88 painted Critter Book candidate and full-game tally
+
+Current canonical revision: [R88](r88_critter_book_runtime/README.md), reconciling the published actual Critter Book repair.606native and82unchanged local probe checks pass;349new frame events remain excluded.263roles/35families, unknown whole-game denominators and0accepted removals/devintegration remain unchanged. Category/habitat artwork and all required acceptance remain open. Historical sections below retain their dated scopes.
+
 
 Current canonical revision: [R87](r87_critter_navigation_context/README.md).74native/18material checks at both widths verify the actual source caller and persistent title/help layout weakness.22newframes remain excluded;263roles/35families and0accepted removals/devintegration unchanged. All unknown whole-game inventory and required acceptance remain open. Historical sections below retain dated scopes.
 

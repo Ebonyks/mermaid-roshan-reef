@@ -1,0 +1,1653 @@
+{
+  "schema": "reef.flat_vector_consumer_bindings/1",
+  "candidate_source_pin_sha256": "40dadce4138790acdeac3947ee9ccef5a9c9612d893cbe55316b0a9fb91402c3",
+  "collection_code_sha256": "1f32d4f684766404da25d9b1432d412f00477fd2f14c68ac546eff0db159da6a",
+  "source_baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "consumer_count": 18,
+  "native_consumer_observations": 36,
+  "count_unit": "Existing saved-species UI card consumers across category states; not unique artwork, new role/family, simultaneous visible cards, completed replacements or global denominator.",
+  "machine_report_references": [
+    {
+      "path": "native/attempt7_saved_full_1280/capture_manifest.json",
+      "sha256": "9edffd53e4209972d30020fbc26e912b2d7e03b76d60af4369f0d6d5d0adc3ce",
+      "bytes": 890202
+    },
+    {
+      "path": "native/attempt7_saved_full_1600/capture_manifest.json",
+      "sha256": "5cddc8d976f9a73c8bc941d0a826f57f7c4a1de863ce82862efb45ebd1956f4f",
+      "bytes": 890375
+    }
+  ],
+  "consumers": [
+    {
+      "consumer_key": "ui.critter_book/card/coral_clownfish",
+      "existing_save_key": "coral_clownfish",
+      "category": "fish",
+      "habitat_key": "reef",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_coral_clownfish",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_initial_fish.png",
+          "raw_sha256": "0a8f38953e1ddc056da7ec2dba4a036194a5ace015f22230452fdd2fefc2b2e4",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_coral_clownfish",
+          "actual_panel_native_rect": [
+            82.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Coral Clownfish",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Coral Clownfish",
+            "CritterBookHabitat": "\ud83c\udf0a  Ocean Garden"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.997600018978119,
+            0.935199975967407,
+            0.935199975967407,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_initial_fish.png",
+          "raw_sha256": "5d85426c95c434d6fda8cde568b0b8d123619b88c1aba2851159fcebde1e1a3e",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_coral_clownfish",
+          "actual_panel_native_rect": [
+            242.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Coral Clownfish",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Coral Clownfish",
+            "CritterBookHabitat": "\ud83c\udf0a  Ocean Garden"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.997600018978119,
+            0.935199975967407,
+            0.935199975967407,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/pearl_seahorse",
+      "existing_save_key": "pearl_seahorse",
+      "category": "fish",
+      "habitat_key": "reef",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_pearl_seahorse",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_initial_fish.png",
+          "raw_sha256": "0a8f38953e1ddc056da7ec2dba4a036194a5ace015f22230452fdd2fefc2b2e4",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_pearl_seahorse",
+          "actual_panel_native_rect": [
+            638.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Pearl Seahorse",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Pearl Seahorse",
+            "CritterBookHabitat": "\ud83c\udf0a  Ocean Garden"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.970000028610229,
+            0.952000021934509,
+            0.992799997329712,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_initial_fish.png",
+          "raw_sha256": "5d85426c95c434d6fda8cde568b0b8d123619b88c1aba2851159fcebde1e1a3e",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_pearl_seahorse",
+          "actual_panel_native_rect": [
+            798.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Pearl Seahorse",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Pearl Seahorse",
+            "CritterBookHabitat": "\ud83c\udf0a  Ocean Garden"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.970000028610229,
+            0.952000021934509,
+            0.992799997329712,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/rainbow_angelfish",
+      "existing_save_key": "rainbow_angelfish",
+      "category": "fish",
+      "habitat_key": "reef",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_rainbow_angelfish",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_initial_fish.png",
+          "raw_sha256": "0a8f38953e1ddc056da7ec2dba4a036194a5ace015f22230452fdd2fefc2b2e4",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_rainbow_angelfish",
+          "actual_panel_native_rect": [
+            82.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Rainbow Angelfish",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Rainbow Angelfish",
+            "CritterBookHabitat": "\ud83c\udf0a  Ocean Garden"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.916000008583069,
+            0.978399991989136,
+            0.985599994659424,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_initial_fish.png",
+          "raw_sha256": "5d85426c95c434d6fda8cde568b0b8d123619b88c1aba2851159fcebde1e1a3e",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_rainbow_angelfish",
+          "actual_panel_native_rect": [
+            242.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Rainbow Angelfish",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Rainbow Angelfish",
+            "CritterBookHabitat": "\ud83c\udf0a  Ocean Garden"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.916000008583069,
+            0.978399991989136,
+            0.985599994659424,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/sky_koi",
+      "existing_save_key": "sky_koi",
+      "category": "fish",
+      "habitat_key": "river",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_sky_koi",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_initial_fish.png",
+          "raw_sha256": "0a8f38953e1ddc056da7ec2dba4a036194a5ace015f22230452fdd2fefc2b2e4",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_sky_koi",
+          "actual_panel_native_rect": [
+            638.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Sky Koi",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Sky Koi",
+            "CritterBookHabitat": "\ud83d\udca7  Lagoon River"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            1.0,
+            0.949599981307983,
+            0.945999979972839,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_initial_fish.png",
+          "raw_sha256": "5d85426c95c434d6fda8cde568b0b8d123619b88c1aba2851159fcebde1e1a3e",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_sky_koi",
+          "actual_panel_native_rect": [
+            798.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Sky Koi",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Sky Koi",
+            "CritterBookHabitat": "\ud83d\udca7  Lagoon River"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            1.0,
+            0.949599981307983,
+            0.945999979972839,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/cloud_minnow",
+      "existing_save_key": "cloud_minnow",
+      "category": "fish",
+      "habitat_key": "river",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_cloud_minnow",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_initial_fish.png",
+          "raw_sha256": "0a8f38953e1ddc056da7ec2dba4a036194a5ace015f22230452fdd2fefc2b2e4",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_cloud_minnow",
+          "actual_panel_native_rect": [
+            82.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Cloud Minnow",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Cloud Minnow",
+            "CritterBookHabitat": "\ud83d\udca7  Lagoon River"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.937600016593933,
+            0.976000010967255,
+            1.0,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_initial_fish.png",
+          "raw_sha256": "5d85426c95c434d6fda8cde568b0b8d123619b88c1aba2851159fcebde1e1a3e",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_cloud_minnow",
+          "actual_panel_native_rect": [
+            242.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Cloud Minnow",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Cloud Minnow",
+            "CritterBookHabitat": "\ud83d\udca7  Lagoon River"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.937600016593933,
+            0.976000010967255,
+            1.0,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/frostfin",
+      "existing_save_key": "frostfin",
+      "category": "fish",
+      "habitat_key": "alpine",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_frostfin",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_initial_fish.png",
+          "raw_sha256": "0a8f38953e1ddc056da7ec2dba4a036194a5ace015f22230452fdd2fefc2b2e4",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_frostfin",
+          "actual_panel_native_rect": [
+            638.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Frostfin",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Frostfin",
+            "CritterBookHabitat": "\u2744  Alpine Ridge"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.983200013637543,
+            0.995199978351593,
+            1.0,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_initial_fish",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_initial_fish.png",
+          "raw_sha256": "5d85426c95c434d6fda8cde568b0b8d123619b88c1aba2851159fcebde1e1a3e",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_frostfin",
+          "actual_panel_native_rect": [
+            798.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Frostfin",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc1f",
+            "CritterBookSpeciesName": "Frostfin",
+            "CritterBookHabitat": "\u2744  Alpine Ridge"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.983200013637543,
+            0.995199978351593,
+            1.0,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/coral_ladybug",
+      "existing_save_key": "coral_ladybug",
+      "category": "insect",
+      "habitat_key": "meadow",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_coral_ladybug",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_1_2.png",
+          "raw_sha256": "46ac8f49a308efce029807470d65c21e20adeb81536b946de230b30a7d0c121b",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_coral_ladybug",
+          "actual_panel_native_rect": [
+            82.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Coral Ladybug",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Coral Ladybug",
+            "CritterBookHabitat": "\ud83c\udf38  Lagoon Meadow"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.997600018978119,
+            0.931599974632263,
+            0.937600016593933,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_1_2.png",
+          "raw_sha256": "0162333da6a49d858fcb10adf9175887f6eba55bbf1b05caef39fb9ccba420f0",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_coral_ladybug",
+          "actual_panel_native_rect": [
+            242.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Coral Ladybug",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Coral Ladybug",
+            "CritterBookHabitat": "\ud83c\udf38  Lagoon Meadow"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.997600018978119,
+            0.931599974632263,
+            0.937600016593933,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/blue_dragonfly",
+      "existing_save_key": "blue_dragonfly",
+      "category": "insect",
+      "habitat_key": "river",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_blue_dragonfly",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_1_2.png",
+          "raw_sha256": "46ac8f49a308efce029807470d65c21e20adeb81536b946de230b30a7d0c121b",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_blue_dragonfly",
+          "actual_panel_native_rect": [
+            638.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Blue Dragonfly",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Blue Dragonfly",
+            "CritterBookHabitat": "\ud83d\udca7  Lagoon River"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.912400007247925,
+            0.978399991989136,
+            0.989199995994568,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_1_2.png",
+          "raw_sha256": "0162333da6a49d858fcb10adf9175887f6eba55bbf1b05caef39fb9ccba420f0",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_blue_dragonfly",
+          "actual_panel_native_rect": [
+            798.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Blue Dragonfly",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Blue Dragonfly",
+            "CritterBookHabitat": "\ud83d\udca7  Lagoon River"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.912400007247925,
+            0.978399991989136,
+            0.989199995994568,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/moon_moth",
+      "existing_save_key": "moon_moth",
+      "category": "insect",
+      "habitat_key": "meadow",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_moon_moth",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_1_2.png",
+          "raw_sha256": "46ac8f49a308efce029807470d65c21e20adeb81536b946de230b30a7d0c121b",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_moon_moth",
+          "actual_panel_native_rect": [
+            82.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Moon Moth",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Moon Moth",
+            "CritterBookHabitat": "\ud83c\udf38  Lagoon Meadow"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.968800008296967,
+            0.953199982643127,
+            0.994000017642975,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_1_2.png",
+          "raw_sha256": "0162333da6a49d858fcb10adf9175887f6eba55bbf1b05caef39fb9ccba420f0",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_moon_moth",
+          "actual_panel_native_rect": [
+            242.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Moon Moth",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Moon Moth",
+            "CritterBookHabitat": "\ud83c\udf38  Lagoon Meadow"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.968800008296967,
+            0.953199982643127,
+            0.994000017642975,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/honeybee",
+      "existing_save_key": "honeybee",
+      "category": "insect",
+      "habitat_key": "meadow",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_honeybee",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_1_2.png",
+          "raw_sha256": "46ac8f49a308efce029807470d65c21e20adeb81536b946de230b30a7d0c121b",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_honeybee",
+          "actual_panel_native_rect": [
+            638.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Honeybee",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Honeybee",
+            "CritterBookHabitat": "\ud83c\udf38  Lagoon Meadow"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            1.0,
+            0.978399991989136,
+            0.913599967956543,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_1_2.png",
+          "raw_sha256": "0162333da6a49d858fcb10adf9175887f6eba55bbf1b05caef39fb9ccba420f0",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_honeybee",
+          "actual_panel_native_rect": [
+            798.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Honeybee",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Honeybee",
+            "CritterBookHabitat": "\ud83c\udf38  Lagoon Meadow"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            1.0,
+            0.978399991989136,
+            0.913599967956543,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/snow_beetle",
+      "existing_save_key": "snow_beetle",
+      "category": "insect",
+      "habitat_key": "alpine",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_snow_beetle",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_1_2.png",
+          "raw_sha256": "46ac8f49a308efce029807470d65c21e20adeb81536b946de230b30a7d0c121b",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_snow_beetle",
+          "actual_panel_native_rect": [
+            82.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Snow Beetle",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Snow Beetle",
+            "CritterBookHabitat": "\u2744  Alpine Ridge"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.978399991989136,
+            0.994000017642975,
+            1.0,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_1_2.png",
+          "raw_sha256": "0162333da6a49d858fcb10adf9175887f6eba55bbf1b05caef39fb9ccba420f0",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_snow_beetle",
+          "actual_panel_native_rect": [
+            242.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Snow Beetle",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Snow Beetle",
+            "CritterBookHabitat": "\u2744  Alpine Ridge"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.978399991989136,
+            0.994000017642975,
+            1.0,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/crystal_butterfly",
+      "existing_save_key": "crystal_butterfly",
+      "category": "insect",
+      "habitat_key": "alpine",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_crystal_butterfly",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_1_2.png",
+          "raw_sha256": "46ac8f49a308efce029807470d65c21e20adeb81536b946de230b30a7d0c121b",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_crystal_butterfly",
+          "actual_panel_native_rect": [
+            638.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Crystal Butterfly",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Crystal Butterfly",
+            "CritterBookHabitat": "\u2744  Alpine Ridge"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.939999997615814,
+            0.96399998664856,
+            1.0,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_1_2",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_1_2.png",
+          "raw_sha256": "0162333da6a49d858fcb10adf9175887f6eba55bbf1b05caef39fb9ccba420f0",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_crystal_butterfly",
+          "actual_panel_native_rect": [
+            798.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Crystal Butterfly",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83e\udd8b",
+            "CritterBookSpeciesName": "Crystal Butterfly",
+            "CritterBookHabitat": "\u2744  Alpine Ridge"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.939999997615814,
+            0.96399998664856,
+            1.0,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/lagoon_bluebird",
+      "existing_save_key": "lagoon_bluebird",
+      "category": "bird",
+      "habitat_key": "meadow",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_lagoon_bluebird",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_2_3.png",
+          "raw_sha256": "edce6ee92d40a6e191a28c87a687836aeee1dfecc02ee912bb5f35505e7ed682",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_lagoon_bluebird",
+          "actual_panel_native_rect": [
+            82.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Lagoon Bluebird",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "Lagoon Bluebird",
+            "CritterBookHabitat": "\ud83c\udf38  Lagoon Meadow"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.931599974632263,
+            0.971199989318848,
+            0.996399998664856,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_2_3.png",
+          "raw_sha256": "9c0db9a584160f4ebd9996b0a681579b9786c7ea96e8ee63410efe7ca15853d1",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_lagoon_bluebird",
+          "actual_panel_native_rect": [
+            242.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Lagoon Bluebird",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "Lagoon Bluebird",
+            "CritterBookHabitat": "\ud83c\udf38  Lagoon Meadow"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.931599974632263,
+            0.971199989318848,
+            0.996399998664856,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/ruby_hummingbird",
+      "existing_save_key": "ruby_hummingbird",
+      "category": "bird",
+      "habitat_key": "meadow",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_ruby_hummingbird",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_2_3.png",
+          "raw_sha256": "edce6ee92d40a6e191a28c87a687836aeee1dfecc02ee912bb5f35505e7ed682",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_ruby_hummingbird",
+          "actual_panel_native_rect": [
+            638.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Ruby Hummingbird",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "Ruby Hummingbird",
+            "CritterBookHabitat": "\ud83c\udf38  Lagoon Meadow"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.992799997329712,
+            0.927999973297119,
+            0.942399978637695,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_2_3.png",
+          "raw_sha256": "9c0db9a584160f4ebd9996b0a681579b9786c7ea96e8ee63410efe7ca15853d1",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_ruby_hummingbird",
+          "actual_panel_native_rect": [
+            798.0,
+            244.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Ruby Hummingbird",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "Ruby Hummingbird",
+            "CritterBookHabitat": "\ud83c\udf38  Lagoon Meadow"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.992799997329712,
+            0.927999973297119,
+            0.942399978637695,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/river_kingfisher",
+      "existing_save_key": "river_kingfisher",
+      "category": "bird",
+      "habitat_key": "river",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_river_kingfisher",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_2_3.png",
+          "raw_sha256": "edce6ee92d40a6e191a28c87a687836aeee1dfecc02ee912bb5f35505e7ed682",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_river_kingfisher",
+          "actual_panel_native_rect": [
+            82.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "River Kingfisher",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "River Kingfisher",
+            "CritterBookHabitat": "\ud83d\udca7  Lagoon River"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.913599967956543,
+            0.976000010967255,
+            0.983200013637543,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_2_3.png",
+          "raw_sha256": "9c0db9a584160f4ebd9996b0a681579b9786c7ea96e8ee63410efe7ca15853d1",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_river_kingfisher",
+          "actual_panel_native_rect": [
+            242.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "River Kingfisher",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "River Kingfisher",
+            "CritterBookHabitat": "\ud83d\udca7  Lagoon River"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.913599967956543,
+            0.976000010967255,
+            0.983200013637543,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/cloud_puffin",
+      "existing_save_key": "cloud_puffin",
+      "category": "bird",
+      "habitat_key": "river",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_cloud_puffin",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_2_3.png",
+          "raw_sha256": "edce6ee92d40a6e191a28c87a687836aeee1dfecc02ee912bb5f35505e7ed682",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_cloud_puffin",
+          "actual_panel_native_rect": [
+            638.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Cloud Puffin",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "Cloud Puffin",
+            "CritterBookHabitat": "\ud83d\udca7  Lagoon River"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.903999984264374,
+            0.901600003242493,
+            0.930400013923645,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_2_3.png",
+          "raw_sha256": "9c0db9a584160f4ebd9996b0a681579b9786c7ea96e8ee63410efe7ca15853d1",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_cloud_puffin",
+          "actual_panel_native_rect": [
+            798.0,
+            370.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Cloud Puffin",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "Cloud Puffin",
+            "CritterBookHabitat": "\ud83d\udca7  Lagoon River"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.903999984264374,
+            0.901600003242493,
+            0.930400013923645,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/snowy_owl",
+      "existing_save_key": "snowy_owl",
+      "category": "bird",
+      "habitat_key": "alpine",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_snowy_owl",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_2_3.png",
+          "raw_sha256": "edce6ee92d40a6e191a28c87a687836aeee1dfecc02ee912bb5f35505e7ed682",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_snowy_owl",
+          "actual_panel_native_rect": [
+            82.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Snowy Owl",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "Snowy Owl",
+            "CritterBookHabitat": "\u2744  Alpine Ridge"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.987999975681305,
+            0.996399998664856,
+            1.0,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_2_3.png",
+          "raw_sha256": "9c0db9a584160f4ebd9996b0a681579b9786c7ea96e8ee63410efe7ca15853d1",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_snowy_owl",
+          "actual_panel_native_rect": [
+            242.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Snowy Owl",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "Snowy Owl",
+            "CritterBookHabitat": "\u2744  Alpine Ridge"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.987999975681305,
+            0.996399998664856,
+            1.0,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    },
+    {
+      "consumer_key": "ui.critter_book/card/aurora_tern",
+      "existing_save_key": "aurora_tern",
+      "category": "bird",
+      "habitat_key": "alpine",
+      "material_role_id": "FV-E9E82E0C6703",
+      "family": "shared_ui",
+      "source": "scripts/collection_system.gd:DEFS/_draw_book",
+      "declared_node_name": "CritterCard_aurora_tern",
+      "identity_note": "Logical consumer key follows the existing save ID. It is not a new artwork/role ID; Godot node names can change during queued redraws.",
+      "observations": [
+        {
+          "report": "native/attempt7_saved_full_1280/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1280/saved_category_2_3.png",
+          "raw_sha256": "edce6ee92d40a6e191a28c87a687836aeee1dfecc02ee912bb5f35505e7ed682",
+          "width": 1280,
+          "actual_panel_name": "CritterCard_aurora_tern",
+          "actual_panel_native_rect": [
+            638.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Aurora Tern",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "Aurora Tern",
+            "CritterBookHabitat": "\u2744  Alpine Ridge"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.956799983978271,
+            0.992799997329712,
+            0.985599994659424,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": false,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        },
+        {
+          "report": "native/attempt7_saved_full_1600/capture_manifest.json",
+          "state": "saved_category_2_3",
+          "raw_frame": "native/attempt7_saved_full_1600/saved_category_2_3.png",
+          "raw_sha256": "9c0db9a584160f4ebd9996b0a681579b9786c7ea96e8ee63410efe7ca15853d1",
+          "width": 1600,
+          "actual_panel_name": "CritterCard_aurora_tern",
+          "actual_panel_native_rect": [
+            798.0,
+            496.0,
+            540.0,
+            116.0
+          ],
+          "species_label": "Aurora Tern",
+          "observed_labels": {
+            "CritterBookCategoryOrUnknown": "\ud83d\udc26",
+            "CritterBookSpeciesName": "Aurora Tern",
+            "CritterBookHabitat": "\u2744  Alpine Ridge"
+          },
+          "actual_material_class": "StyleBoxTexture",
+          "material_texture_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+          "material_region": [
+            10.0,
+            23.0,
+            222.0,
+            209.0
+          ],
+          "material_tint": [
+            0.956799983978271,
+            0.992799997329712,
+            0.985599994659424,
+            1.0
+          ],
+          "exact_frame_direct_agent_viewed": true,
+          "evidence_lane": "Machine source/consumer binding; direct-view flag is frame-specific. No human, formalQA11/device/child/owner acceptance."
+        }
+      ],
+      "species_portrait_approved": false,
+      "meaning_gap": "Caught card still shows the inherited generic category glyph; individual species artwork/recognition is unproved.",
+      "natural_acquisition_closed": false,
+      "unknown_state_per_piece_closed": false,
+      "accepted_removed": 0
+    }
+  ],
+  "new_roles": 0,
+  "new_families": 0,
+  "new_artwork_credit": 0,
+  "new_frame_events": 0,
+  "new_current_dev_coverage_credit": 0,
+  "accepted_removed": 0,
+  "whole_role_or_family_complete": false,
+  "whole_game_individual_artwork_total": null,
+  "limits": "Synthetic full saved consumers only. Same existing painted card source is reused across instances; source/new-use, category/species/habitat semantics, natural catch, unknown-state per-piece closure, all other consumers and formal QA11/device/child/owner remain open. Layout rectangles are functional geometry evidence, not artwork removal.",
+  "checked_at_utc": "2026-10-17T12:08:03.316384+00:00"
+}

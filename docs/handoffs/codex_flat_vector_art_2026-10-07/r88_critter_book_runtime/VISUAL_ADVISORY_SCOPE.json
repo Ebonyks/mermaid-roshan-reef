@@ -1,0 +1,19 @@
+{
+  "stock_command": "python3 tools/audit_visual_design.py || true",
+  "current_summary": "VISUALAUDIT| STATE FAIL=15  REVIEW_OPEN=17  MANUAL_OPEN=2  COVERAGE_GAP=87  WAIVED=0  PASS=32  NOT_APPLICABLE=94  RESULT=UNSATISFIED",
+  "scanner_state_counts": {
+    "FAIL": 15,
+    "REVIEW_OPEN": 17,
+    "MANUAL_OPEN": 2,
+    "COVERAGE_GAP": 87,
+    "WAIVED": 0,
+    "PASS": 32,
+    "NOT_APPLICABLE": 94
+  },
+  "result": "UNSATISFIED",
+  "same_summary_as_initial_full_run": true,
+  "current_log": "full_ci/FULL_CI.log",
+  "current_log_sha256": "99041edfd65f0b5a9b8c28ebc961e7477ae6cea8ca061ec518e96f412aec7089",
+  "initial_log": "full_ci_attempt1/FULL_CI.log",
+  "limits": "Unchanged stock advisory lane remains separate from82trusted-probe exits. Scanner states are not artwork/screen/regression totals. Equal summaries do not establish absence of regressions. FormalQA11/device/child/owner and whole-game audit satisfaction are not inferred."
+}
