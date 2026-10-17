@@ -304,6 +304,9 @@ The owner-commissioned 2026-10-12 [Luna gameplay study](../cycles/luna-playtest-
 
 ## MA-VIS-006
 
+R95 production update2026-10-17: [Geologist painted pan](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/README.md) replaces its flat ellipses with one preserved whole-source cutout.106 bounded native checks and exact4.7.2 all82probe-by-probe current-source checks pass after preserved original fullCI failure. Exact-head remoteCI/integration and formal/device/child/owner acceptance remain pending. Finding lifecycle and game-wide satisfaction remain unchanged.
+
+
 | Field | Value |
 |---|---|
 | id | `MA-VIS-006` |

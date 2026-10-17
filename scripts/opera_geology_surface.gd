@@ -43,7 +43,10 @@ const FOSSIL_PATH := "res://assets/opera/worlds/hotspots/geologist_fossil.svg"
 const GEODE_PATH := ""
 const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg"
 const BRUSH_PATH := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
-const PAN_PATH := ""
+const PAN_PATH := "res://assets/opera/worlds/props/geologist_washing_pan_painted.png"
+## Whole painted cutout region in its preserved 1254-square source; import is 1024.
+const PAN_ART_REGION := Rect2(58.0, 315.0, 1138.0, 652.0)
+const PAN_ART_SOURCE_SIZE := Vector2(1254.0, 1254.0)
 const CRYSTALS_PATH := "res://assets/opera/worlds/props/goal_geologist.svg"
 
 var fossil_texture: Texture2D = null
@@ -249,7 +252,13 @@ func _load_textures() -> void:
 	geode_texture = _optional_texture(GEODE_PATH)
 	rock_texture = _optional_texture(ROCK_PATH)
 	brush_texture = _optional_texture(BRUSH_PATH)
-	pan_texture = _optional_texture(PAN_PATH)
+	var painted_source: Texture2D = _optional_texture(PAN_PATH)
+	assert(painted_source != null, "Geologist washing pan artwork is required")
+	if painted_source != null:
+		var painted_pan := CanvasTexture.new()
+		painted_pan.diffuse_texture = painted_source
+		painted_pan.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		pan_texture = painted_pan
 	crystals_texture = _optional_texture(CRYSTALS_PATH)
 
 
@@ -764,22 +773,16 @@ func _draw_pan() -> void:
 		PAN_RECT.size)
 	var center := rect.get_center() + Vector2(0.0, 22.0)
 	if pan_texture != null:
-		draw_texture_rect(pan_texture, rect, false)
-	else:
-		_draw_ellipse(center + Vector2(0.0, 13.0),
-			Vector2(rect.size.x * 0.44, rect.size.y * 0.30), Color("#392958"),
-			Color("#392958"), 0.0)
-		_draw_ellipse(center, Vector2(rect.size.x * 0.44, rect.size.y * 0.28),
-			Color("#c99159"), Color("#392958"), 12.0)
-		_draw_ellipse(center, Vector2(rect.size.x * 0.36, rect.size.y * 0.20),
-			Color("#65d8e5"), Color("#75506a"), 7.0)
-		_draw_ellipse(center - Vector2(0.0, 7.0),
-			Vector2(rect.size.x * 0.30, rect.size.y * 0.13),
-			Color(0.56, 0.93, 0.93, 0.54), Color(0.32, 0.74, 0.78, 0.68), 4.0)
-		for wave in range(3):
-			var wave_center := center + Vector2(-92.0 + float(wave) * 86.0, -8.0)
-			draw_arc(wave_center, 26.0 + float(wave) * 3.0, 0.2, 2.7,
-				18, Color(0.94, 1.0, 0.93, 0.48), 4.0, true)
+		# Preserve one coherent whole pan. The region discards transparent canvas,
+		# and the uniform fit leaves the original touch and sediment geometry intact.
+		var import_scale: Vector2 = pan_texture.get_size() / PAN_ART_SOURCE_SIZE
+		var source_rect := Rect2(PAN_ART_REGION.position * import_scale,
+			PAN_ART_REGION.size * import_scale)
+		var painted_width: float = rect.size.x * 0.88
+		var painted_size := Vector2(painted_width,
+			painted_width * PAN_ART_REGION.size.y / PAN_ART_REGION.size.x)
+		draw_texture_rect_region(pan_texture,
+			Rect2(center - painted_size * 0.5, painted_size), source_rect)
 	var grain_count := maxi(3, 20 - floori(pan_wash * 17.0))
 	for index in range(grain_count):
 		var angle := float(index) * 2.399

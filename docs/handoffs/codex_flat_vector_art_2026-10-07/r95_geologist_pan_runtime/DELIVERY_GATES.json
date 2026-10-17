@@ -1,0 +1,28 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "2155047fc6b987f94f382662d13371921b94f889488402e3b2d676b8b916eee5"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "3dbffdc8a84862d86efd57c6144bc9169a17fdd3e6fa0b83c696ea61ee79dee6"
+    }
+  ],
+  "local_validation": "validation_reconciled/FINAL_RESULT.json",
+  "remote_CI": "PENDING",
+  "Dev_integration": false,
+  "formal_QA11_device_child_owner": "PENDING"
+}

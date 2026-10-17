@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "name": "source_1280",
+      "frames": 4,
+      "state": "FAIL_WRONG_RIVER_STAGE"
+    },
+    {
+      "name": "source_pan_1280",
+      "frames": 4,
+      "state": "MACHINE_PASS_OCCLUDED_BY_MENU"
+    },
+    {
+      "name": "source_pan_1600",
+      "frames": 4,
+      "state": "MACHINE_PASS_OCCLUDED_BY_MENU"
+    },
+    {
+      "name": "source_pan_v2_1280",
+      "frames": 4,
+      "state": "MACHINE_PASS_OCCLUDED_BY_UNSUSPENDED_CASTLE"
+    },
+    {
+      "name": "source_pan_v2_1600",
+      "frames": 4,
+      "state": "MACHINE_PASS_OCCLUDED_BY_UNSUSPENDED_CASTLE"
+    }
+  ],
+  "all_frames_excluded_from_pan_context_quality_and_artwork_removal": true,
+  "diagnosis": "Own synthetic checkpoint must be injected into Main.save_data before original Act.start; original Continue handler must retire the start menu before any world capture. Product code unchanged during all setup trials.",
+  "fixture_v2": "Original Continue.pressed handler plus no-menu assertion; declared own saved-PAN checkpoint fixture, no earned-route/QA11 claim.",
+  "new_generation_calls": 0,
+  "fixture_v3": "Use actual Main library room opener and _start_opera_from_room owner-room controller; verify Main.game opera and original castle layer suspended. Direct Act start had bypassed the outer room-visibility owner. No production code correction claimed."
+}
