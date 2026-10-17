@@ -24,6 +24,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CANONICAL_COMMITTED_2D.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CANONICAL_STAGED_2D.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CI_STATUS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/DEPENDENCY_REFERENCES.json",
@@ -32,6 +34,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/README.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/RECEIPT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/RETRY_DISPATCH.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/RETRY_STATUS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/SUMMARY.json",
@@ -56,9 +59,9 @@
       "evidence": "r92_dev_ci_timeout/CI_STATUS.json and raw evidence; run cancelled at55minuteceiling after trustedprobes step success. WholeDev run/APK notgreen."
     },
     {
-      "command": "Canonical source/registry/frozenroot/54unit/6stress/document gates",
+      "command": "Canonical document/count/reference/frozenroot/2D and anonymous immutable delivery",
       "result": "PASS",
-      "evidence": "VALIDATION.json and GATES.json; actualstagedcommitted2D and immutable anonymous delivery follow."
+      "evidence": "VALIDATION.json/GATES.json/REMOTE_VERIFICATION.json; every required payload dependency byte-verified anonymously. Final own metadata checked separately after receipt commit. No acceptance credit."
     }
   ],
   "acceptance_gaps": "Cancelled Dev run is notgreen. Retry pending; no exactFAPK/install/device claim. Zero accepted removals and unknown whole-game denominators; source/newuse/formalQA11/device/child/owner remain open."
