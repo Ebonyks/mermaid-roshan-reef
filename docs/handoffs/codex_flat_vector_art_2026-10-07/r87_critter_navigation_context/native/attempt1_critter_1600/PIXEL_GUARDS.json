@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "roi": [
+    56,
+    40,
+    92,
+    48
+  ],
+  "frames": [
+    {
+      "state": "root_before_book",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_painted_material_present": true
+    },
+    {
+      "state": "pause_before_book_choice",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_painted_material_present": true
+    },
+    {
+      "state": "book_initial_captured_view",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_painted_material_present": true
+    },
+    {
+      "state": "book_after_natural_caption_hold",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_painted_material_present": true
+    },
+    {
+      "state": "book_insects_selected",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_painted_material_present": true
+    },
+    {
+      "state": "book_back_down_root_transition",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_painted_material_present": true
+    },
+    {
+      "state": "root_after_book_Back_release",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_painted_material_present": true
+    },
+    {
+      "state": "book_actual_reentry",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_painted_material_present": true
+    },
+    {
+      "state": "root_after_reentry_close",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_painted_material_present": true
+    }
+  ],
+  "limits": "Opaque nonglyph material-presence guard at captured times only. Does not establish the first draw, every interaction state, visual acceptance, title fit or formalQA11/device/child/owner."
+}

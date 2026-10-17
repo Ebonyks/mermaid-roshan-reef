@@ -1,0 +1,70 @@
+{
+  "status": "PASS_DOCUMENT_COUNTS_AND_BOUNDED_EVIDENCE_ONLY",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/gate_logs/authority.log",
+      "sha256": "7125e8b194a75fe1808e5b12d8309769a697a4ac6f53492bb08568173a8f00c4",
+      "checked_at_utc": "2026-10-17T09:29:01.895026+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/gate_logs/development.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T09:29:13.503643+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/gate_logs/units.log",
+      "sha256": "e4a5cf5af9d823f8a715c2509103972246c69ee2a4512a6e713dbb2551d73bef",
+      "checked_at_utc": "2026-10-17T09:29:27.233173+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/gate_logs/stress.log",
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-17T09:29:28.466718+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/gate_logs/game2d.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "checked_at_utc": "2026-10-17T09:32:59.408938+00:00"
+    }
+  ],
+  "runtime_tests": "No runtime edits; exactF unchanged R86 local82 and terminal push workflow separate from R87 original native74/material18 and optional CI renderer failures.",
+  "acceptance": "No formalQA11/device/child/owner or whole-game acceptance.",
+  "actual_staged_committed_2d": "Bound by final receipt metadata after exact operations."
+}

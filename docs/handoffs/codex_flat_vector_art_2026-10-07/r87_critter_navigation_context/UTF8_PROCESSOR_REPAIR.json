@@ -1,0 +1,12 @@
+{
+  "observed_at_utc": "2026-10-17T09:13:48.041492+00:00",
+  "initial_failure": "Python result reader used Windows cp1252 on UTF8 Godot JSON and raised UnicodeDecodeError byte0x90 at offset119574 after successful source-engine teardown.",
+  "engine_exit_code": 0,
+  "observer_status": "PASS",
+  "engine_check_count": 37,
+  "normal11_source_sidecar_guards": "PASS",
+  "initial_processor_source_sha256": "b171cfd01d3a4c3416131d8c481c6a8457440b3304b9f8d73924b2b58d1a5dde",
+  "corrected_processor_source_sha256": "0be0b4d2ec7e6135871344f896594ac8a2298c366d06baa2e3ae31e31ba931c3",
+  "corrected_behavior": "Explicit UTF8-sig for every unqualified JSON read; game code, observer fixture, captured JSON/PNG bytes and guard criteria unchanged.",
+  "recovery": "Validate retained original JSON and apply unchanged pixel presence guards without another Godot run. Failed processor source preserved as runner_initial_before_utf8_fix.log."
+}

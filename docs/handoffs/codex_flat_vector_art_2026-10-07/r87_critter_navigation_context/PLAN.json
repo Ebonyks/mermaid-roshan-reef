@@ -1,0 +1,58 @@
+{
+  "baseline": "f685ed29a7788d5b0dec63359c35efa00048a5a7",
+  "source_revision": "684e34f06ebce6a70065847b5ecb69547ea8a128",
+  "source_branch": "codex/flat-vector-navigation-runtime-20261017",
+  "role_id": "FV-2ABD73BAFFE0",
+  "family": "shared_ui",
+  "registered_route": "critter_book",
+  "source_route_scope": "Book layer25 and persistent navigation layer29; actual original MenuCritterBookButton calls original close/open handlers. No direct controller entry from fixture.",
+  "case_aspects": [
+    [
+      1280,
+      720
+    ],
+    [
+      1600,
+      720
+    ]
+  ],
+  "source_expected": {
+    "target": [
+      112,
+      112
+    ],
+    "position": [
+      18,
+      18
+    ],
+    "card": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+    "card_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893"
+  },
+  "review_axes": [
+    "contour",
+    "material",
+    "palette",
+    "light",
+    "perspective",
+    "scale",
+    "contact",
+    "occlusion",
+    "readability",
+    "action_state"
+  ],
+  "new_art": false,
+  "runtime_edits": false,
+  "tracked_runtime_branch_mutation": false,
+  "all_new_frames_excluded_from_dev_coverage": true,
+  "new_role_family_alias_sample_credit": 0,
+  "accepted_removed": 0,
+  "whole_game_artwork_total": null,
+  "whole_game_distinct_screen_total": null,
+  "frozen_root_before": {
+    "per_piece.json": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9",
+    "scene_coverage.json": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f",
+    "tally.json": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a",
+    "source_scopes.json": "a1aca7b3bacc6124a1d0938f126803b6ea022b8f8de1ee224ef78ab5a8ef6951",
+    "glyph_inventory.json": "19f3e0335f9b3af55b8c83f541eed52336107807c9b073057f412897ca2fcaa9"
+  }
+}

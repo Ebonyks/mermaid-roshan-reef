@@ -1,4 +1,7 @@
-# Current R86 navigation runtime trial and full-game tally
+# Current R87 Critter Book caller audit and full-game tally
+
+Current canonical revision: [R87](r87_critter_navigation_context/README.md).74native/18material checks at both widths verify the actual source caller and persistent title/help layout weakness.22newframes remain excluded;263roles/35families and0accepted removals/devintegration unchanged. All unknown whole-game inventory and required acceptance remain open. Historical sections below retain dated scopes.
+
 
 Current canonical revision: [R86](r86_navigation_runtime/README.md), reconciling [PR35](https://github.com/Ebonyks/mermaid-roshan-reef/pull/35) and its anonymously verified runtime receipt.82/82local and64native checks pass;30new frame events remain excluded.263roles/35families and zero accepted removals/dev integration are unchanged. All whole-game denominators and required acceptance remain open. Historical sections below retain their dated scopes.
 
