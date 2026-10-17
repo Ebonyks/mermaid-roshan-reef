@@ -583,6 +583,17 @@
         "scripts/probe_opera.gd"
       ],
       "checkable": true
+    },
+    {
+      "id": "ODR-ART-QUALITY-20261017",
+      "date": "2026-10-17",
+      "subject": "Remove generation-saving art restriction",
+      "authority": "recorded_owner",
+      "question": "Remove the rule discouraging ImageGen that leads to low-quality flat-color vertex artwork.",
+      "decision": "Remove the art-reuse/generation-saving restriction. Use ImageGen when appropriate for polished painted 2D storybook quality; do not substitute inferior flat-color vertex, polygon or code-drawn art to avoid generation. Preserve identity, canon, protected sources, provenance and scoped book/selected-cut rules.",
+      "source": "design/audit_impacts/art-quality-over-generation-saving-20261017.json",
+      "checks": [],
+      "checkable": false
     }
   ]
 }
