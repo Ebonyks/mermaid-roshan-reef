@@ -24,8 +24,7 @@ func _build_pause() -> void:
 	m.add_child(m.navigation_layer)
 	var navigation := Button.new()
 	navigation.name = "GlobalNavigationButton"
-	StorybookUI.style_icon_button(
-		navigation, "↩", "secondary", Vector2(112.0, 112.0), "Back")
+	StorybookUI.style_navigation_button(navigation, "↩", "Back")
 	m._navigation_ref().position_button(navigation)
 	navigation.button_down.connect(global_navigation_pressed)
 	navigation.set_meta("global_navigation_owner", true)

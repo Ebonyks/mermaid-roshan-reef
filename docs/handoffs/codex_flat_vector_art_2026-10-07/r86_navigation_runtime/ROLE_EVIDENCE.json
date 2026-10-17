@@ -1,0 +1,46 @@
+{
+  "stable_id": "FV-2ABD73BAFFE0",
+  "family": "shared_ui",
+  "candidate_id": "FV-CAND-R85-NAV-CARD-01",
+  "implementation_id": "FV-IMPL-R86-NAV-01",
+  "status": "WORK_BRANCH_IMPLEMENTED_LOCAL82_AND_NATIVE_PASS_PUBLICATION_PENDING",
+  "production_paths": [
+    "scripts/storybook_ui.gd",
+    "scripts/pause_menu.gd",
+    "scripts/navigation_controller.gd"
+  ],
+  "reused_source": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+  "reused_source_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+  "new_pixels": 0,
+  "existing_same_role_sample_reused": true,
+  "additional_sample_count_credit": 0,
+  "new_role_family_alias_credit": 0,
+  "new_raw_frames_excluded": 30,
+  "context_review": "PARTIAL_AGENT",
+  "reuse_ready": false,
+  "material_reuse_viable": true,
+  "drawing_required_for_this_material": false,
+  "whole_piece_drawing_required": null,
+  "approved": false,
+  "integrated_into_dev": false,
+  "formal_runtime_verified": false,
+  "accepted_removed": false,
+  "global_artwork_denominator": null,
+  "global_screen_denominator": null,
+  "global_regression_count": null,
+  "limits": "Runtime implementation of the existingR85 material-use sample only. Criticalglyphs, neighboring flat UI, other callers/routes, formalQA11/device/child/owner and whole-game inventory remain open. Canonical tally sync follows exact publication; absent frozen root representations remain absent.",
+  "full_ci": {
+    "status": "PASS",
+    "probe_count": 82,
+    "log_sha256": "1c840c74510ca0e8c0d8fe128ad8ad0d3adb7b112a614385d4904c3fde9b9ad3",
+    "evidence": "full_ci_attempt2/FULL_CI_RESULT.json"
+  },
+  "source_caller_inventory": {
+    "evidence": "NAVIGATION_CALLER_MATRIX.json",
+    "scanned_source_files": 171,
+    "source_calls": 57,
+    "registered_route_labels": 26,
+    "runtime_or_art_count_credit": 0,
+    "dynamic_legacy_state_scope": "OPEN"
+  }
+}

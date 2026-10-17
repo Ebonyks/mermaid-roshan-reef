@@ -1,0 +1,24 @@
+{
+  "schema": "reef.navigation_runtime_plan/1",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "sample_final_revision": "05fdd9c35622a06abda3be8aa72e519de13f5768",
+  "candidate_id": "FV-CAND-R85-NAV-CARD-01",
+  "stable_role_id": "FV-2ABD73BAFFE0",
+  "family": "shared_ui",
+  "changes": [
+    "Only actual PauseMenu constructor and NavigationController mode-sync call use a new scoped painted navigation helper.",
+    "Helper retains existing icon typography and exact size, replaces six style resources immediately in that same synchronous call, and binds one focus-press/release appearance updater per Button.",
+    "Same source card/region10,23,222,209/36px nine-slice and declared state colors as R85; no new generated pixels or diagnostic node in production."
+  ],
+  "protected_sources": "All source art, book originals, family voices/friend portraits and saves untouched; renderer/project/workflow untouched.",
+  "validation_status": "EXACT_IMPORT_ANALYZER_NATIVE_AND_UNMODIFIED_LOCAL82_PASS_PUBLICATION_PENDING",
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "frozen_root_baseline": {
+    "per_piece.json": "absent",
+    "scene_coverage.json": "absent",
+    "tally.json": "absent",
+    "source_scopes.json": "absent",
+    "glyph_inventory.json": "absent"
+  }
+}

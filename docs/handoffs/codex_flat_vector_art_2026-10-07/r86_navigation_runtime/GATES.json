@@ -1,0 +1,31 @@
+{
+  "status": "PASS_LOCAL_FULL_CI02_NATIVE_PUBLICATION_PENDING",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "exact_engine": "4.7.2-stable official.ed1daf0bf",
+  "full_ci": {
+    "command": "Unmodified scripts/ci.sh",
+    "result": "PASS",
+    "probe_count": 82,
+    "elapsed_seconds": 2809.024,
+    "log_sha256": "1c840c74510ca0e8c0d8fe128ad8ad0d3adb7b112a614385d4904c3fde9b9ad3",
+    "evidence": "full_ci_attempt2/FULL_CI_RESULT.json"
+  },
+  "native": {
+    "cases": 2,
+    "engine_checks": 64,
+    "raw_frames": 30,
+    "material_timing_frames": 26,
+    "direct_partial_agent_views": 9,
+    "formal_QA11": false
+  },
+  "preflight": "PREFLIGHT.json; successful document authority/development after retained DOC080 repair. Stock CI supplies required authority/unit/stress and other machine gates.",
+  "historical_failed_attempts": [
+    "preflight_attempt1/PREFLIGHT.json",
+    "full_ci_attempt1/FULL_CI_RESULT.json"
+  ],
+  "source_pin_exact": true,
+  "accepted_removed": 0,
+  "dev_integrated": false,
+  "remote_exact_head_ci": "Not yet published; no green remote runtime result inferred. ExistingR83 cancellation/advisory/renderer failures retain separate scope.",
+  "remaining": "New-use approval, criticalglyph/font/fallback semantics, other callers/routes and neighboring flat UI, unknown game-wide inventory, formalQA11/device/child/owner."
+}

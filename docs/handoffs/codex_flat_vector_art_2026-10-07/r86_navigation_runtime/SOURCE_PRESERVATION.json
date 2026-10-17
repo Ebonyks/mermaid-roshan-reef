@@ -1,0 +1,54 @@
+{
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "checks": [
+    {
+      "path": "scripts/storybook_ui.gd",
+      "changed_existing_functions": [],
+      "unchanged_existing_functions": 20,
+      "added_functions": [
+        "_navigation_focus_state",
+        "style_navigation_button"
+      ],
+      "before_git_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "after_raw_sha256": "9ec09a6bdc926fee8a841bb0db97b39d40b9db0916d62a543c7aa5785c7f056c"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "changed_existing_functions": [
+        "_build_pause"
+      ],
+      "unchanged_existing_functions": 13,
+      "added_functions": [],
+      "before_git_sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "after_raw_sha256": "036f4cf18d0ccf8866b7989bbcf5dcac9d9095632892be915afa83b622c5b10d"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "changed_existing_functions": [
+        "sync_button"
+      ],
+      "unchanged_existing_functions": 10,
+      "added_functions": [],
+      "before_git_sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "after_raw_sha256": "1b10fccd7d9b67bd4088948b98a83b64b7ef163461b2d4d7e0df7a881ab9c5ad"
+    }
+  ],
+  "scope": "All existing functions except the two explicit styling call sites are text-identical after LF normalization. StorybookUI adds only scoped painter/focus helpers and one cached texture constant. Input/route/save functions unchanged.",
+  "source_asset_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+  "new_source_art": 0,
+  "new_generation": 0,
+  "root_five_before": {
+    "per_piece.json": "absent",
+    "scene_coverage.json": "absent",
+    "tally.json": "absent",
+    "source_scopes.json": "absent",
+    "glyph_inventory.json": "absent"
+  },
+  "root_five_after": {
+    "per_piece.json": "absent",
+    "scene_coverage.json": "absent",
+    "tally.json": "absent",
+    "source_scopes.json": "absent",
+    "glyph_inventory.json": "absent"
+  }
+}

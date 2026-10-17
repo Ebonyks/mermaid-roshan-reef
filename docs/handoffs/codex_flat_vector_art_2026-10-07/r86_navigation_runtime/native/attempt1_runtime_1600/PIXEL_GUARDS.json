@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "roi": [
+    56,
+    40,
+    92,
+    48
+  ],
+  "frames": [
+    {
+      "state": "menu_root_before",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "menu_down_pause_transition",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "pause_back_after_release",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "back_down_resume_transition",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "menu_return_after_release",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "repeat_0_back_down",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "repeat_0_back_release",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "repeat_0_menu_down",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "repeat_0_menu_release",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "repeat_1_back_down",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "repeat_1_back_release",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "repeat_1_menu_down",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "repeat_1_menu_release",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_parchment_present": true
+    }
+  ],
+  "limits": "Opaque nonglyph material-presence/timing guard only; compare within Menu/Back mode. No forced diagnostic states, source review or visual/device/child/owner acceptance inferred."
+}
