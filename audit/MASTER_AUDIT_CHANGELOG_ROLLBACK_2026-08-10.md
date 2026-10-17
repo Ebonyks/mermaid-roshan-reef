@@ -2567,3 +2567,5 @@ CHG-104 delivery: `1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b`, 118 direct require
 ## Geologist painted mineral source samples and pan recovery — CHG-105
 
 [R96](../docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md) retains2actual built-in ImageGen PNGs for1existing mint mineral role, exact prompts/reference hashes, partial10-axis comparison and unresolved halo/reframing. No runtime or accepted-removal credit. R95fullCI59912finishedFAIL; normal saves/source stayed unchanged. CurrentDev has independently evidenced throne/verbs test-precondition repairs; same pan is reconciled and all82 unchanged trusted probes run through the documented probe-by-probe route in session1292. Preserve the original failure and current live handle. [Impact](../design/audit_impacts/flat-vector-geologist-mineral-candidate-20261017.json).
+
+CHG-105 delivery: `7f5292785b331ee42a460eeba5ec612a687e2b0e`; 36 direct required files / 14860297 bytes anonymously exact at 2026-10-17T23:11:32.721329+00:00. Samples still alpha/context pending; original pan failure preserved and recovery1292 separate.
