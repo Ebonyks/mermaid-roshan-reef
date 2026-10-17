@@ -69,9 +69,12 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/NEXT_BOOK_REUSE_AUDIT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/OBSERVER_CONTRACT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/PACKET_BOUNDARY_CHECK.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/PAYLOAD_COMMITTED_2D.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/PAYLOAD_STAGED_2D.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/R62_ALIAS_PREREQUISITE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/REUSE_PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/ROLE_EVIDENCE.json",
@@ -659,9 +662,9 @@
       "evidence": "full_ci/FULL_CI_RESULT.json;82uniquezeroexits; rawlog SHA256 99041edfd65f0b5a9b8c28ebc961e7477ae6cea8ca061ec518e96f412aec7089; exact knownsource/sidecar/normal11 andci.sh bytes. No trustedprobe/workflow edit."
     },
     {
-      "command": "Actual staged/committed sourcebinding/document/2D and anonymousGitHub delivery",
-      "result": "PENDING",
-      "evidence": "Local machine tests do not establish publication, currentremoteCI, integration or creative/device/child/owner acceptance."
+      "command": "Exact staged/committed source binding, document/2D gates and anonymous immutable GitHub payload delivery",
+      "result": "PASS",
+      "evidence": "GIT_SOURCE_BINDING.json plus payload source seal and REMOTE_VERIFICATION.json at c524e0855559bf14e3f1c502b290baf90458a171; all required manifest bytes verified anonymously. Receipt metadata own files are separately checked after commit. No remoteCI/integration/creative acceptance inferred."
     }
   ],
   "acceptance_gaps": "New-purpose/source candidacy, remaining fish/bird/insect/habitat semanticglyph/art, natural catch journey, registered/legacy caller/state scope, packagedfont/missingglyph/pseudolocale, formalQA11/device/child/owner and unknown whole-game denominators remain open. No accepted-removal/dev-integration credit.",

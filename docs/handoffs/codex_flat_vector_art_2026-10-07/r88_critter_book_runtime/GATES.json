@@ -1,5 +1,5 @@
 {
-  "status": "PASS_LOCAL_FULL_CI_NATIVE606_PUBLICATION_PENDING",
+  "status": "PASS_LOCAL82_NATIVE606_PUBLISHED_REVIEW_ONLY_REMOTE_CI_PENDING",
   "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
   "exact_engine": "4.7.2-stable official.ed1daf0bf",
   "full_ci": {
@@ -23,7 +23,7 @@
   "historical_failures": "ATTEMPT_HISTORY.json, expectedexpansionnegative, rawpreservedfirstfit/JSONobserver/operationalpreflight; no trustedprobe modified.",
   "accepted_removed": 0,
   "dev_integrated": false,
-  "remote_exact_head_ci": "Not published yet; earlier dependencyCI does not imply currentcombinedremoteCI green.",
+  "remote_exact_head_ci": "PENDING: current published topic revision; earlier dependency CI is historical only.",
   "remaining": "Semanticglyph/caller/acquisition scope, new-use/source approval, formalQA11/device/child/owner and unknown whole-game inventory.",
   "visual_advisory": {
     "evidence": "VISUAL_ADVISORY_SCOPE.json",
@@ -42,5 +42,50 @@
     "evidence": "crest_ui_target/RESULT.json",
     "result": "PASS",
     "normal_source_probe_guards": true
-  }
+  },
+  "payload_actual_staged_2d": {
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "log": "PAYLOAD_STAGED_2D.log",
+    "status": "NO_REGRESSION"
+  },
+  "payload_actual_committed_2d": {
+    "revision": "c524e0855559bf14e3f1c502b290baf90458a171",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "log": "PAYLOAD_COMMITTED_2D.log",
+    "status": "NO_REGRESSION"
+  },
+  "publication": {
+    "payload_revision": "c524e0855559bf14e3f1c502b290baf90458a171",
+    "manifest_sha256": "55fca21887b9fc73b360686cb7c9855129d3c2047fc824d7969b059135796770",
+    "required_files": 818,
+    "required_bytes": 430522018,
+    "access_mode": "anonymous exact immutable raw GitHub files",
+    "checked_at_utc": "2026-10-17T13:03:06.432286+00:00"
+  },
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=705|LEDGER=705|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "8abe14d0b60da35e8867c7ebad46af372e4f3368aa3ba0747da86337b9aa2bd4",
+      "checked_at_utc": "2026-10-17T13:05:37.342912+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|dd799b2d43871b29d1d6e0503646308a194dad1e\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "d95290b1cdd6d0543f96700a87d24ed2358ab752613e7dc0adf02b770db8b61d",
+      "checked_at_utc": "2026-10-17T13:05:39.005249+00:00"
+    }
+  ]
 }
