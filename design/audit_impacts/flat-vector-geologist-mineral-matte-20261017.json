@@ -1,0 +1,60 @@
+{
+  "id": "flat-vector-geologist-mineral-matte-20261017",
+  "scope": "Aseprite alpha-only cleanup and source-preserving runtime-size crop of generated mineral take02. Preserve original PNGs and full layered master; no resampling, redraw, new generation or runtime code change.",
+  "baseline": "509740c2c27b954160d3e1c788a8e0e20514aa63",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-READ-02",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "owner_authority": "User-supplied AGENTS ANIMATION PRODUCTION explicitly prefers editableRGBA Aseprite masters for sprite isolation and matte/detail cleanup, preserving painted contours and antialiasing. Static generated sprite intended for existing pan motion; no new animated action or funded API job.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/flat_vector_geologist_mineral_20261017/matte01/ALPHA_PROOF.json",
+    "assets_src/flat_vector_geologist_mineral_20261017/matte01/ASEPRITE_RECEIPT.txt",
+    "assets_src/flat_vector_geologist_mineral_20261017/matte01/PREVIEW_ROLE.json",
+    "assets_src/flat_vector_geologist_mineral_20261017/matte01/alpha_cleanup.lua",
+    "assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint.aseprite",
+    "assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint_alpha.png",
+    "assets_src/flat_vector_geologist_mineral_20261017/matte01/readability_preview.lua",
+    "assets_src/flat_vector_geologist_mineral_20261017/matte01/readability_preview.png",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-geologist-mineral-matte-20261017.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/ASEPRITE_COMMAND.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/CONGRUENCY_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/CONTEXT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/verify_runtime_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "Aseprite batch alpha-only cleanup, full editablemaster, <=1024runtime crop; exact retained-body RGBA comparison and source hashes; native visual inspection; document and delivery gates",
+      "result": "PASS",
+      "evidence": "Actual Aseprite derivative and opaque proof verified;584044body RGBAexact/alpha cleared/crop<=1024. Authority/development PASS for actual packet. Runtime/formal/device/child/owner remain pending. Direct anonymous delivery follows."
+    }
+  ],
+  "acceptance_gaps": "Derivative not yet mounted in actual game; scene phone-size/contact/action-state, formalQA11, device/child/owner and variants remain pending."
+}

@@ -1,0 +1,27 @@
+{
+  "role": "PROOF_ONLY",
+  "used_as_delivery_pixels": false,
+  "purpose": "Opaque matte compositing in Aseprite proves actual alpha, without exposing irrelevant RGB under alpha0. Six rendered instances are one source specimen at44/64/128px on water-color and workspace-color fields, never6artworks or runtime frames.",
+  "method": "Aseprite image composition and bilinear display scaling, no new generation or creative redraw.",
+  "command": [
+    "C:/Program Files/Aseprite/Aseprite.exe",
+    "-b",
+    "--script-param",
+    "source=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geologist_mineral_20261017\\matte01\\mineral_mint_alpha.png",
+    "--script-param",
+    "output=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geologist_mineral_20261017\\matte01\\readability_preview.png",
+    "--script",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geologist_mineral_20261017\\matte01\\readability_preview.lua"
+  ],
+  "source_sha256": "f66227e25ecccf8783b992f66d044da7444618c38ae3696ab62f51e52dc60013",
+  "preview_sha256": "1b808fb7df3019db58655c2d2281574fba0106f857ccc6fad39bf4972bfc4aba",
+  "alpha_review_correction": "Prior source-alone preview showed hidden RGB in alpha0 regions. Preserve historical first impressions; they do not prove that all of the perceived purple aura is visible. Raw takes are not retrospectively accepted. Derivative alpha/body proof is separate.",
+  "runtime": "No actual scene/controller or action-state rendering in this proof.",
+  "formal_QA11_device_child_owner": "PENDING",
+  "initial_layout_diagnostic": "Initial128px rightmost proof instance clipped in600pxlayout; corrected to720px/360pxpanels. Both44px instances were already complete. Diagnostic preserved only in owned temp, not game/native count.",
+  "dimensions": [
+    720,
+    280
+  ],
+  "all_six_specimens_inside_panel": true
+}

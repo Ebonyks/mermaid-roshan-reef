@@ -1,0 +1,32 @@
+{
+  "stable_id": "FV-66629DC58A20",
+  "derivative": "assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint_alpha.png",
+  "output_sha256": "f66227e25ecccf8783b992f66d044da7444618c38ae3696ab62f51e52dc60013",
+  "source_hash": "61e307857b0c26fe87da603acaff675ce626bcc36eed562d21528b8daa2abb3a",
+  "same_scene_reference_hashes": [
+    "e1ac3aa47f1b57e0e05957c94e086eed86202f2636e2261ee2f03c07170bef4f",
+    "df6ec1df1c59a20d427cb50835ae04915b07de0cbe1b470e99d43c55518ff5ab"
+  ],
+  "review_scope": "Actual exported sprite and opaque Aseprite proof at44/64/128px; source-stage comparison to published pan scene. No actual in-scene or device acceptance.",
+  "axes": {
+    "contour": "All584044body pixels alpha>=16 retain exactRGBA; existing plum painted contour preserved. Aseprite removes only faint alpha1..15 pixels.",
+    "material": "Original textured mineral planes preserved exactly; no new flat polygon art or resampling in the970x1015asset.",
+    "palette": "Mint/teal and plum retain original pixels. Opaque matte proof separates it from approximate pan-water and workspace colors.",
+    "light": "Original upper-left light/lower-right cool planes remain unchanged. Actual scene lighting/style acceptance still open.",
+    "perspective": "Original complete three-quarter crystal-on-stone subject preserved; actual mounting angle remains to be tested.",
+    "scale": "970x1015native PNG fits <=1024 limit without resampling.44px proof is recognizable with one silhouette; actual phone/runtime scale remains pending.",
+    "contact": "No visible aura in opaque matte proof after alpha cleanup. Actual water-plane contact and grain ordering remain pending.",
+    "occlusion": "No neighbor/background/character source pixels enter this derivative; actual mounted overlap remains untested.",
+    "readability": "Inspected complete specimens at44/64/128px against both opaque fields. Proof demonstrates alpha/scale readability, not current-game QA11.",
+    "action_state": "No runtime/save/input/count code changed. Blue/lavender variants and shared consumers remain open."
+  },
+  "status": "TECHNICAL_ALPHA_READY_ACTUAL_SCENE_FIT_PENDING",
+  "body_and_crop_machine_result": "PASS",
+  "formal_QA11": null,
+  "runtime": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "approved": 0,
+  "accepted_removed": 0
+}

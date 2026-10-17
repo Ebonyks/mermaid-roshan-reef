@@ -12300,7 +12300,7 @@
       ],
       "reuse_inspection": "Owner2026-10-17 quality-first rule makes reuse optional. Two actual context-bound painted outputs are retained; no clean-alpha or runtime acceptance.",
       "named_gap": null,
-      "status": "PAINTED_SAMPLES_ALPHA_AND_RUNTIME_REVIEW_PENDING",
+      "status": "PAINTED_ALPHA_CLEANED_CANDIDATE_NATIVE_FIT_PENDING",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -12362,6 +12362,40 @@
         "context": "CONTEXT.json",
         "review": "CONGRUENCY_REVIEW.json",
         "status": "PAINTED_SAMPLES_ALPHA_AND_RUNTIME_REVIEW_PENDING",
+        "integration": null,
+        "runtime": null,
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "r97_prior_status": "PAINTED_SAMPLES_ALPHA_AND_RUNTIME_REVIEW_PENDING",
+      "r97_matte": {
+        "stable_id": "FV-66629DC58A20",
+        "candidate": "assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint_alpha.png",
+        "candidate_sha256": "f66227e25ecccf8783b992f66d044da7444618c38ae3696ab62f51e52dc60013",
+        "editable_master": "assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint.aseprite",
+        "editable_master_sha256": "df1c218ff9d625f00e6ed6ffdeb95e5a9516f7ab31706d29afba5187b73253b5",
+        "native_size": [
+          970,
+          1015
+        ],
+        "technical_derivatives_this_revision": 1,
+        "new_generation_calls": 0,
+        "new_raw_generated_samples": 0,
+        "new_artwork_roles": 0,
+        "new_family_count": 0,
+        "originals_preserved": true,
+        "body_RGBA_byte_identical_pixels": 584044,
+        "alpha_range_removed": [
+          1,
+          15
+        ],
+        "resampled": false,
+        "source_preview_only_instances": 6,
+        "used_preview_pixels_as_delivery": false,
+        "status": "TECHNICAL_ALPHA_READY_ACTUAL_SCENE_FIT_PENDING",
         "integration": null,
         "runtime": null,
         "formal_QA11": null,
@@ -22473,7 +22507,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261017-R96",
+  "revision": "FV-AUDIT-20261017-R97",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -33172,7 +33206,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json; same263knownroles/35families and5published bounded source artifacts/3partialDev integrations. R96 adds2raw ImageGen outputs for1existing mineral role, no integration/acceptance/native-frame credit. Whole-game totals remain unknown.",
+  "current_effective_summary": "SUMMARY.json; existing263roles/35families/5bounded source implementations/3partialDev artifacts and10775native events unchanged. R97adds1technical alpha/crop derivative for1existing role,0new generation/runtime/accepted removals. Unknown totals remain unknown.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -34409,5 +34443,40 @@
     "owner": null,
     "accepted_removed": 0
   },
-  "r96_pan_CI_transition": "PAN_CI_TRANSITION.json"
+  "r96_pan_CI_transition": "PAN_CI_TRANSITION.json",
+  "r97_parent_receipt_revision": "509740c2c27b954160d3e1c788a8e0e20514aa63",
+  "r97_mineral_matte": {
+    "stable_id": "FV-66629DC58A20",
+    "candidate": "assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint_alpha.png",
+    "candidate_sha256": "f66227e25ecccf8783b992f66d044da7444618c38ae3696ab62f51e52dc60013",
+    "editable_master": "assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint.aseprite",
+    "editable_master_sha256": "df1c218ff9d625f00e6ed6ffdeb95e5a9516f7ab31706d29afba5187b73253b5",
+    "native_size": [
+      970,
+      1015
+    ],
+    "technical_derivatives_this_revision": 1,
+    "new_generation_calls": 0,
+    "new_raw_generated_samples": 0,
+    "new_artwork_roles": 0,
+    "new_family_count": 0,
+    "originals_preserved": true,
+    "body_RGBA_byte_identical_pixels": 584044,
+    "alpha_range_removed": [
+      1,
+      15
+    ],
+    "resampled": false,
+    "source_preview_only_instances": 6,
+    "used_preview_pixels_as_delivery": false,
+    "status": "TECHNICAL_ALPHA_READY_ACTUAL_SCENE_FIT_PENDING",
+    "integration": null,
+    "runtime": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "r97_reference_resolution": "R96history/evidence retain immutable509740c2parent scope; current R97records use repository-root candidate paths and r97_geologist_mineral_matte/CONTEXT.json. No archive recopy."
 }

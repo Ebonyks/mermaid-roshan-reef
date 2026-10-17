@@ -1,0 +1,9 @@
+# Clean-alpha painted mineral candidate — R97
+
+Aseprite matte01 provides a usable source-stage mint mineral cutout for existing `FV-66629DC58A20`: `assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint_alpha.png`,970x1015RGBA, with an editable1328x1184two-layer master. It is ready for actual in-scene fitting; it is not integrated or accepted.
+
+The owner-supplied AGENTS authorizes Aseprite sprite isolation and matte/detail cleanup. Aseprite1.3.18.4 cleared only6,210pixels with alpha1..15, then cropped with16px margins without resampling. Every one of the584,044retained body pixels is exactRGBA to generated take02. Both original PNGs remain unchanged; the master preserves a hidden original layer. [Context/provenance](CONTEXT.json), [alpha/body proof](../../../../assets_src/flat_vector_geologist_mineral_20261017/matte01/ALPHA_PROOF.json), [command](ASEPRITE_COMMAND.json), [ten-axis partial comparison](CONGRUENCY_REVIEW.json), [manifest](MANIFEST.json).
+
+Earlier source previews exposed RGB beneath alpha0, so part of the perceived purple field was not visible sprite content. Historical raw-preview concerns remain preserved; neither raw take becomes approved. The opaque Aseprite proof now shows the actual visible edge at44/64/128px on water/workspace-color fields. Its six instances are one source specimen, never6artworks, actual-game frames or delivery pixels.
+
+Zero new generation calls or drawings; one technical derivative. The broad master/source color/contour is preserved. Actual game mounting, blue/lavender variants, other shared consumers, contact/action-state proof, formalQA11 and device/child/owner gates remain open. Pan validation/source publication keeps priority in the existing owned operations; no frozen runtime files are changed here. Canonical registry/scene/tally stay at the paths named by CURRENT.json, with unknown whole-game denominators and zero accepted removals.

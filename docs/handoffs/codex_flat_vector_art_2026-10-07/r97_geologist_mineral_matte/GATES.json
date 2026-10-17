@@ -1,0 +1,91 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "412bb84c21346e3ef20df650cc5427f1f3b3ddad30e4b6a4256cac18ba7829db",
+      "output": "DOCAUTH|INVENTORY=810|LEDGER=810|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n"
+    }
+  ],
+  "alpha_body_proof": {
+    "status": "PASS_ALPHA_ONLY_CROP_BODY_PRESERVATION",
+    "tool": "Aseprite1.3.18.4 batch/Lua, no Python pixel editing",
+    "source": "assets_src/flat_vector_geologist_mineral_20261017/take02/native.png",
+    "source_sha256": "61e307857b0c26fe87da603acaff675ce626bcc36eed562d21528b8daa2abb3a",
+    "output": "assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint_alpha.png",
+    "output_sha256": "f66227e25ecccf8783b992f66d044da7444618c38ae3696ab62f51e52dc60013",
+    "editable_master": "assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint.aseprite",
+    "editable_master_sha256": "df1c218ff9d625f00e6ed6ffdeb95e5a9516f7ab31706d29afba5187b73253b5",
+    "native_source_size": [
+      1328,
+      1184
+    ],
+    "crop_xywh": [
+      219,
+      93,
+      970,
+      1015
+    ],
+    "output_size": [
+      970,
+      1015
+    ],
+    "mode": "RGBA",
+    "resampling": false,
+    "cleared_alpha_range": [
+      1,
+      15
+    ],
+    "retained_body_threshold": 16,
+    "retained_body_pixels": 584044,
+    "all_retained_body_RGBA_byte_identical": true,
+    "nonbody_output_alpha_is_zero": true,
+    "any_retained_body_outside_crop": false,
+    "output_visible_alpha_bbox": [
+      16,
+      16,
+      954,
+      999
+    ],
+    "zero_alpha_margin": [
+      16,
+      16,
+      16,
+      16
+    ],
+    "remaining_alpha_1_to_15_pixels": 0,
+    "raw_sources_preserved": true,
+    "new_generation_calls": 0,
+    "new_drawings": 0,
+    "new_technical_derivatives": 1,
+    "runtime_integration": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "checked_at_utc": "2026-10-17T23:17:36.561843+00:00"
+  },
+  "source_outputs": "Aseprite2layer master and970x1015RGBA crop;584044body pixels exact. Opaque44/64/128pxproof inspected. No new ImageGen call or native runtime frame.",
+  "runtime": "Frozen pan operations1292/81417 separate. This source-only derivative is not mounted in actual scene.",
+  "formal_QA11": "PENDING",
+  "device": "PENDING",
+  "child": "PENDING",
+  "owner": "PENDING"
+}
