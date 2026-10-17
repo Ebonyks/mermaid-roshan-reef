@@ -1,0 +1,70 @@
+{
+  "parent_final_own_metadata_proof": {
+    "revision": "626860c04168ca74ed225b0023f8862c5ba56a8d",
+    "payload_revision": "22069487bf303d4682df389c9dc786b9bbed8955",
+    "branch": "codex/flat-vector-r6-20261012",
+    "files": [
+      {
+        "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+        "bytes": 267364,
+        "sha256": "334636a6a1a5c52dde521c866645939acc4ee5e427cddbfad2af34228c841c59",
+        "verified": true
+      },
+      {
+        "path": "design/audit_impacts/flat-vector-book-dev-integration-20261017.json",
+        "bytes": 6031,
+        "sha256": "5602409c881acb860d24372d8bc66f19338ae2b8f31b66c8e2e55ca5b3143172",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+        "bytes": 74583,
+        "sha256": "4c8779faf5aa0445d4cac5d100ef117ceb36deb92a7efbf4daaeab33e9ee9bd3",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/CANONICAL_COMMITTED_2D.log",
+        "bytes": 414,
+        "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/CANONICAL_STAGED_2D.log",
+        "bytes": 414,
+        "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/GATES.json",
+        "bytes": 3476,
+        "sha256": "f7325f0de215a41cb8bc664b61d44500d2a4a69597e031bd2c1322659e8d46d9",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/README.md",
+        "bytes": 2662,
+        "sha256": "7e7f1cb1cb2df92a572026789222d6303f64c4c8b7c483b3525b3fd4eeebd2fd",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/REMOTE_VERIFICATION.json",
+        "bytes": 802785,
+        "sha256": "098b53b34520b4ea5f0fd7d772a9514225ef4f3d5849662f956226be633cb30f",
+        "verified": true
+      }
+    ],
+    "all_own_metadata_exact": true,
+    "all_payload_dependencies_verified": true,
+    "frozen_roots_exact": true,
+    "runtime_changes_in_audit_worktree": [],
+    "clean": true,
+    "remote_exact_head": true,
+    "accepted_removed": 0,
+    "dev_integrated": 2,
+    "dev_integrated_unit": "partial bounded code artifacts, not complete named artwork roles or accepted removals",
+    "mission_complete": false,
+    "checked_at_utc": "2026-10-17T15:21:30.003619+00:00"
+  },
+  "parent_payload_revision": "22069487bf303d4682df389c9dc786b9bbed8955",
+  "interpretation": "All unchanged R90 evidence and its immutable dependencies retain original scopes. New timeout evidence does not revoke successful sourcebranch machine results or count any removed artwork."
+}

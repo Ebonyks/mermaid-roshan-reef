@@ -1,0 +1,65 @@
+{
+  "id": "flat-vector-dev-ci-timeout-20261017",
+  "baseline": "626860c04168ca74ed225b0023f8862c5ba56a8d",
+  "scope": "Evidence-only canonical reconciliation of confirmed exactDevF 55minute CI timeout and one failed-job retry. Preserve prior exact-source green push/PR evidence, two integrated partial code artifacts and every historical artwork/coverage count; no runtime or workflow edits. R91 local repair remains excluded until its own delivered evidence.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-11",
+    "DL-VIS-03",
+    "DL-TYPE-07"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-TYPE-004"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-dev-ci-timeout-20261017.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CI_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/DEPENDENCY_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/LATEST_RUN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/RECEIPT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/RETRY_DISPATCH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/RETRY_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/VALIDATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/annotations_attempt1.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/gate_logs/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/gate_logs/development.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/gate_logs/stress.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/gate_logs/units.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/jobs_attempt1.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/run_attempt1.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/run_attempt1.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/verify_runtime_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "Fresh API exactDevCI/checkannotations, original rawlog and failed-job retry receipt",
+      "result": "PASS",
+      "evidence": "r92_dev_ci_timeout/CI_STATUS.json and raw evidence; run cancelled at55minuteceiling after trustedprobes step success. WholeDev run/APK notgreen."
+    },
+    {
+      "command": "Canonical source/registry/frozenroot/54unit/6stress/document gates",
+      "result": "PASS",
+      "evidence": "VALIDATION.json and GATES.json; actualstagedcommitted2D and immutable anonymous delivery follow."
+    }
+  ],
+  "acceptance_gaps": "Cancelled Dev run is notgreen. Retry pending; no exactFAPK/install/device claim. Zero accepted removals and unknown whole-game denominators; source/newuse/formalQA11/device/child/owner remain open."
+}

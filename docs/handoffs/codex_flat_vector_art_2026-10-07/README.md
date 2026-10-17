@@ -1,3 +1,7 @@
+# Current R92 Dev CI evidence and full-game tally
+
+Current canonical revision: [R92](r92_dev_ci_timeout/README.md). ExactDevF follow-upCI timedout after trustedprobes passed; one failed-job retry pending and no exactFAPK claim. Two partial code integrations and zero accepted removals remain unchanged. Historical sections retain their dated scopes.
+
 # Current R90 Dev integration and full-game tally
 
 Current canonical revision: [R90](r90_dev_integration/README.md). Two partial book/navigation code artifacts are integrated on Dev at exact green sourceF. Zero complete artwork-role replacements/families/accepted removals and unknown global denominators remain. Historical sections retain their dated scopes.

@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261017-R90",
-  "current_entry": "r90_dev_integration/README.md",
-  "current_per_piece": "r90_dev_integration/per_piece.json",
-  "current_scene_coverage": "r90_dev_integration/scene_coverage.json",
-  "current_tally": "r90_dev_integration/tally.json",
-  "current_backlog": "r90_dev_integration/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r90_dev_integration/MANIFEST.json",
+  "revision": "FV-AUDIT-20261017-R92",
+  "current_entry": "r92_dev_ci_timeout/README.md",
+  "current_per_piece": "r92_dev_ci_timeout/per_piece.json",
+  "current_scene_coverage": "r92_dev_ci_timeout/scene_coverage.json",
+  "current_tally": "r92_dev_ci_timeout/tally.json",
+  "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+  "current_manifest": "r92_dev_ci_timeout/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r90_dev_integration/GATES.json",
+  "current_ci_evidence": "r92_dev_ci_timeout/CI_STATUS.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -1313,7 +1313,7 @@
     "terminal_evidence": "r87_critter_navigation_context/RUNTIME_FINAL_PR_CI.json",
     "limits": "No rerun/cause attribution or acceptance inferred; same-head push success is separate from PR cancellation and optional renderer failures."
   },
-  "current_summary": "r90_dev_integration/SUMMARY.json",
+  "current_summary": "r92_dev_ci_timeout/SUMMARY.json",
   "current_catalogue_alias_set": "r90_dev_integration/CURRENT_CATALOGUE_CONTEXT_UNION.json",
   "immutable_r87_receipt_revision": "bb30d505500a7b737115f694e69e02b35efddb85",
   "r88_runtime_trial": {
@@ -1409,5 +1409,44 @@
     "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
     "receipt": "r90_dev_integration/REMOTE_VERIFICATION.json",
     "own_metadata_scope": "Final receipt metadata checked separately at final commit; no recursive self hash"
+  },
+  "immutable_r90_receipt_revision": "626860c04168ca74ed225b0023f8862c5ba56a8d",
+  "r92_dev_ci_timeout": {
+    "state": "DEV_ATTEMPT1_CANCELLED_CONFIRMED_55MIN_LIMIT_RETRY_PENDING",
+    "source_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "first_attempt": {
+      "run_id": 39040062042,
+      "attempt": 1,
+      "conclusion": "cancelled",
+      "annotation": "The job has exceeded the maximum execution time of55m0s",
+      "trusted_probes_step": "success; whole run cancelled",
+      "evidence": [
+        "run_attempt1.json",
+        "jobs_attempt1.json",
+        "annotations_attempt1.json",
+        "run_attempt1.log"
+      ]
+    },
+    "latest_observation": {
+      "id": 39040062042,
+      "head_sha": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "run_attempt": 2,
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39040062042",
+      "updated_at": "2026-10-17T15:33:20Z"
+    },
+    "retry_dispatch": "RETRY_DISPATCH.json; one failed-job retry, no cancellation of other work",
+    "prior_green_source_runs": [
+      39035264349,
+      39035294472
+    ],
+    "prior_green_scope": "Both exactF sourcebranch push/PR required job success; R90/CI_EVIDENCE.json immutable. This does not make cancelledDevCIgreen.",
+    "dev_integrated_partial_artifacts": 2,
+    "complete_integrated_named_roles": 0,
+    "exact_F_APK_verified": false,
+    "workflow_changed": false,
+    "new_artifacts_or_acceptance_credit": 0,
+    "checked_at_utc": "2026-10-17T15:35:20.089988+00:00"
   }
 }

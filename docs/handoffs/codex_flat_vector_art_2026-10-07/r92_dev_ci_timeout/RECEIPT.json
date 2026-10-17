@@ -1,0 +1,35 @@
+{
+  "state": "DEV_CI_CANCELLED_55MIN_LIMIT",
+  "source_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "run_id": 39040062042,
+  "attempt": 1,
+  "required_trusted_probes_step": "success per jobsteps; whole run not green",
+  "reason": "GitHub annotation: job exceeded maximum execution time55m0s",
+  "exact_F_APK_available_claim": false,
+  "earlier_source_branch_push_and_PR_runs": "Both terminalsuccess exactF; not overwritten",
+  "workflow_changes": false,
+  "followup": "One failed-job retry; no policy or timeout weakening",
+  "files": [
+    {
+      "path": "annotations_attempt1.json",
+      "sha256": "9038eb29b447a850ce52ceb0e25432e1ea36eb9ac04d6ca3ad42679da89b8a7b",
+      "bytes": 2728
+    },
+    {
+      "path": "jobs_attempt1.json",
+      "sha256": "595689c985f9967942af09cad623c7f049be753c7db3ba64c954238762dfaee4",
+      "bytes": 7823
+    },
+    {
+      "path": "run_attempt1.json",
+      "sha256": "8c9ffaa386146e2612b41bf5fca01df10d0b84391dd8367d102ef388fb0d9cdf",
+      "bytes": 12695
+    },
+    {
+      "path": "run_attempt1.log",
+      "sha256": "5c07f139b1e04387debd64903e7f95503a1706e9e24fe0abeb19c9261cf10119",
+      "bytes": 2488947
+    }
+  ],
+  "checked_at_utc": "2026-10-17T15:32:15.225598+00:00"
+}

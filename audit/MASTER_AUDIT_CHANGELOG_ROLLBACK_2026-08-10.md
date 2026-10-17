@@ -2531,3 +2531,8 @@ CHG-097 canonical payload publication: `9791fc08dcf8129bed220f5a105b910c76b4da2c
 [R90](../docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/README.md) records exact sourceF normal Dev integration, terminal required CI, retained advisory failures, pre-push source/gates and anonymous public ref/four-source proof. Two partial code artifacts differ from zero complete artwork-role/family/removal acceptance. [Impact](../design/audit_impacts/flat-vector-book-dev-integration-20261017.json). No runtime code changed on this canonical branch. Rollback only this metadata/routing delta if needed; any runtime correction uses the normal separate green Dev workflow and preserves source art, saves and history.
 
 CHG-098 canonical payload publication: `22069487bf303d4682df389c9dc786b9bbed8955`, manifest SHA-256 `f7e0835957c75ff1d96cefa8a50dae8db02180cfdefcaf43b467f37d3501c1a0`; 2444 required files / 1035060761 bytes anonymously verified at 2026-10-17T15:18:05.405369+00:00. Final own receipt metadata separately checked; acceptance and integration remain distinct.
+
+
+## Dev CI timeout reconciliation (CHG-100)
+
+[R92](../docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/README.md) records exactDevF timeout, one failed-job retry and absent exactFAPK verification. Prior green sourcebranch runs, partial code integrations and historical totals retain scope. [Impact](../design/audit_impacts/flat-vector-dev-ci-timeout-20261017.json). No runtime/workflow changes. Rollback current routing only; retain immutable timeout history and zero acceptance.

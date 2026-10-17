@@ -1,0 +1,38 @@
+{
+  "state": "DEV_ATTEMPT1_CANCELLED_CONFIRMED_55MIN_LIMIT_RETRY_PENDING",
+  "source_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "first_attempt": {
+    "run_id": 39040062042,
+    "attempt": 1,
+    "conclusion": "cancelled",
+    "annotation": "The job has exceeded the maximum execution time of55m0s",
+    "trusted_probes_step": "success; whole run cancelled",
+    "evidence": [
+      "run_attempt1.json",
+      "jobs_attempt1.json",
+      "annotations_attempt1.json",
+      "run_attempt1.log"
+    ]
+  },
+  "latest_observation": {
+    "id": 39040062042,
+    "head_sha": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "run_attempt": 2,
+    "status": "in_progress",
+    "conclusion": null,
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39040062042",
+    "updated_at": "2026-10-17T15:33:20Z"
+  },
+  "retry_dispatch": "RETRY_DISPATCH.json; one failed-job retry, no cancellation of other work",
+  "prior_green_source_runs": [
+    39035264349,
+    39035294472
+  ],
+  "prior_green_scope": "Both exactF sourcebranch push/PR required job success; R90/CI_EVIDENCE.json immutable. This does not make cancelledDevCIgreen.",
+  "dev_integrated_partial_artifacts": 2,
+  "complete_integrated_named_roles": 0,
+  "exact_F_APK_verified": false,
+  "workflow_changed": false,
+  "new_artifacts_or_acceptance_credit": 0,
+  "checked_at_utc": "2026-10-17T15:35:20.089988+00:00"
+}

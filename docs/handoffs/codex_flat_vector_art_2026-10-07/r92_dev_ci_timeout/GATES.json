@@ -1,0 +1,57 @@
+{
+  "status": "PASS_SOURCE_DOCUMENT_COUNTS_ONLY",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/gate_logs/authority.log",
+      "sha256": "acea4b8b1b3504a11746273886486cad4a5eba8a28a286115f898a9ad11bf4dc",
+      "checked_at_utc": "2026-10-17T15:36:28.052388+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/gate_logs/development.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T15:36:40.207324+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/gate_logs/units.log",
+      "sha256": "c65ae757392a34edaa6212aa0c6110bed26bdb261d1fa1849029538c5fe7c0d0",
+      "checked_at_utc": "2026-10-17T15:36:54.757249+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/gate_logs/stress.log",
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-17T15:36:56.230817+00:00"
+    }
+  ],
+  "runtime_scope": "Evidence-only timeout/retry; no runtime, workflow, generation or new artwork. Source F remains integrated; Dev retry not yet green.",
+  "acceptance": "None granted; all formal/source-newuse/device/child/owner/global closure remain open."
+}
