@@ -66,5 +66,42 @@
   ],
   "runtime_tests": "No runtime edits in this audit checkout. Current runtime candidate separately passed unchanged82local and606native; exact-head remoteCI observation is separate.",
   "acceptance": "No formalQA11/device/child/owner, strict2Dzero or whole-game acceptance.",
-  "actual_staged_committed_2d": "Bound by final receipt metadata after exact operations."
+  "actual_staged_committed_2d": "Bound by final receipt metadata after exact operations.",
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=801|LEDGER=801|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "d9cde98ab5cdb5e79aa0fa797ea10e55f66da549bd5b2025ead1defa1f5cd4d8",
+      "checked_at_utc": "2026-10-17T13:26:06.707295+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T13:26:16.948230+00:00"
+    }
+  ],
+  "payload_actual_staged_2d": {
+    "log": "CANONICAL_STAGED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  },
+  "payload_actual_committed_2d": {
+    "revision": "d7f12689400673795555cfc121f7b78495d2f2c2",
+    "log": "CANONICAL_COMMITTED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  }
 }
