@@ -2579,3 +2579,5 @@ CHG-106 delivery: `f6ffa4c54340818c88366cec2763a74beadaf30c`; 31 direct required
 ## Painted pan actual source publication — CHG-107
 
 [R98](../docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/README.md) reconciles current registry/scene/tally to actual runtimecommit`ce05d4d38636fefc82af1172153c7f4d6119b562`. Current82probe-by-probe PASS, source/import/normal-save guards unchanged; original fullCI failure preserved.181required source files/40949356bytes anonymously exact. SourceCI39079175770running; no restart, Dev/formalQA11/device/child/owner pending. Existing artifact, frame and unknown-denominator totals unchanged;0new generation/removals. [Impact](../design/audit_impacts/flat-vector-geologist-pan-source-publication-20261017.json).
+
+CHG-107 delivery: `b304633d55619568a844371493c102a929f3f90f`; 27 direct required files / 6698570 bytes anonymously exact at 2026-10-17T23:34:35.115823+00:00. Actual runtime source/local82/181file receipt verified; sourceCI and Dev/formal/physical acceptance remain separate.
