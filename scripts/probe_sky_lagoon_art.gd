@@ -553,6 +553,13 @@ func _highlight_contract() -> bool:
 					* (tip_local as Vector2)
 				if _point_rect_distance(tip_screen, target_bounds) > 4.0:
 					return false
+		elif target_id == "castle_gate":
+			var material: ShaderMaterial = highlight.material as ShaderMaterial
+			if material == null or material.shader == null \
+					or material.shader.resource_path \
+						!= "res://shaders/lagoon_castle_entrance_outline.gdshader" \
+					or alpha > 0.50:
+				return false
 		elif alpha > 0.06:
 			return false
 		if target_id != "castle_gate" \

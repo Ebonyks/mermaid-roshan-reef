@@ -737,6 +737,14 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 		glow.texture = load(highlight_path) as Texture2D
 		if glow.texture != null and highlight_height > 0.0:
 			glow.scale = Vector2.ONE * (highlight_height / glow.texture.get_height())
+		if kind == "castle":
+			# Keep the authored open hall readable through selection. The source
+			# door mask supplies only its perimeter, never an opaque red fill.
+			var entrance_material := ShaderMaterial.new()
+			entrance_material.shader = preload(
+				"res://shaders/lagoon_castle_entrance_outline.gdshader")
+			glow.material = entrance_material
+			glow.set_meta("focus_cue_role", "open_entrance_outline")
 	elif node is Sprite2D:
 		var source := node as Sprite2D
 		glow.texture = source.texture
@@ -748,6 +756,8 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 	# use a nearly invisible shimmer; selection raises the same pixels briefly.
 	idle_tint.a = minf(idle_tint.a,
 		0.055 if kind == "playground" else 0.10)
+	if kind == "castle":
+		idle_tint = Color(1.0, 0.86, 0.48, 0.45)
 	glow.modulate = idle_tint
 	glow.visible = true
 	glow.z_index = node.z_index + 4
@@ -848,6 +858,10 @@ func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 			else:
 				tint.a = minf(tint.a, 0.055)
 		glow.modulate = tint
+		if String(target.get("id", "")) == "castle_gate":
+			glow.modulate = Color(1.0, 0.86, 0.48,
+				lerpf(0.82, 0.95, wave * 0.5 + 0.5) if selected
+				else lerpf(0.30, 0.50, wave * 0.5 + 0.5))
 		var pulse: float = 1.0 + wave * Affordance.pulse_amount(kind, selected)
 		var base_scale: float = float(target.get("highlight_scale", 1.0))
 		if String(glow.get_meta("focus_cue_role", "")) \

@@ -64,6 +64,8 @@ active-fact checks; do not hand-copy its counts into planning rules.
 
 
 <!-- AUDIT_TASK_INDEX_START -->
+Owner-requested [open castle entrance](../design/audit_impacts/castle-open-entrance-20261017.json) (2026-10-17) replaces the closed red Sky Lagoon door/fill with a local authored open hall and subtle gold perimeter cue. Approved exterior pixels and original sources remain unchanged. Exact new machine/display evidence and device/child/owner gaps are recorded in the impact; `MA-VIS-006` remains open.
+
 
 Owner-reported 2026-10-15 [doorframe restoration](../design/audit_impacts/restore-doorframes-20261015.json) recovers the unmerged `10ddff27` painted-frame cues onto current dev, preserving later attention feedback. Exact local verification passes all 82 trusted probes after the unchanged 96-frame interaction binding is revalidated; the initial failed gate is preserved. Remote CI/integration and authoritative visual/device/child/owner acceptance remain separate; no finding closure or game-wide satisfaction is claimed.
 
