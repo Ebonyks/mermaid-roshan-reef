@@ -1,0 +1,18 @@
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "-m", "gdtoolkit.parser", "scripts/castle_career_routes.gd", "scripts/opera_house_venue_2d.gd", "scripts/probe_opera.gd", "scripts/probe_throne.gd", "scripts/collection_system.gd"]
+EXIT 0
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/lint_inference.py", "scripts/castle_career_routes.gd", "scripts/opera_house_venue_2d.gd", "scripts/probe_opera.gd", "scripts/probe_throne.gd", "scripts/collection_system.gd"]
+EXIT 0
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/audit_document_authority.py"]
+DOCAUTH|INVENTORY=706|LEDGER=706|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+EXIT 0
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/audit_development.py", "--base", "auto"]
+AUDITDEV|BASE|39b0e158db7de3d0c178c4444f97c04fda75bec5
+AUDITDEV|RESULT|ALL OK
+EXIT 0
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/record_owner_decision.py", "--check", "--base", "origin/dev"]
+DECISIONS|COUNT|46
+DECISIONS|RESULT|ALL OK
+EXIT 0
+COMMAND ["git", "diff", "--cached", "--check"]
+EXIT 0

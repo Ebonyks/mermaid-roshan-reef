@@ -1,0 +1,161 @@
+{
+  "id": "remove-opera-anteroom-20261017",
+  "scope": "Owner-requested removal of the pictured stage/footlights entry room from the reachable Opera flow. Enter the existing three-floor main foyer immediately, return there from careers, and use one Back to reach the Castle Main Hall. Preserve the logical opera_hall route ID, themed career ownership, source artwork and save fields. Includes a baseline-reproduced Royal Hall probe setup correction required by the regression gate, preserving real viewport walking and all original assertions. Includes a documented temporary-checkout junction incident and exact source recovery: 19,151 tracked files restored from the pre-incident commit, all 740 protected binaries match their exact raw Git blobs, and the review setup now uses ordinary private files. No art substitution/recompression or save change is shipped.",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-12",
+    "DL-UI-05",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-07",
+    "DL-ASSET-03"
+  ],
+  "findings": [
+    "MA-OPERA-012"
+  ],
+  "files": [
+    "scripts/castle_career_routes.gd",
+    "scripts/opera_house_venue_2d.gd",
+    "scripts/probe_opera.gd",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/remove_opera_anteroom_20261017/owner_request.json",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/remove_opera_anteroom_20261017/focused.log",
+    "audit/remove_opera_anteroom_20261017/focused.json",
+    "audit/remove_opera_anteroom_20261017/full_ci.log",
+    "audit/remove_opera_anteroom_20261017/full_ci.json",
+    "audit/remove_opera_anteroom_20261017/display.json",
+    "audit/remove_opera_anteroom_20261017/display.gd.txt",
+    "audit/remove_opera_anteroom_20261017/display.log",
+    "audit/remove_opera_anteroom_20261017/ai_bridge.json",
+    "audit/remove_opera_anteroom_20261017/ai_display.json",
+    "audit/remove_opera_anteroom_20261017/ai_editor.log",
+    "audit/remove_opera_anteroom_20261017/ai_restart.py.txt",
+    ".gitattributes",
+    "audit/remove_opera_anteroom_20261017/ci_wrapper_timeout.json",
+    "audit/remove_opera_anteroom_20261017/ci_wrapper_timeout.log",
+    "audit/remove_opera_anteroom_20261017/baseline_throne.log",
+    "audit/remove_opera_anteroom_20261017/baseline_throne.json",
+    "audit/remove_opera_anteroom_20261017/baseline_throne_300.json",
+    "audit/remove_opera_anteroom_20261017/baseline_throne_300.log",
+    "audit/remove_opera_anteroom_20261017/baseline_throne_120.json",
+    "audit/remove_opera_anteroom_20261017/baseline_throne_120.log",
+    "scripts/probe_throne.gd",
+    "audit/remove_opera_anteroom_20261017/fixed_throne_normal.json",
+    "audit/remove_opera_anteroom_20261017/fixed_throne_normal.log",
+    "audit/remove_opera_anteroom_20261017/fixed_throne_120.json",
+    "audit/remove_opera_anteroom_20261017/fixed_throne_120.log",
+    "audit/remove_opera_anteroom_20261017/throne_recheck.py.txt",
+    "audit/remove_opera_anteroom_20261017/readiness_only_throne_120.json",
+    "audit/remove_opera_anteroom_20261017/readiness_only_throne_120.log",
+    "audit/remove_opera_anteroom_20261017/readiness_only_throne_normal.json",
+    "audit/remove_opera_anteroom_20261017/readiness_only_throne_normal.log",
+    "audit/remove_opera_anteroom_20261017/finalize_verification.py.txt",
+    "audit/remove_opera_anteroom_20261017/chapter2_recheck.json",
+    "audit/remove_opera_anteroom_20261017/chapter2_recheck.log",
+    "audit/remove_opera_anteroom_20261017/chapter2_recheck.py.txt",
+    "audit/remove_opera_anteroom_20261017/chapter2_classifier_original.json",
+    "audit/remove_opera_anteroom_20261017/chapter2_classifier.py.txt",
+    "audit/remove_opera_anteroom_20261017/verbs_recheck.json",
+    "audit/remove_opera_anteroom_20261017/verbs_recheck.log",
+    "audit/remove_opera_anteroom_20261017/verbs_recheck.py.txt",
+    "audit/remove_opera_anteroom_20261017/ci_worker.json",
+    "audit/remove_opera_anteroom_20261017/local_verification.json",
+    "audit/remove_opera_anteroom_20261017/final_gates.log",
+    "audit/remove_opera_anteroom_20261017/source_asset_recovery.json",
+    "audit/remove_opera_anteroom_20261017/protected_asset_recovery.json",
+    "audit/remove_opera_anteroom_20261017/review_link_detach.json",
+    "audit/remove_opera_anteroom_20261017/recovered_paths.nul",
+    "audit/remove_opera_anteroom_20261017/source_recover.py.txt",
+    "audit/remove_opera_anteroom_20261017/protected_recover_check.py.txt",
+    "audit/remove_opera_anteroom_20261017/review_detach.py.txt",
+    "audit/remove_opera_anteroom_20261017/ordinary_import.py.txt",
+    "audit/remove_opera_anteroom_20261017/setup_failure_integration_probe_collection.log",
+    "audit/remove_opera_anteroom_20261017/setup_failure_integration_probe_opera.log",
+    "audit/remove_opera_anteroom_20261017/setup_failure_integration_probe_throne.json",
+    "audit/remove_opera_anteroom_20261017/setup_failure_integration_probe_throne.log",
+    "audit/remove_opera_anteroom_20261017/setup_failure_setup_failure.json",
+    "audit/remove_opera_anteroom_20261017/source_recovery_incident.json",
+    "audit/remove_opera_anteroom_20261017/integration_preincident_import.json",
+    "audit/remove_opera_anteroom_20261017/integration_preincident_import.log",
+    "audit/remove_opera_anteroom_20261017/integration_import.json",
+    "audit/remove_opera_anteroom_20261017/integration_import.log",
+    "audit/remove_opera_anteroom_20261017/integration_gates.log",
+    "audit/remove_opera_anteroom_20261017/integration_verification.json",
+    "audit/remove_opera_anteroom_20261017/integration_verify.py.txt",
+    "audit/remove_opera_anteroom_20261017/integration_probe_opera.json",
+    "audit/remove_opera_anteroom_20261017/integration_probe_opera.log",
+    "audit/remove_opera_anteroom_20261017/integration_probe_collection.json",
+    "audit/remove_opera_anteroom_20261017/integration_probe_collection.log",
+    "audit/remove_opera_anteroom_20261017/integration_probe_throne.json",
+    "audit/remove_opera_anteroom_20261017/integration_probe_throne.log"
+  ],
+  "validation": [
+    {
+      "command": "python -X utf8 -B -m gdtoolkit.parser scripts/castle_career_routes.gd scripts/opera_house_venue_2d.gd scripts/probe_opera.gd; python -X utf8 -B tools/lint_inference.py scripts/castle_career_routes.gd scripts/opera_house_venue_2d.gd scripts/probe_opera.gd",
+      "result": "PASS",
+      "evidence": "Both processes exited 0; gameplay hashes are frozen in focused.json."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "final_gates.log records final parser/lint for all four changed GD files, authority and audit-development coverage, owner append-only validation and staged whitespace check. Initial native CI separately retains successful static/import/art/audio checks."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless --path . -s scripts/probe_opera.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "audit/remove_opera_anteroom_20261017/focused.json and focused.log: exit 0 in 162.337 seconds, ALL OK, no source drift; direct entry, single-Back exit, dev menu, all career lifecycle and save/reward invariants."
+    },
+    {
+      "command": "scripts/ci.sh through Windows Python wrapper tmp/remove_opera_full_ci.sh",
+      "result": "FAIL",
+      "evidence": "Initial native scripts/ci.sh completed every static/import/art/audio gate and all 82 probes, exiting 1 for the baseline-reproduced probe_throne setup failure, the unchanged probe_verbs suspended-idle range failure, and probe_chapter2 exit 127 before its verdict. ci_worker.json/full_ci.log preserve this red run. full_ci.json/ci_wrapper_timeout.json preserve the separate outer-launcher timeout. Neither failure is rewritten as a monolithic pass; final source-bound per-probe verification is recorded separately."
+    },
+    {
+      "command": "Displayed 1280x720 Mobile diagnostic preview",
+      "result": "PASS",
+      "evidence": "audit/remove_opera_anteroom_20261017/display.json, display.gd.txt and display.log. Exact Godot 4.7.2 official ed1daf0bf, mobile renderer, opera_venue top route, venue open. Root agent inspected the rendered capture: existing three-floor main foyer, no pictured stage/footlights room. Isolated MermaidReef-OperaRemovalReview-20261017 profile. This is diagnostic desktop evidence only."
+    },
+    {
+      "command": "Refresh Godot AI connection",
+      "result": "PASS",
+      "evidence": "Initial chat-tool namespace disappearance and two Windows-helper timeouts are retained. Native local recovery restarted the isolated Godot editor and Godot AI v3.1.5, armed its existing debugger run tracker, then launched its main scene. ai_editor.log records server connection and accepted game_helper beacon for r50433-1. ai_bridge.json reports status=live, ready=true, helper_live=true and session_active=true. ai_display.json verifies debugger_active=true, mobile, opera_venue open; root visually inspected the exact new editor-launched capture. The temporary bootstrap removed itself. Chat tool namespace remains unexposed to this model; no successful tool invocation is claimed. Real gameplay saves remain untouched in a separate review profile."
+    },
+    {
+      "command": "82 trusted probes: original passing 79, corrected probe_throne at normal/fixed 120fps cadence, and unchanged native Chapter Two/verb reruns",
+      "result": "PASS",
+      "evidence": "audit/remove_opera_anteroom_20261017/local_verification.json. All original five-mist, exact spoken-feedback and no-award assertions remain; bounded real viewport walking waits for the complete culled gate and natural completion of the room greeting. Baseline and readiness-only failures are preserved with exact source hashes. Chapter Two is unchanged and reruns directly with native exit 0 and a complete final verdict; its initial exit 127 remains preserved. This is per-probe verification, not a claim that the initial native suite passed."
+    },
+    {
+      "command": "Exact tracked-source restoration and protected-binary verification after temporary sparse-checkout junction incident",
+      "result": "PASS",
+      "evidence": "source_recovery_incident.json, source_asset_recovery.json (19,151 restored, zero source diff), protected_asset_recovery.json (740 raw binary Git blobs, zero mismatches), recovered_paths.nul (literal hashed path manifest), review_link_detach.json (34 removed links, zero remaining). Aborted setup transcripts and preincident import remain separate; ordinary-checkout import and focused rerun must pass before acceptance. No new gameplay finding or lifecycle closure is fabricated for this process incident."
+    },
+    {
+      "command": "Reconcile latest origin/dev in isolated checkout; exact-engine import and Opera/collection/throne focused integration probes; merged parser/lint, authority, coverage, owner append-only and whitespace gates",
+      "result": "PASS",
+      "evidence": "integration_import.json/.log, integration_probe_*.json/.log, integration_verification.json and integration_gates.log. Preserve upstream painted butterfly tab and mipmaps. The source-folder junction incident, exact 19,151-file restoration, raw verification of all 740 protected binaries, and aborted setup transcripts are retained separately; this rerun uses ordinary private files and cache. Full published exact-head CI must pass before dev integration."
+    }
+  ],
+  "acceptance_gaps": "Authoritative visual, target-device, child and owner acceptance remain open. Local source-bound per-probe verification passes all 82 after the baseline-reproduced throne harness correction and unchanged Chapter Two/verb native reruns; the initial red monolithic suite and launcher timeout are preserved. Exact published-head CI/integration remain separate. Local Godot AI plugin/game is verified live and left in the main foyer; chat tool exposure remains outside local recovery. MA-OPERA-012 lifecycle and game-wide UNSATISFIED remain unchanged. Source artwork, route/save identity and original Royal Hall production behavior are preserved.",
+  "verification_investigation": {
+    "scope": "A baseline-identical replay at controlled 120fps reproduces all three original five-mist failures: the probe stops at a clipped doorway with only three wisps inside the horizontal culling band. The bounded real floor-tap setup now continues until all five are visible. Production Royal Hall code/art and every five-card, locked-feedback and no-award assertion are unchanged. The 300fps diagnostic also exposes a separate finite walk-time limit and is not used as acceptance evidence. A readiness-only trial passes all five-mist assertions at 120fps but still reproduces the baseline spoken-feedback failure: fast walking reaches the gate while the room greeting owns the serial speech channel. The probe additionally waits at most 10 real seconds for natural voice-pool idleness before its separate tap/voice-increment assertion; no voice is stopped, replaced, muted or synthesized and the original exact-response assertion remains.",
+    "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "related_finding_reason": "No new gameplay finding is fabricated: the Royal Hall builder and throne probe are unchanged from the task baseline. MA-OPERA-012 remains the primary routing relation, with no lifecycle closure.",
+    "required_evidence": "Actual baseline replay, exact source bindings, viewport/readiness diagnosis, preserved initial failure, and any bounded routed-touch harness repair rechecked without lowering assertions.",
+    "baseline_result": "Ordinary unchanged baseline PASS; unchanged baseline at fixed 120fps reproduces the three original five-mist failures plus spoken-feedback timing (4 total). Its original source hashes, exact command, elapsed time and all reported failures are preserved in baseline_throne_120.json/.log. The 300fps diagnostic exceeds the existing finite walking budget and fails to reach the door; it is retained explicitly, not represented as a five-mist reproduction or acceptance pass.",
+    "chapter2": "The final native exit inventory also finds unchanged probe_chapter2 exit 127 after successful career_11 reboot assertions and before a final verdict. Its source and production files remain unchanged. A separate direct native-process rerun must exit 0 with the complete final verdict before per-probe verification can pass. No cause or gameplay defect is inferred from the incomplete exit alone.",
+    "verbs": "The full failure-regex inventory also catches the unchanged verb probe suspended-idle range assertion (0.0307 observed vs unchanged 0.04 minimum). A direct unchanged rerun passes with native exit 0, no failure tokens, full authored-frame checks and its complete final marker. Both transcripts and exact source hashes are preserved. No idle animation fix, test edit, threshold reduction or defect closure is claimed; this original timing-sensitive result remains an explicit verification limit.",
+    "source_recovery": "Unexpected sparse-checkout cleanup followed temporary source-folder junctions. Recovery and responsibility are explicit in source_recovery_incident.json; exact canonical restoration and 740 protected raw-byte checks pass. The new review setup has no source/cache junctions; no initial incomplete-fixture result is used as acceptance."
+  }
+}

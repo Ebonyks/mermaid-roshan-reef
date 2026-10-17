@@ -1,0 +1,24 @@
+from pathlib import Path
+import os,json
+root=Path(__file__).resolve().parents[1]
+work=root/'tmp/opera_foyer_verified_integration'
+assert work.resolve().is_relative_to(root/'tmp')
+removed=[]
+for current,dirs,files in os.walk(work,topdown=True,followlinks=False):
+    for name in list(dirs):
+        path=Path(current)/name
+        if path.is_junction() or path.is_symlink():
+            assert path.absolute().is_relative_to(work)
+            destination=str(path.resolve())
+            if path.is_junction():os.rmdir(path)
+            else:path.unlink()
+            dirs.remove(name)
+            removed.append({'review_link':str(path.relative_to(work)),'source_target':destination,'operation':'remove link object only; source target untouched'})
+remaining=[]
+for current,dirs,files in os.walk(work,topdown=True,followlinks=False):
+    for name in list(dirs):
+        path=Path(current)/name
+        if path.is_junction() or path.is_symlink():remaining.append(str(path));dirs.remove(name)
+assert not remaining
+(root/'tmp/opera_review_detach.json').write_text(json.dumps({'status':'ALL_SOURCE_FOLDER_LINKS_REMOVED','links':removed,'remaining':remaining},indent=2)+'\n')
+print(json.dumps({'removed_folder_links':len(removed),'remaining':0}))
