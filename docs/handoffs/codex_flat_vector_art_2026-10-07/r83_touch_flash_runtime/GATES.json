@@ -1,0 +1,129 @@
+{
+  "status": "PASS_LOCAL_CI02_NATIVE_AND_METADATA_ONLY",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "full_ci": "full_ci_02/FULL_CI_RESULT.json",
+  "full_ci_log_sha256": "2238ebc2c5efcb54934c16d06195bd021662ccd59644ac037ac2e7a848892572",
+  "full_ci_zero_exits": 82,
+  "native_cases": 2,
+  "native_checks": 60,
+  "native_frames": 23,
+  "native_lifecycles": 4,
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/touch_ui.gd"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/changed_parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-17T04:30:47.529784+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/touch_ui.gd"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/changed_inference.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-17T04:30:49.445769+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/doc_authority.log",
+      "sha256": "8abe14d0b60da35e8867c7ebad46af372e4f3368aa3ba0747da86337b9aa2bd4",
+      "checked_at_utc": "2026-10-17T04:31:01.811990+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/doc_development.log",
+      "sha256": "d95290b1cdd6d0543f96700a87d24ed2358ab752613e7dc0adf02b770db8b61d",
+      "checked_at_utc": "2026-10-17T04:31:08.094231+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/doc_units.log",
+      "sha256": "9b45a7aafc2ba3f3057d289aff9edca03607ead0be172e8e71ddb6ec0d3756d7",
+      "checked_at_utc": "2026-10-17T04:31:24.083016+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/doc_stress.log",
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-17T04:31:26.086832+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/game_2d.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "checked_at_utc": "2026-10-17T04:32:20.562615+00:00"
+    }
+  ],
+  "failed_attempts": "full_ci_01 and failed_preimport_attempt preserved; focused original marker-reader issue and exact-verdict reconciliation preserved",
+  "machine_limits": "Headless visual probe skips capture; strict2D remains UNSATISFIED despite NO_REGRESSION. No human/QA11/device/child/owner acceptance or dev integration.",
+  "actual_staged_and_committed_2d": "Required separately at sealed index/commit; recorded after those exact operations.",
+  "raw_log_transport_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=705|LEDGER=705|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "8abe14d0b60da35e8867c7ebad46af372e4f3368aa3ba0747da86337b9aa2bd4",
+      "checked_at_utc": "2026-10-17T04:38:46.627362+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|dd799b2d43871b29d1d6e0503646308a194dad1e\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "d95290b1cdd6d0543f96700a87d24ed2358ab752613e7dc0adf02b770db8b61d",
+      "checked_at_utc": "2026-10-17T04:38:49.454711+00:00"
+    }
+  ]
+}

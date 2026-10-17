@@ -1075,3 +1075,5 @@ release/device/child/owner authority retain precedence.
 | `audit/cycles/luna-playtest-20261012/REPAIR_GUIDE.md` | 🔵 | `SUPPORTING_CURRENT`; Proposed priority stages for input/progress repairs, tactile feedback, timing, replay and actual device/child acceptance. |
 | `audit/cycles/luna-playtest-20261012/PLAYTEST_GUIDE.md` | 🔵 | `SUPPORTING_CURRENT`; Bounded normal-route activity plans and touch/timing/replay worksheet; proposed device/child observations, no fabricated play result or chapter acceptance. |
 | `audit/cycles/luna-playtest-20261012/TIMING_SUMMARY.md` | 🔵 | `SUPPORTING_CURRENT`; Unchanged advisory pacing attempt: 12/45 complete, 3 capped, 30 unsupported; synthetic timing only, no child duration/fun or universal timing floor. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/README.md` | 🔵 | `SCOPED_RUNTIME_TRIAL`; actual dev-based TouchUI painted-ring trial with immutable R81/R82 context/reuse provenance, exact source/machine/native evidence, pending neutral-touch meaning/QA11/device/child/owner acceptance; no global completion or finding closure. |

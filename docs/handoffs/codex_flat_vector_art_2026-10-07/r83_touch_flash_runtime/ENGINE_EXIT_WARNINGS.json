@@ -1,0 +1,14 @@
+{
+  "messages": [
+    "WARNING: 12 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "ERROR: 6 resources still in use at exit (run with --verbose for details).",
+    "WARNING: 16 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "ERROR: 8 resources still in use at exit (run with --verbose for details).",
+    "WARNING: 42 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "ERROR: 6 resources still in use at exit (run with --verbose for details)."
+  ],
+  "retained_in_full_log": true,
+  "existing_trusted_gate_exit": 0,
+  "no_probe_failure_waiver": true,
+  "assessment": "Existing trusted shell passes all82process/verdict/error-pattern gates; these shutdown resource messages remain unresolved. No claim of zero resource leaks, whole-game lifecycle satisfaction or device performance. No baseline cause or ring causation inferred."
+}

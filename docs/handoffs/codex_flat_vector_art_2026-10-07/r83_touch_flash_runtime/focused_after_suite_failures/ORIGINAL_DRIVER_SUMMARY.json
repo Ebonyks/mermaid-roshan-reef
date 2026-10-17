@@ -1,0 +1,116 @@
+{
+  "status": "PASS_FOCUSED_ONLY",
+  "original_full_suite_exit_code": 1,
+  "original_nonzero_probes": [
+    {
+      "probe": "probe_melody",
+      "exit_code": 127
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "exit_code": 127
+    }
+  ],
+  "reruns": [
+    {
+      "probe": "probe_melody",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_melody.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 30.511,
+      "log_sha256": "df6c1517731e875eecf8ee3eefabad93cef796d2bec0995a54c4a5040cf4b31e",
+      "source_sha256": "27195d2f943b4b71d74225cd5ac743e4bf209557a861bb43b43156b7dda01f02",
+      "runtime_pin_sha256": "702a6832dbfd9d0b3a18d3e234a2aab81b7b7558d270795b129ddea0790d67b0",
+      "error_or_FAIL": false,
+      "has_positive_verdict": true,
+      "normal_before": {
+        "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+        ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+        ".tmp": "absent",
+        ".tmp0": "absent",
+        ".tmp1": "absent",
+        ".old": "absent",
+        ".bak.tmp": "absent",
+        ".bak.old": "absent",
+        ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+        ".before_new_game.tmp": "absent",
+        ".before_new_game.old": "absent"
+      },
+      "normal_after": {
+        "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+        ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+        ".tmp": "absent",
+        ".tmp0": "absent",
+        ".tmp1": "absent",
+        ".old": "absent",
+        ".bak.tmp": "absent",
+        ".bak.old": "absent",
+        ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+        ".before_new_game.tmp": "absent",
+        ".before_new_game.old": "absent"
+      },
+      "source_pin_exact": true,
+      "scope": "Original trusted source/mode, direct native Python launcher instead of MSYS timeout; focused diagnostic only, not a clean full-suite claim."
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_l2_living_cards.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 8.392,
+      "log_sha256": "921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4",
+      "source_sha256": "30be04d818f8983276ff36341e566285fb480c391a1e06ab85c51e5bc66ed2c7",
+      "runtime_pin_sha256": "702a6832dbfd9d0b3a18d3e234a2aab81b7b7558d270795b129ddea0790d67b0",
+      "error_or_FAIL": false,
+      "has_positive_verdict": false,
+      "normal_before": {
+        "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+        ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+        ".tmp": "absent",
+        ".tmp0": "absent",
+        ".tmp1": "absent",
+        ".old": "absent",
+        ".bak.tmp": "absent",
+        ".bak.old": "absent",
+        ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+        ".before_new_game.tmp": "absent",
+        ".before_new_game.old": "absent"
+      },
+      "normal_after": {
+        "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+        ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+        ".tmp": "absent",
+        ".tmp0": "absent",
+        ".tmp1": "absent",
+        ".old": "absent",
+        ".bak.tmp": "absent",
+        ".bak.old": "absent",
+        ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+        ".before_new_game.tmp": "absent",
+        ".before_new_game.old": "absent"
+      },
+      "source_pin_exact": true,
+      "scope": "Original trusted source/mode, direct native Python launcher instead of MSYS timeout; focused diagnostic only, not a clean full-suite claim."
+    }
+  ],
+  "original_failures_preserved": true,
+  "root_cause": "UNKNOWN; both original127exits had only engine banner/no assertion verdict. Do not infer infrastructure or application cause from reruns.",
+  "clean_full_suite_required": true,
+  "checked_at_utc": "2026-10-17T03:32:21.049727+00:00"
+}

@@ -1,0 +1,273 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+MELODY|OK|probe save is distinct from the child's normal save
+MELODY|OK|normal primary, backup, and every recovery sidecar are fingerprinted before boot
+MELODY|OK|stale probe-only save artifacts are removed
+MELODY|OK|approved Sky Lagoon v5 master is exact native 6144x2048
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+MELODY|OK|four exact lossless center tiles reconstruct one native 2048x2048 screen
+MELODY|OK|POT background tiles use bounded VRAM import without mip overfetch
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/characters/stickers/daddy.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:481)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/opera/worlds/actors/roshan_popstar.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:482)
+       [1] _run (res://scripts/probe_melody.gd:134)
+MELODY|OK|approved Daddy sticker remains exact protected 750x1024 art
+MELODY|OK|approved Opera popstar Roshan remains exact 512x512 art
+MELODY|OK|NPOT Daddy avoids forbidden VRAM mode and POT Roshan is mobile-compressed
+MELODY|OK|all reused background/actor/voice families retain repository provenance
+MELODY|OK|exact non-reader objective voice is present and immutable
+MELODY|OK|Daddy Mermaid owns the sole Melody friend route at the canonical slot
+MELODY|OK|fresh isolated save starts Daddy and Melody unawarded
+MELODY|OK|shared success chime exposes a restorable volume and pitch baseline
+MELODY|OK|direct Daddy launch synchronously enters Melody
+MELODY|ENTRY_FACTS|active_layers=1|direct_before=28|direct_now=29|only_layer_or_touch_fx_added=true|layer=7|pause_layer=12
+MELODY|OK|entry owns exactly one Canvas layer below the pause sheet
+MELODY|OK|Canvas theater exposes every stable stage, note, and progress node
+MELODY|OK|Canvas theater has the exact typed surface tree with no unknown occluder
+MELODY|OK|Melody adds no spatial descendants or hidden game-node authority
+MELODY|OK|runtime binds the exact four native center tiles once in 2x2 order
+MELODY|OK|runtime four-tile transforms are seam-free and cover the phone viewport
+MELODY|OK|attached note geometry exposes all seven ordered colors and the draw path binds the same source color
+MELODY|OK|stage has no failure state, countdown, or passive completion path
+MELODY|OK|opaque Canvas preserves Reef position/environment while owning controls
+MELODY|OK|Daddy entry sends the exact target+verb objective and voice exactly once
+MELODY|OK|requested voice resolves to the exact immutable OGG
+MELODY|OK|entry starts under the production reveal fade
+MELODY|OK|quick press and release wholly under fade make no progress
+MELODY|OK|shared objective text remains semantic state occluded below the opaque stage
+MELODY|OK|opening non-reader objective is carried by the sole live attached visual pointer
+MELODY|OK|fade tap release clears its neutral latch before fresh input
+MELODY|OK|first fresh green tap after a swallowed fade tap scores exactly once
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/characters/stickers/daddy.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/opera/worlds/actors/roshan_popstar.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+MELODY|OK|live Canvas binds only four tiles, Daddy, and Roshan exactly once each
+MELODY|OK|unique live texture census stays within conservative decoded and declared-upload bounds
+MELODY|LAYOUT_FACTS|standard={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 720.0)], "proscenium_rect": [P: (24.0, 18.0), S: (1232.0, 684.0)], "proscenium_coverage": 0.44455555555556, "footlights_rect": [P: (134.88, 524.4), S: (1010.24, 48.0)], "stage_star_rect": [P: (332.0, 33.0), S: (104.0, 104.0)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|actual proscenium polygons visibly dominate the 1280x720 stage
+MELODY|OK|actual Daddy and Roshan alpha bounds are readable at 1280x720
+MELODY|OK|actual note, hit envelope, green zone, and pointer are readable at 1280x720
+MELODY|OK|pointer is exactly one attached arrow, line, target, and two rings with no custom-draw duplicate
+MELODY|OK|actual four-tile Canvas transforms cover 1280x720 seam-free
+MELODY|LAYOUT_FACTS|tall={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 800.0)], "proscenium_rect": [P: (24.0, 20.0), S: (1232.0, 760.0)], "proscenium_coverage": 0.42933333333333, "footlights_rect": [P: (134.88, 536.0), S: (1010.24, 53.33331)], "stage_star_rect": [P: (326.2222, 36.66666), S: (115.5555, 115.5556)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|Canvas reflows to the target 1280x800 M11 phone aspect
+MELODY|OK|1280x800 reflow preserves the same live stage and note semantics
+MELODY|LAYOUT_FACTS|restored={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 720.0)], "proscenium_rect": [P: (24.0, 18.0), S: (1232.0, 684.0)], "proscenium_coverage": 0.44455555555556, "footlights_rect": [P: (134.88, 524.4), S: (1010.24, 48.0)], "stage_star_rect": [P: (332.0, 33.0), S: (104.0, 104.0)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|1280x720 restore needs no rebuild and retains readable geometry
+MELODY|TICK_FACTS|game_delta=0.01666666666667|elapsed_delta=0.01666666666667|reported_frame_delta=0.02222222222222|tick_delta=1
+MELODY|OK|one rendered frame produces exactly one Melody controller tick
+MELODY|OK|shared ranking clock advances by exactly the one delivered frame delta
+MELODY|OK|runtime motion consumes that same frame delta exactly once
+MELODY|OK|early note tap makes no progress and carries no penalty
+MELODY|OK|wrong-point fixture is outside the active hit and pause zones
+MELODY|OK|wrong-point tap in the green window makes no progress or fail state
+MELODY|OK|one complete passive miss recycles forever without progress or penalty
+MELODY|OK|early held touch is down but never armed
+MELODY|OK|holding from early into green cannot smuggle a hit
+MELODY|OK|touch press reaches the held controller before pause
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held touch neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong sources cannot clear or score the touch held across pause
+MELODY|OK|held touch release after pause cannot score
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|the original source may clear its own neutral latch while still paused
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|first fresh gesture after an in-pause lift scores exactly once
+MELODY|OK|keyboard press reaches the same held controller
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held keyboard neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong key, device, and pad releases cannot clear paused Space
+MELODY|OK|held keyboard release after pause cannot score
+MELODY|OK|only the exact keyboard owner may finish an armed note
+MELODY|OK|fresh keyboard press/release scores exactly one note
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held pad action neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong pad button, device, and key cannot clear paused pad A
+MELODY|OK|held pad release after pause cannot score
+MELODY|OK|only the exact pad owner may finish an armed note
+MELODY|OK|fresh pad press/release scores exactly one note
+MELODY|OK|controller disconnect neutralizes only its unreleasable held source
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|no-held real pause leaves the controller neutral
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|Android-cancelled touch is neutral and clears only its own source
+MELODY|OK|only the exact touch owner may finish an armed note
+MELODY|OK|first fresh tap after no-held pause scores exactly once
+MELODY|OK|touch source is genuinely held before opening the Sticker overlay
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its visible Sticker Book doorway
+MELODY|OK|real Sticker button opens the higher-layer book without touching progress
+MELODY|OK|overlay traffic cannot clear or score another held touch source
+MELODY|OK|held source release clears neutrally through the higher overlay
+MELODY|OK|Sticker Book uses the sole global Back target
+MELODY|OK|TouchUI routes the sole global Back tap to the Sticker Book
+MELODY|OK|cancelled owner mouse is neutral and clears only its own source
+MELODY|OK|mouse ownership distinguishes device and touch source tokens
+MELODY|OK|first fresh green mouse gesture after Sticker Book scores exactly once
+MELODY|OK|standalone focus loss neutrally forgets the held touch owner
+MELODY|OK|lost focus cannot clear its neutral guard on background frames
+MELODY|OK|matching focus restoration retains the guard until an active tick
+MELODY|OK|first active focus-restored tick needs no missing old release
+MELODY|OK|partial deliberate input reaches exactly six notes before leave
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|LEAVE_FACTS|game=|g_empty=true|active_layers=0|direct_match=true|game_nodes_match=true|controls_match=true|world_controls=true|position_match=true|environment_match=true|track=world|expected_track=world|music_match=true|chime_match=true
+MELODY|OK|neutral pause-menu leave synchronously detaches only Melody
+MELODY|OK|neutral leave awards nothing
+MELODY|OK|closed Melody teardown is synchronously idempotent
+MELODY|OK|neutral teardown frees the complete Canvas subtree
+MELODY|OK|ordinary Reef input populates the complete Melody entry-source census
+MELODY|OK|ordinary non-Melody pause suspends Main while TouchUI stays live
+MELODY|OK|paused terminal touch, mouse, key, and pad releases retire the census
+MELODY|OK|ordinary pause resumes without creating a Melody activity
+MELODY|OK|clean census cannot poison the next Melody entry
+MELODY|OK|ordered context-loss fixture holds a concrete touch owner
+MELODY|OK|focus-out then application-paused tracks both reasons behind one guard
+MELODY|OK|lost context consumes the real touch and mouse Pause-corner target
+MELODY|OK|lost-context touch, mouse, key, and pad presses cannot claim census state
+MELODY|OK|lost-context touch, mouse, key, and pad releases are also inert
+MELODY|OK|resumed alone cannot override the still-lost focus reason
+MELODY|OK|partially restored context still rejects every fresh source press
+MELODY|OK|partially restored context still rejects every terminal release
+MELODY|OK|full ordered restoration keeps a source-free guard until its tick
+MELODY|OK|pre-tick restored presses cannot enter Main census, arm Melody, or score
+MELODY|OK|first restored tick clears only the guard, never preserves pre-tick presses
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|OK|unreleased pre-tick sources cannot poison a neutral Melody leave
+MELODY|OK|pre-tick-source recovery teardown frees its first Canvas subtree
+MELODY|OK|recovery relaunch enters Melody through the production start path
+MELODY|OK|reentry after missing releases has no inherited census or exact owner
+MELODY|OK|different fresh gesture scores exactly once after source-clean reentry
+MELODY|OK|reverse-order context-loss fixture holds a concrete pad owner
+MELODY|OK|application-paused then focus-out also retains both exact reasons
+MELODY|OK|reverse loss ordering also ignores all traffic and forgets its owner
+MELODY|OK|reverse-order terminal traffic cannot mutate the empty census
+MELODY|OK|focus-in alone cannot override the still-paused application reason
+MELODY|OK|reverse full restoration also retains its pre-tick guard
+MELODY|OK|reverse restoration clears the guard on its first active tick
+MELODY|OK|reverse-order different-source touch gesture scores exactly once
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|nested fixture starts with a normal exact-source Pause latch
+MELODY|OK|real Pause accessibility keeps Resume focused for lost-input testing
+MELODY|OK|lost-context presses cannot activate real Resume/Leave or focused actions
+MELODY|OK|lost-context releases also leave real Pause GUI and Melody untouched
+MELODY|OK|full OS restore cannot clear the guard while Pause remains open
+MELODY|OK|real focused ui_accept resumes without clearing the restored context guard
+MELODY|OK|first active unpaused nested-restoration tick clears the guard
+MELODY|OK|fresh pad gesture after nested restoration scores exactly once
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|OK|system-loss recovery stage leaves neutrally with no reward or save progress
+MELODY|OK|system-loss recovery teardown frees its complete Canvas subtree
+MELODY|OK|re-entry replaces the closed stage with one fresh 0-of-7 layer
+MELODY|OK|reset key/pad plus wrong finger/mouse cannot clear the held touch
+MELODY|OK|pre-entry held touch cannot become the first note
+MELODY|OK|ordered note 0 scores once on a fresh touch release
+MELODY|OK|ordered note 1 scores once on a fresh touch release
+MELODY|OK|ordered note 2 scores once on a fresh touch release
+MELODY|OK|ordered note 3 scores once on a fresh touch release
+MELODY|OK|ordered note 4 scores once on a fresh touch release
+MELODY|OK|ordered note 5 scores once on a fresh touch release
+MELODY|OK|seventh ordered note completes without a fail/timer branch
+MELODY|OK|seven fresh direct touch gestures complete red through violet
+MELODY|OK|deliberately slow first win awards one bronze medal and one trophy
+MELODY|OK|bronze upgrade and terminal persistence each write exactly once
+MELODY|WIN_RETURN_FACTS|terminal_position_match=true|environment_match=true|track=world|expected_track=world|music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|expected_music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -14.0, "pitch_scale": 1.0 }
+MELODY|OK|first win restores its exact Reef return context while the shared reward owns fanfare audio
+MELODY|OK|first win synchronously clears Canvas and controls
+MELODY|OK|first-win layer is freed after synchronous detach
+MELODY|OK|replay captures the settled shared-fanfare chime tuning exactly
+MELODY|OK|unrelated key and pad releases preserve both pre-entry action owners
+MELODY|OK|releasing one of two pre-entry owners keeps the other owner blocked
+MELODY|OK|pre-entry held keyboard/pad actions release neutrally
+MELODY|OK|ordered note 0 scores once on a fresh key release
+MELODY|OK|ordered note 1 scores once on a fresh pad release
+MELODY|OK|ordered note 2 scores once on a fresh touch release
+MELODY|OK|ordered note 3 scores once on a fresh touch release
+MELODY|OK|ordered note 4 scores once on a fresh touch release
+MELODY|OK|ordered note 5 scores once on a fresh touch release
+MELODY|OK|seventh ordered note completes without a fail/timer branch
+MELODY|OK|fresh keyboard, pad, and touch presses all complete the replay
+MELODY|OK|fast replay upgrades only the medal and never duplicates first-win reward
+MELODY|OK|gold upgrade and terminal persistence each write exactly once
+MELODY|REPLAY_RETURN_FACTS|terminal_position_match=true|environment_match=true|track=world|expected_track=world|music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|expected_music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|chime_match=true|active_layers=0|controls_match=true
+MELODY|OK|replay restores context and synchronously tears down
+MELODY|OK|replay layer is freed after synchronous detach
+MELODY|OK|normal save and all recovery artifacts retain exact hash/mtime
+MELODY|OK|isolated probe save and recovery artifacts clean up exactly
+MELODY|result: ALL OK

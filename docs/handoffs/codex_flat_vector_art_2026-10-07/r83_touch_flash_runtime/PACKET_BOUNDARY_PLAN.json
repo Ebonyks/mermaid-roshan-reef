@@ -1,0 +1,13 @@
+{
+  "schema": "reef.review_packet_runtime_boundary/1",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "recorded_before_change_at_utc": "2026-10-17T04:30:17.985305+00:00",
+  "reason": "Both existing export presets use all_resources and do not exclude docs. The editor imported23review PNGs. Keep this exact review packet outside production resources with a packet-local .gdignore; do not change production export filters or hide production files.",
+  "rules": [
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-SAVE-05"
+  ],
+  "new_file": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/.gdignore",
+  "source_change": "Audit-only directory boundary; runtime source/callers/asset pixels remain frozen. Exact import and resource-cache/production-reference/raw-source checks follow."
+}
