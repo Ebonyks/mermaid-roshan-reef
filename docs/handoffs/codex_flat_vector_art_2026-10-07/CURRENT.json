@@ -1571,7 +1571,31 @@
     "retained_raw_frames": 128,
     "direct_agent_partial_views": 18,
     "local_full_CI": "82unique trusted probes, all zero; exactGodot4.7.2Mobile/Speedy; guards preserved",
-    "remote_exact_head_CI": "PENDING at reconciliation; original source push is being followed, never restarted",
+    "remote_exact_head_CI": {
+      "status": "PENDING",
+      "runs": [
+        {
+          "conclusion": "",
+          "createdAt": "2026-10-17T17:27:32Z",
+          "databaseId": 39053841472,
+          "event": "pull_request",
+          "headSha": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+          "status": "in_progress",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39053841472",
+          "workflowName": "Probe suite (graphics fork)"
+        },
+        {
+          "conclusion": "",
+          "createdAt": "2026-10-17T17:26:29Z",
+          "databaseId": 39053766039,
+          "event": "push",
+          "headSha": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+          "status": "in_progress",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39053766039",
+          "workflowName": "Probe suite (graphics fork)"
+        }
+      ]
+    },
     "new_generation_calls": 0,
     "new_art_samples": 0,
     "new_roles_or_families": 0,
@@ -1580,6 +1604,11 @@
     "formal_runtime_verified": 0,
     "accepted_removed": 0,
     "acceptance": "Source/new-use, full callers/acquisition, formalQA11/device/child/owner remain open.",
-    "final_receipt_publication": "Separate R91 finalizer is in progress; this credit is bound to the already fully verified source payload."
+    "final_receipt_publication": "Final39b0revision and16own metadata files anonymously byte-verified by the separate producer; draftPR37 attached. Follow its existing exact-head push/PR jobs.",
+    "final_revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+    "pull_request": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/37",
+    "draft": true,
+    "attached_to_chat": true,
+    "final_entry_url": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/39b0e158db7de3d0c178c4444f97c04fda75bec5/docs/handoffs/codex_flat_vector_art_2026-10-07/r91_critter_insect_tab_runtime"
   }
 }
