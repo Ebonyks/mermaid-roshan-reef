@@ -1,0 +1,68 @@
+{
+  "delivery_checks": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r95_geologist_pan_runtime\\capture_pan.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r95_geologist_pan_runtime\\capture_pan.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=808|LEDGER=808|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "664f1d8379b5d992a8d29e178c8c224c371875ebb044c141492f26f3d7793b1e"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|STRESS|6/6\r\n......................................................\r\n----------------------------------------------------------------------\r\nRan 54 tests in 92.587s\r\n\r\nOK\r\n",
+      "sha256": "bb4bd2a0213a497f3f39708217d29f73025513c9e0193619e0d820a524845989"
+    }
+  ],
+  "actual_producer_native": "PASS106CHECKS4CASES16VALID20EXCLUDED",
+  "actual_producer_parser_inference_analyzer": "PASS exactGodot4.7.2; raw launch logs retained",
+  "actual_producer_full_CI": "RUNNING session59912; do not restart",
+  "delivery_branch_runtime_files_changed": false,
+  "engine_repeat_for_bookkeeping": false,
+  "formal_QA11_device_child_owner": "PENDING",
+  "publication": "PENDING",
+  "patch_representation": "Zero-context source patch; native source unchanged. Literal context markers caused the ordinary artifact whitespace check; no validator/probe was weakened."
+}

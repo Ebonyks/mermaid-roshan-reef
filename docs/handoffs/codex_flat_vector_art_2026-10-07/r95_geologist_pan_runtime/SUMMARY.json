@@ -1,0 +1,192 @@
+{
+  "known_roles": 263,
+  "known_families": 35,
+  "existing_partial_roles": 76,
+  "existing_partial_families": 15,
+  "supplemental_partial_roles": 39,
+  "catalogue_partial": 92,
+  "catalogue_without_current_slice": 84,
+  "catalogue_complete": 0,
+  "all_game_artwork_total": null,
+  "distinct_screen_total": null,
+  "regression_total": null,
+  "retained_bounded": 6641,
+  "retained_excluded": 4134,
+  "retained_native_events": 10775,
+  "existing_sample_work_branch_implemented": 5,
+  "known_implementation_count_scope": "Five distinct published bounded source artifacts including R95pan patch/native evidence. R86navigation/R88book/R91insect are threepartialDev integrations. R83touch/R95pan unintegrated. Zero complete artwork roles/families or accepted removals.",
+  "samples_awaiting_review_global": null,
+  "approved": 0,
+  "dev_integrated": 3,
+  "runtime_verified_replacements_formal": 0,
+  "accepted_removed": 0,
+  "revision": "FV-AUDIT-20261017-R95",
+  "inherited_summary": {
+    "revision": "d8b717ebbd0d348dd743bd782532c1b63d89a01e",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/SUMMARY.json",
+    "sha256": "d71ce1d11ca1d6c79587861f127ece5e05973faf2f0974a69c81cb16fe66e132"
+  },
+  "new_roles": 0,
+  "new_families": 0,
+  "new_alias_credits": 0,
+  "new_partial_role_credit": 0,
+  "new_native_frames": 36,
+  "new_bounded_contexts": 16,
+  "new_excluded_diagnostics": 20,
+  "source_views_here": 0,
+  "existing_context_frames_reinspected_here": 0,
+  "new_samples": 0,
+  "new_runtime_implementations": 1,
+  "new_generation_calls": 0,
+  "reuse_ready_whole_role": false,
+  "drawing_required_global": null,
+  "chosen_next_consumer": "FV-F2DE53A80AA7",
+  "mission_complete": false,
+  "dev_integrated_unit": "Partial bounded implementation artifacts, not complete artwork-role replacements or accepted removals.",
+  "dev_integrated_complete_named_roles": 0,
+  "dev_integrated_artifact_keys": [
+    "r86_navigation_runtime",
+    "r88_critter_book_runtime",
+    "r91_critter_insect_tab_runtime"
+  ],
+  "r92_dev_ci_timeout": {
+    "state": "DEV_ATTEMPT1_CANCELLED_CONFIRMED_55MIN_LIMIT_RETRY_PENDING",
+    "source_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "first_attempt": {
+      "run_id": 39040062042,
+      "attempt": 1,
+      "conclusion": "cancelled",
+      "annotation": "The job has exceeded the maximum execution time of55m0s",
+      "trusted_probes_step": "success; whole run cancelled",
+      "evidence": [
+        "run_attempt1.json",
+        "jobs_attempt1.json",
+        "annotations_attempt1.json",
+        "run_attempt1.log"
+      ]
+    },
+    "latest_observation": {
+      "id": 39040062042,
+      "head_sha": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "run_attempt": 2,
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39040062042",
+      "updated_at": "2026-10-17T15:33:20Z"
+    },
+    "retry_dispatch": "RETRY_DISPATCH.json; one failed-job retry, no cancellation of other work",
+    "prior_green_source_runs": [
+      39035264349,
+      39035294472
+    ],
+    "prior_green_scope": "Both exactF sourcebranch push/PR required job success; R90/CI_EVIDENCE.json immutable. This does not make cancelledDevCIgreen.",
+    "dev_integrated_partial_artifacts": 2,
+    "complete_integrated_named_roles": 0,
+    "exact_F_APK_verified": false,
+    "workflow_changed": false,
+    "new_artifacts_or_acceptance_credit": 0,
+    "checked_at_utc": "2026-10-17T15:35:20.089988+00:00"
+  },
+  "generated_candidate_samples_this_revision": 0,
+  "generated_candidate_unit": "One distinct unaccepted raw PNG, one existing stable role; not artwork removed.",
+  "r93_candidate_status": "FIRST_PAINTED_HAND_CANDIDATE_RETAINED_REVIEW_PENDING",
+  "r91_local_CI_status": "PASS82_SOURCE_PAYLOAD_PUBLISHED_AND_ANONYMOUSLY_VERIFIED_REMOTE_CI_PENDING",
+  "r91_published_bounded_source_candidate": {
+    "payload_revision": "92822aaf5f381e623dacf1a9dff0e20f82306c4a",
+    "final_revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+    "integrated_dev_revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+    "pull_request": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/37",
+    "PR_state": "MERGED",
+    "unit": "One insect category-tab leaf; no whole artwork-role closure."
+  },
+  "r93_native_frame_scope": "Hand has zero new native frames.128new retained frame events are the separately verified R91 production candidate:100current +28excluded historical; not128screens or artworks.",
+  "r93_dev_ci_followup": {
+    "run_id": 39040062042,
+    "run_attempt": 2,
+    "head_sha": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39040062042",
+    "updated_at": "2026-10-17T16:24:33Z",
+    "checked_at_utc": "2026-10-17T17:21:13.415911+00:00",
+    "jobs": [
+      {
+        "id": 117433449504,
+        "name": "probes",
+        "conclusion": "success"
+      },
+      {
+        "id": 117433450183,
+        "name": "area-music-provenance",
+        "conclusion": "success"
+      }
+    ],
+    "trusted_probe_step": "success",
+    "files": {
+      "DEV_CI_ATTEMPT2.json": {
+        "bytes": 12783,
+        "sha256": "a06b5836b5555f0547eae94a77c9a835440ce9eeb7c148575b973e5c292d2d98"
+      },
+      "DEV_CI_JOBS_ATTEMPT2.json": {
+        "bytes": 7824,
+        "sha256": "391d18b6297e096d517367b824107c04889cf021b394b3fd0a48fd6f093b2f29"
+      },
+      "DEV_CI_ATTEMPT2.log": {
+        "bytes": 2505478,
+        "sha256": "ad84a2b3d99c5bf6d5248e2f2b8ae130680e6e79fe37bb9371be93b105d1051c"
+      }
+    },
+    "first_attempt": "Confirmed55minute cancellation remains historical; retry2 succeeded. No other retry dispatched.",
+    "limits": "CI machine evidence only; no exactF APK verified here, no target-device/visual/child/owner or accepted-removal credit.",
+    "trusted_probe_count_limit": "81distinct actual remote probe headers; exact run/job/step success. Do not transpose local82probe count or fabricate remote per-process exit records.",
+    "observed_unique_trusted_probe_headers": 81
+  },
+  "source_current_frames_here": 16,
+  "candidate_neighbor_context_frames_here": 10,
+  "direct_native_frame_views_here": 12,
+  "r94_hand_fit": "Six native cases/138checks/36rawframeevents; source16+selected proposed-neighbor candidate10 bounded; unselected49pxfit10excluded. Current routing/source and candidate contexts separate.",
+  "r94_dev_integration": "r91_integration/DEV_INTEGRATION.json; exact39b0green sourcepush; redundantPRcancelled55minutesaftermandatorysuccess; newDevCI39058472107running; exactnewDevAPKnotverified.",
+  "r95_geologist_pan_runtime": {
+    "stable_id": "FV-F2DE53A80AA7",
+    "runtime_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "runtime_baseline": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+    "runtime_script_sha256": "7e0ec012354fcb20c51d952b25208434906298a938cf597fd75f7ccaccc07415",
+    "runtime_script_evidence": "CANDIDATE_RUNTIME.gd.txt",
+    "runtime_patch": "PRODUCTION_PATCH.diff",
+    "source_png_sha256": "df6ec1df1c59a20d427cb50835ae04915b07de0cbe1b470e99d43c55518ff5ab",
+    "source_png_path": "assets_src/minigame_art_quality_2026-09-05/pan-alpha-attempt02/native.png",
+    "runtime_asset_path": "assets/opera/worlds/props/geologist_washing_pan_painted.png",
+    "actual_imported_texture_size": [
+      1024,
+      1024
+    ],
+    "raw_source_size": [
+      1254,
+      1254
+    ],
+    "source_bytes_preserved": true,
+    "nonvisual_functions_unchanged": 55,
+    "native_cases": 4,
+    "native_checks": 106,
+    "valid_frame_events": 16,
+    "excluded_setup_frame_events": 20,
+    "retained_frame_events": 36,
+    "direct_native_frame_views": 7,
+    "new_generation_calls": 0,
+    "runtime_full_CI": {
+      "state": "RUNNING",
+      "session": 59912,
+      "launcher": "FULL_CI_LAUNCH.json",
+      "terminal_path_on_producer": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-pan-20261017\\FULL_CI_RESULT.json",
+      "do_not_restart": true
+    },
+    "source_branch_committed": false,
+    "Dev_integrated": false,
+    "formal_QA11": "PENDING",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING",
+    "accepted_removed": 0,
+    "mission_complete": false
+  }
+}

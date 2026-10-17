@@ -1,0 +1,15 @@
+{
+  "baseline": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "must_fail_if_source_head_differs": true,
+  "steps": [
+    "Use an isolated clone/worktree of the exact baseline; never overwrite another editor.",
+    "At the exact bound baseline only, review/apply PRODUCTION_PATCH.diff with git apply --unidiff-zero. Full before/after source bytes are included for contextual review. Do not overwrite a changed branch.",
+    "Copy production_assets/geologist_washing_pan_painted.png and its .import.txt metadata to the declared runtime_asset_path and .import. Verify the preserved PNG and exact script hashes in PRODUCTION_STATUS.json.",
+    "Run exact Godot4.7.2 import, native fixture and unmodified full trusted CI. Native fixture uses a declared own saved-PAN checkpoint and real Main library-room launcher; it is not naturally earned whole-route or formalQA11 acceptance."
+  ],
+  "runtime_asset_path": "assets/opera/worlds/props/geologist_washing_pan_painted.png",
+  "protected_originals": "Unchanged; no real child saves/drawings read or copied.",
+  "source_file_normalization": "Producer code is LF UTF8; source bytes and import metadata included. Godot builds1024lossless+mipmap runtime texture from unchanged raw source.",
+  "candidate_import_is_standard_build_processing_not_new_art_generation": true,
+  "patch_representation": "Zero-context unified diff preserves exact additions/removals and avoids treating literal context-prefix whitespace as a new-source defect; actual candidate code unchanged."
+}

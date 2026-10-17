@@ -330,6 +330,9 @@ poses as broken motion.
 
 ## MA-VIS-006
 
+R95 production2026-10-17: [painted Geologist pan](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/README.md) actual source patch/native candidate106checks; fullCI/integration and formal/device/child/owner pending. Quality-first method, original source/control/save preserved. No lifecycle/score/whole-game closure.
+
+
 | Field | Value |
 |---|---|
 | id | `MA-VIS-006` |

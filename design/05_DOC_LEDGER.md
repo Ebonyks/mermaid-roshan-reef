@@ -1402,3 +1402,5 @@ release/device/child/owner authority retain precedence.
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/README.md` | 🔵 | `SUPPORTING_CURRENT`; first actual painted Skyway hand candidate after failed reuse and exact owner export authorization. One take, no runtime/acceptance/removal credit; native size/alpha/context gates open. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/README.md` | 🔵 | `SUPPORTING_CURRENT`; sourceF native hand fit, explicit original/proposed-neighbor contexts, sixcases/138checks/36frames and third partialDevcode artifact at39b. No new generation, complete role, formalQA11/device/child/owner or accepted-removal credit. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/README.md` | 🟣 | `SUPPORTING_EVIDENCE / CANDIDATE`; R95painted-pan source patch/native evidence;106checks16valid/20excludedframes; actualfullCI/integration/formal/device/child/owner pending. Current quality-first production priority. |

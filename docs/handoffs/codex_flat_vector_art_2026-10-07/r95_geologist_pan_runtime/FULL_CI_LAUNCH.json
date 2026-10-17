@@ -1,0 +1,29 @@
+{
+  "started_at_utc": "2026-10-17T20:24:07.711785+00:00",
+  "command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "--noprofile",
+    "--norc",
+    "-c",
+    "set -eu\nexport PYTHONUTF8=1\nexport PYTHONIOENCODING=utf-8\nexport TMPDIR=\"$(cygpath -u \"$R95_TMPROOT\")\"\nexport R95_CANON_TMP=\"$(realpath \"$TMPDIR\")\"\nrm() {\n  if [ \"$#\" -ne 2 ] || [ \"$1\" != \"-rf\" ]; then echo \"R95 cleanup shape rejected\" >&2; return 98; fi\n  local resolved\n  resolved=\"$(realpath \"$2\")\" || return 98\n  case \"$resolved\" in \"$R95_CANON_TMP\"/*) command rm -rf -- \"$resolved\";; *) echo \"R95 cleanup outside owned temp rejected\" >&2; return 98;; esac\n}\nexport -f rm\nbash scripts/ci.sh\n"
+  ],
+  "engine": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+  "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+  "ci_script_sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+  "runtime_pin_sha256": "f09928adc08baee26597db275f3c375679f0ba6b93c0c213e50dd1f951527e0b",
+  "normal_before": {
+    "": "b81409bba2d108625739b2e1c10be48dc0d9571baf2d1cc4d7b1233b02cd07eb",
+    ".bak": "c9b95b66fd00f22f2e2c5b41d2803e4f5c581c58be483e2e3a593dea0dabd5d6",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "isolation": "Unmodified scripts/ci.sh, private pre-engine APPDATA/XDG and stock per-probe namespaces; verified owned TMPDIR cleanup. No gate or probe modifications.",
+  "scope": "One Geologist painted-pan code and texture import; no new PNGpixels. Machine lane only; formal QA11, integration and device/child/owner remain separate."
+}
