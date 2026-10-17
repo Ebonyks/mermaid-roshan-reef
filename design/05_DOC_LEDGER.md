@@ -244,7 +244,7 @@ Scoped Luna repair implementation from integration `831d0bbb` is tracked by [CHG
 | Doc | | Note |
 |---|---|---|
 | `CASTLE_INTERACTION_AUDIT_2026-08-01.md` | 🟠 | `BINDING_DOMAIN` for truthful semantic interactions and owned alpha; Sprite3D/depth implementation is `SUPERSEDED` and must migrate to Canvas ordering. |
-| `CASTLE_ROOM_LED_CODEX_IMPLEMENTATION_2026-07-28.md` | 🟠 | `SUPPORTING_CURRENT` for room/door narrative and approved art; 2.5D/Sprite3D structure is `SUPERSEDED`. The 2026-08-01 elevator removal remains current. |
+| `CASTLE_ROOM_LED_CODEX_IMPLEMENTATION_2026-07-28.md` | 🟠 | `SUPPORTING_CURRENT` for room/door narrative and approved art; 2.5D/Sprite3D structure is `SUPERSEDED`. The 2026-08-01 elevator removal remains current. Owner direction 2026-10-17 additionally removes the pictured stage/footlights antechamber as a navigation stop: Opera entry goes immediately to the existing three-floor main foyer, and one Back reaches Castle Main Hall; [impact](audit_impacts/remove-opera-anteroom-20261017.json) preserves verification and acceptance limits. |
 | `FABLE_CASTLE_ANIMATION_INTERACTIVITY_HANDOFF_2026-07-29.md` | 🟠 | `SUPPORTING_CURRENT` for authored motion/interaction intent; spatial-card implementation is `SUPERSEDED`. |
 | `CASTLE_DUST_BUNNY_SPAWN_GUIDE_2026-07-29.md` | 🟠 | `BINDING_DOMAIN` for distinct bunnies, contact/no-fail behavior and cleanup; Sprite3D/Camera3D/depth/effect directions are `SUPERSEDED`. |
 | `FABLE_CASTLE_ITEM_STYLE_AUDIT_2026-07-28.md` | 🟠 | `SUPPORTING_CURRENT` for approved source-pixel/style evidence; Sprite3D inventory/presentation is `SUPERSEDED`. Its dated item count is historical. |

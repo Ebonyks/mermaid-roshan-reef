@@ -570,6 +570,19 @@
       ],
       "checkable": true,
       "cycle": "luna-gameplay-repairs-20261014"
+    },
+    {
+      "id": "ODR-OPERA-ANTEROOM-REMOVAL-20261017",
+      "date": "2026-10-17",
+      "subject": "Remove the old Opera stage entry room",
+      "authority": "recorded_owner",
+      "question": "Which pictured room should be removed and where should Godot be left?",
+      "decision": "Remove the stage/footlights antechamber identified in the attached screenshot from the reachable game flow. Enter the existing three-floor Opera main foyer directly; Back returns to Castle Main Hall. Refresh the Godot AI playtest and leave it in the Opera main room. Preserve logical route/save ownership and existing artwork.",
+      "source": "audit/remove_opera_anteroom_20261017/owner_request.json",
+      "checks": [
+        "scripts/probe_opera.gd"
+      ],
+      "checkable": true
     }
   ]
 }
