@@ -1,0 +1,27 @@
+{
+  "status": "LOCAL_CANDIDATE_REVIEW",
+  "art": "assets/sprites/sky_lagoon/sky_lagoon_castle_open_v1.png",
+  "scope": "Sky Lagoon exterior entrance only; no cinematic or selected-cut change",
+  "reviewer": "Codex agent visual inspection",
+  "observations": [
+    "Open red leaves reveal a warm cream/lavender hall and receding arches.",
+    "Exterior silhouette, stained glass, bridge and transparency are exact original source pixels.",
+    "Gold perimeter is visible at idle and strengthened on focus without filling the opening.",
+    "Production Mobile day and rebuilt-night captures show clear entry; touch/arrival/return probe remains green."
+  ],
+  "evidence": [
+    "castle_day_idle.png",
+    "castle_day_focus.png",
+    "castle_night_idle.png",
+    "castle_night_focus.png",
+    "display_final.log",
+    "probe_l2.log",
+    "pixel_preservation.json"
+  ],
+  "limits": [
+    "Desktop Mobile screenshot review is not target-device performance acceptance.",
+    "Final owner review of runtime cue and child usability remain pending.",
+    "Initial failed shader compilation is preserved in display_initial_shader_fail.log; its captures are not accepted.",
+    "display.log precedes the night palette rebuild; display_final.log and current PNG/receipt hashes are the final four-state evidence."
+  ]
+}

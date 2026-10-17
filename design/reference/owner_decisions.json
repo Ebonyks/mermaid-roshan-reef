@@ -570,6 +570,21 @@
       ],
       "checkable": true,
       "cycle": "luna-gameplay-repairs-20261014"
+    },
+    {
+      "id": "ODR-CASTLE-OPEN-ENTRANCE-20261017",
+      "date": "2026-10-17",
+      "subject": "Inviting Sky Lagoon castle entrance",
+      "decision": "Replace the flat red entrance treatment with an open castle doorway inviting exploration, plus a subtle highlight indicating where to enter. Preserve approved exterior artwork.",
+      "source": "audit/castle_open_entrance_20261017/owner_request.json",
+      "question": "How should the castle entrance invite the child to explore?",
+      "authority": "recorded_owner",
+      "checkable": false,
+      "checks": [
+        "tools/prepare_castle_open_entrance.ps1",
+        "scripts/probe_l2.gd"
+      ],
+      "cycle": "castle-open-entrance-20261017"
     }
   ]
 }

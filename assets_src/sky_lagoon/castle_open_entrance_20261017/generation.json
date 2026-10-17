@@ -1,0 +1,37 @@
+{
+  "schema": "castle_open_entrance/1",
+  "created_utc": "2026-10-17T17:38:52.807806+00:00",
+  "method": "OpenAI built-in ImageGen precise-object-edit, followed by declared deterministic doorway-only crop/composite through System.Drawing",
+  "attempts": 1,
+  "usage": "One built-in call; monetary usage not exposed",
+  "source": {
+    "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+    "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+    "role": "approved exterior edit target; project-owned, existing ASSET_LICENSES attribution"
+  },
+  "raw": {
+    "path": "assets_src/sky_lagoon/castle_open_entrance_20261017/generated_open_castle.png",
+    "sha256": "a84beead78e08c6b15dd5c85d066a76c443862bf1eb3341f911e7580e0760611",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "role": "source-only local doorway pixels; generated exterior/stained glass explicitly excluded"
+  },
+  "runtime": {
+    "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_open_v1.png",
+    "sha256": "9a507107a35d4532960463dac41587bdee2b356c743f4fcbc4ac31ee7d331b44",
+    "dimensions": [
+      1022,
+      1024
+    ],
+    "modifications": "Whole generated canvas normalized to source registration; only polygon inside original doorway composited. All other original RGBA pixels unchanged. No changes to original files."
+  },
+  "preparation_tool": "tools/prepare_castle_open_entrance.ps1",
+  "pixel_proof": "audit/castle_open_entrance_20261017/pixel_preservation.json",
+  "license": "Project-owned source plus OpenAI generated local derivative; https://openai.com/policies/terms-of-use/",
+  "acceptance": "Owner said the open-castle direction looks much better and requested a subtle entrance highlight. Final in-context highlight, device and child acceptance remain pending.",
+  "prompt_path": "assets_src/sky_lagoon/castle_open_entrance_20261017/prompt.txt",
+  "request_id": "exec-45561277-eedb-4083-b88e-798b4680e949",
+  "model_revision": "Built-in image tool; model/provider revision not exposed"
+}

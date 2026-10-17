@@ -1,0 +1,51 @@
+{
+  "captures": [
+    {
+      "focus_alpha": 0.489683717489243,
+      "id": "castle_day_idle",
+      "material": "res://shaders/lagoon_castle_entrance_outline.gdshader",
+      "renderer": "mobile",
+      "sha256": "d1cbb109df2e05405f7f5738a81d83d256959bf0924a7260744fab399e21dff4",
+      "size": "(1280, 720)"
+    },
+    {
+      "focus_alpha": 0.48989337682724,
+      "id": "castle_day_focus",
+      "material": "res://shaders/lagoon_castle_entrance_outline.gdshader",
+      "renderer": "mobile",
+      "sha256": "b7d31d7fbd1e91cec62966bce579ba4633df6f7948d05447da2a7866cefd9759",
+      "size": "(1280, 720)"
+    },
+    {
+      "focus_alpha": 0.49082550406456,
+      "id": "castle_night_idle",
+      "material": "res://shaders/lagoon_castle_entrance_outline.gdshader",
+      "renderer": "mobile",
+      "sha256": "cdd1ed404b7f15684dba7298be90183baa9c862b757e3fcfd96eedc3a1c801c2",
+      "size": "(1280, 720)"
+    },
+    {
+      "focus_alpha": 0.948379695415497,
+      "id": "castle_night_focus",
+      "material": "res://shaders/lagoon_castle_entrance_outline.gdshader",
+      "renderer": "mobile",
+      "sha256": "310154af656a97a3b3d3a05856706ef9c46a5babd19fdd54711be63f79bc7703",
+      "size": "(1280, 720)"
+    }
+  ],
+  "device_acceptance": "pending",
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "owner_acceptance": "pending",
+  "verification": "PASS: actual Mobile renderer, four recorded captures and no compiler/runtime error in display_final.log",
+  "visual_review": "Agent inspected day idle/focus and night focus; warm open hall remains readable, highlight local and sparse. Target device, child and final owner acceptance pending."
+}

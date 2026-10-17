@@ -60,3 +60,7 @@ assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json -text whitespace=cr-
 
 # Literal unified-diff context prefixes precede authored GDScript tabs.
 audit/cycles/luna-gameplay-repairs-20261014/**/*.patch whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+
+# Preserve exact castle source, capture, prompt and verification receipt bytes.
+audit/castle_open_entrance_20261017/** -text whitespace=cr-at-eol
+assets_src/sky_lagoon/castle_open_entrance_20261017/** -text whitespace=cr-at-eol

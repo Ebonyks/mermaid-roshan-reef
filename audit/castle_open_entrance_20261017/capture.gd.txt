@@ -1,0 +1,63 @@
+extends SceneTree
+var main: ReefMain
+var promenade: SkyLagoonPromenade
+var records: Array[Dictionary] = []
+const OUT := "res://audit/castle_open_entrance_20261017/"
+func _init() -> void:
+	call_deferred("run")
+func frames(n: int) -> void:
+	for i: int in range(n):
+		await process_frame
+func shot(id: String) -> void:
+	await frames(12)
+	var image: Image = root.get_texture().get_image()
+	var error: Error = image.save_png(OUT + id + ".png")
+	assert(error == OK)
+	var target: Dictionary = promenade._target_by_id("castle_gate")
+	var highlight: Sprite2D = target.get("highlight") as Sprite2D
+	records.append({"id":id,"size":image.get_size(),"sha256":FileAccess.get_sha256(OUT+id+".png"),"focus_alpha":highlight.modulate.a,"material":(highlight.material as ShaderMaterial).shader.resource_path,"renderer":RenderingServer.get_current_rendering_method()})
+func run() -> void:
+	root.mode = Window.MODE_WINDOWED
+	root.size = Vector2i(1280,720)
+	var packed: PackedScene = load("res://scenes/main.tscn") as PackedScene
+	main = packed.instantiate() as ReefMain
+	main._save_state = SaveState.new(main,"res://tmp/castle_open_capture_save.json")
+	root.add_child(main)
+	await frames(4)
+	if main.dev_mode != null:
+		main.dev_mode.process_mode = Node.PROCESS_MODE_DISABLED
+		main.dev_mode = null
+	if main.intro_active:
+		main._skip_intro()
+	if main.start_menu_layer != null:
+		main.start_menu_layer.queue_free()
+		main.start_menu_layer = null
+	main.start_menu_active = false
+	main.day_one_active = false
+	main._day_one_ref().clear_day_one_routing()
+	main._enter_level2_now(false,false,true)
+	await frames(4)
+	promenade = main._lagoon_promenade_ref()
+	promenade.set_master_route_x(5312.0)
+	main.g["lagoon_castle_armed"] = false
+	main.is_night = false
+	promenade._clear_focus()
+	await shot("castle_day_idle")
+	promenade._focus(promenade._target_by_id("castle_gate"))
+	await shot("castle_day_focus")
+	promenade._clear_focus()
+	main.is_night = true
+	main._enter_level2_now(false,false,false)
+	await frames(8)
+	promenade = main._lagoon_promenade_ref()
+	promenade.set_master_route_x(5312.0)
+	main.g["lagoon_castle_armed"] = false
+	promenade._clear_focus()
+	await shot("castle_night_idle")
+	promenade._focus(promenade._target_by_id("castle_gate"))
+	await shot("castle_night_focus")
+	var f := FileAccess.open(OUT + "display_receipt.json", FileAccess.WRITE)
+	f.store_string(JSON.stringify({"engine":Engine.get_version_info(),"captures":records,"device_acceptance":"pending","owner_acceptance":"pending"},"  "))
+	f.close()
+	print("CASTLE_OPEN_DISPLAY|CAPTURED|4 Mobile captures; wrapper must check compiler/runtime logs")
+	quit(0)

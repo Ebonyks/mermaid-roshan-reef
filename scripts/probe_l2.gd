@@ -38,7 +38,7 @@ const REQUIRED_ASSETS: Array[String] = [
 	"res://assets/props/story/play_swing_frame.png",
 	"res://assets/props/story/play_swing_seat.png",
 	"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
-	"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+	"res://assets/sprites/sky_lagoon/sky_lagoon_castle_open_v1.png",
 	"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
 	"res://assets/characters/roshan_25d/roshan_base.png",
 	"res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
@@ -913,6 +913,15 @@ func _validate_targets_and_touch() -> void:
 	var idle_cues_ok := true
 	for target_id: String in TARGET_IDS:
 		var idle_highlight: Sprite2D = _target(target_id).get("highlight") as Sprite2D
+		if target_id == "castle_gate" and idle_highlight != null:
+			# Owner requests a persistent subtle outline on the open entrance;
+			# unlike the old filled mask it leaves the entire hall transparent.
+			var material: ShaderMaterial = idle_highlight.material as ShaderMaterial
+			idle_cues_ok = idle_cues_ok and material != null \
+				and material.shader != null and material.shader.resource_path \
+					== "res://shaders/lagoon_castle_entrance_outline.gdshader" \
+				and idle_highlight.visible and idle_highlight.modulate.a <= 0.50
+			continue
 		idle_cues_ok = idle_cues_ok and idle_highlight != null \
 			and idle_highlight.visible and idle_highlight.modulate.a <= 0.06
 	_check("idle_focus_cues_are_subtle_not_ghost_objects", idle_cues_ok)
