@@ -49,12 +49,15 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/NATIVE_OBSERVER_CONTRACT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/NAVIGATION_CALLER_MATRIX.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/PACKET_BOUNDARY_CHECK.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/PAYLOAD_COMMITTED_2D.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/PAYLOAD_STAGED_2D.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/PREFLIGHT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/PREFLIGHT_authority.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/PREFLIGHT_development.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/README.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/REMOTE_DEV_OBSERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/ROLE_EVIDENCE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/SOURCE_PIN.json",
@@ -151,9 +154,9 @@
       "evidence": "full_ci_attempt2/FULL_CI_RESULT.json;82unique zero exits; rawlog SHA-256 1c840c74510ca0e8c0d8fe128ad8ad0d3adb7b112a614385d4904c3fde9b9ad3; unchanged knownsource/sidecar/actualnormal11/ci.sh hashes. Prior zero-probe Windows-handle failure retained."
     },
     {
-      "command": "Final staged/committed source binding, document/2D gates and anonymous immutable Github delivery",
-      "result": "PENDING",
-      "evidence": "Local machine verification is not publication, exact remote-head greenCI, integration or acceptance."
+      "command": "Exact staged/committed source binding, document/2D gates and anonymous immutable Github payload delivery",
+      "result": "PASS",
+      "evidence": "GIT_SOURCE_BINDING.json plus payload source seal and REMOTE_VERIFICATION.json at9f6ae4fd0782d8f3333715725a8e96e83443cc3f; all required manifest bytes verified anonymously. Receipt metadata own files are separately checked after this commit. No remoteCI/integration/creative acceptance inferred."
     }
   ],
   "acceptance_gaps": "New navigation use and critical glyph/fallback, other routes/shared callers and whole-game denominator; formal fresh-runtimeQA11/device/child/owner. R83 remote workflow cancellations/advisory/renderer failures remain separate known blockers; no gate waiver or release authority."
