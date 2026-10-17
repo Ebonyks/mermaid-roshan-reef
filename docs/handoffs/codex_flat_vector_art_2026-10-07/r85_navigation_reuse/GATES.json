@@ -70,5 +70,42 @@
   "new_generation": 0,
   "remote_runtime_ci": "Inherited R84 exact-head cancellation/advisory/renderer failure record remains separate. R85 sample gates provide no green runtime CI or integration.",
   "acceptance": "New-use, glyph/fallback, other routes/callers, unknown inventory, actual runtime/formalQA11/device/child/owner remain open.",
-  "actual_staged_committed_2d": "Run before push; exact operations bound in final receipt metadata."
+  "actual_staged_committed_2d": "Run before push; exact operations bound in final receipt metadata.",
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=798|LEDGER=798|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "1f680a2c99d4f75d8c87a0adf130ba2db5dc7a2a25c06d651b6c06ae1deb7a65",
+      "checked_at_utc": "2026-10-17T06:43:34.094971+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T06:43:44.158309+00:00"
+    }
+  ],
+  "payload_actual_staged_2d": {
+    "log": "CANONICAL_STAGED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  },
+  "payload_actual_committed_2d": {
+    "revision": "2df828e48775edff273d4e5ef6708c7dcf6f1ee3",
+    "log": "CANONICAL_COMMITTED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  }
 }
