@@ -1,0 +1,73 @@
+area-music-provenance	Verify deterministic area-music delivery	2026-10-17T04:49:57.6356951Z MUSIC|result ALL OK|assets/audio/music/area_music_manifest.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-17T04:56:36.1012410Z GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+probes	Static gates (parse + Variant-inference lint)	2026-10-17T04:56:59.1018924Z ROSHAN2D| stress: 8 falsification cases ALL OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-17T04:57:01.3060399Z ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+probes	Static gates (parse + Variant-inference lint)	2026-10-17T04:57:03.5599473Z GAME2D| stress: 14 falsification/control assertions ALL OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-17T04:57:03.9486273Z GAME2D| stress: 14 falsification/control assertions ALL OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-17T04:57:13.4389255Z PROBE_PARITY|result: ALL OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-17T04:57:17.5550015Z AUDITDEV|RESULT|ALL OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-17T04:57:21.2379201Z DOCAUTH|RESULT|ALL OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-17T04:57:42.2934107Z HOTSPOT_ART|result: ALL OK (4 hashes, 2 alpha states, 1 connected object)
+probes	Static gates (parse + Variant-inference lint)	2026-10-17T04:57:42.6130770Z OPERA_BORDERLESS_ART|result: ALL OK (2 subjects, exact hashes, connected alpha, no chroma spill)
+probes	Static gates (parse + Variant-inference lint)	2026-10-17T04:57:43.1283178Z OPERA_ROSHAN_ART|result: ALL OK (13 careers, 208 reviewed frames)
+probes	Run trusted probes	2026-10-17T05:13:29.3791439Z ^[[36;1m    # AFTER an ALL OK line. Accept a timeout kill (124) only when the^[[0m
+probes	Run trusted probes	2026-10-17T05:13:29.3793210Z ^[[36;1m    if [ "$PROBE_RC" -eq 124 ] && tail -n 5 "/tmp/$p.out" | grep -qE "ALL OK|RESULT"; then^[[0m
+probes	Run trusted probes	2026-10-17T05:15:09.0655131Z PASSIVE|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:15:15.3514598Z LIVING|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:15:28.7030751Z RANK|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:15:32.4184762Z SAVE_RECOVERY|RESULT: ALL OK
+probes	Run trusted probes	2026-10-17T05:15:36.9261642Z GALAXY_STATE|RESULT: ALL OK
+probes	Run trusted probes	2026-10-17T05:15:40.8491444Z COLLECTION|RESULT|ALL OK
+probes	Run trusted probes	2026-10-17T05:16:24.5373820Z MELODY|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:16:37.2914228Z DOLLS|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:16:41.7792905Z SEEK|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:16:45.7612227Z AUDIO|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:16:49.9978952Z DANCE|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:16:55.5292528Z LAGOONCANVAS|ALL OK
+probes	Run trusted probes	2026-10-17T05:17:05.7606735Z SKY_LAGOON_ANIMALS|ALL OK
+probes	Run trusted probes	2026-10-17T05:17:09.9477104Z REENTER|ALL OK
+probes	Run trusted probes	2026-10-17T05:17:50.9278607Z THRONE|done: ALL OK
+probes	Run trusted probes	2026-10-17T05:17:59.7896694Z === TRAIN PROBE ALL OK ===
+probes	Run trusted probes	2026-10-17T05:18:49.4469346Z TOUCH_ROUTER|ALL OK
+probes	Run trusted probes	2026-10-17T05:18:59.3096539Z TOUCHSTRESS|ALL OK
+probes	Run trusted probes	2026-10-17T05:19:12.5890033Z INTERACTION|ALL OK
+probes	Run trusted probes	2026-10-17T05:20:23.9959035Z UI_SYSTEM|RESULT|ALL OK
+probes	Run trusted probes	2026-10-17T05:20:27.9595168Z VOICE|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:20:32.1158296Z DAY_ONE_D8_REVISITS|RESULT: ALL OK
+probes	Run trusted probes	2026-10-17T05:21:34.8822564Z KARTFEEL|ALL OK
+probes	Run trusted probes	2026-10-17T05:21:40.1305083Z COMBAT|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:21:40.4874476Z DUST BUNNY PROBE: ALL OK
+probes	Run trusted probes	2026-10-17T05:21:40.8239649Z BUNNYBOSS|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:22:21.9171339Z DUSTBOSS|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:22:26.5775509Z HIT|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:22:31.3197405Z PARTNER|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:22:39.0913503Z TUTORIAL|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:22:40.3148942Z IMPAI|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:22:44.5974306Z MIC|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:22:52.3233424Z STUFFIE|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:22:57.3859358Z DUNGEON|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:23:02.5674668Z EMBER|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:23:30.8906941Z OPERA|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:23:41.3074524Z OPERA2D|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:23:43.9076627Z OPERA_DIEGETIC_PATHS|result: ALL OK (2432 checks, 14 careers, 68 stations, 57 playable phases, 52 authored spurs)
+probes	Run trusted probes	2026-10-17T05:23:47.7695786Z OPERA_DETECTIVE|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:23:48.2253322Z PIPE|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:23:51.9523978Z NURSERY|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:23:53.0924468Z GESTURE_QUALITY|result: ALL OK (274 checks)
+probes	Run trusted probes	2026-10-17T05:23:58.5144307Z DOORLANGUAGE|ALL OK
+probes	Run trusted probes	2026-10-17T05:25:05.5030839Z DAY_ONE_DRESSING|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:27:09.0560675Z ALPHA_SAVE|RESULT: ALL OK
+probes	Run trusted probes	2026-10-17T05:30:51.2112088Z DUSTBAL|result: ALL OK
+probes	Run trusted probes	2026-10-17T05:31:29.3924951Z PROPS|result: ALL OK
+probes	Dust boss balance playtest (advisory)	2026-10-17T05:35:30.2887898Z DUSTBAL|result: ALL OK
+probes	Dust boss balance playtest (advisory)	2026-10-17T05:36:54.8220402Z DUSTBAL|result: ALL OK
+probes	Opera balance playtest (advisory)	2026-10-17T05:36:54.8315658Z ^[[36;1m  python3 tools/run_advisory_sensor.py --name opera-balance --expected 'BALANCE|RESULT|' --timeout 610 -- timeout 10m godot --headless -s scripts/probe_opera_balance.gd -- --touch^[[0m
+probes	Opera balance playtest (advisory)	2026-10-17T05:37:04.8256745Z BALANCE|RESULT|CAPPED|measured=12|capped=3|not_measured=30|expected=45
+probes	Opera balance playtest (advisory)	2026-10-17T05:37:04.8258868Z ADVISORY|opera-balance|RESULT|CAPPED|at least one simulated run reached its cap
+probes	Opera balance playtest (advisory)	2026-10-17T05:37:04.8274415Z ##[error]Process completed with exit code 1.
+probes	Capture Sky Lagoon visual review	2026-10-17T05:38:48.8305109Z ^[[36;1mpython3 tools/run_advisory_sensor.py --name sky-lagoon-review --expected 'LAGOONSHOT|RESULT|' --require '/tmp/sky-lagoon-shots/*.png' --require /tmp/sky-lagoon-shots/sky_lagoon_review_manifest.json --timeout 490 -- timeout 8m xvfb-run -a godot --rendering-method mobile -s scripts/probe_sky_lagoon_art.gd^[[0m
+probes	Capture Sky Lagoon visual review	2026-10-17T05:39:05.6094585Z LAGOONSHOT|GLOBAL|FAIL|rendering_method|gl_compatibility
+probes	Capture Sky Lagoon visual review	2026-10-17T05:39:05.6095676Z LAGOONSHOT|SUMMARY|expected=20|rows=20|written=20|passed=20|failed=0|skipped=0
+probes	Capture Sky Lagoon visual review	2026-10-17T05:39:05.6096354Z LAGOONSHOT|RESULT|FAIL|/tmp/sky-lagoon-shots/sky_lagoon_review_manifest.json
+probes	Capture Sky Lagoon visual review	2026-10-17T05:39:05.6132847Z ##[error]Process completed with exit code 1.
+probes	Capture dust-boss arena review	2026-10-17T05:40:35.4994488Z ##[error]The operation was canceled.

@@ -104,5 +104,33 @@
     "log": "CANONICAL_COMMITTED_2D.log",
     "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
     "status": "NO_REGRESSION"
-  }
+  },
+  "ci01_document_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/gate_logs/authority.log",
+      "sha256": "76219217cee4e528b2e9164d94278014ba45817491ddf29014194f08b97b970e",
+      "checked_at_utc": "2026-10-17T05:51:17.427494+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/gate_logs/development.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T05:51:28.089906+00:00"
+    }
+  ],
+  "remote_runtime_ci": "ci_status_20261017/CI_STATUS.json; cancelled workflows are not green; advisory/fallback failures remain. Source-context/local results are separate.",
+  "prior_final_gate_revision": "31ab379c166c38dd6c72fdb7e661dc7b621d874f"
 }

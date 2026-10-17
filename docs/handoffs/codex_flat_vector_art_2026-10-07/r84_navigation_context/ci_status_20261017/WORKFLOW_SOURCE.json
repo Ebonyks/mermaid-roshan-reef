@@ -1,0 +1,45 @@
+{
+  "revision": "06dbe47f52837a08cf39bbb2e604a372fcab46cc",
+  "path": ".github/workflows/probes.yml",
+  "sha256": "dc39e75ce124e957963f8891539ca45682016a70807bff1e70b8eb10cba4ab29",
+  "job_timeout_minutes": 55,
+  "source_modified": false,
+  "relevant_lines": [
+    {
+      "line": 47,
+      "text": ""
+    },
+    {
+      "line": 48,
+      "text": "  probes:"
+    },
+    {
+      "line": 49,
+      "text": "    runs-on: ubuntu-latest"
+    },
+    {
+      "line": 50,
+      "text": "    # Green runs now take ~24 min (probes ~14 min + visual captures); at 30"
+    },
+    {
+      "line": 51,
+      "text": "    # the slow-runner tail dies mid-capture and GitHub reports the timeout as"
+    },
+    {
+      "line": 52,
+      "text": "    # \"cancelled\", which reads like a phantom cancel. Keep ~20 min headroom."
+    },
+    {
+      "line": 53,
+      "text": "    timeout-minutes: 55"
+    },
+    {
+      "line": 54,
+      "text": "    steps:"
+    },
+    {
+      "line": 55,
+      "text": "      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1"
+    }
+  ]
+}

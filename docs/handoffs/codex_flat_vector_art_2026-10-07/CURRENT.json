@@ -1,6 +1,6 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261017-R84",
+  "revision": "FV-AUDIT-20261017-R84-CI01",
   "current_entry": "r84_navigation_context/README.md",
   "current_per_piece": "r84_navigation_context/per_piece.json",
   "current_scene_coverage": "r84_navigation_context/scene_coverage.json",
@@ -1124,5 +1124,16 @@
     "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
     "receipt": "r84_navigation_context/REMOTE_VERIFICATION.json",
     "own_metadata_scope": "Final receipt metadata checked separately at final commit; no self hash"
+  },
+  "runtime_trial_remote_ci": {
+    "state": "REMOTE_PROBE_WORKFLOW_NOT_GREEN_CANCELLED",
+    "runtime_revision": "06dbe47f52837a08cf39bbb2e604a372fcab46cc",
+    "evidence": "ci_status_20261017/CI_STATUS.json",
+    "recorded_at_utc": "2026-10-17T05:49:56.449777+00:00",
+    "remote_green": false,
+    "local_82_pass_is_separate": true,
+    "accepted_removed": 0,
+    "dev_integrated": 0,
+    "regression_total": null
   }
 }

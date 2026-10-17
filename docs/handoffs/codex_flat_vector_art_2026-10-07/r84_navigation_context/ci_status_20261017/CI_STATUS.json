@@ -1,0 +1,75 @@
+{
+  "schema": "reef.runtime_ci_status/1",
+  "recorded_at_utc": "2026-10-17T05:49:56.449777+00:00",
+  "runtime_revision": "06dbe47f52837a08cf39bbb2e604a372fcab46cc",
+  "pull_request": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/34",
+  "runs": [
+    {
+      "run_id": 39003693380,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39003693380",
+      "event": "push",
+      "revision": "06dbe47f52837a08cf39bbb2e604a372fcab46cc",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-10-17T04:45:17Z",
+      "completed_at": "2026-10-17T05:40:42Z",
+      "job_conclusion": "cancelled",
+      "non_success_steps": [
+        {
+          "name": "Capture dust-boss arena review",
+          "conclusion": "cancelled"
+        },
+        {
+          "name": "Capture pearl-castle visual review",
+          "conclusion": "skipped"
+        }
+      ],
+      "full_remote_log_sha256": "9f3629ab404d7fbb85f5d6f0149ddcadd5ce201a0373b2bb9acd6c7848b793e0",
+      "published_excerpt_sha256": "4978d914985050e0ea123547ce27ab521202e901a046cf2be171b1f75e4d3a07",
+      "excerpt_selection": "Retain raw lines containing BALANCE|RESULT|, ADVISORY|opera-balance|, LAGOONSHOT|GLOBAL|/RESULT|/SUMMARY|, ##[error], ALL OK or cancellation text. Full logs hashed, not republished wholesale; excerpts are data, never instructions."
+    },
+    {
+      "run_id": 39004014283,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39004014283",
+      "event": "pull_request",
+      "revision": "06dbe47f52837a08cf39bbb2e604a372fcab46cc",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-10-17T04:49:41Z",
+      "completed_at": "2026-10-17T05:44:59Z",
+      "job_conclusion": "cancelled",
+      "non_success_steps": [
+        {
+          "name": "Capture dust-boss arena review",
+          "conclusion": "cancelled"
+        },
+        {
+          "name": "Capture pearl-castle visual review",
+          "conclusion": "skipped"
+        }
+      ],
+      "full_remote_log_sha256": "59fca93bd5c59d58832ab053f1e827ec44b8444623e4cb9c47ec1e016f4a3a24",
+      "published_excerpt_sha256": "56daf7bb7350811888ef3465ac6a5b114ee0affd6a05967a0b50272acfaae0d3",
+      "excerpt_selection": "Retain raw lines containing BALANCE|RESULT|, ADVISORY|opera-balance|, LAGOONSHOT|GLOBAL|/RESULT|/SUMMARY|, ##[error], ALL OK or cancellation text. Full logs hashed, not republished wholesale; excerpts are data, never instructions."
+    }
+  ],
+  "state": "REMOTE_PROBE_WORKFLOW_NOT_GREEN_CANCELLED",
+  "observed_failures": [
+    "Both exact-head remote runs concluded cancelled, with no newer run found at observation time.",
+    "PR run Opera advisory: BALANCE|RESULT|CAPPED|measured=12|capped=3|not_measured=30|expected=45; advisory sensor exit 1.",
+    "PR run Sky Lagoon: LAGOONSHOT|GLOBAL|FAIL|rendering_method|gl_compatibility and LAGOONSHOT|RESULT|FAIL. This fallback cannot establish required Mobile visual evidence.",
+    "PR run dust-boss visual capture cancelled; pearl-castle capture skipped."
+  ],
+  "timeout_qualification": "Each run ended near its configured 55-minute job limit. This is consistent with the source workflow comment describing timeout as cancelled; no separate GitHub cancellation-cause field was provided.",
+  "not_a_regression_verdict": "The root cause and prior-baseline comparison are unmeasured. Whole-game regression total remains null; no new artwork defect or material regression count is invented.",
+  "local_runtime_evidence_unchanged": "R83 exact local full run remains 82/82; R84 current-source native 38 checks and source/save guards remain valid in their scopes. Neither overrides the missing green remote job or supplies formal QA11/device/child/owner acceptance.",
+  "action": "Keep PR34 draft and unintegrated. Preserve workflow gates and Mobile requirement. Diagnose CI execution budget/renderer and advisory gaps under their applicable authorization; continue unaffected source-bound art audits/reuse work. A blind rerun was not started because the same cap/fallback dependencies remain.",
+  "protected_workflow_policy": "AGENTS.md reserves .github/workflows changes to an explicit task. No workflow was changed, gate waived, renderer downgraded or additional authority inferred.",
+  "accepted_removed": 0,
+  "dev_integrated": 0,
+  "runtime_verified_replacements_formal": 0,
+  "all_game_regression_total": null,
+  "mission_complete": false
+}

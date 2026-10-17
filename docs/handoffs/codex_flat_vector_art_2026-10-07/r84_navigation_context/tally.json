@@ -1,7 +1,7 @@
 {
   "schema": "reef.flat_vector_tally/1",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
-  "revision": "FV-AUDIT-20261017-R84",
+  "revision": "FV-AUDIT-20261017-R84-CI01",
   "status_lanes": [
     "NEEDS_CONTEXT_REVIEW",
     "IDENTIFIED",
@@ -10375,7 +10375,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json and NAVIGATION_EVIDENCE.json own R84 source-context facts; R83 runtime trial and all historical fields retain their separate scopes and stated bases.",
+  "current_effective_summary": "SUMMARY.json, NAVIGATION_EVIDENCE.json and ci_status_20261017/CI_STATUS.json own R84 source-context and current remote-CI facts. Source context, local R83 trial and all earlier evidence retain their exact separate scopes.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -10820,5 +10820,16 @@
     },
     "global_totals": null,
     "mission_complete": false
+  },
+  "runtime_trial_remote_ci": {
+    "state": "REMOTE_PROBE_WORKFLOW_NOT_GREEN_CANCELLED",
+    "runtime_revision": "06dbe47f52837a08cf39bbb2e604a372fcab46cc",
+    "evidence": "ci_status_20261017/CI_STATUS.json",
+    "recorded_at_utc": "2026-10-17T05:49:56.449777+00:00",
+    "remote_green": false,
+    "local_82_pass_is_separate": true,
+    "accepted_removed": 0,
+    "dev_integrated": 0,
+    "regression_total": null
   }
 }

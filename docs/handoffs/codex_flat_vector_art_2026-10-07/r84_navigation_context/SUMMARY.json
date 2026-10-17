@@ -1,5 +1,5 @@
 {
-  "revision": "FV-AUDIT-20261017-R84",
+  "revision": "FV-AUDIT-20261017-R84-CI01",
   "known_roles": 263,
   "known_families": 35,
   "existing_partial_roles": 76,
@@ -47,5 +47,16 @@
   },
   "distinct_raw_frame_sha256": 12,
   "distinct_bounded_frame_sha256": 8,
-  "current_role_samples_awaiting_review_scope": "The one existing R82/R83 touch-feedback sample; the R84 navigation role has zero new samples."
+  "current_role_samples_awaiting_review_scope": "The one existing R82/R83 touch-feedback sample; the R84 navigation role has zero new samples.",
+  "runtime_trial_remote_ci": {
+    "state": "REMOTE_PROBE_WORKFLOW_NOT_GREEN_CANCELLED",
+    "runtime_revision": "06dbe47f52837a08cf39bbb2e604a372fcab46cc",
+    "evidence": "ci_status_20261017/CI_STATUS.json",
+    "recorded_at_utc": "2026-10-17T05:49:56.449777+00:00",
+    "remote_green": false,
+    "local_82_pass_is_separate": true,
+    "accepted_removed": 0,
+    "dev_integrated": 0,
+    "regression_total": null
+  }
 }

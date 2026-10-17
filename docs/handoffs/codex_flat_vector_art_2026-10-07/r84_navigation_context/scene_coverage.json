@@ -14691,7 +14691,7 @@
     }
   ],
   "coverage_note": "Craft80 guarded API fixture adds game.craft_studio partial alias;77/176partial,0complete,99without. Natural/full states/acceptance and distinct screen total remain unknown.",
-  "revision": "FV-AUDIT-20261017-R84",
+  "revision": "FV-AUDIT-20261017-R84-CI01",
   "partial_entries": 78,
   "complete_entries": 0,
   "entries_without_current_slice": 98,
@@ -22606,7 +22606,7 @@
       "other need/growth/action variants"
     ]
   },
-  "current_effective_summary": "SUMMARY.json and NAVIGATION_EVIDENCE.json own R84 source-context facts; R83 runtime trial and all historical fields retain their separate scopes and stated bases.",
+  "current_effective_summary": "SUMMARY.json, NAVIGATION_EVIDENCE.json and ci_status_20261017/CI_STATUS.json own R84 source-context and current remote-CI facts. Source context, local R83 trial and all earlier evidence retain their exact separate scopes.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -23107,5 +23107,16 @@
     "global_totals": null,
     "mission_complete": false
   },
-  "r84_route_qualification": "Ten bounded source frames add evidence to already partial promenade/pause coverage. No alias, role, family, distinct screen or complete route credit. Four hidden/bootstrap frames excluded. 92 partial/84 without current slice/0 complete of 176 overlapping aliases remain unchanged."
+  "r84_route_qualification": "Ten bounded source frames add evidence to already partial promenade/pause coverage. No alias, role, family, distinct screen or complete route credit. Four hidden/bootstrap frames excluded. 92 partial/84 without current slice/0 complete of 176 overlapping aliases remain unchanged.",
+  "runtime_trial_remote_ci": {
+    "state": "REMOTE_PROBE_WORKFLOW_NOT_GREEN_CANCELLED",
+    "runtime_revision": "06dbe47f52837a08cf39bbb2e604a372fcab46cc",
+    "evidence": "ci_status_20261017/CI_STATUS.json",
+    "recorded_at_utc": "2026-10-17T05:49:56.449777+00:00",
+    "remote_green": false,
+    "local_82_pass_is_separate": true,
+    "accepted_removed": 0,
+    "dev_integrated": 0,
+    "regression_total": null
+  }
 }
