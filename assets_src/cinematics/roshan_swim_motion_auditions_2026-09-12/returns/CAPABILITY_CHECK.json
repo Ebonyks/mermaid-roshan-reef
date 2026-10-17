@@ -1,0 +1,43 @@
+{
+  "schema": "roshan-video-capability-check-v1",
+  "session_video_tool": "imagine_reference_to_video",
+  "model": "grok-imagine video via Grok Build",
+  "can_return_original_video": true,
+  "first_frame_plus_identity_supported": true,
+  "actual_mode": "reference_to_video",
+  "actual_attached_inputs": [
+    {
+      "role": "IMAGE_1",
+      "path": "openings/front-right.png",
+      "sha256": "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+      "jobs": "RSW-01-06"
+    },
+    {
+      "role": "IMAGE_1",
+      "path": "openings/right.png",
+      "sha256": "5839c5cef6948666984700fb73ed07a77a047f8ad0ae5c75b9e44a465557ae48",
+      "jobs": "RSW-07-08"
+    },
+    {
+      "role": "IMAGE_2",
+      "path": "references/approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "jobs": "all"
+    }
+  ],
+  "request_evidence": "Grok Build imagine_reference_to_video returned original H.264 MP4 files (1280x720, 24fps, ~10.04s) for RSW-01 through RSW-08.",
+  "opening_approval_evidence": "Owner asked to complete the published packet in this Grok Build session. Exact opening bytes were shown with matching SHA-256 in Reef Imagine Bridge. Layout approval is recorded in the studio UI and remains owner-confirmable; not written as archive human_decision accepted.",
+  "account_authorization_evidence": "Owner asked to complete the motion-audition packet; generation used the app-owner Imagine quota. Eight take-01 jobs, no replacements, total 8 of 10 cap.",
+  "unsupported_controls": [
+    "Requested 8.0s; native durations 6/10/15. Used 10s without stretching a 6s clip.",
+    "Silent audio cannot be suppressed; AAC stereo 128kb/s is present.",
+    "Locked camera is a prompt request, not a hard control.",
+    "Seed is not disclosed."
+  ],
+  "status": "CHECKED",
+  "pilot_video_path": "RSW-01_take-01.mp4",
+  "pilot_video_sha256": "a8de1b06b47860894b9d834b897358dfdbadce1a4508a49f95ad927803fe6366",
+  "normal_speed_review": "Identity holds. Mid-take diagonal swim is readable. Later beats hover toward camera with opening arms. Adequate to prove the path and continue the batch; not an accepted performance.",
+  "continue_batch": true,
+  "if_unavailable": "VIDEO_TOOL_UNAVAILABLE; provide prompt and image links; no still-board substitution"
+}

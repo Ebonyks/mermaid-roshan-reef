@@ -1,0 +1,79 @@
+{
+  "schema": "roshan-owner-reconstruction-basis-v1",
+  "handoff_id": "roshan_swim_motion_auditions_2026-09-12",
+  "recorded_at": "2026-09-14T14:10:00Z",
+  "source": "Owner message in Reef Imagine Bridge",
+  "status": "RECORDED",
+  "delivery_accepted": false,
+  "rejected_draft": {
+    "reason": "Missed broad tail strokes, changing full-body posture, arm placement, and trailing hair.",
+    "disposition": "rejected_for_this_request",
+    "do_not_reuse": true
+  },
+  "view": "front-right",
+  "view_note": "These use the front-right view — not the old right-profile construction.",
+  "basis": [
+    {
+      "sample_id": "RSW-01",
+      "take": 3,
+      "opening": "front-right",
+      "role": "launch and swimming performance",
+      "sha256": "027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d",
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-01_take-03.mp4"
+    },
+    {
+      "sample_id": "RSW-06",
+      "take": 3,
+      "opening": "front-right",
+      "role": "arrival and upright recovery",
+      "sha256": "9478b60c3f182c3b491fc3af854f7f6d85cc08346150ed1d1fdaf996c11a70e7",
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-06_take-03.mp4"
+    },
+    {
+      "sample_id": "RSW-03",
+      "take": 3,
+      "opening": "front-right",
+      "role": "attention and quieter personality",
+      "sha256": "a24e44bf84bc7aa3f8679fddf482058442ee49f3009c22521a5cfca032692715",
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-03_take-03.mp4"
+    },
+    {
+      "sample_id": "RSW-05",
+      "take": 3,
+      "opening": "front-right",
+      "role": "attention and quieter personality",
+      "sha256": "f0327efa16a8821f8d77b17198a761de9b5001e8fe0a3138512b9616708d51ea",
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-05_take-03.mp4"
+    }
+  ],
+  "must_measure": [
+    "Broad tail strokes (full fin travel, not a small wiggle)",
+    "Changing full-body posture through the stroke (chest, pelvis, tail-root together)",
+    "Arm placement (hands near the body; scull, not camera greeting)",
+    "Trailing hair (curls and rainbow streak follow late)"
+  ],
+  "loops": {
+    "RSW-07": {
+      "take": 3,
+      "sha256": "678edf78e584624202cdc9bf5f301512095e0c68f612f7313befcd65d3400483",
+      "opening": "right",
+      "note": "Contains ghosted resets. Loop needs reconstruction rather than direct reuse. Also invented gold bracelets — discard jewelry."
+    },
+    "RSW-08": {
+      "take": 3,
+      "sha256": "092e8b4659a7156d0dd7e5f1157e7f80216500e66f628f0fa20c05c51ba83128",
+      "opening": "right",
+      "note": "Contains ghosted resets. Loop needs reconstruction rather than direct reuse. Also invented gold bracelets — discard jewelry."
+    }
+  },
+  "superseded": {
+    "ASSEMBLY-01": "Agent-proposed fragment assembly. Not the owner reconstruction basis. Keep as evidence only.",
+    "agent_shortlist_RSW-04": "Owner did not include RSW-04 in this basis.",
+    "right_profile_construction": "Do not build the swim from RSW-07/08 profile openings."
+  },
+  "claims": {
+    "OWNER_RECONSTRUCTION_BASIS": true,
+    "DELIVERY_ACCEPTED": false,
+    "GENERATION_READY": false
+  }
+}
