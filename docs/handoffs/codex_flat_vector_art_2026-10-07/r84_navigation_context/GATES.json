@@ -67,5 +67,42 @@
   "native_scope": "38 observer checks plus parser/inference/exact-engine syntax in each case. Four direct model views; no formal QA11 or human acceptance.",
   "runtime_tests": "R84 production sources unchanged; R83 full suite remains separate immutable evidence.",
   "acceptance": "Other styles/routes, source reuse selection, exact packaged glyphs, formal QA11, device, child, owner and unknown global inventory remain open.",
-  "actual_staged_committed_2d": "Run before push; final receipt binds those operations."
+  "actual_staged_committed_2d": "Run before push; final receipt binds those operations.",
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=797|LEDGER=797|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "76219217cee4e528b2e9164d94278014ba45817491ddf29014194f08b97b970e",
+      "checked_at_utc": "2026-10-17T05:42:47.789868+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T05:43:04.650704+00:00"
+    }
+  ],
+  "payload_actual_staged_2d": {
+    "log": "CANONICAL_STAGED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  },
+  "payload_actual_committed_2d": {
+    "revision": "b51f38a848f3e6fdb3817f13c2d7776f0e19f18a",
+    "log": "CANONICAL_COMMITTED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  }
 }
