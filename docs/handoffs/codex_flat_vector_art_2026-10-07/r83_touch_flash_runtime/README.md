@@ -1,0 +1,9 @@
+# R83 touch-feedback runtime trial and canonical tally
+
+The separately published [runtime trial and receipt](https://github.com/Ebonyks/mermaid-roshan-reef/tree/06dbe47f52837a08cf39bbb2e604a372fcab46cc/docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime) connects the existing painted ring to the original TouchUI flash. [Draft PR34](https://github.com/Ebonyks/mermaid-roshan-reef/pull/34) remains unintegrated. Local exact4.7.2 full run02 passes82/82zero probe exits; displayed Mobile/Speedy1280/1600 cases pass60checks/4natural parent-child lifecycles.23frames are trial/bootstrap evidence, not current-dev coverage. The initial80/82run, two focused reruns, failed pre-import raw guard, exact1102sidecarCRLF/LF mapping, engine shutdown warnings, packet-local resource exclusion and raw-log transport remain documented.
+
+[Per-piece registry](per_piece.json), [scene coverage](scene_coverage.json), [tally](tally.json), [summary](SUMMARY.json) and [backlog](CONGRUENCY_BACKLOG.json) retain stable IDs and history.263known roles/35families,76partial existing roles and176overlapping route aliases remain; whole-game artwork/screens/regressions stay unknown. Accepted removed, approved, dev integrated and formally verified replacements remain0. One existing sample is connected on its work branch and still awaits new-use review.
+
+[Runtime reference](RUNTIME_TRIAL_REFERENCE.json) binds immutable source, manifest and receipt. [Next menu audit](NEXT_MENU_SOURCE_AUDIT.json) identifies an existing source-bound material role and the live metadata still needed, with zero new count credit.
+
+The mission remains open: unknown inventory/coverage, other UI/callers/fallbacks, bright-rim/neutral-touch meaning, formal fresh-runtimeQA11 and device/child/owner acceptance remain pending. Machine/transport passes establish none of those acceptance lanes. Frozen root five files and readers remain byte-identical; this audit branch changes evidence only.

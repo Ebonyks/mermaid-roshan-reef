@@ -1,4 +1,7 @@
-# Current R79 promenade playground audit
+# Current R83 touch-feedback trial and full-game tally
+
+Current canonical revision: [R83](r83_touch_flash_runtime/README.md). The painted-ring source trial is published in [PR34](https://github.com/Ebonyks/mermaid-roshan-reef/pull/34), with82/82local probe exits and60native checks. No dev integration or accepted-removal credit; all global denominators remain unknown. Historical sections below retain their original scopes.
+
 
 [Open R79](r79_promenade_slide_ownership/README.md). Original NewGame/touch routes distinguish the live Canvas slide/swing/seesaw actions from retained portrait/race paths. Four native runs, 100 observer checks and 78 retained frames identify one shared procedural focus ring/pointer role. [Tally](r79_promenade_slide_ownership/tally.json): 263 known roles / 35 families; zero accepted removals; whole-game totals unknown. Full caller, motion/contact, QA11/device/child/owner and painted cue reuse/repair remain open.
 

@@ -1,0 +1,63 @@
+{
+  "schema": "reef.next_menu_source_audit/1",
+  "recorded_at_utc": "2026-10-17T03:55:04.418199+00:00",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "existing_role_id": "FV-2ABD73BAFFE0",
+  "existing_role_label": "Button normal/hover/pressed/focus/disabled material",
+  "role_file_source_hash_still_exact": true,
+  "source_references": [
+    {
+      "path": "scripts/pause_menu.gd",
+      "raw_sha256": "28ad120339ff9f178f57cb59d820ea208a6d7aad988d56ea72d3afb64099423c",
+      "LF_sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "raw_sha256": "137404cf953e2f40b0a21924c22e8f5a7bd63aee3e7f81ae71543cceefbdab31",
+      "LF_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "raw_sha256": "a0d371c8fe7462dcff0659f34f0457d2fc4f61316c3e5f59c364175530a4d579",
+      "LF_sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "raw_sha256": "5bd14913cb933fa741e3019735e5fd23f8688be07ef1a02945f59c434a01d822",
+      "LF_sha256": "5bd14913cb933fa741e3019735e5fd23f8688be07ef1a02945f59c434a01d822"
+    }
+  ],
+  "source_constructor_chain": [
+    "PauseMenu._build_pause creates GlobalNavigationLayer29 / GlobalNavigationButton",
+    "StorybookUI.style_icon_button delegates to style_button / panel_style",
+    "NavigationController.sync_button selects menu glyph U+2630 or back U+21A9, secondary112x112; position_button sets18..130px",
+    "TouchUI.pause_zone reads the actual GlobalNavigationButton rect; fallback148px is functional input geometry, not accepted artwork"
+  ],
+  "material_states": [
+    "normal",
+    "hover",
+    "pressed",
+    "hover_pressed",
+    "focus",
+    "disabled"
+  ],
+  "glyph_disposition": "Menu/back typography/icon art remains separately unresolved; font or functional use does not automatically exempt visible art.",
+  "context_image": {
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/native/attempt2_actual_source_1280/source_slide_onset.png",
+    "sha256": "9394a79282b095c56e8402ce751853e54d4c4d31863593c0cce2082c2938d6ed",
+    "shows_visible_upper_left_control": true,
+    "classification": "EXCLUDED_WORK_BRANCH_RUNTIME_TRIAL"
+  },
+  "live_ownership_limit": "Current observer traverses only start/intro/clip layers; promenade snapshot nodes[] does not contain navigation. Constructor chain is source evidence, not live node identity proof.",
+  "next_bounded_step": [
+    "Capture actual GlobalNavigationButton instance/path/text/mode, six active style resources, parent layer and screen rect in reachable menu/back/pressed/locked states at both aspects",
+    "Preserve existing112px target, Back/Menu route ownership and invisible hit geometry; do not change the shared factory globally before per-design/caller review",
+    "Inventory suitable approved painted UI sources and glyph disposition before any derivative/new art; compare all ten style/action dimensions to same-scene source hashes"
+  ],
+  "new_named_roles": 0,
+  "new_context_review_credit": 0,
+  "new_samples": 0,
+  "accepted_removed": 0,
+  "global_denominator": null,
+  "scope": "Read-only next-item ownership plan; current flash-trial runtime/fixture/source remain frozen."
+}

@@ -1,0 +1,70 @@
+{
+  "status": "PASS_CANONICAL_DOCUMENT_COUNTS_AND_REFERENCES_ONLY",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/authority.log",
+      "sha256": "094af978e9c26d0259d1d848d6c2ebf6b0d4de929bed983489823358cb950be3",
+      "checked_at_utc": "2026-10-17T04:57:32.070133+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/development.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T04:57:45.138311+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/units.log",
+      "sha256": "de95933b7c0f27a8525d01bacc2ddb83246bf58be60f6b4346684096acb13bb1",
+      "checked_at_utc": "2026-10-17T04:58:00.280881+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/stress.log",
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-17T04:58:01.855296+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/game2d.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "checked_at_utc": "2026-10-17T05:02:31.420046+00:00"
+    }
+  ],
+  "runtime_tests": "Separate exact runtime topic has82/82local/60native; audit worktree runtime unchanged.",
+  "all_acceptance_lanes": "New-use/QA11/device/child/owner/global inventory open;0accepted/devintegrated",
+  "actual_staged_committed_2d": "Run before push; final receipt binds those exact operations."
+}

@@ -1,0 +1,63 @@
+{
+  "id": "flat-vector-runtime-tally-20261016",
+  "scope": "Evidence-only canonical R83 reconciliation to the separately published source-bound TouchUI trial. Preserve frozen root representations/readers, stable IDs, unknown global totals and zero accepted-removal/dev integration. No runtime source or art generation in this audit worktree.",
+  "baseline": "f1d27b14a7d5fc05ec15dc2e131523b39e836742",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-UI-04",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-runtime-tally-20261016.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/FROZEN_ROOT_CHECK.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/NEXT_MENU_SOURCE_AUDIT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/RUNTIME_FINAL_PROOF.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/RUNTIME_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/RUNTIME_TRIAL_REFERENCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/VALIDATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/development.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/game2d.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/stress.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/gate_logs/units.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/verify_runtime_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "Canonical overlay checks; document authority/development/unit/stress; actual staged/committed2D; anonymous immutable manifest/own metadata verification",
+      "result": "PENDING",
+      "evidence": "Scope recorded before canonical file changes; runtime trial already separately published/verified at 06dbe47f52837a08cf39bbb2e604a372fcab46cc"
+    },
+    {
+      "command": "Canonical count/reference/frozen-root checks plus authority/development54unit6stress/2D",
+      "result": "PASS",
+      "evidence": "VALIDATION.json/GATES.json; runtime trial machine evidence externally immutable; no acceptance or audit-worktree runtime changes."
+    }
+  ],
+  "acceptance_gaps": "Trial new-use/bright rim, remaining caller/state/route inventory, formalQA11/device/child/owner and unknown whole-game denominator. No finding closure, art acceptance, integration or release."
+}
