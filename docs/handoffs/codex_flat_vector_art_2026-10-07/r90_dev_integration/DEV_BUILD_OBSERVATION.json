@@ -1,0 +1,37 @@
+{
+  "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "runs": [
+    {
+      "conclusion": "",
+      "databaseId": 39040062042,
+      "event": "push",
+      "headBranch": "dev",
+      "headSha": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "status": "in_progress",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39040062042",
+      "workflowName": "Probe suite (graphics fork)"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39035294472,
+      "event": "pull_request",
+      "headBranch": "codex/flat-vector-critter-book-runtime-20261017",
+      "headSha": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "status": "completed",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39035294472",
+      "workflowName": "Probe suite (graphics fork)"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39035264349,
+      "event": "push",
+      "headBranch": "codex/flat-vector-critter-book-runtime-20261017",
+      "headSha": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "status": "completed",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39035264349",
+      "workflowName": "Probe suite (graphics fork)"
+    }
+  ],
+  "observed_at_utc": "2026-10-17T14:50:17.239025+00:00",
+  "scope": "Read-only exact-head observation; Dev probe/build status distinct from completed work-branch CI. No APK, install/device, stable promotion or release claim."
+}

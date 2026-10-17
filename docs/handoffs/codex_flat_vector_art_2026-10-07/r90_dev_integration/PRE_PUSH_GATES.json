@@ -1,0 +1,68 @@
+{
+  "source_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "expected_dev_parent": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "source_runtime_pin_exact": true,
+  "sidecars_exact": true,
+  "pin_sha256": "40dadce4138790acdeac3947ee9ccef5a9c9612d893cbe55316b0a9fb91402c3",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/collection_system.gd",
+        "scripts/navigation_controller.gd",
+        "scripts/pause_menu.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "INTEGRATION_PREFLIGHT_0.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/collection_system.gd",
+        "scripts/navigation_controller.gd",
+        "scripts/pause_menu.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "INTEGRATION_PREFLIGHT_1.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "8abe14d0b60da35e8867c7ebad46af372e4f3368aa3ba0747da86337b9aa2bd4",
+      "log": "INTEGRATION_PREFLIGHT_2.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "d95290b1cdd6d0543f96700a87d24ed2358ab752613e7dc0adf02b770db8b61d",
+      "log": "INTEGRATION_PREFLIGHT_3.log"
+    }
+  ],
+  "CI_push_success_run": 39035264349,
+  "CI_PR_success_run": 39035294472,
+  "local_full_CI": "R88 full_ci/FULL_CI_RESULT.json;82zero exits",
+  "local_native": "R88 CAPTURE_INDEX.json;606checks/100current/8cases, all excluded current-dev review/acceptance",
+  "advisory_visual": "Exact CI logs retain failed Sky/dust-boss/castle advisory captures; green required jobs do not accept visual or renderer scope.",
+  "eligible_for_normal_dev_integration": true,
+  "release_or_acceptance": false,
+  "checked_at_utc": "2026-10-17T14:10:13.069871+00:00"
+}

@@ -1,0 +1,82 @@
+{
+  "id": "flat-vector-book-dev-integration-20261017",
+  "scope": "Evidence-only R90 reconciliation of verified normal fast-forward Dev integration of exact green R88 book and verbatim R86 navigation sourceF. Two partial code artifacts integrated; zero complete artwork-role/family/removal acceptance. Preserve frozen root5/readers, source history and all current-dev frame exclusions. No runtime/art/workflow/security changes in this canonical checkout. Scoped .gitattributes entries preserve the two immutable raw CI evidence logs; no game/runtime or security/workflow change.",
+  "baseline": "b3fdf9b2f010c262c442273ec09f1cf8920272c5",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-TYPE-07",
+    "DL-TYPE-12",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-TYPE-004"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-book-dev-integration-20261017.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/ARTIFACT_UNITS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/CI_EVIDENCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/DEPENDENCY_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/DEV_BUILD_OBSERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/DEV_INTEGRATION_PUSH.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/DEV_REF_CHECK.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/DEV_REF_RESPONSE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/GLYPH_CONSUMERS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/INTEGRATION_PREFLIGHT_0.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/INTEGRATION_PREFLIGHT_1.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/INTEGRATION_PREFLIGHT_2.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/INTEGRATION_PREFLIGHT_3.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/PR36_READY.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/PRE_PUSH_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/R88_CI_39035264349.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/R88_CI_39035294472.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/RAW_LOG_BYTE_POLICY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/SOURCE_BINDINGS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/TASK_START.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/VALIDATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/gate_logs/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/gate_logs/development.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/gate_logs/stress.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/gate_logs/units.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/verify_runtime_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "Source/count and document54unit/6stress checks before raw-log policy fix",
+      "result": "PASS",
+      "evidence": "GATES.json; actual2D/delivery recorded later, not inferred from these checks."
+    },
+    {
+      "command": "Initial git diff --cached --check",
+      "result": "FAIL",
+      "evidence": "RAW_LOG_BYTE_POLICY.json: trailing whitespace belongs to raw GitHub CI data logs; initial failure retained."
+    },
+    {
+      "command": "Final current metadata/document/staged-and-committed2D and anonymous delivery",
+      "result": "PENDING",
+      "evidence": "Resume after scoped raw-byte policy; exact operations and receipt still required."
+    }
+  ],
+  "acceptance_gaps": "Only code integration. Existing source/new-use, critical glyphs, incomplete callers/routes/states/global inventory, formalQA11/device/child/owner and failed advisory renderer/visual evidence remain open."
+}

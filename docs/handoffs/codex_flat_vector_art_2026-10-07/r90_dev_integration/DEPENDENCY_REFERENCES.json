@@ -1,0 +1,106 @@
+{
+  "parent_final_revision": "b3fdf9b2f010c262c442273ec09f1cf8920272c5",
+  "parent_payload_revision": "9791fc08dcf8129bed220f5a105b910c76b4da2c",
+  "parent_final_own_metadata_proof": {
+    "revision": "b3fdf9b2f010c262c442273ec09f1cf8920272c5",
+    "payload_revision": "9791fc08dcf8129bed220f5a105b910c76b4da2c",
+    "branch": "codex/flat-vector-r6-20261012",
+    "files": [
+      {
+        "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+        "bytes": 266300,
+        "sha256": "fb23a51d6e5066017517c68434db75c4faca335e9599356a37f2f2ae68fa8c6f",
+        "verified": true
+      },
+      {
+        "path": "design/audit_impacts/flat-vector-critter-glyph-context-20261017.json",
+        "bytes": 4549,
+        "sha256": "cfa73f6e758357bef9e1c2234b1137cadd01c6096d040c07fa7cc614ef8c50f9",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+        "bytes": 73190,
+        "sha256": "fd96b7bd5ffdd345920db23cbb7709855327f54d1783af2ae6612878b0873b0a",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/CANONICAL_COMMITTED_2D.log",
+        "bytes": 414,
+        "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/CANONICAL_STAGED_2D.log",
+        "bytes": 414,
+        "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/GATES.json",
+        "bytes": 3867,
+        "sha256": "1f2fab65ba4ea8b54462bb627ee16249f691ab8905fc714bf551bc006231eed4",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/README.md",
+        "bytes": 3871,
+        "sha256": "8c4631eb81087622a080a058d1b082f99c598401e3e4c1b2572a641b27da4f67",
+        "verified": true
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/REMOTE_VERIFICATION.json",
+        "bytes": 784734,
+        "sha256": "8c64819029e919ef8d2b384f52f72cbb3deafb38177728ed0484e417a0bd27bb",
+        "verified": true
+      }
+    ],
+    "all_own_metadata_exact": true,
+    "all_payload_dependencies_verified": true,
+    "frozen_roots_exact": true,
+    "runtime_changes_in_audit_worktree": [],
+    "clean": true,
+    "remote_exact_head": true,
+    "accepted_removed": 0,
+    "dev_integrated": 0,
+    "mission_complete": false,
+    "checked_at_utc": "2026-10-17T14:12:15.473646+00:00"
+  },
+  "additional_required_inputs": [
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "scripts/collection_system.gd",
+      "bytes": 19358,
+      "sha256": "1f32d4f684766404da25d9b1432d412f00477fd2f14c68ac546eff0db159da6a",
+      "role": "Exact integrated source or unchanged required-CI contract; no workflow mutation"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "scripts/navigation_controller.gd",
+      "bytes": 3720,
+      "sha256": "1b10fccd7d9b67bd4088948b98a83b64b7ef163461b2d4d7e0df7a881ab9c5ad",
+      "role": "Exact integrated source or unchanged required-CI contract; no workflow mutation"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "scripts/pause_menu.gd",
+      "bytes": 13595,
+      "sha256": "036f4cf18d0ccf8866b7989bbcf5dcac9d9095632892be915afa83b622c5b10d",
+      "role": "Exact integrated source or unchanged required-CI contract; no workflow mutation"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "scripts/storybook_ui.gd",
+      "bytes": 18593,
+      "sha256": "9ec09a6bdc926fee8a841bb0db97b39d40b9db0916d62a543c7aa5785c7f056c",
+      "role": "Exact integrated source or unchanged required-CI contract; no workflow mutation"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": ".github/workflows/probes.yml",
+      "bytes": 24577,
+      "sha256": "dc39e75ce124e957963f8891539ca45682016a70807bff1e70b8eb10cba4ab29",
+      "role": "Exact integrated source or unchanged required-CI contract; no workflow mutation"
+    }
+  ]
+}

@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261017-R89",
-  "current_entry": "r89_critter_glyph_context/README.md",
-  "current_per_piece": "r89_critter_glyph_context/per_piece.json",
-  "current_scene_coverage": "r89_critter_glyph_context/scene_coverage.json",
-  "current_tally": "r89_critter_glyph_context/tally.json",
-  "current_backlog": "r89_critter_glyph_context/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r89_critter_glyph_context/MANIFEST.json",
+  "revision": "FV-AUDIT-20261017-R90",
+  "current_entry": "r90_dev_integration/README.md",
+  "current_per_piece": "r90_dev_integration/per_piece.json",
+  "current_scene_coverage": "r90_dev_integration/scene_coverage.json",
+  "current_tally": "r90_dev_integration/tally.json",
+  "current_backlog": "r90_dev_integration/CONGRUENCY_BACKLOG.json",
+  "current_manifest": "r90_dev_integration/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r89_critter_glyph_context/GATES.json",
+  "current_ci_evidence": "r90_dev_integration/GATES.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -1313,8 +1313,8 @@
     "terminal_evidence": "r87_critter_navigation_context/RUNTIME_FINAL_PR_CI.json",
     "limits": "No rerun/cause attribution or acceptance inferred; same-head push success is separate from PR cancellation and optional renderer failures."
   },
-  "current_summary": "r89_critter_glyph_context/SUMMARY.json",
-  "current_catalogue_alias_set": "r89_critter_glyph_context/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+  "current_summary": "r90_dev_integration/SUMMARY.json",
+  "current_catalogue_alias_set": "r90_dev_integration/CURRENT_CATALOGUE_CONTEXT_UNION.json",
   "immutable_r87_receipt_revision": "bb30d505500a7b737115f694e69e02b35efddb85",
   "r88_runtime_trial": {
     "stable_role_ids": [
@@ -1331,11 +1331,12 @@
     "runtime_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c524e0855559bf14e3f1c502b290baf90458a171/docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/MANIFEST.json",
     "runtime_receipt": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d5e63a1ec6e79745da504ee3c3945e59ae35ea79/docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/REMOTE_VERIFICATION.json",
     "pull_request": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/36",
-    "status": "PUBLISHED_WORK_BRANCH_LOCAL82_NATIVE606_PARTIAL_AGENT_REVIEW_ACCEPTANCE_PENDING",
+    "status": "DEV_INTEGRATED_REQUIRED_CI_GREEN_ACCEPTANCE_PENDING",
     "source_dev_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
     "scope": "Actual book constructor, redundant ornament retirement, usable title/help bounds, two-column six-card layout and layer28 only. Original nonvisual collection/save/input bodies preserved. Three R86 navigation source files reused verbatim. No source PNG or generation change.",
     "limits": "Current native checks use fresh original controls and declared synthetic saved collections/notifications/property stress; no natural catch journey or physical device. Category/habitat emoji and other callers visibly remain. FormalQA11/source-new-use/device/child/owner/global inventory remain open.",
-    "metrics": "SUMMARY.json"
+    "metrics": "SUMMARY.json",
+    "integrated_dev_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79"
   },
   "immutable_r88_payload_revision": "d7f12689400673795555cfc121f7b78495d2f2c2",
   "r88_publication": {
@@ -1379,5 +1380,22 @@
     "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
     "receipt": "r89_critter_glyph_context/REMOTE_VERIFICATION.json",
     "own_metadata_scope": "Final receipt metadata checked separately at final commit; no recursive self hash"
+  },
+  "immutable_r89_receipt_revision": "b3fdf9b2f010c262c442273ec09f1cf8920272c5",
+  "r90_dev_integration": {
+    "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "proof": "DEV_INTEGRATION.json",
+    "CI": "CI_EVIDENCE.json",
+    "count_units": "ARTIFACT_UNITS.json",
+    "integrated_artifact_keys": [
+      "r86_navigation_runtime",
+      "r88_critter_book_runtime"
+    ],
+    "partial_integrated_artifact_count": 2,
+    "complete_named_artwork_roles": 0,
+    "accepted_removed": 0,
+    "historical_frames_requalified": false,
+    "new_frame_events": 0,
+    "source_newuse_formal_QA11_device_child_owner": "PENDING"
   }
 }

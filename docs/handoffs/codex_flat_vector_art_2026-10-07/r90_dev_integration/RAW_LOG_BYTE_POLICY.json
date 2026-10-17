@@ -1,0 +1,11 @@
+{
+  "initial_git_diff_check_exit_code": 2,
+  "affected_paths": [
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/R88_CI_39035264349.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/R88_CI_39035294472.log"
+  ],
+  "failure_log_sha256": "fd58174217f74f5eaad47af48c8e1d5dc6ea22cb3ac5a82745fc6e878d251bdb",
+  "resolution": "Existing scoped raw-log convention: -text -diff only for the two immutable CI data logs. Keep original bytes; no runtime/probe/config/source check is weakened.",
+  "protected_or_runtime_files_changed": false,
+  "checked_at_utc": "2026-10-17T15:03:20.261825+00:00"
+}

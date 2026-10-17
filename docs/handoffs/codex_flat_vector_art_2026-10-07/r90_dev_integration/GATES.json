@@ -1,0 +1,58 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_DOCUMENT_COUNTS_ONLY",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/gate_logs/authority.log",
+      "sha256": "e59e0883f6be40ecf4f2ee14e70b0f5816cf65a65930eed028b02f37a68ddd84",
+      "checked_at_utc": "2026-10-17T14:56:27.017513+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/gate_logs/development.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T14:56:38.334663+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/gate_logs/units.log",
+      "sha256": "675ac10287efb1e322eb9255c7888d95981e4f8365b5827fd5894ad1dec98bbe",
+      "checked_at_utc": "2026-10-17T14:56:50.538185+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r90_dev_integration/gate_logs/stress.log",
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-17T14:56:51.665633+00:00"
+    }
+  ],
+  "runtime_scope": "No new runtime code or engine execution in R90. R88 exact-source native606/local82 remain separately scoped; exact required work-branch and PR CI passed and sourceF is now on Dev. Advisory visual failures remain open.",
+  "acceptance": "No source/new-use/formalQA11/device/child/owner/whole-game or strict2Dzero acceptance.",
+  "actual_staged_committed_2d": "Bound in final receipt metadata after the exact operations."
+}

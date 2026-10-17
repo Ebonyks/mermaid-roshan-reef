@@ -1,0 +1,69 @@
+{
+  "status": "SOURCE_F_FAST_FORWARD_INTEGRATED_TO_DEV_ANONYMOUSLY_VERIFIED",
+  "previous_dev_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "integrated_dev_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "source_branch": "codex/flat-vector-critter-book-runtime-20261017",
+  "source_worktree_clean": true,
+  "local_master_or_dev_checkout_changed": false,
+  "master_pushed_or_release_dispatched": false,
+  "push_exit_code": 0,
+  "push_log_sha256": "d1e42679e11a17bf895d540478279c93990200b2ba11cc1b59aa7bb4373b9681",
+  "started_at_utc": "2026-10-17T14:16:36.449188+00:00",
+  "checked_at_utc": "2026-10-17T14:16:53.710198+00:00",
+  "public_dev_ref": {
+    "url": "https://api.github.com/repos/Ebonyks/mermaid-roshan-reef/git/ref/heads/dev",
+    "sha256": "e253cf5b2c8c5d12a420cc9aa7c51fa200077ada4e66897ce7f25af6ce2e9a87",
+    "object_sha": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "access_mode": "Anonymous HTTPS GET, no authentication"
+  },
+  "runtime_source_files": [
+    {
+      "path": "scripts/collection_system.gd",
+      "bytes": 19358,
+      "sha256": "1f32d4f684766404da25d9b1432d412f00477fd2f14c68ac546eff0db159da6a",
+      "anonymous_exact": true
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "bytes": 3720,
+      "sha256": "1b10fccd7d9b67bd4088948b98a83b64b7ef163461b2d4d7e0df7a881ab9c5ad",
+      "anonymous_exact": true
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "bytes": 13595,
+      "sha256": "036f4cf18d0ccf8866b7989bbcf5dcac9d9095632892be915afa83b622c5b10d",
+      "anonymous_exact": true
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "bytes": 18593,
+      "sha256": "9ec09a6bdc926fee8a841bb0db97b39d40b9db0916d62a543c7aa5785c7f056c",
+      "anonymous_exact": true
+    }
+  ],
+  "PR36": {
+    "baseRefName": "dev",
+    "headRefOid": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "isDraft": false,
+    "mergeCommit": {
+      "oid": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79"
+    },
+    "mergedAt": "2026-10-17T14:16:43Z",
+    "state": "MERGED",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/36"
+  },
+  "integrated_bounded_artifact_keys": [
+    "r86_navigation_runtime",
+    "r88_critter_book_runtime"
+  ],
+  "navigation_dependency_source_revision": "684e34f06ebce6a70065847b5ecb69547ea8a128",
+  "navigation_three_files_verbatim": true,
+  "artifact_count_scope": "Two scoped implementation artifacts integrated as code; not two completed artworks/families or accepted removals. PR35 source delta copied verbatim, not its commit/metadata merged.",
+  "formal_QA11_device_child_owner_source_newuse": "PENDING",
+  "accepted_removed": 0,
+  "global_artwork_total": null,
+  "advisory_visual_failures_retained": true,
+  "dev_APK": "Build not yet checked; no device/install/acceptance or stable promotion claim",
+  "mission_complete": false
+}

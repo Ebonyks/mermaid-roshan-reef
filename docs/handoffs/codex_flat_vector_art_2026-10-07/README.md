@@ -1,4 +1,7 @@
-# Current R89 Critter Book glyph context and full-game tally
+# Current R90 Dev integration and full-game tally
+
+Current canonical revision: [R90](r90_dev_integration/README.md). Two partial book/navigation code artifacts are integrated on Dev at exact green sourceF. Zero complete artwork-role replacements/families/accepted removals and unknown global denominators remain. Historical sections retain their dated scopes.
+
 
 Current canonical revision: [R89](r89_critter_glyph_context/README.md), binding existing semantic consumers and exact source-history limits before an insect-tab repair. No new native frame, runtime edit, source sample, role or acceptance credit. Historical R88 material repair and all earlier evidence retain their recorded scope.
 
