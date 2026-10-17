@@ -1,0 +1,11 @@
+# Painted mineral source samples and pan recovery — R96
+
+Two actual built-in ImageGen outputs now exist for the mint specimen of `FV-66629DC58A20`. Both preserve painted mint/teal material and plum contours, but both retain diffuse outside pixels. Take01 is rejected for runtime halo; take02 is another sample needing alpha/context review and changes the framing. Neither is clean-alpha final, integrated or approved. No third call is scheduled for this brief.
+
+[Source/provenance and exact reference hashes](CONTEXT.json), [first prompt](PROMPT.txt), [targeted cleanup prompt](PROMPT_TAKE02.txt), [ten-axis partial comparison](CONGRUENCY_REVIEW.json), [current registry](per_piece.json), [scene coverage](scene_coverage.json), [tally](tally.json), [summary](SUMMARY.json), [delivery manifest](MANIFEST.json).
+
+The inputs are the exact already-published R95pan completion frame and whole painted pan source. They establish the scene/style reference; they grant no new artwork acceptance. The built-in tool returned no model/version selector, provider revision or request ID; do not label these as ImageGen2.5. Native outputs are archived unchanged under `assets_src/flat_vector_geologist_mineral_20261017/take01/` and `take02/`. Future runtime import/crop/fit and all phone-size/contact/action-state evidence remain pending; other color variants/shared callers remain open.
+
+R95painted-pan integration remains first. Its original full CI finished FAIL: throne and verbs assertions plus Opera exit127, with normal saves/source guards unchanged. Current Dev already carries independently evidenced throne/verbs precondition repairs. The same pan is now reconciled to `1a4e8a1ceae29b401d63900a57a531b2f4442ba8`, and [the recovery](PAN_CI_TRANSITION.json) runs all82 trusted scripts through the repository probe-by-probe route in live session1292. Do not restart it or alter its frozen runtime files/imports. The original failed transcript is preserved. No successful fullCI, runtime commit or Dev integration is inferred.
+
+Implementation, machine checks, formalQA11 and device/child/owner acceptance remain separate. Known263roles/35families and existing totals remain historical lower bounds; all unknown denominators stay unknown. Zero accepted removals; mission open.

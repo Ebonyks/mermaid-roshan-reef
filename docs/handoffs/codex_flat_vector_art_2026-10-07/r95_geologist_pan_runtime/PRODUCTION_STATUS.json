@@ -26,11 +26,12 @@
   "direct_native_frame_views": 7,
   "new_generation_calls": 0,
   "runtime_full_CI": {
-    "state": "RUNNING",
+    "state": "TERMINAL_FAIL",
     "session": 59912,
     "launcher": "FULL_CI_LAUNCH.json",
     "terminal_path_on_producer": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-pan-20261017\\FULL_CI_RESULT.json",
-    "do_not_restart": true
+    "do_not_restart": true,
+    "terminal_evidence": "../r96_geologist_mineral_candidate/PAN_ORIGINAL_FULL_CI_RESULT.json"
   },
   "source_branch_committed": false,
   "Dev_integrated": false,
@@ -39,5 +40,6 @@
   "child": "PENDING",
   "owner": "PENDING",
   "accepted_removed": 0,
-  "mission_complete": false
+  "mission_complete": false,
+  "later_recovery": "../r96_geologist_mineral_candidate/PAN_CI_TRANSITION.json"
 }

@@ -1,0 +1,41 @@
+{
+  "stable_id": "FV-F2DE53A80AA7",
+  "original_source_baseline": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "old_operation": {
+    "session": 59912,
+    "state": "TERMINAL_FAIL",
+    "result": "PAN_ORIGINAL_FULL_CI_RESULT.json",
+    "log": "PAN_ORIGINAL_FULL_CI_FAIL.log",
+    "failures": [
+      "probe_throne emitted3 assertion failures despite exit0",
+      "probe_verbs emitted suspended-idle assertion failure despite exit0",
+      "probe_opera exited127 before its terminal verdict"
+    ],
+    "normal_saves_unchanged": true,
+    "source_and_sidecar_guards_unchanged": true
+  },
+  "reconciled_baseline": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+  "current_operation": {
+    "session": 1292,
+    "state": "RUNNING",
+    "script": "run_pan_reconciled_probes.py",
+    "launch": "PAN_RECOVERY_LAUNCH.json",
+    "source_pin": "PAN_RECOVERY_SOURCE_PIN.json",
+    "expected_terminal_on_producer": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-pan-20261017\\reconciled_validation\\FINAL_RESULT.json",
+    "worktree": "C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef",
+    "branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "do_not_restart": true,
+    "do_not_modify_runtime_sources_or_imports": true
+  },
+  "pan_script_raw_working_sha256": "05225bc142aeb158d590510e7ccfc938f89fb459808bf64ddc8aaf12bad87417",
+  "pan_script_LF_canonical_and_published_blob_sha256": "7e0ec012354fcb20c51d952b25208434906298a938cf597fd75f7ccaccc07415",
+  "normalization": "Git working CRLF and canonical LF bytes declared separately; actual pan logic/source master unchanged.",
+  "native_context": "Existing exact R95N-native context retained; current-Dev source/probe validation is separate. No new native frame events here.",
+  "source_branch_committed": false,
+  "Dev_integrated": false,
+  "formal_QA11": "PENDING",
+  "device": "PENDING",
+  "child": "PENDING",
+  "owner": "PENDING",
+  "accepted_removed": 0
+}

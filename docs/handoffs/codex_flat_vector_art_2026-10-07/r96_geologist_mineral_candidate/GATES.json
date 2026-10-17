@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "6713639a47868ccac2282c0439bf9cd2dd6281f3434529da4bd54b9c038be1a2",
+      "output": "DOCAUTH|INVENTORY=809|LEDGER=809|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n"
+    }
+  ],
+  "source_outputs": "2actual RGBA1328x1184 masterPNG bytes preserved; unresolved outside halo/reframing recorded. No claim of runtime-ready texture or clean alpha.",
+  "runtime": "No runtime changes in this canonical/source publication. Pan recovery1292 remains live and separate; original fullCI59912 FAIL. No engine rerun for unchanged bookkeeping.",
+  "formal_QA11": "PENDING",
+  "device": "PENDING",
+  "child": "PENDING",
+  "owner": "PENDING"
+}

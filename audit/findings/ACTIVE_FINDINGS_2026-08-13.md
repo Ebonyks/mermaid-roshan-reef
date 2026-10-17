@@ -330,6 +330,8 @@ poses as broken motion.
 
 ## MA-VIS-006
 
+R96production2026-10-17: [two actual mint mineral samples](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md) retain halo/context gaps. Pan originalfullCI is FAIL; source-equivalent pan/currentDev recovery1292 remains live. No new runtime, formalQA11 or device/child/owner acceptance; lifecycle unchanged.
+
 R95 production2026-10-17: [painted Geologist pan](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/README.md) actual source patch/native candidate106checks; fullCI/integration and formal/device/child/owner pending. Quality-first method, original source/control/save preserved. No lifecycle/score/whole-game closure.
 
 
