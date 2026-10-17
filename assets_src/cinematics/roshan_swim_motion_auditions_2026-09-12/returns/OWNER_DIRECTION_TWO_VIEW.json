@@ -1,0 +1,22 @@
+{
+  "schema": "roshan-owner-direction-v1",
+  "recorded_at": "2026-09-16",
+  "scope": "standard swim animations",
+  "source": "Owner message on FLOW-01 START_HERE handoff: project modification, only using 2 view now, left and right, no front/back standard swim animations.",
+  "facts": [
+    "Standard swim animations use 2 views only: left and right",
+    "No front/back standard swim animations",
+    "Front and back 4-way clips are withdrawn from the standard-swim set",
+    "Motion references only. Nothing merged. Runtime unchanged."
+  ],
+  "active_views": ["left", "right"],
+  "withdrawn_views": ["front", "back"],
+  "active_clips": ["RSW-SWIM-LEFT", "RSW-SWIM-RIGHT"],
+  "withdrawn_clips": ["RSW-SWIM-FRONT", "RSW-SWIM-BACK"],
+  "does_not_delete_historical_front_back_files": true,
+  "does_not_reauthorize_flow_01_generation": true,
+  "flow_01_facing_unchanged": "front-right IMAGE_1_locked-front-right.png; FLOW-01 is not a standard swim cycle",
+  "delivery_accepted": false,
+  "merged": false,
+  "runtime_changed": false
+}

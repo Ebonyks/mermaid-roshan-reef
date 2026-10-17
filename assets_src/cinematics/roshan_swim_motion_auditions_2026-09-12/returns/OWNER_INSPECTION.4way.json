@@ -1,0 +1,34 @@
+{
+  "schema": "roshan-owner-inspection-v1",
+  "handoff_id": "roshan_4way_basic_swim_2026-09-14",
+  "recorded_at": "2026-09-15",
+  "updated_at": "2026-09-16",
+  "repaired_in_this_packet": false,
+  "delivery_accepted": false,
+  "merged": false,
+  "runtime_changed": false,
+  "facts": [
+    "Hair/tail colour corrections remain outstanding",
+    "Navy-flattened locked-4way-*.png cannot establish clean hair alpha",
+    "Alpha authority: existing RGBA 8-view cutouts references/{front,right,back,left}.png",
+    "Motion references only. Nothing merged. Runtime unchanged.",
+    "Standard swim animations use 2 views only: left and right",
+    "No front/back standard swim animations"
+  ],
+  "alpha_authority": "references/{front,right,back,left}.png",
+  "navy_openings_not_alpha_sources": [
+    "openings/locked-4way-front.png",
+    "openings/locked-4way-right.png",
+    "openings/locked-4way-back.png",
+    "openings/locked-4way-left.png"
+  ],
+  "standard_swim_views": ["left", "right"],
+  "withdrawn_from_standard_swim": ["front", "back"],
+  "do_not": [
+    "treat these stills or clips as colour-corrected masters",
+    "key, flood-fill, or recover fringe from the navy plates",
+    "treat front/back as current standard swim",
+    "merge to master or dev",
+    "set DELIVERY_ACCEPTED"
+  ]
+}
