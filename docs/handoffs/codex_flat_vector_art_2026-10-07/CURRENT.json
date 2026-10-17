@@ -1292,5 +1292,25 @@
     "runtime_verified_formal": 0,
     "accepted_removed": 0
   },
-  "r87_runtime_ci_observation": "r87_critter_navigation_context/UPSTREAM_OBSERVATION.json"
+  "r87_runtime_ci_observation": "r87_critter_navigation_context/UPSTREAM_OBSERVATION.json",
+  "immutable_r86_receipt_revision": "f685ed29a7788d5b0dec63359c35efa00048a5a7",
+  "immutable_r87_payload_revision": "0d4a2acf3d982771342083e73f7d49ae9f9d7b33",
+  "r87_publication": {
+    "revision": "0d4a2acf3d982771342083e73f7d49ae9f9d7b33",
+    "state": "ALL_REQUIRED_FILES_ANONYMOUSLY_BYTE_VERIFIED",
+    "required_files": 1457,
+    "required_bytes": 567941462,
+    "manifest_sha256": "2d868041b176d809c74b050f60eacb66674ae4416de679a8ffeead7c8f5cce58",
+    "checked_at_utc": "2026-10-17T09:39:52.220646+00:00",
+    "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
+    "receipt": "r87_critter_navigation_context/REMOTE_VERIFICATION.json",
+    "own_metadata_scope": "Final receipt metadata checked separately at final commit; no self hash"
+  },
+  "r87_latest_runtime_ci": {
+    "push_39017513094": "success",
+    "pr_39017549705": "cancelled during optional dust-boss review after about55minutes",
+    "revision": "684e34f06ebce6a70065847b5ecb69547ea8a128",
+    "terminal_evidence": "r87_critter_navigation_context/RUNTIME_FINAL_PR_CI.json",
+    "limits": "No rerun/cause attribution or acceptance inferred; same-head push success is separate from PR cancellation and optional renderer failures."
+  }
 }

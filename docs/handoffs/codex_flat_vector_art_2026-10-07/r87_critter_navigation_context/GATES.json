@@ -66,5 +66,49 @@
   ],
   "runtime_tests": "No runtime edits; exactF unchanged R86 local82 and terminal push workflow separate from R87 original native74/material18 and optional CI renderer failures.",
   "acceptance": "No formalQA11/device/child/owner or whole-game acceptance.",
-  "actual_staged_committed_2d": "Bound by final receipt metadata after exact operations."
+  "actual_staged_committed_2d": "Bound by final receipt metadata after exact operations.",
+  "runtime_remote_ci_terminal": {
+    "source": "684e34f06ebce6a70065847b5ecb69547ea8a128",
+    "push39017513094": "success",
+    "pr39017549705": "cancelled",
+    "evidence": "RUNTIME_FINAL_PR_CI.json",
+    "optional_visual_failures_not_waived": true
+  },
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=800|LEDGER=800|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "7125e8b194a75fe1808e5b12d8309769a697a4ac6f53492bb08568173a8f00c4",
+      "checked_at_utc": "2026-10-17T09:40:05.079268+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T09:40:16.220765+00:00"
+    }
+  ],
+  "payload_actual_staged_2d": {
+    "log": "CANONICAL_STAGED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  },
+  "payload_actual_committed_2d": {
+    "revision": "0d4a2acf3d982771342083e73f7d49ae9f9d7b33",
+    "log": "CANONICAL_COMMITTED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  }
 }

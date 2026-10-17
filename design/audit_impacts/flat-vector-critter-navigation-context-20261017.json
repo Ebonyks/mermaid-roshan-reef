@@ -39,6 +39,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/.gdignore",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/.gitattributes",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/CALLER_EVIDENCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/CANONICAL_COMMITTED_2D.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/CANONICAL_STAGED_2D.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/CAPTURE_INDEX.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/CONGRUENCY_BACKLOG.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/CONTEXT_PREREQUISITE.json",
@@ -49,10 +51,12 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/OBSERVER_CONTRACT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/REPAIR_ITEMS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/RUNTIME_CI_JOBS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/RUNTIME_CI_LOG_BINDING.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/RUNTIME_FINAL_PR_CI.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/SOURCE_PARITY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/SOURCE_PIN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/SUMMARY.json",
@@ -102,6 +106,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/per_piece.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/runner_initial_before_utf8_fix.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/runtime_pr_39017549705.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/runtime_push_39017513094.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r87_critter_navigation_context/tally.json",
@@ -119,9 +124,9 @@
       "evidence": "Initial1280engine0; cp1252readerfailure retained; correctedUTF8reader parsed sameoutputs withoutengine rerun."
     },
     {
-      "command": "Canonical document/count/reference/frozenroot/2D",
+      "command": "Canonical document/count/reference/frozenroot/2D and anonymous immutable delivery",
       "result": "PASS",
-      "evidence": "VALIDATION.json/GATES.json;54unit/6stress, source unchanged. Anonymous delivery pending payload commit."
+      "evidence": "VALIDATION.json/GATES.json/REMOTE_VERIFICATION.json; payload required files verified byte-exact without authentication; final own metadata separately verified after receipt commit. No acceptance credit."
     }
   ],
   "acceptance_gaps": "Only empty fresh Critter Book caller slice; caught/saved species, other registered/legacy/state/lock/focus/cancel cases, criticalglyph/fallback, formalQA11/device/child/owner and whole-game denominator remain open. No accepted-removal/integration/new-role/family/alias/sample credit."
