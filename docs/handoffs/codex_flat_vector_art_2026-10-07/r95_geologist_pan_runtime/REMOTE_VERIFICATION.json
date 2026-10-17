@@ -1,0 +1,961 @@
+{
+  "schema": "reef.remote_delivery_verification/1",
+  "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "public_repository_api_verified": true,
+  "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/MANIFEST.json",
+  "manifest_sha256": "ea932ac9122f9e26703fe983bf198d92ced7e05786b8292d911abb19737e4b0c",
+  "manifest_bytes": 43770,
+  "required_files": 118,
+  "required_bytes": 47239185,
+  "files": [
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": ".gitattributes",
+      "bytes": 13235,
+      "sha256": "8fe12db490747afaca614a9dded1f66a549ae520a42791ab1bf622f2b5664fb0",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "ASSET_LICENSES.md",
+      "bytes": 5381433,
+      "sha256": "d5aa7d0cc81e24cc044880bf88619fbaa1ff1b7ec20961015e603f24ece2211b",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297907,
+      "sha256": "2c2a540ea2f814555223b9a0f18550f119626248f6fa325344297bc6721eb933",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 271641,
+      "sha256": "c9bcefd14a5de9ae750fb168892a47bb74d5a885f9327f49b27d5b0e823c4715",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 317767,
+      "sha256": "d4ca273d48be8b44b8b7d0587999c306ca304b3d5fcfdfc938433dcdc24f0e23",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 264952,
+      "sha256": "9c3b4340416146b9aaff8cb96b69c14b63c12d8f20e39db7fa2544ea00be67ff",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "design/audit_impacts/flat-vector-geologist-pan-publication-20261017.json",
+      "bytes": 13601,
+      "sha256": "05eb61f7a5bf6e5400f7d228a84ee2a880203e4d7e4d72592f53ee92278ec8d8",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 90273,
+      "sha256": "651a3999d304d3fe0dbfd041758cc8eba4c2bd9bab6eeaa8d488c65f45f9eef8",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+      "bytes": 4664,
+      "sha256": "3e418f72295dbacd0840415bf7528cb5808dc8e6c8ed93c8d697daa481e23336",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_WORKFLOW.md",
+      "bytes": 4890,
+      "sha256": "6fe046227ae6d4c16f3ae62a20d9f4d0a8f80ce45315dbe97e5c8089359c2845",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/.gdignore",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/ASSET_IMPORT.log",
+      "bytes": 2492,
+      "sha256": "7c23379d8463c8bea9a59fb2276b862657e00c4cdd5e38236824bc379472627c",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/AUTOMATION.json",
+      "bytes": 5786,
+      "sha256": "aaa8e1b876978476e789da3f6fa32c15e2575ddb7acaf694383ec04ab80cf3eb",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/CANDIDATE_RUNTIME.gd.txt",
+      "bytes": 33675,
+      "sha256": "7e0ec012354fcb20c51d952b25208434906298a938cf597fd75f7ccaccc07415",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/CANDIDATE_SOURCE_PIN.json",
+      "bytes": 574002,
+      "sha256": "f09928adc08baee26597db275f3c375679f0ba6b93c0c213e50dd1f951527e0b",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/CAPTURE_INDEX.json",
+      "bytes": 14683,
+      "sha256": "e62ffa45dba8353493c3714db33627b37a1166d21025db7c5c7e33572db0a6b6",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/CI_LAUNCH_SETUP.json",
+      "bytes": 354,
+      "sha256": "dc8d6ec3e79068e593cea681b0725c9b9fdbed0fc03cd04403f1f71ca9dda6ef",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/CONGRUENCY_REVIEW.json",
+      "bytes": 3894,
+      "sha256": "ca57e4acf2bc89ed1fa0030bd1349b165c15c79b30bbc950121352b79fd847f1",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/EXCLUDED_SETUP.json",
+      "bytes": 1391,
+      "sha256": "6f9d9d3d2900367cedd1615b02784b1ea2ca246a4d8371aca22e4ae3f23ab381",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/FULL_CI_LAUNCH.json",
+      "bytes": 1912,
+      "sha256": "55ef18bef16a2242cc671c23572761e0ddf720e338c93912967fca174dcffa7e",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/GATES.json",
+      "bytes": 2629,
+      "sha256": "f75a91cdf88380a0567e65e83c30ba6f0e541bc4059080ca557c7cb16dee0328",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/OWNER_PRIORITY.json",
+      "bytes": 1696,
+      "sha256": "a0a3731a3dbc8eabadae4aab223e5ad00a46c5fa44c25f10f9c9d897ff7db495",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/PRE_CI_AUTHORITY.log",
+      "bytes": 78,
+      "sha256": "cf4de786ba89fc96a266f25e2574bf3bd4d0b3076c0afe4275e3855422e1946a",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/PRE_CI_DEVELOPMENT.log",
+      "bytes": 80,
+      "sha256": "18ead80ffef4c6229a3b116c4d11979f5b4e50dfc43c385a88543fe3003f247c",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/PRODUCTION_CHANGE.json",
+      "bytes": 880,
+      "sha256": "8a0871e10c2b41371cedbde2b35131ef1f2f1cf85acdadb00119d06fb774c920",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/PRODUCTION_PATCH.diff",
+      "bytes": 2533,
+      "sha256": "061ccdf8969331d412977cc6bda96ff4fa40272fcd45c8cca3e24e04faa9a8a5",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/PRODUCTION_STATUS.json",
+      "bytes": 1520,
+      "sha256": "6b3c80bb56b096f405bdbbde8d66f73ea64302f12a765db320c94d1b19d7dde8",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/README.md",
+      "bytes": 2816,
+      "sha256": "9efcb5fdf1ac3780afbdcc05d10e005fb017ea24fa2daf5c384909b6193d1bc7",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/REPLAY.json",
+      "bytes": 1512,
+      "sha256": "8d19fa9ba89044d00263aaddc11231bd6a9140a7b396f3f67abdc838c8441889",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SOURCE_BEFORE.gd.txt",
+      "bytes": 33298,
+      "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
+      "bytes": 8322,
+      "sha256": "b0e557356d6867f6eb6e3e911e3b317f0a49c42d34d5253ab35c065a9384ae90",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/capture_pan.gd",
+      "bytes": 8034,
+      "sha256": "2ab426d1b6ff154a1d9971459fd29bf91c4c7c56902616f240d52ced7ff0429f",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_1280/01_pan_start.png",
+      "bytes": 1293163,
+      "sha256": "53583cde1f7570625bdd990b965a505bc91f298b2c132070d15882de05a7fc29",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_1280/02_pan_partial.png",
+      "bytes": 1293108,
+      "sha256": "1a8ad78b1975607a7838410e026fd24b4bf883a4e91f4da272513d90776b7b5b",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_1280/03_pan_near_complete.png",
+      "bytes": 1293085,
+      "sha256": "9f822e42dbbb668af52788f110252b16528471d2ec7b2a88e3bf24d1c7b7a8fa",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_1280/04_pan_complete.png",
+      "bytes": 1293083,
+      "sha256": "1183d912f20a163447f9efc9796b8dd90a1ec462b0292f30953fa609720f471a",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_1280/LAUNCH.json",
+      "bytes": 814,
+      "sha256": "4a7f3e81b1111cadf89b67ee9a41aa7bb65db42773b34f3af9a52f40de49a1a3",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_1280/RESULT.json",
+      "bytes": 5759,
+      "sha256": "2fce323a41c765e1c0dfcdabad31b35cad8192f929bc35509db6fca441719c87",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_1280/engine.log",
+      "bytes": 1937,
+      "sha256": "60908f2153e1572b90653e5011d4b71325534b8fea1e7e8e6a31d6966a98bfac",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1280/01_pan_start.png",
+      "bytes": 1293158,
+      "sha256": "0e55c9adaa662e45a6a9778fa4b9f538672b315f97d450eb51f8495f3eb3403f",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1280/02_pan_partial.png",
+      "bytes": 1293109,
+      "sha256": "e22a7cf17e903e66ce2e520be6cc5ec2829eb11a8cd36cac83b282d16b298180",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1280/03_pan_near_complete.png",
+      "bytes": 1293074,
+      "sha256": "b2e00fc7521a4e72e8f4d06a4c4eb373e674962ef11249567dae88822243c827",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1280/04_pan_complete.png",
+      "bytes": 1293085,
+      "sha256": "e1dbceff431d91ccf78968bd892d081722f55fd303d1204b9e867e2405655c13",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1280/LAUNCH.json",
+      "bytes": 985,
+      "sha256": "be1e9e3beeb7fc205046879a1e1ce437ca8908530162172492097ab9516d7030",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1280/RESULT.json",
+      "bytes": 5765,
+      "sha256": "f35621be58892c10eb4dbff26d92d53212c7fd446832b08c1d2505461e257f3f",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1280/engine.log",
+      "bytes": 190,
+      "sha256": "ffb4fe22710b30d08adf8c84f49995b06fa5f8326298aa943ab66ca91e6b7685",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1600/01_pan_start.png",
+      "bytes": 1304971,
+      "sha256": "36e84275f43f566bcfc44694ac4b327857107296505f8fc006de93c0d68f7600",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1600/02_pan_partial.png",
+      "bytes": 1304912,
+      "sha256": "d60a60d76ecf8be3068763de81579d92a44c9ad573fca8cd37508035beee30fd",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1600/03_pan_near_complete.png",
+      "bytes": 1304873,
+      "sha256": "90872b1dda0ef0ff4e981a8d209f07bc7ef771f63600ec4536f113eaac8087f2",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1600/04_pan_complete.png",
+      "bytes": 1304878,
+      "sha256": "055c941b6cedde65c083c88b7bce04fad2e35f249efa4de03018451963cb6414",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1600/LAUNCH.json",
+      "bytes": 985,
+      "sha256": "ad2a415e10b30a174a227fbb84b622293b51b4c5407b07cb5567da967c68059c",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1600/RESULT.json",
+      "bytes": 5765,
+      "sha256": "b1041e9bffe18b1a1e58175217c89f544b51a7cdcd1eed9d61b169e757fcfbfe",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_1600/engine.log",
+      "bytes": 190,
+      "sha256": "ffb4fe22710b30d08adf8c84f49995b06fa5f8326298aa943ab66ca91e6b7685",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1280/01_pan_start.png",
+      "bytes": 1532460,
+      "sha256": "60dcdfeb70aefffde4a30f1b8de7d11be5241e86166db4b31d8ecac047f8e0f7",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1280/02_pan_partial.png",
+      "bytes": 1532421,
+      "sha256": "be2b071ac3bd43e09ad0803857c38257a71af0f3082489d998e0d52eb75c3a3d",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1280/03_pan_near_complete.png",
+      "bytes": 1532393,
+      "sha256": "fc3d6314e5be542c9259e7153bf6638719d4b2f0fb7b3fe54c776aa61b252270",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1280/04_pan_complete.png",
+      "bytes": 1532353,
+      "sha256": "e0c7fa2d80360386a4af70b152ba683630f928e1408c927f7e89befd21d54e20",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1280/LAUNCH.json",
+      "bytes": 985,
+      "sha256": "688738b8dd7523905a368bbc942a06f98cc15c0beba232c36eb2d0ee117e8062",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1280/RESULT.json",
+      "bytes": 6061,
+      "sha256": "195cfad460b6fe6aab8ca01a823a3829e0bfddf49648f8cc3e207c39f9276548",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1280/engine.log",
+      "bytes": 190,
+      "sha256": "b3e03abec646e9d680aebc1b93aa47971d9fd3d53811762d7ff7e8ffd1201de6",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1600/01_pan_start.png",
+      "bytes": 1767187,
+      "sha256": "755387f79938cc317a2262b439ceaeb2bc54f180e9babead9bd024ed27eed804",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1600/02_pan_partial.png",
+      "bytes": 1766921,
+      "sha256": "d729d4944545df9e9a6332948b37f2e80ac0aa101727ff86c3cd0270c33e05f9",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1600/03_pan_near_complete.png",
+      "bytes": 1766714,
+      "sha256": "0d341386f632e0e093adfcb75df508a94b1d9bfb8fa977942dc3a248af16f4db",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1600/04_pan_complete.png",
+      "bytes": 1766691,
+      "sha256": "68565d7c64d635e70b2523f809e0a28770d64faaa7e2dba2675a26c710e1f38c",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1600/LAUNCH.json",
+      "bytes": 985,
+      "sha256": "97e077b8447d80772bf50694658f614784ea8365cbfd00004812f53b1974e8ac",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1600/RESULT.json",
+      "bytes": 6061,
+      "sha256": "6b8963e3ae73716a86d195fea03b1d5ef2617dacb234fb4efdde893dcb53ba92",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/excluded_setup/source_pan_v2_1600/engine.log",
+      "bytes": 190,
+      "sha256": "b3e03abec646e9d680aebc1b93aa47971d9fd3d53811762d7ff7e8ffd1201de6",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1280/01_pan_start.png",
+      "bytes": 250926,
+      "sha256": "de34cf8b7a9cd8fa200d15001f44b5aca6bda9fb240632846c52e746ed15c3ac",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1280/02_pan_partial.png",
+      "bytes": 247459,
+      "sha256": "f91b52f6fb5075ad27bede68df1f47fa38f63b850ec219fddcaafefe2d6614a6",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1280/03_pan_near_complete.png",
+      "bytes": 248144,
+      "sha256": "e0927817b2f9463cd15ad57644b131e0c893d953edf5964a1fb9812075a17bc5",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1280/04_pan_complete.png",
+      "bytes": 249268,
+      "sha256": "e1ac3aa47f1b57e0e05957c94e086eed86202f2636e2261ee2f03c07170bef4f",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1280/LAUNCH.json",
+      "bytes": 4447,
+      "sha256": "08a294bc015a0dfd7793178833cc90cdbfc5db927cbe568366b23f40e34a6464",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1280/RESULT.json",
+      "bytes": 6954,
+      "sha256": "e06fc03a2162588406e3ae565ef2db4fbfd952657412ff03c2aa0ef47fa6cd07",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1280/engine.log",
+      "bytes": 190,
+      "sha256": "dcf27a1f8f927ebc6742080e41814615cd954dad2a53ae3159b1ad46ae7711e5",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1600/01_pan_start.png",
+      "bytes": 254995,
+      "sha256": "574ccab3f2ae89a55d7f102ac79785461f0af9c8e8b2236c7443a416a62a0afd",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1600/02_pan_partial.png",
+      "bytes": 250857,
+      "sha256": "fa6677e847d9b489af611f2f8074af52430ac288e8db782c5a43b359c563d07c",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1600/03_pan_near_complete.png",
+      "bytes": 251741,
+      "sha256": "85c540c1d7e057b33963061d00478e3a2d6f4afa73356369841e0aa8f2a6b9ee",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1600/04_pan_complete.png",
+      "bytes": 252537,
+      "sha256": "d496346c46cdee39dfb18776a35466a5518e6c3fa59a6ecef44dc5362239057d",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1600/LAUNCH.json",
+      "bytes": 4447,
+      "sha256": "60e9bb9dc6ab386c4954c332ad46bae8cbe8a2c42de0d9a3f3efd19116445cc0",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1600/RESULT.json",
+      "bytes": 6954,
+      "sha256": "b3311378f350d1be69fcfd23aa24adccead5bfacedf36f5646b07b9a6b46b773",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/candidate_pan_v3_1600/engine.log",
+      "bytes": 190,
+      "sha256": "dcf27a1f8f927ebc6742080e41814615cd954dad2a53ae3159b1ad46ae7711e5",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1280/01_pan_start.png",
+      "bytes": 144088,
+      "sha256": "1e70f6d38a5f17cdebb2a80c55e7ad827f0d801a60aacfb4a030cc61a16c754a",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1280/02_pan_partial.png",
+      "bytes": 136554,
+      "sha256": "a901b0b940a5d9376d47479c7abf3f152b52072e0f6aa73f361eda370fd0fe04",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1280/03_pan_near_complete.png",
+      "bytes": 137931,
+      "sha256": "08d3f6635015c370dd6b9ef3ae10aed2427b456d079b9d045d86b1cc2ae09f1a",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1280/04_pan_complete.png",
+      "bytes": 139684,
+      "sha256": "963685b661245d755e08885580e08ce2d4b799da5547dc4abe414c8f66d1724a",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1280/LAUNCH.json",
+      "bytes": 985,
+      "sha256": "964b9b52f64c415412654ffcfc9a9e9acedebac263b288b4defc9f4bb279e77e",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1280/RESULT.json",
+      "bytes": 6630,
+      "sha256": "a18057b5d8e50a664aaf2e49c528b965fb220c0bd9bf3a2f232182c0d51811bf",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1280/engine.log",
+      "bytes": 190,
+      "sha256": "ff706ba2e4f9e24a473f31db9c270744d39626579389ce7c08731574ce1555c9",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1600/01_pan_start.png",
+      "bytes": 147367,
+      "sha256": "6ef36a405462d0d8ac67b575bef23b937c73a7494b7858ae7c4d2fc2fd7681d6",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1600/02_pan_partial.png",
+      "bytes": 139601,
+      "sha256": "ce9c341a08aaf6d6b83a3601f87057643640fbf1fef9aa50efe6b29ae72206b8",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1600/03_pan_near_complete.png",
+      "bytes": 140901,
+      "sha256": "01f13367e93d1612a52261680f3a7600152f05e51a96ab0703f8064551b8c952",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1600/04_pan_complete.png",
+      "bytes": 144814,
+      "sha256": "5998df57815eb4a2bd9438b4c4f0f99435da83f4274a922745f1f2bdb187e9d6",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1600/LAUNCH.json",
+      "bytes": 985,
+      "sha256": "07f17826acb178777934c57d24bc5e0bb8ea5ef8a7fe352f928db7f47168f478",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1600/RESULT.json",
+      "bytes": 6630,
+      "sha256": "e5cb2134478c09722ec818c0d7a818c788a80a0c5422c1e2622ad8395026d1ce",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/native/source_pan_v3_1600/engine.log",
+      "bytes": 190,
+      "sha256": "ff706ba2e4f9e24a473f31db9c270744d39626579389ce7c08731574ce1555c9",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/per_piece.json",
+      "bytes": 1668835,
+      "sha256": "0e2fe8ff3607ff59afc39a6b07a28a158dedf4958f04f2a0476a2822d6057d65",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/production_assets/geologist_washing_pan_painted.png",
+      "bytes": 824571,
+      "sha256": "df6ec1df1c59a20d427cb50835ae04915b07de0cbe1b470e99d43c55518ff5ab",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/production_assets/geologist_washing_pan_painted.png.import.txt",
+      "bytes": 1019,
+      "sha256": "6d8e92b37798fe3c2737af9ed75abf4aa915eb33d9e020d5eab0cdcb5b8bb1ac",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/run_fullci.py",
+      "bytes": 4490,
+      "sha256": "09c0015dbcf11ded2f84af8e24481b883c5560c0f7dbe57ca2a20644452b4a7f",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/run_native.py",
+      "bytes": 2226,
+      "sha256": "86d673e5b804e103dff71efe6f8c198672890ef25c1b2a5b73cbc8ac9325a74b",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/scene_coverage.json",
+      "bytes": 1014937,
+      "sha256": "55f03001522ee3e233ca4c8f06ad4abce5935fa9f2e420c3d93ea54a249f10a7",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/tally.json",
+      "bytes": 462294,
+      "sha256": "16712db8a6743463ae10f50c3c0ac198bb00a5d16056337c15671b7ed5247094",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/verify_runtime_remote.py",
+      "bytes": 2957,
+      "sha256": "9f79a4731d58f90d7759a34dad3723ef5222e97cbf73485e057ac929b6c255f9",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "assets_src/minigame_art_quality_2026-09-05/pan-alpha-attempt02/native.png",
+      "bytes": 824571,
+      "sha256": "df6ec1df1c59a20d427cb50835ae04915b07de0cbe1b470e99d43c55518ff5ab",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "assets_src/minigame_art_quality_2026-09-05/pan-alpha-attempt02/manifest.json",
+      "bytes": 1731,
+      "sha256": "d9183b6fe8011c9d92bec7923f6fcd82269188e2e931dcf473e8b8d6aa3a3060",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "assets_src/minigame_art_quality_2026-09-05/pan-alpha-attempt02/prompt.txt",
+      "bytes": 685,
+      "sha256": "d896781af55af89c85fac946d4ab3bd2f735477a30cfc688b5f4fcb2805993de",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "assets_src/minigame_art_quality_2026-09-05/pan_attempt01.png",
+      "bytes": 1267300,
+      "sha256": "f2673f73734bbdf08fb46d5246347adf939d3ab80aab2f31995f23f7a7613e22",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "assets_src/minigame_art_quality_2026-09-05/pan_attempt01_prompt.txt",
+      "bytes": 1328,
+      "sha256": "8f38032212c29591833678d368e17b5fca25429d8bfeae86e61859f6e4acd50b",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "assets_src/minigame_art_quality_2026-09-05/generation_manifest.json",
+      "bytes": 1248,
+      "sha256": "3eddf032818a24935ee2af4b4c770283d1b9039e34624c3d51fbd9845c34a88e",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "audit/minigame_art_quality_2026-09-05/pan_alpha_attempt02_review.json",
+      "bytes": 5120,
+      "sha256": "e3ce6f8562a6e43fdff4b8d37320f1f4bd587a12cfc96aac68afbd286fa918a0",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "scripts/opera_geology_surface.gd",
+      "bytes": 33298,
+      "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "scripts/opera_career_world_2d.gd",
+      "bytes": 241013,
+      "sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "scripts/opera_gesture_surface.gd",
+      "bytes": 242776,
+      "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "scripts/main.gd",
+      "bytes": 370863,
+      "sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "scripts/start_menu.gd",
+      "bytes": 18908,
+      "sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "project.godot",
+      "bytes": 1762,
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "scenes/main.tscn",
+      "bytes": 221,
+      "sha256": "1de477913ac3db6efe5d66d04967279dc9b66217bea01afeeddb4d98ef692f21",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "bytes": 910920,
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "http_status": 200,
+      "verified": true
+    }
+  ],
+  "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
+  "checked_at_utc": "2026-10-17T21:15:00.699512+00:00",
+  "state": "ALL_REQUIRED_FILES_ANONYMOUSLY_BYTE_VERIFIED",
+  "limits": "Transport/provenance receipt only; no image, runtime, device, child, owner or release acceptance. Receipt own metadata is verified separately after its commit."
+}

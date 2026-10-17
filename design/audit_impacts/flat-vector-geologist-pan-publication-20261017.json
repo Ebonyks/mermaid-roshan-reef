@@ -49,6 +49,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/PRODUCTION_PATCH.diff",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/PRODUCTION_STATUS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/REPLAY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SOURCE_BEFORE.gd.txt",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
@@ -134,7 +135,7 @@
     {
       "command": "Delivery document/impact/syntax tests, exact source/capture/frozen-root checks and anonymous direct GitHub delivery",
       "result": "PASS",
-      "evidence": "Local applicable gates PASS; exact direct remote verification follows payload commit. Runtime fullCI59912 still separately pending; no acceptance inferred."
+      "evidence": "All local delivery gates PASS; 118 direct required files anonymously byte-verified at 1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b. Final own receipt metadata checked independently. Producer fullCI59912 separate, no pass/acceptance inferred."
     }
   ],
   "acceptance_gaps": "Producer fullCI and sourcebranch/Dev integration pending; formalQA11/device/child/owner/allcallers, other job-game art and unknown whole-game inventory remain open.",

@@ -2561,3 +2561,5 @@ CHG-103 delivery: `194647a398f89fc52c3efbb32ff1f1c0e3e3cbca`, 143 direct require
 ## Painted Geologist washing pan — CHG-104
 
 [R95](../docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/README.md) publishes the implemented source patch and current native context:106checks,16validframes,20excluded setupframes, sevenpartialagentviews, zero new generation. One whole painted pan replaces flat ellipses/arcs; original controls/progression/source preserved. FullCI is running on the frozen actual producer; no Dev/formal/device/child/owner acceptance inferred. Current workflow/heartbeat adopts owner2026-10-17 quality-first ImageGen direction and removes failed-reuse prerequisites. [Impact](../design/audit_impacts/flat-vector-geologist-pan-publication-20261017.json).
+
+CHG-104 delivery: `1e0c4c2b7e93541c29f1148319482b5bbb2e4a3b`, 118 direct required files / 47239185bytes anonymously exact at 2026-10-17T21:15:00.699512+00:00. Runtime fullCI/sourceCI/Dev integration and visual/device/child/owner acceptance remain separate.
