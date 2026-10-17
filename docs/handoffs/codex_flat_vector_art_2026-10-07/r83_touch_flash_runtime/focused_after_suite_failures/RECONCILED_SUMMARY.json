@@ -1,0 +1,29 @@
+{
+  "status": "PASS_TWO_FOCUSED_ONLY",
+  "reruns": [
+    {
+      "probe": "probe_melody",
+      "exit_code": 0,
+      "exact_existing_positive_marker": "MELODY|result: ALL OK",
+      "marker_found": true,
+      "log_sha256": "df6c1517731e875eecf8ee3eefabad93cef796d2bec0995a54c4a5040cf4b31e",
+      "source_sha256": "27195d2f943b4b71d74225cd5ac743e4bf209557a861bb43b43156b7dda01f02",
+      "normal_unchanged": true,
+      "source_pin_exact": true
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "exit_code": 0,
+      "exact_existing_positive_marker": "LIVINGCARD|ALL|OK",
+      "marker_found": true,
+      "log_sha256": "921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4",
+      "source_sha256": "30be04d818f8983276ff36341e566285fb480c391a1e06ab85c51e5bc66ed2c7",
+      "normal_unchanged": true,
+      "source_pin_exact": true
+    }
+  ],
+  "checked_at_utc": "2026-10-17T03:33:55.772222+00:00",
+  "original_full_suite": "FAIL80/82; two127process exits before assertion output retained in full_ci_01",
+  "interpretation_correction": "Original ad-hoc driver looked only for ALL OK but LivingCards uses LIVINGCARD|ALL|OK; its aggregate did not enforce positive flags. Original report/code retained; this independent summary checks each exact existing marker, zero exit/errors, source pin and normal hashes. No probe or runtime source changed.",
+  "root_cause": "Original127cause unknown and not reproduced. A clean full suite is still required."
+}

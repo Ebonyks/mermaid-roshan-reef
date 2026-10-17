@@ -1,0 +1,55 @@
+{
+  "schema": "reef.touch_flash_source_review/1",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "recorded_at_utc": "2026-10-17T02:29:06.581093+00:00",
+  "source_path": "scripts/touch_ui.gd",
+  "baseline_git_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+  "trial_raw_sha256": "5bd14913cb933fa741e3019735e5fd23f8688be07ef1a02945f59c434a01d822",
+  "function_count": 52,
+  "changed_functions": [
+    "_flash"
+  ],
+  "all_other_functions_exact": true,
+  "unchanged_local_named_callers": [
+    {
+      "caller": "_process",
+      "calls": 1,
+      "function_unchanged": true,
+      "sha256": "b090771e05b8a6fdc2fe4116de67287b06ef3dc9f7688f09f6db5a0a6cefb132"
+    },
+    {
+      "caller": "_release_stick",
+      "calls": 3,
+      "function_unchanged": true,
+      "sha256": "f9f0fef17ebf621e56fe30a6a4164489a44aa3e9b5963ec524a6c9396152ab1e"
+    },
+    {
+      "caller": "pulse_context_action",
+      "calls": 1,
+      "function_unchanged": true,
+      "sha256": "7fd42a9d79b96b5344fa5bbbbfe0d3698a9b307307352eef21ffa84dc3bb2981"
+    },
+    {
+      "caller": "_hybrid_unhandled_input",
+      "calls": 4,
+      "function_unchanged": true,
+      "sha256": "9aa515d87f8d73746ab0eb1351ad2f4e004e7404e0eb70f67f83110015600b80"
+    },
+    {
+      "caller": "_classic_unhandled_input",
+      "calls": 1,
+      "function_unchanged": true,
+      "sha256": "2478343c330d526183c15bea3a19b0ba8d8f5195d43e983445d64445c43ece51"
+    }
+  ],
+  "local_flash_call_count": 10,
+  "exact_original_tween_free_suffix": "\tvar tw := flash.create_tween()\n\ttw.tween_property(flash, \"modulate:a\", 0.0, 0.35)\n\ttw.tween_callback(flash.queue_free)\n",
+  "flash_has_flat_factory_fallback": false,
+  "circle_other_consumers_unchanged": true,
+  "whole_bitmap_source": "assets/opera/worlds/props/fx_telegraph_ring.png",
+  "asset_sha256": "12077afe02fa842d7e257d22110cc64df13a63510d2cd8c86fd4c7a06062572e",
+  "asset_bytes": 175108,
+  "asset_exact_baseline": true,
+  "profile": "Exact approved Godot4.7.2 Mobile/Speedy gates separately recorded",
+  "limits": "Narrow named-call/source comparison, not all runtime caller/state closure, visual acceptance, whole-game inventory or accepted removal."
+}

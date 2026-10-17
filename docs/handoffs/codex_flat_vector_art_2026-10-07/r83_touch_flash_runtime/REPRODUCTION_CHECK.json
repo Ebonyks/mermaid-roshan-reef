@@ -1,0 +1,28 @@
+{
+  "derived_files": [
+    {
+      "path": "NATIVE_SUMMARY.json",
+      "bytes": 2348,
+      "sha256": "b9cc76170176ae66cd3548e38a5f8d07a8918b0cf2fe48cb6ce1cf49910f08a5",
+      "byte_identical": true
+    },
+    {
+      "path": "CAPTURE_INDEX.json",
+      "bytes": 19403,
+      "sha256": "e80cf9506e9174f19928cc7999a80877adc175976245ec8640b2abc2d6fcdfab",
+      "byte_identical": true
+    },
+    {
+      "path": "FLASH_LIFECYCLE.json",
+      "bytes": 25706,
+      "sha256": "8201ef2786beba8e6ec6cc836b1c293730f726397d73693bb3bfd8083affe889",
+      "byte_identical": true
+    }
+  ],
+  "all_byte_identical": true,
+  "native_reruns": 0,
+  "command": "R83_JOB_ROOT=<packet-or-stage> R83_ANALYSIS_OUTPUT=<fresh-output> python -B docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/derive_native_evidence.py",
+  "helper_sha256": "6b91b58b874858d350de1c71fb01be9b637df233afaaa3b069321abf25fbf439",
+  "timestamp_source": "Native attempt2 terminal result, not analysis wall time",
+  "checked_at_utc": "2026-10-17T03:19:03.248834+00:00"
+}

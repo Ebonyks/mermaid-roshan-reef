@@ -1,0 +1,65 @@
+{
+  "schema": "reef.touch_flash_runtime_summary/1",
+  "recorded_at_utc": "2026-10-17T03:04:17.791057+00:00",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "stable_role": "FV-7976FC8C2881",
+  "scope_id": "FVS-38151AC2830B",
+  "candidate_id": "FV-CAND-R82-RING-01",
+  "cases": [
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "observer_checks": 30,
+      "frames": 12,
+      "flash_lifecycles": 2,
+      "normal_unchanged": true,
+      "post_import_pin_exact": true,
+      "renderer": "mobile",
+      "status": "PASS",
+      "report_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/native/attempt2_actual_source_1280/capture_manifest.json",
+      "report_sha256": "b32927a2548fc7c7af19ef74d140e6fd090d926ff804f61e24694b9c2f7dc2a3"
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "observer_checks": 30,
+      "frames": 11,
+      "flash_lifecycles": 2,
+      "normal_unchanged": true,
+      "post_import_pin_exact": true,
+      "renderer": "mobile",
+      "status": "PASS",
+      "report_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r83_touch_flash_runtime/native/attempt2_actual_source_1600/capture_manifest.json",
+      "report_sha256": "4d8089375829f9ff25a44fe1a7157f0cc13b3cadaa15d1c5baefd6e67f38eba3"
+    }
+  ],
+  "native_cases": 2,
+  "healthy_observer_checks": 60,
+  "native_frames": 23,
+  "classifications": {
+    "EXCLUDED_BOOTSTRAP_CONTROL": 4,
+    "EXCLUDED_WORK_BRANCH_RUNTIME_TRIAL": 19
+  },
+  "actual_work_branch_flash_lifecycles": 4,
+  "direct_child_lifecycles_verified": 4,
+  "origin_dev_coverage_credit": 0,
+  "new_role_family_alias_credit": 0,
+  "new_reuse_samples": 0,
+  "existing_sample_work_branch_implemented": 1,
+  "dev_integrated": 0,
+  "approved": 0,
+  "accepted_removed": 0,
+  "replacement_runtime_verified_formal": 0,
+  "global_artwork_total": null,
+  "global_distinct_screen_total": null,
+  "global_regressions_total": null,
+  "full_local_ci": "Separate evidence lane; never inferred from these native checks",
+  "new_use_QA11_device_child_owner": "PENDING",
+  "failed_native_preflight_attempts_retained": 1,
+  "failed_native_preflight_game_launches": 0,
+  "source_pin_scope": "Original pin retained; 1102 import sidecar exact CRLF-to-LF-only changes bound to baseline Git; these cases use the separate exact post-import pin."
+}

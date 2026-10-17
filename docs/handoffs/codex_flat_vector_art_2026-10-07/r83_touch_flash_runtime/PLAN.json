@@ -1,0 +1,28 @@
+{
+  "schema": "reef.touch_flash_runtime_plan/1",
+  "recorded_at_utc": "2026-10-17T02:23:25.815227+00:00",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "stable_role": "FV-7976FC8C2881",
+  "scope_id": "FVS-38151AC2830B",
+  "candidate": "FV-CAND-R82-RING-01",
+  "scope": "Replace only TouchUI._flash flat disk with whole existing painted ring after published R81 ownership and R82 context/reuse sample. Preserve input routing, 110px Panel bounds, original 0.35-second fade/free. Trial work branch; no new asset/generation or whole-game completion.",
+  "failure_baseline_revision": "85727a455f82e0d54450b6938f8af395732c4899",
+  "published_context_revision": "f90b69eec617018691a8c62ffb1c22a2f6acf799",
+  "published_context_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r82_touch_flash_reuse",
+  "reuse_source": "assets/opera/worlds/props/fx_telegraph_ring.png",
+  "reuse_source_sha256": "12077afe02fa842d7e257d22110cc64df13a63510d2cd8c86fd4c7a06062572e",
+  "source_acceptance_scope": "Existing ground-attack telegraph; new neutral feedback meaning pending. Whole bitmap, zero pixel changes.",
+  "visual_delta": "Open painted cream/gold/lavender ring, authored peak alpha1 instead of original disk fill alpha0.5; no equivalence claim.",
+  "required_evidence": [
+    "unchanged full CI/probes",
+    "exact source/asset hashes",
+    "native two aspects: actual original entry/input with no material/controller override",
+    "direct child free and ancestor RGB telemetry",
+    "isolated user data and hash-only normal-save guards",
+    "anonymous immutable remote byte verification"
+  ],
+  "acceptance_gaps": "New-use alarm/selection meaning, bright rim/peak alpha, exact fresh-runtime QA11, all scene/caller/action coverage, device performance, child and owner acceptance. Broad role/family incomplete; global denominator unknown. MA-VIS-006/008 stay open. R72 export rejection respected.",
+  "global_artwork_total": null,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

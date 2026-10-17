@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-touch-runtime-20261016\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\r83_touch_flash_runtime\run_native.py", line 6, in <module>
+    pin=json.loads((S/'SOURCE_PIN.json').read_text(encoding='utf-8')); assert all(sha(T/p)==v for p,v in pin['runtime_hashes'].items())
+                                                                              ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -14,6 +14,8 @@ signal world_touched(pos: Vector2)
 signal manual_move_started
 signal manual_move_ended
 
+const TOUCH_FLASH_ART: Texture2D = preload("res://assets/opera/worlds/props/fx_telegraph_ring.png")
+
 enum TouchOwner {
 	NONE,
 	UI,
@@ -187,7 +189,19 @@ func _arm_action_edge() -> void:
 	_action_edge_frames = 2
 
 func _flash(pos: Vector2) -> void:
-	var flash := _circle(Color(1.0, 0.95, 0.5, 0.5), 55.0)
+	var flash := Panel.new()
+	flash.name = "TouchFeedback"
+	flash.size = Vector2(110.0, 110.0)
+	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	flash.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
+	var art := TextureRect.new()
+	art.name = "PaintedRing"
+	art.texture = TOUCH_FLASH_ART
+	art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	flash.add_child(art)
+	art.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	flash.position = pos - flash.size * 0.5
 	_root.add_child(flash)
 	var tw := flash.create_tween()
