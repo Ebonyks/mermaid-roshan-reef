@@ -60,3 +60,6 @@ assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json -text whitespace=cr-
 
 # Literal unified-diff context prefixes precede authored GDScript tabs.
 audit/cycles/luna-gameplay-repairs-20261014/**/*.patch whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+
+# Preserve literal R91 Godot/import/CI diagnostic log bytes.
+docs/handoffs/codex_flat_vector_art_2026-10-07/r91_critter_insect_tab_runtime/**/*.log -text -diff

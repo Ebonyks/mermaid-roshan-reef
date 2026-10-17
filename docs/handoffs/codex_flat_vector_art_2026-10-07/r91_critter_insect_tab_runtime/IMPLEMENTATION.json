@@ -1,0 +1,47 @@
+{
+  "status": "LOCAL82_NATIVE750_PASS_PUBLICATION_AND_ACCEPTANCE_PENDING",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "changed_runtime_paths": [
+    "scripts/collection_system.gd",
+    "assets/mg/butterfly.png.import"
+  ],
+  "before_git_lf_sha256": "1f32d4f684766404da25d9b1432d412f00477fd2f14c68ac546eff0db159da6a",
+  "after_lf_sha256": "6f44c9a3c41380431a226108449c59edd647441b43509b01a18034c53215dfed",
+  "changed_functions": [
+    "_draw_book"
+  ],
+  "other_function_bodies_identical": 21,
+  "DEFS_and_save_ids_unchanged": true,
+  "consumer": "ui.critter_book/tab/insect",
+  "site_id": "FVG-19B880B613E4",
+  "rendering": "One native Button.icon, intact existing source, expand_icon true, icon_max_width64, numeric count text; mandatory preload and no emoji/missing-art fallback for this tab.",
+  "unchanged_consumers": "Two other category tabs, all18category/unknown card slots and18habitat slots, world glyphs and all original signals/Back/layout remain.",
+  "new_pixels_art_samples_or_acceptance": 0,
+  "after_raw_sha256": "6f44c9a3c41380431a226108449c59edd647441b43509b01a18034c53215dfed",
+  "unchanged_function_names": [
+    "_init",
+    "total_count",
+    "caught_count",
+    "has_nearby",
+    "build",
+    "_context",
+    "tick",
+    "_action_down",
+    "_spawn_context",
+    "_find_wings",
+    "_flap",
+    "_def_by_id",
+    "_row_by_id",
+    "_catch",
+    "_sweep_net",
+    "open_book",
+    "close_book",
+    "_switch_category",
+    "_book_frame_style",
+    "_style_book_tab",
+    "_add_book_shell"
+  ],
+  "import_change": "mipmaps/generate false to true only; PNG bytes, UID and all other parameters unchanged",
+  "sampling": "Only insecttab LINEAR_WITH_MIPMAPS; all6private stylecontent marginsleft/right36. Shared garden caller retains default non-mip level0; actual before/after baseRGBA8equal in LEVEL0_EQUIVALENCE.json. No garden/device visual acceptance inferred.",
+  "source_pin_rechecked_after_full_ci": true
+}

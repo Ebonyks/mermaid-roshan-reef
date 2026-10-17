@@ -8,6 +8,7 @@ var m: ReefMain
 const TOTAL := 18
 const BOOK_CARD: Texture2D = preload("res://assets/fashion/skin_engine_v2/ui/wardrobe_card.png")
 const BOOK_PANEL: Texture2D = preload("res://assets/fashion/skin_engine_v2/ui/wardrobe_panel.png")
+const BOOK_INSECT_ICON: Texture2D = preload("res://assets/mg/butterfly.png")
 const CATCH_RADIUS := 9.0
 const CATEGORY_ORDER := ["fish", "insect", "bird"]
 const CATEGORY_ICON := {"fish": "🐟", "insect": "🦋", "bird": "🐦"}
@@ -348,10 +349,22 @@ func _draw_book() -> void:
 		var category: String = CATEGORY_ORDER[i]
 		var tab := Button.new()
 		tab.name = "CritterBookTab_%s" % category
-		tab.text = "%s  %d / 6" % [String(CATEGORY_ICON[category]), caught_count(category)]
+		if category == "insect":
+			tab.icon = BOOK_INSECT_ICON
+			tab.expand_icon = true
+			tab.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+			tab.add_theme_constant_override("icon_max_width", 64)
+			tab.text = "%d / 6" % caught_count(category)
+		else:
+			tab.text = "%s  %d / 6" % [String(CATEGORY_ICON[category]), caught_count(category)]
 		tab.position = Vector2(88 + float(i) * 270.0, 122)
 		tab.custom_minimum_size = Vector2(242, 110)
 		_style_book_tab(tab, category == m.collection_category)
+		if category == "insect":
+			for state: String in ["normal", "hover", "pressed", "hover_pressed", "focus", "disabled"]:
+				var icon_style: StyleBox = tab.get_theme_stylebox(state)
+				icon_style.content_margin_left = 36.0
+				icon_style.content_margin_right = 36.0
 		tab.pressed.connect(_switch_category.bind(category))
 		stage.add_child(tab)
 

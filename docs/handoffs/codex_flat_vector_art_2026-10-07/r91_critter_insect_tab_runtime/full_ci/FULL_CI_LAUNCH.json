@@ -1,0 +1,29 @@
+{
+  "started_at_utc": "2026-10-17T15:32:59.836196+00:00",
+  "command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "--noprofile",
+    "--norc",
+    "-c",
+    "set -eu\nexport PYTHONUTF8=1\nexport PYTHONIOENCODING=utf-8\nexport TMPDIR=\"$(cygpath -u \"$R91_TMPROOT\")\"\nexport R91_CANON_TMP=\"$(realpath \"$TMPDIR\")\"\nrm() {\n  if [ \"$#\" -ne 2 ] || [ \"$1\" != \"-rf\" ]; then echo \"R86 cleanup shape rejected\" >&2; return 98; fi\n  local resolved\n  resolved=\"$(realpath \"$2\")\" || return 98\n  case \"$resolved\" in \"$R91_CANON_TMP\"/*) command rm -rf -- \"$resolved\";; *) echo \"R86 cleanup outside owned temp rejected\" >&2; return 98;; esac\n}\nexport -f rm\nbash scripts/ci.sh\n"
+  ],
+  "engine": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+  "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+  "ci_script_sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+  "runtime_pin_sha256": "7bf199a4030b0c62b0a140427c3ba42853c34d708dd101f2a70782315df186a1",
+  "normal_before": {
+    "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+    ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "isolation": "Unmodified scripts/ci.sh, private pre-engine APPDATA/XDG and stock per-probe namespaces; verified owned TMPDIR cleanup. No gate or probe modifications.",
+  "scope": "One insect-tab leaf, code plus mip metadata; no new PNGpixels. Machine lane only; formal QA11, integration and device/child/owner remain separate."
+}

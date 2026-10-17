@@ -1,0 +1,28 @@
+{
+  "source_png": {
+    "path": "assets/mg/butterfly.png",
+    "sha256": "310539d933f1027402eea118c61819c052dd76f0bd2bbb752d87e94327eb0a26",
+    "dimensions": [
+      1024,
+      657
+    ],
+    "decoded_RGBA8_level0_sha256": "b89cc266e7332568ac4baa126999aa5f4ad981fbd7097d3c6ba2795a719bacdd"
+  },
+  "source_original_unchanged": true,
+  "import_parameter_delta": {
+    "path": "assets/mg/butterfly.png.import",
+    "parameter": "mipmaps/generate",
+    "before": false,
+    "after": true,
+    "all_other_parameters_and_UID_unchanged": true
+  },
+  "runtime_delta": "Only insect tab sets CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS. One complete source texture, no art-part stack, crop, recolor or source pixel edit.",
+  "other_source_caller": {
+    "path": "scripts/games/picture_games.gd",
+    "sha256": "62466debfd47fe61b46840c36c88528769ee114e90d493460ef6b49fe0c75d74",
+    "use": "garden90x90 TextureRect, inherited level0 default sampler; no sampler override in this satellite",
+    "qualification": "Before claiming equivalence, native observation must bind viewport/ancestor filters and unchanged decoded level0; no garden visual acceptance inferred."
+  },
+  "GPU_storage_scope": "Mip chain adds standard texture LOD storage; no on-device AI or authored frames. Real target-device performance remains pending.",
+  "new_generated_art_or_asset_files": 0
+}

@@ -1,0 +1,30 @@
+{
+  "status": "PARTIAL_AGENT_REUSE_FIT_COMPARISON",
+  "historical_source": {
+    "revision": "3d172124a2c1a21c0e129b5f3f589f3f30e845d1",
+    "path": "assets/mg/butterfly.png",
+    "sha256": "d89994ead4f7d2ab2cf935103aed1558b2f44f7123a75823682cb392e6be6003",
+    "bytes": 162783,
+    "materialized_exact_git_blob": true,
+    "limits": "Historical source inspection only; pathname approval does not transfer to current bytes. No source image editing/generation/acceptance."
+  },
+  "current_source": {
+    "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "path": "assets/mg/butterfly.png",
+    "sha256": "310539d933f1027402eea118c61819c052dd76f0bd2bbb752d87e94327eb0a26",
+    "source_dimensions": [
+      1024,
+      657
+    ]
+  },
+  "direct_full_source_views": 2,
+  "historical_source_fit": "UNSUITABLE_FOR_THIS_FLAT_VECTOR_REMOVAL_LEAF: large smooth flat fills, uniform black outline, white edge trim and cartoon face remain graphic-vector styling. The painted neighboring parchment/shell surfaces and current wing brush texture call for the existing painted source candidate. Do not count historical extension/raster bytes as accepted removed artwork.",
+  "current_candidate_fit": "Existing complete painted wing/body/antennae retained, lavender/coral/aqua and violet outline share scene accents. Native final sampling/inset reviewed separately in REVIEW.json. Current approval/recognition not established.",
+  "approval_scope": "Historical license language does not itself transfer exact human acceptance to either hash. This is agent reuse-fit analysis, not a new owner approval/rejection or historical approval rewrite.",
+  "same_scene_references": "R89 immutable context in CONTEXT_PREREQUISITE.json and18current native fullframe views in REVIEW.json with exact hashes.",
+  "new_generation_calls": 0,
+  "new_authored_artwork": 0,
+  "new_art_samples": 0,
+  "accepted_removed": 0,
+  "checked_at_utc": "2026-10-17T15:48:50.353294+00:00"
+}

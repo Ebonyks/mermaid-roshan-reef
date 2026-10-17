@@ -1,0 +1,30 @@
+{
+  "revision": "FV-AUDIT-20261017-R91",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "consumer": "ui.critter_book/tab/insect",
+  "site_id": "FVG-19B880B613E4",
+  "bounded_implementation": "One category-tab leaf; no complete named artwork-role or family replacement",
+  "runtime_delta": [
+    "scripts/collection_system.gd",
+    "assets/mg/butterfly.png.import"
+  ],
+  "native_cases": 8,
+  "native_checks": 750,
+  "current_frames": 100,
+  "historical_frames": 28,
+  "all_retained_frames": 128,
+  "partial_agent_views_current": 18,
+  "new_artwork_samples": 0,
+  "new_generation_calls": 0,
+  "new_piece_ids_or_families": 0,
+  "approved": 0,
+  "dev_integrated": 0,
+  "formal_runtime_verified": 0,
+  "accepted_removed": 0,
+  "global_total": null,
+  "full_ci": "PASS82_UNMODIFIED_LOCAL",
+  "mission_complete": false,
+  "remaining": "Current source/new-use approval, two category tabs, all specimen/habitat/world glyph consumers, full caller/acquisition closure, formalQA11/device/child/owner and unknown whole-game inventory remain open.",
+  "full_ci_evidence": "full_ci/FULL_CI_RESULT.json",
+  "remote_exact_head_ci": "PENDING"
+}

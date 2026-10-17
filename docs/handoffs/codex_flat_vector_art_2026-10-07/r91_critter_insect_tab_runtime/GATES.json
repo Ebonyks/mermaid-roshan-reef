@@ -1,0 +1,35 @@
+{
+  "status": "PASS_LOCAL_FULL_CI_NATIVE750_PUBLICATION_PENDING",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "exact_engine": "4.7.2-stable official.ed1daf0bf",
+  "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+  "full_ci": {
+    "probe_count": 82,
+    "unique_zero_exits": 82,
+    "elapsed_seconds": 2908.997,
+    "log_sha256": "b56dfb49e2438aa1078908d982442e6477840cfccd94c83fb6e438e58b80e6d8",
+    "evidence": "full_ci/FULL_CI_RESULT.json"
+  },
+  "native": {
+    "cases": 8,
+    "engine_checks": 750,
+    "current_raw_frames": 100,
+    "all_retained_raw_frames": 128,
+    "direct_partial_agent_views": 18,
+    "formal_QA11": false,
+    "renderer": "Native Mobile Vulkan1.4.341, NVIDIA RTX3060Ti; no phone performance inference"
+  },
+  "source_sidecars_normal11_unchanged_during_ci": true,
+  "historical_limits": "Import01wrapperfailed on1102literal newline mappings; exact committedLFproof retained. FirstCIwrapper orderprecondition failed beforeengine; corrected sortedset only. Attempt1native sampling rejected despite84machinechecks; all14rawframes/source retained. Attempt2samplingproved exactbasepixels thenpaddingfollowup;14frames retained.",
+  "visual_advisory": {
+    "state": "UNSATISFIED",
+    "evidence": "VISUAL_ADVISORY_SCOPE.json",
+    "not_artwork_or_regression_count": true
+  },
+  "new_generation_calls": 0,
+  "approved": 0,
+  "dev_integrated": false,
+  "accepted_removed": 0,
+  "whole_game_total": null,
+  "remaining": "Current source/newuse approval, formalQA11/device/child/owner, complete category/card/habitat/world consumers, acquisition routes and unknown whole-game inventory."
+}
