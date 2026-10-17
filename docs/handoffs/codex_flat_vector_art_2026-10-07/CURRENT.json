@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261017-R97",
-  "current_entry": "r97_geologist_mineral_matte/README.md",
+  "revision": "FV-AUDIT-20261017-R98",
+  "current_entry": "r98_geologist_pan_source_ci/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r97_geologist_mineral_matte/MANIFEST.json",
+  "current_manifest": "r98_geologist_pan_source_ci/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r96_geologist_mineral_candidate/PAN_CI_TRANSITION.json",
+  "current_ci_evidence": "r98_geologist_pan_source_ci/SOURCE_CI_HANDLES.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -1777,7 +1777,7 @@
   "r96_new_generation_calls": 2,
   "r96_new_raw_sample_outputs": 2,
   "r96_named_role_count": 1,
-  "r95_runtime_current_session": 1292,
+  "r95_runtime_current_session": "LOCAL_OPERATIONS_TERMINAL; follow sourceCI39079175770",
   "r95_runtime_original_session_59912": "TERMINAL_FAIL_PRESERVED",
   "immutable_r96_payload_revision": "7f5292785b331ee42a460eeba5ec612a687e2b0e",
   "r96_publication": {
@@ -1836,5 +1836,39 @@
     "checked_at_utc": "2026-10-17T23:24:50.817308+00:00",
     "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
     "receipt": "r97_geologist_mineral_matte/REMOTE_VERIFICATION.json"
+  },
+  "r98_parent_receipt_revision": "d47d183e819ea4c229fe03731b281d6c6b4af4b1",
+  "r95_runtime_source_revision": "ce05d4d38636fefc82af1172153c7f4d6119b562",
+  "r95_source_CI_run": 39079175770,
+  "r98_pan_source_publication": {
+    "stable_id": "FV-F2DE53A80AA7",
+    "source_revision": "ce05d4d38636fefc82af1172153c7f4d6119b562",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "source_baseline": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+    "status": "ACTUAL_RUNTIME_SOURCE_PUBLISHED_LOCAL82PASS_REMOTE_CI_RUNNING",
+    "local_probe_count": 82,
+    "original_full_CI": "FAIL_PRESERVED_IN_R96; later exact current probe-by-probe82PASS separate",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/MANIFEST.json",
+    "source_manifest_sha256": "323d1a931495e66ca7e11174e564e75e8ffd80190fea48f27bd022960c87689b",
+    "required_files": 181,
+    "required_bytes": 40949356,
+    "anonymous_source_verification": "SOURCE_REMOTE_VERIFICATION.json",
+    "exact_source_CI": [
+      {
+        "conclusion": "",
+        "databaseId": 39079175770,
+        "headSha": "ce05d4d38636fefc82af1172153c7f4d6119b562",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39079175770",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "Dev_integration": false,
+    "native_context": "Existing106checks/16validframes/20excluded setupframes; no new frames here.",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
   }
 }

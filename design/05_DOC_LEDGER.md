@@ -1408,3 +1408,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md` | 🟣 | `SUPPORTING_EVIDENCE / SOURCE_CANDIDATE`; two actual painted mineral outputs for one existing role, alpha/context pending; pan fullCI failure preserved and current probe-by-probe recovery1292 live. No runtime/acceptance credit. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/README.md` | 🟣 | `SUPPORTING_EVIDENCE / TECHNICAL_CANDIDATE`; Aseprite layered master and970x1015alpha-cleaned cutout,584044body pixels exact; actual scene/acceptance pending. Zero new generation. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/README.md` | 🟣 | `SUPPORTING_EVIDENCE / SOURCE_PUBLICATION`; actual runtimece05d4d3,82local PASS,181direct files anonymously exact, sourceCI39079175770running; Dev/formal/device/child/owner open. No new artifact/removal count. |

@@ -1,0 +1,59 @@
+{
+  "id": "flat-vector-geologist-pan-source-publication-20261017",
+  "scope": "Publish actual runtime source receipt/current local82 and exact sourceCIhandle; synchronize canonical per-piece/scene/tally from verifiedproduction. No runtime or image changes on this branch, no new counted implementation/removal.",
+  "baseline": "d47d183e819ea4c229fe03731b281d6c6b4af4b1",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-READ-02",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-geologist-pan-source-publication-20261017.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/PRODUCTION_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/DIRECT_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/LOCAL_82_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/PAN_SOURCE_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/SOURCE_CI_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/SOURCE_PUBLICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/verify_runtime_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "Actual runtimece05d4d3 exact4.7.2 current82probe-by-probe and source/normal-save guards; actual181file anonymous manifest verification",
+      "result": "PASS",
+      "evidence": "SOURCE_PUBLICATION.json, LOCAL_82_RESULT.json and SOURCE_REMOTE_VERIFICATION.json; original scripts/ci.sh failure retained separately. No formal/physical acceptance inferred."
+    },
+    {
+      "command": "Current canonical document authority/development and exact direct anonymous delivery",
+      "result": "PASS",
+      "evidence": "Actual canonical authority/development PASS; actual source181files already anonymously byte-verified. This current metadata/direct-reference manifest is separately anonymously verified after sealing. No engine suites repeated."
+    }
+  ],
+  "acceptance_gaps": "SourceCI running; Dev integration, formalQA11/device/child/owner, other job art/shared callers and unknown global inventory remain open."
+}

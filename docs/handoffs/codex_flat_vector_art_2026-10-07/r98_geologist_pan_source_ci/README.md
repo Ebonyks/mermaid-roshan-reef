@@ -1,0 +1,11 @@
+# Painted pan runtime source published — R98
+
+The actual Geologist pan replacement is committed on `codex/flat-vector-geologist-pan-runtime-20261017` at `ce05d4d38636fefc82af1172153c7f4d6119b562`. All82 trusted probes pass through the repository probe-by-probe route on reconciled1a4e8a1c; original failed full-run evidence remains preserved. Normal11save hashes and frozen runtime/import guards are unchanged. The181required source-delivery files/40,949,356bytes were anonymously verified exactly.
+
+[Source files](https://github.com/Ebonyks/mermaid-roshan-reef/tree/ce05d4d38636fefc82af1172153c7f4d6119b562/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime), [actual source manifest](https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ce05d4d38636fefc82af1172153c7f4d6119b562/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/MANIFEST.json), [anonymous source receipt](SOURCE_REMOTE_VERIFICATION.json), [local82result](LOCAL_82_RESULT.json), [source status](PAN_SOURCE_STATUS.json), [CIhandles](SOURCE_CI_HANDLES.json).
+
+Exact-source[CI39079175770](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39079175770)is running. Do not restart it. Dev integration remains pending green remote checks; no release/master action is requested. Source implementation, machine checks, formalQA11, target-device/child/owner acceptance and full-game closure remain separate.
+
+The next source-ready item is the[R97alpha-cleaned mint mineral](https://github.com/Ebonyks/mermaid-roshan-reef/tree/f6ffa4c54340818c88366cec2763a74beadaf30c/docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte):970x1015RGBA, original body pixels preserved and editable Aseprite master. It still needs actual scene fit, other variants/caller closure and acceptance. Its opaque preview is proof-only, not gameplay.
+
+No new generation, drawing, native-frame or role credit here; this updates the already-counted pan artifact to actual source-branch publication. Existing263knownroles/35families,5bounded source implementations/3partialDev artifacts and10775retained native events remain unchanged. Unknown whole-game denominators remain unknown, accepted removals remain0, and the all-job quality mission stays open. [Current canonical index](../CURRENT.json), [this delivery manifest](MANIFEST.json).

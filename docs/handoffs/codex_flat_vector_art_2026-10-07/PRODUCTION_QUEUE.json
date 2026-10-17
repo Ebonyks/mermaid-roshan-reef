@@ -113,5 +113,42 @@
     "owner": null,
     "accepted_removed": 0
   },
-  "r97_next_step": "Keep pan1292/81417first; mount the alpha-cleaned mint specimen only after the frozen pan operation completes. Complete other colors/shared consumers with current scene context. No more generation is needed to fix transparent RGB."
+  "r97_next_step": "Keep pan1292/81417first; mount the alpha-cleaned mint specimen only after the frozen pan operation completes. Complete other colors/shared consumers with current scene context. No more generation is needed to fix transparent RGB.",
+  "r98_current_production": {
+    "pan": {
+      "stable_id": "FV-F2DE53A80AA7",
+      "source_revision": "ce05d4d38636fefc82af1172153c7f4d6119b562",
+      "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+      "source_baseline": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+      "status": "ACTUAL_RUNTIME_SOURCE_PUBLISHED_LOCAL82PASS_REMOTE_CI_RUNNING",
+      "local_probe_count": 82,
+      "original_full_CI": "FAIL_PRESERVED_IN_R96; later exact current probe-by-probe82PASS separate",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/MANIFEST.json",
+      "source_manifest_sha256": "323d1a931495e66ca7e11174e564e75e8ffd80190fea48f27bd022960c87689b",
+      "required_files": 181,
+      "required_bytes": 40949356,
+      "anonymous_source_verification": "SOURCE_REMOTE_VERIFICATION.json",
+      "exact_source_CI": [
+        {
+          "conclusion": "",
+          "databaseId": 39079175770,
+          "headSha": "ce05d4d38636fefc82af1172153c7f4d6119b562",
+          "status": "in_progress",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39079175770",
+          "workflowName": "Probe suite (graphics fork)"
+        }
+      ],
+      "Dev_integration": false,
+      "native_context": "Existing106checks/16validframes/20excluded setupframes; no new frames here.",
+      "formal_QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": 0
+    },
+    "priority": "Follow exact-sourceCI39079175770; never restart a healthy run. Integrate normally into currentDev only green, preserving other editors.",
+    "next_source_candidate": "assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint_alpha.png",
+    "next_role": "FV-66629DC58A20",
+    "next_step": "Actual scene fit for mint; complete other colors/callers and remaining Geologist/job artwork. Source candidate is not runtime or owner approval."
+  }
 }
