@@ -48,5 +48,49 @@
       "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29"
     }
   ],
-  "limits": "No runtime/artwork/cost/creative acceptance claim. In-flight engine CI is separate and not restarted."
+  "limits": "No runtime/artwork/cost/creative acceptance claim. In-flight engine CI is separate and not restarted.",
+  "payload_2d": {
+    "STAGED": {
+      "log": "gate_logs/PAYLOAD_STAGED_2D.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "result": "NO_REGRESSION"
+    },
+    "COMMITTED": {
+      "log": "gate_logs/PAYLOAD_COMMITTED_2D.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "result": "NO_REGRESSION"
+    }
+  },
+  "publication": {
+    "payload_revision": "41b5d9b67e37922aac97f6989418fe5d95da1bc3",
+    "manifest_sha256": "c199a3cce093a054ed7b1ba66df67f994bcef9bfc831e9c7c0f5db803bf436d4",
+    "required_files": 34,
+    "required_bytes": 8557156,
+    "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
+    "checked_at_utc": "2026-10-17T16:13:26.633968+00:00"
+  },
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=805|LEDGER=805|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "c31ace2116278f617c59304bda54492f016e978e755fe439ae7685ea0d0b5454"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    }
+  ]
 }

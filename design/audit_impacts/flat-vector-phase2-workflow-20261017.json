@@ -38,7 +38,10 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/GENERATION_INPUT_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/VALIDATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/PAYLOAD_COMMITTED_2D.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/PAYLOAD_STAGED_2D.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/authority.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/development.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/workflow_phase2_20261017/gate_logs/stress.log",
@@ -52,9 +55,9 @@
       "evidence": "workflow_phase2_20261017/DIAGNOSIS.json and AUTOMATION.json; same cadence/chat; no export permission inferred."
     },
     {
-      "command": "Authority/development54unit/6stress and workflow/frozenroot consistency",
+      "command": "Document54unit/6stress, workflow consistency/frozenroots, actualstagedcommitted2D and anonymous exact payload delivery",
       "result": "PASS",
-      "evidence": "VALIDATION.json/GATES.json. Actual staged/committed2D and anonymous immutable delivery follow."
+      "evidence": "GATES.json/VALIDATION.json/REMOTE_VERIFICATION.json; every actual required file verified at 41b5d9b67e37922aac97f6989418fe5d95da1bc3. Final own metadata checked separately. No artwork/tally/acceptance change."
     }
   ],
   "acceptance_gaps": "Workflow repair is not art acceptance. Named ImageGen export, in-flight R91CI/publication, formalQA11/device/child/owner and whole-game scope remain open."
