@@ -1135,5 +1135,18 @@
     "accepted_removed": 0,
     "dev_integrated": 0,
     "regression_total": null
+  },
+  "immutable_r84_source_receipt_revision": "31ab379c166c38dd6c72fdb7e661dc7b621d874f",
+  "immutable_r84_ci01_payload_revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+  "r84_ci01_publication": {
+    "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+    "state": "ALL_REQUIRED_FILES_ANONYMOUSLY_BYTE_VERIFIED",
+    "required_files": 775,
+    "required_bytes": 247118321,
+    "manifest_sha256": "a9aa681db90207ad566c8d8dfc5c6c0d03a18b94aa73f57634df94940f72bb43",
+    "checked_at_utc": "2026-10-17T05:58:11.735710+00:00",
+    "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
+    "receipt": "r84_navigation_context/REMOTE_VERIFICATION.json",
+    "own_metadata_scope": "Final receipt metadata checked separately at final commit; no self hash"
   }
 }

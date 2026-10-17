@@ -1,14 +1,206 @@
 {
   "schema": "reef.remote_delivery_verification/1",
-  "revision": "b51f38a848f3e6fdb3817f13c2d7776f0e19f18a",
+  "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
   "repository": "Ebonyks/mermaid-roshan-reef",
   "public_repository_api_verified": true,
   "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/MANIFEST.json",
-  "manifest_sha256": "b96df36c99d95affb0e74953bcb1519ae92ca1cab1adf9f0716b9e4012994cd8",
-  "manifest_bytes": 256473,
-  "required_files": 740,
-  "required_bytes": 241276604,
+  "manifest_sha256": "a9aa681db90207ad566c8d8dfc5c6c0d03a18b94aa73f57634df94940f72bb43",
+  "manifest_bytes": 269764,
+  "required_files": 775,
+  "required_bytes": 247118321,
   "files": [
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 298024,
+      "sha256": "2b720679f49fefe0aa71eff12475d29cf929c5d1c23d9df70b7e0792a2b89eeb",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 261267,
+      "sha256": "c7583d0aaf013ca15dbe8bd1f038c97f20f4e2cc5f5d4e755682d449025b591c",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 313055,
+      "sha256": "e19c8f43dc985fb8535d83f0829c1db31e1a0bf6a2a72b5eb0f170f1d9e62624",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 261011,
+      "sha256": "5d4592d4f0adf6093dcee6266935649b2ccd58809ddea7a04d0fc0c04b59f0c9",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "design/audit_impacts/flat-vector-navigation-context-20261017.json",
+      "bytes": 10697,
+      "sha256": "0a703ecef6877f770f4a4769d04a6ed8a739cd1f786f768b220693bb652f6cca",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 58501,
+      "sha256": "5c93442f659a9e296d3d6195c5df3a6bc6bc49020d9d0bc14c543fc55e943aee",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "bytes": 2699,
+      "sha256": "e7a2150529fae5e2c3c80a0000806ff5927f176807a689f33e3df37df5c5b253",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/CONGRUENCY_BACKLOG.json",
+      "bytes": 452408,
+      "sha256": "278c6bf8233d7e022551cd8215fcb468f43541cca4368108b12a3e631ef6b193",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/GATES.json",
+      "bytes": 5115,
+      "sha256": "03ffd4e0132fd718b0f9324e852fa10934fa9e873c764d97f245640a4a46661a",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/README.md",
+      "bytes": 4542,
+      "sha256": "723bc62cfc30ff396eacb8e166370ab98e652b1f239a8628e0ca81611bdb625a",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/SUMMARY.json",
+      "bytes": 2169,
+      "sha256": "2682b7319625a4b5f8084ad5e81a9f8dd4ce3b52345411dec02afc35ea77886b",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/CI_STATUS.json",
+      "bytes": 4499,
+      "sha256": "74eb504f4ba19f617bc6eb8b927da4939ffd8a6570124adca05beae93e6118e1",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/WORKFLOW_SOURCE.json",
+      "bytes": 1076,
+      "sha256": "4ab7e048fd7200b07c98e6f7a618022634d5b766135846e6ad7d70b4a3c961f7",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/excerpts_39003693380.log",
+      "bytes": 7597,
+      "sha256": "4978d914985050e0ea123547ce27ab521202e901a046cf2be171b1f75e4d3a07",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/excerpts_39004014283.log",
+      "bytes": 7597,
+      "sha256": "56daf7bb7350811888ef3465ac6a5b114ee0affd6a05967a0b50272acfaae0d3",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/gate_logs/authority.log",
+      "bytes": 78,
+      "sha256": "76219217cee4e528b2e9164d94278014ba45817491ddf29014194f08b97b970e",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/gate_logs/development.log",
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/jobs_39003693380.json",
+      "bytes": 7899,
+      "sha256": "13cbf5d18b07a4b37add3a71918356451ce51ccc8959459c8620db35e42e3506",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/jobs_39004014283.json",
+      "bytes": 7899,
+      "sha256": "df721ad652ed53071b30f7be6d49d000139fc5ce7f44d8be4915f28b49646510",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/run_39003693380.json",
+      "bytes": 13230,
+      "sha256": "bc2398388c73644d939fef1982935661f7c5575d587cf6aa29ef06cee1980fd2",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/ci_status_20261017/run_39004014283.json",
+      "bytes": 13228,
+      "sha256": "5d160931dd854ced3375d9c852579cf4c4187825ce4054bb678b51984774edfa",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/per_piece.json",
+      "bytes": 1640364,
+      "sha256": "2b238228259d483c01c7ab61c863e12356df1d02303b324fd7d1dcf1d809e07d",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/scene_coverage.json",
+      "bytes": 986797,
+      "sha256": "d13abc88be1035d8eb32cc5ecc0bc50518fc3dd57374c96eb892fbd32baeee4c",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "ce315971f5a5c69ed865a2774f42d4b878941d1b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/tally.json",
+      "bytes": 435411,
+      "sha256": "657f830d153954b6bf383837c72ba3ccbc0f0dab1adbc711fcf14d91886f57bd",
+      "http_status": 200,
+      "verified": true
+    },
     {
       "revision": "b51f38a848f3e6fdb3817f13c2d7776f0e19f18a",
       "path": "ASSET_LICENSES.md",
@@ -5928,10 +6120,98 @@
       "sha256": "152a2d1bb1a914e362da79e3860115a20942a97cef1112aebe2d799690e609cc",
       "http_status": 200,
       "verified": true
+    },
+    {
+      "revision": "b51f38a848f3e6fdb3817f13c2d7776f0e19f18a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/MANIFEST.json",
+      "bytes": 256473,
+      "sha256": "b96df36c99d95affb0e74953bcb1519ae92ca1cab1adf9f0716b9e4012994cd8",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "31ab379c166c38dd6c72fdb7e661dc7b621d874f",
+      "path": "design/audit_impacts/flat-vector-navigation-context-20261017.json",
+      "bytes": 8483,
+      "sha256": "510f09fa4ca773b64cada0a6233cda15952851b19caecc599616935279601b3b",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "31ab379c166c38dd6c72fdb7e661dc7b621d874f",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 58075,
+      "sha256": "31310d1cf6570a178b6ee369f63f0ef7ad35d9a28376e712697b5c46f447a797",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "31ab379c166c38dd6c72fdb7e661dc7b621d874f",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/CANONICAL_COMMITTED_2D.log",
+      "bytes": 414,
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "31ab379c166c38dd6c72fdb7e661dc7b621d874f",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/CANONICAL_STAGED_2D.log",
+      "bytes": 414,
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "31ab379c166c38dd6c72fdb7e661dc7b621d874f",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/CONGRUENCY_BACKLOG.json",
+      "bytes": 451987,
+      "sha256": "4d3509e463d31d07b404b30bbf7243235765d4020081348d3323bc7a1e1f9e46",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "31ab379c166c38dd6c72fdb7e661dc7b621d874f",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/GATES.json",
+      "bytes": 3983,
+      "sha256": "183b168faf1c145c2d02fd29c7516f83e01491051d300c27b8df6e8925dbb050",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "31ab379c166c38dd6c72fdb7e661dc7b621d874f",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/README.md",
+      "bytes": 3820,
+      "sha256": "4c27153b933bbe05160029cc336f66e103cf0157744020c289abfc48ee49478f",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "31ab379c166c38dd6c72fdb7e661dc7b621d874f",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/REMOTE_VERIFICATION.json",
+      "bytes": 231514,
+      "sha256": "a1609da6631467edbf72ce4b426613675fb26932a3e3bc557df12f9bdc35682e",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "31ab379c166c38dd6c72fdb7e661dc7b621d874f",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/REVIEW.json",
+      "bytes": 6734,
+      "sha256": "749941c0d8889d957bf5f962934800dc56eb62fe222abb602bce8d14f796b946",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "06dbe47f52837a08cf39bbb2e604a372fcab46cc",
+      "path": ".github/workflows/probes.yml",
+      "bytes": 24577,
+      "sha256": "dc39e75ce124e957963f8891539ca45682016a70807bff1e70b8eb10cba4ab29",
+      "http_status": 200,
+      "verified": true
     }
   ],
   "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
-  "checked_at_utc": "2026-10-17T05:42:32.609048+00:00",
+  "checked_at_utc": "2026-10-17T05:58:11.735710+00:00",
   "state": "ALL_REQUIRED_FILES_ANONYMOUSLY_BYTE_VERIFIED",
   "limits": "Transport/provenance receipt only; no image, runtime, device, child, owner or release acceptance. Receipt own metadata is verified separately after its commit."
 }
