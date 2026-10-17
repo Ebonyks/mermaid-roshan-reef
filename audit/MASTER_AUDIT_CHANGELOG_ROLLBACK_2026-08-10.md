@@ -2573,3 +2573,5 @@ CHG-105 delivery: `7f5292785b331ee42a460eeba5ec612a687e2b0e`; 36 direct required
 ## Painted mineral Aseprite matte — CHG-106
 
 [R97](../docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/README.md) supplies a970x1015source cutout and editable two-layer master from generated take02. Aseprite clears6,210alpha1..15pixels and crops with16pxmargin; all584,044body RGBApixels remain exact. RGB under alpha0 explained part of the earlier visible-preview impression; historical raw states stay preserved, no raw take is relabeled approved. Opaque proof at44/64/128px is source-only, not actual-game runtime/QA11. Zero generation/drawing/runtime/removal increments; pan existingoperations continue unchanged. [Impact](../design/audit_impacts/flat-vector-geologist-mineral-matte-20261017.json).
+
+CHG-106 delivery: `f6ffa4c54340818c88366cec2763a74beadaf30c`; 31 direct required files / 18344330 bytes anonymously exact at 2026-10-17T23:24:50.817308+00:00. Technical alpha/body proof passes; actual scene/acceptance and pan operations remain separate.

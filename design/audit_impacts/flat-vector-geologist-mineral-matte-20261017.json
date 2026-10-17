@@ -47,13 +47,14 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/verify_runtime_remote.py"
   ],
   "validation": [
     {
       "command": "Aseprite batch alpha-only cleanup, full editablemaster, <=1024runtime crop; exact retained-body RGBA comparison and source hashes; native visual inspection; document and delivery gates",
       "result": "PASS",
-      "evidence": "Actual Aseprite derivative and opaque proof verified;584044body RGBAexact/alpha cleared/crop<=1024. Authority/development PASS for actual packet. Runtime/formal/device/child/owner remain pending. Direct anonymous delivery follows."
+      "evidence": "Actual Aseprite derivative and opaque proof verified;584044body RGBAexact/alpha cleared/crop<=1024. Authority/development PASS for actual packet. Runtime/formal/device/child/owner remain pending. Direct anonymous delivery follows. All 31 required direct files anonymously exact at f6ffa4c54340818c88366cec2763a74beadaf30c. Final own receipt metadata checked separately."
     }
   ],
   "acceptance_gaps": "Derivative not yet mounted in actual game; scene phone-size/contact/action-state, formalQA11, device/child/owner and variants remain pending."
