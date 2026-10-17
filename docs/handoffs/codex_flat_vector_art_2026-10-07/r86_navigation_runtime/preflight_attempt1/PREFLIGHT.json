@@ -1,0 +1,13 @@
+[
+  {
+    "command": [
+      "python",
+      "-B",
+      "tools/audit_document_authority.py"
+    ],
+    "exit_code": 1,
+    "log_sha256": "0f529ad28902daf9618d08d35b08a819df09d3d1402aaecf26c69b684c6dc5de",
+    "output": "DOCAUTH|INVENTORY=705|LEDGER=705|ACTIVE=69|RECORDS=72\r\nDOCAUTH|FAIL|DOC080|audit\\MASTER_AUDIT_2026-08-09.md|navigation target missing or outside repository: https://github.com/Ebonyks/mermaid-roshan-reef/tree/05fdd9c35622a06abda3be8aa72e519de13f5768/docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse\r\nDOCAUTH|RESULT|1 ISSUE(S)\r\n",
+    "checked_at_utc": "2026-10-17T07:24:43.795713+00:00"
+  }
+]

@@ -22,6 +22,7 @@ const MUTED := Color(0.38, 0.42, 0.58, 0.92)
 const DIM := Color(0.025, 0.06, 0.16, 0.76)
 const MIN_TOUCH := Vector2(110.0, 110.0)
 const SHELL_ORNAMENT_SCRIPT := preload("res://scripts/shell_ornament.gd")
+const NAVIGATION_CARD_TEXTURE: Texture2D = preload("res://assets/fashion/skin_engine_v2/ui/wardrobe_card.png")
 
 # Typography roles are explicit, but font identity and fallback evidence are
 # still unresolved.  The engine/system default is not a project authority and
@@ -309,6 +310,54 @@ static func style_icon_button(button: Button, icon: String, kind: String = "seco
 	style_button(button, kind, maxi(34, int(minf(size.x, size.y) * 0.34)), int(minf(size.x, size.y) * 0.46))
 	button.set_meta("picture_first", true)
 	button.set_meta("parent_hint", parent_hint)
+
+static func style_navigation_button(button: Button, icon: String, parent_hint: String = "Back") -> void:
+	# Only the persistent global navigation control adopts this painted material.
+	# Apply in the same call as the original icon style so mode changes cannot
+	# expose a frame of the old flat surface. Source pixels stay unchanged.
+	style_icon_button(button, icon, "secondary", Vector2(112.0, 112.0), parent_hint)
+	for state: String in ["normal", "hover", "pressed", "hover_pressed", "focus", "disabled"]:
+		var prior: StyleBox = button.get_theme_stylebox(state)
+		var surface := StyleBoxTexture.new()
+		surface.texture = NAVIGATION_CARD_TEXTURE
+		# This omits only outside alpha <= 1 padding from the existing source.
+		surface.region_rect = Rect2(10.0, 23.0, 222.0, 209.0)
+		surface.texture_margin_left = 36.0
+		surface.texture_margin_top = 36.0
+		surface.texture_margin_right = 36.0
+		surface.texture_margin_bottom = 36.0
+		for side: int in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
+			surface.set_content_margin(side, prior.get_content_margin(side))
+		surface.draw_center = true
+		if state in ["pressed", "hover_pressed"]:
+			surface.expand_margin_top = -2.0
+			surface.expand_margin_bottom = -2.0
+		match state:
+			"pressed", "hover_pressed", "focus":
+				surface.modulate_color = Color(1.0, 0.86, 0.64)
+			"hover":
+				surface.modulate_color = Color(1.0, 0.95, 0.83)
+			"disabled":
+				surface.modulate_color = Color(0.65, 0.65, 0.70, 0.65)
+			_:
+				surface.modulate_color = Color.WHITE
+		button.add_theme_stylebox_override(state, surface)
+	_navigation_focus_state(button, button.button_pressed)
+	if not button.has_meta("painted_navigation_focus_bound"):
+		button.button_down.connect(_navigation_focus_state.bind(button, true))
+		button.button_up.connect(_navigation_focus_state.bind(button, false))
+		button.set_meta("painted_navigation_focus_bound", true)
+
+static func _navigation_focus_state(button: Button, pressed: bool) -> void:
+	if not is_instance_valid(button):
+		return
+	var focus: StyleBoxTexture = button.get_theme_stylebox("focus") as StyleBoxTexture
+	if focus == null:
+		return
+	# A complete painted focus surface avoids the old border-only paper seam.
+	focus.modulate_color = Color(0.94, 0.80, 0.58) if pressed else Color(1.0, 0.86, 0.64)
+	focus.expand_margin_top = -2.0 if pressed else 0.0
+	focus.expand_margin_bottom = -2.0 if pressed else 0.0
 
 static func style_back_button(button: Button, parent_hint: String = "Back") -> void:
 	style_icon_button(button, "↩", "secondary", Vector2(112.0, 112.0), parent_hint)

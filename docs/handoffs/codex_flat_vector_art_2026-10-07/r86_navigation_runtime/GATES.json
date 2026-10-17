@@ -1,0 +1,70 @@
+{
+  "status": "PASS_LOCAL82_NATIVE64_PUBLISHED_REVIEW_ONLY_REMOTE_CI_PENDING",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "exact_engine": "4.7.2-stable official.ed1daf0bf",
+  "full_ci": {
+    "command": "Unmodified scripts/ci.sh",
+    "result": "PASS",
+    "probe_count": 82,
+    "elapsed_seconds": 2809.024,
+    "log_sha256": "1c840c74510ca0e8c0d8fe128ad8ad0d3adb7b112a614385d4904c3fde9b9ad3",
+    "evidence": "full_ci_attempt2/FULL_CI_RESULT.json"
+  },
+  "native": {
+    "cases": 2,
+    "engine_checks": 64,
+    "raw_frames": 30,
+    "material_timing_frames": 26,
+    "direct_partial_agent_views": 9,
+    "formal_QA11": false
+  },
+  "preflight": "PREFLIGHT.json; successful document authority/development after retained DOC080 repair. Stock CI supplies required authority/unit/stress and other machine gates.",
+  "historical_failed_attempts": [
+    "preflight_attempt1/PREFLIGHT.json",
+    "full_ci_attempt1/FULL_CI_RESULT.json",
+    "MANIFEST_ATTEMPT1_FAILURE.json"
+  ],
+  "source_pin_exact": true,
+  "accepted_removed": 0,
+  "dev_integrated": false,
+  "remote_exact_head_ci": "Not yet published; no green remote runtime result inferred. ExistingR83 cancellation/advisory/renderer failures retain separate scope.",
+  "remaining": "New-use approval, criticalglyph/font/fallback semantics, other callers/routes and neighboring flat UI, unknown game-wide inventory, formalQA11/device/child/owner.",
+  "generated_import_qualification": "GENERATED_CARD_IMPORT_BINDING.json snapshots unchanged ignored mode0 metadata; it is not a new committed runtime sidecar.",
+  "payload_actual_staged_2d": {
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "log": "PAYLOAD_STAGED_2D.log",
+    "status": "NO_REGRESSION"
+  },
+  "payload_actual_committed_2d": {
+    "revision": "9f6ae4fd0782d8f3333715725a8e96e83443cc3f",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "log": "PAYLOAD_COMMITTED_2D.log",
+    "status": "NO_REGRESSION"
+  },
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=705|LEDGER=705|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "8abe14d0b60da35e8867c7ebad46af372e4f3368aa3ba0747da86337b9aa2bd4",
+      "checked_at_utc": "2026-10-17T08:27:05.477686+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|dd799b2d43871b29d1d6e0503646308a194dad1e\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "d95290b1cdd6d0543f96700a87d24ed2358ab752613e7dc0adf02b770db8b61d",
+      "checked_at_utc": "2026-10-17T08:27:08.250532+00:00"
+    }
+  ]
+}

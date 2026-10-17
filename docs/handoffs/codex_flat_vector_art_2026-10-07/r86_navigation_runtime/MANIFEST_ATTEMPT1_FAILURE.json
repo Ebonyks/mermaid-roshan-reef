@@ -1,0 +1,16 @@
+{
+  "observed_at_utc": "2026-10-17T08:19:57.533201+00:00",
+  "step": "R86 seal_payload.py -> build_runtime_manifest.py",
+  "failure_command": [
+    "git",
+    "show",
+    ":assets/fashion/skin_engine_v2/ui/wardrobe_card.png.import"
+  ],
+  "failure_exit_code": 128,
+  "reason": "Builder incorrectly required an ignored generated import file as a tracked Git dependency; no such index/baseline blob exists.",
+  "head": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "committed": false,
+  "staged_work_preserved": true,
+  "repair": "Remove only that nonexistent tracked dependency from required rows; include GENERATED_CARD_IMPORT_BINDING.json instead. All other required dependencies verified present in the index before resuming. No source or import setting changes.",
+  "full_ci_still_valid": "Same frozen tested raw source/sidecars; exact source pin must be rechecked before commit."
+}

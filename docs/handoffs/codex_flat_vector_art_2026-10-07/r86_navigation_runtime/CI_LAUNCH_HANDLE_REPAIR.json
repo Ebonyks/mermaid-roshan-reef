@@ -1,0 +1,7 @@
+{
+  "initial_failure": "Stock CI resolver stopped before probes: WinError6 invalid inherited Windows handle. Exact engine itself has already completed import/analyzer and both native cases. No source or normal-save drift.",
+  "attempt1": "full_ci_attempt1/FULL_CI_RESULT.json",
+  "repair_scope": "Owned launch wrapper supplies a valid DEVNULL stdin to the unchanged Git Bash/CI process. All runtime, resolver, scripts/ci.sh and probe source bytes remain unchanged.",
+  "rerun": "Fresh fullci02 completes all82 trusted probes with unchanged source/save guards.",
+  "root_cause_limit": "The log proves WinError6 invalid Windows handle before probes; it does not identify a specific inherited handle by itself. The successful attempt supplies DEVNULL stdin and launches the wrapper directly. No engine/resolver/probe source was changed."
+}
