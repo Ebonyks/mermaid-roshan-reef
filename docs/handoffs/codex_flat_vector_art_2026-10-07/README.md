@@ -1,4 +1,6 @@
-# Current R83 touch-feedback trial and full-game tally
+# Current R84 Menu/Back context and full-game tally
+
+Current canonical revision: [R84](r84_navigation_context/README.md). Original Menu → paused Back → Menu captures pass 38 checks at two widths. Fourteen raw frames add no role/family/alias/sample or acceptance credit. Whole-game totals remain unknown and accepted removals remain zero. Prior sections retain their historical scope.
 
 Current canonical revision: [R83](r83_touch_flash_runtime/README.md). The painted-ring source trial is published in [PR34](https://github.com/Ebonyks/mermaid-roshan-reef/pull/34), with82/82local probe exits and60native checks. No dev integration or accepted-removal credit; all global denominators remain unknown. Historical sections below retain their original scopes.
 

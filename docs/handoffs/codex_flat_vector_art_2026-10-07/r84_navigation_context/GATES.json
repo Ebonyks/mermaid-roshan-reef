@@ -1,0 +1,71 @@
+{
+  "status": "PASS_SOURCE_CONTEXT_DOCUMENT_AND_NO_REGRESSION_ONLY",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/gate_logs/authority.log",
+      "sha256": "76219217cee4e528b2e9164d94278014ba45817491ddf29014194f08b97b970e",
+      "checked_at_utc": "2026-10-17T05:32:52.953835+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/gate_logs/development.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T05:33:04.405619+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/gate_logs/units.log",
+      "sha256": "e08cad2250970f3bad60f805ad700c5b442712e3db29d906175296923fac81c5",
+      "checked_at_utc": "2026-10-17T05:33:22.084425+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/gate_logs/stress.log",
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-17T05:33:23.686229+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/gate_logs/game2d.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "checked_at_utc": "2026-10-17T05:34:50.339169+00:00"
+    }
+  ],
+  "native_scope": "38 observer checks plus parser/inference/exact-engine syntax in each case. Four direct model views; no formal QA11 or human acceptance.",
+  "runtime_tests": "R84 production sources unchanged; R83 full suite remains separate immutable evidence.",
+  "acceptance": "Other styles/routes, source reuse selection, exact packaged glyphs, formal QA11, device, child, owner and unknown global inventory remain open.",
+  "actual_staged_committed_2d": "Run before push; final receipt binds those operations."
+}

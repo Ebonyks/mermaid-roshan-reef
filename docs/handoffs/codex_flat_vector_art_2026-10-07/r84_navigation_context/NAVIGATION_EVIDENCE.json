@@ -1,0 +1,2709 @@
+{
+  "schema": "reef.navigation_evidence/1",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "stable_role_id": "FV-2ABD73BAFFE0",
+  "family": "shared_ui",
+  "already_partial_before_r84": true,
+  "cases": [
+    {
+      "width": 1280,
+      "height": 720,
+      "checks": 19,
+      "frames": 7,
+      "bounded_source_frames": 5,
+      "excluded_bootstrap_frames": 2,
+      "observer_status": "PASS",
+      "states": [
+        {
+          "id": "attempt1_source_1280/menu_root_before",
+          "navigation": {
+            "button_pressed": false,
+            "class": "Button",
+            "codepoints": [
+              9776
+            ],
+            "disabled": false,
+            "draw_mode": 0,
+            "focus_mode": 2,
+            "font_codepoint_checks": [
+              {
+                "codepoint": 9776,
+                "not_fallback_coverage_proof": true,
+                "primary_font_has_char": false
+              }
+            ],
+            "has_focus": false,
+            "instance_id": 201024605121,
+            "logical_size": [
+              112.0,
+              112.0
+            ],
+            "min_size": [
+              112.0,
+              112.0
+            ],
+            "mode": "menu",
+            "mouse_filter": 0,
+            "native_rect": [
+              18.0,
+              18.0,
+              112.0,
+              112.0
+            ],
+            "navigation_locked": false,
+            "navigation_root": "sky_lagoon",
+            "owner_meta": true,
+            "parent_layer": 29,
+            "parent_path": "/root/Main/GlobalNavigationLayer",
+            "path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+            "pause_visible": false,
+            "present": true,
+            "process_mode": 0,
+            "route_top": "",
+            "styles": {
+              "disabled": {
+                "bg_rgba": [
+                  0.379999995231628,
+                  0.419999986886978,
+                  0.579999983310699,
+                  0.920000016689301
+                ],
+                "border_rgba": [
+                  0.620000004768372,
+                  0.639999985694885,
+                  0.759999990463257,
+                  0.899999976158142
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754007688089,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "focus": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  8,
+                  8,
+                  8,
+                  8
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754024465307,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover": {
+                "bg_rgba": [
+                  0.917200028896332,
+                  0.935599982738495,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754074798581,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover_pressed": {
+                "bg_rgba": [
+                  0.873600006103516,
+                  0.892799973487854,
+                  0.959999978542328,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754041242537,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              },
+              "normal": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754091574190,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "pressed": {
+                "bg_rgba": [
+                  0.819000005722046,
+                  0.837000012397766,
+                  0.899999976158142,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754058019745,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              }
+            },
+            "text": "\u2630",
+            "theme_font_class": "FontFile",
+            "theme_font_name": "Open Sans SemiBold",
+            "theme_font_path": "",
+            "theme_font_size": 38,
+            "tree_paused": false,
+            "typography_authority": "",
+            "typography_role": "child_control",
+            "visible_in_tree": true
+          }
+        },
+        {
+          "id": "attempt1_source_1280/menu_down_pause_transition",
+          "navigation": {
+            "button_pressed": false,
+            "class": "Button",
+            "codepoints": [
+              8617
+            ],
+            "disabled": false,
+            "draw_mode": 0,
+            "focus_mode": 2,
+            "font_codepoint_checks": [
+              {
+                "codepoint": 8617,
+                "not_fallback_coverage_proof": true,
+                "primary_font_has_char": false
+              }
+            ],
+            "has_focus": false,
+            "instance_id": 201024605121,
+            "logical_size": [
+              112.0,
+              112.0
+            ],
+            "min_size": [
+              112.0,
+              112.0
+            ],
+            "mode": "back",
+            "mouse_filter": 0,
+            "native_rect": [
+              18.0,
+              18.0,
+              112.0,
+              112.0
+            ],
+            "navigation_locked": false,
+            "navigation_root": "sky_lagoon",
+            "owner_meta": true,
+            "parent_layer": 29,
+            "parent_path": "/root/Main/GlobalNavigationLayer",
+            "path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+            "pause_visible": true,
+            "present": true,
+            "process_mode": 0,
+            "route_top": "",
+            "styles": {
+              "disabled": {
+                "bg_rgba": [
+                  0.379999995231628,
+                  0.419999986886978,
+                  0.579999983310699,
+                  0.920000016689301
+                ],
+                "border_rgba": [
+                  0.620000004768372,
+                  0.639999985694885,
+                  0.759999990463257,
+                  0.899999976158142
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751910536119,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "focus": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  8,
+                  8,
+                  8,
+                  8
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751927313329,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover": {
+                "bg_rgba": [
+                  0.917200028896332,
+                  0.935599982738495,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751977644980,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover_pressed": {
+                "bg_rgba": [
+                  0.873600006103516,
+                  0.892799973487854,
+                  0.959999978542328,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751944090549,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              },
+              "normal": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751994422202,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "pressed": {
+                "bg_rgba": [
+                  0.819000005722046,
+                  0.837000012397766,
+                  0.899999976158142,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751960867763,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              }
+            },
+            "text": "\u21a9",
+            "theme_font_class": "FontFile",
+            "theme_font_name": "Open Sans SemiBold",
+            "theme_font_path": "",
+            "theme_font_size": 38,
+            "tree_paused": true,
+            "typography_authority": "",
+            "typography_role": "child_control",
+            "visible_in_tree": true
+          }
+        },
+        {
+          "id": "attempt1_source_1280/pause_back_after_release",
+          "navigation": {
+            "button_pressed": false,
+            "class": "Button",
+            "codepoints": [
+              8617
+            ],
+            "disabled": false,
+            "draw_mode": 0,
+            "focus_mode": 2,
+            "font_codepoint_checks": [
+              {
+                "codepoint": 8617,
+                "not_fallback_coverage_proof": true,
+                "primary_font_has_char": false
+              }
+            ],
+            "has_focus": false,
+            "instance_id": 201024605121,
+            "logical_size": [
+              112.0,
+              112.0
+            ],
+            "min_size": [
+              112.0,
+              112.0
+            ],
+            "mode": "back",
+            "mouse_filter": 0,
+            "native_rect": [
+              18.0,
+              18.0,
+              112.0,
+              112.0
+            ],
+            "navigation_locked": false,
+            "navigation_root": "sky_lagoon",
+            "owner_meta": true,
+            "parent_layer": 29,
+            "parent_path": "/root/Main/GlobalNavigationLayer",
+            "path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+            "pause_visible": true,
+            "present": true,
+            "process_mode": 0,
+            "route_top": "",
+            "styles": {
+              "disabled": {
+                "bg_rgba": [
+                  0.379999995231628,
+                  0.419999986886978,
+                  0.579999983310699,
+                  0.920000016689301
+                ],
+                "border_rgba": [
+                  0.620000004768372,
+                  0.639999985694885,
+                  0.759999990463257,
+                  0.899999976158142
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751910536119,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "focus": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  8,
+                  8,
+                  8,
+                  8
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751927313329,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover": {
+                "bg_rgba": [
+                  0.917200028896332,
+                  0.935599982738495,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751977644980,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover_pressed": {
+                "bg_rgba": [
+                  0.873600006103516,
+                  0.892799973487854,
+                  0.959999978542328,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751944090549,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              },
+              "normal": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751994422202,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "pressed": {
+                "bg_rgba": [
+                  0.819000005722046,
+                  0.837000012397766,
+                  0.899999976158142,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751960867763,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              }
+            },
+            "text": "\u21a9",
+            "theme_font_class": "FontFile",
+            "theme_font_name": "Open Sans SemiBold",
+            "theme_font_path": "",
+            "theme_font_size": 38,
+            "tree_paused": true,
+            "typography_authority": "",
+            "typography_role": "child_control",
+            "visible_in_tree": true
+          }
+        },
+        {
+          "id": "attempt1_source_1280/back_down_resume_transition",
+          "navigation": {
+            "button_pressed": false,
+            "class": "Button",
+            "codepoints": [
+              9776
+            ],
+            "disabled": false,
+            "draw_mode": 0,
+            "focus_mode": 2,
+            "font_codepoint_checks": [
+              {
+                "codepoint": 9776,
+                "not_fallback_coverage_proof": true,
+                "primary_font_has_char": false
+              }
+            ],
+            "has_focus": false,
+            "instance_id": 201024605121,
+            "logical_size": [
+              112.0,
+              112.0
+            ],
+            "min_size": [
+              112.0,
+              112.0
+            ],
+            "mode": "menu",
+            "mouse_filter": 0,
+            "native_rect": [
+              18.0,
+              18.0,
+              112.0,
+              112.0
+            ],
+            "navigation_locked": false,
+            "navigation_root": "sky_lagoon",
+            "owner_meta": true,
+            "parent_layer": 29,
+            "parent_path": "/root/Main/GlobalNavigationLayer",
+            "path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+            "pause_visible": false,
+            "present": true,
+            "process_mode": 0,
+            "route_top": "",
+            "styles": {
+              "disabled": {
+                "bg_rgba": [
+                  0.379999995231628,
+                  0.419999986886978,
+                  0.579999983310699,
+                  0.920000016689301
+                ],
+                "border_rgba": [
+                  0.620000004768372,
+                  0.639999985694885,
+                  0.759999990463257,
+                  0.899999976158142
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750820017070,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "focus": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  8,
+                  8,
+                  8,
+                  8
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750836795893,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover": {
+                "bg_rgba": [
+                  0.917200028896332,
+                  0.935599982738495,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750887125915,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover_pressed": {
+                "bg_rgba": [
+                  0.873600006103516,
+                  0.892799973487854,
+                  0.959999978542328,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750853571489,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              },
+              "normal": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750903903129,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "pressed": {
+                "bg_rgba": [
+                  0.819000005722046,
+                  0.837000012397766,
+                  0.899999976158142,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750870348713,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              }
+            },
+            "text": "\u2630",
+            "theme_font_class": "FontFile",
+            "theme_font_name": "Open Sans SemiBold",
+            "theme_font_path": "",
+            "theme_font_size": 38,
+            "tree_paused": false,
+            "typography_authority": "",
+            "typography_role": "child_control",
+            "visible_in_tree": true
+          }
+        },
+        {
+          "id": "attempt1_source_1280/menu_return_after_release",
+          "navigation": {
+            "button_pressed": false,
+            "class": "Button",
+            "codepoints": [
+              9776
+            ],
+            "disabled": false,
+            "draw_mode": 0,
+            "focus_mode": 2,
+            "font_codepoint_checks": [
+              {
+                "codepoint": 9776,
+                "not_fallback_coverage_proof": true,
+                "primary_font_has_char": false
+              }
+            ],
+            "has_focus": false,
+            "instance_id": 201024605121,
+            "logical_size": [
+              112.0,
+              112.0
+            ],
+            "min_size": [
+              112.0,
+              112.0
+            ],
+            "mode": "menu",
+            "mouse_filter": 0,
+            "native_rect": [
+              18.0,
+              18.0,
+              112.0,
+              112.0
+            ],
+            "navigation_locked": false,
+            "navigation_root": "sky_lagoon",
+            "owner_meta": true,
+            "parent_layer": 29,
+            "parent_path": "/root/Main/GlobalNavigationLayer",
+            "path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+            "pause_visible": false,
+            "present": true,
+            "process_mode": 0,
+            "route_top": "",
+            "styles": {
+              "disabled": {
+                "bg_rgba": [
+                  0.379999995231628,
+                  0.419999986886978,
+                  0.579999983310699,
+                  0.920000016689301
+                ],
+                "border_rgba": [
+                  0.620000004768372,
+                  0.639999985694885,
+                  0.759999990463257,
+                  0.899999976158142
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750820017070,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "focus": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  8,
+                  8,
+                  8,
+                  8
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750836795893,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover": {
+                "bg_rgba": [
+                  0.917200028896332,
+                  0.935599982738495,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750887125915,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover_pressed": {
+                "bg_rgba": [
+                  0.873600006103516,
+                  0.892799973487854,
+                  0.959999978542328,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750853571489,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              },
+              "normal": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750903903129,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "pressed": {
+                "bg_rgba": [
+                  0.819000005722046,
+                  0.837000012397766,
+                  0.899999976158142,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750870348713,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              }
+            },
+            "text": "\u2630",
+            "theme_font_class": "FontFile",
+            "theme_font_name": "Open Sans SemiBold",
+            "theme_font_path": "",
+            "theme_font_size": 38,
+            "tree_paused": false,
+            "typography_authority": "",
+            "typography_role": "child_control",
+            "visible_in_tree": true
+          }
+        }
+      ],
+      "guard_result": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/native/attempt1_source_1280/RESULT.json",
+      "syntax_result": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/native/attempt1_source_1280/SYNTAX.json",
+      "source_files_exact": 4425,
+      "sidecars_exact": 4088,
+      "sets_may_overlap": true
+    },
+    {
+      "width": 1600,
+      "height": 720,
+      "checks": 19,
+      "frames": 7,
+      "bounded_source_frames": 5,
+      "excluded_bootstrap_frames": 2,
+      "observer_status": "PASS",
+      "states": [
+        {
+          "id": "attempt1_source_1600/menu_root_before",
+          "navigation": {
+            "button_pressed": false,
+            "class": "Button",
+            "codepoints": [
+              9776
+            ],
+            "disabled": false,
+            "draw_mode": 0,
+            "focus_mode": 2,
+            "font_codepoint_checks": [
+              {
+                "codepoint": 9776,
+                "not_fallback_coverage_proof": true,
+                "primary_font_has_char": false
+              }
+            ],
+            "has_focus": false,
+            "instance_id": 201024605121,
+            "logical_size": [
+              112.0,
+              112.0
+            ],
+            "min_size": [
+              112.0,
+              112.0
+            ],
+            "mode": "menu",
+            "mouse_filter": 0,
+            "native_rect": [
+              18.0,
+              18.0,
+              112.0,
+              112.0
+            ],
+            "navigation_locked": false,
+            "navigation_root": "sky_lagoon",
+            "owner_meta": true,
+            "parent_layer": 29,
+            "parent_path": "/root/Main/GlobalNavigationLayer",
+            "path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+            "pause_visible": false,
+            "present": true,
+            "process_mode": 0,
+            "route_top": "",
+            "styles": {
+              "disabled": {
+                "bg_rgba": [
+                  0.379999995231628,
+                  0.419999986886978,
+                  0.579999983310699,
+                  0.920000016689301
+                ],
+                "border_rgba": [
+                  0.620000004768372,
+                  0.639999985694885,
+                  0.759999990463257,
+                  0.899999976158142
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754007688091,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "focus": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  8,
+                  8,
+                  8,
+                  8
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754024465309,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover": {
+                "bg_rgba": [
+                  0.917200028896332,
+                  0.935599982738495,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754074796969,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover_pressed": {
+                "bg_rgba": [
+                  0.873600006103516,
+                  0.892799973487854,
+                  0.959999978542328,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754041242531,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              },
+              "normal": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754091574188,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "pressed": {
+                "bg_rgba": [
+                  0.819000005722046,
+                  0.837000012397766,
+                  0.899999976158142,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371754058019781,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              }
+            },
+            "text": "\u2630",
+            "theme_font_class": "FontFile",
+            "theme_font_name": "Open Sans SemiBold",
+            "theme_font_path": "",
+            "theme_font_size": 38,
+            "tree_paused": false,
+            "typography_authority": "",
+            "typography_role": "child_control",
+            "visible_in_tree": true
+          }
+        },
+        {
+          "id": "attempt1_source_1600/menu_down_pause_transition",
+          "navigation": {
+            "button_pressed": false,
+            "class": "Button",
+            "codepoints": [
+              8617
+            ],
+            "disabled": false,
+            "draw_mode": 0,
+            "focus_mode": 2,
+            "font_codepoint_checks": [
+              {
+                "codepoint": 8617,
+                "not_fallback_coverage_proof": true,
+                "primary_font_has_char": false
+              }
+            ],
+            "has_focus": false,
+            "instance_id": 201024605121,
+            "logical_size": [
+              112.0,
+              112.0
+            ],
+            "min_size": [
+              112.0,
+              112.0
+            ],
+            "mode": "back",
+            "mouse_filter": 0,
+            "native_rect": [
+              18.0,
+              18.0,
+              112.0,
+              112.0
+            ],
+            "navigation_locked": false,
+            "navigation_root": "sky_lagoon",
+            "owner_meta": true,
+            "parent_layer": 29,
+            "parent_path": "/root/Main/GlobalNavigationLayer",
+            "path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+            "pause_visible": true,
+            "present": true,
+            "process_mode": 0,
+            "route_top": "",
+            "styles": {
+              "disabled": {
+                "bg_rgba": [
+                  0.379999995231628,
+                  0.419999986886978,
+                  0.579999983310699,
+                  0.920000016689301
+                ],
+                "border_rgba": [
+                  0.620000004768372,
+                  0.639999985694885,
+                  0.759999990463257,
+                  0.899999976158142
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751910536117,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "focus": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  8,
+                  8,
+                  8,
+                  8
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751927313327,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover": {
+                "bg_rgba": [
+                  0.917200028896332,
+                  0.935599982738495,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751977644978,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover_pressed": {
+                "bg_rgba": [
+                  0.873600006103516,
+                  0.892799973487854,
+                  0.959999978542328,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751944090547,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              },
+              "normal": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751994422200,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "pressed": {
+                "bg_rgba": [
+                  0.819000005722046,
+                  0.837000012397766,
+                  0.899999976158142,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751960867761,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              }
+            },
+            "text": "\u21a9",
+            "theme_font_class": "FontFile",
+            "theme_font_name": "Open Sans SemiBold",
+            "theme_font_path": "",
+            "theme_font_size": 38,
+            "tree_paused": true,
+            "typography_authority": "",
+            "typography_role": "child_control",
+            "visible_in_tree": true
+          }
+        },
+        {
+          "id": "attempt1_source_1600/pause_back_after_release",
+          "navigation": {
+            "button_pressed": false,
+            "class": "Button",
+            "codepoints": [
+              8617
+            ],
+            "disabled": false,
+            "draw_mode": 0,
+            "focus_mode": 2,
+            "font_codepoint_checks": [
+              {
+                "codepoint": 8617,
+                "not_fallback_coverage_proof": true,
+                "primary_font_has_char": false
+              }
+            ],
+            "has_focus": false,
+            "instance_id": 201024605121,
+            "logical_size": [
+              112.0,
+              112.0
+            ],
+            "min_size": [
+              112.0,
+              112.0
+            ],
+            "mode": "back",
+            "mouse_filter": 0,
+            "native_rect": [
+              18.0,
+              18.0,
+              112.0,
+              112.0
+            ],
+            "navigation_locked": false,
+            "navigation_root": "sky_lagoon",
+            "owner_meta": true,
+            "parent_layer": 29,
+            "parent_path": "/root/Main/GlobalNavigationLayer",
+            "path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+            "pause_visible": true,
+            "present": true,
+            "process_mode": 0,
+            "route_top": "",
+            "styles": {
+              "disabled": {
+                "bg_rgba": [
+                  0.379999995231628,
+                  0.419999986886978,
+                  0.579999983310699,
+                  0.920000016689301
+                ],
+                "border_rgba": [
+                  0.620000004768372,
+                  0.639999985694885,
+                  0.759999990463257,
+                  0.899999976158142
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751910536117,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "focus": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  8,
+                  8,
+                  8,
+                  8
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751927313327,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover": {
+                "bg_rgba": [
+                  0.917200028896332,
+                  0.935599982738495,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751977644978,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover_pressed": {
+                "bg_rgba": [
+                  0.873600006103516,
+                  0.892799973487854,
+                  0.959999978542328,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751944090547,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              },
+              "normal": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751994422200,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "pressed": {
+                "bg_rgba": [
+                  0.819000005722046,
+                  0.837000012397766,
+                  0.899999976158142,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371751960867761,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              }
+            },
+            "text": "\u21a9",
+            "theme_font_class": "FontFile",
+            "theme_font_name": "Open Sans SemiBold",
+            "theme_font_path": "",
+            "theme_font_size": 38,
+            "tree_paused": true,
+            "typography_authority": "",
+            "typography_role": "child_control",
+            "visible_in_tree": true
+          }
+        },
+        {
+          "id": "attempt1_source_1600/back_down_resume_transition",
+          "navigation": {
+            "button_pressed": false,
+            "class": "Button",
+            "codepoints": [
+              9776
+            ],
+            "disabled": false,
+            "draw_mode": 0,
+            "focus_mode": 2,
+            "font_codepoint_checks": [
+              {
+                "codepoint": 9776,
+                "not_fallback_coverage_proof": true,
+                "primary_font_has_char": false
+              }
+            ],
+            "has_focus": false,
+            "instance_id": 201024605121,
+            "logical_size": [
+              112.0,
+              112.0
+            ],
+            "min_size": [
+              112.0,
+              112.0
+            ],
+            "mode": "menu",
+            "mouse_filter": 0,
+            "native_rect": [
+              18.0,
+              18.0,
+              112.0,
+              112.0
+            ],
+            "navigation_locked": false,
+            "navigation_root": "sky_lagoon",
+            "owner_meta": true,
+            "parent_layer": 29,
+            "parent_path": "/root/Main/GlobalNavigationLayer",
+            "path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+            "pause_visible": false,
+            "present": true,
+            "process_mode": 0,
+            "route_top": "",
+            "styles": {
+              "disabled": {
+                "bg_rgba": [
+                  0.379999995231628,
+                  0.419999986886978,
+                  0.579999983310699,
+                  0.920000016689301
+                ],
+                "border_rgba": [
+                  0.620000004768372,
+                  0.639999985694885,
+                  0.759999990463257,
+                  0.899999976158142
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750820017068,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "focus": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  8,
+                  8,
+                  8,
+                  8
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750836794281,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover": {
+                "bg_rgba": [
+                  0.917200028896332,
+                  0.935599982738495,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750887125917,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover_pressed": {
+                "bg_rgba": [
+                  0.873600006103516,
+                  0.892799973487854,
+                  0.959999978542328,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750853571525,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              },
+              "normal": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750903903131,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "pressed": {
+                "bg_rgba": [
+                  0.819000005722046,
+                  0.837000012397766,
+                  0.899999976158142,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750870348707,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              }
+            },
+            "text": "\u2630",
+            "theme_font_class": "FontFile",
+            "theme_font_name": "Open Sans SemiBold",
+            "theme_font_path": "",
+            "theme_font_size": 38,
+            "tree_paused": false,
+            "typography_authority": "",
+            "typography_role": "child_control",
+            "visible_in_tree": true
+          }
+        },
+        {
+          "id": "attempt1_source_1600/menu_return_after_release",
+          "navigation": {
+            "button_pressed": false,
+            "class": "Button",
+            "codepoints": [
+              9776
+            ],
+            "disabled": false,
+            "draw_mode": 0,
+            "focus_mode": 2,
+            "font_codepoint_checks": [
+              {
+                "codepoint": 9776,
+                "not_fallback_coverage_proof": true,
+                "primary_font_has_char": false
+              }
+            ],
+            "has_focus": false,
+            "instance_id": 201024605121,
+            "logical_size": [
+              112.0,
+              112.0
+            ],
+            "min_size": [
+              112.0,
+              112.0
+            ],
+            "mode": "menu",
+            "mouse_filter": 0,
+            "native_rect": [
+              18.0,
+              18.0,
+              112.0,
+              112.0
+            ],
+            "navigation_locked": false,
+            "navigation_root": "sky_lagoon",
+            "owner_meta": true,
+            "parent_layer": 29,
+            "parent_path": "/root/Main/GlobalNavigationLayer",
+            "path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+            "pause_visible": false,
+            "present": true,
+            "process_mode": 0,
+            "route_top": "",
+            "styles": {
+              "disabled": {
+                "bg_rgba": [
+                  0.379999995231628,
+                  0.419999986886978,
+                  0.579999983310699,
+                  0.920000016689301
+                ],
+                "border_rgba": [
+                  0.620000004768372,
+                  0.639999985694885,
+                  0.759999990463257,
+                  0.899999976158142
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750820017068,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "focus": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  8,
+                  8,
+                  8,
+                  8
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750836794281,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover": {
+                "bg_rgba": [
+                  0.917200028896332,
+                  0.935599982738495,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750887125917,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "hover_pressed": {
+                "bg_rgba": [
+                  0.873600006103516,
+                  0.892799973487854,
+                  0.959999978542328,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  1.0,
+                  0.779999971389771,
+                  0.300000011920929,
+                  0.980000019073486
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750853571525,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              },
+              "normal": {
+                "bg_rgba": [
+                  0.910000026226044,
+                  0.930000007152557,
+                  1.0,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750903903131,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  4.0
+                ],
+                "shadow_size": 7
+              },
+              "pressed": {
+                "bg_rgba": [
+                  0.819000005722046,
+                  0.837000012397766,
+                  0.899999976158142,
+                  0.980000019073486
+                ],
+                "border_rgba": [
+                  0.299799978733063,
+                  0.200800001621246,
+                  0.611199975013733,
+                  1.0
+                ],
+                "borders": [
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                "class": "StyleBoxFlat",
+                "instance_id": -9223371750870348707,
+                "radii": [
+                  51,
+                  51,
+                  51,
+                  51
+                ],
+                "resource_path": "",
+                "shadow_offset": [
+                  0.0,
+                  1.0
+                ],
+                "shadow_size": 2
+              }
+            },
+            "text": "\u2630",
+            "theme_font_class": "FontFile",
+            "theme_font_name": "Open Sans SemiBold",
+            "theme_font_path": "",
+            "theme_font_size": 38,
+            "tree_paused": false,
+            "typography_authority": "",
+            "typography_role": "child_control",
+            "visible_in_tree": true
+          }
+        }
+      ],
+      "guard_result": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/native/attempt1_source_1600/RESULT.json",
+      "syntax_result": "docs/handoffs/codex_flat_vector_art_2026-10-07/r84_navigation_context/native/attempt1_source_1600/SYNTAX.json",
+      "source_files_exact": 4425,
+      "sidecars_exact": 4088,
+      "sets_may_overlap": true
+    }
+  ],
+  "authored_style_names": [
+    "normal",
+    "hover",
+    "pressed",
+    "hover_pressed",
+    "focus",
+    "disabled"
+  ],
+  "visible_draw_modes_observed": [
+    0
+  ],
+  "hidden_bootstrap_draw_modes": [
+    3
+  ],
+  "unreviewed_visible_styles": [
+    "hover",
+    "pressed",
+    "hover_pressed",
+    "focus",
+    "disabled"
+  ],
+  "glyphs": {
+    "menu": 9776,
+    "back": 8617,
+    "source_theme_font": "Open Sans SemiBold",
+    "font_size": 38,
+    "primary_font_has_char": false,
+    "fallback_coverage_proven": false,
+    "limits": "Both symbols render in viewed native frames. Empty resource_path and primary has_char false do not identify the fallback font, prove a missing glyph on a phone or establish exact APK font coverage."
+  },
+  "functional_geometry": "112x112 native target at (18,18), same instance through Menu -> paused Back -> resumed Menu in each independent process. Preserve input route, name, owner metadata, layer 29, pause/resume and actual pause-zone rect separately from artwork.",
+  "implementation": {
+    "runtime_changes": 0,
+    "art_generation_calls": 0,
+    "candidate_count": 0,
+    "accepted_removed": 0
+  },
+  "acceptance": "PARTIAL_CURRENT_SOURCE_CONTEXT_ONLY; all other routes, style states, formal QA11, packaged fonts, device, child and owner acceptance open"
+}

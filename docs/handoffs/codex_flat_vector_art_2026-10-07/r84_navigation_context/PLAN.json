@@ -1,0 +1,29 @@
+{
+  "schema": "reef.navigation_context_plan/1",
+  "recorded_at_utc": "2026-10-17T05:19:43.185335+00:00",
+  "topic_baseline": "f895b383f40b716f188a38e9f596cb52b8f64bf3",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "existing_role": "FV-2ABD73BAFFE0",
+  "family": "shared_ui",
+  "already_in_partial_union": true,
+  "source_chain": [
+    "PauseMenu._build_pause",
+    "StorybookUI.style_icon_button -> style_button -> panel_style",
+    "NavigationController.sync_button / position_button",
+    "TouchUI.pause_zone / raw input ownership"
+  ],
+  "native_sequence": "Original private NewGame/options/clip/promenade; actual corner Menu down/up opens pause and Back glyph; actual corner Back down/up returns Menu. No direct press/toggle/state/camera/phase/material/font calls.",
+  "observations": [
+    "Actual node/instance/path/parent layer and source owner",
+    "Actual screen112x112/18px placement, mode and Unicode U+2630/U+21A9",
+    "All6authored StyleBox resources separately from actually rendered draw mode",
+    "Actual font/source/meta/has_char, explicitly no fallback or human coverage inference",
+    "Source bootstrap locked/hidden states read without forcing them"
+  ],
+  "new_review_or_piece_credit": 0,
+  "runtime_changes": 0,
+  "generation_calls": 0,
+  "approved": 0,
+  "accepted_removed": 0,
+  "global_denominator": null
+}
