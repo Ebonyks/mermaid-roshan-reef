@@ -1,0 +1,17 @@
+{
+  "status": "BLOCKED_PENDING_EXPLICIT_USER_AUTHORIZATION",
+  "utc": "2026-10-16T05:16:13.000473+00:00",
+  "blocked_action": "Refresh only candidate_payload_sha256 and append metadata-revalidation history in assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+  "auto_review_rejections": [
+    "This mutates the authoritative Castle frame-approval ledger to rebind an approved payload after a stale-hash failure; the user authorized the Opera fix, not this separate approval-boundary change, and the operation could incorrectly permit release without fresh owner review.",
+    "Despite the equivalence proof, this still writes the authoritative approval ledger and changes a release-gating binding; no trusted user message explicitly authorizes that exact approval-boundary mutation."
+  ],
+  "read_only_proof": "castle_frame_binding_readonly_proof.json",
+  "ledger_unchanged": true,
+  "source_mismatches": [
+    "scripts/probe_interaction.gd"
+  ],
+  "runtime_checks": "Initial separate runtime run is FAIL: 80/82 probe exits 0, interaction exits 1 for the retired-theatre fallback expectation and balance exits 127 before its verdict. The interaction oracle is corrected for the owner-directed room removal; both focused isolated rechecks exit 0. No combined full-suite pass is claimed.",
+  "publication": "No task commit, push, integration, APK or release has been made.",
+  "next_step": "Await the explicit pending user authorization. If granted, revalidate the current proof, refresh only the binding/history while preserving all frame approvals and owner_acceptance=pending, then rerun required gates before commit/push/integration."
+}

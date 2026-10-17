@@ -222,8 +222,8 @@ func _init() -> void:
 		route_ui.sync()
 		await process_frame
 		if route_room == "opera_hall":
-			route_ui.open_opera_venue()
-			await process_frame
+			_check("Opera lobby opens directly without a theatre-star activation",
+				route_ui.opera_venue != null and route_ui.opera_venue.is_open())
 		var expected_indices := CastleCareerRoutes.act_indices_for_room(route_room)
 		var actual_indices: Array[int] = []
 		var room_art_ok := route_ui.root != null and route_ui.root.visible \

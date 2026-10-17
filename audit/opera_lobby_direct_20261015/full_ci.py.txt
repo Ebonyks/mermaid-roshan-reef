@@ -1,0 +1,39 @@
+from pathlib import Path
+from datetime import datetime, timezone
+import subprocess, os, sys, json, hashlib, time, re
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT/'audit/opera_lobby_direct_20261015'
+def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
+tracked = subprocess.check_output(['git','ls-files','scripts','scenes','tools','tests','project.godot'],cwd=ROOT,text=True).splitlines()
+sources = {p:sha(ROOT/p) for p in tracked if (ROOT/p).is_file()}
+(OUT/'source_manifest.json').write_text(json.dumps(sources,indent=2)+'\n',encoding='utf-8')
+wrapper = ROOT/'tmp/opera_lobby_direct/full_ci.sh'
+wrapper.write_text('''#!/usr/bin/env bash
+set -uo pipefail
+cd '/c/Users/Peter/Documents/mermaid-roshan-reef'
+export PYTHONUTF8=1 PYTHONIOENCODING=utf-8
+python3() { /c/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B "$@"; }
+export -f python3
+export TMPDIR='/tmp'
+bash --noprofile --norc scripts/ci.sh
+exit "$?"
+''',encoding='utf-8',newline='\n')
+args = ['C:/Program Files/Git/bin/bash.exe','--noprofile','--norc',str(wrapper)]
+env = os.environ.copy()
+env.update(PYTHONUTF8='1',PYTHONIOENCODING='utf-8')
+receipt = {'status':'RUNNING','command':args,'started_utc':datetime.now(timezone.utc).isoformat(), 'git_baseline':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(), 'source_manifest_sha256':sha(OUT/'source_manifest.json'), 'ci_sha256':sha(ROOT/'scripts/ci.sh')}
+receipt_path = OUT/'full_ci.json'
+receipt_path.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+start = time.monotonic()
+with (OUT/'full_ci.log').open('wb') as log:
+    process = subprocess.Popen(args,cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT,creationflags=subprocess.CREATE_NO_WINDOW)
+    print('FULL_CI_STARTED',process.pid,flush=True)
+    code = process.wait()
+text = (OUT/'full_ci.log').read_text(encoding='utf-8',errors='replace')
+probes = re.findall(r'^PROBE (\w+) process exit: (\d+)',text,re.M)
+changes = [p for p,h in sources.items() if not (ROOT/p).is_file() or sha(ROOT/p)!=h]
+receipt.update(status='PASS' if code==0 and not changes else 'FAIL',exit=code,elapsed_seconds=round(time.monotonic()-start,3),finished_utc=datetime.now(timezone.utc).isoformat(),log_sha256=sha(OUT/'full_ci.log'),probes=probes,source_mismatches=changes)
+receipt_path.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+print(json.dumps(receipt),flush=True)
+sys.exit(code or bool(changes))

@@ -570,6 +570,21 @@
       ],
       "checkable": true,
       "cycle": "luna-gameplay-repairs-20261014"
+    },
+    {
+      "id": "ODR-OPERA-DIRECT-LOBBY-20261015",
+      "date": "2026-10-15",
+      "subject": "Day Two Opera House entry and room structure",
+      "decision": "Remove the initial room with stage, lights and seats. Enter the existing Opera House lobby directly; like Castle Main Hall, its doors lead to smaller separate activity rooms.",
+      "source": "design/audit_impacts/opera-lobby-direct-20261015.json",
+      "authority": "recorded_owner",
+      "question": "Direct owner correction in chat",
+      "cycle": null,
+      "checks": [
+        "scripts/probe_opera.gd",
+        "scripts/probe_chapter2.gd"
+      ],
+      "checkable": true
     }
   ]
 }

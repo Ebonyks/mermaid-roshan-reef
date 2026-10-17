@@ -1,0 +1,33 @@
+from pathlib import Path
+import os, sys, subprocess, json, time, hashlib, re
+from datetime import datetime, timezone
+ROOT=Path(__file__).resolve().parents[2]
+OUT=ROOT/'audit/opera_lobby_direct_20261015'
+source=(ROOT/'scripts/ci.sh').read_text(encoding='utf-8')
+tail=source[source.index("RUNTIME_ERROR_RE="):]
+wrapper=ROOT/'tmp/opera_lobby_direct/runtime_gates.sh'
+wrapper.write_text('''#!/usr/bin/env bash
+set -uo pipefail
+cd '/c/Users/Peter/Documents/mermaid-roshan-reef'
+export PYTHONUTF8=1 PYTHONIOENCODING=utf-8
+python3() { /c/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B "$@"; }
+export -f python3
+export TMPDIR='/tmp'
+GODOT="$(python3 tools/resolve_godot.py)" || exit 1
+export GODOT
+'''+tail,encoding='utf-8',newline='\n')
+args=['C:/Program Files/Git/bin/bash.exe','--noprofile','--norc',str(wrapper)]
+receipt={'status':'RUNNING_PARTIAL_RUNTIME_GATES','qualification':'Import, 2D regression and all 82 trusted probes copied unchanged from the runtime tail of scripts/ci.sh. This does not bypass or satisfy the failed frame-approval gate, grant publication or claim a full CI pass.','started_utc':datetime.now(timezone.utc).isoformat(),'command':args,'ci_runtime_tail_sha256':hashlib.sha256(tail.encode()).hexdigest(),'ci_sha256':hashlib.sha256((ROOT/'scripts/ci.sh').read_bytes()).hexdigest()}
+path=OUT/'runtime_gates.json'
+path.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+start=time.monotonic()
+env=os.environ.copy();env.update(PYTHONUTF8='1',PYTHONIOENCODING='utf-8')
+with (OUT/'runtime_gates.log').open('wb') as log:
+    process=subprocess.Popen(args,cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT,creationflags=subprocess.CREATE_NO_WINDOW)
+    print('RUNTIME_GATES_STARTED',process.pid,flush=True)
+    code=process.wait()
+output=(OUT/'runtime_gates.log').read_text(encoding='utf-8',errors='replace')
+receipt.update(status='PASS_PARTIAL_RUNTIME_GATES' if code==0 else 'FAIL_PARTIAL_RUNTIME_GATES',exit=code,elapsed_seconds=round(time.monotonic()-start,3),finished_utc=datetime.now(timezone.utc).isoformat(),probes=re.findall(r'^PROBE (\w+) process exit: (\d+)',output,re.M),log_sha256=hashlib.sha256((OUT/'runtime_gates.log').read_bytes()).hexdigest())
+path.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+print(json.dumps(receipt),flush=True)
+sys.exit(code)

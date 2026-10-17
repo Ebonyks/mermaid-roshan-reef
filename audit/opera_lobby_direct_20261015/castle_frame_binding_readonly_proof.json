@@ -1,0 +1,33 @@
+{
+  "mode": "READ_ONLY_NO_LEDGER_WRITES",
+  "prior_candidate_payload_sha256": "dd3f81565827c629563df9cf84bb82da80857985392426abe89faa622e3996d9",
+  "new_candidate_payload_sha256": "45283479dbdf5334cd4ecbade64909104ec16c70a3a3fbbdfbbc9fcf4c7c6ecf",
+  "reproduced_prior_payload_sha256": "dd3f81565827c629563df9cf84bb82da80857985392426abe89faa622e3996d9",
+  "exact_prior_payload_reproduced": true,
+  "only_candidate_input_difference": "runtime_layout semantic hash",
+  "prior_runtime_layout_semantic_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+  "runtime_layout_semantic_sha256": "f7484d353ddf7dd32af0a2b2b0d42f833625dfe7abf182cab9463591ae591f51",
+  "asset_count": 12,
+  "frame_count": 96,
+  "frame_mismatches": [],
+  "occlusion_mismatches": [],
+  "manifest_hash_equal": true,
+  "existing_revalidation_precedents": [
+    "chapter2_binding_revalidation",
+    "voice_rollout_binding_revalidation",
+    "day_one_binding_revalidation",
+    "final_comment_binding_revalidation",
+    "trusted_probe_runtime_binding_revalidation",
+    "contextual_voice_runtime_binding_revalidation",
+    "button_overlay_removal_binding_revalidation",
+    "global_back_integration_binding_revalidation",
+    "pathfinding_binding_revalidation",
+    "day_one_usability_binding_revalidation",
+    "visual_polish_binding_revalidation",
+    "pool_five_star_binding_revalidation",
+    "pool_owner_answers_binding_revalidation",
+    "fashion_wardrobe_binding_revalidation",
+    "fashion_skin_engine_binding_revalidation"
+  ],
+  "owner_acceptance": "pending; no new acceptance claimed"
+}

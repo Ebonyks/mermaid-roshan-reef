@@ -1,0 +1,28 @@
+from pathlib import Path
+from copy import deepcopy
+import json, sys, subprocess
+ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT/'tools'))
+import review_castle_interaction_frames_v4 as review
+candidate=json.loads((ROOT/'audit/castle_interaction_frame_review_v4/castle_interaction_frame_candidate_v4.json').read_text())
+ledger_path=ROOT/review.DEFAULT_APPROVAL_RELATIVE
+old=json.loads(ledger_path.read_text())
+prior_text=subprocess.check_output(['git','show','5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/castle_rooms_25d.gd'],cwd=ROOT).decode('utf-8')
+layout_key=next(k for k,v in candidate['inputs'].items() if isinstance(v,dict) and v.get('path')=='scripts/arena/castle_rooms_25d.gd')
+prior_layout=review.normalized_text_sha256(prior_text)
+prior=deepcopy(candidate)
+prior['inputs'][layout_key]['semantic_sha256']=prior_layout
+reproduced=review.candidate_payload_sha256(prior)
+frames=0
+frame_errors=[]
+relation_errors=[]
+for asset in candidate['assets']:
+    actual={str(f['frame_index']):f['frame_review_sha256'] for f in asset['frames']}
+    if actual != old['assets'][asset['id']]['frame_review_sha256']: frame_errors.append(asset['id'])
+    if asset['required_occlusion_relation'] != old['assets'][asset['id']]['occlusion_relation']: relation_errors.append(asset['id'])
+    frames+=len(actual)
+proof={'mode':'READ_ONLY_NO_LEDGER_WRITES','prior_candidate_payload_sha256':old['candidate_payload_sha256'],'new_candidate_payload_sha256':candidate['candidate_payload_sha256'],'reproduced_prior_payload_sha256':reproduced,'exact_prior_payload_reproduced':reproduced==old['candidate_payload_sha256'],'only_candidate_input_difference':'runtime_layout semantic hash','prior_runtime_layout_semantic_sha256':prior_layout,'runtime_layout_semantic_sha256':candidate['inputs'][layout_key]['semantic_sha256'],'asset_count':len(candidate['assets']),'frame_count':frames,'frame_mismatches':frame_errors,'occlusion_mismatches':relation_errors,'manifest_hash_equal':old['manifest_semantic_sha256']==candidate['inputs']['v4_manifest']['semantic_sha256'],'existing_revalidation_precedents':[k for k in old if 'binding_revalidation' in k],'owner_acceptance':'pending; no new acceptance claimed'}
+path=ROOT/'audit/opera_lobby_direct_20261015/castle_frame_binding_readonly_proof.json'
+path.write_text(json.dumps(proof,indent=2)+'\n',encoding='utf-8')
+print(json.dumps(proof,indent=2))
+assert proof['exact_prior_payload_reproduced'] and not frame_errors and not relation_errors and proof['manifest_hash_equal']

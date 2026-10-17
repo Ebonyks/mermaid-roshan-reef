@@ -1,0 +1,149 @@
+{
+  "id": "opera-lobby-direct-20261015",
+  "scope": "Owner-directed removal of the intermediate Opera theatre room: enter the existing painted lobby directly and use its doors for separate activity rooms, with direct Castle Back and clean activity returns. Revalidate the existing Castle source-package frame-review binding only after exact equivalence proof; preserve all existing per-frame approvals and pending owner acceptance.",
+  "baseline": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "rules": [
+    "DL-AUTH-04",
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-06",
+    "DL-MED-01",
+    "DL-MED-04",
+    "DL-READ-06",
+    "DL-INT-01",
+    "DL-INT-12",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-PERF-01"
+  ],
+  "findings": [
+    "MA-PLAY-001",
+    "MA-OPERA-012"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/opera_lobby_direct_20261015/approval_block.json",
+    "audit/opera_lobby_direct_20261015/baseline_entry.json",
+    "audit/opera_lobby_direct_20261015/baseline_entry.log",
+    "audit/opera_lobby_direct_20261015/baseline_story.json",
+    "audit/opera_lobby_direct_20261015/baseline_story.log",
+    "audit/opera_lobby_direct_20261015/candidate_entry.json",
+    "audit/opera_lobby_direct_20261015/candidate_entry.log",
+    "audit/opera_lobby_direct_20261015/capture.gd.txt",
+    "audit/opera_lobby_direct_20261015/castle_frame_binding_readonly_proof.json",
+    "audit/opera_lobby_direct_20261015/display_1280x720.log",
+    "audit/opera_lobby_direct_20261015/display_1280x800.log",
+    "audit/opera_lobby_direct_20261015/display_initial_startmenu.log",
+    "audit/opera_lobby_direct_20261015/final_gates.json",
+    "audit/opera_lobby_direct_20261015/full_ci.json",
+    "audit/opera_lobby_direct_20261015/full_ci.log",
+    "audit/opera_lobby_direct_20261015/full_ci.py.txt",
+    "audit/opera_lobby_direct_20261015/initial_startmenu_2560x1369.png",
+    "audit/opera_lobby_direct_20261015/lobby_1280x720.png",
+    "audit/opera_lobby_direct_20261015/lobby_1280x800.png",
+    "audit/opera_lobby_direct_20261015/probe_chapter2.json",
+    "audit/opera_lobby_direct_20261015/probe_chapter2.log",
+    "audit/opera_lobby_direct_20261015/probe_chapter2_retry.json",
+    "audit/opera_lobby_direct_20261015/probe_chapter2_retry.log",
+    "audit/opera_lobby_direct_20261015/probe_chapter2_retry2.json",
+    "audit/opera_lobby_direct_20261015/probe_chapter2_retry2.log",
+    "audit/opera_lobby_direct_20261015/probe_crown.json",
+    "audit/opera_lobby_direct_20261015/probe_crown.log",
+    "audit/opera_lobby_direct_20261015/probe_dust_boss_balance_recheck.json",
+    "audit/opera_lobby_direct_20261015/probe_dust_boss_balance_recheck.log",
+    "audit/opera_lobby_direct_20261015/probe_entry.gd.txt",
+    "audit/opera_lobby_direct_20261015/probe_interaction_recheck.json",
+    "audit/opera_lobby_direct_20261015/probe_interaction_recheck.log",
+    "audit/opera_lobby_direct_20261015/probe_opera.json",
+    "audit/opera_lobby_direct_20261015/probe_opera.log",
+    "audit/opera_lobby_direct_20261015/probe_opera_2d.json",
+    "audit/opera_lobby_direct_20261015/probe_opera_2d.log",
+    "audit/opera_lobby_direct_20261015/probe_opera_final.json",
+    "audit/opera_lobby_direct_20261015/probe_opera_final.log",
+    "audit/opera_lobby_direct_20261015/probe_opera_final2.json",
+    "audit/opera_lobby_direct_20261015/probe_opera_final2.log",
+    "audit/opera_lobby_direct_20261015/prove_binding_readonly.py.txt",
+    "audit/opera_lobby_direct_20261015/run.py.txt",
+    "audit/opera_lobby_direct_20261015/runtime_gates.json",
+    "audit/opera_lobby_direct_20261015/runtime_gates.log",
+    "audit/opera_lobby_direct_20261015/runtime_gates.py.txt",
+    "audit/opera_lobby_direct_20261015/runtime_gates.sh.txt",
+    "audit/opera_lobby_direct_20261015/source_manifest.json",
+    "audit/opera_lobby_direct_20261015/verification.json",
+    "design/05_DOC_LEDGER.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json",
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/opera_house_venue_2d.gd",
+    "scripts/probe_chapter2.gd",
+    "scripts/probe_crown.gd",
+    "scripts/probe_interaction.gd",
+    "scripts/probe_opera.gd",
+    "scripts/probe_opera_2d.gd"
+  ],
+  "validation": [
+    {
+      "command": "Exact Godot 4.7.2 baseline direct Opera entry and final raw-input regression",
+      "result": "PASS",
+      "evidence": "audit/opera_lobby_direct_20261015/baseline_entry.json/log reproduce direct_lobby FAIL and no_theatre FAIL at baseline 5120b6d59885dd057937aaf284e73681d8eac9f5; final probe_opera_final2.json/log and runtime_gates.log prove actual Castle door touch, direct lobby, one Back, re-entry and activity returns."
+    },
+    {
+      "command": "Focused Opera/Canvas/Crown/Chapter Two probes at exact approved engine",
+      "result": "PASS",
+      "evidence": "audit/opera_lobby_direct_20261015/probe_opera_final2.json/log, probe_opera_2d.json/log, probe_crown.json/log, probe_chapter2_retry2.json/log. Includes all 29 story phases and six fresh-process milestone resumes; these retain the declared post-boss/room-mount fixture seam."
+    },
+    {
+      "command": "Earlier native candidate process attempts",
+      "result": "FAIL",
+      "evidence": "audit/opera_lobby_direct_20261015/probe_chapter2.json/log, probe_chapter2_retry.json/log and probe_opera_final.json/log retain native exit 4294967295 without printed gameplay assertion/script error. Cause unestablished; baseline_story.json/log and the final serial focused Opera/Chapter Two tests pass. The broad runtime run remains separately qualified, with two nonzero exits and later focused rechecks; failures are not overwritten."
+    },
+    {
+      "command": "Desktop exact Godot 4.7.2 Mobile rendering and Codex image inspection at 1280x720 and 1280x800",
+      "result": "PASS",
+      "evidence": "audit/opera_lobby_direct_20261015/lobby_1280x720.png, lobby_1280x800.png, display logs, capture.gd.txt and verification.json. Native fixed-room composition only; direct room mount/StartMenu teardown are declared setup seams. Initial wrong-menu capture is retained separately as rejected setup."
+    },
+    {
+      "command": "Unmodified full scripts/ci.sh",
+      "result": "FAIL",
+      "evidence": "audit/opera_lobby_direct_20261015/full_ci.json/log: exit 1 after 1796.42 seconds at CASTLE INTERACTION PER-FRAME APPROVAL FAIL because candidate_payload_sha256 is stale. 95 visual contract tests, stress and preceding art/audio/static gates pass; import/probes did not run within this failed full invocation. Ledger remains unchanged; no full pass or publication is claimed."
+    },
+    {
+      "command": "Read-only Castle V4 frame-approval equivalence proof",
+      "result": "PASS",
+      "evidence": "audit/opera_lobby_direct_20261015/castle_frame_binding_readonly_proof.json: all 96 frame hashes, all occlusions and manifest match the existing ledger. Replacing only runtime_layout semantic hash reproduces prior payload dd3f81565827c629563df9cf84bb82da80857985392426abe89faa622e3996d9 exactly. This proof is not new approval; automatic approval review rejected the proposed ledger binding refresh twice."
+    },
+    {
+      "command": "Unchanged runtime tail of scripts/ci.sh: import, 2D regression and all 82 isolated trusted probes",
+      "result": "FAIL",
+      "evidence": "audit/opera_lobby_direct_20261015/runtime_gates.json/log: process exit 1, 80/82 trusted probes exit 0; interaction exits 1 for stale retired-theatre fallback expectation, balance exits 127 without its final verdict. Log SHA-256 a6fe13ab69a00afb0e3e583411c1f785f88f022f845165a64df651363a61cc37; 1594.083 seconds. Production source remains frozen; only scripts/probe_interaction.gd subsequently changes to test the explicitly directed lobby replacement. No full suite pass is claimed."
+    },
+    {
+      "command": "Focused isolated rechecks: corrected probe_interaction.gd and unchanged probe_dust_boss_balance.gd",
+      "result": "PASS",
+      "evidence": "audit/opera_lobby_direct_20261015/probe_interaction_recheck.json/log and probe_dust_boss_balance_recheck.json/log both exit 0. The corrected negative oracle requires corrupted legacy theatre tiles to leave the existing eight-tile direct lobby intact and theatre fixtures absent. No production behavior or balance threshold changed; original failed evidence remains preserved. A fresh full run is still required after the blocked binding refresh."
+    },
+    {
+      "command": "Final authority and audit-development change coverage",
+      "result": "PASS",
+      "evidence": "audit/opera_lobby_direct_20261015/final_gates.json records the final metadata checks; those do not grant publication or acceptance."
+    }
+  ],
+  "acceptance_gaps": "Implementation and desktop Mobile inspection complete. Broad runtime run retains 80/82 zero exits, with the two nonzero cases passing focused isolated rechecks after a scoped retired-theatre oracle correction; no new whole-suite pass is claimed. Full CI/publication is BLOCKED by the unchanged Castle approval-ledger binding and automatic review requires explicit user authorization for its hash/history refresh. No commit/push/integration/APK/release is made. Actual device, child and owner acceptance, fresh-save whole-game traversal and whole-game/strict-zero-2D satisfaction remain separate and outstanding.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-OPERA-DIRECT-LOBBY-20261015",
+      "evidence": "Owner request in this chat, 2026-10-15: \"There's a major glitch that makes the opera house inaccessible in day 2, remove the initial room with the stage, lights and seats, go straight to the opera house lobby. In addition, the design should be similar to the main castle room, in that the room iself is divided into smaller suborooms.\"",
+      "write_back": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md DL-INT-12; design/reference/owner_decisions.json; scripts/probe_opera.gd"
+    }
+  ]
+}

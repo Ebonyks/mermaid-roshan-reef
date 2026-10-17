@@ -1,0 +1,30 @@
+extends SceneTree
+
+func _init() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	var scene := load("res://scenes/main.tscn") as PackedScene
+	var host := scene.instantiate() as ReefMain
+	root.add_child(host)
+	await process_frame
+	await process_frame
+	host.day_one_active = false
+	host._skip_intro()
+	host.game = "level2"
+	host.g["t"] = 0.0
+	host._enter_castle_interior_now(false)
+	await process_frame
+	var rooms := host._castle_rooms_ref()
+	rooms.show_room("opera_hall", false)
+	await process_frame
+	var routes := host._castle_career_routes_ref()
+	routes.sync()
+	var direct := routes.opera_venue != null and routes.opera_venue.is_open()
+	var no_theatre := not host.castle_room_world_root.visible and host.castle_room_item_sprites.is_empty()
+	print("OPERA_ENTRY|direct_lobby|", "PASS" if direct else "FAIL")
+	print("OPERA_ENTRY|no_theatre|", "PASS" if no_theatre else "FAIL")
+	print("OPERA_ENTRY|top_route|", host._navigation_ref().top_id())
+	host.queue_free()
+	await process_frame
+	quit(0 if direct and no_theatre else 1)

@@ -99,7 +99,8 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 
 
 func open(star_mask: int) -> void:
-	m._navigation_push("opera_venue", self, Callable(self, "close"))
+	# This is the Opera Hall room, not an overlay above a second theatre.
+	# The Castle room route owns Back, taking the child straight to Main Hall.
 	visible = true
 	accepting_input = true
 	refresh(star_mask)
@@ -372,7 +373,7 @@ func _update_guide_pointer() -> void:
 	guide_pointer_base = guide_button.position + Vector2(
 		guide_button.size.x * 0.5, -10.0)
 	guide_pointer.position = guide_pointer_base
-	guide_pointer.visible = chapter2_tutorial_mode
+	guide_pointer.visible = true
 
 
 func _style_portal_button(button: Button) -> void:

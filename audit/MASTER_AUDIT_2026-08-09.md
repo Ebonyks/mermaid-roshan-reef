@@ -70,6 +70,14 @@ Owner-requested Luna gameplay repairs are applied on the isolated topic from `83
 
 ### Development task index
 
+Owner correction 2026-10-15 removes the intermediate Opera theatre from entry:
+the existing painted lobby is the Opera Hall room, with doors to separate
+activity rooms and direct Back to Castle Main Hall. The
+[direct-lobby impact](../design/audit_impacts/opera-lobby-direct-20261015.json)
+tracks baseline reproduction, room/input/return regressions and remaining
+visual/device/child/owner evidence. `MA-PLAY-001` and `MA-OPERA-012` retain
+their lifecycle; this bounded repair grants no whole-game satisfaction.
+
 Read the row for the task and all affected shared systems before editing. Revisit
 it when scope changes and at review/completion. This index routes to current
 rules; sealed evidence below remains scoped to its recorded build. Follow the

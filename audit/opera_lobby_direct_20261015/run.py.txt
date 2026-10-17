@@ -1,0 +1,52 @@
+from pathlib import Path
+import subprocess, sys, os, json, hashlib, time
+from datetime import datetime, timezone
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / 'audit/opera_lobby_direct_20261015'
+OUT.mkdir(parents=True, exist_ok=True)
+BASE = '5120b6d59885dd057937aaf284e73681d8eac9f5'
+ENGINE = subprocess.check_output([sys.executable, '-B', 'tools/resolve_godot.py'], cwd=ROOT, text=True).strip()
+ENV = os.environ.copy()
+ENV.update(PYTHONUTF8='1', PYTHONIOENCODING='utf-8')
+
+def run(label, args, timeout=480):
+    home = ROOT / 'tmp/opera_lobby_direct/profiles' / label
+    home.mkdir(parents=True, exist_ok=True)
+    env = ENV.copy()
+    env.update(APPDATA=str(home), LOCALAPPDATA=str(home), XDG_DATA_HOME=str(home / 'data'), XDG_CONFIG_HOME=str(home / 'config'))
+    start = time.monotonic()
+    result = subprocess.run(args, cwd=ROOT, env=env, capture_output=True, timeout=timeout, creationflags=subprocess.CREATE_NO_WINDOW)
+    payload = result.stdout + result.stderr
+    (OUT / (label + '.log')).write_bytes(payload)
+    receipt = {'command':args, 'exit':result.returncode, 'elapsed_seconds':round(time.monotonic()-start,3), 'utc':datetime.now(timezone.utc).isoformat(), 'log_sha256':hashlib.sha256(payload).hexdigest()}
+    (OUT / (label + '.json')).write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+    print(label, json.dumps(receipt), flush=True)
+    print(payload.decode('utf-8',errors='replace')[-1200:], flush=True)
+    return result.returncode
+
+mode = sys.argv[1]
+if mode in ['baseline', 'story_baseline']:
+    paths = ['scripts/arena/castle_rooms_25d.gd','scripts/castle_career_routes.gd','scripts/opera_house_venue_2d.gd']
+    if mode == 'story_baseline': paths.append('scripts/probe_chapter2.gd')
+    candidate = {p:(ROOT/p).read_bytes() for p in paths}
+    try:
+        for p in paths:
+            (ROOT/p).write_bytes(subprocess.check_output(['git','show',BASE+':'+p],cwd=ROOT))
+        target = 'scripts/probe_chapter2.gd' if mode == 'story_baseline' else 'tmp/opera_lobby_direct/probe_entry.gd'
+        code = run('baseline_story' if mode == 'story_baseline' else 'baseline_entry',[ENGINE,'--headless','--path',str(ROOT),'-s',target,'--','--touch','--classic-touch-test'])
+        if mode == 'baseline': assert code == 1, 'Baseline should expose inaccessible direct lobby'
+    finally:
+        for p, data in candidate.items(): (ROOT/p).write_bytes(data)
+elif mode == 'entry':
+    sys.exit(run('candidate_entry',[ENGINE,'--headless','--path',str(ROOT),'-s','tmp/opera_lobby_direct/probe_entry.gd','--','--touch','--classic-touch-test']))
+elif mode == 'story_retry':
+    sys.exit(run('probe_chapter2_retry2',[ENGINE,'--headless','--path',str(ROOT),'-s','scripts/probe_chapter2.gd','--','--touch','--classic-touch-test']))
+elif mode == 'final_opera':
+    sys.exit(run('probe_opera_final2',[ENGINE,'--headless','--path',str(ROOT),'-s','scripts/probe_opera.gd','--','--touch','--classic-touch-test']))
+elif mode == 'focused':
+    failures = []
+    for name in ['probe_opera','probe_crown','probe_chapter2','probe_opera_2d']:
+        code = run(name,[ENGINE,'--headless','--path',str(ROOT),'-s','scripts/'+name+'.gd','--','--touch','--classic-touch-test'])
+        if code: failures.append(name)
+    sys.exit(bool(failures))

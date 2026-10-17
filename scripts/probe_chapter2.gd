@@ -1023,14 +1023,8 @@ func _route_enter_career(host: ReefMain, room_id: String, act_index: int) -> Ope
 		await _route_tap(target, target.size * 0.5)
 	else:
 		if room_id == "opera_hall":
-			var record: Dictionary = host.castle_room_item_sprites.get("stage_star", {}) as Dictionary
-			var target := record.get("hotspot") as Control
-			if target == null:
+			if routes.opera_venue == null or not routes.opera_venue.is_open():
 				return null
-			await _route_tap(target, target.size * 0.5)
-			await _route_wait(func() -> bool:
-				var button := routes.button_for_act(act_index)
-				return button != null and button.is_visible_in_tree(), 8.0)
 		var target := routes.button_for_act(act_index)
 		if target == null or target.disabled or not target.is_visible_in_tree():
 			return null

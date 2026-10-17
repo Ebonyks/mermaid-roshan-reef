@@ -11,10 +11,7 @@ const DEPTH_MANIFEST := "res://FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json"
 const ROOM_ARRIVAL_TIMEOUT_MS := 8000
 const EXPECTED_ROOM_ITEM_IDS := {
 	"main_hall": ["sleepy_bunny", "shell_bunny", "runner_bunny"],
-	"opera_hall": [
-		"curtains", "chandelier", "stage_star", "footlights",
-		"pearl_sconce_left", "pearl_sconce_right",
-	],
+	"opera_hall": [],
 	"kitchen": ["sink", "pan_1", "pan_2", "pan_3", "pan_4", "oven", "fridge"],
 	"library": [
 		"magic_book", "pearl_table", "pearl_lamp", "book_stack",
@@ -40,11 +37,7 @@ const PLAYROOM_RESCUE_ITEM_IDS := [
 ]
 const EXPECTED_ROOM_HOTSPOT_NAMES := {
 	"main_hall": [],
-	"opera_hall": [
-		"Touch_curtains", "Touch_chandelier", "Touch_stage_star",
-		"Touch_footlights", "Touch_pearl_sconce_left",
-		"Touch_pearl_sconce_right",
-	],
+	"opera_hall": [],
 	"kitchen": ["Touch_sink", "Touch_pan_rack", "Touch_oven", "Touch_fridge"],
 	"library": [
 		"Touch_magic_book", "Touch_pearl_table", "Touch_pearl_lamp",
@@ -70,7 +63,7 @@ const EXPECTED_ROOM_HOTSPOT_NAMES := {
 }
 const EXPECTED_NATIVE_V4_ITEM_IDS := {
 	"main_hall": [],
-	"opera_hall": ["pearl_sconce_left", "pearl_sconce_right"],
+	"opera_hall": [],
 	"kitchen": ["fridge"],
 	"library": ["pearl_lamp_right", "ceiling_chandelier"],
 	"playroom": ["shelf_sailboat"],
@@ -511,6 +504,16 @@ func _init() -> void:
 			"craft_room", "mermaid_pool", "bubble_bath"]:
 			rooms.show_room(room_id, false)
 			await _frames(2)
+			if room_id == "opera_hall":
+				var venue: OperaHouseVenue2D = main._castle_career_routes_ref().opera_venue
+				_ck("opera_lobby_replaces_theatre_fixtures_and_background",
+					venue != null and venue.is_open()
+					and venue.find_children("VenueTile_*", "TextureRect", true, false).size() == 8
+					and not main.castle_room_world_root.visible
+					and main.castle_room_item_sprites.is_empty()
+					and main.castle_room_item_hotspot_layer.get_child_count() == 0
+					and main.castle_room_detail_tiles.is_empty())
+				continue
 			var hall_mode: bool = room_id == "main_hall"
 			var expected_item_ids: Array = (
 				EXPECTED_ROOM_ITEM_IDS[room_id] as Array).duplicate()

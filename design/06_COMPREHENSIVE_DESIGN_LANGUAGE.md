@@ -651,6 +651,15 @@ gates, and has matching dev APK evidence from Android run `31763879294`.
 Route cards MUST preserve their large touch targets without obscuring Roshan's
 lower body/tail.
 
+Owner correction 2026-10-15: entering Opera Hall goes directly to the existing
+painted Opera House lobby. Remove the intermediate theatre with stage, lights
+and seating from this route. Like the Castle Main Hall, the lobby is a
+room-selection space whose painted doors open smaller separate activity rooms.
+Back from the lobby returns directly to Castle Main Hall; show completion and
+cancellation restore usable lobby doors. Existing career ownership, Chapter Two
+story sequencing and saves remain authoritative. See the
+[direct-lobby impact](audit_impacts/opera-lobby-direct-20261015.json).
+
 Owner direction 2026-09-30 adds a scoped temporary developer exception to
 `DL-INT-12`: the Opera House's painted left elevator opens a playtest menu for
 every live world-triggered job. Each choice launches the same shipping Canvas

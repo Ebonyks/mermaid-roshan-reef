@@ -1,0 +1,34 @@
+extends SceneTree
+
+func _init() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	var dimensions := Vector2i(1280, 720)
+	if OS.get_environment("OPERA_LOBBY_TALL") == "1":
+		dimensions.y = 800
+	DisplayServer.window_set_size(dimensions)
+	var scene := load("res://scenes/main.tscn") as PackedScene
+	var host := scene.instantiate() as ReefMain
+	root.add_child(host)
+	await process_frame
+	await process_frame
+	host.day_one_active = false
+	host._skip_intro()
+	host._start_menu_ref()._dismiss_menu()
+	host.game = "level2"
+	host.g["t"] = 0.0
+	host._enter_castle_interior_now(false)
+	host._castle_rooms_ref().show_room("opera_hall", false)
+	# Capture the room after the transient entry caption has expired.
+	await create_timer(6.0).timeout
+	await RenderingServer.frame_post_draw
+	var image := root.get_texture().get_image()
+	var path := OS.get_environment("OPERA_LOBBY_CAPTURE")
+	var result := image.save_png(path)
+	print("LOBBY_CAPTURE|renderer|", RenderingServer.get_current_rendering_method())
+	print("LOBBY_CAPTURE|image|", image.get_size(), "|", result)
+	host.queue_free()
+	await process_frame
+	quit(result)

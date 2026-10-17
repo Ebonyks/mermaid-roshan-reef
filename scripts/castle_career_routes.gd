@@ -136,6 +136,11 @@ func sync() -> void:
 		and not m.castle_room_menu_open and not buttons.is_empty()
 	if root.visible:
 		_refresh_completion()
+		if room_id == "opera_hall" and opera_venue != null \
+				and not opera_venue.is_open():
+			# Enter and resume the lobby as the room's primary composition,
+			# including after a show returns. No stage-star activation is needed.
+			opera_venue.open(m.opera_stars)
 
 
 func clear() -> void:

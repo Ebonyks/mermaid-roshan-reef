@@ -40,6 +40,12 @@ subprocess.
 Future tracked or unignored Markdown is
 unclassified until this ledger gains one new scoped row for it.
 
+Owner correction 2026-10-15 is recorded under design 06 `DL-INT-12` and the
+master task index: direct Opera lobby entry replaces the intermediate stage,
+lights and seating room. Painted doors lead to separate activities and Back
+returns to Castle Main Hall. The direct-lobby impact records machine evidence
+and pending external acceptance; finding lifecycles remain unchanged.
+
 Scoped owner direction 2026-09-30 is recorded in design 06's `DL-INT-12`
 exception and the master task index: temporary Opera left-elevator access to
 all live jobs for development review, with fresh runs and isolated child

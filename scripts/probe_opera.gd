@@ -171,8 +171,8 @@ func _audit_all_room_cards() -> void:
 		await _frames(3)
 		routes.sync()
 		if room_id == "opera_hall":
-			routes.open_opera_venue()
-			await _frames(3)
+			_check("Opera Hall room entry opens the lobby directly",
+				routes.opera_venue != null and routes.opera_venue.is_open())
 		var expected: Array[int] = CastleCareerRoutes.act_indices_for_room(room_id)
 		var actual: Array[int] = []
 		var room_card_rects: Array[Rect2] = []
@@ -280,25 +280,56 @@ func _audit_all_room_cards() -> void:
 
 
 func _audit_no_hidden_hub() -> void:
-	rooms.show_room("opera_hall", false)
+	rooms.show_room("main_hall", false)
 	await _frames(3)
+	var entrance := main.castle_room_buttons.get("opera_hall") as Button
+	_check("the painted Castle Opera entrance is available for a real touch",
+		entrance != null and entrance.is_visible_in_tree())
+	if entrance == null or not entrance.is_visible_in_tree():
+		return
+	_tap_control(entrance, 30)
+	var entry_deadline := Time.get_ticks_msec() + ROUTE_READY_TIMEOUT_MSEC
+	while main.castle_room_id != "opera_hall" and Time.get_ticks_msec() < entry_deadline:
+		await process_frame
+	_check("touching the Castle Opera door reaches the lobby room",
+		main.castle_room_id == "opera_hall")
+	if main.castle_room_id != "opera_hall":
+		return
 	routes.sync()
 	var stars_before := main.opera_stars
 	var pearls_before := main.pearl_count
-	main._start_opera()
-	await _frames(3)
 	var venue := routes.opera_venue
-	_check("the Opera stage star opens the recovered three-floor venue",
+	_check("Opera entry directly shows the three-floor lobby and separate show doors",
 		main.opera_game == null and main.opera_pending_act_index == -1
 		and routes.root != null and routes.root.visible
 		and venue != null and venue.is_open()
 		and int(venue.get_meta("historical_floor_count", 0)) == 3
 		and int(venue.get_meta("historical_portal_count", 0)) == 12
 		and main.opera_stars == stars_before and main.pearl_count == pearls_before)
+	_check("Opera entry removes the intermediate theatre composition and hotspots",
+		not main.castle_room_world_root.visible
+		and main.castle_room_item_sprites.is_empty()
+		and main.castle_room_item_hotspot_layer.get_child_count() == 0
+		and main.castle_room_front_layer.get_child_count() == 0
+		and main._navigation_ref().top_id() == "pearl_castle_room"
+		and venue.guide_pointer.visible)
 	_check("the recovered venue is not an all-career picker",
 		main.find_children("*OperaLobby*", "Node", true, false).is_empty()
 		and main.find_children("*FloorTab*", "Node", true, false).is_empty()
 		and venue.career_buttons().size() == 3)
+	_tap_control(main.global_navigation_button, 31)
+	await _frames(3)
+	_check("one Back from the lobby returns directly to the Castle Main Hall",
+		main.castle_room_id == "main_hall"
+		and main.castle_room_world_root.visible
+		and main.castle_room_layer.visible
+		and routes.opera_venue == null)
+	rooms.show_room("opera_hall", false)
+	await _frames(3)
+	_check("Opera re-entry restores the lobby without a theatre activation",
+		routes.opera_venue != null and routes.opera_venue.is_open()
+		and routes.opera_venue.accepting_input
+		and not main.castle_room_world_root.visible)
 
 
 func _audit_wrong_and_passive_routes() -> void:
@@ -563,17 +594,11 @@ func _audit_job_playtest_menu() -> void:
 	_check("Back from developer menu restores normal Opera venue input",
 		not menu.session_open and not menu.running and not menu.visible
 		and venue.is_open() and venue.accepting_input
-		and main._navigation_ref().top_id() == "opera_venue"
+		and main._navigation_ref().top_id() == "pearl_castle_room"
 		and _playtest_progress_snapshot() == story_baseline)
 	_tap_control(main.global_navigation_button, 200)
 	await _frames(3)
-	_check("next Back closes only the Opera venue and preserves its room",
-		not venue.is_open() and main.castle_room_id == "opera_hall"
-		and main.castle_room_layer.visible
-		and main._navigation_ref().top_id() == "pearl_castle_room")
-	_tap_control(main.global_navigation_button, 201)
-	await _frames(3)
-	_check("room Back then returns safely to the Castle Main Hall",
+	_check("next Back returns directly from the lobby to Castle Main Hall",
 		main.castle_room_id == "main_hall" and main.castle_room_layer.visible)
 	main.save_data = original_save
 	main.day_one_giant_dust_bunny_boss_defeated = original_boss_defeated
@@ -594,9 +619,10 @@ func _audit_job_playtest_menu() -> void:
 	var teardown_baseline := _playtest_progress_snapshot()
 	venue.close()
 	await _frames(4)
-	_check("closing the venue during a dev run tears down its separately owned job",
+	_check("closing a dev run restores the direct lobby without a stranded theatre",
 		main.opera_game == null and not is_instance_valid(teardown_house)
-		and not menu.session_open and not menu.running and not venue.is_open()
+		and not menu.session_open and not menu.running and venue.is_open()
+		and venue.accepting_input and not main.castle_room_world_root.visible
 		and main.game == "level2" and main.castle_room_layer.visible
 		and main._navigation_ref().top_id() == "pearl_castle_room"
 		and _playtest_progress_snapshot() == teardown_baseline)
@@ -799,9 +825,8 @@ func _start_via_room_touch(room_id: String, act_index: int) -> OperaHouse:
 	await _frames(3)
 	routes.sync()
 	if room_id == "opera_hall":
-		_check("Opera Hall touch route enters the recovered foyer",
-			routes.open_opera_venue())
-		await _frames(2)
+		_check("Opera Hall touch route enters the foyer without a stage tap",
+			routes.opera_venue != null and routes.opera_venue.is_open())
 	var button := routes.button_for_act(act_index)
 	# All three painted doors are directly touchable; no transport controls are
 	# needed to reveal a floor or route.
@@ -854,6 +879,11 @@ func _await_route_ready(act_index: int) -> bool:
 
 func _route_returned(room_id: String) -> bool:
 	routes.sync()
+	if room_id == "opera_hall" and (routes.opera_venue == null \
+			or not routes.opera_venue.is_open() \
+			or not routes.opera_venue.accepting_input \
+			or main.castle_room_world_root.visible):
+		return false
 	return main.opera_game == null and main.opera_pending_act_index == -1 \
 		and main.opera_active_act_index == -1 and main.opera_return_room == "" \
 		and main.game == "level2" and main.castle_room_id == room_id \

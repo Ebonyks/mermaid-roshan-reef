@@ -1,0 +1,516 @@
+{
+  "baseline": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "implementation": "Direct Opera lobby with separate painted activity doors; no theatre composition/fixtures; Castle room owns Back; refreshed show returns.",
+  "baseline_reproduction": "baseline_entry.json and baseline_entry.log prove direct_lobby FAIL and no_theatre FAIL; candidate_entry.json/log pass on the initial candidate. Exact final source passes are recorded separately.",
+  "diagnostic_limits": "First two candidate Chapter Two processes terminated with native exit 4294967295 and no failing gameplay assertion. Unchanged baseline and final narrowed candidate pass. Cause of native exits is not established; failed logs remain preserved. The final runner uses CREATE_NO_WINDOW and the final implementation limits immediate route refresh to Opera. The later parallel-render Opera attempt also exited 4294967295 without a failing assertion; its serial final rerun passes. The separate broad runtime run retains two nonzero exits with passing focused rechecks, not a combined full-suite pass. Causes of native interruptions remain unestablished; all failed/interrupted evidence is retained.",
+  "art_reuse": "All existing runtime art preserved byte-for-byte. No generation, source edit, new runtime texture or new scene art.",
+  "acceptance": "Machine/runtime checks and desktop Mobile captures only. Actual device, child and owner acceptance remain pending; no finding closure or whole-game satisfaction.",
+  "capture_setup": "Shipping main scene, isolated save profile, direct room mount. StartMenu dismissed by its shipping teardown helper. Fixed native window sizes; six seconds allow transient entry caption to expire. This is rendered composition evidence, not a fresh-save/normal-door traversal claim.",
+  "captures": [
+    {
+      "path": "audit/opera_lobby_direct_20261015/initial_startmenu_2560x1369.png",
+      "sha256": "c3dfa9a86f1098a84b61020d05daa0a4819be6c28341ad56e07a7ae4aff2d548",
+      "role": "rejected_setup",
+      "edited": false,
+      "dimensions": [
+        2560,
+        1369
+      ]
+    },
+    {
+      "path": "audit/opera_lobby_direct_20261015/lobby_1280x720.png",
+      "sha256": "9aa0da7e8e566d3bc0e9871495eb9c4174b17c6cb54a4c87ded930d66460b174",
+      "role": "desktop_mobile_review",
+      "edited": false,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "audit/opera_lobby_direct_20261015/lobby_1280x800.png",
+      "sha256": "dcdce1f5839c9b145c2c9ea92f4dada8782aa2a50501acc1183170250c9fadec",
+      "role": "desktop_mobile_review",
+      "edited": false,
+      "dimensions": [
+        1280,
+        800
+      ]
+    }
+  ],
+  "source_art": [
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c0.png",
+      "sha256": "4033aee34bc754a09f7a6f7ee458254a29e324d279c24ed0281d7f9554c9cc66",
+      "role": "existing_lobby_background",
+      "modified": false,
+      "dimensions": [
+        910,
+        1024
+      ]
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c1.png",
+      "sha256": "de71e10cda26a3f5833e450d7559a262e97218b994a1cba42bb2d3444daa208e",
+      "role": "existing_lobby_background",
+      "modified": false,
+      "dimensions": [
+        910,
+        1024
+      ]
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c2.png",
+      "sha256": "f74cd2ada8d3c796916e1009a9c0d9fda15a915ab097ebb34f7b5f994e9df684",
+      "role": "existing_lobby_background",
+      "modified": false,
+      "dimensions": [
+        910,
+        1024
+      ]
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c3.png",
+      "sha256": "229206b066610908e3f2bd23a7b07e823b2490755d567f73277d54e2a5d57ee9",
+      "role": "existing_lobby_background",
+      "modified": false,
+      "dimensions": [
+        910,
+        1024
+      ]
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c0.png",
+      "sha256": "4551b82106bc09c8df186d1f02b2c34125aed239182dd567b34f0fbf55bea42c",
+      "role": "existing_lobby_background",
+      "modified": false,
+      "dimensions": [
+        910,
+        1024
+      ]
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c1.png",
+      "sha256": "376690e68c355c92a39678f0a049a7dcf08fd96adcd77bc754fe3e52857fd7e8",
+      "role": "existing_lobby_background",
+      "modified": false,
+      "dimensions": [
+        910,
+        1024
+      ]
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c2.png",
+      "sha256": "ff8ee50d01722ab63488263735cf346439196c224fdaf6f5e6341d623f6b871a",
+      "role": "existing_lobby_background",
+      "modified": false,
+      "dimensions": [
+        910,
+        1024
+      ]
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c3.png",
+      "sha256": "534ad3861872663ff7fb9fd02ff5664a96cd51020e73072efbde7eb9441717ed",
+      "role": "existing_lobby_background",
+      "modified": false,
+      "dimensions": [
+        910,
+        1024
+      ]
+    }
+  ],
+  "full_ci_status": "FAIL: stale Castle candidate binding; see full_ci.json/log. No bypass or full pass is claimed.",
+  "partial_runtime_gate": {
+    "status": "FAIL_PARTIAL_RUNTIME_GATES",
+    "qualification": "Import, 2D regression and all 82 trusted probes copied unchanged from the runtime tail of scripts/ci.sh. This does not bypass or satisfy the failed frame-approval gate, grant publication or claim a full CI pass.",
+    "started_utc": "2026-10-16T04:42:57.059103+00:00",
+    "command": [
+      "C:/Program Files/Git/bin/bash.exe",
+      "--noprofile",
+      "--norc",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera_lobby_direct\\runtime_gates.sh"
+    ],
+    "ci_runtime_tail_sha256": "f41da84077ffdb5502dd1b8f22840144eb9e35029e6121aa49e55b011c3f1b32",
+    "ci_sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+    "exit": 1,
+    "elapsed_seconds": 1594.083,
+    "finished_utc": "2026-10-16T05:09:31.181645+00:00",
+    "probes": [
+      [
+        "probe_reef_districts",
+        "0"
+      ],
+      [
+        "probe_ocean_kingdoms",
+        "0"
+      ],
+      [
+        "probe_audit",
+        "0"
+      ],
+      [
+        "probe_passive",
+        "0"
+      ],
+      [
+        "probe_living_world",
+        "0"
+      ],
+      [
+        "probe_load",
+        "0"
+      ],
+      [
+        "probe_rank",
+        "0"
+      ],
+      [
+        "probe_save_recovery",
+        "0"
+      ],
+      [
+        "probe_galaxy_state",
+        "0"
+      ],
+      [
+        "probe_collection",
+        "0"
+      ],
+      [
+        "probe_mg2d",
+        "0"
+      ],
+      [
+        "probe_fetch",
+        "0"
+      ],
+      [
+        "probe_melody",
+        "0"
+      ],
+      [
+        "probe_dolls",
+        "0"
+      ],
+      [
+        "probe_seek",
+        "0"
+      ],
+      [
+        "probe_audio",
+        "0"
+      ],
+      [
+        "probe_dance",
+        "0"
+      ],
+      [
+        "probe_l2",
+        "0"
+      ],
+      [
+        "probe_l2_living_cards",
+        "0"
+      ],
+      [
+        "probe_sky_lagoon_animals",
+        "0"
+      ],
+      [
+        "probe_l2_reenter",
+        "0"
+      ],
+      [
+        "probe_crown",
+        "0"
+      ],
+      [
+        "probe_throne",
+        "0"
+      ],
+      [
+        "probe_northern",
+        "0"
+      ],
+      [
+        "probe_human_art_audit",
+        "0"
+      ],
+      [
+        "probe_train",
+        "0"
+      ],
+      [
+        "probe_verbs",
+        "0"
+      ],
+      [
+        "probe_skins",
+        "0"
+      ],
+      [
+        "probe_touch_router",
+        "0"
+      ],
+      [
+        "probe_touch_stress",
+        "0"
+      ],
+      [
+        "probe_interaction",
+        "1"
+      ],
+      [
+        "probe_touch_adversary",
+        "0"
+      ],
+      [
+        "probe_touch_look",
+        "0"
+      ],
+      [
+        "probe_ui_system",
+        "0"
+      ],
+      [
+        "probe_voice",
+        "0"
+      ],
+      [
+        "probe_day_one_voice",
+        "0"
+      ],
+      [
+        "probe_day_one_d8_revisits",
+        "0"
+      ],
+      [
+        "probe_day_one_handoffs",
+        "0"
+      ],
+      [
+        "probe_kart_feel",
+        "0"
+      ],
+      [
+        "probe_combat",
+        "0"
+      ],
+      [
+        "probe_dust_bunny",
+        "0"
+      ],
+      [
+        "probe_dust_bunny_boss",
+        "0"
+      ],
+      [
+        "probe_dust_boss",
+        "0"
+      ],
+      [
+        "probe_hit",
+        "0"
+      ],
+      [
+        "probe_partner",
+        "0"
+      ],
+      [
+        "probe_combat_tutorial",
+        "0"
+      ],
+      [
+        "probe_imp_ai",
+        "0"
+      ],
+      [
+        "probe_mic",
+        "0"
+      ],
+      [
+        "probe_stuffie",
+        "0"
+      ],
+      [
+        "probe_dungeon",
+        "0"
+      ],
+      [
+        "probe_ember",
+        "0"
+      ],
+      [
+        "probe_opera",
+        "0"
+      ],
+      [
+        "probe_opera_2d",
+        "0"
+      ],
+      [
+        "probe_opera_diegetic_paths",
+        "0"
+      ],
+      [
+        "probe_opera_detective",
+        "0"
+      ],
+      [
+        "probe_opera_pipe",
+        "0"
+      ],
+      [
+        "probe_opera_nursery",
+        "0"
+      ],
+      [
+        "probe_opera_gesture_quality",
+        "0"
+      ],
+      [
+        "probe_kitchen_props",
+        "0"
+      ],
+      [
+        "probe_bathroom_props",
+        "0"
+      ],
+      [
+        "probe_castle_door_language",
+        "0"
+      ],
+      [
+        "probe_bathroom_integration",
+        "0"
+      ],
+      [
+        "probe_day_one_bathroom_bunny",
+        "0"
+      ],
+      [
+        "probe_day_one_bathroom_cleanup",
+        "0"
+      ],
+      [
+        "probe_day_one_bathroom_movie_handoff",
+        "0"
+      ],
+      [
+        "probe_day_one_director",
+        "0"
+      ],
+      [
+        "probe_day_one_integration",
+        "0"
+      ],
+      [
+        "probe_day_one_pool_cleanup",
+        "0"
+      ],
+      [
+        "probe_day_one_art_attack_state",
+        "0"
+      ],
+      [
+        "probe_day_one_castle_dressing",
+        "0"
+      ],
+      [
+        "probe_day_one_story_clips",
+        "0"
+      ],
+      [
+        "probe_chapter2",
+        "0"
+      ],
+      [
+        "probe_chapter2_farmer_resume",
+        "0"
+      ],
+      [
+        "probe_chapter2_lawn",
+        "0"
+      ],
+      [
+        "probe_alpha_milestone_save",
+        "0"
+      ],
+      [
+        "probe_dust_boss_balance",
+        "127"
+      ],
+      [
+        "probe_start_menu_routing",
+        "0"
+      ],
+      [
+        "probe_start_menu_new_game",
+        "0"
+      ],
+      [
+        "probe_castle_pool_life_2d",
+        "0"
+      ],
+      [
+        "probe_castle_pearl_art",
+        "0"
+      ],
+      [
+        "probe_fairy_art",
+        "0"
+      ],
+      [
+        "probe_props",
+        "0"
+      ]
+    ],
+    "log_sha256": "a6fe13ab69a00afb0e3e583411c1f785f88f022f845165a64df651363a61cc37"
+  },
+  "source_changes_after_runtime_run": [
+    "scripts/probe_interaction.gd"
+  ],
+  "focused_rechecks": {
+    "probe_interaction": {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_interaction.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 20.272,
+      "utc": "2026-10-16T05:11:47.742929+00:00",
+      "log_sha256": "75e9425089cda25286cf58484513493b928490e6fa9f0d6971cfab45fcf12a63"
+    },
+    "probe_dust_boss_balance": {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dust_boss_balance.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 229.705,
+      "utc": "2026-10-16T05:15:37.454403+00:00",
+      "log_sha256": "4143921ecf09a4e347a0349e1390abf36363b92b20a15ef9b882f825185bc3be"
+    }
+  },
+  "approval_block": "approval_block.json",
+  "desktop_mobile_review": {
+    "reviewer": "Codex",
+    "scope": "Desktop Mobile composition inspection only; owner/device/child acceptance pending.",
+    "observed": "Complete lobby, separate painted doors, visible Roshan and pointer, one Back. 16:10 preserves the same canvas with top/bottom safe bands."
+  }
+}

@@ -4,7 +4,7 @@ extends SceneTree
 
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const NATIVE_FALLBACK_ITEMS := {
-	"opera_hall": ["pearl_sconce_left", "pearl_sconce_right"],
+	"opera_hall": [],
 	"kitchen": ["fridge"],
 	"library": ["pearl_lamp_right", "ceiling_chandelier"],
 	"playroom": ["shelf_sailboat"],
@@ -14,7 +14,7 @@ const NATIVE_FALLBACK_ITEMS := {
 	"bubble_bath": ["vanity_mirror"],
 }
 const NATIVE_FALLBACK_TILE_COUNTS := {
-	"opera_hall": 8,
+	"opera_hall": 0,
 	"kitchen": 12,
 	"library": 8,
 	"playroom": 8,
@@ -808,6 +808,21 @@ func _audit_native_route_fallback(rooms: CastleRooms25D) -> void:
 		rooms.fixture_rigs._native_background_tile_specs[room_id] = rejected_spec
 		rooms.show_room(room_id, false)
 		await _frames(2)
+		if room_id == "opera_hall":
+			# The owner retired this theatre route. Even rejected legacy theatre
+			# tiles must leave the direct lobby usable, with no fallback theatre.
+			var routes := (main as ReefMain)._castle_career_routes_ref()
+			routes.sync()
+			var venue := routes.opera_venue
+			if venue == null or not venue.is_open() \
+					or main.castle_room_world_root.visible \
+					or not main.castle_room_detail_tiles.is_empty() \
+					or not main.castle_room_item_sprites.is_empty() \
+					or venue.find_children("VenueTile_*", "TextureRect", true, false).size() != 8:
+				_bad("rejected retired theatre route did not preserve the direct Opera lobby")
+			rooms.fixture_rigs._native_background_tile_specs[room_id] = \
+				original_spec.duplicate(true)
+			continue
 		var expected_tile_count := int(
 			NATIVE_FALLBACK_TILE_COUNTS.get(room_id, 0))
 		if main.castle_room_detail_tiles.size() != expected_tile_count:

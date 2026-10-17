@@ -1911,6 +1911,10 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	if m.castle_room_prop_sfx != null:
 		m.castle_room_prop_sfx.stop()
 	var hall_mode: bool = room_id == "main_hall"
+	var opera_lobby: bool = room_id == "opera_hall"
+	# The painted lobby is the Opera room itself. Do not build the retired
+	# theatre's stage, seats, lights or launch-star hotspot behind it.
+	m.castle_room_world_root.visible = not opera_lobby
 	if hall_mode:
 		_hall_view_left_art = 0.0
 		m.castle_room_world_root.position = Vector2.ZERO
@@ -1924,18 +1928,18 @@ func show_room(room_id: String, announce: bool = true) -> void:
 			else String(parent_room.get("name", "Main Hall"))
 		m.castle_room_back_button.tooltip_text = back_hint
 		m.castle_room_back_button.set_meta("parent_hint", back_hint)
-	if not hall_mode:
+	if not hall_mode and not opera_lobby:
 		m.castle_room_background.texture = load(ROOM_ART + String(room["tex"]))
 	var room_tiles_ready := true
-	if not hall_mode:
+	if not hall_mode and not opera_lobby:
 		room_tiles_ready = _build_room_background_tiles(room_id)
 	else:
 		_clear_room_background_tiles()
 	_set_hall_background_visible(hall_mode, room_tiles_ready)
 	m.castle_room_stage.set_meta("room_composition_complete", true)
 	m.castle_room_stage.set_meta("room_tiles_ready", room_tiles_ready)
-	_rebuild_depth_layers(room_id)
-	_rebuild_touch_items(room_id)
+	_rebuild_depth_layers("" if opera_lobby else room_id)
+	_rebuild_touch_items("" if opera_lobby else room_id)
 	_configure_room_navigation(room_id)
 	if m.day_one_castle_room_is_clean(room_id):
 		apply_day_one_cleanup(room_id)
@@ -1967,6 +1971,10 @@ func show_room(room_id: String, announce: bool = true) -> void:
 			m.show_msg("Roshan", String(room["name"]),
 				_room_entry_voice(room_id))
 	m._chapter_two_sync_room_plot()
+	if opera_lobby:
+		m._castle_career_routes_ref().open_opera_venue()
+	else:
+		m._castle_career_routes_ref().close_opera_venue()
 
 func _room(room_id: String) -> Dictionary:
 	for room: Dictionary in ROOMS:
