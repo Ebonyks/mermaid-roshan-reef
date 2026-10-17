@@ -233,10 +233,9 @@ func _pool_land_bunny_snapshot() -> Dictionary:
 
 func teardown() -> void:
 	set_process(false)
-	if is_inside_tree():
-		queue_free()
-	else:
-		free()
+	# A failed/interrupted mount can leave this node outside the tree while its
+	# teardown callback is still locked. Queue deletion in either lifecycle.
+	queue_free()
 
 
 func _process(delta: float) -> void:

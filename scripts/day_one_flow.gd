@@ -438,7 +438,11 @@ func _day_one_suspend_boss_for_lifecycle() -> void:
 	if m._day_one_story_boss_start_pending:
 		_day_one_cancel_story_clips()
 		m._day_one_ref().giant_dust_bunny_boss_triggered = false
-		_return_day_one_boss_to_castle()
+		m._write_save()
+		# Application notifications traverse a locked child list. Rebuilding here
+		# leaves detached room layers and a blank screen. Recover after delivery;
+		# bind the current activity dictionary so a later route supersedes it.
+		_recover_interrupted_boss_entry.call_deferred(m.g)
 		return
 	if m.game != "dustboss" or not m.day_one_is_active() \
 			or m._day_one_ref().giant_dust_bunny_boss_defeated:
@@ -446,6 +450,15 @@ func _day_one_suspend_boss_for_lifecycle() -> void:
 	if not m.get_tree().paused:
 		m._pause_ref().toggle_pause()
 	m._write_save()
+
+
+func _recover_interrupted_boss_entry(context: Dictionary) -> void:
+	if not is_instance_valid(m) or not m.is_inside_tree() \
+			or m.is_queued_for_deletion() or not is_same(m.g, context) \
+			or m.game != "level2" or not m.day_one_is_active() \
+			or m._day_one_ref().giant_dust_bunny_boss_triggered:
+		return
+	_return_day_one_boss_to_castle()
 
 
 func _return_day_one_boss_to_castle() -> void:

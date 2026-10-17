@@ -248,6 +248,10 @@ func _splash_and_geometry_case() -> void:
 
 func _negative_input_case() -> void:
 	main.touch_ui.cancel_all_touches()
+	# The navigation checks can already earn an avoidance. This new-player
+	# fixture must reset the live and saved attack count before its first tell.
+	_boss().encounter.completed_attacks = 0
+	main.save_data["dustboss_pending_attacks"] = 0
 	main.save_data["dustboss_lesson_dodge"] = false
 	_boss()._begin_attack_tell()
 	await _frames(120)

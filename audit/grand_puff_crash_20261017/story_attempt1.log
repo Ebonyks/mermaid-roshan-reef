@@ -1,0 +1,88 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_STORY_CLIPS|manifest lists the 13 story clips in story order: OK
+DAY_ONE_STORY_CLIPS|every story clip exists at its manifest path: OK
+DAY_ONE_STORY_CLIPS|the opening is the 30-second introduction to the game: OK
+DAY_ONE_STORY_CLIPS|unknown and traversal ids fail open: OK
+DAY_ONE_STORY_CLIPS|headless runs stay deterministic unless a probe opts in: OK
+DAY_ONE_STORY_CLIPS|every clip is an owner-directed runtime clip, never delivery-accepted: OK
+DAY_ONE_STORY_CLIPS|every story moment is wired to its clip: OK
+DAY_ONE_STORY_CLIPS|the global Back control remains a skip route: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|double-tap fixture plays the real movie: OK
+DAY_ONE_STORY_CLIPS|one touch tap keeps the movie and game pause: OK
+DAY_ONE_STORY_CLIPS|emulated mouse does not duplicate a physical tap: OK
+DAY_ONE_STORY_CLIPS|two short touch taps skip and restore gameplay once: OK
+DAY_ONE_STORY_CLIPS|double-tap followed by Back cannot finish twice: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|separated taps do not skip: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|two distant taps do not skip: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|a hold followed by a tap does not skip: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|drag and return followed by a tap do not skip: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|two simultaneous fingers followed by one tap do not skip: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|canceled touch clears the first tap: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|focus loss suppresses movie skip input: OK
+DAY_ONE_STORY_CLIPS|focus return starts a fresh tap pair: OK
+DAY_ONE_STORY_CLIPS|a fresh double tap works after focus return: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|backgrounding suppresses movie skip input: OK
+DAY_ONE_STORY_CLIPS|app resume clears the earlier tap: OK
+DAY_ONE_STORY_CLIPS|a fresh double tap works after app resume: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|one mouse click keeps the movie: OK
+DAY_ONE_STORY_CLIPS|two mouse clicks skip the movie: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|the next movie does not inherit the previous tap: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|skip preserves a caller that was already paused: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|viewport-dispatched single tap keeps the story: OK
+DAY_ONE_STORY_CLIPS|viewport double-tap release is consumed before resume: OK
+DAY_ONE_STORY_CLIPS|a missing clip fails open and leaves a paused tree paused: OK
+DAY_ONE_STORY_CLIPS|a real clip sets up and pauses the game behind it: OK
+DAY_ONE_STORY_CLIPS|the real OGV begins playback: OK
+DAY_ONE_STORY_CLIPS|skip is once-only and restores the unpaused game: OK
+DAY_ONE_STORY_CLIPS|the boss-defeated hook plays the transformation clip: OK
+DAY_ONE_STORY_CLIPS|the Day Two hook queues the epilogue behind it: OK
+DAY_ONE_STORY_CLIPS|the Day Two card waits for the story: OK
+DAY_ONE_STORY_CLIPS|Back hands the story over to the queued epilogue: OK
+DAY_ONE_STORY_CLIPS|after the epilogue the Day Two card is shown: OK
+DAY_ONE_STORY_CLIPS|a story clip never replays on the same save: OK
+DAY_ONE_STORY_CLIPS|watched clips persist in the save: OK
+DAY_ONE_STORY_CLIPS|Grand Puff stays visible and ends without imploding: OK
+DAY_ONE_STORY_CLIPS|the rainbow friend stays hidden until Grand Puff is befriended: OK
+DAY_ONE_STORY_CLIPS|the rainbow dust bunny follows Roshan on the side opposite Baby Eagle: OK
+DAY_ONE_STORY_CLIPS|the castle is the visible surface before a clip: OK
+DAY_ONE_STORY_CLIPS|the castle's voice caption layer draws before a clip: OK
+DAY_ONE_STORY_CLIPS|a clip over the open castle starts: OK
+DAY_ONE_STORY_CLIPS|the castle stops drawing under the clip (owner QP-3): OK
+DAY_ONE_STORY_CLIPS|the castle stays the open surface for game logic under the clip: OK
+DAY_ONE_STORY_CLIPS|the castle draws again when the clip ends: OK
+DAY_ONE_STORY_CLIPS|a second clip over the castle starts: OK
+DAY_ONE_STORY_CLIPS|the castle is hidden again under the second clip: OK
+DAY_ONE_STORY_CLIPS|a cancelled clip restores the castle picture: OK
+DAY_ONE_STORY_CLIPS|arrival starts from completed room checkpoint 2017: OK
+DAY_ONE_STORY_CLIPS|interruption cancels arrival and preserves rooms immediately 2017: OK
+DAY_ONE_STORY_CLIPS|interrupted arrival returns mounted castle layers 2017: OK
+DAY_ONE_STORY_CLIPS|duplicate interruption cannot rebuild or start the fight 2017: OK
+DAY_ONE_STORY_CLIPS|retry starts the real encounter without losing completed rooms 2017: OK
+DAY_ONE_STORY_CLIPS|arrival starts from completed room checkpoint 2015: OK
+DAY_ONE_STORY_CLIPS|interruption cancels arrival and preserves rooms immediately 2015: OK
+DAY_ONE_STORY_CLIPS|interrupted arrival returns mounted castle layers 2015: OK
+DAY_ONE_STORY_CLIPS|duplicate interruption cannot rebuild or start the fight 2015: OK
+DAY_ONE_STORY_CLIPS|retry starts the real encounter without losing completed rooms 2015: OK
+DAY_ONE_STORY_CLIPS|arrival starts from completed room checkpoint 1006: OK
+DAY_ONE_STORY_CLIPS|interruption cancels arrival and preserves rooms immediately 1006: OK
+DAY_ONE_STORY_CLIPS|interrupted arrival returns mounted castle layers 1006: OK
+DAY_ONE_STORY_CLIPS|duplicate interruption cannot rebuild or start the fight 1006: OK
+DAY_ONE_STORY_CLIPS|retry starts the real encounter without losing completed rooms 1006: OK
+DAY_ONE_STORY_CLIPS|stale recovery cannot replace a newer Canvas route: FAIL
+DAY_ONE_STORY_CLIPS|detached dressing teardown retires safely after its callback: OK
+DAY_ONE_STORY_CLIPS|RESULT: FAIL failures=1

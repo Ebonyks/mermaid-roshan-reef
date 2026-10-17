@@ -238,6 +238,14 @@ func _run() -> void:
 	_ck("royal_hall_hitbox_is_child_sized",
 		button.size.x >= 112.0 and button.size.y >= 112.0, str(button.size))
 
+	# The door can become touchable while its rightmost wisps are still culled.
+	# Finish framing it through real floor taps before testing the whole veil.
+	var mist_walk_taps: int = 0
+	while mist_walk_taps < MAX_WALK_TAPS and _visible_royal_hall_mist() < 5:
+		_tap_stage(FLOOR_TAP)
+		await _wait_ms(ROYAL_HALL_ARRIVAL_SETTLE_MS)
+		mist_walk_taps += 1
+
 	# ---- ordinary free-roam: the mist seals the gate kindly ----
 	_ck("locked_royal_hall_has_five_mist_cards",
 		main.castle_royal_hall_mist_cards.size() == 5

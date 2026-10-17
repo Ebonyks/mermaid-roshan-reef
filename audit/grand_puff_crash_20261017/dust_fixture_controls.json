@@ -1,0 +1,84 @@
+{
+  "purpose": "Unchanged runtime with declared diagnostic probe variants; original, earned-attack counterexample, and isolated first-warning fixture",
+  "results": [
+    {
+      "name": "dust_fixture_original_diagnostic",
+      "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "e07cb42e5acca53da1b9838807a775069be320f6781d9c482d1fe155c16d973d",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\dust_fixture_original_diagnostic.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 1,
+      "elapsed_seconds": 89.76713585853577,
+      "assertion_failure": true,
+      "script_error": false,
+      "diagnostic_lines": [
+        "DUST_FIXTURE|before_negative attacks=1 rounds=0 hits=0 state=vuln",
+        "DUST_FIXTURE|checkpoint attacks=2.0 runtime_attacks=2 pending=false",
+        "DUST_FIXTURE|before_adaptive attacks=2 rounds=1 hits=1 state=vuln",
+        "DUST_FIXTURE|saw_phases=[false, true, true]"
+      ]
+    },
+    {
+      "name": "dust_fixture_earned_counterexample",
+      "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "c3d906c091aca33e46ed90cf2922a4b3cfeb66043eebf9938d1815033900e420",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\dust_fixture_earned_counterexample.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 1,
+      "elapsed_seconds": 111.45135045051575,
+      "assertion_failure": true,
+      "script_error": false,
+      "diagnostic_lines": [
+        "DUST_FIXTURE|before_negative attacks=1 rounds=0 hits=0 state=vuln",
+        "DUST_FIXTURE|checkpoint attacks=2.0 runtime_attacks=2 pending=false",
+        "DUST_FIXTURE|before_adaptive attacks=2 rounds=1 hits=1 state=vuln",
+        "DUST_FIXTURE|saw_phases=[false, true, true]"
+      ]
+    },
+    {
+      "name": "dust_fixture_isolated_diagnostic",
+      "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "0818392b20be1cf1091ce483f3e35b7400a70631092595ec2857251cedf849f7",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\dust_fixture_isolated_diagnostic.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 121.36454749107361,
+      "assertion_failure": false,
+      "script_error": false,
+      "diagnostic_lines": [
+        "DUST_FIXTURE|before_negative attacks=1 rounds=0 hits=0 state=vuln",
+        "DUST_FIXTURE|checkpoint attacks=1.0 runtime_attacks=1 pending=false",
+        "DUST_FIXTURE|before_adaptive attacks=1 rounds=0 hits=0 state=vuln",
+        "DUST_FIXTURE|saw_phases=[true, true, true]"
+      ]
+    }
+  ],
+  "status": "COMPLETE"
+}

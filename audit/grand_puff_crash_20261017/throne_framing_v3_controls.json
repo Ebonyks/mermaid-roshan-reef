@@ -1,0 +1,52 @@
+{
+  "purpose": "Clear bottom-floor input, bounded actual arrival, unchanged baseline runtime, strict five-card assertions retained",
+  "results": [
+    {
+      "name": "throne_partial_framing_v3",
+      "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "7d41a86dd60791f2b1bff27e65e7d6449110fed57ca3fa24e9d0679edd2e0b00",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\throne_partial_framing_v3.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "assertion_failure": true,
+      "script_error": false,
+      "diagnostic_lines": [
+        "THRONE|controlled_floor_framing_arrives_without_teleport|FAIL|(2215.0, 731.5)",
+        "THRONE_FRAMING_V3|requested=(2121.0, 900.0) foot=(2215.0, 731.5) button=true total=5 visible=5 span=(1283.0, 3147.0)"
+      ]
+    },
+    {
+      "name": "throne_full_framing_v3",
+      "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "bde9b8c92ec5549c8ad68bb6a4af99470ac24834ecde44c05ca5b40149fea4a9",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\throne_full_framing_v3.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "assertion_failure": true,
+      "script_error": false,
+      "diagnostic_lines": [
+        "THRONE|controlled_floor_framing_arrives_without_teleport|FAIL|(2165.637, 765.0)",
+        "THRONE_FRAMING_V3|requested=(2121.0, 900.0) foot=(2165.637, 765.0) button=true total=5 visible=4 span=(1233.637, 3097.637)",
+        "THRONE_FRAMING_V3|additional_floor_taps=1 foot=(2701.199, 765.0) visible=5"
+      ]
+    }
+  ]
+}
