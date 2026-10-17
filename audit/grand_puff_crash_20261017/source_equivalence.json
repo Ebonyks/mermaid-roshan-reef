@@ -1,0 +1,16 @@
+{
+  "status": "PASS_SCOPED_SOURCE_EQUIVALENCE",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "completed_run_pin": "audit/grand_puff_crash_20261017/source_pin.json",
+  "final_pin": "audit/grand_puff_crash_20261017/source_pin_final.json",
+  "source_file_count": 639,
+  "changed_sources": [
+    "scripts/probe_dust_boss.gd",
+    "scripts/probe_throne.gd",
+    "scripts/probe_verbs.gd"
+  ],
+  "runtime_source_changes_since_full_run": [],
+  "direct_script_consumers_of_changed_probes": [],
+  "runtime_asset_scene_project_diff_since_baseline": [],
+  "qualification": "The final source differs from sealed full run2 only in three independent trusted-probe preconditions. Runtime and the other79 probe files are byte-identical. This is a probe-by-probe reconciliation, not a rewritten success for scripts/ci.sh run2. Windows raw-byte hashes and canonical LF hashes remain separately declared."
+}

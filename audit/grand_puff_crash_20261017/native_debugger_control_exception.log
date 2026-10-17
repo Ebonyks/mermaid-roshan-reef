@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import ctypes; ctypes.windll.kernel32.RaiseException(0xE0123456,0,0,None)
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError -535677866] Windows Error 0xe0123456

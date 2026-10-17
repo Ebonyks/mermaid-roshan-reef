@@ -215,8 +215,15 @@ func _init() -> void:
 	var suspended_idle_min_y := INF
 	var suspended_idle_max_y := -INF
 	var suspended_idle_directional := true
-	var suspended_deadline: int = Time.get_ticks_msec() + 1400
-	while Time.get_ticks_msec() < suspended_deadline:
+	# A 1.4-second sample near the turning point can miss normal breathing.
+	# Observe one complete authored cycle without lowering the motion floor.
+	var suspended_phase_travel: float = 0.0
+	var suspended_last_phase: float = pl.classic_life_phase
+	var suspended_deadline: int = Time.get_ticks_msec() + 8000
+	while Time.get_ticks_msec() < suspended_deadline and suspended_phase_travel < TAU:
+		var current_phase: float = pl.classic_life_phase
+		suspended_phase_travel += fposmod(current_phase - suspended_last_phase, TAU)
+		suspended_last_phase = current_phase
 		suspended_idle_directional = suspended_idle_directional \
 			and String(pl.classic_sprite_sheet) == "directional"
 		var life_y: float = pl.classic_motion_root.position.y
@@ -224,11 +231,16 @@ func _init() -> void:
 		suspended_idle_max_y = maxf(suspended_idle_max_y, life_y)
 		await process_frame
 	main.intro_active = false
+	if suspended_phase_travel < TAU:
+		print("FAIL: suspended idle did not complete its authored cycle: ", suspended_phase_travel)
 	if not suspended_idle_directional \
 			or suspended_idle_max_y - suspended_idle_min_y < 0.04:
 		print("FAIL: suspended gameplay froze Roshan's living idle: ",
 			suspended_idle_min_y, "..", suspended_idle_max_y,
 			" sheet=", pl.classic_sprite_sheet)
+	elif suspended_phase_travel >= TAU:
+		print("suspended gameplay retains a full breathing cycle: OK phase=",
+			suspended_phase_travel, " range=", suspended_idle_max_y - suspended_idle_min_y)
 	# A dry-land stop is a four-frame seated idle rather than a static view.
 	pl.land_blend = 1.0
 	pl.land_dry = true

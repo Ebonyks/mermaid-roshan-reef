@@ -205,6 +205,7 @@ func _run_behavioral_checks() -> void:
 		and String(friend_card.get_meta("source_asset_path", "")) \
 			== "res://assets/sprites/dust_bunnies/rainbow_friend.png")
 	await _probe_castle_hidden_under_clip(friend_main)
+	await _probe_boss_entry_lifecycle(friend_main)
 	friend_main.queue_free()
 	await _frames(3)
 	_clean_save()
@@ -263,3 +264,71 @@ func _rainbow_card(main: ReefMain) -> TextureRect:
 		return null
 	var card: TextureRect = main._rainbow_friend.card
 	return card if card != null and is_instance_valid(card) else null
+
+
+func _probe_boss_entry_lifecycle(main: ReefMain) -> void:
+	# Previous room work is a fixture. Exercise the real arrival player and
+	# propagate notifications through the tree, as the application does; a direct
+	# main.notification() does not lock the ancestor child lists.
+	var director: DayOneDirector = main._day_one_ref()
+	for notification_id: int in [Node.NOTIFICATION_APPLICATION_FOCUS_OUT,
+			Node.NOTIFICATION_APPLICATION_PAUSED, Node.NOTIFICATION_WM_CLOSE_REQUEST]:
+		CLIPS.headless_override = false
+		main._clear_game()
+		director.restore_state({
+			"day_one_active": true,
+			"day_one_arrival_plane_media_seen": true,
+			"day_one_completed_rooms": ["bathroom", "pool", "stuffie", "art"],
+			"day_one_cleaned_rooms": ["bathroom", "pool", "stuffie", "art"],
+			"day_one_boss_door_glow": true,
+		})
+		main.day_one_event_seen.erase(DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS)
+		main.day_one_story_clips_seen.erase("d1_puff_arrival")
+		main._enter_level2_now(true, false, false)
+		main._enter_castle_interior_now(false)
+		await _frames(4)
+		CLIPS.headless_override = true
+		_check("arrival starts from completed room checkpoint %d" % notification_id,
+			director.trigger_giant_dust_bunny_boss()
+			and main._day_one_story_boss_start_pending
+			and main._day_one_story_clip != null and paused)
+		get_root().propagate_notification(notification_id)
+		# Duplicate notifications must not queue a second recovery or launch.
+		get_root().propagate_notification(notification_id)
+		_check("interruption cancels arrival and preserves rooms immediately %d" % notification_id,
+			not main._day_one_story_boss_start_pending and not paused
+			and not director.giant_dust_bunny_boss_triggered
+			and director.is_room_completed("art"))
+		await _frames(8)
+		_check("interrupted arrival returns mounted castle layers %d" % notification_id,
+			main.game == "level2" and main._castle_rooms_ref().is_open()
+			and main.castle_room_layer.is_inside_tree()
+			and main.castle_room_stage.is_inside_tree()
+			and main.day_one_boss_door_ready())
+		var recovered_layer: CanvasLayer = main.castle_room_layer
+		await _frames(4)
+		_check("duplicate interruption cannot rebuild or start the fight %d" % notification_id,
+			main.castle_room_layer == recovered_layer and main.game == "level2"
+			and not director.giant_dust_bunny_boss_defeated)
+		_check("retry starts the real encounter without losing completed rooms %d" % notification_id,
+			director.trigger_giant_dust_bunny_boss() and main.game == "dustboss"
+			and main.g.get("db_kit") is DustBunnyBossSprite
+			and director.is_room_completed("art"))
+		CLIPS.headless_override = false
+		main._clear_game()
+		await _frames(4)
+	# A route change between notification and deferred recovery owns its layer.
+	main._castle_rooms_ref().close()
+	main._enter_level2_now(true, false, false)
+	var current_layer: CanvasLayer = main._sky_lagoon_promenade.root()
+	var stale_context: Dictionary = main.g.duplicate()
+	main._day_one_flow_ref()._recover_interrupted_boss_entry.call_deferred(stale_context)
+	await _frames(4)
+	_check("stale recovery cannot replace a newer Canvas route",
+		main._sky_lagoon_promenade.root() == current_layer
+		and not main._castle_rooms_ref().is_open())
+	var detached := DayOneCastleDressing.new()
+	detached.call("teardown")
+	await _frames(2)
+	_check("detached dressing teardown retires safely after its callback",
+		not is_instance_valid(detached))

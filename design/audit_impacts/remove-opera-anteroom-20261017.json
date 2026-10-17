@@ -15,10 +15,13 @@
     "DL-QA-01",
     "DL-QA-02",
     "DL-QA-07",
-    "DL-ASSET-03"
+    "DL-ASSET-03",
+    "DL-QA-14",
+    "DL-CODE-05"
   ],
   "findings": [
-    "MA-OPERA-012"
+    "MA-OPERA-012",
+    "MA-CI-007"
   ],
   "files": [
     "scripts/castle_career_routes.gd",
@@ -98,7 +101,27 @@
     "audit/remove_opera_anteroom_20261017/integration_probe_collection.json",
     "audit/remove_opera_anteroom_20261017/integration_probe_collection.log",
     "audit/remove_opera_anteroom_20261017/integration_probe_throne.json",
-    "audit/remove_opera_anteroom_20261017/integration_probe_throne.log"
+    "audit/remove_opera_anteroom_20261017/integration_probe_throne.log",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/remove_opera_anteroom_20261017/r2_story_classifier_original.json",
+    "audit/remove_opera_anteroom_20261017/r2_runner.py.txt",
+    "audit/remove_opera_anteroom_20261017/r2_import.json",
+    "audit/remove_opera_anteroom_20261017/r2_import.log",
+    "audit/remove_opera_anteroom_20261017/r2_gates.log",
+    "audit/remove_opera_anteroom_20261017/r2_verification.json",
+    "audit/remove_opera_anteroom_20261017/r2_verify.py.txt",
+    "audit/remove_opera_anteroom_20261017/r2_opera.json",
+    "audit/remove_opera_anteroom_20261017/r2_opera.log",
+    "audit/remove_opera_anteroom_20261017/r2_throne.json",
+    "audit/remove_opera_anteroom_20261017/r2_throne.log",
+    "audit/remove_opera_anteroom_20261017/r2_throne_120.json",
+    "audit/remove_opera_anteroom_20261017/r2_throne_120.log",
+    "audit/remove_opera_anteroom_20261017/r2_verbs.json",
+    "audit/remove_opera_anteroom_20261017/r2_verbs.log",
+    "audit/remove_opera_anteroom_20261017/r2_story_clips.json",
+    "audit/remove_opera_anteroom_20261017/r2_story_clips.log",
+    "audit/remove_opera_anteroom_20261017/r2_dust_boss.json",
+    "audit/remove_opera_anteroom_20261017/r2_dust_boss.log"
   ],
   "validation": [
     {
@@ -145,6 +168,11 @@
       "command": "Reconcile latest origin/dev in isolated checkout; exact-engine import and Opera/collection/throne focused integration probes; merged parser/lint, authority, coverage, owner append-only and whitespace gates",
       "result": "PASS",
       "evidence": "integration_import.json/.log, integration_probe_*.json/.log, integration_verification.json and integration_gates.log. Preserve upstream painted butterfly tab and mipmaps. The source-folder junction incident, exact 19,151-file restoration, raw verification of all 740 protected binaries, and aborted setup transcripts are retained separately; this rerun uses ordinary private files and cache. Full published exact-head CI must pass before dev integration."
+    },
+    {
+      "command": "Second dev reconciliation: exact import, Opera/throne normal+120fps/full-cycle verbs/story-interruption/dust-boss affected probes, required static gates",
+      "result": "PASS",
+      "evidence": "r2_*.json/.log bind merged sources. Upstream1a4e8a1c has exact green CI39073105968. Our two Opera production files are unchanged; final merged head still requires its own full exact-head CI before dev push."
     }
   ],
   "acceptance_gaps": "Authoritative visual, target-device, child and owner acceptance remain open. Local source-bound per-probe verification passes all 82 after the baseline-reproduced throne harness correction and unchanged Chapter Two/verb native reruns; the initial red monolithic suite and launcher timeout are preserved. Exact published-head CI/integration remain separate. Local Godot AI plugin/game is verified live and left in the main foyer; chat tool exposure remains outside local recovery. MA-OPERA-012 lifecycle and game-wide UNSATISFIED remain unchanged. Source artwork, route/save identity and original Royal Hall production behavior are preserved.",
@@ -157,5 +185,13 @@
     "chapter2": "The final native exit inventory also finds unchanged probe_chapter2 exit 127 after successful career_11 reboot assertions and before a final verdict. Its source and production files remain unchanged. A separate direct native-process rerun must exit 0 with the complete final verdict before per-probe verification can pass. No cause or gameplay defect is inferred from the incomplete exit alone.",
     "verbs": "The full failure-regex inventory also catches the unchanged verb probe suspended-idle range assertion (0.0307 observed vs unchanged 0.04 minimum). A direct unchanged rerun passes with native exit 0, no failure tokens, full authored-frame checks and its complete final marker. Both transcripts and exact source hashes are preserved. No idle animation fix, test edit, threshold reduction or defect closure is claimed; this original timing-sensitive result remains an explicit verification limit.",
     "source_recovery": "Unexpected sparse-checkout cleanup followed temporary source-folder junctions. Recovery and responsibility are explicit in source_recovery_incident.json; exact canonical restoration and 740 protected raw-byte checks pass. The new review setup has no source/cache junctions; no initial incomplete-fixture result is used as acceptance."
-  }
+  },
+  "reconciliation_2": {
+    "upstream": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+    "upstream_green_ci": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39073105968",
+    "previous_candidate": "6d71903d9fc2f18f243bc07c465dc26fc3b3252e",
+    "previous_ci": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39073825567",
+    "scope": "Preserve CHG-097 Grand Puff lifecycle crash repair and its stronger probe fixtures. Adopt upstream real-time Royal Hall mist framing, remove our redundant frame-only mist loop, and keep our natural voice-idle readiness. Retain upstream full-cycle verb observation and unchanged motion floor. Opera production files are unchanged from77f72a7c. MA-CI-007 remains CONFIRMED_OPEN; no shared-harness closure is claimed. New merged head must earn its own exact full CI before dev push."
+  },
+  "change_id": "CHG-101"
 }

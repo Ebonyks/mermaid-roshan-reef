@@ -1,0 +1,558 @@
+{
+  "status": "COMPLETE",
+  "source_pin": "audit/grand_puff_crash_20261017/source_pin_final.json",
+  "observer": "DEBUG_ONLY_THIS_PROCESS; initial loader breakpoint alone handled; all other exceptions passed to normal handlers; no memory changes or dumps.",
+  "controls": [
+    {
+      "label": "native_debugger_control_exit",
+      "pid": 153880,
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-c",
+        "import ctypes; ctypes.windll.kernel32.ExitProcess(7)"
+      ],
+      "exit": 7,
+      "elapsed_seconds": 0.6931195259094238,
+      "observer_watchdog": false,
+      "events": [
+        {
+          "type": "exception",
+          "seconds": 0.140505,
+          "thread": 167248,
+          "code": "0x80000003",
+          "first_chance": true,
+          "address": "0x7ffb12f2cbc4"
+        },
+        {
+          "type": "exit",
+          "seconds": 0.692531,
+          "code": 7
+        }
+      ],
+      "event_counts": {
+        "3": 1,
+        "6": 28,
+        "2": 3,
+        "1": 1,
+        "7": 1,
+        "4": 3,
+        "5": 1
+      },
+      "modules": [
+        {
+          "image": "python.exe",
+          "base": "0x7ff6775f0000"
+        },
+        {
+          "image": "ntdll.dll",
+          "base": "0x7ffb12e50000"
+        },
+        {
+          "image": "kernel32.dll",
+          "base": "0x7ffb11f30000"
+        },
+        {
+          "image": "KernelBase.dll",
+          "base": "0x7ffb103d0000"
+        },
+        {
+          "image": "apphelp.dll",
+          "base": "0x7ffb0c880000"
+        },
+        {
+          "image": "python313.dll",
+          "base": "0x7ffab5270000"
+        },
+        {
+          "image": "ws2_32.dll",
+          "base": "0x7ffb10d20000"
+        },
+        {
+          "image": "rpcrt4.dll",
+          "base": "0x7ffb12840000"
+        },
+        {
+          "image": "bcrypt.dll",
+          "base": "0x7ffb10920000"
+        },
+        {
+          "image": "advapi32.dll",
+          "base": "0x7ffb122b0000"
+        },
+        {
+          "image": "msvcrt.dll",
+          "base": "0x7ffb11e80000"
+        },
+        {
+          "image": "sechost.dll",
+          "base": "0x7ffb114d0000"
+        },
+        {
+          "image": "ucrtbase.dll",
+          "base": "0x7ffb10210000"
+        },
+        {
+          "image": "version.dll",
+          "base": "0x7ffb0cdf0000"
+        },
+        {
+          "image": "vcruntime140.dll",
+          "base": "0x7ffb0c7a0000"
+        },
+        {
+          "image": "bcryptprimitives.dll",
+          "base": "0x7ffb10020000"
+        },
+        {
+          "image": "python3.dll",
+          "base": "0x234cde10000"
+        },
+        {
+          "image": "python3.dll",
+          "base": "0x234cde10000"
+        },
+        {
+          "image": "_ctypes.pyd",
+          "base": "0x7ffad6c50000"
+        },
+        {
+          "image": "ole32.dll",
+          "base": "0x7ffb12960000"
+        },
+        {
+          "image": "msvcp_win.dll",
+          "base": "0x7ffb10330000"
+        },
+        {
+          "image": "gdi32.dll",
+          "base": "0x7ffb10cf0000"
+        },
+        {
+          "image": "libffi-8.dll",
+          "base": "0x7ffae4b50000"
+        },
+        {
+          "image": "win32u.dll",
+          "base": "0x7ffb101e0000"
+        },
+        {
+          "image": "gdi32full.dll",
+          "base": "0x7ffb109d0000"
+        },
+        {
+          "image": "user32.dll",
+          "base": "0x7ffb112f0000"
+        },
+        {
+          "image": "combase.dll",
+          "base": "0x7ffb124a0000"
+        },
+        {
+          "image": "oleaut32.dll",
+          "base": "0x7ffb123c0000"
+        },
+        {
+          "image": "imm32.dll",
+          "base": "0x7ffb11580000"
+        }
+      ],
+      "assertion_failure_lines": [],
+      "game_verdict": false
+    },
+    {
+      "label": "native_debugger_control_exception",
+      "pid": 163600,
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-c",
+        "import ctypes; ctypes.windll.kernel32.RaiseException(0xE0123456,0,0,None)"
+      ],
+      "exit": 1,
+      "elapsed_seconds": 2.344346046447754,
+      "observer_watchdog": false,
+      "events": [
+        {
+          "type": "exception",
+          "seconds": 0.170158,
+          "thread": 167984,
+          "code": "0x80000003",
+          "first_chance": true,
+          "address": "0x7ffb12f2cbc4"
+        },
+        {
+          "type": "exception",
+          "seconds": 2.020673,
+          "thread": 167984,
+          "code": "0xe0123456",
+          "first_chance": true,
+          "address": "0x7ffb1043055c"
+        },
+        {
+          "type": "exit",
+          "seconds": 2.275834,
+          "code": 1
+        }
+      ],
+      "event_counts": {
+        "3": 1,
+        "6": 30,
+        "2": 3,
+        "7": 2,
+        "1": 2,
+        "4": 3,
+        "5": 1
+      },
+      "modules": [
+        {
+          "image": "python.exe",
+          "base": "0x7ff6775f0000"
+        },
+        {
+          "image": "ntdll.dll",
+          "base": "0x7ffb12e50000"
+        },
+        {
+          "image": "kernel32.dll",
+          "base": "0x7ffb11f30000"
+        },
+        {
+          "image": "KernelBase.dll",
+          "base": "0x7ffb103d0000"
+        },
+        {
+          "image": "apphelp.dll",
+          "base": "0x7ffb0c880000"
+        },
+        {
+          "image": "ucrtbase.dll",
+          "base": "0x7ffb10210000"
+        },
+        {
+          "image": "python313.dll",
+          "base": "0x7ffab5270000"
+        },
+        {
+          "image": "vcruntime140.dll",
+          "base": "0x7ffb0c7a0000"
+        },
+        {
+          "image": "ws2_32.dll",
+          "base": "0x7ffb10d20000"
+        },
+        {
+          "image": "rpcrt4.dll",
+          "base": "0x7ffb12840000"
+        },
+        {
+          "image": "bcrypt.dll",
+          "base": "0x7ffb10920000"
+        },
+        {
+          "image": "advapi32.dll",
+          "base": "0x7ffb122b0000"
+        },
+        {
+          "image": "version.dll",
+          "base": "0x7ffb0cdf0000"
+        },
+        {
+          "image": "msvcrt.dll",
+          "base": "0x7ffb11e80000"
+        },
+        {
+          "image": "msvcrt.dll",
+          "base": "0x202bdf30000"
+        },
+        {
+          "image": "sechost.dll",
+          "base": "0x7ffb114d0000"
+        },
+        {
+          "image": "bcryptprimitives.dll",
+          "base": "0x7ffb10020000"
+        },
+        {
+          "image": "python3.dll",
+          "base": "0x202bdf40000"
+        },
+        {
+          "image": "python3.dll",
+          "base": "0x202bdf40000"
+        },
+        {
+          "image": "_ctypes.pyd",
+          "base": "0x7ffad6c50000"
+        },
+        {
+          "image": "ole32.dll",
+          "base": "0x7ffb12960000"
+        },
+        {
+          "image": "msvcp_win.dll",
+          "base": "0x7ffb10330000"
+        },
+        {
+          "image": "gdi32.dll",
+          "base": "0x7ffb10cf0000"
+        },
+        {
+          "image": "win32u.dll",
+          "base": "0x7ffb101e0000"
+        },
+        {
+          "image": "gdi32full.dll",
+          "base": "0x7ffb109d0000"
+        },
+        {
+          "image": "user32.dll",
+          "base": "0x7ffb112f0000"
+        },
+        {
+          "image": "combase.dll",
+          "base": "0x7ffb124a0000"
+        },
+        {
+          "image": "oleaut32.dll",
+          "base": "0x7ffb123c0000"
+        },
+        {
+          "image": "libffi-8.dll",
+          "base": "0x7ffae4b50000"
+        },
+        {
+          "image": "imm32.dll",
+          "base": "0x7ffb11580000"
+        },
+        {
+          "image": "kernel.appcore.dll",
+          "base": "0x7ffb0eff0000"
+        }
+      ],
+      "assertion_failure_lines": [],
+      "game_verdict": false
+    }
+  ],
+  "game": {
+    "label": "native_debugger",
+    "pid": 133376,
+    "command": [
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef",
+      "-s",
+      "scripts/probe_dust_boss.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "elapsed_seconds": 176.989679813385,
+    "observer_watchdog": false,
+    "events": [
+      {
+        "type": "exception",
+        "seconds": 0.704363,
+        "thread": 142896,
+        "code": "0x80000003",
+        "first_chance": true,
+        "address": "0x7ffb12f2cbc4"
+      },
+      {
+        "type": "exit",
+        "seconds": 176.968731,
+        "code": 0
+      }
+    ],
+    "event_counts": {
+      "3": 1,
+      "6": 43,
+      "2": 24,
+      "1": 1,
+      "8": 1,
+      "4": 24,
+      "5": 1
+    },
+    "modules": [
+      {
+        "image": "Godot_v4.7.2-stable_win64.exe",
+        "base": "0x7ff6874c0000"
+      },
+      {
+        "image": "ntdll.dll",
+        "base": "0x7ffb12e50000"
+      },
+      {
+        "image": "kernel32.dll",
+        "base": "0x7ffb11f30000"
+      },
+      {
+        "image": "KernelBase.dll",
+        "base": "0x7ffb103d0000"
+      },
+      {
+        "image": "apphelp.dll",
+        "base": "0x7ffb0c880000"
+      },
+      {
+        "image": "oleaut32.dll",
+        "base": "0x7ffb123c0000"
+      },
+      {
+        "image": "msvcp_win.dll",
+        "base": "0x7ffb10330000"
+      },
+      {
+        "image": "ucrtbase.dll",
+        "base": "0x7ffb10210000"
+      },
+      {
+        "image": "combase.dll",
+        "base": "0x7ffb124a0000"
+      },
+      {
+        "image": "rpcrt4.dll",
+        "base": "0x7ffb12840000"
+      },
+      {
+        "image": "user32.dll",
+        "base": "0x7ffb112f0000"
+      },
+      {
+        "image": "win32u.dll",
+        "base": "0x7ffb101e0000"
+      },
+      {
+        "image": "gdi32.dll",
+        "base": "0x7ffb10cf0000"
+      },
+      {
+        "image": "gdi32full.dll",
+        "base": "0x7ffb109d0000"
+      },
+      {
+        "image": "advapi32.dll",
+        "base": "0x7ffb122b0000"
+      },
+      {
+        "image": "msvcrt.dll",
+        "base": "0x7ffb11e80000"
+      },
+      {
+        "image": "sechost.dll",
+        "base": "0x7ffb114d0000"
+      },
+      {
+        "image": "bcrypt.dll",
+        "base": "0x7ffb10920000"
+      },
+      {
+        "image": "crypt32.dll",
+        "base": "0x7ffb107b0000"
+      },
+      {
+        "image": "imm32.dll",
+        "base": "0x7ffb11580000"
+      },
+      {
+        "image": "ole32.dll",
+        "base": "0x7ffb12960000"
+      },
+      {
+        "image": "SHCore.dll",
+        "base": "0x7ffb121a0000"
+      },
+      {
+        "image": "UIAutomationCore.dll",
+        "base": "0x7ffae5260000"
+      },
+      {
+        "image": "shell32.dll",
+        "base": "0x7ffb115c0000"
+      },
+      {
+        "image": "WinTypes.dll",
+        "base": "0x7ffb100a0000"
+      },
+      {
+        "image": "shlwapi.dll",
+        "base": "0x7ffb10b00000"
+      },
+      {
+        "image": "ws2_32.dll",
+        "base": "0x7ffb10d20000"
+      },
+      {
+        "image": "avrt.dll",
+        "base": "0x7ffb08af0000"
+      },
+      {
+        "image": "dbghelp.dll",
+        "base": "0x7ffafd990000"
+      },
+      {
+        "image": "dwmapi.dll",
+        "base": "0x7ffb0d6f0000"
+      },
+      {
+        "image": "DWrite.dll",
+        "base": "0x7ffb0af00000"
+      },
+      {
+        "image": "hid.dll",
+        "base": "0x7ffb0e740000"
+      },
+      {
+        "image": "IPHLPAPI.DLL",
+        "base": "0x7ffb0ea10000"
+      },
+      {
+        "image": "winmm.dll",
+        "base": "0x7ffafe450000"
+      },
+      {
+        "image": "wsock32.dll",
+        "base": "0x7ffb01ee0000"
+      },
+      {
+        "image": "dxgi.dll",
+        "base": "0x7ffb0d5e0000"
+      },
+      {
+        "image": "bcryptprimitives.dll",
+        "base": "0x7ffb10020000"
+      },
+      {
+        "image": "dinput8.dll",
+        "base": "0x7ffae02a0000"
+      },
+      {
+        "image": "InputHost.dll",
+        "base": "0x7ffae7ca0000"
+      },
+      {
+        "image": "CoreMessaging.dll",
+        "base": "0x7ffb0c490000"
+      },
+      {
+        "image": "cryptbase.dll",
+        "base": "0x7ffb0f7e0000"
+      },
+      {
+        "image": "kernel.appcore.dll",
+        "base": "0x7ffb0eff0000"
+      },
+      {
+        "image": "uxtheme.dll",
+        "base": "0x7ffb0d460000"
+      },
+      {
+        "image": "msasn1.dll",
+        "base": "0x7ffb0fc00000"
+      }
+    ],
+    "assertion_failure_lines": [],
+    "game_verdict": true
+  },
+  "qualification": "Diagnostic launch only. Prior unexplained exit remains preserved; this distinguishes native exception events from exits when reproduced."
+}

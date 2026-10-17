@@ -237,11 +237,7 @@ func _run() -> void:
 
 	# ---- and walking right must bring the Royal Hall on screen ----
 	var taps := 1
-	# A clipped doorway can appear before all five authored mist cards enter
-	# the camera culling band. Continue real floor taps until the locked-state
-	# visual assertions can inspect the complete gate.
-	while taps < MAX_WALK_TAPS and (not _royal_hall_button().visible \
-			or _visible_royal_hall_mist() < 5):
+	while taps < MAX_WALK_TAPS and not _royal_hall_button().visible:
 		_tap_stage(FLOOR_TAP)
 		await _frames(WALK_SETTLE)
 		taps += 1
@@ -253,6 +249,14 @@ func _run() -> void:
 		return
 	_ck("royal_hall_hitbox_is_child_sized",
 		button.size.x >= 112.0 and button.size.y >= 112.0, str(button.size))
+
+	# The door can become touchable while its rightmost wisps are still culled.
+	# Finish framing it through real floor taps before testing the whole veil.
+	var mist_walk_taps: int = 0
+	while mist_walk_taps < MAX_WALK_TAPS and _visible_royal_hall_mist() < 5:
+		_tap_stage(FLOOR_TAP)
+		await _wait_ms(ROYAL_HALL_ARRIVAL_SETTLE_MS)
+		mist_walk_taps += 1
 
 	# ---- ordinary free-roam: the mist seals the gate kindly ----
 	_ck("locked_royal_hall_has_five_mist_cards",

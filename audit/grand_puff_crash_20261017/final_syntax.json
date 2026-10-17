@@ -1,0 +1,30 @@
+{
+  "source_pin": "audit/grand_puff_crash_20261017/source_pin_final.json",
+  "qualification": "Actual parser and inference tool results for all six changed GDScripts; these six files remain unchanged since execution. Later diagnostic sources are non-runtime evidence.",
+  "results": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "5cfd4f",
+        "wall_time_seconds": 4.6375388,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "530909",
+        "wall_time_seconds": 2.7001387,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ],
+  "commands": [
+    "python -B -m gdtoolkit.parser scripts/day_one_flow.gd scripts/arena/day_one_castle_dressing.gd scripts/probe_day_one_story_clips.gd scripts/probe_dust_boss.gd scripts/probe_throne.gd scripts/probe_verbs.gd",
+    "python -B tools/lint_inference.py scripts/day_one_flow.gd scripts/arena/day_one_castle_dressing.gd scripts/probe_day_one_story_clips.gd scripts/probe_dust_boss.gd scripts/probe_throne.gd scripts/probe_verbs.gd"
+  ]
+}

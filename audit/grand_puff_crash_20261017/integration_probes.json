@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "source_pin": "audit/grand_puff_crash_20261017/integration_source_pin.json",
+  "source_mismatches": [],
+  "results": [
+    {
+      "probe": "probe_collection",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_collection.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 16.12069010734558,
+      "failure_lines": [],
+      "positive_verdict": true,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_story_clips",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_story_clips.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 29.405898094177246,
+      "failure_lines": [],
+      "positive_verdict": true,
+      "passed": true
+    },
+    {
+      "probe": "probe_dust_boss",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dust_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 58.67376446723938,
+      "failure_lines": [],
+      "positive_verdict": true,
+      "passed": true
+    }
+  ],
+  "qualification": "Focused combined-source checks after incoming Critter Book mipmap change; exact combined-commit full remote CI remains required."
+}

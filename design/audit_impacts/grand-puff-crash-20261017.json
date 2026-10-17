@@ -1,0 +1,344 @@
+{
+  "id": "grand-puff-crash-20261017",
+  "scope": "Repair owner-reported Grand Puff entry interruption blank screen and locked-object crash; preserve fight, save progress and approved assets. Regression covers real propagated lifecycle notifications, arrival clip cancellation/re-entry, detached dressing teardown and combat continuation. Required full-suite follow-up also diagnoses baseline mist-framing and idle-cycle sampling defects; only confirmed probe defects may be strengthened, retaining existing visibility/motion thresholds and unchanged game behavior. The full combat run also requires diagnosis of first-dodge fixture isolation after navigation, with memory/disk counters and phase coverage retained as strict assertions. Diagnose the single Opera pending-portal readiness failure against unchanged source before any harness repair; preserve its existing3s deadline and exact readiness predicate.",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-03",
+    "DL-AGE-06",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-CODE-03",
+    "DL-MED-04",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-14",
+    "DL-CODE-05"
+  ],
+  "findings": [
+    "MA-PLAY-001",
+    "MA-CI-007"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/grand_puff_crash_20261017/affected_probe_reruns.json",
+    "audit/grand_puff_crash_20261017/authority.log",
+    "audit/grand_puff_crash_20261017/baseline_probe_controls.json",
+    "audit/grand_puff_crash_20261017/baseline_probe_throne.log",
+    "audit/grand_puff_crash_20261017/baseline_probe_verbs.log",
+    "audit/grand_puff_crash_20261017/baseline_reproduction.log",
+    "audit/grand_puff_crash_20261017/baseline_runtime.log",
+    "audit/grand_puff_crash_20261017/baseline_throne_fps60.log",
+    "audit/grand_puff_crash_20261017/combat_attempt1.log",
+    "audit/grand_puff_crash_20261017/combat_attempt3.log",
+    "audit/grand_puff_crash_20261017/development.log",
+    "audit/grand_puff_crash_20261017/diagnostic_throne_fps60.log",
+    "audit/grand_puff_crash_20261017/display.gd.txt",
+    "audit/grand_puff_crash_20261017/display.log",
+    "audit/grand_puff_crash_20261017/display/01_arrival.png",
+    "audit/grand_puff_crash_20261017/display/02_recovered_castle.png",
+    "audit/grand_puff_crash_20261017/display/03_boss_entry.png",
+    "audit/grand_puff_crash_20261017/display/04_live_fight.png",
+    "audit/grand_puff_crash_20261017/display/05_after_fight.png",
+    "audit/grand_puff_crash_20261017/display_attempt1.log",
+    "audit/grand_puff_crash_20261017/display_attempt1/01_arrival.png",
+    "audit/grand_puff_crash_20261017/display_attempt1/02_recovered_castle.png",
+    "audit/grand_puff_crash_20261017/display_attempt1/03_boss_entry.png",
+    "audit/grand_puff_crash_20261017/display_attempt1/04_live_fight.png",
+    "audit/grand_puff_crash_20261017/display_attempt1/05_after_fight.png",
+    "audit/grand_puff_crash_20261017/display_manifest.json",
+    "audit/grand_puff_crash_20261017/dust_fixture_controls.json",
+    "audit/grand_puff_crash_20261017/dust_fixture_earned_counterexample.gd.txt",
+    "audit/grand_puff_crash_20261017/dust_fixture_earned_counterexample.log",
+    "audit/grand_puff_crash_20261017/dust_fixture_isolated_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/dust_fixture_isolated_diagnostic.log",
+    "audit/grand_puff_crash_20261017/dust_fixture_original_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/dust_fixture_original_diagnostic.log",
+    "audit/grand_puff_crash_20261017/final_authority.log",
+    "audit/grand_puff_crash_20261017/final_authority_process.json",
+    "audit/grand_puff_crash_20261017/final_development.log",
+    "audit/grand_puff_crash_20261017/final_development_process.json",
+    "audit/grand_puff_crash_20261017/final_game2d.log",
+    "audit/grand_puff_crash_20261017/final_game2d_process.json",
+    "audit/grand_puff_crash_20261017/final_probe_dust_boss.log",
+    "audit/grand_puff_crash_20261017/final_probe_throne.log",
+    "audit/grand_puff_crash_20261017/final_probe_verbs.log",
+    "audit/grand_puff_crash_20261017/final_syntax.json",
+    "audit/grand_puff_crash_20261017/fixed_reproduction.log",
+    "audit/grand_puff_crash_20261017/fixed_standalone.log",
+    "audit/grand_puff_crash_20261017/fixture_boundary.gd.txt",
+    "audit/grand_puff_crash_20261017/fixture_boundary.log",
+    "audit/grand_puff_crash_20261017/full_ci.log",
+    "audit/grand_puff_crash_20261017/full_ci_attempt1.log",
+    "audit/grand_puff_crash_20261017/full_ci_attempt2_result.json",
+    "audit/grand_puff_crash_20261017/full_ci_process.json",
+    "audit/grand_puff_crash_20261017/full_ci_process_attempt1.json",
+    "audit/grand_puff_crash_20261017/idle_cycle_controls.json",
+    "audit/grand_puff_crash_20261017/integration_gate_authority.json",
+    "audit/grand_puff_crash_20261017/integration_gate_authority.log",
+    "audit/grand_puff_crash_20261017/integration_gate_development.json",
+    "audit/grand_puff_crash_20261017/integration_gate_development.log",
+    "audit/grand_puff_crash_20261017/integration_import.log",
+    "audit/grand_puff_crash_20261017/integration_import_process.json",
+    "audit/grand_puff_crash_20261017/integration_merge.json",
+    "audit/grand_puff_crash_20261017/integration_precommit.json",
+    "audit/grand_puff_crash_20261017/integration_probe_collection.log",
+    "audit/grand_puff_crash_20261017/integration_probe_day_one_story_clips.log",
+    "audit/grand_puff_crash_20261017/integration_probe_dust_boss.log",
+    "audit/grand_puff_crash_20261017/integration_probes.json",
+    "audit/grand_puff_crash_20261017/integration_source_pin.json",
+    "audit/grand_puff_crash_20261017/integration_static.json",
+    "audit/grand_puff_crash_20261017/integration_static.log",
+    "audit/grand_puff_crash_20261017/native_debugger.json",
+    "audit/grand_puff_crash_20261017/native_debugger.log",
+    "audit/grand_puff_crash_20261017/native_debugger.py.txt",
+    "audit/grand_puff_crash_20261017/native_debugger_control_exception.log",
+    "audit/grand_puff_crash_20261017/native_debugger_control_exit.log",
+    "audit/grand_puff_crash_20261017/native_exit_diagnostic.json",
+    "audit/grand_puff_crash_20261017/native_exit_diagnostic.log",
+    "audit/grand_puff_crash_20261017/normal_dust_boss_repeat1.log",
+    "audit/grand_puff_crash_20261017/normal_dust_boss_repeat2.log",
+    "audit/grand_puff_crash_20261017/normal_dust_boss_repeats.json",
+    "audit/grand_puff_crash_20261017/opera_route_controls.json",
+    "audit/grand_puff_crash_20261017/opera_route_deadline_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/opera_route_deadline_diagnostic.log",
+    "audit/grand_puff_crash_20261017/opera_route_frame_limit_control.gd.txt",
+    "audit/grand_puff_crash_20261017/opera_route_frame_limit_control.log",
+    "audit/grand_puff_crash_20261017/owner_playtest_crash.log",
+    "audit/grand_puff_crash_20261017/precommit_verification.json",
+    "audit/grand_puff_crash_20261017/probe_day_one_story_clips.log",
+    "audit/grand_puff_crash_20261017/probe_dust_boss.log",
+    "audit/grand_puff_crash_20261017/probe_opera_retry.log",
+    "audit/grand_puff_crash_20261017/probe_opera_retry_process.json",
+    "audit/grand_puff_crash_20261017/probe_reconciliation.json",
+    "audit/grand_puff_crash_20261017/rejected_live_notification_probe.gd.txt",
+    "audit/grand_puff_crash_20261017/reproduction.gd.txt",
+    "audit/grand_puff_crash_20261017/source_equivalence.json",
+    "audit/grand_puff_crash_20261017/source_pin.json",
+    "audit/grand_puff_crash_20261017/source_pin_attempt1.json",
+    "audit/grand_puff_crash_20261017/source_pin_final.json",
+    "audit/grand_puff_crash_20261017/standalone_reproduction.gd.txt",
+    "audit/grand_puff_crash_20261017/story_attempt1.log",
+    "audit/grand_puff_crash_20261017/throne_cadence_controls.json",
+    "audit/grand_puff_crash_20261017/throne_camera_candidate.log",
+    "audit/grand_puff_crash_20261017/throne_camera_candidate_process.json",
+    "audit/grand_puff_crash_20261017/throne_camera_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_framing_controls.json",
+    "audit/grand_puff_crash_20261017/throne_framing_v2_controls.json",
+    "audit/grand_puff_crash_20261017/throne_framing_v3_controls.json",
+    "audit/grand_puff_crash_20261017/throne_full_framing_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_full_framing_diagnostic.log",
+    "audit/grand_puff_crash_20261017/throne_full_framing_v2.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_full_framing_v2.log",
+    "audit/grand_puff_crash_20261017/throne_full_framing_v3.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_full_framing_v3.log",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_counterexample.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_counterexample.log",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_v2.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_v2.log",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_v3.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_v3.log",
+    "audit/grand_puff_crash_20261017/unchanged_combat_control.gd.txt",
+    "audit/grand_puff_crash_20261017/unchanged_combat_control.log",
+    "audit/grand_puff_crash_20261017/verbs_frozen_negative_control.gd.txt",
+    "audit/grand_puff_crash_20261017/verbs_frozen_negative_control.log",
+    "audit/grand_puff_crash_20261017/verbs_full_cycle_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/verbs_full_cycle_diagnostic.log",
+    "audit/grand_puff_crash_20261017/verbs_partial_cycle_control.gd.txt",
+    "audit/grand_puff_crash_20261017/verbs_partial_cycle_control.log",
+    "audit/grand_puff_crash_20261017/verification.json",
+    "design/05_DOC_LEDGER.md",
+    "scripts/arena/day_one_castle_dressing.gd",
+    "scripts/day_one_flow.gd",
+    "scripts/probe_day_one_story_clips.gd",
+    "scripts/probe_dust_boss.gd",
+    "scripts/probe_throne.gd",
+    "scripts/probe_verbs.gd"
+  ],
+  "validation": [
+    {
+      "command": "Owner playtest exact4.7.2 Mobile crash log",
+      "result": "FAIL",
+      "evidence": "audit/grand_puff_crash_20261017/owner_playtest_crash.log; source d5e63a1ec6e79745da504ee3c3945e59ae35ea79. Focus-out during pending arrival rebuilds inside notification, then detached dressing free locks."
+    },
+    {
+      "command": "Propagated lifecycle negative controls",
+      "result": "PASS",
+      "evidence": "Baseline failure and fixed standalone controls; strengthened story probe also passes inside completed full run2. Full-suite reconciliation and native-exit uncertainty are reported separately."
+    },
+    {
+      "command": "Propagated focus-out plus detached teardown negative control at unchanged d5e63a1e",
+      "result": "FAIL",
+      "evidence": "audit/grand_puff_crash_20261017/baseline_runtime.log; both mounted-room assertion and deferred-retirement assertion fail with exact owner stack; unrelated concurrent castle shader diagnostic explicitly separate."
+    },
+    {
+      "command": "Same propagated-notification/detached-teardown reproduction with candidate source",
+      "result": "PASS",
+      "evidence": "audit/grand_puff_crash_20261017/fixed_reproduction.log; exit0 with four positive assertions and no runtime errors."
+    },
+    {
+      "command": "Expanded story interruption and retry controls",
+      "result": "PASS",
+      "evidence": "audit/grand_puff_crash_20261017/probe_day_one_story_clips.log; exit0; original fixture failure preserved as story_attempt1.log. Stale-route setup corrected by closing previous castle overlay."
+    },
+    {
+      "command": "First focused combat process",
+      "result": "FAIL",
+      "evidence": "audit/grand_puff_crash_20261017/combat_attempt1.log; process4294967295 after checkpoint re-entry, no SCRIPT ERROR or failing assertion, cause unproven. Concurrent initial asset import was still active; no native Windows crash event found. Separate repeat/full suite required."
+    },
+    {
+      "command": "Initial isolated-checkout import/reproduction preparation",
+      "result": "FAIL",
+      "evidence": "audit/grand_puff_crash_20261017/baseline_reproduction.log records initial not-yet-imported asset parse errors; this is infrastructure evidence, not the owner crash. Actual negative control is baseline_runtime.log. First import finished all steps but console wrapper exited4294967295; unchanged full suite uses direct official GUI executable and must supply authoritative import result."
+    },
+    {
+      "command": "Standalone actual Mobile1280x720 arrival interruption/retry/combat/DayTwo display",
+      "result": "PASS",
+      "evidence": "audit/grand_puff_crash_20261017/display_manifest.json; direct official GUI executable exit0. All five live captures retained with hashes."
+    },
+    {
+      "command": "First disposable displayed playthrough",
+      "result": "FAIL",
+      "evidence": "audit/grand_puff_crash_20261017/display_attempt1.log and display_attempt1/. Diagnosis: GDScript parent _init automatically ran inherited combat probe concurrently; final assertion failed after its intentional first-round interruption. Standalone harness removes parent constructor; production code unchanged."
+    },
+    {
+      "command": "Minimal standalone interruption/detached teardown reproduction",
+      "result": "PASS",
+      "evidence": "audit/grand_puff_crash_20261017/fixed_standalone.log; no inherited constructor; direct GUI binary exit0, four assertions pass."
+    },
+    {
+      "command": "Focused combat repeat/direct GUI executable",
+      "result": "FAIL",
+      "evidence": "combat_attempt3.log retains4294967295 exit and earlier first-warning assertions. Separately captured fixture_boundary.log exits0 at hits0/state tell/dodgefalse/fps119; does not prove the historical red cause. Full unchanged suite must independently pass; no gate lowered."
+    },
+    {
+      "command": "Original combat probe control after lifecycle repair",
+      "result": "PASS",
+      "evidence": "audit/grand_puff_crash_20261017/unchanged_combat_control.log; exact original trusted probe executes via standalone identical-source copy, exits0/ALL OK. Unnecessary live root-window notification mutation is reverted. Propagated arrival regression remains in the story probe; prior native exits remain unproven and preserved."
+    },
+    {
+      "command": "First full scripts/ci.sh run",
+      "result": "FAIL",
+      "evidence": "audit/grand_puff_crash_20261017/full_ci_attempt1.log and full_ci_process_attempt1.json; canceled before runtime probes to restore the unnecessary combat-probe mutation. Partial stages are not a completed full-suite pass."
+    },
+    {
+      "command": "Unmodified full scripts/ci.sh run2, preserved frozen source",
+      "result": "FAIL",
+      "evidence": "full_ci_attempt2_result.json: completed all82 with78 passes and4 preserved probe failures. Baseline controls, strict precondition fixes and exact retries are separate; unmodified run remains exit1."
+    },
+    {
+      "command": "Unchanged baseline and declared phase/cadence controls for required probe follow-up",
+      "result": "PASS",
+      "evidence": "Baseline idle/dust controls establish sampling/fixture defects; throne_framing_v2_controls.json reproduces3 failures at a genuine partial view. Non-proving cadence/V1 and auxiliary-arrival V2/V3 failures remain explicit. Final trusted-probe successes are in probe_reconciliation.json."
+    },
+    {
+      "command": "Grand Puff fixture memory/disk and phase diagnosis at unchanged baseline",
+      "result": "PASS",
+      "evidence": "dust_fixture_controls.json: original and forced-earned variants reproduce5 failures; resetting live and saved attack counters exits0 with disk/runtime1, no pending write and all3 phases. No production save defect inferred."
+    },
+    {
+      "command": "First explicit partial-view diagnostic",
+      "result": "FAIL",
+      "evidence": "throne_framing_controls.json: world coordinates were incorrectly passed as viewport stage coordinates, so the requested2121 floor position was not reached. Both assertions runs passed and do not reproduce the counterexample. V2 adds the inverse production mapping and a strict actual-arrival assertion; preserve both attempts."
+    },
+    {
+      "command": "V2 genuine-input partial framing and proposed full-framing diagnostic",
+      "result": "FAIL",
+      "evidence": "throne_framing_v2_controls.json: negative control reaches2121,765 through genuine floor input and reproduces all3 full-run failures with5 mounted/3 in-camera mist cards. Positive attempt never reaches requested pose and fails its new arrival assertion; no positive repair claim. V3 selects clear bottom floor and waits on actual arrival."
+    },
+    {
+      "command": "Bounded Opera readiness baseline comparison",
+      "result": "FAIL",
+      "evidence": "opera_route_controls.json: original control expires after12 frames/4466ms with fade1.0; it did not hit600-frame ceiling. The while-loop diagnostic passes after cache warming, so this comparison does not isolate a loop repair. Preserve existing Opera gate, rerun the unchanged trusted probe, and retain first-load performance as an unaccepted baseline observation."
+    },
+    {
+      "command": "Completed frozen unmodified full local run2",
+      "result": "FAIL",
+      "evidence": "full_ci_attempt2_result.json: all82 reached verdict,78 pass, four preserved failures. Exact unchanged Opera retry exits0. The remaining3 have baseline counterexamples and strict probe-only precondition repairs; rerun pending."
+    },
+    {
+      "command": "V3 clear-floor framing diagnostics",
+      "result": "FAIL",
+      "evidence": "throne_framing_v3_controls.json: both auxiliary requested-position assertions fail and are preserved. In the positive variant the naturally partial view has4 wisps, one real floor tap moves2165.637->2701.199 and yields5; all original throne assertions pass. This is bounded precondition evidence, not a passing complete V3 control. Final trusted-probe rerun remains authoritative."
+    },
+    {
+      "command": "Unchanged complete Opera retry",
+      "result": "PASS",
+      "evidence": "probe_opera_retry_process.json and probe_opera_retry.log: exact frozen639-file source, exit0/ALL OK, no assertion/script failures. Prior baseline cold initialization4466ms and failed original full-run case remain preserved; no first-load/device-performance acceptance."
+    },
+    {
+      "command": "Baseline idle-cycle and first-dodge controls",
+      "result": "PASS",
+      "evidence": "idle_cycle_controls.json: partial-window false failure, full-cycle positive and frozen negative all match expected. dust_fixture_controls.json: original and earned-attack variants reproduce5 failures; isolated fixture exits0, disk/runtime attacks1 with no pending write and phases[true,true,true]. Baseline runtime is unchanged d5e63a1e."
+    },
+    {
+      "command": "First final affected-probe gate",
+      "result": "FAIL",
+      "evidence": "affected_probe_reruns.json: throne and verbs pass; Grand Puff exits4294967295 without script errors/verdict after final checkpoint friendship resume. Source pin matches639 files. Native cause remains unproven and blocking; diagnostic flags change reporting only, not assertions."
+    },
+    {
+      "command": "Native-reporting diagnostic with crash handler disabled",
+      "result": "PASS",
+      "evidence": "native_exit_diagnostic.json/.log: exit0/ALL OK, unchanged final source. This reporting-only diagnostic does not explain the prior minus-one exit; native event observation and normal reruns remain required."
+    },
+    {
+      "command": "Self-tested child-only native event observer",
+      "result": "PASS",
+      "evidence": "native_debugger.json: explicit-exit and synthetic-exception controls pass; ordinary engine flags under observer exit0/ALL OK with only the initial loader breakpoint and normal exit. No later exception observed. This does not establish the cause of the earlier minus-one process exit."
+    },
+    {
+      "command": "Final exact-source local trusted roster by probe-by-probe reconciliation",
+      "result": "PASS",
+      "evidence": "probe_reconciliation.json and source_equivalence.json:78 byte-identical sealed components, strict throne/verbs reruns, unchanged complete Opera retry and two consecutive ordinary-flag Grand Puff passes cover all82. No relabelling of full-run2 or earlier native failure; remote exact-commit CI pending."
+    },
+    {
+      "command": "Two consecutive final ordinary-flag Grand Puff trusted probes",
+      "result": "PASS",
+      "evidence": "normal_dust_boss_repeats.json: both exit0/ALL OK, no failure lines, final639-file source pin unchanged. Earlier minus-one exit remains unexplained and preserved; no historical-cause or physical-acceptance claim."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; final syntax and 2D regression gates",
+      "result": "PASS",
+      "evidence": "final_authority_process.json, final_development_process.json, final_syntax.json and final_game2d_process.json; source639 frozen,2D gate is NO_REGRESSION only. Staged-source binding is in precommit_verification.json."
+    },
+    {
+      "command": "Reconcile latest green incoming dev39b0e158 before topic publication",
+      "result": "PASS",
+      "evidence": "integration_merge.json/integration_source_pin.json plus integration_import_process.json, integration_static.json, integration_gate_authority.json and integration_probes.json: source639 unchanged except incoming CollectionSystem; import and collection/story-clips/full-Grand-Puff probes all exit0. Final merge coverage and remote exact combined-commit full CI are separate."
+    },
+    {
+      "command": "Combined-source merge coverage and final source binding",
+      "result": "PASS",
+      "evidence": "integration_gate_development.json: base39b0e158, ALL OK. integration_precommit.json binds639 tested combined-source files to staged canonical Git blobs and verifies incoming R91 packet/source preservation. Exact combined-commit full CI remains pending before dev integration."
+    }
+  ],
+  "acceptance_gaps": "Remote exact combined-commit full CI/dev integration pending. Local repair82 probe-by-probe gate, displayed Mobile route, required static gates and combined import/authority/coverage plus3 focused probes pass. Historical Windows minus-one exit cause and baseline cold-load performance remain unproven/unaccepted. Device/child/owner, formal QA11, whole-game/strict-zero2D and release acceptance remain separate.",
+  "lessons": [
+    {
+      "lesson": "Real propagated lifecycle delivery locks ancestor child lists; direct notification calls miss this failure mode.",
+      "write_back": "scripts/probe_day_one_story_clips.gd::_probe_boss_entry_lifecycle"
+    },
+    {
+      "lesson": "A fresh first-dodge fixture must reset both live and saved earned-attack counters after navigation tests.",
+      "write_back": "scripts/probe_dust_boss.gd::_negative_input_case"
+    },
+    {
+      "lesson": "Full veil visibility requires the whole gate in the camera band; use real floor input before counting every mist card.",
+      "write_back": "scripts/probe_throne.gd"
+    },
+    {
+      "lesson": "Sample one complete authored idle cycle while retaining the movement threshold and frozen-animation negative control.",
+      "write_back": "scripts/probe_verbs.gd"
+    }
+  ]
+}

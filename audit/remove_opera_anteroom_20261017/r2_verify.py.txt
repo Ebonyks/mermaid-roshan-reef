@@ -1,0 +1,64 @@
+from pathlib import Path
+import subprocess,json,hashlib,os,time,re,sys,shutil
+root=Path(__file__).resolve().parents[1]
+work=root/'tmp/opera_foyer_verified_integration'
+out=work/'audit/remove_opera_anteroom_20261017'
+impact_path=work/'design/audit_impacts/remove-opera-anteroom-20261017.json'
+import_data=json.loads((out/'r2_import.json').read_text())
+assert import_data['status']=='PASS' and import_data['exit_code']==0
+frozen=import_data['source_sha256'];sources=list(frozen)
+assert all(hashlib.sha256((work/p).read_bytes()).hexdigest()==h for p,h in frozen.items())
+cases=[('opera','probe_opera','normal'),('throne','probe_throne','normal'),('throne_120','probe_throne','120'),('verbs','probe_verbs','normal'),('story_clips','probe_day_one_story_clips','normal'),('dust_boss','probe_dust_boss','normal')]
+results={}
+for label,name,fps in cases:
+    path=out/('r2_'+label+'.json');data=json.loads(path.read_text())
+    raw=(out/('r2_'+label+'.log')).read_bytes();text=raw.decode('utf-8',errors='replace')
+    assert data['exit_code']==0 and not data['reported_failures'] and not data['source_drift'],data
+    assert data['source_sha256']==frozen and hashlib.sha256(raw).hexdigest()==data['log_sha256']
+    marker={'probe_verbs':'Roshan sprite animation probe complete','probe_day_one_story_clips':'DAY_ONE_STORY_CLIPS|RESULT: PASS failures=0'}.get(name,'ALL OK')
+    assert marker in text,(label,marker)
+    if data['status']!='PASS':
+        assert label=='story_clips' and data['status']=='FAIL'
+        shutil.copy2(path,out/'r2_story_classifier_original.json')
+        data['status']='PASS'
+        data['classification_note']='Original runner expected ALL OK; the unchanged native story probe actually prints DAY_ONE_STORY_CLIPS RESULT: PASS failures=0. Native exit0, zero failed assertions and exact log/source hashes are independently checked. Original classifier receipt is preserved; no native failure is relabeled.'
+        path.write_text(json.dumps(data,indent=2)+'\n')
+    results[label]=data
+shutil.copy2(root/'tmp/verify_opera_reconcile2.py',out/'r2_runner.py.txt')
+d=json.loads(impact_path.read_text())
+for name in ['r2_story_classifier_original.json','r2_runner.py.txt']:
+    rel='audit/remove_opera_anteroom_20261017/'+name
+    if rel not in d['files']:d['files'].append(rel)
+impact_path.write_text(json.dumps(d,indent=2)+'\n')
+d=json.loads(impact_path.read_text())
+names=['r2_import.json','r2_import.log','r2_gates.log','r2_verification.json','r2_verify.py.txt']+[f'r2_{label}.{ext}' for label,name,fps in cases for ext in ['json','log']]
+for name in names:
+    rel='audit/remove_opera_anteroom_20261017/'+name
+    if rel not in d['files']:d['files'].append(rel)
+shutil.copy2(__file__,out/'r2_verify.py.txt')
+d['validation'].append({'command':'Second dev reconciliation: exact import, Opera/throne normal+120fps/full-cycle verbs/story-interruption/dust-boss affected probes, required static gates','result':'PENDING','evidence':'r2_*.json/.log bind merged sources. Upstream1a4e8a1c has exact green CI39073105968. Our two Opera production files are unchanged; final merged head still requires its own full exact-head CI before dev push.'})
+row=d['validation'][-1]
+impact_path.write_text(json.dumps(d,indent=2)+'\n')
+subprocess.run(['git','add','design/audit_impacts/remove-opera-anteroom-20261017.json'],cwd=work,check=True)
+subprocess.run(['git','add','-f',str(out.relative_to(work))],cwd=work,check=True,stderr=subprocess.PIPE)
+commands=[
+ [sys.executable,'-X','utf8','-B','-m','gdtoolkit.parser',*sources],
+ [sys.executable,'-X','utf8','-B','tools/lint_inference.py',*sources],
+ [sys.executable,'-X','utf8','-B','tools/audit_document_authority.py'],
+ [sys.executable,'-X','utf8','-B','tools/audit_development.py','--base','auto'],
+ [sys.executable,'-X','utf8','-B','tools/record_owner_decision.py','--check','--base','origin/dev'],
+ ['git','diff','--cached','--check']]
+exits=[]
+with (out/'r2_gates.log').open('w',encoding='utf-8') as stream:
+    for command in commands:
+        stream.write('COMMAND '+json.dumps(command)+'\n');stream.flush()
+        result=subprocess.run(command,cwd=work,stdout=stream,stderr=subprocess.STDOUT);exits.append(result.returncode)
+        stream.write('EXIT '+str(result.returncode)+'\n');stream.flush()
+        if result.returncode:break
+data={'status':'PASS' if len(exits)==len(commands) and not any(exits) else 'FAIL','previous_candidate':'6d71903d9fc2f18f243bc07c465dc26fc3b3252e','upstream':'1a4e8a1ceae29b401d63900a57a531b2f4442ba8','source_sha256':frozen,'source_git_lf_sha256':{p:hashlib.sha256((work/p).read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in sources},'affected_probes':{label:'r2_'+label+'.json' for label in results},'gate_exits':exits,'scope':'Reconcile green CHG-097 dependency without changing the Opera runtime behavior. Preserve upstream five-mist framing, full authored-cycle motion and live/saved first-attack assertions; keep natural room-voice readiness. No thresholds weakened, no finding closure; new full exact-head CI required.'}
+(out/'r2_verification.json').write_text(json.dumps(data,indent=2)+'\n')
+row['result']=data['status'];impact_path.write_text(json.dumps(d,indent=2)+'\n')
+subprocess.run(['git','add','design/audit_impacts/remove-opera-anteroom-20261017.json'],cwd=work,check=True)
+subprocess.run(['git','add','-f',str(out.relative_to(work))],cwd=work,check=True,stderr=subprocess.PIPE)
+print(json.dumps(data),flush=True)
+sys.exit(0 if data['status']=='PASS' else 1)

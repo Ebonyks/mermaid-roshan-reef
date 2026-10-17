@@ -1,0 +1,512 @@
+{
+  "status": "FAIL_PRESERVED",
+  "command": "unmodified scripts/ci.sh",
+  "process": {
+    "run": "FINAL_FULL_ATTEMPT2",
+    "pid": 32736,
+    "command": "Unmodified scripts/ci.sh",
+    "started_epoch": 1792261529.8324416,
+    "source_pin": "audit/grand_puff_crash_20261017/source_pin.json",
+    "exit": 1,
+    "elapsed_seconds": 9645.668,
+    "engine": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64.exe"
+  },
+  "source_pin": "audit/grand_puff_crash_20261017/source_pin.json",
+  "source_mismatches_at_terminal": [],
+  "probes": [
+    {
+      "probe": "probe_reef_districts",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_ocean_kingdoms",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_audit",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_passive",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_living_world",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_load",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_rank",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_save_recovery",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_galaxy_state",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_collection",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_mg2d",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_fetch",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_melody",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_dolls",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_seek",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_audio",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_dance",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_l2",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_sky_lagoon_animals",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_l2_reenter",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_crown",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_throne",
+      "exit": 0,
+      "reported_failure": true,
+      "passed": false
+    },
+    {
+      "probe": "probe_northern",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_human_art_audit",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_train",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_verbs",
+      "exit": 0,
+      "reported_failure": true,
+      "passed": false
+    },
+    {
+      "probe": "probe_skins",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_touch_router",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_touch_stress",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_interaction",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_touch_look",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_ui_system",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_voice",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_voice",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_d8_revisits",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_handoffs",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_kart_feel",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_combat",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_dust_bunny",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_dust_bunny_boss",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_dust_boss",
+      "exit": 1,
+      "reported_failure": true,
+      "passed": false
+    },
+    {
+      "probe": "probe_hit",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_partner",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_combat_tutorial",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_imp_ai",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_mic",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_stuffie",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_dungeon",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_ember",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_opera",
+      "exit": 1,
+      "reported_failure": true,
+      "passed": false
+    },
+    {
+      "probe": "probe_opera_2d",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_opera_diegetic_paths",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_opera_detective",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_opera_pipe",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_opera_nursery",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_opera_gesture_quality",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_kitchen_props",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_bathroom_props",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_castle_door_language",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_bathroom_integration",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_bathroom_bunny",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_bathroom_cleanup",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_bathroom_movie_handoff",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_director",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_integration",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_pool_cleanup",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_art_attack_state",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_castle_dressing",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_day_one_story_clips",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_chapter2",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_chapter2_farmer_resume",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_chapter2_lawn",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_alpha_milestone_save",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_dust_boss_balance",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_start_menu_routing",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_start_menu_new_game",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_castle_pool_life_2d",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_castle_pearl_art",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_fairy_art",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    },
+    {
+      "probe": "probe_props",
+      "exit": 0,
+      "reported_failure": false,
+      "passed": true
+    }
+  ],
+  "pass_count": 78,
+  "qualification": "All static/import gates passed. Four probe failures remain preserved; unchanged Opera retry passes. Confirmed probe preconditions are corrected next. This run is not relabelled a full-suite pass."
+}

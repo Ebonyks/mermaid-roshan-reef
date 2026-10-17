@@ -64,5 +64,8 @@ audit/cycles/luna-gameplay-repairs-20261014/**/*.patch whitespace=-blank-at-eol,
 # Preserve literal R91 Godot/import/CI diagnostic log bytes.
 docs/handoffs/codex_flat_vector_art_2026-10-07/r91_critter_insect_tab_runtime/**/*.log -text -diff
 
+# Preserve literal Grand Puff native logs, diagnostic sources and capture hashes.
+audit/grand_puff_crash_20261017/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
 # Preserve exact Windows/native-CI evidence bytes for the Opera room removal.
 audit/remove_opera_anteroom_20261017/*.log -text -diff

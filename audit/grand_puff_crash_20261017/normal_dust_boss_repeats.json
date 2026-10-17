@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "source_pin": "audit/grand_puff_crash_20261017/source_pin_final.json",
+  "source_mismatches": [],
+  "results": [
+    {
+      "repeat": 1,
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dust_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 61.596991300582886,
+      "failure_lines": [],
+      "positive_verdict": true,
+      "passed": true
+    },
+    {
+      "repeat": 2,
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dust_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 56.78284311294556,
+      "failure_lines": [],
+      "positive_verdict": true,
+      "passed": true
+    }
+  ],
+  "qualification": "Two consecutive ordinary-flag trusted-probe runs with fresh isolated saves. Prior unexplained native exit remains preserved; no historical-cause or device/child/owner acceptance claim."
+}

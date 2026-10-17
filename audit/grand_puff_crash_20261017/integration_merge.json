@@ -1,0 +1,32 @@
+{
+  "repair_commit": "0b8b73d1131ec6d87fbbbd42028b56e69d704880",
+  "incoming_dev": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "conflicts": [
+    {
+      "path": ".gitattributes",
+      "method": "Verified both sides append-only at task baseline; preserve incoming bytes plus repair append",
+      "incoming_append_bytes": 161,
+      "repair_append_bytes": 173
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "method": "Verified both sides append-only at task baseline; preserve incoming bytes plus repair append",
+      "incoming_append_bytes": 78364,
+      "repair_append_bytes": 5164
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "method": "Verified both sides append-only at task baseline; preserve incoming bytes plus repair append",
+      "incoming_append_bytes": 1220,
+      "repair_append_bytes": 2370
+    }
+  ],
+  "source_conflicts": [],
+  "changed_from_local_repair_pin": [
+    "scripts/collection_system.gd"
+  ],
+  "runtime_import_change": "Incoming assets/mg/butterfly.png.import enables mipmaps; original PNG unchanged.",
+  "combined_checks": "PASS_IMPORT_STATIC_AUTHORITY_AND_3_FOCUSED_PROBES",
+  "remote_exact_head_ci": "PENDING",
+  "coverage": "PASS_BASE_INCOMING_39b0e158"
+}

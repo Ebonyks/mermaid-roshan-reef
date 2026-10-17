@@ -1,0 +1,52 @@
+{
+  "purpose": "Standalone constructor-safe pending-portal controls copied from the unchanged probe, same3s deadline and readiness predicate",
+  "results": [
+    {
+      "name": "opera_route_frame_limit_control",
+      "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "70b8cc971867825cbfc590652a525da4a80207b95a79a5af9f9f204bff65100f",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\opera_route_frame_limit_control.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 1,
+      "elapsed_seconds": 27.641430139541626,
+      "assertion_failure": true,
+      "script_error": false,
+      "diagnostic_lines": [
+        "OPERA|route readiness evidence: act=2 stage=castle.room.opera_hall layer=15 fade=1.0",
+        "OPERA_CLOCK|frames=12 elapsed_ms=4466 ready=false state=opera stage=castle.room.opera_hall"
+      ]
+    },
+    {
+      "name": "opera_route_deadline_diagnostic",
+      "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "3fd318d3ba08561f34506461be180d2dff676971cea0d61c6483b17a265fa6a5",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\opera_route_deadline_diagnostic.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 25.695704698562622,
+      "assertion_failure": false,
+      "script_error": false,
+      "diagnostic_lines": [
+        "OPERA_CLOCK|frames=5 elapsed_ms=532 ready=true state=opera stage=opera.act.02"
+      ]
+    }
+  ]
+}
