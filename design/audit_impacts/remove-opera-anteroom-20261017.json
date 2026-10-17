@@ -1,0 +1,70 @@
+{
+  "id": "remove-opera-anteroom-20261017",
+  "scope": "Owner-requested removal of the pictured stage/footlights entry room from the reachable Opera flow. Enter the existing three-floor main foyer immediately, return there from careers, and use one Back to reach the Castle Main Hall. Preserve the logical opera_hall route ID, themed career ownership, source artwork and save fields.",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-12",
+    "DL-UI-05",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04"
+  ],
+  "findings": [
+    "MA-OPERA-012"
+  ],
+  "files": [
+    "scripts/castle_career_routes.gd",
+    "scripts/opera_house_venue_2d.gd",
+    "scripts/probe_opera.gd",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/remove_opera_anteroom_20261017/owner_request.json",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/remove_opera_anteroom_20261017/focused.log",
+    "audit/remove_opera_anteroom_20261017/focused.json",
+    "audit/remove_opera_anteroom_20261017/full_ci.log",
+    "audit/remove_opera_anteroom_20261017/full_ci.json",
+    "audit/remove_opera_anteroom_20261017/display.json",
+    "audit/remove_opera_anteroom_20261017/display.gd.txt",
+    "audit/remove_opera_anteroom_20261017/display.log"
+  ],
+  "validation": [
+    {
+      "command": "python -X utf8 -B -m gdtoolkit.parser scripts/castle_career_routes.gd scripts/opera_house_venue_2d.gd scripts/probe_opera.gd; python -X utf8 -B tools/lint_inference.py scripts/castle_career_routes.gd scripts/opera_house_venue_2d.gd scripts/probe_opera.gd",
+      "result": "PASS",
+      "evidence": "Both processes exited 0; gameplay hashes are frozen in focused.json."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Initial candidate: DOCAUTH inventory 705/ledger 705/active 69/records 72 ALL OK; AUDITDEV base d5e63a1ec6e79745da504ee3c3945e59ae35ea79 ALL OK. Recheck after final evidence staging."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless --path . -s scripts/probe_opera.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "audit/remove_opera_anteroom_20261017/focused.json and focused.log: exit 0 in 162.337 seconds, ALL OK, no source drift; direct entry, single-Back exit, dev menu, all career lifecycle and save/reward invariants."
+    },
+    {
+      "command": "scripts/ci.sh through Windows Python wrapper tmp/remove_opera_full_ci.sh",
+      "result": "PENDING",
+      "evidence": "audit/remove_opera_anteroom_20261017/full_ci.log; full_ci.json is written on completion. No full-suite PASS claimed yet."
+    },
+    {
+      "command": "Displayed 1280x720 Mobile diagnostic preview",
+      "result": "PASS",
+      "evidence": "audit/remove_opera_anteroom_20261017/display.json, display.gd.txt and display.log. Exact Godot 4.7.2 official ed1daf0bf, mobile renderer, opera_venue top route, venue open. Root agent inspected the rendered capture: existing three-floor main foyer, no pictured stage/footlights room. Isolated MermaidReef-OperaRemovalReview-20261017 profile. This is diagnostic desktop evidence only."
+    },
+    {
+      "command": "Refresh Godot AI connection",
+      "result": "PENDING",
+      "evidence": "Godot AI namespace was removed during the session; Windows control helper initialization and one retry timed out. The existing review project received the two changed scripts and a standalone visible CLI preview is left in its main foyer, but game_helper reports debugger active=false. No Godot AI reconnection claimed."
+    }
+  ],
+  "acceptance_gaps": "Godot AI reconnection remains unavailable. Authoritative visual, target-device, child and owner acceptance remain open. Full local/remote integration gates remain separately tracked. MA-OPERA-012 lifecycle and game-wide UNSATISFIED state remain unchanged. This scoped removal eliminates the extra playable navigation stop while preserving source assets and the stable opera_hall route/save identity."
+}
