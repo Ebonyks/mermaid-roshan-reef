@@ -60,3 +60,6 @@ assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json -text whitespace=cr-
 
 # Literal unified-diff context prefixes precede authored GDScript tabs.
 audit/cycles/luna-gameplay-repairs-20261014/**/*.patch whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+
+# Preserve exact Windows/native-CI evidence bytes for the Opera room removal.
+audit/remove_opera_anteroom_20261017/*.log -text -diff

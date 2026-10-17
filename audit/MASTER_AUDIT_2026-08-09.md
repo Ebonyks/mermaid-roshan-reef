@@ -64,6 +64,8 @@ active-fact checks; do not hand-copy its counts into planning rules.
 
 
 <!-- AUDIT_TASK_INDEX_START -->
+Owner-requested [Opera antechamber removal](../design/audit_impacts/remove-opera-anteroom-20261017.json) (2026-10-17) makes the existing three-floor venue the immediate Opera destination and makes one Back return to the Castle Main Hall. The logical room ID and career/save ownership are retained. Focused route/save checks and displayed Mobile diagnostics pass; the restarted local Godot AI bridge is verified live with the game left in the main foyer. All 82 trusted probes pass through source-bound per-probe verification after a baseline-reproduced Royal Hall harness readiness repair and unchanged Chapter Two/verb reruns; the initial red suite is preserved. Published-head CI/integration and external acceptance remain separately tracked; `MA-OPERA-012` is not closed.
+
 
 Owner-reported 2026-10-15 [doorframe restoration](../design/audit_impacts/restore-doorframes-20261015.json) recovers the unmerged `10ddff27` painted-frame cues onto current dev, preserving later attention feedback. Exact local verification passes all 82 trusted probes after the unchanged 96-frame interaction binding is revalidated; the initial failed gate is preserved. Remote CI/integration and authoritative visual/device/child/owner acceptance remain separate; no finding closure or game-wide satisfaction is claimed.
 
