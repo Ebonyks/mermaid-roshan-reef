@@ -1,5 +1,5 @@
 {
-  "status": "PASS_LOCAL_FULL_CI_NATIVE750_PUBLICATION_PENDING",
+  "status": "PASS_LOCAL82_NATIVE750_PUBLISHED_REVIEW_ONLY_REMOTE_CI_PENDING",
   "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
   "exact_engine": "4.7.2-stable official.ed1daf0bf",
   "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
@@ -31,5 +31,51 @@
   "dev_integrated": false,
   "accepted_removed": 0,
   "whole_game_total": null,
-  "remaining": "Current source/newuse approval, formalQA11/device/child/owner, complete category/card/habitat/world consumers, acquisition routes and unknown whole-game inventory."
+  "remaining": "Current source/newuse approval, formalQA11/device/child/owner, complete category/card/habitat/world consumers, acquisition routes and unknown whole-game inventory.",
+  "payload_actual_staged_2d": {
+    "log": "PAYLOAD_STAGED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  },
+  "payload_actual_committed_2d": {
+    "revision": "92822aaf5f381e623dacf1a9dff0e20f82306c4a",
+    "log": "PAYLOAD_COMMITTED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  },
+  "remote_exact_head_ci": "PENDING; prior baselineFmachineCI is historical only",
+  "publication": {
+    "payload_revision": "92822aaf5f381e623dacf1a9dff0e20f82306c4a",
+    "manifest_sha256": "55c17387be65fb5dd83d7a0157bdb81ce26d4691f025b16ca0488f245bb792b5",
+    "required_files": 306,
+    "required_bytes": 170679536,
+    "access_mode": "Anonymous HTTPS GET; no authentication. Exact immutable commit, byte length and SHA-256 for every declared required file and manifest.",
+    "checked_at_utc": "2026-10-17T17:23:55.424009+00:00"
+  },
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=706|LEDGER=706|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "e1588bcf6af0c34381f185675fc56b876367172512105bd0e8972a3297cb7a5d",
+      "checked_at_utc": "2026-10-17T17:24:29.730262+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|d5e63a1ec6e79745da504ee3c3945e59ae35ea79\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "14d841846fcb1419a73ee3ae4104b467a688b50496d4ec890c592785c81e3b26",
+      "checked_at_utc": "2026-10-17T17:24:32.273690+00:00"
+    }
+  ]
 }
