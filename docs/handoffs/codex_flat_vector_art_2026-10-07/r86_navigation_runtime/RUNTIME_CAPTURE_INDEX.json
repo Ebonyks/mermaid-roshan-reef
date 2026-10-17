@@ -1,0 +1,463 @@
+{
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "cases": [
+    {
+      "case": "native/attempt1_runtime_1280",
+      "aspect": [
+        1280,
+        720
+      ],
+      "engine_check_count": 32,
+      "engine_checks_pass": true,
+      "raw_frame_count": 15,
+      "round_trips": 3,
+      "pixel_guards": "PASS",
+      "pixel_guard_frame_count": 13,
+      "normal_eleven_unchanged": true,
+      "known_source_and_sidecars_unchanged": true,
+      "report_sha256": "1e19caa6e574e703b8ecff962e44903fd96f58ddf815d571956e91d28db5af3b"
+    },
+    {
+      "case": "native/attempt1_runtime_1600",
+      "aspect": [
+        1600,
+        720
+      ],
+      "engine_check_count": 32,
+      "engine_checks_pass": true,
+      "raw_frame_count": 15,
+      "round_trips": 3,
+      "pixel_guards": "PASS",
+      "pixel_guard_frame_count": 13,
+      "normal_eleven_unchanged": true,
+      "known_source_and_sidecars_unchanged": true,
+      "report_sha256": "5332a93e56163f43632b86139a7266be09ba6067cbe752c15f265df6e521f8aa"
+    }
+  ],
+  "frames": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/bootstrap_menu.png",
+      "sha256": "4a81bbe408e9db91cf8f69670b4f5de6e378b58baaf3dc330752398de2ab039b",
+      "bytes": 1389038,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "bootstrap_menu",
+      "classification": "EXCLUDED_BOOTSTRAP_CONTROL",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/bootstrap_newgame_arm_delay.png",
+      "sha256": "ddea95ee5af5760ce04ec11def771b310569fd49089c530685e4aa5ae49a0a77",
+      "bytes": 677949,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "bootstrap_newgame_arm_delay",
+      "classification": "EXCLUDED_BOOTSTRAP_CONTROL",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/menu_root_before.png",
+      "sha256": "7a615de0d0a8d117a8e5755c1f06436fcfc7fc21dac8ae304ddff7a7330aab72",
+      "bytes": 1849841,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "menu_root_before",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": true,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/menu_down_pause_transition.png",
+      "sha256": "f4955b24ecd87015526c6657af74e768f79e7c9bb1495f5580a6739aa17e7778",
+      "bytes": 670490,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "menu_down_pause_transition",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": true,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/pause_back_after_release.png",
+      "sha256": "f4955b24ecd87015526c6657af74e768f79e7c9bb1495f5580a6739aa17e7778",
+      "bytes": 670490,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "pause_back_after_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/back_down_resume_transition.png",
+      "sha256": "a8cb3d85316777bbaa4b297781d68c34bd149697390d88fd118d479d45a95e47",
+      "bytes": 1852357,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "back_down_resume_transition",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/menu_return_after_release.png",
+      "sha256": "ea3af2d19005d1f3d336c90c5ee41082323d61674280dee4b51c38ab8b1dd826",
+      "bytes": 1852256,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "menu_return_after_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": true,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/repeat_0_back_down.png",
+      "sha256": "bdc00e3f4bfa7179c0cb01fc1935f566aaa1e09c2cabfbc139327b3b645bbf9f",
+      "bytes": 670604,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "repeat_0_back_down",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/repeat_0_back_release.png",
+      "sha256": "bdc00e3f4bfa7179c0cb01fc1935f566aaa1e09c2cabfbc139327b3b645bbf9f",
+      "bytes": 670604,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "repeat_0_back_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/repeat_0_menu_down.png",
+      "sha256": "173ad20a8e13e73a3806578e428db4b0bccccdd54a63bebe336908a57b9ab5da",
+      "bytes": 1852447,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "repeat_0_menu_down",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/repeat_0_menu_release.png",
+      "sha256": "a95b82669c881b09357e75af6212a0c8ec0275a3a484ad1af34b9aef5e987297",
+      "bytes": 1852457,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "repeat_0_menu_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/repeat_1_back_down.png",
+      "sha256": "fe42edf513a1a8422405d8d7d22f7b586707e7cee88f9721c14a0efc90c0fc5a",
+      "bytes": 670765,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "repeat_1_back_down",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": true,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/repeat_1_back_release.png",
+      "sha256": "fe42edf513a1a8422405d8d7d22f7b586707e7cee88f9721c14a0efc90c0fc5a",
+      "bytes": 670765,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "repeat_1_back_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/repeat_1_menu_down.png",
+      "sha256": "a5332a188970c87d2df6293696d108d26d30c6cc42330094365037693a3f3adf",
+      "bytes": 1852153,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "repeat_1_menu_down",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1280/repeat_1_menu_release.png",
+      "sha256": "410c7f96bda847920030999a5990ac9f9451c4742606e70dc4aa8ae1ec082459",
+      "bytes": 1852163,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "repeat_1_menu_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": true,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/bootstrap_menu.png",
+      "sha256": "07678fb19434448da01006afcf3e726d9330f6c82f1585e7194af7af8c4f7cee",
+      "bytes": 1404635,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "bootstrap_menu",
+      "classification": "EXCLUDED_BOOTSTRAP_CONTROL",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/bootstrap_newgame_arm_delay.png",
+      "sha256": "4c7fe5beb1c3d1711a3d4aa4f0bf01e27e1c245e41269ffd939346a9254c42f7",
+      "bytes": 690678,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "bootstrap_newgame_arm_delay",
+      "classification": "EXCLUDED_BOOTSTRAP_CONTROL",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/menu_root_before.png",
+      "sha256": "171e7ea596ff581291bac2236a22ef0494e866a3630af9b8794c2cae28bd2847",
+      "bytes": 2288684,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "menu_root_before",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": true,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/menu_down_pause_transition.png",
+      "sha256": "1cc079f774bb5bc9c653e9c548a9ddbab016bcf132318041f43f786c0bded2fb",
+      "bytes": 994884,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "menu_down_pause_transition",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": true,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/pause_back_after_release.png",
+      "sha256": "1cc079f774bb5bc9c653e9c548a9ddbab016bcf132318041f43f786c0bded2fb",
+      "bytes": 994884,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "pause_back_after_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/back_down_resume_transition.png",
+      "sha256": "d8cfa605e500c78503c2c16e720fadadb852060d9b1eec51682f07e3c1df6d19",
+      "bytes": 2291388,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "back_down_resume_transition",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/menu_return_after_release.png",
+      "sha256": "baacd2fcd6d90b01403102e93d90276413e5285a9cc0e5a618f8e03e599ad699",
+      "bytes": 2291158,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "menu_return_after_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/repeat_0_back_down.png",
+      "sha256": "a45fdbc9e1fcb6b7fa3e61b346e2464d05a8658650ddcca4ecd20ea72d98664d",
+      "bytes": 994897,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "repeat_0_back_down",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/repeat_0_back_release.png",
+      "sha256": "a45fdbc9e1fcb6b7fa3e61b346e2464d05a8658650ddcca4ecd20ea72d98664d",
+      "bytes": 994897,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "repeat_0_back_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/repeat_0_menu_down.png",
+      "sha256": "da6bb833b2de7f7a22affe77927e966bab24869d1c07b8f4d577a81680909615",
+      "bytes": 2291161,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "repeat_0_menu_down",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/repeat_0_menu_release.png",
+      "sha256": "61cb3dfee4e2019462935797328c7bf8f97013d5b99aadce98a9965c6a169a64",
+      "bytes": 2291096,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "repeat_0_menu_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/repeat_1_back_down.png",
+      "sha256": "91518ee611814b94afb544f867f66e6cb45589a4cdf1ecc855ec7f0e1139cda5",
+      "bytes": 994894,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "repeat_1_back_down",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": true,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/repeat_1_back_release.png",
+      "sha256": "91518ee611814b94afb544f867f66e6cb45589a4cdf1ecc855ec7f0e1139cda5",
+      "bytes": 994894,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "repeat_1_back_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/repeat_1_menu_down.png",
+      "sha256": "48297eef2627bd825d26f8501a88085f2414a0a6ee5795d2945adc43d70f745e",
+      "bytes": 2291107,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "repeat_1_menu_down",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": false,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/native/attempt1_runtime_1600/repeat_1_menu_release.png",
+      "sha256": "f8ace643de6b19ae8825122c6c5c99f1b45523a6da90414309bfcf42ef85b6b7",
+      "bytes": 2291158,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "repeat_1_menu_release",
+      "classification": "EXCLUDED_WORK_BRANCH_NATIVE_VERIFICATION",
+      "directly_viewed_by_agent": true,
+      "formal_QA11": false,
+      "current_dev_coverage_credit": 0
+    }
+  ],
+  "new_raw_frames": 30,
+  "direct_agent_view_count": 9,
+  "all_frames_excluded_from_dev_coverage": true,
+  "not_distinct_screens": true
+}

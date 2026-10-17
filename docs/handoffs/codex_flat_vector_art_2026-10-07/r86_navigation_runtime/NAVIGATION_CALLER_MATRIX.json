@@ -1,0 +1,2641 @@
+{
+  "schema": "reef.navigation_source_caller_matrix/1",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "scanned_at_utc": "2026-10-17T07:48:16.737413+00:00",
+  "role_id": "FV-2ABD73BAFFE0",
+  "family": "shared_ui",
+  "source_scope": "Source-only caller enumeration over exact tested working bytes. No new runtime action/capture, glyph redesign, route change or visual review. The current three material files differ fromN; all other scanned files matchN after explicit LF normalization.",
+  "source_files": [
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "tested_raw_sha256": "c0efa70a5a00ba5c6204b5c960ce6de4ea702971dc7554cda23b32bf42f895e1",
+      "baseline_git_sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "source_normalized_sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "baseline_normalized_sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "tested_raw_sha256": "f3203cb1e8955ae29b9536f266a57a33373ec459f2828724f2f6be59d1283c8c",
+      "baseline_git_sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+      "source_normalized_sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+      "baseline_normalized_sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "tested_raw_sha256": "99a8ff0f4cb1969fa95eb207c3545811d1ddb18eb1d14cd941529de71abdb415",
+      "baseline_git_sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364",
+      "source_normalized_sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364",
+      "baseline_normalized_sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "tested_raw_sha256": "1f12db9760f97d65a00c49c179b4448273c367ed1d715fad845c65dc7f89cc91",
+      "baseline_git_sha256": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+      "source_normalized_sha256": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+      "baseline_normalized_sha256": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "tested_raw_sha256": "fceb9531f6868bc5967090a5023b547f3f0609a2a632cb8c10e0974de2a9d35f",
+      "baseline_git_sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8",
+      "source_normalized_sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8",
+      "baseline_normalized_sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "tested_raw_sha256": "0efc76accefd3ca8b2fdffceec99bb66768ff827d9f9fdb059c9dad7fb4c0bc3",
+      "baseline_git_sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "source_normalized_sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "baseline_normalized_sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "tested_raw_sha256": "f0137cd6a80b6652c4130f8850f097c6cb4d3729f491b9dbdb42806af5e3bfb0",
+      "baseline_git_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "source_normalized_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "baseline_normalized_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/arena/northern_kingdom.gd",
+      "tested_raw_sha256": "3aa327e624f4d8701750d094662da1c643a5751465d092e8b880666aef30349c",
+      "baseline_git_sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a",
+      "source_normalized_sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a",
+      "baseline_normalized_sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "tested_raw_sha256": "848591d5a4b3dc0e15bae3c2e30bfb27102cee2eaaf2a6ec208aae607c046dba",
+      "baseline_git_sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395",
+      "source_normalized_sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395",
+      "baseline_normalized_sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "tested_raw_sha256": "839c849488a657a3f0ed977be013e4f9ae6c3c27fc48aa8610ac987558cb5d5e",
+      "baseline_git_sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+      "source_normalized_sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+      "baseline_normalized_sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "tested_raw_sha256": "768d7f410b4d0af59f140a8f86ca0262d795fbb614d9bd0326ebc56c4befba6f",
+      "baseline_git_sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+      "source_normalized_sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+      "baseline_normalized_sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "tested_raw_sha256": "c2010e40d3e3e0ebb6928d1fab1efe9b997416c8a72a9ab8c547df5589552886",
+      "baseline_git_sha256": "35ccacfec6860ceb984a5f91c6f8532f643d75c5739efa1f8f825164b175b76e",
+      "source_normalized_sha256": "35ccacfec6860ceb984a5f91c6f8532f643d75c5739efa1f8f825164b175b76e",
+      "baseline_normalized_sha256": "35ccacfec6860ceb984a5f91c6f8532f643d75c5739efa1f8f825164b175b76e",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/boot_splash_overlay.gd",
+      "tested_raw_sha256": "af84a160a07c5244c4aec6ee3a575ded905b9eb418525f1da0dd6dc36b41b647",
+      "baseline_git_sha256": "d90b8692f1632eedcd957a6ca46539aa3ad85b87d3abe93c20cd9cfc0dc64b0d",
+      "source_normalized_sha256": "d90b8692f1632eedcd957a6ca46539aa3ad85b87d3abe93c20cd9cfc0dc64b0d",
+      "baseline_normalized_sha256": "d90b8692f1632eedcd957a6ca46539aa3ad85b87d3abe93c20cd9cfc0dc64b0d",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/boss_encounter_2d.gd",
+      "tested_raw_sha256": "73785962bbddf9d33f71cc5007d5048ac9e3f5a26f8a85bd237d1fd5cba77831",
+      "baseline_git_sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+      "source_normalized_sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+      "baseline_normalized_sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "tested_raw_sha256": "62e9c65d87ff2a25f384fe16db444257326fea98ad72358f744103a3138ae141",
+      "baseline_git_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "source_normalized_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "baseline_normalized_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/camera_kit.gd",
+      "tested_raw_sha256": "84d200f80fe84aea65ee999d512465f5c3ef5c9730a7a3459b8baf96d2bada33",
+      "baseline_git_sha256": "ec980456ed35789e273ea7b28964e63959277ecc61eb8438251bfe012bb0927b",
+      "source_normalized_sha256": "ec980456ed35789e273ea7b28964e63959277ecc61eb8438251bfe012bb0927b",
+      "baseline_normalized_sha256": "ec980456ed35789e273ea7b28964e63959277ecc61eb8438251bfe012bb0927b",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "tested_raw_sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8",
+      "baseline_git_sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "source_normalized_sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "baseline_normalized_sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "tested_raw_sha256": "5c984ebed3a2a4789d6a2471b0db1356de7804ef2ca436bb449689717a716b89",
+      "baseline_git_sha256": "da2d19422b20b6a8cce724a441e09db80f4ac105757a4131233920054ac79c94",
+      "source_normalized_sha256": "da2d19422b20b6a8cce724a441e09db80f4ac105757a4131233920054ac79c94",
+      "baseline_normalized_sha256": "da2d19422b20b6a8cce724a441e09db80f4ac105757a4131233920054ac79c94",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "tested_raw_sha256": "20e166175a30e267899716108aade2315784ee07ff6cbee70821ea4f2909bac8",
+      "baseline_git_sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+      "source_normalized_sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+      "baseline_normalized_sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "tested_raw_sha256": "ca9867cc2cbdad56a8b37090de08835755474eabc6f8da168f7e8cf809052988",
+      "baseline_git_sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "source_normalized_sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "baseline_normalized_sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "tested_raw_sha256": "4706748be96d7234a3959229071e6cd9a3e7ec270ea02fca0188fe68f24c9bae",
+      "baseline_git_sha256": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "source_normalized_sha256": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "baseline_normalized_sha256": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "tested_raw_sha256": "41be997e2e367343a85106bcf30f619be497baa59052eece81889e302b20ca71",
+      "baseline_git_sha256": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b",
+      "source_normalized_sha256": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b",
+      "baseline_normalized_sha256": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "tested_raw_sha256": "5ba372295472500b5d0d552202c9e257ee1be1027446eb7ecc9b460d590177ae",
+      "baseline_git_sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "source_normalized_sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "baseline_normalized_sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "tested_raw_sha256": "79909f7dc44cc9c89ad6f506a2173ab2d80d4c05be8abf74118db86c5fca4128",
+      "baseline_git_sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "source_normalized_sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "baseline_normalized_sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "tested_raw_sha256": "e0e814ebc49d9f40cc59dc4453c7c72cdd7cbb5e2447f54168e1ae8d57abb777",
+      "baseline_git_sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "source_normalized_sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "baseline_normalized_sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "tested_raw_sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa",
+      "baseline_git_sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "source_normalized_sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "baseline_normalized_sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "tested_raw_sha256": "afc04626075f6a6be6747e2d8b2da2c1cb22640e202d01da7a06b766c6631f11",
+      "baseline_git_sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+      "source_normalized_sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+      "baseline_normalized_sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "tested_raw_sha256": "42daa1d7b4ae97372bb7869defb39dce850c91a779c5bfb35ece7fa985212fa6",
+      "baseline_git_sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+      "source_normalized_sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+      "baseline_normalized_sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "tested_raw_sha256": "bdae21ffe3236f331906b2b16600c7bcaedfe6926195e6dbfaa5cd76f0ed1235",
+      "baseline_git_sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "source_normalized_sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "baseline_normalized_sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/chapter_two_voice_catalog.gd",
+      "tested_raw_sha256": "af71bc090ccfd1f76dd7714768cf97f11e46c3ff858d8503b2ec5f75a52a0f06",
+      "baseline_git_sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+      "source_normalized_sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+      "baseline_normalized_sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "tested_raw_sha256": "23f9095e843f0e735265cc563e13cd95deaf6532f2cb9cf7e2d0af73afe32c32",
+      "baseline_git_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "source_normalized_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "baseline_normalized_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "tested_raw_sha256": "7783ac57ff3f79a8ca9e6a690b5a4896f349c58bfc963e844b63f29f92386783",
+      "baseline_git_sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+      "source_normalized_sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+      "baseline_normalized_sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "tested_raw_sha256": "5463696830349d424ac578e4f219a25294b7ea5b932cd45a564ab84495e4814e",
+      "baseline_git_sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327",
+      "source_normalized_sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327",
+      "baseline_normalized_sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "tested_raw_sha256": "2cce63f238b78f7c548948b2c26d689cb4dce913b0ba07b6c14d7f2fb42c55c6",
+      "baseline_git_sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be",
+      "source_normalized_sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be",
+      "baseline_normalized_sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/companion.gd",
+      "tested_raw_sha256": "dc8622d6ae0a8c2802357ad46cab7b5b6fe9939ccd0c5b01abe49eba7126af72",
+      "baseline_git_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "source_normalized_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "baseline_normalized_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "tested_raw_sha256": "e07c6b99b46e399f6025738309843875b9fb827f5b15aa239347771f945604b3",
+      "baseline_git_sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "source_normalized_sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "baseline_normalized_sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "tested_raw_sha256": "a807cdcd8003ff368ebb6c8f85e19597eb9d60e2ed5e759bc1de0300f6a0ab1c",
+      "baseline_git_sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+      "source_normalized_sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+      "baseline_normalized_sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "tested_raw_sha256": "8ee098f7079e5f6c700cdfd7707650e5e907f9b42a5698a28023e8b77fa70c21",
+      "baseline_git_sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+      "source_normalized_sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+      "baseline_normalized_sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "tested_raw_sha256": "2ff093343b5b9d744695f7ca3261a0be659b9498fd4f525d749a41e55aca89e2",
+      "baseline_git_sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+      "source_normalized_sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+      "baseline_normalized_sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/day_one_contextual_voice_catalog.gd",
+      "tested_raw_sha256": "09582aeda0b067a451d652f1e387fd4e651f31a6af06c2fabaf4618a641b434b",
+      "baseline_git_sha256": "c14e8403fb36e82b2a3c6eb20eb0d5839424707046c64c3ded52893918ada75b",
+      "source_normalized_sha256": "c14e8403fb36e82b2a3c6eb20eb0d5839424707046c64c3ded52893918ada75b",
+      "baseline_normalized_sha256": "c14e8403fb36e82b2a3c6eb20eb0d5839424707046c64c3ded52893918ada75b",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "tested_raw_sha256": "1f26f9136d1b9eca6699dd91ffd17c0d36c04797d29ec9f858b1476f8aa87804",
+      "baseline_git_sha256": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf",
+      "source_normalized_sha256": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf",
+      "baseline_normalized_sha256": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "tested_raw_sha256": "a7af6336e1232c4c3cc8c94fb792ea90877b758633e4a7c0d24fd56d6e1b1ce8",
+      "baseline_git_sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1",
+      "source_normalized_sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1",
+      "baseline_normalized_sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/day_one_story_clips.gd",
+      "tested_raw_sha256": "73ae2716febaf09819b4198c0498990171459f224e42271b7893091b11988934",
+      "baseline_git_sha256": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a",
+      "source_normalized_sha256": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a",
+      "baseline_normalized_sha256": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/day_two_transition_2d.gd",
+      "tested_raw_sha256": "0c02701ca3aed6c299aea78bb12ba49a41e230a06e5e68cafa3ae711bcec8804",
+      "baseline_git_sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d",
+      "source_normalized_sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d",
+      "baseline_normalized_sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/debug_export_stage_pathfinding.gd",
+      "tested_raw_sha256": "bddb3ed5d87b3aae646dd9b9b51a131bced28e8959992166fdda31b3ffa7fc4f",
+      "baseline_git_sha256": "771e7d06e7b7ed206bb8ae23d056f55dfbabe39aff28246ad260d716a8203736",
+      "source_normalized_sha256": "771e7d06e7b7ed206bb8ae23d056f55dfbabe39aff28246ad260d716a8203736",
+      "baseline_normalized_sha256": "771e7d06e7b7ed206bb8ae23d056f55dfbabe39aff28246ad260d716a8203736",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/dev_mode.gd",
+      "tested_raw_sha256": "444ec444f3d64780c03e35074ac68b33d4c4203dfdd2925b8808ff98ab8c7921",
+      "baseline_git_sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c",
+      "source_normalized_sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c",
+      "baseline_normalized_sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "tested_raw_sha256": "16998ece30cc0115c83ceb2f47bf7da23a8e27507a65aaa248f34bfacd765128",
+      "baseline_git_sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941",
+      "source_normalized_sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941",
+      "baseline_normalized_sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "tested_raw_sha256": "bf2645396f993cf13418eaee16854dcb1c3874bd4fcbdfd71eabb11365b8cadf",
+      "baseline_git_sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "source_normalized_sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "baseline_normalized_sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "tested_raw_sha256": "18e8cf88c99b95fcf1ddebc64cf944bc7fcde9f293b4000395a6211d688a4ae2",
+      "baseline_git_sha256": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33",
+      "source_normalized_sha256": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33",
+      "baseline_normalized_sha256": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "tested_raw_sha256": "50fd0897b2a78381c76ddba995622552d91e5d3b41a3f6b971581b1d9d6a2ba0",
+      "baseline_git_sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4",
+      "source_normalized_sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4",
+      "baseline_normalized_sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "tested_raw_sha256": "69ee774976c8fe338356c6e0fac4e4c5acad5d24156c6a9f324febf1dd02feed",
+      "baseline_git_sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+      "source_normalized_sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+      "baseline_normalized_sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/dust_bunny_ai.gd",
+      "tested_raw_sha256": "2b913421f051dcafabfd492779eee4e33089deda1f950616c2df7d62e52f9826",
+      "baseline_git_sha256": "129f1fb65b4854b6fbd481932883a5240c9dc289aa985cb2ba258d3e3025c55b",
+      "source_normalized_sha256": "129f1fb65b4854b6fbd481932883a5240c9dc289aa985cb2ba258d3e3025c55b",
+      "baseline_normalized_sha256": "129f1fb65b4854b6fbd481932883a5240c9dc289aa985cb2ba258d3e3025c55b",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "tested_raw_sha256": "3b97476eed2103256e3d6b1c5b6699b60b2081d4f5566aa53e5faeb3ae7f184a",
+      "baseline_git_sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739",
+      "source_normalized_sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739",
+      "baseline_normalized_sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/dust_bunny_sprite.gd",
+      "tested_raw_sha256": "e103d0402cea68429d7af2d2e44f161aaafd84df91e227d31ca6549db5d9a1f5",
+      "baseline_git_sha256": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837",
+      "source_normalized_sha256": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837",
+      "baseline_normalized_sha256": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "tested_raw_sha256": "5d2b6c92e56df5b44bc07c38fa48ae21a784b51af2f866262de262b9d5262ec6",
+      "baseline_git_sha256": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9",
+      "source_normalized_sha256": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9",
+      "baseline_normalized_sha256": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/encounter_attack_2d.gd",
+      "tested_raw_sha256": "dce5638e06baaed6589435b2cb935395b8a9ce7e28d0ca57eec49749233fec4b",
+      "baseline_git_sha256": "f427ccd622a7bde0308998976bba7141a7b6b8bdc21e4fa562537af014617bed",
+      "source_normalized_sha256": "f427ccd622a7bde0308998976bba7141a7b6b8bdc21e4fa562537af014617bed",
+      "baseline_normalized_sha256": "f427ccd622a7bde0308998976bba7141a7b6b8bdc21e4fa562537af014617bed",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/encounter_contract_checks.gd",
+      "tested_raw_sha256": "a1f8d8ab436f8b8256929a70f53e873ef05e95e9bc0be52a9e3ea047b2856469",
+      "baseline_git_sha256": "910c876867420ddf2b1e9249512910c0838894285e3d07af755ce82195aae639",
+      "source_normalized_sha256": "910c876867420ddf2b1e9249512910c0838894285e3d07af755ce82195aae639",
+      "baseline_normalized_sha256": "910c876867420ddf2b1e9249512910c0838894285e3d07af755ce82195aae639",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "tested_raw_sha256": "18bf9b3e416e833f1f1430b73d6621cc42b79525fe7dd43ec9f420219fd33fe7",
+      "baseline_git_sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+      "source_normalized_sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+      "baseline_normalized_sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/encounter_navigation_2d.gd",
+      "tested_raw_sha256": "551fd4a8e8f0811500d19443df65e41a1ad76a7b0c84ed1e0db841f3bdb192d9",
+      "baseline_git_sha256": "e8d0fc1913b781fe0494a11dc2e642b7088c27d3f12077e81c950171e0819e71",
+      "source_normalized_sha256": "e8d0fc1913b781fe0494a11dc2e642b7088c27d3f12077e81c950171e0819e71",
+      "baseline_normalized_sha256": "e8d0fc1913b781fe0494a11dc2e642b7088c27d3f12077e81c950171e0819e71",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/encounter_patterns_2d.gd",
+      "tested_raw_sha256": "44fa3744bd037141b2978e563c6af923660f94f06aed9029d24c066128c91752",
+      "baseline_git_sha256": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe",
+      "source_normalized_sha256": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe",
+      "baseline_normalized_sha256": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/encounter_phase_2d.gd",
+      "tested_raw_sha256": "8fbe1ade522d651661f427265230994e0fa2df19f8c4e088580ebfbd3780c086",
+      "baseline_git_sha256": "b78240e2844a33dc55d021286ef612b344ee8022701de7324f0732d53c36ddda",
+      "source_normalized_sha256": "b78240e2844a33dc55d021286ef612b344ee8022701de7324f0732d53c36ddda",
+      "baseline_normalized_sha256": "b78240e2844a33dc55d021286ef612b344ee8022701de7324f0732d53c36ddda",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/encounter_profile_2d.gd",
+      "tested_raw_sha256": "69d887329c44b54ca5b534ccc2d86c4817dd2eea6697469b7c7b0ae7d658e78d",
+      "baseline_git_sha256": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971",
+      "source_normalized_sha256": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971",
+      "baseline_normalized_sha256": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "tested_raw_sha256": "b816b8a4f9ee94f3dcb2d008a2978eca95dc0ccdd65c9dbd4b380f0b4929c822",
+      "baseline_git_sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29",
+      "source_normalized_sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29",
+      "baseline_normalized_sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/encounter_warning_cue_2d.gd",
+      "tested_raw_sha256": "89f86ca80f367da2b5f8b07e7dbbfd8ea969a8741369a857ebc416ae74196a93",
+      "baseline_git_sha256": "750a09cad16bd8517551aab6b091d37f2d76bcb0b517b4d51ce0c553e2b2fb59",
+      "source_normalized_sha256": "750a09cad16bd8517551aab6b091d37f2d76bcb0b517b4d51ce0c553e2b2fb59",
+      "baseline_normalized_sha256": "750a09cad16bd8517551aab6b091d37f2d76bcb0b517b4d51ce0c553e2b2fb59",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "tested_raw_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "baseline_git_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "source_normalized_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "baseline_normalized_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fashion_designer.gd",
+      "tested_raw_sha256": "3c58920d570f9c9776d888101bc36c490d970918fb56994614f55b6f9eeb431c",
+      "baseline_git_sha256": "f3c6165baa08f6e99f21d4d02782d1b1f1658ad348aae0e79a4f79740442165d",
+      "source_normalized_sha256": "f3c6165baa08f6e99f21d4d02782d1b1f1658ad348aae0e79a4f79740442165d",
+      "baseline_normalized_sha256": "f3c6165baa08f6e99f21d4d02782d1b1f1658ad348aae0e79a4f79740442165d",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fashion_designer_test_case.gd",
+      "tested_raw_sha256": "81c9cfaee5b802dd9b2c5e8969b3d8282e2abb09612382f457587c694681a83d",
+      "baseline_git_sha256": "9dcbba0a3ffd837db69b702e03a0262987c1b6abb7447e76cbc302dceb777d22",
+      "source_normalized_sha256": "9dcbba0a3ffd837db69b702e03a0262987c1b6abb7447e76cbc302dceb777d22",
+      "baseline_normalized_sha256": "9dcbba0a3ffd837db69b702e03a0262987c1b6abb7447e76cbc302dceb777d22",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fashion_dressing_input.gd",
+      "tested_raw_sha256": "2e3ae6c38722d2b7b3f3383aaf55745b154eea6598a5ccd516bb58c23116365a",
+      "baseline_git_sha256": "45d02a87cf842a5deb427f15269f776cb4c430b0272ceea7add8d037df7ceadf",
+      "source_normalized_sha256": "45d02a87cf842a5deb427f15269f776cb4c430b0272ceea7add8d037df7ceadf",
+      "baseline_normalized_sha256": "45d02a87cf842a5deb427f15269f776cb4c430b0272ceea7add8d037df7ceadf",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "tested_raw_sha256": "2c2bfedf1fc3b3e1e0b4dd78d12908929c963b52eefccacaaf358f9ade3d96f0",
+      "baseline_git_sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93",
+      "source_normalized_sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93",
+      "baseline_normalized_sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "tested_raw_sha256": "ec6853f1bd1b6b0f7e92e0c66f104bbb916a4070c3dbccbdf96c7e26fe336e8a",
+      "baseline_git_sha256": "d5b440608b63510446196233ef5fb559c006b0a90c5dcee74516e84dba5e1cfc",
+      "source_normalized_sha256": "d5b440608b63510446196233ef5fb559c006b0a90c5dcee74516e84dba5e1cfc",
+      "baseline_normalized_sha256": "d5b440608b63510446196233ef5fb559c006b0a90c5dcee74516e84dba5e1cfc",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fashion_parts_test_case.gd",
+      "tested_raw_sha256": "31014ab2ee508e331a6bbe318968e92c827500aa9b64aa6d53357a5659fdf573",
+      "baseline_git_sha256": "27399d2be439afe62e653b9d484cb36a28828412e1cd50a950af5a7d8b750351",
+      "source_normalized_sha256": "27399d2be439afe62e653b9d484cb36a28828412e1cd50a950af5a7d8b750351",
+      "baseline_normalized_sha256": "27399d2be439afe62e653b9d484cb36a28828412e1cd50a950af5a7d8b750351",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fashion_skin_catalog.gd",
+      "tested_raw_sha256": "162615d544259e58b24a7f7f599fd2b2e7077535e919b95abea38e93f5710127",
+      "baseline_git_sha256": "c71d558cff766d25cd7835657f7e0e10ebe268d8e74a7b4c2e083b8b28adf548",
+      "source_normalized_sha256": "c71d558cff766d25cd7835657f7e0e10ebe268d8e74a7b4c2e083b8b28adf548",
+      "baseline_normalized_sha256": "c71d558cff766d25cd7835657f7e0e10ebe268d8e74a7b4c2e083b8b28adf548",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "tested_raw_sha256": "e566e5c56698272523baf278bada941d2b28f3737183bf63065235a6ef9cb0fc",
+      "baseline_git_sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad",
+      "source_normalized_sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad",
+      "baseline_normalized_sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fashion_skin_engine_test_case.gd",
+      "tested_raw_sha256": "d44c521b78e987d1020217b8676feb957739f2c5dcd1b08233040ccdd2758ce1",
+      "baseline_git_sha256": "dc77bc632c87a4587f24fcd317d3e185f833fa1e822f049a558eed69c90648ed",
+      "source_normalized_sha256": "dc77bc632c87a4587f24fcd317d3e185f833fa1e822f049a558eed69c90648ed",
+      "baseline_normalized_sha256": "dc77bc632c87a4587f24fcd317d3e185f833fa1e822f049a558eed69c90648ed",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "tested_raw_sha256": "cc9c554b873300b4f4eea0708e2be7fafd7ebe757a0ce5b9eb24e4b59e580105",
+      "baseline_git_sha256": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59",
+      "source_normalized_sha256": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59",
+      "baseline_normalized_sha256": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/fx_water.gd",
+      "tested_raw_sha256": "175bde804a3e39ece8c0fe8ecfeb30afff0696ff75e67258a6689bed7e7a7f89",
+      "baseline_git_sha256": "e33ff31788951f89715cc926cbbfc9a05bb8e6324b76c9e0137ce2b658f5d4c0",
+      "source_normalized_sha256": "e33ff31788951f89715cc926cbbfc9a05bb8e6324b76c9e0137ce2b658f5d4c0",
+      "baseline_normalized_sha256": "e33ff31788951f89715cc926cbbfc9a05bb8e6324b76c9e0137ce2b658f5d4c0",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "tested_raw_sha256": "f16fec1d4e4d00ce43abdef9b700e4d1ff37bf7f2a8be20177aa85b64aecd4ad",
+      "baseline_git_sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "source_normalized_sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "baseline_normalized_sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/brawl.gd",
+      "tested_raw_sha256": "4ba85f2e62557b38d587510b684e0330adb01985a8144fef65df1fe1b55e77a4",
+      "baseline_git_sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+      "source_normalized_sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+      "baseline_normalized_sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "tested_raw_sha256": "ea46eaa4c25d95bf5b1a74ffc4cc65909c85d349710c3fe7d5e76cd870b72506",
+      "baseline_git_sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
+      "source_normalized_sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
+      "baseline_normalized_sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "tested_raw_sha256": "a009afcf60278ae8671c003faf2b771fe3033e1234d9148a2f4b090ddff58c56",
+      "baseline_git_sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "source_normalized_sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "baseline_normalized_sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "tested_raw_sha256": "093286d7a75b6786163559b8a03b319eb9ec5048ae1b9507bc819df9817c8d6c",
+      "baseline_git_sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "source_normalized_sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "baseline_normalized_sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "tested_raw_sha256": "98de0dd564df398805485e664d6f808db367450780b0455d716d9069fbd16643",
+      "baseline_git_sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "source_normalized_sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "baseline_normalized_sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "tested_raw_sha256": "fd95b806ed3bd4f749bf7726bc1b15feeb2e25a33807bb2321e473a621f654f3",
+      "baseline_git_sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "source_normalized_sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "baseline_normalized_sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "tested_raw_sha256": "8aa20264b8bc6599037992acf1c12335b80f28d6ed01e51a46062692a891e529",
+      "baseline_git_sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+      "source_normalized_sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+      "baseline_normalized_sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "tested_raw_sha256": "72822a07c64e4985ed61dd5b435b35505720991eda594ee1255d100ace473215",
+      "baseline_git_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+      "source_normalized_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+      "baseline_normalized_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "tested_raw_sha256": "bfad8fa618543967375755bbbbb66c4cfc0b27fb1050e64323df2cc7ed9782cf",
+      "baseline_git_sha256": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50",
+      "source_normalized_sha256": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50",
+      "baseline_normalized_sha256": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "tested_raw_sha256": "0d6f2acbbeaccb13d751ca3e10d5422f0ee33be372d83bb90827836ae9b85917",
+      "baseline_git_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+      "source_normalized_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+      "baseline_normalized_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "tested_raw_sha256": "52a5b26bf77ddc07805c063c0b1a733169ae04330a3083b100dcbd7e821af655",
+      "baseline_git_sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c",
+      "source_normalized_sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c",
+      "baseline_normalized_sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/fairy.gd",
+      "tested_raw_sha256": "ea527d241143008f72032a66f4293ec17976dc35e5763b5b3ab61e2029bd60c3",
+      "baseline_git_sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+      "source_normalized_sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+      "baseline_normalized_sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/fetch.gd",
+      "tested_raw_sha256": "21f958f1312c100fa051615e3db0c7935e1b98478a0a335d925c74f191bec760",
+      "baseline_git_sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+      "source_normalized_sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+      "baseline_normalized_sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "tested_raw_sha256": "72e2322c3d1e87132a1cc3e16091a4f61364a2af70a2ea9dab78b2f285254fca",
+      "baseline_git_sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+      "source_normalized_sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+      "baseline_normalized_sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/octagon_stage.gd",
+      "tested_raw_sha256": "dc6d0362d8478bb3e11445c0c7ed4189abc58023ca375ccbcf81871f0e91f7c6",
+      "baseline_git_sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513",
+      "source_normalized_sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513",
+      "baseline_normalized_sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "tested_raw_sha256": "62466debfd47fe61b46840c36c88528769ee114e90d493460ef6b49fe0c75d74",
+      "baseline_git_sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "source_normalized_sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "baseline_normalized_sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "tested_raw_sha256": "eb7dfad344d0f9a3a30abc2f7fe293267de0d899088e59b596a9df5ce17da60c",
+      "baseline_git_sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "source_normalized_sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "baseline_normalized_sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "tested_raw_sha256": "c448fe28536b321bc8d9a665a208f49c7a956c933dfa6c78c9371152466aeb42",
+      "baseline_git_sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "source_normalized_sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "baseline_normalized_sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "tested_raw_sha256": "bd31d50392c44e518198ab0c6a51be203d10e94e33c98817604f5c851978a5e2",
+      "baseline_git_sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "source_normalized_sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "baseline_normalized_sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/seek.gd",
+      "tested_raw_sha256": "3218ae0d3f134b97b48161ff830981b8b1ed52d71cda174b0fa81654e60fffd4",
+      "baseline_git_sha256": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c",
+      "source_normalized_sha256": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c",
+      "baseline_normalized_sha256": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "tested_raw_sha256": "c8451c9150a721e3c5b1a172bbf977657a0fd01bcb3681525232a597c5b04a39",
+      "baseline_git_sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "source_normalized_sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "baseline_normalized_sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "tested_raw_sha256": "e6b3fd1568d918c4160a6857662604b72eecb02cf4fc6769b18939ee31bcddc7",
+      "baseline_git_sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+      "source_normalized_sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+      "baseline_normalized_sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/slide_race.gd",
+      "tested_raw_sha256": "2886cc3d0720e293af303f23b8b8935cc31e79613c7e0e68f0db45521fbb580b",
+      "baseline_git_sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "source_normalized_sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "baseline_normalized_sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/games/treasure.gd",
+      "tested_raw_sha256": "62a1b398d371d6e1a2dbd865ef1a4a31b1cb1d0380b49e7fb23d182c38be79af",
+      "baseline_git_sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+      "source_normalized_sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+      "baseline_normalized_sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/hit_engine.gd",
+      "tested_raw_sha256": "fe04f1f0d4e11fb22ebc4d62ef2887ff7a9a83a94674121f2a4f7c64340b41e1",
+      "baseline_git_sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "source_normalized_sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "baseline_normalized_sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/imp_ai.gd",
+      "tested_raw_sha256": "1ef3cb4bb83cc42c75dcf931916f1b09501f59262fe6731a8eeed35f103bc0fd",
+      "baseline_git_sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e",
+      "source_normalized_sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e",
+      "baseline_normalized_sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/interaction_affordance.gd",
+      "tested_raw_sha256": "c6191e6ffc25c40423e5b11b46971485c2476d07f30ce91b4b863d96024fc73d",
+      "baseline_git_sha256": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644",
+      "source_normalized_sha256": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644",
+      "baseline_normalized_sha256": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/interaction_director.gd",
+      "tested_raw_sha256": "c44643ffe1a3489df213eb00971465bcafeaf112bde23e4a1582432a36c3928c",
+      "baseline_git_sha256": "22d206cc7e278b9e46557f20d358e0fd80b3dec26fae61bf6d2f51aedd86c5ab",
+      "source_normalized_sha256": "22d206cc7e278b9e46557f20d358e0fd80b3dec26fae61bf6d2f51aedd86c5ab",
+      "baseline_normalized_sha256": "22d206cc7e278b9e46557f20d358e0fd80b3dec26fae61bf6d2f51aedd86c5ab",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "tested_raw_sha256": "815101b7727f7caf3f89bc1ab221fb2eae733ce4df62c4b47fe256392cf983d2",
+      "baseline_git_sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "source_normalized_sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "baseline_normalized_sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/juice.gd",
+      "tested_raw_sha256": "7c09e11af50a0af4c999e59f41f4e7c9541139e678c29e4e85ab599c0750b598",
+      "baseline_git_sha256": "a356054344800d52edddb531108cd50f6d941582ea44d123b8397d5663de0fb4",
+      "source_normalized_sha256": "a356054344800d52edddb531108cd50f6d941582ea44d123b8397d5663de0fb4",
+      "baseline_normalized_sha256": "a356054344800d52edddb531108cd50f6d941582ea44d123b8397d5663de0fb4",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/kart.gd",
+      "tested_raw_sha256": "2be58780a3caab0e72f8006f21ab1564d49bd82851fbb75cb35f27e289e16d28",
+      "baseline_git_sha256": "0c5ce86e7361ea04287ba322709461a4a9feb84603307cefa20f7d55b4ea5caa",
+      "source_normalized_sha256": "0c5ce86e7361ea04287ba322709461a4a9feb84603307cefa20f7d55b4ea5caa",
+      "baseline_normalized_sha256": "0c5ce86e7361ea04287ba322709461a4a9feb84603307cefa20f7d55b4ea5caa",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "tested_raw_sha256": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa",
+      "baseline_git_sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+      "source_normalized_sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+      "baseline_normalized_sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/landmark_art.gd",
+      "tested_raw_sha256": "ffd747d9634f4d9b8802974143f1e27279f68170ec93cefb519aaa0c3defbe13",
+      "baseline_git_sha256": "01e8e9bb7332ab76decfa093a98ed6b1940e8d9b424221fd8b27a9591ea300e0",
+      "source_normalized_sha256": "01e8e9bb7332ab76decfa093a98ed6b1940e8d9b424221fd8b27a9591ea300e0",
+      "baseline_normalized_sha256": "01e8e9bb7332ab76decfa093a98ed6b1940e8d9b424221fd8b27a9591ea300e0",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/light_rig.gd",
+      "tested_raw_sha256": "2b18ae0f4c391e06467b911eb1dedea2a06a7789c2c87dd53cd1d550b253b04e",
+      "baseline_git_sha256": "09e97441be4aa77a390e813298d1848a5d5f5c291d2efbcbf706cf10e3611551",
+      "source_normalized_sha256": "09e97441be4aa77a390e813298d1848a5d5f5c291d2efbcbf706cf10e3611551",
+      "baseline_normalized_sha256": "09e97441be4aa77a390e813298d1848a5d5f5c291d2efbcbf706cf10e3611551",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/living_world.gd",
+      "tested_raw_sha256": "1bcddb315971b88ccc01381463ebf545a5e00940c7654ebcf80fd29e27bf2e4c",
+      "baseline_git_sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
+      "source_normalized_sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
+      "baseline_normalized_sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "tested_raw_sha256": "80b0e4ed487dfd84bed69418d8943291384f4a9c5173fa68ec3fc2062ec6f7f4",
+      "baseline_git_sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "source_normalized_sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "baseline_normalized_sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "tested_raw_sha256": "f2181b96dac04dc398b9c49b1d519ec1f8c7474a59b0c2a8ba8af95708bbafdb",
+      "baseline_git_sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e",
+      "source_normalized_sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e",
+      "baseline_normalized_sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/main.gd",
+      "tested_raw_sha256": "b7141748c9664fa4023d254495fd61ae4e80d6e536c3ada3972c2ea0104696c7",
+      "baseline_git_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "source_normalized_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "baseline_normalized_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "tested_raw_sha256": "73283aa72639210cb42f14c9d7445cd661cef37560ccb9a7aa3c635477e68584",
+      "baseline_git_sha256": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d",
+      "source_normalized_sha256": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d",
+      "baseline_normalized_sha256": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/mic_input.gd",
+      "tested_raw_sha256": "a334a612f5ffad67f5e9f0518cf490a3961ef4cfd44a03ec7a0abf6315ff267d",
+      "baseline_git_sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532",
+      "source_normalized_sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532",
+      "baseline_normalized_sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "tested_raw_sha256": "1b10fccd7d9b67bd4088948b98a83b64b7ef163461b2d4d7e0df7a881ab9c5ad",
+      "baseline_git_sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "source_normalized_sha256": "1b10fccd7d9b67bd4088948b98a83b64b7ef163461b2d4d7e0df7a881ab9c5ad",
+      "baseline_normalized_sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "tested_raw_sha256": "859df1ba7f344a14391f7b9855d1aca5e9299bb3e33733fe8bf3776a4258a305",
+      "baseline_git_sha256": "9e2fa238b904db3b0548f3b76ddd647f6e27934f4a3148da3c893b04ccf135a3",
+      "source_normalized_sha256": "9e2fa238b904db3b0548f3b76ddd647f6e27934f4a3148da3c893b04ccf135a3",
+      "baseline_normalized_sha256": "9e2fa238b904db3b0548f3b76ddd647f6e27934f4a3148da3c893b04ccf135a3",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "tested_raw_sha256": "0603f780b841b0c4833ae863d797345f7e20bb731bafb294159d64beab4b4dd9",
+      "baseline_git_sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "source_normalized_sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "baseline_normalized_sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "tested_raw_sha256": "32ec41c72dc8c23fc3d7667eb8f69a77c34eaca9c1b6aad45635e85317b07489",
+      "baseline_git_sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "source_normalized_sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "baseline_normalized_sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "tested_raw_sha256": "472bbfcab649a17d6ce62cc56c2f0aa415079f083e49bfc870ea165f950ddf75",
+      "baseline_git_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "source_normalized_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "baseline_normalized_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "tested_raw_sha256": "e2479a9607825567589eed712df082565fdef30e667afc09c7d0d17ea6a1bb0e",
+      "baseline_git_sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+      "source_normalized_sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+      "baseline_normalized_sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_competition.gd",
+      "tested_raw_sha256": "f69b4922f734272e8e0682d0c5e302f34538cc4cf9792dac474454bd96efb1b8",
+      "baseline_git_sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+      "source_normalized_sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+      "baseline_normalized_sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "tested_raw_sha256": "14226227f7a961511057318173737ec7340b2fc80fdb644e5670f5bd399989a6",
+      "baseline_git_sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "source_normalized_sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "baseline_normalized_sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "tested_raw_sha256": "a9687219adfb4672200bd65f1df6ee3cf9268c184f9c391e84a722b00c4022ab",
+      "baseline_git_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "source_normalized_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "baseline_normalized_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "tested_raw_sha256": "ad76445088eaaaa223f9374b2e7a098370350da7ebc5c419584453ff1da2ee5b",
+      "baseline_git_sha256": "713a43c5e2245f5dd4496a1a1909a5ba7c3bbd6961ebe4a8dd3db34e89b57222",
+      "source_normalized_sha256": "713a43c5e2245f5dd4496a1a1909a5ba7c3bbd6961ebe4a8dd3db34e89b57222",
+      "baseline_normalized_sha256": "713a43c5e2245f5dd4496a1a1909a5ba7c3bbd6961ebe4a8dd3db34e89b57222",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "tested_raw_sha256": "45efa470ee23378d66ab575cc3df1d1d9559ef012c3d33cdddbf6e1a4fad5f00",
+      "baseline_git_sha256": "5b13d622520753a2682aba0a834cd397475e1695d3f6d235a7700e2e2a3e088c",
+      "source_normalized_sha256": "5b13d622520753a2682aba0a834cd397475e1695d3f6d235a7700e2e2a3e088c",
+      "baseline_normalized_sha256": "5b13d622520753a2682aba0a834cd397475e1695d3f6d235a7700e2e2a3e088c",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "tested_raw_sha256": "d53f37314ef459d0ec886566ad092c415fe54a1058aef3d637440a743fb51a63",
+      "baseline_git_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "source_normalized_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "baseline_normalized_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_imp_clips.gd",
+      "tested_raw_sha256": "393eaf8e1cf03e9800abb9e1cefb044850d3e1b6bd2215d65092d6ab16ea7c4a",
+      "baseline_git_sha256": "e061de84be9831d4e9662c11d3440461078c505b4b1484d499fdf1fa37df0797",
+      "source_normalized_sha256": "e061de84be9831d4e9662c11d3440461078c505b4b1484d499fdf1fa37df0797",
+      "baseline_normalized_sha256": "e061de84be9831d4e9662c11d3440461078c505b4b1484d499fdf1fa37df0797",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "tested_raw_sha256": "836d71b493cea9e63c4e398234752adb0e59a1c7c6f791c88c68dfccb5ee2a3b",
+      "baseline_git_sha256": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375",
+      "source_normalized_sha256": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375",
+      "baseline_normalized_sha256": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "tested_raw_sha256": "5dbc2687e47488e9335e4d3079bb3189f2cd6b454102eae6bed7b34de7dd8809",
+      "baseline_git_sha256": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+      "source_normalized_sha256": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+      "baseline_normalized_sha256": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "tested_raw_sha256": "bd053fecc162306c05a9c6f806c7c121d92cd220f5f6366cc19180c2a7dcc5e5",
+      "baseline_git_sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "source_normalized_sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "baseline_normalized_sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "tested_raw_sha256": "1d41aa693d6d2fde851b4c612c2af210c79ae328e517f84c85f639edaf4c1e38",
+      "baseline_git_sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+      "source_normalized_sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+      "baseline_normalized_sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "tested_raw_sha256": "25517580638edcc8f63375ec6b14fd0de89287ed08af00111fec1d467cce6da3",
+      "baseline_git_sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "source_normalized_sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "baseline_normalized_sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "tested_raw_sha256": "5c95c6e09338f6acf6fc5630a7c2e2f7c29e5f311a1def618de8c9595cc597e2",
+      "baseline_git_sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "source_normalized_sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "baseline_normalized_sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "tested_raw_sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+      "baseline_git_sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "source_normalized_sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "baseline_normalized_sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "tested_raw_sha256": "c7d6c94df382d14fa75cb18416647f1f540ae912756b8bba0c2962ae07b6867e",
+      "baseline_git_sha256": "dd353ac7377557900f15d3b98a317f8ad5da33a5f6d4d0b4635f8b50740ecad4",
+      "source_normalized_sha256": "dd353ac7377557900f15d3b98a317f8ad5da33a5f6d4d0b4635f8b50740ecad4",
+      "baseline_normalized_sha256": "dd353ac7377557900f15d3b98a317f8ad5da33a5f6d4d0b4635f8b50740ecad4",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "tested_raw_sha256": "b69af8573cea9d573ecf6b245e99e1b6dc9359bf9f13f5b8d22c4b44a496d64b",
+      "baseline_git_sha256": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f",
+      "source_normalized_sha256": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f",
+      "baseline_normalized_sha256": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "tested_raw_sha256": "b4893e222e45096cb539ad8025fdf7ba1a395cf6a921d7dc0205cff57acaa667",
+      "baseline_git_sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "source_normalized_sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "baseline_normalized_sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "tested_raw_sha256": "18d6cf737d542ee911015f4d0461c09e4df161f5b6502f2199f6a96cb4298878",
+      "baseline_git_sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "source_normalized_sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "baseline_normalized_sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "tested_raw_sha256": "a371cae65bbc320615cb8dc01d32145fbeb9cb7a87e8d4e7377669313d7d1af0",
+      "baseline_git_sha256": "37a9bf06e2c2b777086543ca48fb54b3634ccc8d5a1620a6f03668e6dff0e740",
+      "source_normalized_sha256": "37a9bf06e2c2b777086543ca48fb54b3634ccc8d5a1620a6f03668e6dff0e740",
+      "baseline_normalized_sha256": "37a9bf06e2c2b777086543ca48fb54b3634ccc8d5a1620a6f03668e6dff0e740",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "tested_raw_sha256": "3544b48ee8e6f60edd54af26aff3fe3a4798fa0458ff69633fef38e4ec76955f",
+      "baseline_git_sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+      "source_normalized_sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+      "baseline_normalized_sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/painter/painter_document.gd",
+      "tested_raw_sha256": "510f012f3fdf67f1e9d4b85a3b5ed08937ccb7603a29753cabd691a203317754",
+      "baseline_git_sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff",
+      "source_normalized_sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff",
+      "baseline_normalized_sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/painter/painter_guided_probe.gd",
+      "tested_raw_sha256": "22ec8d6fa99477800b951854ee6339b731e6259e48286e355e3aa24713ac72e6",
+      "baseline_git_sha256": "356738628280b63dcb6885726538f85033267386f123bb1c7f0672188e3bb5a0",
+      "source_normalized_sha256": "356738628280b63dcb6885726538f85033267386f123bb1c7f0672188e3bb5a0",
+      "baseline_normalized_sha256": "356738628280b63dcb6885726538f85033267386f123bb1c7f0672188e3bb5a0",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/painter/painter_probe.gd",
+      "tested_raw_sha256": "db37dd5f813390ab65cc403d2a0fe18275f7fce6c2fe882552f515698c5ded87",
+      "baseline_git_sha256": "288ce1900225597006e16c2ddc23ddf8990df131ad9d5b5b4162daea5f8aee9c",
+      "source_normalized_sha256": "288ce1900225597006e16c2ddc23ddf8990df131ad9d5b5b4162daea5f8aee9c",
+      "baseline_normalized_sha256": "288ce1900225597006e16c2ddc23ddf8990df131ad9d5b5b4162daea5f8aee9c",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/painter/painter_studio.gd",
+      "tested_raw_sha256": "2ef459b6da1a0e040dfbbcd92ccd83046e2ab12cdd65f8f2266f7381023994be",
+      "baseline_git_sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a",
+      "source_normalized_sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a",
+      "baseline_normalized_sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/painter/painter_template.gd",
+      "tested_raw_sha256": "122c695968719d876afecbd726f3ec7c3c65825b20e2d32e359c27a440c96e86",
+      "baseline_git_sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746",
+      "source_normalized_sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746",
+      "baseline_normalized_sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/painter/vendor/painter_flood_fill.gd",
+      "tested_raw_sha256": "b3dac8946c5336cf38e4c72be9b66261ea3335280aeeffd7af3dfea27f7e852d",
+      "baseline_git_sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c",
+      "source_normalized_sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c",
+      "baseline_normalized_sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/partner_assist.gd",
+      "tested_raw_sha256": "eff1ddd3447bb1ea65eef86de694b448ec053d9a983b2107efa9231b1cc6ff89",
+      "baseline_git_sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad",
+      "source_normalized_sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad",
+      "baseline_normalized_sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "tested_raw_sha256": "036f4cf18d0ccf8866b7989bbcf5dcac9d9095632892be915afa83b622c5b10d",
+      "baseline_git_sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "source_normalized_sha256": "036f4cf18d0ccf8866b7989bbcf5dcac9d9095632892be915afa83b622c5b10d",
+      "baseline_normalized_sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/physics.gd",
+      "tested_raw_sha256": "c625e48a1315033b90e44e9d4418ca05b4625c4868e82f9dd12cb39680a5bada",
+      "baseline_git_sha256": "39a8a3ecf72e79ff797d2f6eb067ad3d186626a282d044af6f8ce64a57a78cce",
+      "source_normalized_sha256": "39a8a3ecf72e79ff797d2f6eb067ad3d186626a282d044af6f8ce64a57a78cce",
+      "baseline_normalized_sha256": "39a8a3ecf72e79ff797d2f6eb067ad3d186626a282d044af6f8ce64a57a78cce",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/player.gd",
+      "tested_raw_sha256": "93f6e37528f24184f2d6f98da557f4d6e8317452fb7ceddf4951341e9704a528",
+      "baseline_git_sha256": "91ae8a4e9dccc090c7e1ce86bbec387ff8c761951e794e9d93b3c753be7c49b8",
+      "source_normalized_sha256": "91ae8a4e9dccc090c7e1ce86bbec387ff8c761951e794e9d93b3c753be7c49b8",
+      "baseline_normalized_sha256": "91ae8a4e9dccc090c7e1ce86bbec387ff8c761951e794e9d93b3c753be7c49b8",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/rainbow_friend_follower.gd",
+      "tested_raw_sha256": "3b0dc1ab7edaecb1bea9cadfd8e10e7afb3c418b260721625671703c46f548e0",
+      "baseline_git_sha256": "745c323c562a51628c0d8b268e07dd640fe7d6b0e22aedd975bd4a7ccd1f72cb",
+      "source_normalized_sha256": "745c323c562a51628c0d8b268e07dd640fe7d6b0e22aedd975bd4a7ccd1f72cb",
+      "baseline_normalized_sha256": "745c323c562a51628c0d8b268e07dd640fe7d6b0e22aedd975bd4a7ccd1f72cb",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "tested_raw_sha256": "a8153df351ab91e0c08552a8f457d159a3d1cd265ffc6226a22f453c0460f6ed",
+      "baseline_git_sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b",
+      "source_normalized_sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b",
+      "baseline_normalized_sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/roshan_sprite_anchors.gd",
+      "tested_raw_sha256": "db1b235b6420fd0d29814411c49b47b901239a9f6cf28c62c074ac37026e09cc",
+      "baseline_git_sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5",
+      "source_normalized_sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5",
+      "baseline_normalized_sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/roshan_sprite_frames.gd",
+      "tested_raw_sha256": "ae237be824d5c7a365009ac36a4d10fd2786665ee3bfd9b5c8eaea014d653e8c",
+      "baseline_git_sha256": "41860fcd11e0ee071cc1c7c8bacc8242160b209b73c3a5d4bc1d2eda4a908d81",
+      "source_normalized_sha256": "41860fcd11e0ee071cc1c7c8bacc8242160b209b73c3a5d4bc1d2eda4a908d81",
+      "baseline_normalized_sha256": "41860fcd11e0ee071cc1c7c8bacc8242160b209b73c3a5d4bc1d2eda4a908d81",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/roshan_sprite_loop.gd",
+      "tested_raw_sha256": "9bee574db538d7bcb17fc3a58a46c12dfcb5b027f9d263e5e565e620bd60e743",
+      "baseline_git_sha256": "73663a09ec2bf6f3f87d37596a7bcd1818346d744492deb109cac4a31e65362e",
+      "source_normalized_sha256": "73663a09ec2bf6f3f87d37596a7bcd1818346d744492deb109cac4a31e65362e",
+      "baseline_normalized_sha256": "73663a09ec2bf6f3f87d37596a7bcd1818346d744492deb109cac4a31e65362e",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "tested_raw_sha256": "34ed8239321ee3f2362b3718d4d0e6f9467e7c500e54b7dec78333ccbf90c884",
+      "baseline_git_sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "source_normalized_sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "baseline_normalized_sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "tested_raw_sha256": "47ffb51bca717b0e362fdf7b90279f83c8d73fbab2dac55c869c117cd4c13638",
+      "baseline_git_sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+      "source_normalized_sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+      "baseline_normalized_sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/sprite_transition_2d.gd",
+      "tested_raw_sha256": "b2591c20ae4fe1ef95cb72e8854087f42556abd916c7b721e84c37bdf8cc2bff",
+      "baseline_git_sha256": "0a5c87ff8c4eb812bc2b352382f069c82771f1f39860e9adece4b35a04bf4bd5",
+      "source_normalized_sha256": "0a5c87ff8c4eb812bc2b352382f069c82771f1f39860e9adece4b35a04bf4bd5",
+      "baseline_normalized_sha256": "0a5c87ff8c4eb812bc2b352382f069c82771f1f39860e9adece4b35a04bf4bd5",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "tested_raw_sha256": "8fa2ae5b11da88b10b79f9d2b9d710452814062ec0165bd53b910a62f87f187e",
+      "baseline_git_sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "source_normalized_sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "baseline_normalized_sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "tested_raw_sha256": "c00fe34a6f4218d790a3f23d768800fed93210cd886b297adb62552964ec5bfb",
+      "baseline_git_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "source_normalized_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "baseline_normalized_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/story_art.gd",
+      "tested_raw_sha256": "d552545dc294ebfa60404f1121483833d6c0824af2723387d82dfb9d8de377f8",
+      "baseline_git_sha256": "3ff0367f3be0801e4a40f233d42cf66baef8a952948b373c2a33ffab6f176f8b",
+      "source_normalized_sha256": "3ff0367f3be0801e4a40f233d42cf66baef8a952948b373c2a33ffab6f176f8b",
+      "baseline_normalized_sha256": "3ff0367f3be0801e4a40f233d42cf66baef8a952948b373c2a33ffab6f176f8b",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "tested_raw_sha256": "9ec09a6bdc926fee8a841bb0db97b39d40b9db0916d62a543c7aa5785c7f056c",
+      "baseline_git_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "source_normalized_sha256": "9ec09a6bdc926fee8a841bb0db97b39d40b9db0916d62a543c7aa5785c7f056c",
+      "baseline_normalized_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "tested_raw_sha256": "483fb2b1832a3baa5d14fcf1667bc1bb5bdc9071e2fffb4178fd024932fee67d",
+      "baseline_git_sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "source_normalized_sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "baseline_normalized_sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/tap_move_director.gd",
+      "tested_raw_sha256": "1abe6dc90df717be2e54b0282668b9e556b1a3030f273baf415d83f0ed61dfb8",
+      "baseline_git_sha256": "dbe2d50e6b0dfb40b0f24f7cc9a73065c267209cd6a399e3fde601af4ce2a263",
+      "source_normalized_sha256": "dbe2d50e6b0dfb40b0f24f7cc9a73065c267209cd6a399e3fde601af4ce2a263",
+      "baseline_normalized_sha256": "dbe2d50e6b0dfb40b0f24f7cc9a73065c267209cd6a399e3fde601af4ce2a263",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "tested_raw_sha256": "ef0274e758fc078e567d10ffbb178f91f752d753bda972fc6cefd2d6fb8a43bf",
+      "baseline_git_sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+      "source_normalized_sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+      "baseline_normalized_sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "tested_raw_sha256": "c25d51407589b841126f872172b7f628805259e6d2190e1a8347ec863378ef04",
+      "baseline_git_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "source_normalized_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "baseline_normalized_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/tree_book_test_checks.gd",
+      "tested_raw_sha256": "c2a7fdb85a979f92c7b6b2dd1b2ce986bf4af9177aea7f62b531d9299ea33caf",
+      "baseline_git_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+      "source_normalized_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+      "baseline_normalized_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "tested_raw_sha256": "c347d851000a66a7069c262babf26658fe85b983d6179c6e1f33ac033acf1e29",
+      "baseline_git_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "source_normalized_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "baseline_normalized_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "production_census_definition": "Tracked scripts/*.gd excluding basename probe*; this is a search scope, not proven reachable runtime universe."
+    }
+  ],
+  "scanned_source_files": 171,
+  "changed_scanned_source_files": [
+    "scripts/navigation_controller.gd",
+    "scripts/pause_menu.gd",
+    "scripts/storybook_ui.gd"
+  ],
+  "call_site_count": 57,
+  "call_site_operation_counts": {
+    "push": 27,
+    "remove": 29,
+    "set_root": 1
+  },
+  "literal_or_locally_resolved_registered_route_ids": [
+    "arborist_tree_book_test",
+    "attack_customizer",
+    "castle_logo_studio",
+    "chapter2_lawn",
+    "combat_tutorial",
+    "craft_studio",
+    "critter_book",
+    "dance_demo",
+    "day_one_art_studio",
+    "day_one_story_clip",
+    "dungeon",
+    "fairy_conservatory",
+    "kart_race",
+    "kitchen_fridge",
+    "mic_teach",
+    "opera_act",
+    "opera_job_playtest",
+    "opera_venue",
+    "pearl_castle",
+    "pearl_castle_room",
+    "picture_game",
+    "sticker_book",
+    "stuffie_battle",
+    "stuffie_care",
+    "stuffie_picker",
+    "wardrobe"
+  ],
+  "registered_route_label_count": 26,
+  "route_labels_are_not_screens_or_pieces": true,
+  "registered_routes": [
+    {
+      "route_id": "arborist_tree_book_test",
+      "push_call_sites": [
+        {
+          "path": "scripts/opera_house_venue_2d.gd",
+          "line": 503,
+          "function": "open_tree_book",
+          "operation": "push",
+          "argument": "\"arborist_tree_book_test\"",
+          "resolved_route_id": "arborist_tree_book_test",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"arborist_tree_book_test\", tree_book_test, Callable(self, \"_close_tree_book\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/opera_house_venue_2d.gd",
+          "line": 517,
+          "function": "_close_tree_book",
+          "operation": "remove",
+          "argument": "\"arborist_tree_book_test\"",
+          "resolved_route_id": "arborist_tree_book_test",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"arborist_tree_book_test\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "attack_customizer",
+      "push_call_sites": [
+        {
+          "path": "scripts/attack_customizer.gd",
+          "line": 106,
+          "function": "open",
+          "operation": "push",
+          "argument": "\"attack_customizer\"",
+          "resolved_route_id": "attack_customizer",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"attack_customizer\", self, Callable(self, \"close\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/attack_customizer.gd",
+          "line": 125,
+          "function": "close",
+          "operation": "remove",
+          "argument": "\"attack_customizer\"",
+          "resolved_route_id": "attack_customizer",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"attack_customizer\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "castle_logo_studio",
+      "push_call_sites": [
+        {
+          "path": "scripts/castle_logo_studio.gd",
+          "line": 212,
+          "function": "open",
+          "operation": "push",
+          "argument": "\"castle_logo_studio\"",
+          "resolved_route_id": "castle_logo_studio",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"castle_logo_studio\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/castle_logo_studio.gd",
+          "line": 440,
+          "function": "close",
+          "operation": "remove",
+          "argument": "\"castle_logo_studio\"",
+          "resolved_route_id": "castle_logo_studio",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"castle_logo_studio\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "chapter2_lawn",
+      "push_call_sites": [
+        {
+          "path": "scripts/main.gd",
+          "line": 6051,
+          "function": "_start_chapter2_lawn",
+          "operation": "push",
+          "argument": "\"chapter2_lawn\"",
+          "resolved_route_id": "chapter2_lawn",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\t_navigation_push(\"chapter2_lawn\", self, Callable(self, \"_end_chapter2_lawn\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/main.gd",
+          "line": 6064,
+          "function": "_end_chapter2_lawn",
+          "operation": "remove",
+          "argument": "\"chapter2_lawn\"",
+          "resolved_route_id": "chapter2_lawn",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\t_navigation_remove(\"chapter2_lawn\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "combat_tutorial",
+      "push_call_sites": [
+        {
+          "path": "scripts/combat_tutorial.gd",
+          "line": 61,
+          "function": "start",
+          "operation": "push",
+          "argument": "\"combat_tutorial\"",
+          "resolved_route_id": "combat_tutorial",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"combat_tutorial\", self, Callable(self, \"cancel\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/combat_tutorial.gd",
+          "line": 304,
+          "function": "_finish",
+          "operation": "remove",
+          "argument": "\"combat_tutorial\"",
+          "resolved_route_id": "combat_tutorial",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"combat_tutorial\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        },
+        {
+          "path": "scripts/combat_tutorial.gd",
+          "line": 323,
+          "function": "cancel",
+          "operation": "remove",
+          "argument": "\"combat_tutorial\"",
+          "resolved_route_id": "combat_tutorial",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"combat_tutorial\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "craft_studio",
+      "push_call_sites": [
+        {
+          "path": "scripts/craft_studio.gd",
+          "line": 43,
+          "function": "_open_craft_studio",
+          "operation": "push",
+          "argument": "\"craft_studio\"",
+          "resolved_route_id": "craft_studio",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"craft_studio\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/craft_studio.gd",
+          "line": 314,
+          "function": "_close_craft",
+          "operation": "remove",
+          "argument": "\"craft_studio\"",
+          "resolved_route_id": "craft_studio",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"craft_studio\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "critter_book",
+      "push_call_sites": [
+        {
+          "path": "scripts/collection_system.gd",
+          "line": 283,
+          "function": "open_book",
+          "operation": "push",
+          "argument": "\"critter_book\"",
+          "resolved_route_id": "critter_book",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"critter_book\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/collection_system.gd",
+          "line": 307,
+          "function": "close_book",
+          "operation": "remove",
+          "argument": "\"critter_book\"",
+          "resolved_route_id": "critter_book",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"critter_book\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "dance_demo",
+      "push_call_sites": [
+        {
+          "path": "scripts/games/dance_engine.gd",
+          "line": 187,
+          "function": "open_demo",
+          "operation": "push",
+          "argument": "\"dance_demo\"",
+          "resolved_route_id": "dance_demo",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tmain._navigation_push(\"dance_demo\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/games/dance_engine.gd",
+          "line": 202,
+          "function": "close_demo",
+          "operation": "remove",
+          "argument": "\"dance_demo\"",
+          "resolved_route_id": "dance_demo",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tmain._navigation_remove(\"dance_demo\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "day_one_art_studio",
+      "push_call_sites": [
+        {
+          "path": "scripts/day_one_art_studio.gd",
+          "line": 61,
+          "function": "setup",
+          "operation": "push",
+          "argument": "\"day_one_art_studio\"",
+          "resolved_route_id": "day_one_art_studio",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"day_one_art_studio\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/day_one_art_studio.gd",
+          "line": 86,
+          "function": "teardown",
+          "operation": "remove",
+          "argument": "\"day_one_art_studio\"",
+          "resolved_route_id": "day_one_art_studio",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"day_one_art_studio\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "day_one_story_clip",
+      "push_call_sites": [
+        {
+          "path": "scripts/main.gd",
+          "line": 6798,
+          "function": "_day_one_play_story_clip",
+          "operation": "push",
+          "argument": "\"day_one_story_clip\"",
+          "resolved_route_id": "day_one_story_clip",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\t_navigation_push(\"day_one_story_clip\", preview, Callable(preview, \"skip\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/main.gd",
+          "line": 6806,
+          "function": "_day_one_play_story_clip",
+          "operation": "remove",
+          "argument": "\"day_one_story_clip\"",
+          "resolved_route_id": "day_one_story_clip",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\t\t_navigation_remove(\"day_one_story_clip\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "dungeon",
+      "push_call_sites": [
+        {
+          "path": "scripts/dungeon_level.gd",
+          "line": 41,
+          "function": "start",
+          "operation": "push",
+          "argument": "\"dungeon\"",
+          "resolved_route_id": "dungeon",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"dungeon\", self, Callable(self, \"_leave_early\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/dungeon_level.gd",
+          "line": 183,
+          "function": "_finish",
+          "operation": "remove",
+          "argument": "\"dungeon\"",
+          "resolved_route_id": "dungeon",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"dungeon\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "fairy_conservatory",
+      "push_call_sites": [
+        {
+          "path": "scripts/main.gd",
+          "line": 2205,
+          "function": "_start_fairy_conservatory_handoff_now",
+          "operation": "push",
+          "argument": "\"fairy_conservatory\"",
+          "resolved_route_id": "fairy_conservatory",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\t_navigation_push(\"fairy_conservatory\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/main.gd",
+          "line": 2264,
+          "function": "_end_fairy_conservatory_handoff",
+          "operation": "remove",
+          "argument": "\"fairy_conservatory\"",
+          "resolved_route_id": "fairy_conservatory",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\t_navigation_remove(\"fairy_conservatory\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "kart_race",
+      "push_call_sites": [
+        {
+          "path": "scripts/kart.gd",
+          "line": 476,
+          "function": "start",
+          "operation": "push",
+          "argument": "\"kart_race\"",
+          "resolved_route_id": "kart_race",
+          "resolution": "literal",
+          "form": "Object.call with literal wrapper name",
+          "source_line": "\t\t_main.call(\"_navigation_push\", \"kart_race\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/kart.gd",
+          "line": 3215,
+          "function": "_teardown",
+          "operation": "remove",
+          "argument": "\"kart_race\"",
+          "resolved_route_id": "kart_race",
+          "resolution": "literal",
+          "form": "Object.call with literal wrapper name",
+          "source_line": "\t\t_main.call(\"_navigation_remove\", \"kart_race\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "kitchen_fridge",
+      "push_call_sites": [
+        {
+          "path": "scripts/arena/castle_rooms_25d.gd",
+          "line": 5494,
+          "function": "_open_kitchen_menu",
+          "operation": "push",
+          "argument": "\"kitchen_fridge\"",
+          "resolved_route_id": "kitchen_fridge",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"kitchen_fridge\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/arena/castle_rooms_25d.gd",
+          "line": 5584,
+          "function": "_close_kitchen_menu",
+          "operation": "remove",
+          "argument": "\"kitchen_fridge\"",
+          "resolved_route_id": "kitchen_fridge",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"kitchen_fridge\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "mic_teach",
+      "push_call_sites": [
+        {
+          "path": "scripts/mic_input.gd",
+          "line": 599,
+          "function": "open_teach",
+          "operation": "push",
+          "argument": "\"mic_teach\"",
+          "resolved_route_id": "mic_teach",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"mic_teach\", self, Callable(self, \"close_teach\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/mic_input.gd",
+          "line": 609,
+          "function": "close_teach",
+          "operation": "remove",
+          "argument": "\"mic_teach\"",
+          "resolved_route_id": "mic_teach",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"mic_teach\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "opera_act",
+      "push_call_sites": [
+        {
+          "path": "scripts/opera_house.gd",
+          "line": 263,
+          "function": "start",
+          "operation": "push",
+          "argument": "\"opera_act\"",
+          "resolved_route_id": "opera_act",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"opera_act\", self, Callable(self, \"_leave_early\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/opera_house.gd",
+          "line": 329,
+          "function": "_finish",
+          "operation": "remove",
+          "argument": "\"opera_act\"",
+          "resolved_route_id": "opera_act",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"opera_act\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        },
+        {
+          "path": "scripts/opera_job_playtest_menu.gd",
+          "line": 93,
+          "function": "launch_job",
+          "operation": "remove",
+          "argument": "\"opera_act\"",
+          "resolved_route_id": "opera_act",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\t\tm._navigation_remove(\"opera_act\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "opera_job_playtest",
+      "push_call_sites": [
+        {
+          "path": "scripts/opera_job_playtest_menu.gd",
+          "line": 48,
+          "function": "open",
+          "operation": "push",
+          "argument": "ROUTE_ID",
+          "resolved_route_id": "opera_job_playtest",
+          "resolution": "file-local literal constant",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(ROUTE_ID, self, Callable(self, \"close\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        },
+        {
+          "path": "scripts/opera_job_playtest_menu.gd",
+          "line": 116,
+          "function": "_job_finished",
+          "operation": "push",
+          "argument": "ROUTE_ID",
+          "resolved_route_id": "opera_job_playtest",
+          "resolution": "file-local literal constant",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(ROUTE_ID, self, Callable(self, \"close\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/opera_job_playtest_menu.gd",
+          "line": 68,
+          "function": "shutdown",
+          "operation": "remove",
+          "argument": "ROUTE_ID",
+          "resolved_route_id": "opera_job_playtest",
+          "resolution": "file-local literal constant",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(ROUTE_ID)",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "opera_venue",
+      "push_call_sites": [
+        {
+          "path": "scripts/opera_house_venue_2d.gd",
+          "line": 102,
+          "function": "open",
+          "operation": "push",
+          "argument": "\"opera_venue\"",
+          "resolved_route_id": "opera_venue",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"opera_venue\", self, Callable(self, \"close\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/opera_house_venue_2d.gd",
+          "line": 113,
+          "function": "close",
+          "operation": "remove",
+          "argument": "\"opera_venue\"",
+          "resolved_route_id": "opera_venue",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"opera_venue\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "pearl_castle",
+      "push_call_sites": [
+        {
+          "path": "scripts/arena/castle_rooms_25d.gd",
+          "line": 1004,
+          "function": "open",
+          "operation": "push",
+          "argument": "\"pearl_castle\"",
+          "resolved_route_id": "pearl_castle",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"pearl_castle\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/arena/castle_rooms_25d.gd",
+          "line": 1173,
+          "function": "close",
+          "operation": "remove",
+          "argument": "\"pearl_castle\"",
+          "resolved_route_id": "pearl_castle",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"pearl_castle\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "pearl_castle_room",
+      "push_call_sites": [
+        {
+          "path": "scripts/arena/castle_rooms_25d.gd",
+          "line": 1935,
+          "function": "show_room",
+          "operation": "push",
+          "argument": "\"pearl_castle_room\"",
+          "resolved_route_id": "pearl_castle_room",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\t\tm._navigation_push(\"pearl_castle_room\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/arena/castle_rooms_25d.gd",
+          "line": 1933,
+          "function": "show_room",
+          "operation": "remove",
+          "argument": "\"pearl_castle_room\"",
+          "resolved_route_id": "pearl_castle_room",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\t\tm._navigation_remove(\"pearl_castle_room\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "picture_game",
+      "push_call_sites": [
+        {
+          "path": "scripts/games/picture_games.gd",
+          "line": 20,
+          "function": "_mg2d_open",
+          "operation": "push",
+          "argument": "\"picture_game\"",
+          "resolved_route_id": "picture_game",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"picture_game\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/games/picture_games.gd",
+          "line": 294,
+          "function": "_mg2d_close",
+          "operation": "remove",
+          "argument": "\"picture_game\"",
+          "resolved_route_id": "picture_game",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"picture_game\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "sticker_book",
+      "push_call_sites": [
+        {
+          "path": "scripts/wardrobe_ui.gd",
+          "line": 237,
+          "function": "_open_stickers",
+          "operation": "push",
+          "argument": "\"sticker_book\"",
+          "resolved_route_id": "sticker_book",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"sticker_book\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/wardrobe_ui.gd",
+          "line": 287,
+          "function": "_close_stickers",
+          "operation": "remove",
+          "argument": "\"sticker_book\"",
+          "resolved_route_id": "sticker_book",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"sticker_book\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "stuffie_battle",
+      "push_call_sites": [
+        {
+          "path": "scripts/stuffie_battle.gd",
+          "line": 77,
+          "function": "start",
+          "operation": "push",
+          "argument": "\"stuffie_battle\"",
+          "resolved_route_id": "stuffie_battle",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"stuffie_battle\", self, Callable(self, \"cancel\"))",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/stuffie_battle.gd",
+          "line": 641,
+          "function": "_finish",
+          "operation": "remove",
+          "argument": "\"stuffie_battle\"",
+          "resolved_route_id": "stuffie_battle",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"stuffie_battle\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        },
+        {
+          "path": "scripts/stuffie_battle.gd",
+          "line": 651,
+          "function": "cancel",
+          "operation": "remove",
+          "argument": "\"stuffie_battle\"",
+          "resolved_route_id": "stuffie_battle",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"stuffie_battle\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "stuffie_care",
+      "push_call_sites": [
+        {
+          "path": "scripts/companion.gd",
+          "line": 256,
+          "function": "open_care_menu",
+          "operation": "push",
+          "argument": "\"stuffie_care\"",
+          "resolved_route_id": "stuffie_care",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"stuffie_care\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/companion.gd",
+          "line": 287,
+          "function": "close_care_menu",
+          "operation": "remove",
+          "argument": "\"stuffie_care\"",
+          "resolved_route_id": "stuffie_care",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"stuffie_care\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "stuffie_picker",
+      "push_call_sites": [
+        {
+          "path": "scripts/companion.gd",
+          "line": 601,
+          "function": "open_picker",
+          "operation": "push",
+          "argument": "\"stuffie_picker\"",
+          "resolved_route_id": "stuffie_picker",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"stuffie_picker\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/companion.gd",
+          "line": 653,
+          "function": "close_picker",
+          "operation": "remove",
+          "argument": "\"stuffie_picker\"",
+          "resolved_route_id": "stuffie_picker",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"stuffie_picker\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    },
+    {
+      "route_id": "wardrobe",
+      "push_call_sites": [
+        {
+          "path": "scripts/wardrobe_ui.gd",
+          "line": 45,
+          "function": "_open_wardrobe_shell",
+          "operation": "push",
+          "argument": "\"wardrobe\"",
+          "resolved_route_id": "wardrobe",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_push(\"wardrobe\", self,",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "remove_call_sites": [
+        {
+          "path": "scripts/wardrobe_ui.gd",
+          "line": 319,
+          "function": "_close_wardrobe",
+          "operation": "remove",
+          "argument": "\"wardrobe\"",
+          "resolved_route_id": "wardrobe",
+          "resolution": "literal",
+          "form": "direct named wrapper call",
+          "source_line": "\tm._navigation_remove(\"wardrobe\")",
+          "runtime_call_site_traced": false,
+          "current_route_state_context_R86": "NOT_OBSERVED_BY_R86"
+        }
+      ],
+      "runtime_current_R86_navigation_context": "UNREVIEWED_SOURCE_ONLY",
+      "meaning": "Registration label may cover many room/job/picture variants; not a distinct-screen or artwork count."
+    }
+  ],
+  "unresolved_argument_calls": [],
+  "root_calls": [
+    {
+      "path": "scripts/main.gd",
+      "line": 4990,
+      "function": "_enter_level2_now",
+      "operation": "set_root",
+      "argument": "\"sky_lagoon\"",
+      "resolved_route_id": "sky_lagoon",
+      "resolution": "literal",
+      "form": "direct named wrapper call",
+      "source_line": "\t\t_navigation_set_root(\"sky_lagoon\")",
+      "runtime_call_site_traced": false,
+      "current_route_state_context_R86": "PARTIAL_SKY_LAGOON_ROOT_STATE_ONLY"
+    }
+  ],
+  "direct_controller_state_references": [
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "line": 104,
+      "function": "uses_global_navigation",
+      "source_line": "\treturn m != null and is_instance_valid(m.global_navigation_button)"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 681,
+      "function": "_begin_100_celebration",
+      "source_line": "var global_navigation_button: Button = null"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 682,
+      "function": "_begin_100_celebration",
+      "source_line": "var navigation_root_id := \"\""
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 683,
+      "function": "_begin_100_celebration",
+      "source_line": "var navigation_routes: Array[Dictionary] = []"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 687,
+      "function": "_begin_100_celebration",
+      "source_line": "var pause_gear_btn: Button = null    # compatibility alias for global_navigation_button"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 3747,
+      "function": "_navigation_ref",
+      "source_line": "func _navigation_ref() -> NavigationController:"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 3753,
+      "function": "_navigation_set_root",
+      "source_line": "\t_navigation_ref().set_root(route_id)"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 3757,
+      "function": "_navigation_push",
+      "source_line": "\t_navigation_ref().push(route_id, owner, close_action)"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 3760,
+      "function": "_navigation_remove",
+      "source_line": "\t_navigation_ref().remove(route_id)"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 15,
+      "function": "set_root",
+      "source_line": "\tm.navigation_root_id = route_id"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 17,
+      "function": "set_root",
+      "source_line": "\t\tm.navigation_routes.clear()"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 25,
+      "function": "push",
+      "source_line": "\tm.navigation_routes.append({"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 34,
+      "function": "remove",
+      "source_line": "\tfor index: int in range(m.navigation_routes.size() - 1, -1, -1):"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 35,
+      "function": "remove",
+      "source_line": "\t\tif String((m.navigation_routes[index] as Dictionary).get(\"id\", \"\")) == route_id:"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 36,
+      "function": "remove",
+      "source_line": "\t\t\tm.navigation_routes.remove_at(index)"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 42,
+      "function": "clear",
+      "source_line": "\tm.navigation_routes.clear()"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 48,
+      "function": "top_id",
+      "source_line": "\tif m.navigation_routes.is_empty():"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 50,
+      "function": "top_id",
+      "source_line": "\treturn String((m.navigation_routes.back() as Dictionary).get(\"id\", \"\"))"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 54,
+      "function": "at_sky_lagoon_root",
+      "source_line": "\treturn m.navigation_root_id == \"sky_lagoon\" \\"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 72,
+      "function": "press",
+      "source_line": "\tif not m.navigation_routes.is_empty():"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 73,
+      "function": "press",
+      "source_line": "\t\tvar route: Dictionary = m.navigation_routes.pop_back() as Dictionary"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 89,
+      "function": "sync_button",
+      "source_line": "\tvar button: Button = m.global_navigation_button"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 109,
+      "function": "_prune_invalid",
+      "source_line": "\tfor index: int in range(m.navigation_routes.size() - 1, -1, -1):"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 110,
+      "function": "_prune_invalid",
+      "source_line": "\t\tvar route: Dictionary = m.navigation_routes[index] as Dictionary"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "line": 113,
+      "function": "_prune_invalid",
+      "source_line": "\t\t\tm.navigation_routes.remove_at(index)"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "line": 28,
+      "function": "_build_pause",
+      "source_line": "\tm._navigation_ref().position_button(navigation)"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "line": 32,
+      "function": "_build_pause",
+      "source_line": "\tm.global_navigation_button = navigation"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "line": 107,
+      "function": "sync_global_navigation",
+      "source_line": "\tm._navigation_ref().sync_button()"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "line": 110,
+      "function": "_is_sky_lagoon_root",
+      "source_line": "\treturn m._navigation_ref().at_sky_lagoon_root()"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "line": 121,
+      "function": "global_navigation_pressed",
+      "source_line": "\tm._navigation_ref().press()"
+    },
+    {
+      "path": "scripts/tree_book_test_checks.gd",
+      "line": 136,
+      "function": "run",
+      "source_line": "\t\t\tand main._navigation_ref().top_id() != \"arborist_tree_book_test\")"
+    }
+  ],
+  "source_semantics": {
+    "stack": "push removes same-id entry, stores weak owner and close callable; prune removes freed-owner entries. Press pops one valid route then synchronizes. These are source statements, not a lifecycle test.",
+    "observed_R86_lane": "Only original sky_lagoon/promenade root Menu -> paused Back -> root Menu, three native touch round trips at each of1280/1600, is R86 current native navigation evidence. Registration labels below gain no R86 runtime-context credit.",
+    "menu_mode_expression": "func sync_button() -> void:\n\tvar button: Button = m.global_navigation_button\n\tif button == null or not is_instance_valid(button):\n\t\treturn\n\t_prune_invalid()\n\tbutton.visible = not m._pause_ref()._navigation_locked()\n\tbutton.disabled = not button.visible\n\tif not button.visible:\n\t\treturn\n\tvar menu_mode: bool = at_sky_lagoon_root() or (m.game == \"dustboss\" and m.day_one_is_active()) \\\n\t\tor (top_id() == \"pearl_castle\" and (m.day_one_is_active() or m.chapter2_is_active()))\n\tvar mode := \"menu\" if menu_mode else \"back\"\n\tif String(button.get_meta(\"global_navigation_mode\", \"\")) == mode:\n\t\treturn\n\tbutton.set_meta(\"global_navigation_mode\", mode)\n\tStorybookUI.style_navigation_button(\n\t\tbutton, \"\u2630\" if menu_mode else \"\u21a9\", \"Menu\" if menu_mode else \"Back\")\n\tposition_button(button)\n\n\n",
+    "locked_expression": "func _navigation_locked() -> bool:\n\tif m.start_menu_active or m.intro_active or m.sleep_layer != null \\\n\t\t\tor m.hug_layer != null:\n\t\treturn true\n\treturn m.fade_rect != null and m.fade_rect.visible \\\n\t\tand (m.fade_rect.color.a * m.fade_rect.modulate.a > 0.01 \\\n\t\t\tor m.fade_rect.mouse_filter == Control.MOUSE_FILTER_STOP)\n\n",
+    "legacy_leave_context_expression": "func _has_leave_context() -> bool:\n\treturn m.mg_kind != \"\" or m.game != \"\" or m.wardrobe_layer != null \\\n\t\tor m.craft_layer != null or m.castle_logo_layer != null \\\n\t\tor m.stickers_layer != null or m.collection_layer != null \\\n\t\tor m.companion_layer != null or m.companion_care_layer != null \\\n\t\tor m.mic_teach_layer != null \\\n\t\tor (m.dance_engine != null and is_instance_valid(m.dance_engine) \\\n\t\t\tand (m.dance_engine as DanceEngine).active)\n\n",
+    "legacy_return_body": "func _leave_current_activity() -> void:\n\t# This is a voluntary, neutral exit -- never a loss and never a free win.\n\tm.get_tree().paused = false\n\tm.pause_panel.visible = false\n\tm._sync_pause_surface_layer()\n\tif m.dance_engine != null and is_instance_valid(m.dance_engine) \\\n\t\t\tand (m.dance_engine as DanceEngine).active:\n\t\t(m.dance_engine as DanceEngine).close_demo()\n\t\treturn\n\tif m._attack_customizer != null \\\n\t\t\tand is_instance_valid(m._attack_customizer) \\\n\t\t\tand m._attack_customizer.is_open:\n\t\tm._attack_customizer.close()\n\t\treturn\n\tif m._day_one_art_studio != null \\\n\t\t\tand is_instance_valid(m._day_one_art_studio):\n\t\tm._close_day_one_art_studio()\n\t\treturn\n\tif m._castle_career_routes != null \\\n\t\t\tand m._castle_career_routes.opera_venue != null \\\n\t\t\tand is_instance_valid(m._castle_career_routes.opera_venue) \\\n\t\t\tand m._castle_career_routes.opera_venue.is_open():\n\t\tm._castle_career_routes.close_opera_venue()\n\t\treturn\n\tif m._castle_rooms_25d != null \\\n\t\t\tand m._castle_rooms_25d.kitchen_menu_layer != null:\n\t\tm._castle_rooms_25d._close_kitchen_menu()\n\t\treturn\n\tif m.mic_teach_layer != null:\n\t\tm._mic_ref().close_teach()\n\t\treturn\n\tif m.stickers_layer != null:\n\t\tm._close_stickers()\n\t\treturn\n\tif m.collection_layer != null:\n\t\tm._collection_ref().close_book()\n\t\treturn\n\tif m.companion_layer != null:\n\t\tm._companion_ref().close_picker()\n\t\treturn\n\tif m.companion_care_layer != null:\n\t\tm._companion_ref().close_care_menu()\n\t\treturn\n\tif m.mg_kind != \"\":\n\t\tm._mg2d_close()\n\t\treturn\n\tif m.wardrobe_layer != null:\n\t\tm._close_wardrobe()\n\t\treturn\n\tif m.castle_logo_layer != null:\n\t\tm._close_castle_logo()\n\t\treturn\n\tif m.craft_layer != null:\n\t\tm._close_craft()\n\t\treturn\n\tif m.combat_tutorial_game != null:\n\t\t# the sparring class is a castle cutaway (m.game stays \"level2\"):\n\t\t# leaving must put the CLASS away first \u2014 cancel resumes the hall via\n\t\t# its finish callback; the next leave-press then exits the castle.\n\t\t# Without this the tutorial haunted the session: ghost finger stuck on\n\t\t# screen, its hit engine stealing every ocean tap (alpha audit\n\t\t# 2026-08-05).\n\t\tm.combat_tutorial_game.cancel()\n\t\treturn\n\t# Child activities can suspend the castle room layer while leaving its state\n\t# alive. They must unwind before the castle itself sees Back.\n\tif m.game == \"kitchen_cooking\":\n\t\tm._castle_rooms_ref().cancel_kitchen_recipe()\n\t\treturn\n\tif m.game == \"opera\" and m.opera_game != null:\n\t\t(m.opera_game as OperaHouse)._leave_early()\n\t\treturn\n\tif m.game == \"kart\" and m.kart_game != null:\n\t\tm.kart_game.call(\"_quit_race\")\n\t\treturn\n\tif (m.game == \"dungeon\" or m.game == \"emberdun\") and m.dungeon_game != null:\n\t\tm.dungeon_game._leave_early()\n\t\treturn\n\tif m._castle_rooms_25d != null and m._castle_rooms_25d.is_open() \\\n\t\t\tand m.castle_room_layer != null and m.castle_room_layer.visible:\n\t\tm._castle_rooms_25d._go_back()\n\t\treturn\n\tif m.game == \"level2\":\n\t\tm._exit_level2()\n\t\treturn\n\tif m.game == \"galaxy\" and m.galaxy_game != null:\n\t\t(m.galaxy_game as GalaxyLevel)._teardown(false)\n\t\treturn\n\tif m.game == \"ember\" and m.ember_game != null:\n\t\t(m.ember_game as EmberFortressLevel)._teardown(false)\n\t\treturn\n\tif m.game == \"combat\" and m.combat_game != null:\n\t\tm.combat_game.cancel()\n\t\treturn\n\tif m.game == \"stuffie\" and m.stuffie_game != null:\n\t\tm.stuffie_game.cancel()\n\t\treturn\n\tif m.game == \"\":\n\t\treturn\n\tvar leaving_game: String = m.game\n\tvar leaving_slide_canvas: bool = m.has_method(\"_slide_canvas_fish_route_active\") \\\n\t\tand bool(m.call(\"_slide_canvas_fish_route_active\"))\n\tvar friend_state: Dictionary = m.g.get(\"fr\", {})\n\tvar leaving_name: String = String(friend_state.get(\"fname\", \"\"))\n\tm._leave_arena()\n\t# Back to free swim at return_pos: shed any banking/pitch tilt frozen by\n\t# a spatial arena so she does not reappear mid-lean in the reef. The opaque\n\t# fish Canvas never changed that return pose, so preserve it exactly.\n\tif not leaving_slide_canvas:\n\t\tm.player.rotation.x = 0.0\n\t\tm.player.rotation.z = 0.0\n\tif not friend_state.is_empty():\n\t\tfriend_state[\"cool\"] = 8.0\n\tif leaving_game == \"fairyshoot\":\n\t\tm._apply_skin()\n\tif leaving_name == \"Pearl Shop\":\n\t\tm.shop_cool = 16.0\n\telif leaving_name == \"Secret Cave\":\n\t\tm.treasure_cool = 14.0\n\telif leaving_name == \"Penguin Slide\":\n\t\tm.slide_cool = 14.0\n\telif leaving_name == \"Toy Castle\":\n\t\tm.brawl_cool = 14.0\n\tm._clear_game()\n\tm._write_save()\n\tif leaving_game == \"fairyshoot\" and m.fairy_from_galaxy:\n\t\tm.fairy_from_galaxy = false\n\t\tm.call_deferred(\"_start_galaxy\")\n\telif leaving_game == \"fairyshoot\" or leaving_name == \"Rainbow Slide\":\n\t\tm.call_deferred(\"_enter_level2\", m.l2_open)\n\telse:\n\t\tm.show_msg(\"Roshan\", \"Back to the castle! Pick anything you want to play.\")\n",
+    "legacy_literal_game_branch_labels": [
+      "",
+      "combat",
+      "dungeon",
+      "ember",
+      "emberdun",
+      "galaxy",
+      "kart",
+      "kitchen_cooking",
+      "level2",
+      "opera",
+      "stuffie"
+    ],
+    "generic_fallback": "The final nonempty-game fallback uses leaving_game, current friend name, optional slide Canvas route, _leave_arena/_clear_game/_write_save and conditional deferred returns. Dynamic game/friend/state scope stays unresolved.",
+    "source_disposition": "Navigation state and these routing/lock/teardown functions remain functional logic; they are preserved separately from the visible painted material, glyph art and surrounding UI. No invisible geometry or route is counted as removed artwork."
+  },
+  "new_actionable_evidence_gaps": [
+    {
+      "id": "R86-NAV-STACK-VARIANTS",
+      "gap": "Enumerated registered route labels need their own actual current visible/hidden Menu/Back, close/re-enter, focus/cancel, aspect and save checks. A shared material function is not evidence that all registered contexts were reviewed."
+    },
+    {
+      "id": "R86-NAV-PROGRESS-MENU",
+      "gap": "Source menu_mode contains independent DayOne dustboss and progress-gated pearl_castle predicates. Unlike at_sky_lagoon_root, those predicates do not themselves check pause visibility. Their paused glyph/mode semantics require actual state captures and review; this source difference is not a new defect or regression claim."
+    },
+    {
+      "id": "R86-NAV-DYNAMIC-LEGACY",
+      "gap": "Legacy mg_kind, game, overlay, friend and generic return variants are not closed by the finite literal registration list."
+    },
+    {
+      "id": "R86-NAV-LOCK-HIDE",
+      "gap": "Start menu, intro, sleep/hug and fade predicates hide/disable the source button. Source inspection does not establish every overlay/transition visibility or natural disabled/focus appearance."
+    }
+  ],
+  "new_role_family_alias_piece_credit": 0,
+  "new_context_review_credit": 0,
+  "new_artwork_removed": 0,
+  "new_frames": 0,
+  "global_artwork_denominator": null,
+  "global_distinct_screen_denominator": null,
+  "global_regression_count": null,
+  "formal_QA11": false,
+  "device": false,
+  "child": false,
+  "owner": false,
+  "reproduction": "Use listed source hashes, exact call-site lines and function bodies. Search tracked scripts/*.gd excluding basenameprobe* for direct _navigation_push/remove/set_root calls and Object.call with a literal wrapper name; resolve only file-local literal constants. Dynamic/computed dispatch and runtime reachability remain explicit open scope."
+}

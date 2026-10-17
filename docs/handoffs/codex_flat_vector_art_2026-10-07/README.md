@@ -1,4 +1,7 @@
-# Current R85 painted navigation sample and full-game tally
+# Current R86 navigation runtime trial and full-game tally
+
+Current canonical revision: [R86](r86_navigation_runtime/README.md), reconciling [PR35](https://github.com/Ebonyks/mermaid-roshan-reef/pull/35) and its anonymously verified runtime receipt.82/82local and64native checks pass;30new frame events remain excluded.263roles/35families and zero accepted removals/dev integration are unchanged. All whole-game denominators and required acceptance remain open. Historical sections below retain their dated scopes.
+
 
 Current canonical revision: [R85](r85_navigation_reuse/README.md), a source-preserving Menu/Back material sample with92final native checks and retained render-timing rejects. No production source edit, new generation, role/family/alias or acceptance credit. Global denominators remain unknown. Historical sections below retain their original scope.
 

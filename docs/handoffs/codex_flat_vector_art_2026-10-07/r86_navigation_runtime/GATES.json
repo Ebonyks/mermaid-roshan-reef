@@ -1,0 +1,70 @@
+{
+  "status": "PASS_CANONICAL_DOCUMENT_COUNTS_AND_REFERENCES_ONLY",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/gate_logs/authority.log",
+      "sha256": "fb947e26a81a6cf0846398d83c77cb7e26c9025dc1f094867d9d8441afc7b121",
+      "checked_at_utc": "2026-10-17T08:36:08.589705+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/gate_logs/development.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T08:36:20.432069+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/gate_logs/units.log",
+      "sha256": "e37cb4fa10cd10e7d6b583c4dc261615f7b179b5d03ef51e823d5bc5e9608448",
+      "checked_at_utc": "2026-10-17T08:36:33.393475+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/gate_logs/stress.log",
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-17T08:36:34.610646+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/gate_logs/game2d.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "checked_at_utc": "2026-10-17T08:40:16.657072+00:00"
+    }
+  ],
+  "runtime_tests": "Separate exact navigation topic has82/82local/64native; all5227known source/sidecar bindings match. Canonical audit runtime unchanged;26source route labels are not screen/review credit.",
+  "all_acceptance_lanes": "New-use/QA11/device/child/owner/global inventory open;0accepted/devintegrated",
+  "actual_staged_committed_2d": "Run before push; final receipt binds those exact operations."
+}

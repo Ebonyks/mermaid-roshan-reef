@@ -1,0 +1,80 @@
+{
+  "id": "flat-vector-navigation-runtime-tally-20261017",
+  "scope": "Evidence-only canonical R86 reconciliation of separately published/anonymous-verified global navigation material trial and source-only caller matrix. Preserve frozen root five representations/readers, stable IDs, historical totals, unknown global denominators and0accepted/devintegrated. No runtime source, source-art or generation changes on this audit branch. Scope recorded before canonical artifact/routing changes.",
+  "baseline": "05fdd9c35622a06abda3be8aa72e519de13f5768",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-TYPE-07",
+    "DL-TYPE-11",
+    "DL-TYPE-12",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-TOUCH-001",
+    "MA-TYPE-004",
+    "MA-TYPE-007"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-navigation-runtime-tally-20261017.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/.gitattributes",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/FROZEN_ROOT_CHECK.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/GENERATED_CARD_IMPORT_BINDING.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/NAVIGATION_CALLER_MATRIX.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/PR_REFERENCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/RUNTIME_CAPTURE_INDEX.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/RUNTIME_CI_OBSERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/RUNTIME_DEV_OBSERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/RUNTIME_FINAL_PROOF.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/RUNTIME_MANIFEST_ATTEMPT1_FAILURE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/RUNTIME_PARTIAL_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/RUNTIME_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/RUNTIME_TRIAL_REFERENCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/VALIDATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/gate_logs/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/gate_logs/development.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/gate_logs/game2d.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/gate_logs/stress.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/gate_logs/units.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r86_navigation_runtime/verify_runtime_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "Canonical reference/count/frozen-root and document/unit/stress/actual staged-committed2D gates; anonymous immutable delivery",
+      "result": "PENDING",
+      "evidence": "Runtime trial already independently published/verified at684e34f06ebce6a70065847b5ecb69547ea8a128; source card and tested code are unchanged. Exact published-head remoteCI and all acceptance remain separate."
+    },
+    {
+      "command": "Canonical count/reference/frozen-root checks plus authority/development54unit6stress/2D",
+      "result": "PASS",
+      "evidence": "VALIDATION.json/GATES.json; runtime trial machine evidence externally immutable; no acceptance or audit-worktree runtime changes."
+    }
+  ],
+  "acceptance_gaps": "Unknown game-wide inventory/screen/state scope; criticalglyph/font/fallback and all registered/legacy/lock navigation variants; new-use, formalQA11/device/child/owner. No finding closure, dev integration, accepted removal or release authority."
+}
