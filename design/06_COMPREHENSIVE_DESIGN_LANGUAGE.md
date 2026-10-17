@@ -651,6 +651,20 @@ gates, and has matching dev APK evidence from Android run `31763879294`.
 Route cards MUST preserve their large touch targets without obscuring Roshan's
 lower body/tail.
 
+Owner correction 2026-10-17 adds a scoped playable-foyer exception to
+`DL-INT-12`: Roshan travels on the existing foyer floor, stairs and right lift;
+four bottom doors expose Farmer, Chef, Candy Maker and Painter. All four
+completions open Ballerina, Pop Star, Astronaut and Detective on the balcony.
+These doors launch the existing games on arrival and return to the exact foyer
+position. Chapter Two retains its sequential party contributions, independent
+save mask, late candle and Ballerina/Detective story contexts; those two authored
+games may also start through their foyer doors at the same valid story boundary.
+Freeplay uses earned `opera_stars` for the four-completion gate. The existing
+Magician remains in the upper gallery after those eight; unrelated career homes
+and retired boss tombstones are unchanged. This bounded owner correction
+supersedes the conflicting no-central-entry wording above only for these doors.
+See [impact and evidence](audit_impacts/opera-foyer-movement-20261017.json).
+
 Owner direction 2026-09-30 adds a scoped temporary developer exception to
 `DL-INT-12`: the Opera House's painted left elevator opens a playtest menu for
 every live world-triggered job. Each choice launches the same shipping Canvas

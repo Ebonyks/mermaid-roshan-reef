@@ -1,7 +1,7 @@
 extends SceneTree
 
-const ROUTE_READY_FRAME_LIMIT := 600
-const ROUTE_READY_TIMEOUT_MSEC := 3000
+const ROUTE_READY_FRAME_LIMIT := 5000
+const ROUTE_READY_TIMEOUT_MSEC := 15000
 const ROUTE_CARD_MIN_SIZE := Vector2(154.0, 154.0)
 const ROUTE_CARD_MIN_GAP := 22.0
 const ROUTE_CANVAS_RECT := Rect2(0.0, 0.0, 1280.0, 720.0)
@@ -75,6 +75,8 @@ func _init() -> void:
 	_audit_save_matrix()
 	await _audit_all_room_cards()
 	await _audit_no_hidden_hub()
+	await _audit_foyer_movement_and_waves()
+	await _audit_foyer_story_launches()
 	await _audit_wrong_and_passive_routes()
 	await _audit_cancel_return()
 	await _audit_job_playtest_menu()
@@ -171,9 +173,12 @@ func _audit_all_room_cards() -> void:
 		await _frames(3)
 		routes.sync()
 		if room_id == "opera_hall":
-			routes.open_opera_venue()
-			await _frames(3)
+			_check("Opera doorway opens the main venue without a stage-star tap",
+				routes.opera_venue != null and routes.opera_venue.is_open()
+				and main._navigation_ref().top_id() == "opera_venue")
 		var expected: Array[int] = CastleCareerRoutes.act_indices_for_room(room_id)
+		if room_id == "opera_hall":
+			expected.assign(ChapterTwoPartyPlan.GUIDE_ORDER + [8])
 		var actual: Array[int] = []
 		var room_card_rects: Array[Rect2] = []
 		var room_card_geometry_ok := true
@@ -182,7 +187,8 @@ func _audit_all_room_cards() -> void:
 		for button: Button in routes.buttons:
 			var act_index := int(button.get_meta("act_index", -1))
 			actual.append(act_index)
-			seen.append(act_index)
+			if not seen.has(act_index):
+				seen.append(act_index)
 			var presentation := String(button.get_meta("presentation", ""))
 			var base_ok := button.visible \
 				and button.text.is_empty() and not button.clip_contents \
@@ -199,11 +205,16 @@ func _audit_all_room_cards() -> void:
 					and not bool(button.get_meta("opaque_card", true)) \
 					and bool(button.get_meta("painted_door_hit_region", false)) \
 					and not bool(button.get_meta("floating_decoration", true)) \
-					and button.get_child_count() == 0 \
+					and button.get_node_or_null("CareerPicture") is TextureRect \
 					and portal_focus != null \
 					and portal_focus.border_width_left == 0 \
 					and is_zero_approx(portal_focus.bg_color.a) \
-					and int(button.get_meta("floor_index", -1)) in [0, 1, 2]
+					and int(button.get_meta("floor_index", -1)) in [0, 1, 2] \
+					and String(button.get_meta("object_id", "")).begins_with("opera.foyer.act.") \
+					and button.get_meta("approach_point") is Vector2 \
+					and float(button.get_meta("arrival_radius", 0.0)) > 0.0 \
+					and String(button.get_meta("action", "")) == "enter_career" \
+					and String(button.get_meta("return_target", "")) == "opera_hall"
 			else:
 				var crest := button.get_node_or_null("CareerCrest") as TextureRect
 				var actor := button.get_node_or_null("RoshanActor") as TextureRect
@@ -262,8 +273,8 @@ func _audit_all_room_cards() -> void:
 					== "90d19190" \
 				and int(venue.get_meta("historical_floor_count", 0)) == 3 \
 				and int(venue.get_meta("historical_portal_count", 0)) == 12 \
-				and int(venue.get_meta("active_room_owned_portal_count", 0)) == 3 \
-				and int(venue.get_meta("decorative_closed_portal_count", 0)) == 9 \
+				and int(venue.get_meta("active_room_owned_portal_count", 0)) == 9 \
+				and int(venue.get_meta("decorative_closed_portal_count", 0)) == 3 \
 				and int(venue.get_meta("bubble_lift_count", -1)) == 0 \
 				and int(venue.get_meta("floating_portal_decoration_count", -1)) == 0 \
 				and venue.find_children("CareerCrest", "TextureRect", true, false).is_empty() \
@@ -285,10 +296,8 @@ func _audit_no_hidden_hub() -> void:
 	routes.sync()
 	var stars_before := main.opera_stars
 	var pearls_before := main.pearl_count
-	main._start_opera()
-	await _frames(3)
 	var venue := routes.opera_venue
-	_check("the Opera stage star opens the recovered three-floor venue",
+	_check("Opera entry goes directly to the recovered three-floor venue",
 		main.opera_game == null and main.opera_pending_act_index == -1
 		and routes.root != null and routes.root.visible
 		and venue != null and venue.is_open()
@@ -298,7 +307,189 @@ func _audit_no_hidden_hub() -> void:
 	_check("the recovered venue is not an all-career picker",
 		main.find_children("*OperaLobby*", "Node", true, false).is_empty()
 		and main.find_children("*FloorTab*", "Node", true, false).is_empty()
-		and venue.career_buttons().size() == 3)
+		and venue.career_buttons().size() == 9)
+
+
+func _audit_foyer_movement_and_waves() -> void:
+	var venue := routes.opera_venue
+	var original_stars := main.opera_stars
+	var original_story := main._chapter_two_ref().serialize_state()
+	var pearls_before := main.pearl_count
+	_check("foyer first four are usable and next four are locked on a fresh save",
+		venue.can_enter(6) and venue.can_enter(0) and venue.can_enter(3)
+		and venue.can_enter(10) and not venue.second_wave_is_open()
+		and not venue.can_enter(2) and not venue.can_enter(13)
+		and not venue.can_enter(11) and not venue.can_enter(1))
+	var first_touch := InputEventScreenTouch.new()
+	first_touch.index = 220
+	first_touch.pressed = true
+	first_touch.position = _control_screen_point(venue.background_input, Vector2(480, 610))
+	root.push_input(first_touch, false)
+	_tap_control(routes.button_for_act(0), 221)
+	await _frames(2)
+	_check("a second finger cannot redirect the owned floor gesture",
+		venue.touch_owner == 220 and venue.pending_act == -1 and main.opera_game == null)
+	first_touch = first_touch.duplicate() as InputEventScreenTouch
+	first_touch.pressed = false
+	first_touch.canceled = true
+	root.push_input(first_touch, false)
+	await _frames(2)
+	_check("canceled touch cannot commit floor travel or a game",
+		venue.touch_owner == -1 and venue.pending_act == -1 and main.opera_game == null)
+	var mouse := InputEventMouseButton.new()
+	mouse.button_index = MOUSE_BUTTON_LEFT
+	mouse.pressed = true
+	mouse.position = _control_screen_point(venue.background_input, Vector2(480, 650))
+	root.push_input(mouse, false)
+	venue.notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+	mouse = mouse.duplicate() as InputEventMouseButton
+	mouse.pressed = false
+	mouse.position = _control_screen_point(routes.button_for_act(6), Vector2(63, 83))
+	root.push_input(mouse, false)
+	await _frames(2)
+	_check("mouse release after focus loss cannot launch a stale door request",
+		venue.pending_act == -1 and main.opera_game == null and venue.touch_owner == -1)
+	venue._set_feet(OperaHouseVenue2D.SAFE_FEET)
+	var keyboard_before := venue.feet
+	Input.action_press("ui_left")
+	await create_timer(0.12).timeout
+	Input.action_release("ui_left")
+	_check("arrow fallback moves the foyer actor and refresh does not reset her",
+		venue.feet.distance_to(keyboard_before) > 5.0)
+	venue._set_feet(OperaHouseVenue2D.SAFE_FEET)
+	venue._launch_selected(6)
+	_check("an entry callback cannot bypass the declared arrival radius",
+		main.opera_game == null and main.opera_pending_act_index == -1)
+	var before := venue.feet
+	_tap_control(venue.background_input, 225, Vector2(480, 610))
+	await _wait_foyer_motion(venue)
+	_check("raw floor touch moves Roshan without starting or winning a game",
+		venue.feet.distance_to(before) > 24.0 and main.opera_game == null
+		and main.opera_stars == original_stars and main.pearl_count == pearls_before)
+	venue.travel_to(Vector2(480, 610))
+	await _wait_foyer_motion(venue)
+	_check("open foyer aisle permits free two-axis travel",
+		venue.feet.distance_to(Vector2(480, 610)) < 1.0)
+	venue.travel_to(Vector2(445, 352))
+	await _wait_foyer_motion(venue)
+	_check("Roshan reaches the balcony through the connected painted stairs",
+		venue.feet.distance_to(Vector2(445, 352)) < 1.0 and venue.floor_index == 1)
+	venue.travel_to(Vector2(480, 610))
+	await _wait_foyer_motion(venue)
+	venue._choose_career(6)
+	_check("a distant game waits for Roshan to arrive", main.opera_game == null)
+	venue.notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+	await _frames(90)
+	_check("focus cancellation cannot launch a stale game or change rewards",
+		main.opera_game == null and main.opera_pending_act_index == -1
+		and main.opera_stars == original_stars and main.pearl_count == pearls_before)
+	venue._choose_career(6)
+	venue.travel_to(Vector2(480, 650))
+	await _wait_foyer_motion(venue)
+	_check("a new floor destination cancels the previous game request",
+		main.opera_game == null and venue.pending_act == -1
+		and venue.feet.distance_to(Vector2(480, 650)) < 1.0)
+	_tap_control(venue.practice_book, 226)
+	await _frames(2)
+	_check("pictured practice book receives raw input above the world blocker",
+		venue.tree_book_test != null and not venue.accepting_input
+		and main._navigation_ref().top_id() == "arborist_tree_book_test")
+	if venue.tree_book_test != null:
+		_tap_control(main.global_navigation_button, 227)
+		await _frames(3)
+	_check("practice Back restores foyer control without a career award",
+		venue.tree_book_test == null and venue.accepting_input
+		and main.opera_stars == original_stars and main.pearl_count == pearls_before)
+	venue.travel_to(Vector2(-5000, -5000))
+	await _wait_foyer_motion(venue)
+	_check("out-of-bounds target recovers onto a declared lane without losing progress",
+		venue.navigation.contains_point(venue.feet)
+		and main.opera_stars == original_stars and main.pearl_count == pearls_before)
+	for missing: int in OperaHouseVenue2D.FIRST_WAVE:
+		main.opera_stars = OperaHouseVenue2D.FIRST_WAVE_MASK & ~(1 << missing)
+		venue.refresh(main.opera_stars)
+		_check("missing bottom job %d keeps all second-wave doors locked" % missing,
+			not venue.second_wave_is_open() and not venue.can_enter(2)
+			and not venue.can_enter(13) and not venue.can_enter(11) and not venue.can_enter(1))
+	main.opera_stars = OperaHouseVenue2D.FIRST_WAVE_MASK
+	venue.refresh(main.opera_stars)
+	_check("all four earned bottom bits open exactly the next four jobs",
+		venue.second_wave_is_open() and venue.can_enter(2) and venue.can_enter(13)
+		and venue.can_enter(11) and venue.can_enter(1) and not venue.can_enter(8))
+	var migrated := SaveState.new(main)._normalise_save({"opera_stars": main.opera_stars})
+	main.opera_stars = int(migrated.get("opera_stars", 0))
+	venue.close()
+	venue.open(main.opera_stars)
+	_check("saved earned bits and re-entry preserve the second wave", venue.second_wave_is_open())
+	main.opera_stars = original_stars
+	main._chapter_two_ref().restore_state(original_story)
+	venue.refresh(main.opera_stars)
+	venue._set_feet(OperaHouseVenue2D.SAFE_FEET)
+
+
+func _audit_foyer_story_launches() -> void:
+	var original_save := main.save_data.duplicate(true)
+	var original_story := main._chapter_two_ref().serialize_state()
+	var original_events := main.chapter2_event_history.duplicate(true)
+	var original_seen := main.chapter2_event_seen.duplicate(true)
+	var original_boss := main.day_one_giant_dust_bunny_boss_defeated
+	var original_stars := main.opera_stars
+	var original_pearls := main.pearl_count
+	main.day_one_giant_dust_bunny_boss_defeated = true
+	main._chapter_two_ref().restore_state({
+		"day_one_giant_dust_bunny_boss_defeated": true,
+		"chapter2_active": true,
+	})
+	var venue := routes.opera_venue
+	for act_index: int in ChapterTwoPartyPlan.GUIDE_ORDER:
+		venue.refresh(main.opera_stars)
+		var button := routes.button_for_act(act_index)
+		_check("story foyer %d admits only the next authored contribution" % act_index,
+			button != null and not button.disabled and main.chapter2_next_party_act() == act_index)
+		if button == null or button.disabled:
+			break
+		var rect: Rect2 = venue.portal_rects[act_index]
+		var expected_feet := Vector2(rect.get_center().x,
+			OperaHouseVenue2D.FLOOR_Y[int(venue.act_floors[act_index])])
+		_tap_control(button, 230 + act_index)
+		var ready := await _await_route_ready(act_index)
+		var house := main.opera_game as OperaHouse
+		_check("story foyer %d starts its shipping game and exact story context" % act_index,
+			ready and house != null and house.story_mode and not house.dev_playtest
+			and house.plot_context == CastleCareerRoutes.foyer_plot_context(main, act_index)
+			and venue.feet.distance_to(expected_feet) < 1.0)
+		if house == null or house.act == null:
+			break
+		# This lane tests launch/completion ownership, not the specialist mechanic.
+		# Existing Chapter Two and job probes retain actual phase-input coverage.
+		house.act._win()
+		house.act.win_t = 0.0
+		house.act._process(0.1)
+		await _frames(4)
+		_check("story foyer %d records one contribution and returns to exact feet" % act_index,
+			_route_returned("opera_hall") and venue.feet.distance_to(expected_feet) < 1.0
+			and (main.chapter2_party_piece_mask & (1 << act_index)) != 0
+			and main.opera_stars == original_stars and main.pearl_count == original_pearls)
+	_check("eight foyer story jobs preserve the final candle and prepared party",
+		main.chapter2_party_piece_mask == ChapterTwoPartyPlan.ALL_PARTY_MASK
+		and main.chapter2_rainbow_candle_found and not main.chapter2_party_started)
+	main.save_data = original_save
+	main.day_one_giant_dust_bunny_boss_defeated = original_boss
+	main._chapter_two_ref().restore_state(original_story)
+	main.chapter2_event_history.assign(original_events)
+	main.chapter2_event_seen = original_seen
+	main._write_save()
+	venue.refresh(main.opera_stars)
+	venue._set_feet(OperaHouseVenue2D.SAFE_FEET)
+
+
+func _wait_foyer_motion(venue: OperaHouseVenue2D) -> void:
+	var deadline := Time.get_ticks_msec() + 6000
+	while venue.motion != null and venue.motion.is_valid() and venue.motion.is_running():
+		if Time.get_ticks_msec() > deadline:
+			_check("foyer travel completes in bounded time", false)
+			return
+		await process_frame
 
 
 func _audit_wrong_and_passive_routes() -> void:
@@ -392,13 +583,13 @@ func _audit_job_playtest_menu() -> void:
 		return
 	# Race the developer entry against the real painted-door approach. Its tween
 	# already owns the route, so elevator opening must leave that owner intact.
-	venue._choose_career(2)
+	venue._choose_career(6)
 	menu.open()
 	_check("elevator cannot steal a pending normal portal approach",
 		not venue.accepting_input and venue.motion != null and venue.motion.is_valid()
 		and not menu.session_open and main.opera_game == null)
-	var normal_ready := await _await_route_ready(2)
-	_check("pending normal portal still launches its shipping Ballerina", normal_ready)
+	var normal_ready := await _await_route_ready(6)
+	_check("pending normal portal still launches its shipping Farmer", normal_ready)
 	if main.opera_game != null:
 		(main.opera_game as OperaHouse)._leave_early()
 	await _frames(4)
@@ -567,14 +758,11 @@ func _audit_job_playtest_menu() -> void:
 		and _playtest_progress_snapshot() == story_baseline)
 	_tap_control(main.global_navigation_button, 200)
 	await _frames(3)
-	_check("next Back closes only the Opera venue and preserves its room",
-		not venue.is_open() and main.castle_room_id == "opera_hall"
-		and main.castle_room_layer.visible
-		and main._navigation_ref().top_id() == "pearl_castle_room")
-	_tap_control(main.global_navigation_button, 201)
-	await _frames(3)
-	_check("room Back then returns safely to the Castle Main Hall",
-		main.castle_room_id == "main_hall" and main.castle_room_layer.visible)
+	_check("one Back leaves the Opera venue directly for the Castle Main Hall",
+		main.castle_room_id == "main_hall" and main.castle_room_layer.visible
+		and main._navigation_ref().top_id() != "pearl_castle_room"
+		and main._navigation_ref().top_id() != "opera_venue"
+		and _playtest_progress_snapshot() == story_baseline)
 	main.save_data = original_save
 	main.day_one_giant_dust_bunny_boss_defeated = original_boss_defeated
 	main._chapter_two_ref().restore_state(original_story)
@@ -663,7 +851,7 @@ func _playtest_progress_snapshot() -> Dictionary:
 
 func _audit_all_career_lifecycles() -> void:
 	var pearl_baseline := main.pearl_count
-	for act_index: int in OperaHouse.LIVE_ACT_INDICES:
+	for act_index: int in [6, 0, 3, 10, 2, 13, 11, 1, 8, 5, 7, 12, 15, 16, 17]:
 		var room_id := CastleCareerRoutes.room_for_act(act_index)
 		var stars_before := main.opera_stars
 		var progress_before := main.opera_progress
@@ -861,8 +1049,9 @@ func _route_returned(room_id: String) -> bool:
 		and routes.root != null and routes.root.visible
 
 
-func _tap_control(control: Control, touch_index: int) -> void:
-	var screen_position := _control_screen_point(control, control.size * 0.5)
+func _tap_control(control: Control, touch_index: int, local_point := Vector2(-1, -1)) -> void:
+	var screen_position := _control_screen_point(control,
+		control.size * 0.5 if local_point.x < 0.0 else local_point)
 	var press := InputEventScreenTouch.new()
 	press.index = touch_index
 	press.position = screen_position

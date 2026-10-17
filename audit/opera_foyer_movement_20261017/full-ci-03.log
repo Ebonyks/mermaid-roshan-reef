@@ -1,0 +1,152 @@
+....
+----------------------------------------------------------------------
+Ran 4 tests in 1.228s
+
+OK
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+........s...............................
+----------------------------------------------------------------------
+Ran 40 tests in 116.628s
+
+OK (skipped=1)
+TYPOGRAPHY_AUDIT status=OPEN
+FONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING
+GLYPHS observed=133 unclassified=0 critical=124 critical_unresolved=124
+LABEL3D current=36 baseline=45 files=11 delta=-9
+LABEL3D_FILE  7 scripts/arena/sky_lagoon.gd
+LABEL3D_FILE  2 scripts/collection_system.gd
+LABEL3D_FILE  1 scripts/combat_arena.gd
+LABEL3D_FILE 11 scripts/companion.gd
+LABEL3D_FILE  1 scripts/dungeon_puzzle_room.gd
+LABEL3D_FILE  2 scripts/galaxy.gd
+LABEL3D_FILE  4 scripts/games/shop.gd
+LABEL3D_FILE  4 scripts/kart.gd
+LABEL3D_FILE  2 scripts/main.gd
+LABEL3D_FILE  1 scripts/reef_districts.gd
+LABEL3D_FILE  1 scripts/stuffie_battle.gd
+OPEN font authority, coverage, and/or device evidence remains unresolved
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.487s
+
+OK
+ROSHAN2D| stress: 8 falsification cases ALL OK
+ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+...........................................................................
+----------------------------------------------------------------------
+Ran 75 tests in 335.578s
+
+OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.876s
+
+OK
+naive 256px grid :      0 px of Roshan clipped,      0 px ghost
+shipped windows  :      0 px of Roshan clipped,      0 px ghost
+                   (0.00% -> 0.00% of her art lost)
+playground poses :     12 whole, single-silhouette 512px frames
+OK: every Roshan frame renders whole
+PROBE_PARITY|stress missing loop: OK
+PROBE_PARITY|stress duplicate probe: OK
+PROBE_PARITY|stress local/remote mismatch: OK
+PROBE_PARITY|stress missing probe file: OK
+PROBE_PARITY|stress missing separate invocation: OK
+PROBE_PARITY|stress missing parity gate: OK
+PROBE_PARITY|stress missing local music verifier: OK
+PROBE_PARITY|stress missing pinned music verifier: OK
+PROBE_PARITY|result: ALL OK
+.........................................
+----------------------------------------------------------------------
+Ran 41 tests in 1.007s
+
+OK
+DOCAUTH|STRESS|6/6
+DOCAUTH|STRESS|6/6
+.......EEE...
+======================================================================
+ERROR: test_real_merge_checks_both_parents_and_rejects_missing_history (tools.tests.test_audit_development.DevelopmentAuditTests.test_real_merge_checks_both_parents_and_rejects_missing_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_development.py", line 242, in test_real_merge_checks_both_parents_and_rejects_missing_history
+    self.assertTrue(any("sibling.gd" in e for e in development.change_issues(root, base)))
+                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\audit_development.py", line 272, in change_issues
+    if git(root, "diff", "--name-only", "--diff-filter=U"):
+       ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\audit_development.py", line 82, in git
+    return subprocess.check_output(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+    	["git", *args], cwd=root, text=True, encoding="utf-8", stderr=subprocess.PIPE,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).strip()
+    ^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 472, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'diff', '--name-only', '--diff-filter=U']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_renames_require_old_and_new_path_coverage (tools.tests.test_audit_development.DevelopmentAuditTests.test_renames_require_old_and_new_path_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_development.py", line 252, in test_renames_require_old_and_new_path_coverage
+    base = self.init_repo(root)
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_development.py", line 162, in init_repo
+    development.git(root, "init", "-q")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\audit_development.py", line 82, in git
+    return subprocess.check_output(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+    	["git", *args], cwd=root, text=True, encoding="utf-8", stderr=subprocess.PIPE,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).strip()
+    ^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 472, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'init', '-q']' returned non-zero exit status 3221225794.
+
+======================================================================
+ERROR: test_unresolved_merge_conflicts_fail_before_coverage (tools.tests.test_audit_development.DevelopmentAuditTests.test_unresolved_merge_conflicts_fail_before_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_development.py", line 267, in test_unresolved_merge_conflicts_fail_before_coverage
+    base = self.init_repo(root)
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\tests\test_audit_development.py", line 162, in init_repo
+    development.git(root, "init", "-q")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\opera-foyer-movement\mermaid-roshan-reef\tools\audit_development.py", line 82, in git
+    return subprocess.check_output(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+    	["git", *args], cwd=root, text=True, encoding="utf-8", stderr=subprocess.PIPE,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).strip()
+    ^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 472, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'init', '-q']' returned non-zero exit status 3221225794.
+
+----------------------------------------------------------------------
+Ran 13 tests in 34.113s
+
+FAILED (errors=3)
+AUDIT DEVELOPMENT CONTRACT TEST FAIL

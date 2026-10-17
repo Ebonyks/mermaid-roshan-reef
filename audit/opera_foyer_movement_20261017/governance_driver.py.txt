@@ -1,0 +1,21 @@
+import datetime,hashlib,json,os,subprocess,sys,time
+from pathlib import Path
+r=Path.cwd();a=r/'audit/opera_foyer_movement_20261017';p=a/'governance_final.json'
+reference=json.loads((a/'probe_by_probe_verification.json').read_text())['final_source_sha256']
+measure=lambda:{f:hashlib.sha256((r/f).read_bytes()).hexdigest() for f in reference}
+assert measure()==reference,'Source drift before final metadata gates'
+py=[sys.executable,'-X','utf8','-B']
+commands=[py+['-m','unittest','tools.tests.test_audit_document_authority','tools.tests.test_audit_development','tools.tests.test_plan_audit_rollback'],py+['tools/audit_document_authority.py','--stress'],py+['tools/audit_document_authority.py'],py+['tools/audit_development.py','--base','auto'],py+['tools/audit_game_2d.py','--regression-gate'],['git','diff','--cached','--check']]
+d={'result':'RUNNING','source_count':len(reference),'scope':'Final required authority/development gates, their existing self-tests, unchanged rollback planner and shrink-only2D regression. Gameplay proof is the separate documented probe-by-probe receipt.','started_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'commands':[]}
+p.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8',newline='\n')
+env=dict(os.environ);env['PYTHONUTF8']='1';env['PYTHONIOENCODING']='utf-8'
+for command in commands:
+ print('FINAL_GOVERNANCE|START|'+' '.join(command),flush=True);start=time.monotonic()
+ v=subprocess.run(command,cwd=r,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+ row={'command':command,'exit_code':v.returncode,'seconds':round(time.monotonic()-start,3),'raw_stdout_utf8':v.stdout.decode('utf-8'),'raw_stdout_sha256':hashlib.sha256(v.stdout).hexdigest()};d['commands'].append(row)
+ print('FINAL_GOVERNANCE|EXIT|'+str(v.returncode)+'|'+v.stdout.decode('utf-8')[-1800:],flush=True)
+ if v.returncode:
+  d['result']='FAIL';p.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8',newline='\n');sys.exit(v.returncode)
+assert measure()==reference,'Source drift during final metadata gates'
+d.update(result='PASS',changed_sources=[],finished_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),acceptance='Machine verification only; no formal visual, second aspect, human listening, device, child, owner or master-audit acceptance.')
+p.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8',newline='\n');print('FINAL_GOVERNANCE|ALL OK',flush=True)

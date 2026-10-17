@@ -570,6 +570,33 @@
       ],
       "checkable": true,
       "cycle": "luna-gameplay-repairs-20261014"
+    },
+    {
+      "id": "ODR-OPERA-ANTEROOM-REMOVAL-20261017",
+      "date": "2026-10-17",
+      "subject": "Remove the old Opera stage entry room",
+      "authority": "recorded_owner",
+      "question": "Which pictured room should be removed and where should Godot be left?",
+      "decision": "Remove the stage/footlights antechamber identified in the attached screenshot from the reachable game flow. Enter the existing three-floor Opera main foyer directly; Back returns to Castle Main Hall. Refresh the Godot AI playtest and leave it in the Opera main room. Preserve logical route/save ownership and existing artwork.",
+      "source": "audit/remove_opera_anteroom_20261017/owner_request.json",
+      "checks": [
+        "scripts/probe_opera.gd"
+      ],
+      "checkable": true
+    },
+    {
+      "id": "ODR-OPERA-FOYER-MOVEMENT-WAVES-20261017",
+      "date": "2026-10-17",
+      "subject": "Playable Opera foyer and four-door waves",
+      "authority": "recorded_owner",
+      "question": "How should movement, games and the next floor work in the pictured foyer?",
+      "decision": "Roshan can’t move freely in this room! Fix this. The games also don’t seem to work at the moment either. When all 4 stages are completed on the bottom, have the next four open Scoped implementation: direct foyer entry to the existing birthday eight, retaining canonical story order, results and contexts. This supersedes the room-only entry restriction only for these pictured career doors; other careers retain their room homes. Exact visual/device/child/owner acceptance remains separate.",
+      "source": "audit/opera_foyer_movement_20261017/owner_request.json",
+      "checks": [
+        "scripts/probe_opera.gd",
+        "scripts/probe_chapter2.gd"
+      ],
+      "checkable": true
     }
   ]
 }

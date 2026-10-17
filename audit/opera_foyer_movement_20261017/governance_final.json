@@ -1,0 +1,177 @@
+{
+  "result": "PASS",
+  "source_count": 1612,
+  "scope": "Final required authority/development gates, their existing self-tests, unchanged rollback planner and shrink-only2D regression. Gameplay proof is the separate documented probe-by-probe receipt.",
+  "started_at_utc": "2026-10-17T22:36:31.729890+00:00",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development",
+        "tools.tests.test_plan_audit_rollback"
+      ],
+      "exit_code": 0,
+      "seconds": 17.34,
+      "raw_stdout_utf8": "...............................................................................\r\n----------------------------------------------------------------------\r\nRan 79 tests in 16.711s\r\n\r\nOK\r\nDOCAUTH|STRESS|6/6\r\n",
+      "raw_stdout_sha256": "29dced6ff318843efb265761cfaa011fb5c1839623433773d99cccfe6feb742d"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "seconds": 0.284,
+      "raw_stdout_utf8": "DOCAUTH|STRESS|6/6\r\n",
+      "raw_stdout_sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "seconds": 22.518,
+      "raw_stdout_utf8": "DOCAUTH|INVENTORY=706|LEDGER=706|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "raw_stdout_sha256": "e1588bcf6af0c34381f185675fc56b876367172512105bd0e8972a3297cb7a5d"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "seconds": 6.401,
+      "raw_stdout_utf8": "AUDITDEV|BASE|39b0e158db7de3d0c178c4444f97c04fda75bec5\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "raw_stdout_sha256": "18ead80ffef4c6229a3b116c4d11979f5b4e50dfc43c385a88543fe3003f247c"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "seconds": 202.03,
+      "raw_stdout_utf8": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\r\nGAME2D| STATUS| UNSATISFIED\r\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\r\n",
+      "raw_stdout_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.228,
+      "raw_stdout_utf8": "",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "changed_sources": [],
+  "finished_at_utc": "2026-10-17T22:40:41.102015+00:00",
+  "acceptance": "Machine verification only; no formal visual, second aspect, human listening, device, child, owner or master-audit acceptance.",
+  "precommit_recheck": {
+    "result": "PASS",
+    "checked_at_utc": "2026-10-17T22:43:45.302870+00:00",
+    "commands": [
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+          "-X",
+          "utf8",
+          "-B",
+          "tools/audit_document_authority.py"
+        ],
+        "exit_code": 0,
+        "raw_stdout_utf8": "DOCAUTH|INVENTORY=706|LEDGER=706|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+        "raw_stdout_sha256": "e1588bcf6af0c34381f185675fc56b876367172512105bd0e8972a3297cb7a5d"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+          "-X",
+          "utf8",
+          "-B",
+          "tools/audit_development.py",
+          "--base",
+          "auto"
+        ],
+        "exit_code": 0,
+        "raw_stdout_utf8": "AUDITDEV|BASE|39b0e158db7de3d0c178c4444f97c04fda75bec5\r\nAUDITDEV|RESULT|ALL OK\r\n",
+        "raw_stdout_sha256": "18ead80ffef4c6229a3b116c4d11979f5b4e50dfc43c385a88543fe3003f247c"
+      }
+    ],
+    "changed_sources": []
+  },
+  "source_binding_recheck": {
+    "result": "PASS",
+    "implementation_commit": "14cf8ed9218d2fff7033113782417bcae0df7965",
+    "checked_at_utc": "2026-10-17T22:46:40.752255+00:00",
+    "commands": [
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+          "-X",
+          "utf8",
+          "-B",
+          "tools/audit_document_authority.py"
+        ],
+        "exit_code": 0,
+        "raw_stdout_utf8": "DOCAUTH|INVENTORY=706|LEDGER=706|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+        "raw_stdout_sha256": "e1588bcf6af0c34381f185675fc56b876367172512105bd0e8972a3297cb7a5d"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+          "-X",
+          "utf8",
+          "-B",
+          "tools/audit_development.py",
+          "--base",
+          "auto"
+        ],
+        "exit_code": 0,
+        "raw_stdout_utf8": "AUDITDEV|BASE|39b0e158db7de3d0c178c4444f97c04fda75bec5\r\nAUDITDEV|RESULT|ALL OK\r\n",
+        "raw_stdout_sha256": "18ead80ffef4c6229a3b116c4d11979f5b4e50dfc43c385a88543fe3003f247c"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+          "-X",
+          "utf8",
+          "-B",
+          "-m",
+          "unittest",
+          "tools.tests.test_plan_audit_rollback"
+        ],
+        "exit_code": 0,
+        "raw_stdout_utf8": ".........................\r\n----------------------------------------------------------------------\r\nRan 25 tests in 0.106s\r\n\r\nOK\r\n",
+        "raw_stdout_sha256": "8957304f5fe2a8750df50d401722ac434be8fe07d3457d162450a1fda3d59724"
+      }
+    ],
+    "changed_sources": []
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "import_attempts": [
+    {
+      "log": "import.log",
+      "exit_code": 1,
+      "result": "FAIL",
+      "limit": "Fresh cache import exited after initial scan, without a final verdict or specific error; no candidate pass claimed."
+    },
+    {
+      "log": "import-cache.log",
+      "result": "PENDING",
+      "limit": "Operator interrupted redundant whole-asset import, then copied unchanged import metadata from the same baseline. No complete import pass claimed."
+    },
+    {
+      "log": "import-metadata.log",
+      "exit_code": 0,
+      "result": "PASS",
+      "limit": "Approved Godot4.7.2 import/cache bootstrap. Final exact-source import/analyzer is repeated by full-ci-03."
+    }
+  ],
+  "interrupted_full_suites": [
+    {
+      "log": "full-ci-01.log",
+      "result": "PENDING",
+      "reason": "Stopped through owned exec stdin before completion for mouse cancellation review; no full-suite pass."
+    },
+    {
+      "log": "full-ci-02.log",
+      "result": "PENDING",
+      "reason": "Stopped through owned exec stdin before completion for face-occlusion correction and final arrival/cache review; no full-suite pass."
+    },
+    {
+      "log": "full-ci-03.log",
+      "result": "PENDING",
+      "reason": "Stopped through owned exec stdin before completion to align inherited door hit regions with visible door centers; no full-suite pass."
+    },
+    {
+      "log": "full-ci-04.log",
+      "result": "PENDING",
+      "reason": "Stopped before completion to reconcile the concurrent R91 dev update. Final full-ci-05 covers the combined source; task snapshot is retained."
+    }
+  ],
+  "visual_review_before": {
+    "file": "before_visual_balcony.png",
+    "result": "FAIL",
+    "observation": "Career picture at z8 obscures the z5 foyer actor face/body at a balcony door. Corrected actor z9; no source-art changes."
+  },
+  "godot_ai": {
+    "result": "PENDING",
+    "error": "PORT_OCCUPIED: listener on port8000 did not answer the bridge status probe. Session/tree read succeeded once; screenshot and later state refresh failed. No reconnection or live-game refresh claimed."
+  },
+  "focused_04": {
+    "result": "FAIL",
+    "exit_code": 4294967295,
+    "limit": "Abrupt process exit after Magician lifecycle checks without a test failure line or final verdict; cause unestablished. Unchanged-source retry focused-05 passes. Neither log is hidden or relabelled."
+  },
+  "door_alignment_review": {
+    "before": "before_alignment_visual_floor.png",
+    "result": "FAIL",
+    "observation": "Inherited second/third/fourth rectangles were right of the painted door centers. Final columns start at382/513/643/773 with126-pixel targets, centered445/576/706/836. Corrected pictures, approach points and pointer follow those doors."
+  },
+  "full_ci_05_outer_deadline": {
+    "result": "FAIL",
+    "exit_code": 124,
+    "seconds": 5404.844,
+    "changed_sources": [],
+    "receipt": "full-ci-05-launcher.json",
+    "matching_log_prefix": "full-ci-05-launcher.log",
+    "log_prefix_bytes": 300339,
+    "limit": "Outer Popen launcher reached its90-minute limit. Verified native scripts/ci.sh PID140240 remains running unchanged under a read-only Windows process-handle observer. No full-suite pass until actual exit0 and82 probes."
+  }
+}

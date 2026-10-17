@@ -50,14 +50,16 @@ implementation work. Runtime/save/art integration and visual/device/child/owner
 acceptance remain pending.
 
 The first visible/unlocked wave is Farmer, Chef, Candy Maker, and Painter
-(`0x0449`). Finishing Painter reveals the second wave: Ballerina, Pop Star,
+(`0x0449`). Completing all four first-wave jobs reveals the second wave: Ballerina, Pop Star,
 Astronaut, and Detective. Within either wave, only the next required story job
 can launch or earn progress, so the single cake and late-candle causality stay
 intact while the Opera House still opens with four career possibilities.
 
 Only the next required career can earn Chapter 2 progress. Ballerina and
-Detective activate through their authored room plot surface; this is not a
-general room-ability clause. Their first in-story phase teaches the ability and
+Detective use their authored story contexts through their room plot surfaces
+and, under the scoped owner correction of 2026-10-17, their balcony foyer doors.
+All eight foyer doors launch on avatar arrival and return to the foyer; this
+does not change canonical story order, results or other careers’ room homes. Their first in-story phase teaches the ability and
 their completion records the learned skill. There is no duplicate four-game
 tutorial prelude.
 

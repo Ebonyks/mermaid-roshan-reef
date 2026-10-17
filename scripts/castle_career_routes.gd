@@ -221,6 +221,9 @@ func _rebuild_room() -> void:
 		root.add_child(opera_venue)
 		buttons = opera_venue.career_buttons()
 		_refresh_completion()
+		# The painted three-floor venue is the room itself. Never stop at the
+		# retired stage/footlights antechamber on entry or career return.
+		opera_venue.open(m.opera_stars)
 		return
 	var width := float(indices.size()) * CARD_SIZE.x \
 		+ float(indices.size() - 1) * CARD_GAP
@@ -291,6 +294,9 @@ func _rebuild_room() -> void:
 	_highlight(_preferred_act_for_current_room())
 
 func _refresh_completion() -> void:
+	if room_id == "opera_hall" and is_instance_valid(opera_venue):
+		opera_venue.refresh(m.opera_stars)
+		return
 	var chapter2_active := m != null and m.chapter2_is_active()
 	var completion_mask := _chapter2_completion_mask() if chapter2_active else m.opera_stars
 	for button: Button in buttons:
@@ -398,28 +404,24 @@ func close_opera_venue() -> void:
 		opera_venue.close()
 
 
+static func foyer_plot_context(main: ReefMain, act_index: int) -> String:
+	if not main.chapter2_is_active():
+		return ""
+	if act_index == ChapterTwoDirector.ACT_BALLERINA:
+		return ChapterTwoDirector.PLOT_CONTEXT_STUFFIE_BALLET
+	if act_index == ChapterTwoDirector.ACT_DETECTIVE:
+		return ChapterTwoDirector.PLOT_CONTEXT_DETECTIVE_CANDLE
+	return ""
+
+
+static func foyer_can_launch(main: ReefMain, act_index: int) -> bool:
+	var routes := main._castle_career_routes_ref()
+	return main.castle_room_id == "opera_hall" \
+		and is_instance_valid(routes.opera_venue) \
+		and routes.opera_venue.can_enter(act_index)
+
+
 func _launch_opera_venue(act_index: int) -> void:
-	if m == null or not m.chapter2_is_active():
-		_launch("opera_hall", act_index)
+	if not foyer_can_launch(m, act_index):
 		return
-	# Chapter 2's foyer is a story guide, not a second launch owner. The
-	# visible portal cards point to the career's truthful Castle room; sending
-	# every card through opera_hall would either fail the route guard or silently
-	# start the wrong scene. Ballerina and Detective are intentionally absent
-	# from this venue and remain their plot-only room actions.
-	var entry := ChapterTwoPartyPlan.entry_for_act(act_index)
-	var owner_room := chapter2_foyer_owner_room(act_index)
-	if owner_room.is_empty():
-		return
-	if owner_room == "opera_hall":
-		_launch("opera_hall", act_index)
-		return
-	if not m.chapter2_opera_route_matches(owner_room, act_index):
-		return
-	if m.castle_room_id != "opera_hall" or m.opera_game != null:
-		return
-	# Leave the foyer before the room-owned career card is shown. The child can
-	# then activate the same picture-first card in its actual Castle room.
-	m.show_msg("Roshan", "Follow the career picture to the %s!" % String(
-		entry.get("location_label", owner_room.replace("_", " "))), "hint")
-	m._castle_rooms_ref().show_room(owner_room, true)
+	m._start_opera_from_room(act_index, "opera_hall")
