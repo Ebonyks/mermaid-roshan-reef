@@ -34,6 +34,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/CANONICAL_COMMITTED_2D.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/CANONICAL_STAGED_2D.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/CONGRUENCY_BACKLOG.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/CONGRUENCY_REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/CONTEXT_REFERENCE.json",
@@ -43,6 +45,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/GLYPH_CONSUMERS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/SOURCE_ACCEPTANCE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/SOURCE_BINDINGS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/SUMMARY.json",
@@ -60,9 +63,9 @@
   ],
   "validation": [
     {
-      "command": "Exact source/reference/consumer counts, document54unit/6stress/2D gates",
+      "command": "Canonical document/count/reference/frozenroot/2D and anonymous immutable delivery",
       "result": "PASS",
-      "evidence": "VALIDATION.json/GATES.json with actual command logs; immutable anonymous payload delivery still pending."
+      "evidence": "VALIDATION.json/GATES.json/REMOTE_VERIFICATION.json; every required payload dependency byte-verified anonymously. Final own metadata checked separately after receipt commit. No acceptance credit."
     }
   ],
   "acceptance_gaps": "No current source/new-use acceptance, fitted target-scale/action-state review, complete caller/natural-acquisition closure, formalQA11/device/child/owner or whole-game inventory completion. No lifecycle closure."

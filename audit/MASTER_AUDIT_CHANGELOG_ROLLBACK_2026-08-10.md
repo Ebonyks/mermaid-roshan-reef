@@ -2523,3 +2523,5 @@ CHG-096 canonical payload publication: `d7f12689400673795555cfc121f7b78495d2f2c2
 ## Critter Book glyph source and consumer context (CHG-097)
 
 [R89](../docs/handoffs/codex_flat_vector_art_2026-10-07/r89_critter_glyph_context/README.md) binds existing category/habitat consumers and later source bytes before a bounded insect-tab replacement. Historical source approvals, R40 whole-unit rejects, all raw frame/history totals and zero acceptance/dev-integration remain preserved. No runtime or source image changes. [Impact](../design/audit_impacts/flat-vector-critter-glyph-context-20261017.json). Rollback may remove only this namespace/routing delta while preserving immutable prior evidence.
+
+CHG-097 canonical payload publication: `9791fc08dcf8129bed220f5a105b910c76b4da2c`, manifest SHA-256 `0ccc88ff0cf02276a0e29542d9e2dec9174b86b65d09b2bceb2e3f588fe07170`; 2388 required files / 1023023629 bytes anonymously verified at 2026-10-17T14:04:59.714491+00:00. Final own receipt metadata separately checked; acceptance and integration remain distinct.
