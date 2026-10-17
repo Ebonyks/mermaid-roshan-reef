@@ -1,0 +1,1021 @@
+{
+  "schema": "reef.runtime_trial_delivery/1",
+  "baseline": "e3088008d9934e94aa4d81f1c669da493a5f7087",
+  "revision": "FV-AUDIT-20261017-R94",
+  "files": [
+    {
+      "revision": null,
+      "path": ".gitattributes",
+      "bytes": 13140,
+      "sha256": "0cb266d617156dc0de17f3a98f972f976391222422ce0b6d0006eaf5adc4c91a",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "ASSET_LICENSES.md",
+      "bytes": 5365944,
+      "sha256": "577cd2f8cf26a0fd360638cdb868860c07db3fd31322a5494f70c26ec89b82fd",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 298029,
+      "sha256": "ed3b618ade0ef0eba21205cfadaf2ae8d3a3df15df966da6946b5af5423a8e1d",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 270640,
+      "sha256": "fbaafd943282eaa5e3a138fdb0cd1af8f4c9628b198e0b2510714205d965b422",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 317419,
+      "sha256": "d6f58260b47f6b013650afd94b39709c9d828d9e02fd248b8e0d1b6574057f93",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 264636,
+      "sha256": "1c349318b2fd863b597808e9a75ce61a69adfd9319e00ccada054507909a122b",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "design/audit_impacts/flat-vector-painted-hand-native-20261017.json",
+      "bytes": 15925,
+      "sha256": "6d2c3d782ae327ab37df03dcc1b601f5a64dec04a39625d0f395b1e0035b0909",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 87971,
+      "sha256": "8016c52e5d8ff95ee3ae6a6e88e21e845632cbc9c5677625df6e31d20c15fd00",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+      "bytes": 3631,
+      "sha256": "991535134da3c84223767a97b71a87dbc165c4ebcef427acc58c2cfece0d156e",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "bytes": 6331,
+      "sha256": "ab1eff1a6593c29907329fb589c077a85250ec3e3b55d0b11fa403f535be4250",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/CAPTURE_INDEX.json",
+      "bytes": 26384,
+      "sha256": "0f9416e10bffaeaff9482c87c7b8198fd20008214f23489cce366c6b3f549082",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/CONGRUENCY_REVIEW.json",
+      "bytes": 5933,
+      "sha256": "e8ce3f913d68d8f361465ae2ba24f4fcbfc933d48a6d2f22275a57bc199998a6",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/CONTEXT_SYNTAX_GATES.json",
+      "bytes": 2634,
+      "sha256": "5b2e25bc3efac2ac67204d8817afdcb9c2236c1e40fe418151671165846b7789",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/FIT_REVIEW_A1.json",
+      "bytes": 916,
+      "sha256": "24c010c575399cd7b729946553baad182646abee7551622ddde4e17817255336",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/GATES.json",
+      "bytes": 2042,
+      "sha256": "423c7993e0c0b301b4f1f0846437697bad9065b6636135e6b9a8c1920fd121d1",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/README.md",
+      "bytes": 3819,
+      "sha256": "abb26e331df4c1bd5cedd4c9d4e415db0cde1a679dec3b607646d90d573163cf",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/SCENE_REFERENCE_BINDINGS.json",
+      "bytes": 5816,
+      "sha256": "a9df717f54836dd40542e8caa8c315a35164a68dd62128e5a3d7a963a230367e",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/SOURCE_BINDINGS.json",
+      "bytes": 1512,
+      "sha256": "872cbcc01a2d31f1a3f28bb5f0c66357f437a200836877d6f05fae34148c9a42",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/SOURCE_PIN.json",
+      "bytes": 570314,
+      "sha256": "d5f88c6131effe4bca91196e8f9a415cc1fef954405a8fc3bd3618951edc6550",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/SUMMARY.json",
+      "bytes": 6648,
+      "sha256": "d71ce1d11ca1d6c79587861f127ece5e05973faf2f0974a69c81cb16fe66e132",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/SYNTAX_GATES.json",
+      "bytes": 3743,
+      "sha256": "79ea5ce882954005392fd3b296e4dba174e22056c3eb9a3d0b935d840e8bac33",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/base_capture.gd",
+      "bytes": 28438,
+      "sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/capture_entry.gd",
+      "bytes": 16412,
+      "sha256": "f8cb2a59833d6d6ec37706cd50e5c05b913514ea673415186498d7dfcb1da23a",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/capture_fairy.gd",
+      "bytes": 20879,
+      "sha256": "700b997281ec65dc2a970de9935d35cd29f0eb36238f34c7bf2c3e4eac21f328",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/capture_hand.gd",
+      "bytes": 12648,
+      "sha256": "e7d9caa76d4c4f598bdc7c930c2cf5d13e015ef2c535baa91fed696e8044e549",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/capture_hand_context.gd",
+      "bytes": 2088,
+      "sha256": "752de617b5cfb98a25e1924e30fc400c22baa5367d3ed13c4a8c688d18c27f20",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/gate_logs/analyzer.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/gate_logs/authority.log",
+      "bytes": 78,
+      "sha256": "ae5aadd6a2fc69fd3a9bc4d6fa45dd699161234c71ac87bc69eb3b1300684fd7",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/gate_logs/context_analyzer.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/gate_logs/context_inference.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/gate_logs/context_parser.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/gate_logs/development.log",
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/gate_logs/inference.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/gate_logs/parser.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/gate_logs/units.log",
+      "bytes": 180,
+      "sha256": "a4ab8f9a04530273084da2bd9e7f6cd78a0012ce9bef6b60a8ddbc2feb3b14e8",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1280/LAUNCH.json",
+      "bytes": 1554,
+      "sha256": "f7abb0fcdce231928c3bac920293ec6e6b4348c4e0c9c8f6405b5f38e81dc23d",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1280/RESULT.json",
+      "bytes": 461,
+      "sha256": "21ea1704bf6f06a99c5445a7498a71742ca5add08ad581a903de4e5a4d4990aa",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1280/capture_manifest.json",
+      "bytes": 656350,
+      "sha256": "bf25f8674d6bf267e63deb234f1bc6fec6e63baf3c277a6209165b437026f5d9",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1280/engine.log",
+      "bytes": 405,
+      "sha256": "c6d45eca17ca3f3486908ee4b0ccbb17be558c8cbd265f62bb1bf2eb0dc503a0",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1280/r94_00_before_skyway_entry.png",
+      "bytes": 55660,
+      "sha256": "0d1df93d1bf788c5f7c3d1b62debe255b9a85a5b665bbe9e7b612605e5ab83fe",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1280/r94_01_bound.png",
+      "bytes": 1658436,
+      "sha256": "c7a31357c1606a862507cf86170b1a4513e9ff6dad5622f3c6c3f72bd4091953",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1280/r94_02_outbound.png",
+      "bytes": 1655956,
+      "sha256": "c8c21ad3bcabaa3a93f1909437a4683d4e7c7cbeca5afb26e499b3c48ff0d7be",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1280/r94_03_outbound.png",
+      "bytes": 1653628,
+      "sha256": "1c2ce19a06ee47fdd3ac0e285233ea6b700b96889a80d0e42310ffbc1d97dca5",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1280/r94_04_outbound.png",
+      "bytes": 1650179,
+      "sha256": "2a7598f8dffae223b836a37e794a7a77ee16cd4e95ca281bce4b7fa2937602f7",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1280/r94_05_house_cycle.png",
+      "bytes": 1650141,
+      "sha256": "b3170371d0b4a8d682dfb864cf4eed59f97308d50c46dcb8ee05dcf967b8e87f",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1600/LAUNCH.json",
+      "bytes": 1554,
+      "sha256": "1d7a1ec905b2223d057a72c2e09d20375ee11891cb4c00f4bc6039b076d6902f",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1600/RESULT.json",
+      "bytes": 461,
+      "sha256": "342ce96e00d35eefbb79f9e53f00ffa62cb35a10b16a43f4a521c6f9b27534d6",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1600/capture_manifest.json",
+      "bytes": 657144,
+      "sha256": "3f76e76a1934a29dc005ef786148af9b6a2c16790afddb4afd8bbcf7f4cb7ef6",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1600/engine.log",
+      "bytes": 405,
+      "sha256": "c6d45eca17ca3f3486908ee4b0ccbb17be558c8cbd265f62bb1bf2eb0dc503a0",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1600/r94_00_before_skyway_entry.png",
+      "bytes": 56863,
+      "sha256": "5fe2e2697bb81b357c0303cf367fce12a9f9bebf92032b9bc5a41bfad0f4323d",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1600/r94_01_bound.png",
+      "bytes": 1969054,
+      "sha256": "3ba9bcf98c9f1b0e6f4f7a2adea0dcee6075c38a11cd1a2498256743610c8411",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1600/r94_02_outbound.png",
+      "bytes": 1966385,
+      "sha256": "cb67161beeaa928a9893f977f621315a214a8fbc663d7b393c0127b4fda4e643",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1600/r94_03_outbound.png",
+      "bytes": 1964079,
+      "sha256": "bbe8b611ce863049df89745748210fb1625ed9ad3d20a26f15a780c475c7460b",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1600/r94_04_outbound.png",
+      "bytes": 1960259,
+      "sha256": "ae9ab3472c91c795b48d49ac52fe363043468258038eae3f9ca010994e212d1f",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_context_fit36_1600/r94_05_house_cycle.png",
+      "bytes": 1960249,
+      "sha256": "2c65841d18a6121b2f19fdab9dc7fdd5dff2928a2c8e69efdc71f1268c2161ac",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1280/LAUNCH.json",
+      "bytes": 1980,
+      "sha256": "58a7aa8ff71e27fc370b183887f99681a14601fb11eb869a1263628dd44893ac",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1280/RESULT.json",
+      "bytes": 977,
+      "sha256": "2e5bf8975f432a07fbae634b59e1a39dd217520dff4317fb86a8c9a37a4d8502",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1280/capture_manifest.json",
+      "bytes": 495658,
+      "sha256": "685bcc9547089559afbc4594da0577f5004c25967483e014e795380425e94487",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1280/engine.log",
+      "bytes": 405,
+      "sha256": "289265557982afc7da972b2ce69022f8ae4bb7b09a67a8853ed71525cc9b96b5",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1280/r94_00_before_skyway_entry.png",
+      "bytes": 55667,
+      "sha256": "f01b24b4a5d3214607151a3d9ac0fb922cf04f968c77afa2f6c92f01022e225e",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1280/r94_01_bound.png",
+      "bytes": 58695,
+      "sha256": "ba495197096a8ba90a0024d10cdda8c96fae139fa0d6f9ee9e39b4aa83112a6e",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1280/r94_02_outbound.png",
+      "bytes": 52758,
+      "sha256": "c0f5eb7f60923a765930e3c1e34e4ae47e969e27a4606681615939dff543c762",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1280/r94_03_outbound.png",
+      "bytes": 47436,
+      "sha256": "183f84ef59e73e638a66cdec26ff02f80a0652b8fd30e563824a81e8b9abe165",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1280/r94_04_outbound.png",
+      "bytes": 41898,
+      "sha256": "ad8a152520ad1c061a164beaf5bba8d3b870212d6f15cfff19a4c86f98427e94",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1280/r94_05_house_cycle.png",
+      "bytes": 41898,
+      "sha256": "95fc5268a52e6d7119292eda0011dc37cc0ee33de68667176d5ab4c2188542fd",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1600/LAUNCH.json",
+      "bytes": 1980,
+      "sha256": "70bfb2333595af5a76fb91d53886ae87a75ae92617e922e6ef2b2f5e03393814",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1600/RESULT.json",
+      "bytes": 977,
+      "sha256": "bb339a272c55f07a4b8676e2c8ec3c543c499602b8deb11972a893a1a99812d7",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1600/capture_manifest.json",
+      "bytes": 495482,
+      "sha256": "5a1cffdbef393a39f6dd67860d9beb4cc3d0fef7cc3d4d110a29f843647fa35d",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1600/engine.log",
+      "bytes": 405,
+      "sha256": "289265557982afc7da972b2ce69022f8ae4bb7b09a67a8853ed71525cc9b96b5",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1600/r94_00_before_skyway_entry.png",
+      "bytes": 56889,
+      "sha256": "79aea1ed17a375237c41120fdfcb8172129a11a4ab4ec07264837981509fd5ea",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1600/r94_01_bound.png",
+      "bytes": 59805,
+      "sha256": "46d1d8cd8de7f55e83b985452b890f178ecd9a919147fe93d99b519b7e2667ef",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1600/r94_02_outbound.png",
+      "bytes": 53803,
+      "sha256": "5433685411b6057f0267d67e93d3c561079fced6e71ab9747bea072fd8714e48",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1600/r94_03_outbound.png",
+      "bytes": 48739,
+      "sha256": "b323b19b38cfffe1545b8de4c567eda32e1784a2efa403645ec0ff01c470f8f7",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1600/r94_04_outbound.png",
+      "bytes": 43180,
+      "sha256": "2be0a43f21d3cf34516a19aff52e43c2d04e4110969fd55d7d08b72e854e4ab1",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/painted_registered_1600/r94_05_house_cycle.png",
+      "bytes": 43193,
+      "sha256": "2027ef35cd2c3c16a874c6b8ec4d774c780925ca03068a1fef687c913fb4680e",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1280/LAUNCH.json",
+      "bytes": 1968,
+      "sha256": "05b403c81c06f68f2ad8923e5ac1ce30342622d75b18a0088c6b6ae5377db36d",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1280/RESULT.json",
+      "bytes": 977,
+      "sha256": "e35a79b5616cac2ee62265f0c642b508be6e846317669cd957405b902471eafe",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1280/capture_manifest.json",
+      "bytes": 487637,
+      "sha256": "8f183f8667709d14b2f4a2ae7044d292a69b4371fd6e857e621135a28722d23b",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1280/engine.log",
+      "bytes": 405,
+      "sha256": "0bb0bffcee87599d2eb0dd3119fba7f2ed215604185e16d1bc717b4d923b2d22",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1280/r94_00_before_skyway_entry.png",
+      "bytes": 55656,
+      "sha256": "d6233f387fe768c1eee440faf66e08732bd12d252d1d416bc4824e63d5dd06d5",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1280/r94_01_bound.png",
+      "bytes": 55668,
+      "sha256": "fc4c06b351deb3ec605c448cc6095a2e41c4674ae1a8635762d9c1bab8cf1d17",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1280/r94_02_outbound.png",
+      "bytes": 49879,
+      "sha256": "473f64f7364236511213624d69f8240c3c0da105447eefb3548262e7ea3bcc68",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1280/r94_03_outbound.png",
+      "bytes": 44074,
+      "sha256": "c540c5593ecfe13693620ae796abddb4abeb419824326c12940df8f7974dde7e",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1280/r94_04_outbound.png",
+      "bytes": 39194,
+      "sha256": "0420f2a324246cbb7a521685160022cafd3b1f86076a65345fa860b9c6bd9ec3",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1280/r94_05_house_cycle.png",
+      "bytes": 39117,
+      "sha256": "e65cefd12bbbd9e6af1b6d943b33c9828de2177f55fae5a43cfd952a6fbd20ba",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1600/LAUNCH.json",
+      "bytes": 1968,
+      "sha256": "ba69573ba19485c693360ec2734f1e89166e11fb51485ba9abe363047b7b2eff",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1600/RESULT.json",
+      "bytes": 977,
+      "sha256": "e4dcfdbd097ff6f92ffd33f7b974c97b7d6d590120d1f12b5537613919f57c3d",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1600/capture_manifest.json",
+      "bytes": 487688,
+      "sha256": "3fed18d234e9f55d2a404c67a3728198a03534c997a5d05c95eae58b59db60ee",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1600/engine.log",
+      "bytes": 405,
+      "sha256": "0bb0bffcee87599d2eb0dd3119fba7f2ed215604185e16d1bc717b4d923b2d22",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1600/r94_00_before_skyway_entry.png",
+      "bytes": 56843,
+      "sha256": "9ab96c0a455ab4768bc0e30de6b2917aac4cd03cc51964bc748cf227a2e7ad02",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1600/r94_01_bound.png",
+      "bytes": 56903,
+      "sha256": "93795361f230813f12d46f2d96b935ef1fd12bcfafdb2eedff9522af1bde6b21",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1600/r94_02_outbound.png",
+      "bytes": 51046,
+      "sha256": "c3484deed7d11f0d882c48349d0afcf648e07c52524ea043df0799e99d3137e7",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1600/r94_03_outbound.png",
+      "bytes": 45357,
+      "sha256": "7d58e23b02c34f899d5c2f12de3d7ec6a651e6bb396ca8688aa8c92b1b95f641",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1600/r94_04_outbound.png",
+      "bytes": 39874,
+      "sha256": "8ac1b397dd2b697b8b3d5cbb97634f36fc9f7fb08c2d0f77af50cd5d38a9db9f",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/native/source_1600/r94_05_house_cycle.png",
+      "bytes": 39922,
+      "sha256": "214e702b65e49072e9b0ca759bda4de85720d33f12706c984cf4066d0c40555a",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/per_piece.json",
+      "bytes": 1664710,
+      "sha256": "a4219ebd8b82adf17e224e5ca4a213880de07f56a8157aeaf23b1bc11aa662a5",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/39053766039.json",
+      "bytes": 6652,
+      "sha256": "239ca5bc1f2a2c4910d498dc20465b866a73a1560b85972c95608ef93cedc2eb",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/39053766039.log",
+      "bytes": 2524929,
+      "sha256": "5b097404ef64813b8f41c79d106bfb85e5295d2529b7e10f9a4b8262ff6ad4bb",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/39053841472.json",
+      "bytes": 6658,
+      "sha256": "7e419d4eff303572f87607ca35504120fba7e0ba735653ab032567e8fbb22cae",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/39053841472.log",
+      "bytes": 2511302,
+      "sha256": "47e53b4dc5ebcec92b05095d5d96d07f37dcbf4beb3e27873593506c356057f6",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/CI_RECONCILIATION.json",
+      "bytes": 5641,
+      "sha256": "9450c189e2bf08a17cc1d0e593883bab80a497d8d7ae3a720aa46de25bcfb835",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/DEV_CI_OBSERVATION.json",
+      "bytes": 545,
+      "sha256": "1c0e9c4faa59a11bb65235a1ea04e47bbccbdf372567234e91a55de028c3a4c4",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/DEV_FF_PUSH.log",
+      "bytes": 125,
+      "sha256": "7fed8b70b79aa45ede021236a5ad2a847b8457431cdf1f72a92c113f8bdc8174",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/DEV_INTEGRATION.json",
+      "bytes": 2073,
+      "sha256": "66aab8b9e8a06bccfce117bf31a683c4f78a8443492edb4900acbf592249a142",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/DEV_REMOTE_VERIFICATION.json",
+      "bytes": 1444,
+      "sha256": "56db7c0481843367ac004b2a66ea6000450c4b7f4a60c8ee1046798772e3d5af",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/EXACT_CI_READY.json",
+      "bytes": 273,
+      "sha256": "27f33c1f2b46b32a68d3bdacab3a535f6e51c85d29aaa1223fa5317ce74c22a0",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/PRE_DEV_authority.log",
+      "bytes": 78,
+      "sha256": "e1588bcf6af0c34381f185675fc56b876367172512105bd0e8972a3297cb7a5d",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/PRE_DEV_development.log",
+      "bytes": 80,
+      "sha256": "14d841846fcb1419a73ee3ae4104b467a688b50496d4ec890c592785c81e3b26",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/PR_AFTER_DEV_FF.json",
+      "bytes": 311,
+      "sha256": "6f8025181e88dd262033b7c58aae3d31f01f9b6e61708f08d09e18e2d2ffad72",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/PR_CANCEL_ANNOTATIONS.json",
+      "bytes": 2720,
+      "sha256": "8ffb87ced3c70b304158fb14f75af81f934268ad1f8416b9b3676adac89f9aa6",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/PR_JOBS_CANCELLED.json",
+      "bytes": 7925,
+      "sha256": "2ec25a840898ce4a5291a38c503d04efd4db515b47ff4aedea90897aa2e594a3",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/r91_integration/PR_READY.log",
+      "bytes": 80,
+      "sha256": "82c43de185a44c6e4674ce8d3ea6efe3861a0a0490c665c4432f324a99e9ea92",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/run_context.py",
+      "bytes": 5812,
+      "sha256": "6ff0c8a990202cd57696dec4653cfd5af38642b343fc043d1e63573b9c851c51",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/run_native.py",
+      "bytes": 5742,
+      "sha256": "cce32832a04bdae9cb1ea31798bb2fbc55a055df707b3c092436c87dff918eb3",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/scene_coverage.json",
+      "bytes": 1012705,
+      "sha256": "8f1e42e08abaf5a68ef5bc17beff6df21c326a76c5fe2c654826d64e069a67e3",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/skyway_reuse.gd",
+      "bytes": 2596,
+      "sha256": "cdd079c6acc933b12efffd7d01a077948ce9907a24e9e697d33c6171ded3866c",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/tally.json",
+      "bytes": 460103,
+      "sha256": "bca7dcebde4ee02c923e00c85a41a04766a2a7a929c930bab5abf22c8e6e218d",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/verify_runtime_remote.py",
+      "bytes": 2957,
+      "sha256": "9f79a4731d58f90d7759a34dad3723ef5222e97cbf73485e057ac929b6c255f9",
+      "role": "Actual R94 native fit/integration evidence or current canonical/document delta"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/castle/training/ghost_hand.png",
+      "bytes": 123283,
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "bytes": 50051,
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c0.png",
+      "bytes": 1182953,
+      "sha256": "626647407ee1b72ef1b5d49cc37e45e2ba7e04dcfdf6ecfc3ae9de05dd68a0cb",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
+      "bytes": 957609,
+      "sha256": "83a0da2ecccccd71e0ccfd4593c40989429abef67daf67f0be3b73c305cbfaf9",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
+      "bytes": 903101,
+      "sha256": "fbe11c0f6b62b0d117d34a4f2aabbf8c71b8c7c5d8ece270dc75d2af9877f0e9",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
+      "bytes": 1231211,
+      "sha256": "0c0310b41a140b10de123c549d93e07bdf8334386eeb57c1034043ee51f96f76",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
+      "bytes": 1300408,
+      "sha256": "9843684229a6e001770edd93ebe59b35fc9bd024cdd607490c7e7fd63dc5ae6d",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
+      "bytes": 920163,
+      "sha256": "2641ddcf0d7a15811974fa33aa06d5da89db0198dec93b89953745bae31bc7e8",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
+      "bytes": 993852,
+      "sha256": "65fcb14971ba6f2e94c279cdd6d99a2702afbfc49f009d325323e715204f828a",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png",
+      "bytes": 1451725,
+      "sha256": "67bac93a60b7b365156596360ca487257a42d6e40431dc2794ea763712761936",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+      "bytes": 1709220,
+      "sha256": "95bebeeb343be83b465d52b7ee57427bcdce488795f409b285f959a0ea3eba09",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+      "bytes": 1146462,
+      "sha256": "ef7503286fc2c19fb0dd5301e8062a19580c406cfc9fc758b1900da9d0eaa768",
+      "role": "Direct same-scene source/painted-neighbor reference only; source approval scope unchanged"
+    },
+    {
+      "revision": "88ff2a795a5796a44b1b2857874808534fcf0391",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/hand_take01.png",
+      "bytes": 754516,
+      "sha256": "b10923462ca5947ee360db49b0fa8a33ca2fd660fb1fb85767a638c67853ecec",
+      "role": "Exact existing one-take R93 hand; no new generation/source pixel edit"
+    },
+    {
+      "revision": "e3088008d9934e94aa4d81f1c669da493a5f7087",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/GENERATION.json",
+      "bytes": 3253,
+      "sha256": "b1d2de9b6edefc9e386f3c513cd6598590e1658bc7b3f765106e43bf652a0d80",
+      "role": "Direct unchanged candidate authority/provenance/cap or prior summary; no archive recursion"
+    },
+    {
+      "revision": "e3088008d9934e94aa4d81f1c669da493a5f7087",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/OWNER_AUTHORIZATION.json",
+      "bytes": 2765,
+      "sha256": "a34b1b688dae87bbfc539be0c0ffa6da97c38dd76fee9edc88b522922ebb3f9a",
+      "role": "Direct unchanged candidate authority/provenance/cap or prior summary; no archive recursion"
+    },
+    {
+      "revision": "e3088008d9934e94aa4d81f1c669da493a5f7087",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/PROMPT.txt",
+      "bytes": 1547,
+      "sha256": "6cabe330ff23de27718d986db25a5c3071c73b8a775e1a6f25bb86354c977e87",
+      "role": "Direct unchanged candidate authority/provenance/cap or prior summary; no archive recursion"
+    },
+    {
+      "revision": "e3088008d9934e94aa4d81f1c669da493a5f7087",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/TECHNICAL_REVIEW.json",
+      "bytes": 1630,
+      "sha256": "d079f4e28ddf1d16da7b59df8f756986a9f8ded871fc45d940688f504745efe3",
+      "role": "Direct unchanged candidate authority/provenance/cap or prior summary; no archive recursion"
+    },
+    {
+      "revision": "e3088008d9934e94aa4d81f1c669da493a5f7087",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r93_painted_hand_candidate/SUMMARY.json",
+      "bytes": 8998,
+      "sha256": "6cfc0c7b36b1a6b483a12324801437a6949ce81bb6c038844a6f52d9bd991716",
+      "role": "Direct unchanged candidate authority/provenance/cap or prior summary; no archive recursion"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "project.godot",
+      "bytes": 1762,
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "role": "Exact actual source project/scene/controller for bounded native reproduction"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "scenes/main.tscn",
+      "bytes": 221,
+      "sha256": "1de477913ac3db6efe5d66d04967279dc9b66217bea01afeeddb4d98ef692f21",
+      "role": "Exact actual source project/scene/controller for bounded native reproduction"
+    },
+    {
+      "revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "bytes": 14672,
+      "sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "role": "Exact actual source project/scene/controller for bounded native reproduction"
+    },
+    {
+      "revision": "e3088008d9934e94aa4d81f1c669da493a5f7087",
+      "path": "AGENTS.md",
+      "bytes": 32943,
+      "sha256": "f95a3fb3c4fcf68dd7ac359bdca7fd8fdebfaffc81772f51e136fce7c5a9da4b",
+      "role": "Unchanged directly applicable rule/protected-source authority"
+    },
+    {
+      "revision": "e3088008d9934e94aa4d81f1c669da493a5f7087",
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "bytes": 7602,
+      "sha256": "f2817f20cbf89b2b0da6d28b5d956ab0408239ecd9438f4b6a7057b45e9b5fd9",
+      "role": "Unchanged directly applicable rule/protected-source authority"
+    },
+    {
+      "revision": "e3088008d9934e94aa4d81f1c669da493a5f7087",
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "bytes": 104724,
+      "sha256": "8e240a56ace2e7174d528b0cb528c9ae85efdd5a8267789d5131693466db06d3",
+      "role": "Unchanged directly applicable rule/protected-source authority"
+    }
+  ],
+  "required_files": 143,
+  "required_bytes": 51161118,
+  "scope": "Actual current production preview/integration packet plus only selected direct scene/reference/candidate and rule inputs. Full unchanged source project and older evidence are immutable Git references, not recursively required historical archives.",
+  "new_generation_calls": 0,
+  "new_drawing_samples": 0,
+  "hand_generation_calls_total": 1,
+  "native_cases": 6,
+  "native_checks": 138,
+  "retained_frame_events_here": 36,
+  "Dev_partial_code_artifacts": 3,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "post_payload_own_metadata": "Final remote receipt independently checked at final commit without recursive self hashes."
+}

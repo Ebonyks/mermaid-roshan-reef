@@ -1,0 +1,60 @@
+{
+  "before_dev": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "integrated_dev": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "head_source_branch": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "normal_ff_only": true,
+  "runtime_changed_paths": [
+    "assets/mg/butterfly.png.import",
+    "scripts/collection_system.gd"
+  ],
+  "source_push_run": 39053766039,
+  "source_push_conclusion": "success",
+  "redundant_PR_run": 39053841472,
+  "redundant_PR_conclusion": "cancelled55min_after_mandatory_success",
+  "CI_reconciliation": "CI_RECONCILIATION.json",
+  "pre_push_document_gates": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "PRE_DEV_authority.log",
+      "sha256": "e1588bcf6af0c34381f185675fc56b876367172512105bd0e8972a3297cb7a5d"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "PRE_DEV_development.log",
+      "sha256": "14d841846fcb1419a73ee3ae4104b467a688b50496d4ec890c592785c81e3b26"
+    }
+  ],
+  "PR": {
+    "baseRefName": "dev",
+    "headRefOid": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+    "isDraft": false,
+    "mergeCommit": {
+      "oid": "39b0e158db7de3d0c178c4444f97c04fda75bec5"
+    },
+    "mergedAt": "2026-10-17T18:31:29Z",
+    "state": "MERGED",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/37"
+  },
+  "known_dev_partial_artifacts": 3,
+  "complete_named_artwork_roles": 0,
+  "accepted_removed": 0,
+  "formal_runtime_verified_replacements": 0,
+  "device_child_owner": "PENDING",
+  "exact_new_dev_APK_verified": false,
+  "master_untouched": true,
+  "source_worktree_clean": true,
+  "checked_at_utc": "2026-10-17T18:31:59.376949+00:00",
+  "scope": "One additional bounded insect category-tab source artifact is integrated for Dev playtesting. Exact same-head source-push machine CI is green; redundant PR cancellation retained separately. No accepted artwork replacement/family/global closure."
+}

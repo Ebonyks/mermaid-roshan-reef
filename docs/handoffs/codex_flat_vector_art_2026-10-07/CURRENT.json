@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261017-R93",
-  "current_entry": "r93_painted_hand_candidate/README.md",
-  "current_per_piece": "r93_painted_hand_candidate/per_piece.json",
-  "current_scene_coverage": "r93_painted_hand_candidate/scene_coverage.json",
-  "current_tally": "r93_painted_hand_candidate/tally.json",
+  "revision": "FV-AUDIT-20261017-R94",
+  "current_entry": "r94_painted_hand_native/README.md",
+  "current_per_piece": "r94_painted_hand_native/per_piece.json",
+  "current_scene_coverage": "r94_painted_hand_native/scene_coverage.json",
+  "current_tally": "r94_painted_hand_native/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r93_painted_hand_candidate/MANIFEST.json",
+  "current_manifest": "r94_painted_hand_native/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r93_painted_hand_candidate/DEV_CI_FINAL.json",
+  "current_ci_evidence": "r94_painted_hand_native/r91_integration/CI_RECONCILIATION.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -1313,7 +1313,7 @@
     "terminal_evidence": "r87_critter_navigation_context/RUNTIME_FINAL_PR_CI.json",
     "limits": "No rerun/cause attribution or acceptance inferred; same-head push success is separate from PR cancellation and optional renderer failures."
   },
-  "current_summary": "r93_painted_hand_candidate/SUMMARY.json",
+  "current_summary": "r94_painted_hand_native/SUMMARY.json",
   "current_catalogue_alias_set": "r90_dev_integration/CURRENT_CATALOGUE_CONTEXT_UNION.json",
   "immutable_r87_receipt_revision": "bb30d505500a7b737115f694e69e02b35efddb85",
   "r88_runtime_trial": {
@@ -1610,5 +1610,102 @@
     "draft": true,
     "attached_to_chat": true,
     "final_entry_url": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/39b0e158db7de3d0c178c4444f97c04fda75bec5/docs/handoffs/codex_flat_vector_art_2026-10-07/r91_critter_insect_tab_runtime"
+  },
+  "r94_hand_native_fit": {
+    "stable_id": "FVR-47ADC102790E",
+    "status": "RAW_R93_CANDIDATE_NATIVE_FIT_REVIEW_PENDING",
+    "source_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "current_Dev_revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+    "source_applicability": "Selected controller and same-scene art bytes unchanged F->N; no wholeN runtime requalification.",
+    "candidate_revision": "88ff2a795a5796a44b1b2857874808534fcf0391",
+    "candidate_path": "r93_painted_hand_candidate/hand_take01.png",
+    "candidate_sha256": "b10923462ca5947ee360db49b0fa8a33ca2fd660fb1fb85767a638c67853ecec",
+    "bounded_native_cases": 6,
+    "bounded_native_checks": 138,
+    "selected_visible_width": 36,
+    "hand_generation_calls_total": 1,
+    "maximum_total_takes": 2,
+    "new_generation_calls": 0,
+    "new_art_samples": 0,
+    "samples_awaiting_review": 1,
+    "approved": 0,
+    "integrated": 0,
+    "formal_runtime_verified_replacement": 0,
+    "accepted_removed": 0,
+    "visible_fallback_retired": false,
+    "all_caller_return_closure": false,
+    "runtime_texture_asset_ready": false,
+    "source_export_limit": "Unchanged raw1254square source is nonruntime-size ready; lab ImageTexture load/filter is not Android export.",
+    "known_background_dependency": "Source backdrop hides scene; only separately declared existingR70proposal provides painted-neighbor context.",
+    "functional_geometry": "Original112x112targets/houseButton unchanged; no geometry removal credit.",
+    "evidence": [
+      "CAPTURE_INDEX.json",
+      "CONGRUENCY_REVIEW.json",
+      "SCENE_REFERENCE_BINDINGS.json"
+    ],
+    "formal_QA11": "PENDING",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING"
+  },
+  "r94_dev_integration": {
+    "before_dev": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+    "integrated_dev": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+    "head_source_branch": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+    "normal_ff_only": true,
+    "runtime_changed_paths": [
+      "assets/mg/butterfly.png.import",
+      "scripts/collection_system.gd"
+    ],
+    "source_push_run": 39053766039,
+    "source_push_conclusion": "success",
+    "redundant_PR_run": 39053841472,
+    "redundant_PR_conclusion": "cancelled55min_after_mandatory_success",
+    "CI_reconciliation": "CI_RECONCILIATION.json",
+    "pre_push_document_gates": [
+      {
+        "command": [
+          "python",
+          "-B",
+          "tools/audit_document_authority.py"
+        ],
+        "exit_code": 0,
+        "log": "PRE_DEV_authority.log",
+        "sha256": "e1588bcf6af0c34381f185675fc56b876367172512105bd0e8972a3297cb7a5d"
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "tools/audit_development.py",
+          "--base",
+          "auto"
+        ],
+        "exit_code": 0,
+        "log": "PRE_DEV_development.log",
+        "sha256": "14d841846fcb1419a73ee3ae4104b467a688b50496d4ec890c592785c81e3b26"
+      }
+    ],
+    "PR": {
+      "baseRefName": "dev",
+      "headRefOid": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "39b0e158db7de3d0c178c4444f97c04fda75bec5"
+      },
+      "mergedAt": "2026-10-17T18:31:29Z",
+      "state": "MERGED",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/37"
+    },
+    "known_dev_partial_artifacts": 3,
+    "complete_named_artwork_roles": 0,
+    "accepted_removed": 0,
+    "formal_runtime_verified_replacements": 0,
+    "device_child_owner": "PENDING",
+    "exact_new_dev_APK_verified": false,
+    "master_untouched": true,
+    "source_worktree_clean": true,
+    "checked_at_utc": "2026-10-17T18:31:59.376949+00:00",
+    "scope": "One additional bounded insect category-tab source artifact is integrated for Dev playtesting. Exact same-head source-push machine CI is green; redundant PR cancellation retained separately. No accepted artwork replacement/family/global closure."
   }
 }

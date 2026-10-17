@@ -1,0 +1,101 @@
+{
+  "stable_id": "FVR-47ADC102790E",
+  "source_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "candidate_sha256": "b10923462ca5947ee360db49b0fa8a33ca2fd660fb1fb85767a638c67853ecec",
+  "reviewer": "Codex direct full native-frame inspection",
+  "views": [
+    {
+      "path": "native/source_1280/r94_01_bound.png",
+      "sha256": "fc4c06b351deb3ec605c448cc6095a2e41c4674ae1a8635762d9c1bab8cf1d17",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    },
+    {
+      "path": "native/painted_registered_1280/r94_01_bound.png",
+      "sha256": "ba495197096a8ba90a0024d10cdda8c96fae139fa0d6f9ee9e39b4aa83112a6e",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    },
+    {
+      "path": "native/painted_registered_1280/r94_05_house_cycle.png",
+      "sha256": "95fc5268a52e6d7119292eda0011dc37cc0ee33de68667176d5ab4c2188542fd",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    },
+    {
+      "path": "native/source_1600/r94_01_bound.png",
+      "sha256": "93795361f230813f12d46f2d96b935ef1fd12bcfafdb2eedff9522af1bde6b21",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    },
+    {
+      "path": "native/painted_context_fit36_1280/r94_01_bound.png",
+      "sha256": "c7a31357c1606a862507cf86170b1a4513e9ff6dad5622f3c6c3f72bd4091953",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    },
+    {
+      "path": "native/painted_context_fit36_1280/r94_02_outbound.png",
+      "sha256": "c8c21ad3bcabaa3a93f1909437a4683d4e7c7cbeca5afb26e499b3c48ff0d7be",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    },
+    {
+      "path": "native/painted_context_fit36_1280/r94_03_outbound.png",
+      "sha256": "1c2ce19a06ee47fdd3ac0e285233ea6b700b96889a80d0e42310ffbc1d97dca5",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    },
+    {
+      "path": "native/painted_context_fit36_1280/r94_05_house_cycle.png",
+      "sha256": "b3170371d0b4a8d682dfb864cf4eed59f97308d50c46dcb8ee05dcf967b8e87f",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    },
+    {
+      "path": "native/painted_context_fit36_1600/r94_01_bound.png",
+      "sha256": "3ba9bcf98c9f1b0e6f4f7a2adea0dcee6075c38a11cd1a2498256743610c8411",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    },
+    {
+      "path": "native/painted_context_fit36_1600/r94_02_outbound.png",
+      "sha256": "cb67161beeaa928a9893f977f621315a214a8fbc663d7b393c0127b4fda4e643",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    },
+    {
+      "path": "native/painted_context_fit36_1600/r94_03_outbound.png",
+      "sha256": "bbe8b611ce863049df89745748210fb1625ed9ad3d20a26f15a780c475c7460b",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    },
+    {
+      "path": "native/painted_context_fit36_1600/r94_05_house_cycle.png",
+      "sha256": "2c65841d18a6121b2f19fdab9dc7fdd5dff2928a2c8e69efdc71f1268c2161ac",
+      "direct_agent_viewed": true,
+      "formal_human_QA11": false
+    }
+  ],
+  "formal_QA11": false,
+  "selected_fit": "36px visible alpha128width, about54.4pxheight, uniform Sprite2D transform; original cue32.04x48.96px, unselected first49x74px fit retained. No source-pixel crop/resize/repaint/alpha edit.",
+  "axes": {
+    "contour": "Down index remains uniquely lowest; left thumb and three curled digits retain the source gesture. New soft painted contour replaces the thick uniform outline. Native mip softness and gold rim still need phone/owner review.",
+    "material": "Ivory-gold and lavender shading relate to the pearl rails and doorway better than the flat control. Fine brush texture is mostly lost at small display size; retain as candidate, no final style acceptance.",
+    "palette": "Warm ivory/gold with cool lavender shadows fits the pearl/gold/rainbow walkway and lavender/blue surroundings in the declared R70proposal context. Actual source background remains purple/occluded.",
+    "light": "Broad warm highlight/cool creases match the proposed bright environment qualitatively; no physical relight or lighting acceptance inferred.",
+    "perspective": "Instructional overlay retains constant readable size as original; Roshan follows original depth scaling. This is not a physical hand in the world.",
+    "scale": "49px fit was bulky and close to Roshan’s head;36px fit is close to the original32px width and leaves more separation. Phone-size readability/softness remains pending.",
+    "contact": "No physical hand contact is claimed. Actual displayed fingertip drives all three original waypoint targets and stays in target through full natural bob cycles, including the house endpoint. House activation/return not exercised.",
+    "occlusion": "Selected fit avoids Roshan in inspected outbound frames. At the house it intentionally overlays part of the doorway trim as a cue; owner review remains needed. Source artwork and targets are unchanged.",
+    "readability": "Down-point cue reads at both native aspects. Contrast over the yellow path, mip softness and residual bright contour need actual target-phone/child review; no automated art score.",
+    "action_state": "Original Main/Continue/Castle/Moonflower entry and three one-finger waypoint actions are observed. Four natural cue states per case are measured with no clock/progress writes. House activation, return/reentry, all other callers and fallback retirement remain open."
+  },
+  "context_limit": "Original source backdrop still hides background/path/gate. It is the already known R70issue, not a new regression. Selected painted-neighbor frames reuse the exact oldR70z/layout proposal and are explicitly nonproduction.",
+  "candidate_status": "RETAINED_SELECTED_LOCAL_FIT_FOR_REVIEW_NOT_APPROVED_OR_INTEGRATED",
+  "generation_calls_this_revision": 0,
+  "R93_total_generation_calls": 1,
+  "device": "PENDING",
+  "child": "PENDING",
+  "owner": "PENDING"
+}

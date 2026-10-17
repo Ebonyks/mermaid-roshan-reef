@@ -1,0 +1,15 @@
+{
+  "fit": "49px visible width; source bytes/texture/controls unchanged",
+  "direct_views": [
+    "native/source_1280/r94_01_bound.png",
+    "native/painted_registered_1280/r94_01_bound.png",
+    "native/painted_registered_1280/r94_05_house_cycle.png",
+    "native/source_1600/r94_01_bound.png"
+  ],
+  "finding": "The first49px fit looks bulky and nearly touches the left side of Roshan\u2019s head. Source background also hides all path/gate/tiles, repeating the already known R70 occlusion defect; no new regression or cause claim.",
+  "disposition": "RETAINED_UNSELECTED_FIT_DIAGNOSTIC_NOT_ART_REJECTION_OR_ACCEPTANCE",
+  "next": "One36px uniform scale/registered-tip trial in the exact existingR70painted layout preview at both native aspects. No new ImageGen, alpha edit, crop or resize of source pixels.",
+  "formal_QA11": false,
+  "owner_approval": false,
+  "generation_calls_this_review": 0
+}

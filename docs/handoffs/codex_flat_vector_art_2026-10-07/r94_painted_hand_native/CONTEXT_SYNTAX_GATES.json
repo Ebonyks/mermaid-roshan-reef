@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\capture_hand_context.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\skyway_reuse.gd"
+      ],
+      "exit_code": 0,
+      "log": "gate_logs/context_parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\capture_hand_context.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\skyway_reuse.gd"
+      ],
+      "exit_code": 0,
+      "log": "gate_logs/context_inference.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef",
+        "--rendering-method",
+        "mobile",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r94/capture_hand_context.gd"
+      ],
+      "exit_code": 0,
+      "log": "gate_logs/context_analyzer.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    }
+  ],
+  "fixture_files": {
+    "base_capture.gd": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+    "capture_entry.gd": "f8cb2a59833d6d6ec37706cd50e5c05b913514ea673415186498d7dfcb1da23a",
+    "capture_fairy.gd": "700b997281ec65dc2a970de9935d35cd29f0eb36238f34c7bf2c3e4eac21f328",
+    "capture_hand.gd": "e7d9caa76d4c4f598bdc7c930c2cf5d13e015ef2c535baa91fed696e8044e549",
+    "skyway_reuse.gd": "cdd079c6acc933b12efffd7d01a077948ce9907a24e9e697d33c6171ded3866c",
+    "capture_hand_context.gd": "752de617b5cfb98a25e1924e30fc400c22baa5367d3ed13c4a8c688d18c27f20"
+  },
+  "scope": "Changed36px uniform fit and existingR70nonruntime painted-neighbor context only. Firstfourcases remain unchanged."
+}

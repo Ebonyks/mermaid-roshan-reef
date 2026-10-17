@@ -1,3 +1,7 @@
+# Current R94 production
+
+[Painted hand native fit and third partial Dev code integration](r94_painted_hand_native/README.md). Same one-take hand candidate,138native checks, clearer36px fit and explicit source/proposed-scene contexts; insect-tab PR37merged. No accepted artwork removals. Current canonical paths are in CURRENT.json; historical sections below retain their dated scopes.
+
 # Current R93 painted-hand production
 
 [Actual first painted hand candidate](r93_painted_hand_candidate/README.md), [production queue](PRODUCTION_QUEUE.json). Exact two-image export is now owner-authorized and one generation has run. No acceptance or removal credit. Canonical paths are in CURRENT.json; historical sections below retain their dates.

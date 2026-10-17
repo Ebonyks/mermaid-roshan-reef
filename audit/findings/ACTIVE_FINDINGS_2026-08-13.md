@@ -380,6 +380,8 @@ poses as broken motion.
 
 R93 follow-up also records the separately verified R91 insect-tab payload (750native checks/82local probes; remoteCI pending) and terminal successful exactDevF retry2. Four bounded source artifacts published, two prior partial Dev integrations; zero complete artwork roles or accepted removals. No lifecycle closure.
 
+2026-10-17 [R94](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r94_painted_hand_native/README.md): existing hand fitted and measured through natural bob/original touch states; sixcases/138checks, source and proposed-neighbor contexts separate. No new generation or art acceptance. R91insect partialcode integratedDev39b on exactworkbranchCIgreen; redundantPRcancelled55m aftermandatorysuccess retained. Three partialDevartifacts, zero accepted removals; lifecycle and all missing acceptance/inventory coverage remain open.
+
 ## MA-VIS-007
 
 | Field | Value |

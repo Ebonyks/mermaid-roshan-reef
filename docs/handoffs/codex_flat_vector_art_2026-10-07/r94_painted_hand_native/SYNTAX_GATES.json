@@ -1,0 +1,75 @@
+{
+  "status": "PASS_EXACT_ENGINE_ANALYZER_BEFORE_NATIVE",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\capture_fairy.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\capture_hand.gd"
+      ],
+      "exit_code": 0,
+      "log": "gate_logs/parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\capture_fairy.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r94_painted_hand_native\\capture_hand.gd"
+      ],
+      "exit_code": 0,
+      "log": "gate_logs/inference.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef",
+        "--rendering-method",
+        "mobile",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r94/capture_hand.gd"
+      ],
+      "exit_code": 0,
+      "log": "gate_logs/analyzer.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    }
+  ],
+  "guards": {
+    "source_changes": [],
+    "normal_eleven_unchanged": true,
+    "normal_after": {
+      "": "b81409bba2d108625739b2e1c10be48dc0d9571baf2d1cc4d7b1233b02cd07eb",
+      ".bak": "c9b95b66fd00f22f2e2c5b41d2803e4f5c581c58be483e2e3a593dea0dabd5d6",
+      ".tmp": "absent",
+      ".tmp0": "absent",
+      ".tmp1": "absent",
+      ".old": "absent",
+      ".bak.tmp": "absent",
+      ".bak.old": "absent",
+      ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+      ".before_new_game.tmp": "absent",
+      ".before_new_game.old": "absent"
+    },
+    "candidate_unchanged": true
+  },
+  "fixture_files": {
+    "base_capture.gd": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+    "capture_entry.gd": "f8cb2a59833d6d6ec37706cd50e5c05b913514ea673415186498d7dfcb1da23a",
+    "capture_fairy.gd": "700b997281ec65dc2a970de9935d35cd29f0eb36238f34c7bf2c3e4eac21f328",
+    "capture_hand.gd": "e7d9caa76d4c4f598bdc7c930c2cf5d13e015ef2c535baa91fed696e8044e549"
+  },
+  "source_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79"
+}

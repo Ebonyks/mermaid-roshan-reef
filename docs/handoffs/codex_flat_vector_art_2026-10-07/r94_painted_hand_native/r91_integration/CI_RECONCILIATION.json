@@ -1,0 +1,179 @@
+{
+  "source_push_run": 39053766039,
+  "source_push_exact_head_green": true,
+  "head": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "redundant_PR_run": 39053841472,
+  "PR_conclusion": "cancelled",
+  "PR_required_steps": [
+    {
+      "name": "Static gates (parse + Variant-inference lint)",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Import (deadlock-guarded)",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Run trusted probes",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+      "conclusion": "success",
+      "status": "completed"
+    }
+  ],
+  "PR_steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Download Godot (checksum-verified)",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Static gates (parse + Variant-inference lint)",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Import (deadlock-guarded)",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Run trusted probes",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Dust boss balance playtest (advisory)",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Opera balance playtest (advisory)",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Publish opera art manifest (advisory)",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Upload opera art manifest",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Capture first-world visual review",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Capture legacy human-art diagnostic",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Upload legacy human-art diagnostic",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Capture Sky Lagoon visual review",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Upload Sky Lagoon visual review",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Capture northern-world visual review",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Upload northern-world visual review",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Capture dust-boss arena review",
+      "conclusion": "cancelled",
+      "status": "completed"
+    },
+    {
+      "name": "Upload dust-boss arena review",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Capture pearl-castle visual review",
+      "conclusion": "skipped",
+      "status": "completed"
+    },
+    {
+      "name": "Upload pearl-castle visual review",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Upload advisory sensor receipts",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success",
+      "status": "completed"
+    }
+  ],
+  "annotations": [
+    "The job has exceeded the maximum execution time of 55m0s",
+    "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+    "No files were found with the provided path: /tmp/castle-pearl-shots/*.png\n/tmp/castle-pearl-shots/castle_review_manifest.json. No artifacts will be uploaded.",
+    "The operation was canceled.",
+    "Process completed with exit code 1.",
+    "Process completed with exit code 1.",
+    "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+  ],
+  "PR_cancellation_after_trusted_probes_success": true,
+  "confirmed_time_limit": true,
+  "limits": "PR cancellation is retained, never relabeled green. Exact same-head workbranch push is green; normal AGENTS integration requires green workbranch probes. No test rerun or art/QA11/device/child/owner acceptance.",
+  "checked_at_utc": "2026-10-17T18:27:42.822847+00:00"
+}

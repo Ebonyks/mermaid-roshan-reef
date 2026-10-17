@@ -1,0 +1,57 @@
+{
+  "status": "PASS_BOUNDED_NATIVE_AND_DOCUMENT_GATES_ACCEPTANCE_PENDING",
+  "native_cases": 6,
+  "native_checks": 138,
+  "raw_frames": 36,
+  "direct_native_views": 12,
+  "new_generation_calls": 0,
+  "R93_hand_total_generation_calls": 1,
+  "candidate_source_pixels_unchanged": true,
+  "U_source_pins_4423_unchanged": true,
+  "normal_eleven_unchanged": true,
+  "exact_engine": "4.7.2-stable.official.ed1daf0bf",
+  "renderer": "mobile",
+  "actual_snapshot_quality": "speedy",
+  "full_CI_repetition": "NOT_APPLICABLE: sourceF unchanged by preview; exactF/39b existing trusted suites reused. Only changed ignored fixture parser/inference/analyzer and bounded native cases rerun.",
+  "global_2d_inventory_rescan": "NOT_APPLICABLE to pure ignored preview/evidence metadata; no production source/assets added or changed here, source guard all4423matches, no new3Dobjects. The separate already-tested39bsource leaf/2Dgates are unchanged.",
+  "source_background_fix": "NOT_INTEGRATED; knownsourceocclusion retained; proposedneighborcontext separate.",
+  "formal_QA11_device_child_owner": "PENDING",
+  "accepted_removed": 0,
+  "document_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "gate_logs/authority.log",
+      "sha256": "ae5aadd6a2fc69fd3a9bc4d6fa45dd699161234c71ac87bc69eb3b1300684fd7"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "gate_logs/development.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "log": "gate_logs/units.log",
+      "sha256": "a4ab8f9a04530273084da2bd9e7f6cd78a0012ce9bef6b60a8ddbc2feb3b14e8"
+    }
+  ]
+}
