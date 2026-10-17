@@ -1,4 +1,6 @@
-# Current R84 Menu/Back context and full-game tally
+# Current R85 painted navigation sample and full-game tally
+
+Current canonical revision: [R85](r85_navigation_reuse/README.md), a source-preserving Menu/Back material sample with92final native checks and retained render-timing rejects. No production source edit, new generation, role/family/alias or acceptance credit. Global denominators remain unknown. Historical sections below retain their original scope.
 
 Current CI follow-up: [R84 exact-head blocker record](r84_navigation_context/ci_status_20261017/CI_STATUS.json). PR34 remote probe jobs cancelled; Mobile fallback and Opera advisory failure remain blocking. Source-context passes and zero accepted-removal count are unchanged.
 

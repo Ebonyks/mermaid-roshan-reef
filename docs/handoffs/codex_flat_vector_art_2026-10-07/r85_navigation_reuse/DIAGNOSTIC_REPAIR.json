@@ -1,0 +1,18 @@
+{
+  "failed_attempt": "native/attempt1_source_1280",
+  "failed_observer_sha256": "51aad0490227cda9a80c63de63079454f9f20bd607e6d7d2987024e184a7a32b",
+  "failed_runner_sha256": "6a9415a96642b54fe410b1f545e79598f6681dcd9531bead2378fe4c51d4553b",
+  "checks": 46,
+  "failed_checks": [
+    "declared diagnostic actual draw mode pressed",
+    "declared diagnostic actual draw mode hover_pressed",
+    "declared diagnostic actual draw mode focus_pressed"
+  ],
+  "diagnosis": "The non-toggle source Button does not enter pressed state through set_pressed_no_signal. Attempt1 observed normal/hover modes instead; this is not a candidate pressed-state pass or gameplay defect.",
+  "primary_reference": "https://docs.godotengine.org/en/4.7/classes/class_basebutton.html#class-basebutton-method-set-pressed-no-signal",
+  "correction": "Only excluded declared style diagnostics temporarily enable toggle_mode. Restore original toggle_mode and clear press/focus before the original actual touch flow. Record actual toggle/press/draw-mode values; do not claim natural pressed-state evidence.",
+  "production_changes": [],
+  "source_art_changes": [],
+  "accepted_removed": 0,
+  "all_attempt1_frames_excluded_from_current_dev_coverage": true
+}

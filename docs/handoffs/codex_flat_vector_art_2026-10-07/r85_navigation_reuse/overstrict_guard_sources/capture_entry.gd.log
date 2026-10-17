@@ -1,0 +1,633 @@
+extends SceneTree
+## Original display entry / source-owned NewGame reload; private user:// namespace before Main.
+var m: ReefMain
+var out_dir := ""
+var normal_path := ""
+var private_path := ""
+var states: Array[Dictionary] = []
+var events: Array[Dictionary] = []
+var checks: Array[Dictionary] = []
+var errors: Array[String] = []
+var normal_before: Dictionary = {}
+var old_custom := false
+var old_custom_name := ""
+var pointer_samples: Array[Dictionary] = []
+var mode := "ORIGINAL_SOURCE_NAVIGATION"
+var flash_trials: Array[Dictionary] = []
+var flash_lifecycle: Array[Dictionary] = []
+var flash_panels: Array[Panel] = []
+var source_blueprints: Dictionary = {}
+var candidate_rects: Dictionary = {}
+const RING_PATH := "res://assets/opera/worlds/props/fx_telegraph_ring.png"
+var root_id := 0
+var settings_configured := false
+var cache_directories: Array[String] = []
+var candidate_enabled := false
+var diagnostic_state := ""
+var material_generations: Array[Dictionary] = []
+const CARD_PATH := "res://assets/fashion/skin_engine_v2/ui/wardrobe_card.png"
+const NAV_STATES: Array[String] = ["normal","hover","pressed","hover_pressed","focus","disabled"]
+class MaterialTick:
+	extends Node
+	var observer: SceneTree
+	func _process(_delta: float) -> void:
+		observer.call("_apply_navigation_materials")
+func _init() -> void:
+	call_deferred("_run")
+
+func _normal_hashes() -> Dictionary:
+	var row: Dictionary = {}
+	var base := normal_path
+	for suffix: String in ["", ".bak", ".tmp", ".tmp0", ".tmp1", ".old", ".bak.tmp", ".bak.old", ".before_new_game", ".before_new_game.tmp", ".before_new_game.old"]:
+		var f := base + suffix
+		row[suffix] = FileAccess.get_sha256(f) if FileAccess.file_exists(f) else "absent"
+	return row
+
+func _frames(count: int) -> void:
+	for i: int in range(count):
+		await process_frame
+
+func _wait(predicate: Callable, seconds: float = 14.0) -> bool:
+	var deadline := Time.get_ticks_msec() + int(seconds * 1000.0)
+	while Time.get_ticks_msec() < deadline:
+		if bool(predicate.call()):
+			return true
+		await process_frame
+	return bool(predicate.call())
+
+func _check(label: String, passed: bool) -> bool:
+	checks.append({"label": label, "pass": passed})
+	if not passed:
+		errors.append(label)
+	return passed
+
+func _aspect(width: int) -> bool:
+	root.mode = Window.MODE_WINDOWED
+	for i: int in range(180):
+		DisplayServer.window_set_position(Vector2i(-2400, 0))
+		root.size = Vector2i(width, 720)
+		DisplayServer.window_set_size(Vector2i(width, 720))
+		await process_frame
+		var image: Image = root.get_texture().get_image()
+		if image != null and image.get_size() == Vector2i(width, 720):
+			return true
+	return false
+
+
+
+func _prepare_cache_tree(source: String, relative: String = "", depth: int = 0) -> bool:
+	# Directory structure only, via the same engine filesystem that owns user://.
+	# Normal cache file/save contents are never copied or parsed.
+	if depth > 4 or cache_directories.size() > 4096:
+		return _check("cache directory bound", false)
+	var base := private_path.get_base_dir().simplify_path()
+	var target := base.path_join("shader_cache").path_join(relative).simplify_path()
+	if not target.begins_with(base + "/shader_cache"):
+		return _check("private engine cache containment", false)
+	if DirAccess.make_dir_recursive_absolute(target) != OK:
+		return _check("private engine cache directory creation", false)
+	cache_directories.append(relative)
+	for name: String in DirAccess.get_directories_at(source.path_join(relative)):
+		if name == "." or name == ".." or name.validate_filename() != name:
+			return _check("cache directory name validation", false)
+		if not _prepare_cache_tree(source, relative.path_join(name), depth + 1):
+			return false
+	return true
+
+func _private_hashes() -> Dictionary:
+	var row: Dictionary = {}
+	for suffix: String in ["", ".bak", ".tmp", ".tmp0", ".tmp1", ".old", ".bak.tmp", ".bak.old", ".before_new_game", ".before_new_game.tmp", ".before_new_game.old"]:
+		var f := private_path + suffix
+		row[suffix] = FileAccess.get_sha256(f) if FileAccess.file_exists(f) else "absent"
+	return row
+
+func _disk() -> Dictionary:
+	if not FileAccess.file_exists(private_path):
+		return {}
+	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(private_path))
+	return {"generation": d.get("save_generation"), "quality": d.get("quality"), "plays": d.get("plays"), "pearls": d.get("pearls"), "day_one_active": d.get("day_one_active"), "day_one_arrival_plane_media_seen": d.get("day_one_arrival_plane_media_seen"), "day_one_story_clips_seen": d.get("day_one_story_clips_seen"), "custom_fish": d.get("custom_fish"), "custom_friends": d.get("custom_friends")}
+
+func _nodes(node: Node, rows: Array[Dictionary]) -> void:
+	var item := node as CanvasItem
+	if item != null and item.is_visible_in_tree():
+		var row := {"path": str(node.get_path()), "class": node.get_class(), "name": str(node.name), "z_index": item.z_index}
+		var c := node as Control
+		if c != null:
+			var p: Vector2 = c.get_global_transform_with_canvas() * Vector2.ZERO
+			var end: Vector2 = c.get_global_transform_with_canvas() * c.size
+			row["native_rect"] = [p.x,p.y,end.x-p.x,end.y-p.y]
+		if node is Label or node is Button:
+			row["text"] = node.text
+		if node is Button:
+			row["disabled"] = node.disabled
+		if node is TextureRect and node.texture != null:
+			row["texture_path"] = node.texture.resource_path
+		if node is Sprite2D and node.texture != null:
+			row["texture_path"] = node.texture.resource_path
+			row["centered"] = node.centered
+			row["scale"] = [node.scale.x,node.scale.y]
+		rows.append(row)
+	for child: Node in node.get_children():
+		_nodes(child, rows)
+
+func _snapshot() -> Dictionary:
+	var rows: Array[Dictionary] = []
+	for layer: CanvasLayer in [m.start_menu_layer,m.intro_layer,m._day_one_story_clip_layer]:
+		if is_instance_valid(layer):
+			_nodes(layer, rows)
+	var clip: DayOneStoryClips = m._day_one_story_clip
+	var clip_data: Dictionary = {"active": is_instance_valid(clip)}
+	if is_instance_valid(clip):
+		clip_data["id"] = clip.movie_id
+		clip_data["playing"] = clip.player.is_playing() if clip.player != null else false
+		clip_data["stream_path"] = clip.player.stream.resource_path if clip.player != null and clip.player.stream != null else ""
+	return {"game": m.game,"phase": m.g.get("phase"),"quality":m.quality,"main_id":m.get_instance_id(),"first_session":m.first_session,"intro_active":m.intro_active,"intro_layer_present":is_instance_valid(m.intro_layer),"intro_overlay_constructed":m._intro_overlay != null,"start_menu_active":m.start_menu_active,"start_menu_layer_present":is_instance_valid(m.start_menu_layer),"has_saved_game":m.has_saved_game,"day_one_active":m.day_one_is_active(),"root_reset_marker":root.has_meta(StartMenu.DAY_ONE_AFTER_RESET_META),"normal_user_path":normal_path,"current_user_path":ProjectSettings.globalize_path("user://reef_save.json"),"save_dependency_path":m._save_state.save_path,"private_hashes":_private_hashes(),"disk":_disk(),"clip":clip_data,"tree_paused":paused,"living_stage":m.living_stage_id,"nodes":rows,"mode":mode,"touch":_touch_snapshot(),"navigation":_nav_snapshot(),"world":_world_snapshot(),"ticks_msec":Time.get_ticks_msec()}
+
+func _capture_now(id: String, lane := "") -> void:
+	if lane.is_empty():
+		lane = "EXCLUDED_NONRUNTIME_NAVIGATION_SAMPLE"
+	var image: Image = root.get_texture().get_image()
+	var path := out_dir.path_join(id + ".png")
+	if image == null or image.get_size() != root.size or image.save_png(path) != OK:
+		errors.append("bad framebuffer " + id)
+		return
+	states.append({"id":id,"path":id+".png","dimensions":[image.get_width(),image.get_height()],"sha256":FileAccess.get_sha256(path),"classification":lane,"snapshot":_snapshot()})
+	print("NAV85|CAPTURE|",id)
+func _capture(id: String, lane := "") -> void:
+	await RenderingServer.frame_post_draw
+	_capture_now(id,lane)
+func _v(v: Vector2) -> Array:
+	return [v.x,v.y]
+func _world_snapshot() -> Dictionary:
+	var targets: Array[Dictionary] = []
+	var rows: Array[Dictionary] = []
+	var layer: CanvasLayer = m.g.get("lagoon_canvas_layer") as CanvasLayer
+	if is_instance_valid(layer):
+		_nodes(layer,rows)
+	for value: Variant in m.g.get("lagoon_promenade_targets",[]) as Array:
+		var target: Dictionary = value as Dictionary
+		var node: Node2D = target.get("node") as Node2D
+		var glow: Sprite2D = target.get("highlight") as Sprite2D
+		var row: Dictionary = {"id":target.get("id"),"kind":target.get("kind"),"payload":target.get("payload"),"radius_px":target.get("radius_px")}
+		if is_instance_valid(node):
+			row["node_path"] = str(node.get_path())
+			row["position_master"] = _v(node.position)
+			row["source_hit_point"] = _v(m._lagoon_promenade_ref().screen_from_master(node.position))
+			row["source_texture"] = node.texture.resource_path if node is Sprite2D and node.texture != null else ""
+		if is_instance_valid(glow):
+			row["highlight_path"] = str(glow.get_path())
+			row["highlight_scale"] = _v(glow.scale)
+			row["highlight_position"] = _v(glow.position)
+			row["highlight_native_origin"] = _v(glow.get_global_transform_with_canvas()*Vector2.ZERO)
+			row["highlight_color"] = [glow.modulate.r,glow.modulate.g,glow.modulate.b,glow.modulate.a]
+			row["highlight_texture_class"] = glow.texture.get_class() if glow.texture != null else ""
+			var pointers: Array[Dictionary] = []
+			for child: Node in glow.get_children():
+				if child is Polygon2D:
+					var points: Array = []
+					for point: Vector2 in child.polygon:
+						points.append(_v(child.get_global_transform_with_canvas()*point))
+					pointers.append({"name":str(child.name),"native_vertices":points,"color":[child.color.r,child.color.g,child.color.b,child.color.a]})
+			row["pointers"] = pointers
+		targets.append(row)
+	var play: Dictionary = m.g.get("lagoon_play_anim",{}) as Dictionary
+	var card: Sprite2D = m.g.get("lagoon_roshan_card") as Sprite2D
+	var actor: Dictionary = {}
+	if is_instance_valid(card):
+		actor = {"texture":card.texture.resource_path if card.texture != null else "","position":_v(card.position),"native_origin":_v(card.get_global_transform_with_canvas()*Vector2.ZERO),"scale":_v(card.scale),"rotation":card.rotation,"flip_h":card.flip_h,"visible":card.is_visible_in_tree()}
+	return {"phase":m.g.get("phase"),"game":m.game,"wall_pics_count":m.wall_pics.size(),"legacy_lagoon_constructed":m._sky_lagoon != null,"promenade_constructed":m._sky_lagoon_promenade != null,"focus":m.g.get("lagoon_promenade_focus",""),"master_x":m.g.get("lagoon_master_x"),"walk_goal":str(m.g.get("lagoon_walk_goal_master")),"targets":targets,"actor":actor,"play":{"kind":play.get("kind",""),"phase":play.get("phase",""),"frame_index":play.get("frame_index",-1),"t":play.get("t"),"dur":play.get("dur")},"nodes":rows}
+func _world_tap(p: Vector2, label: String) -> void:
+	_input_at(p,true,label)
+	await _frames(2)
+	_input_at(p,false,label)
+	await _frames(4)
+func _slide_target() -> Dictionary:
+	for value: Variant in m.g.get("lagoon_promenade_targets",[]) as Array:
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id","")) == "slide":
+			return target
+	return {}
+func _slide_point() -> Vector2:
+	var node: Node2D = _slide_target().get("node") as Node2D
+	return m._lagoon_promenade_ref().screen_from_master(node.position)
+func _target(kind: String) -> Dictionary:
+	for value: Variant in m.g.get("lagoon_promenade_targets",[]) as Array:
+		var row: Dictionary = value as Dictionary
+		if String(row.get("id",""))==kind:
+			return row
+	return {}
+func _equipment_point(kind: String) -> Vector2:
+	var node: Node2D = _target(kind).get("node") as Node2D
+	return m._lagoon_promenade_ref().screen_from_master(node.position)
+func _original_point(kind: String, part: String) -> Vector2:
+	var glow: Sprite2D = _target(kind).get("highlight") as Sprite2D
+	if part=="center":
+		return glow.get_global_transform_with_canvas()*Vector2.ZERO
+	var poly := glow.get_node("PointerOutline") as Polygon2D
+	var local := Vector2.ZERO
+	for p: Vector2 in poly.polygon:
+		if p.y>local.y:
+			local=p
+	return poly.get_global_transform_with_canvas()*local
+func _focus_equipment(kind: String) -> bool:
+	if String(m.g.get("lagoon_promenade_focus",""))!=kind:
+		await _world_tap(_equipment_point(kind),"original_"+kind+"_equipment_focus")
+	return _check("original equipment focus "+mode+" "+kind,String(m.g.get("lagoon_promenade_focus",""))==kind)
+func _natural_return(kind: String) -> bool:
+	if not (m.g.get("lagoon_play_anim",{}) as Dictionary).is_empty():
+		if not await _wait(func() -> bool: return (m.g.get("lagoon_play_anim",{}) as Dictionary).is_empty(),22.0):
+			errors.append("source action failed to return "+kind)
+			return false
+	await _frames(8)
+	return _check("source remains promenade "+mode+" "+kind,m.game=="level2" and String(m.g.get("phase"))=="promenade" and m.wall_pics.is_empty())
+func _panel_data(panel: Panel) -> Dictionary:
+	var box: StyleBox = panel.get_theme_stylebox("panel")
+	var style := box as StyleBoxFlat
+	var point: Vector2 = panel.get_global_transform_with_canvas()*Vector2.ZERO
+	var finish: Vector2 = panel.get_global_transform_with_canvas()*panel.size
+	return {"instance_id":panel.get_instance_id(),"path":str(panel.get_path()),"class":panel.get_class(),"active_style_class":box.get_class(),"parent_path":str(panel.get_parent().get_path()),"visible":panel.is_visible_in_tree(),"position":_v(panel.position),"size":_v(panel.size),"native_rect":[point.x,point.y,finish.x-point.x,finish.y-point.y],"rgba":[style.bg_color.r,style.bg_color.g,style.bg_color.b,style.bg_color.a] if style!=null else [],"corner_radius":style.corner_radius_top_left if style!=null else -1,"modulate_alpha":panel.modulate.a,"candidate":_candidate_data(panel),"effective_style_alpha":style.bg_color.a*panel.modulate.a if style!=null else -1.0,"ticks_msec":Time.get_ticks_msec()}
+func _touch_snapshot() -> Dictionary:
+	if m==null or m.touch_ui==null:
+		return {}
+	var ui: Node = m.touch_ui
+	var parent := ui.get("_root") as Control
+	var panels: Array[Dictionary] = []
+	if is_instance_valid(parent):
+		for child: Node in parent.get_children():
+			if child is Panel:
+				panels.append(_panel_data(child as Panel))
+	return {"owner_path":str(ui.get_path()),"owner_script":ui.get_script().resource_path,"control_mode":ui.get("control_mode"),"world_controls_enabled":ui.get("world_controls_enabled"),"panels":panels}
+func _flash_exit(id: int) -> void:
+	flash_lifecycle.append({"event":"tree_exiting","instance_id":id,"ticks_msec":Time.get_ticks_msec()})
+func _touch_child(child: Node) -> void:
+	if child is not Panel:
+		return
+	var panel := child as Panel
+	var card := panel.get_node_or_null("PaintedRing") as TextureRect
+	if card==null or panel.size!=Vector2(110,110) or not panel.get_theme_stylebox("panel") is StyleBoxEmpty:
+		return
+	if candidate_rects.has(panel.get_instance_id()):
+		return
+	if not card.is_inside_tree():
+		panel.child_entered_tree.connect(_touch_art_entered.bind(panel))
+		return
+	flash_panels.append(panel)
+	var id: int = panel.get_instance_id()
+	candidate_rects[id]=card
+	var original: Dictionary = _panel_data(panel)
+	source_blueprints[id]=original
+	flash_lifecycle.append({"event":"child_entered_tree","mode":mode,"panel":original,"ticks_msec":Time.get_ticks_msec()})
+	panel.tree_exiting.connect(_flash_exit.bind(id))
+	card.tree_exiting.connect(_art_exit.bind(id,card.get_instance_id()))
+func _touch_art_entered(child: Node, panel: Panel) -> void:
+	if child.name=="PaintedRing":
+		_touch_child(panel)
+func _art_exit(parent_id: int, id: int) -> void:
+	flash_lifecycle.append({"event":"painted_child_tree_exiting","parent_instance_id":parent_id,"instance_id":id,"ticks_msec":Time.get_ticks_msec()})
+func _candidate_data(panel: Panel) -> Dictionary:
+	var card := candidate_rects.get(panel.get_instance_id()) as TextureRect
+	if not is_instance_valid(card):
+		return {}
+	var p: Vector2 = card.get_global_transform_with_canvas()*Vector2.ZERO
+	var finish: Vector2 = card.get_global_transform_with_canvas()*card.size
+	var ancestors: Array[Dictionary] = []
+	var node: Node = card
+	var rgb_preserved := true
+	while is_instance_valid(node):
+		if node is CanvasItem:
+			var item := node as CanvasItem
+			ancestors.append({"path":str(item.get_path()),"modulate_rgba":[item.modulate.r,item.modulate.g,item.modulate.b,item.modulate.a],"self_modulate_rgba":[item.self_modulate.r,item.self_modulate.g,item.self_modulate.b,item.self_modulate.a]})
+			rgb_preserved=rgb_preserved and item.modulate.r==1.0 and item.modulate.g==1.0 and item.modulate.b==1.0 and item.self_modulate.r==1.0 and item.self_modulate.g==1.0 and item.self_modulate.b==1.0
+		node=node.get_parent()
+	return {"instance_id":card.get_instance_id(),"texture_path":card.texture.resource_path,"source_dimensions":_v(card.texture.get_size()),"rect_size":_v(card.size),"native_rect":[p.x,p.y,finish.x-p.x,finish.y-p.y],"modulate_rgba":[card.modulate.r,card.modulate.g,card.modulate.b,card.modulate.a],"self_modulate_rgba":[card.self_modulate.r,card.self_modulate.g,card.self_modulate.b,card.self_modulate.a],"ancestor_canvas_items":ancestors,"ancestor_rgb_preserved":rgb_preserved,"parent_panel_alpha":panel.modulate.a,"parent_is_original_panel":card.get_parent()==panel,"original_flat_style_retired":panel.get_theme_stylebox("panel") is StyleBoxEmpty,"mouse_filter_ignored":card.mouse_filter==Control.MOUSE_FILTER_IGNORE,"whole_source_bitmap":true,"work_branch_implementation":true,"visual_override_only":false}
+func _observe_flash(kind: String) -> void:
+	if not await _focus_equipment(kind):
+		return
+	await create_timer(.6).timeout
+	var p := _original_point(kind,"center")
+	var prefix: String = ("source_" if mode=="ORIGINAL_SOURCE_NAVIGATION" else "candidate_")+kind
+	await _capture(prefix+"_before")
+	var before := flash_panels.size()
+	_input_at(p,true,prefix+"_glow_center")
+	await _frames(2)
+	var released := Time.get_ticks_msec()
+	_input_at(p,false,prefix+"_glow_center")
+	if not _check("original release creates one source flash "+kind,flash_panels.size()==before+1):
+		return
+	var panel: Panel = flash_panels.back()
+	var id: int = panel.get_instance_id()
+	await _capture(prefix+"_onset")
+	var onset := _panel_data(panel)
+	await _frames(3)
+	await _capture(prefix+"_decay")
+	var decay := _panel_data(panel) if is_instance_valid(panel) else {}
+	var blueprint: Dictionary = source_blueprints[id] as Dictionary
+	var candidate: Dictionary = onset.candidate as Dictionary
+	_check("work-branch whole painted ring exact source bounds "+prefix,candidate.texture_path==RING_PATH and candidate.source_dimensions==[512.0,512.0] and candidate.rect_size==[110.0,110.0] and candidate.original_flat_style_retired and candidate.parent_is_original_panel and candidate.mouse_filter_ignored)
+	_check("source RGB across all CanvasItem ancestors "+prefix,candidate.ancestor_rgb_preserved and candidate.modulate_rgba==[1.0,1.0,1.0,1.0] and candidate.self_modulate_rgba==[1.0,1.0,1.0,1.0])
+	var child_id: int = int(candidate.instance_id)
+	_check("source flash alpha naturally declines "+kind,not decay.is_empty() and float(decay.modulate_alpha)<float(onset.modulate_alpha) and float(decay.modulate_alpha)>0)
+	await create_timer(.55).timeout
+	await _frames(2)
+	await _capture(prefix+"_freed")
+	_check("source flash naturally queue freed "+kind,not is_instance_valid(panel))
+	_check("same painted child naturally freed "+kind,not is_instance_id_valid(child_id))
+	flash_trials.append({"mode":mode,"source_blueprint":blueprint,"consumer":kind,"native_point":_v(p),"actual_input":true,"release_ticks_msec":released,"instance_id":id,"onset":onset,"decay":decay,"freed":not is_instance_valid(panel),"after_world":_world_snapshot(),"source_controller_unchanged":true,"visual_override":false,"painted_child_instance_id":child_id,"painted_child_freed":not is_instance_id_valid(child_id)})
+func _style_data(box: StyleBox) -> Dictionary:
+	var data := {"class":box.get_class(),"resource_path":box.resource_path,"instance_id":box.get_instance_id()}
+	var flat := box as StyleBoxFlat
+	if flat!=null:
+		data["bg_rgba"]=[flat.bg_color.r,flat.bg_color.g,flat.bg_color.b,flat.bg_color.a]
+		data["border_rgba"]=[flat.border_color.r,flat.border_color.g,flat.border_color.b,flat.border_color.a]
+		data["radii"]=[flat.corner_radius_top_left,flat.corner_radius_top_right,flat.corner_radius_bottom_right,flat.corner_radius_bottom_left]
+		data["borders"]=[flat.border_width_left,flat.border_width_top,flat.border_width_right,flat.border_width_bottom]
+		data["shadow_size"]=flat.shadow_size
+		data["shadow_offset"]=_v(flat.shadow_offset)
+	var painted := box as StyleBoxTexture
+	if painted!=null:
+		data["texture_path"]=painted.texture.resource_path
+		data["texture_sha256"]=FileAccess.get_sha256(painted.texture.resource_path)
+		data["region"]=[painted.region_rect.position.x,painted.region_rect.position.y,painted.region_rect.size.x,painted.region_rect.size.y]
+		data["margins"]=[painted.texture_margin_left,painted.texture_margin_top,painted.texture_margin_right,painted.texture_margin_bottom]
+		data["modulate"]=[painted.modulate_color.r,painted.modulate_color.g,painted.modulate_color.b,painted.modulate_color.a]
+		data["draw_center"]=painted.draw_center
+		data["expand_vertical"]=[painted.expand_margin_top,painted.expand_margin_bottom]
+	data["minimum_size"]=_v(box.get_minimum_size())
+	data["content_margins"]=[box.get_content_margin(SIDE_LEFT),box.get_content_margin(SIDE_TOP),box.get_content_margin(SIDE_RIGHT),box.get_content_margin(SIDE_BOTTOM)]
+	return data
+func _nav_snapshot() -> Dictionary:
+	var button: Button = m.global_navigation_button
+	if not is_instance_valid(button):
+		return {"present":false}
+	var styles: Dictionary = {}
+	for state: String in ["normal","hover","pressed","hover_pressed","focus","disabled"]:
+		styles[state]=_style_data(button.get_theme_stylebox(state))
+	var codes: Array[int] = []
+	var coverage: Array[Dictionary] = []
+	var font: Font = button.get_theme_font("font")
+	for index: int in range(button.text.length()):
+		var code: int = button.text.unicode_at(index)
+		codes.append(code)
+		coverage.append({"codepoint":code,"primary_font_has_char":font.has_char(code),"not_fallback_coverage_proof":true})
+	var point: Vector2 = button.get_global_transform_with_canvas()*Vector2.ZERO
+	var finish: Vector2 = button.get_global_transform_with_canvas()*button.size
+	var layer := button.get_parent() as CanvasLayer
+	return {"present":true,"instance_id":button.get_instance_id(),"path":str(button.get_path()),"class":button.get_class(),"parent_path":str(button.get_parent().get_path()),"parent_layer":layer.layer if layer!=null else -1,"mode":button.get_meta("global_navigation_mode",""),"owner_meta":button.get_meta("global_navigation_owner",false),"visible_in_tree":button.is_visible_in_tree(),"disabled":button.disabled,"text":button.text,"codepoints":codes,"native_rect":[point.x,point.y,finish.x-point.x,finish.y-point.y],"logical_size":_v(button.size),"min_size":_v(button.custom_minimum_size),"draw_mode":button.get_draw_mode(),"button_pressed":button.button_pressed,"toggle_mode":button.toggle_mode,"has_focus":button.has_focus(),"focus_mode":button.focus_mode,"mouse_filter":button.mouse_filter,"process_mode":button.process_mode,"theme_font_class":font.get_class(),"theme_font_path":font.resource_path,"theme_font_name":font.get_font_name(),"theme_font_size":button.get_theme_font_size("font_size"),"font_codepoint_checks":coverage,"styles":styles,"candidate_enabled":candidate_enabled,"diagnostic_state":diagnostic_state,"material_generations":material_generations.size(),"pause_visible":m.pause_panel.visible,"tree_paused":paused,"navigation_root":m.navigation_root_id,"route_top":m._navigation_ref().top_id(),"navigation_locked":m._pause_ref()._navigation_locked(),"typography_role":button.get_meta("typography_role",""),"typography_authority":button.get_meta("typography_authority","")}
+func _apply_navigation_materials() -> void:
+	if not candidate_enabled or not is_instance_valid(m) or not is_instance_valid(m.global_navigation_button):
+		return
+	var button: Button = m.global_navigation_button
+	if not button.is_visible_in_tree():
+		return
+	if not button.get_theme_stylebox("normal") is StyleBoxTexture:
+		var original: Dictionary = {}
+		var before: Rect2 = button.get_global_rect()
+		for state: String in NAV_STATES:
+			var prior: StyleBox = button.get_theme_stylebox(state)
+			original[state]=_style_data(prior)
+			var painted := StyleBoxTexture.new()
+			painted.texture = load(CARD_PATH) as Texture2D
+			painted.region_rect = Rect2(10,23,222,209)
+			painted.texture_margin_left=36
+			painted.texture_margin_top=36
+			painted.texture_margin_right=36
+			painted.texture_margin_bottom=36
+			for side: int in [SIDE_LEFT,SIDE_TOP,SIDE_RIGHT,SIDE_BOTTOM]:
+				painted.set_content_margin(side,prior.get_content_margin(side))
+			painted.draw_center=true
+			if state in ["pressed","hover_pressed"]:
+				painted.expand_margin_top=-2
+				painted.expand_margin_bottom=-2
+			painted.modulate_color=Color(1.0,0.86,0.64) if state in ["pressed","hover_pressed","focus"] else (Color(1.0,0.95,0.83) if state=="hover" else (Color(0.65,0.65,0.70,0.65) if state=="disabled" else Color.WHITE))
+			button.add_theme_stylebox_override(state,painted)
+		material_generations.append({"mode":button.get_meta("global_navigation_mode",""),"button_instance_id":button.get_instance_id(),"original_styles":original,"before_rect":str(before),"after_rect":str(button.get_global_rect()),"same_rect":before==button.get_global_rect(),"ticks_msec":Time.get_ticks_msec()})
+	if not diagnostic_state.is_empty():
+		button.toggle_mode=true
+		button.disabled=diagnostic_state=="disabled"
+		button.set_pressed_no_signal(diagnostic_state in ["pressed","hover_pressed","focus_pressed"])
+		if diagnostic_state in ["focus","focus_pressed"]:
+			if not button.has_focus():
+				button.grab_focus()
+		elif button.has_focus():
+			button.release_focus()
+	var focus: StyleBoxTexture = button.get_theme_stylebox("focus") as StyleBoxTexture
+	if focus!=null:
+		focus.modulate_color=Color(0.94,0.80,0.58) if button.button_pressed else Color(1.0,0.86,0.64)
+		focus.expand_margin_top=-2 if button.button_pressed else 0
+		focus.expand_margin_bottom=-2 if button.button_pressed else 0
+func _mouse_position(point: Vector2) -> void:
+	var event := InputEventMouseMotion.new()
+	event.position=point
+	event.global_position=point
+	root.push_input(event,true)
+	events.append({"kind":"declared_style_diagnostic_mouse_motion_only","point":_v(point),"ticks_msec":Time.get_ticks_msec()})
+func _style_diagnostics() -> void:
+	var button: Button = m.global_navigation_button
+	var original_toggle: bool = button.toggle_mode
+	var outside := Vector2(root.size.x-18.0,18.0)
+	var inside: Vector2 = button.get_global_transform_with_canvas()*(button.size*0.5)
+	for state: String in ["normal","hover","pressed","hover_pressed","focus","focus_pressed","disabled"]:
+		diagnostic_state=state
+		_mouse_position(inside if state in ["hover","hover_pressed"] else outside)
+		await _frames(2)
+		await _capture("declared_"+state,"EXCLUDED_DECLARED_STYLE_DIAGNOSTIC")
+		var n:=_nav_snapshot()
+		var expected: int = 2 if state=="hover" else (4 if state=="hover_pressed" else (1 if state in ["pressed","focus_pressed"] else (3 if state=="disabled" else 0)))
+		_check("declared diagnostic actual draw mode "+state,n.draw_mode==expected)
+		_check("declared diagnostic target/glyph unchanged "+state,n.native_rect==[18.0,18.0,112.0,112.0] and n.codepoints==[9776])
+		if state in ["focus","focus_pressed"]:
+			_check("declared focus actually present "+state,n.has_focus)
+	diagnostic_state=""
+	button.disabled=false
+	button.set_pressed_no_signal(false)
+	button.toggle_mode=original_toggle
+	button.release_focus()
+	_mouse_position(outside)
+	await _frames(2)
+	await _capture("candidate_restored_before_actual_input")
+	var restored:=_nav_snapshot()
+	_check("diagnostics restored before original input",restored.toggle_mode==original_toggle and not restored.toggle_mode and not restored.disabled and not restored.button_pressed and not restored.has_focus and restored.mode=="menu" and not paused and restored.draw_mode==0)
+func _observe_cue_inputs() -> void:
+	await create_timer(4.0).timeout
+	var initial := _nav_snapshot()
+	_check("original source owner canvas promenade",m.game=="level2" and String(m.g.get("phase"))=="promenade" and m.wall_pics.is_empty())
+	_check("actual original global navigation node",initial.present and initial.owner_meta and initial.parent_layer==29 and initial.class=="Button")
+	_check("actual menu glyph and source target",initial.mode=="menu" and initial.codepoints==[9776] and initial.logical_size==[112.0,112.0] and initial.native_rect==[18.0,18.0,112.0,112.0] and initial.visible_in_tree and not initial.disabled)
+	var id: int = int(initial.instance_id)
+	await _capture("source_menu_root_before","BOUNDED_CURRENT_SOURCE_NAVIGATION")
+	candidate_enabled=true
+	await _frames(2)
+	await _capture("candidate_menu_root_before")
+	await _style_diagnostics()
+	var navigation: Button = m.global_navigation_button
+	var point: Vector2 = navigation.get_global_transform_with_canvas()*(navigation.size*0.5)
+	_input_at(point,true,"original_global_menu")
+	await _frames(1)
+	await _capture("candidate_menu_down_pause_transition")
+	_input_at(point,false,"original_global_menu")
+	await _frames(2)
+	await _capture("candidate_pause_back_after_release")
+	var back := _nav_snapshot()
+	_check("same node becomes actual back while paused",back.instance_id==id and back.mode=="back" and back.codepoints==[8617] and back.pause_visible and paused and back.visible_in_tree)
+	_input_at(point,true,"original_global_back")
+	await _frames(1)
+	await _capture("candidate_back_down_resume_transition")
+	_input_at(point,false,"original_global_back")
+	await _frames(2)
+	await _capture("candidate_menu_return_after_release")
+	var returned := _nav_snapshot()
+	_check("same node returns menu by original back",returned.instance_id==id and returned.mode=="menu" and returned.codepoints==[9776] and not returned.pause_visible and not paused)
+	_check("target preserved across actual menu/back",back.native_rect==initial.native_rect and returned.native_rect==initial.native_rect and initial.styles.size()==6 and back.styles.size()==6)
+	_check("painted material reapplied to original three mode builds",material_generations.size()==3)
+	for generation: Dictionary in material_generations:
+		_check("original target geometry retained for "+str(generation.mode),generation.same_rect)
+	for state: String in NAV_STATES:
+		_check("painted state retained after original Back "+state,returned.styles[state].class=="StyleBoxTexture" and returned.styles[state].texture_path==CARD_PATH and returned.styles[state].draw_center)
+func _button(name: String) -> Button:
+	return m.start_menu_layer.find_child(name,true,false) as Button if is_instance_valid(m.start_menu_layer) else null
+
+func _point(c: Control) -> Vector2:
+	return c.get_global_transform_with_canvas() * (c.size*0.5)
+
+func _input_at(p: Vector2, down: bool, target: String) -> void:
+	var e := InputEventScreenTouch.new()
+	e.index = 77
+	e.position = p
+	e.pressed = down
+	events.append({"down":down,"mode":mode,"native":[p.x,p.y],"target":target,"ticks_msec":Time.get_ticks_msec(),"private_path":ProjectSettings.globalize_path("user://reef_save.json")})
+	root.push_input(e,true)
+
+func _tap(name: String) -> bool:
+	var c := _button(name)
+	if not _check("original visible button " + name,c != null and c.is_visible_in_tree() and not c.disabled):
+		return false
+	var p := _point(c)
+	_input_at(p,true,name)
+	await _frames(1)
+	_input_at(p,false,name)
+	await _frames(3)
+	return true
+
+func _boot() -> bool:
+	var scene := load("res://scenes/main.tscn") as PackedScene
+	m = scene.instantiate() as ReefMain
+	root.add_child(m)
+	current_scene = m
+	root_id = m.get_instance_id()
+	if not await _wait(func() -> bool: return is_instance_valid(m.start_menu_layer) and m.get_node_or_null("BootSplashHandoff") == null,18.0):
+		errors.append("original display startup timeout")
+		return false
+	return _check("source display uses StartMenu not IntroOverlay",m.start_menu_active and m.intro_active and m.intro_layer == null and m._intro_overlay == null and ProjectSettings.globalize_path(m._save_state.save_path) == private_path)
+
+func _hand_sample() -> Dictionary:
+	var hand := m.start_menu_layer.find_child("StartMenuKeepGameGhostHand",true,false) as Sprite2D
+	var keep := _button("StartMenuKeepGameButton")
+	var p: Vector2 = hand.get_global_transform_with_canvas() * (Vector2(217,447)-hand.texture.get_size()*0.5)
+	var inv: Transform2D = keep.get_global_transform_with_canvas().affine_inverse()
+	var local := inv*p
+	return {"native_tip":[p.x,p.y],"local_in_keep":[local.x,local.y],"keep_size":[keep.size.x,keep.size.y],"inside":Rect2(Vector2.ZERO,keep.size).has_point(local),"hand_position":[hand.position.x,hand.position.y],"hand_scale":[hand.scale.x,hand.scale.y],"centered":hand.centered,"texture_path":hand.texture.resource_path,"ticks_msec":Time.get_ticks_msec()}
+
+func _confirm(prefix: String) -> bool:
+	if not await _tap("StartMenuNewGameButton"):
+		return false
+	await _capture(prefix + "_arm_delay", "EXCLUDED_BOOTSTRAP_CONTROL")
+	var b := _button("StartMenuConfirmNewGameButton")
+	if not _check("source newgame initially delayed",b != null and b.disabled):
+		return false
+	if not await _wait(func() -> bool: return not b.disabled,3.0):
+		errors.append("source arm delay timeout")
+		return false
+	return true
+
+func _retire() -> void:
+	if is_instance_valid(m):
+		m.queue_free()
+		await _frames(14)
+		m = null
+
+func _exercise() -> void:
+	if not await _boot():
+		return
+	if not await _tap("StartMenuOptionsTab"):
+		return
+	if m.quality != "speedy":
+		if not await _tap("StartMenuQualityButton"):
+			return
+	if m.music_on:
+		if not await _tap("StartMenuMusicButton"):
+			return
+	if m.mic_on:
+		if not await _tap("StartMenuMicButton"):
+			return
+	_check("original options select persistedSpeedy and muted isolated run",m.quality=="speedy" and not m.music_on and not m.mic_on and _disk().get("quality")=="speedy")
+	if not await _tap("StartMenuOptionsCloseButton"):
+		return
+	await _capture("bootstrap_menu", "EXCLUDED_BOOTSTRAP_CONTROL")
+	if not await _confirm("bootstrap_newgame"):
+		return
+	var start := _button("StartMenuConfirmNewGameButton")
+	var p := _point(start)
+	_input_at(p,true,"original_confirm_hold")
+	if not await _wait(func() -> bool: return current_scene is ReefMain and current_scene.get_instance_id()!=root_id,8.0):
+		errors.append("original held NewGame did not reload")
+		return
+	m = current_scene as ReefMain
+	_input_at(p,false,"original_confirm_hold")
+	await _frames(8)
+	_check("real reload keeps source SaveState private andSpeedy",ProjectSettings.globalize_path(m._save_state.save_path)==private_path and m.quality=="speedy" and not m.start_menu_active)
+	if not await _wait(func() -> bool: return is_instance_valid(m._day_one_story_clip) or bool(m.g.get("day_one_media_request","")!=""),10.0):
+		errors.append("opening clip/fallback not requested")
+		return
+	if is_instance_valid(m._day_one_story_clip):
+		if not await _wait(func() -> bool: return not is_instance_valid(m._day_one_story_clip),42.0):
+			errors.append("source opening did not end naturally")
+			return
+	await _frames(45)
+	await _observe_cue_inputs()
+
+func _run() -> void:
+	var tick := MaterialTick.new()
+	tick.name="R85DeclaredMaterialTick"
+	tick.observer=self
+	tick.process_mode=Node.PROCESS_MODE_ALWAYS
+	tick.process_priority=1000000
+	root.add_child(tick)
+	var engine := Engine.get_version_info()
+	if int(engine.major)!=4 or int(engine.minor)!=7 or int(engine.patch)!=2 or engine.status!="stable" or engine.build!="official" or RenderingServer.get_current_rendering_method()!="mobile" or DisplayServer.get_name()=="headless":
+		quit(1)
+		return
+	var width := int(OS.get_environment("R85_WIDTH"))
+	out_dir = OS.get_environment("R85_OUT")
+	var private_name := OS.get_environment("R85_PRIVATE_NAME")
+	if out_dir.is_empty() or DirAccess.dir_exists_absolute(out_dir) or width not in [1280,1600] or private_name.is_empty() or private_name.contains("/") or private_name.contains("\\") or private_name.contains(":"):
+		quit(1)
+		return
+	normal_path = ProjectSettings.globalize_path("user://reef_save.json")
+	normal_before = _normal_hashes()
+	old_custom = bool(ProjectSettings.get_setting("application/config/use_custom_user_dir",false))
+	old_custom_name = String(ProjectSettings.get_setting("application/config/custom_user_dir_name",""))
+	ProjectSettings.set_setting("application/config/use_custom_user_dir",true)
+	ProjectSettings.set_setting("application/config/custom_user_dir_name",private_name)
+	private_path = ProjectSettings.globalize_path("user://reef_save.json")
+	settings_configured = true
+	var fresh := true
+	for v: Variant in _private_hashes().values():
+		fresh = fresh and v=="absent"
+	var isolated := private_path!=normal_path and private_path.get_base_dir().get_file()==private_name and fresh
+	_check("private user namespace remaps before any Main load and is fresh",isolated)
+	DirAccess.make_dir_recursive_absolute(out_dir)
+	if isolated:
+		DirAccess.make_dir_recursive_absolute(private_path.get_base_dir())
+		if _prepare_cache_tree(normal_path.get_base_dir().path_join("shader_cache")) and await _aspect(width):
+			await _exercise()
+	await _retire()
+	ProjectSettings.set_setting("application/config/use_custom_user_dir",old_custom)
+	ProjectSettings.set_setting("application/config/custom_user_dir_name",old_custom_name)
+	_check("normal user path restored after source teardown",ProjectSettings.globalize_path("user://reef_save.json")==normal_path)
+	_check("normal eleven save-name hashes unchanged",_normal_hashes()==normal_before)
+	var report := {"schema":"reef.navigation_reuse/1","source_revision":OS.get_environment("R85_REV"),"engine":engine,"renderer":RenderingServer.get_current_rendering_method(),"display":DisplayServer.get_name(),"aspect":[width,720],"time_scale":Engine.time_scale,"private_path":private_path,"normal_path":normal_path,"private_hashes_final":_private_hashes(),"cache_directory_structure_only":cache_directories,"normal_before":normal_before,"normal_after":_normal_hashes(),"states":states,"events":events,"checks":checks,"errors":errors,"pointer_samples":pointer_samples,"flash_trials":flash_trials,"flash_lifecycle":flash_lifecycle,"final_mode":mode,"observer_status":"PASS" if errors.is_empty() else "FAIL","actual_child_data":false,"production_changes":[],"candidate_material_generations":material_generations,"scope":"R85 declared nonruntime painted wardrobe-card material trial on actual112px GlobalNavigationButton after remotely verified R84 source context. Original private entry and Menu/Back screen-touch flow; only six target style resources substituted by owned late-process diagnostic tick before Canvas draw after original mode rebuild. Separate explicit mouse-hover/temporary-toggle pressed/focus/disabled diagnostics excluded; original non-toggle mode restored before actual touch from current-dev coverage. Original glyph/font/geometry and production sources unchanged. No generation, acceptance, formalQA11/device/child/owner or all-caller/global closure."}
+	var f := FileAccess.open(out_dir.path_join("capture_manifest.json"),FileAccess.WRITE)
+	f.store_string(JSON.stringify(report,"\t",true)+"\n")
+	f.close()
+	print("NAV85|RESULT|",report.observer_status,"|",errors)
+	quit(0 if errors.is_empty() else 1)

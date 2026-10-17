@@ -1,0 +1,50 @@
+{
+  "status": "FAIL",
+  "roi": [
+    56,
+    40,
+    92,
+    48
+  ],
+  "normal_frames": [
+    {
+      "state": "candidate_menu_root_before",
+      "roi_sha256": "326bb272e6ad39e15531ae0665eaf05a735a3813a05626fcb7f99c6651438c1b",
+      "normal_paper_exact": true
+    },
+    {
+      "state": "candidate_menu_down_pause_transition",
+      "roi_sha256": "1c9790481a6d0f852962acc59f70fa90fd706132e1e4b7054fea52fd449573e1",
+      "normal_paper_exact": false
+    },
+    {
+      "state": "candidate_pause_back_after_release",
+      "roi_sha256": "1c9790481a6d0f852962acc59f70fa90fd706132e1e4b7054fea52fd449573e1",
+      "normal_paper_exact": false
+    },
+    {
+      "state": "candidate_back_down_resume_transition",
+      "roi_sha256": "326bb272e6ad39e15531ae0665eaf05a735a3813a05626fcb7f99c6651438c1b",
+      "normal_paper_exact": true
+    },
+    {
+      "state": "candidate_menu_return_after_release",
+      "roi_sha256": "326bb272e6ad39e15531ae0665eaf05a735a3813a05626fcb7f99c6651438c1b",
+      "normal_paper_exact": true
+    },
+    {
+      "state": "candidate_restored_before_actual_input",
+      "roi_sha256": "326bb272e6ad39e15531ae0665eaf05a735a3813a05626fcb7f99c6651438c1b",
+      "normal_paper_exact": true
+    }
+  ],
+  "diagnostic_roi_differs_from_normal": {
+    "hover": true,
+    "pressed": true,
+    "hover_pressed": true,
+    "focus": true,
+    "focus_pressed": true,
+    "disabled": true
+  },
+  "limits": "Nonglyph opaque material-presence/timing guard only; not visual acceptance, natural button-state coverage or formal QA11."
+}

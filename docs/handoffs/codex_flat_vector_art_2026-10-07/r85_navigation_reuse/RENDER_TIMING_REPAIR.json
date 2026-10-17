@@ -1,0 +1,27 @@
+{
+  "status": "ATTEMPT2_REJECTED_DESPITE_MACHINE_PASS",
+  "failed_observer_sha256": "711fb1dc3e137a6203afad5aa8abd7d36d164ec368ea00fa4e9cb59ae2592983",
+  "failed_runner_sha256": "f0efac9ae63190b749420e64a579082261a366dbc06529324bc246223a9b654e",
+  "observations": [
+    {
+      "case": 1280,
+      "normal_crop_sha256": "c2cfc0de40044b68bfbca1a05bdb292a25716a34133bb19293e30e0d1b98bf86",
+      "disabled_crop_sha256": "c2cfc0de40044b68bfbca1a05bdb292a25716a34133bb19293e30e0d1b98bf86",
+      "equal": true,
+      "metadata_disabled": true
+    },
+    {
+      "case": 1600,
+      "normal_crop_sha256": "fbfc383f93f0f327a40fad8326e01e93f1a23497d568b4ac2b0aa977d7b94bdc",
+      "disabled_crop_sha256": "fbfc383f93f0f327a40fad8326e01e93f1a23497d568b4ac2b0aa977d7b94bdc",
+      "equal": true,
+      "metadata_disabled": true
+    }
+  ],
+  "directly_viewed_first_back_frame": "native/attempt2_source_1280/candidate_menu_down_pause_transition.png shows original flat circle, while subsequent released Back shows card. Metadata alone missed the transient.",
+  "diagnosis": "frame_pre_draw substitution happens after Canvas command preparation; original source sync also restores disabled=false earlier each frame. Treat this as observer/render-timing evidence, not an accepted candidate or proven production regression.",
+  "correction": "An owned ignored ALWAYS Node with late process_priority1000000 applies only this target after Main process and before Canvas drawing. No production scheduling change. Explicit toggle/focus/disabled diagnostics remain excluded and restore original properties before real touches.",
+  "pixel_guard": "Compare exact opaque nonglyph paper ROI (56,40)-(92,48) across normal actual Menu/Back transition frames, and require style-diagnostic ROI differences. A bounded material-presence/synchronization guard, not visual approval or formal QA11.",
+  "source_changes": [],
+  "accepted_removed": 0
+}

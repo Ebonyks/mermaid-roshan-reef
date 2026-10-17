@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "roi": [
+    56,
+    40,
+    92,
+    48
+  ],
+  "normal_frames": [
+    {
+      "state": "candidate_menu_root_before",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "candidate_menu_down_pause_transition",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "candidate_pause_back_after_release",
+      "roi_sha256": "ad3cb5f319517bde1f6211094530e394caca5810de5b42665fc50f5432a966ed",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        246.88541666666666,
+        235.43055555555554,
+        216.97569444444446
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "candidate_back_down_resume_transition",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "candidate_menu_return_after_release",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_parchment_present": true
+    },
+    {
+      "state": "candidate_restored_before_actual_input",
+      "roi_sha256": "ffe59fe5e61e493831bd0fd16818616485c005119d5f2ce4e43ecf414c704bf3",
+      "same_mode_reference_exact": true,
+      "mean_rgb": [
+        247.13194444444446,
+        236.67013888888889,
+        218.1875
+      ],
+      "warm_parchment_present": true
+    }
+  ],
+  "diagnostic_roi_differs_from_normal": {
+    "hover": true,
+    "pressed": true,
+    "hover_pressed": true,
+    "focus": true,
+    "focus_pressed": true,
+    "disabled": true
+  },
+  "focus_pressed_differs_from_focus": true,
+  "limits": "Nonglyph opaque-region material-presence/timing guard only. Cross-mode pixel equality is not assumed; not visual acceptance, natural button-state coverage or formal QA11."
+}

@@ -1,0 +1,537 @@
+{
+  "review_type": "Codex agent partial source/candidate same-scene inspection, not human/child/owner acceptance",
+  "stable_role_id": "FV-2ABD73BAFFE0",
+  "family": "shared_ui",
+  "candidate_id": "FV-CAND-R85-NAV-CARD-01",
+  "source_revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "final_direct_views": [
+    {
+      "id": "attempt4_source_1280/source_menu_root_before",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1280/source_menu_root_before.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 1834165,
+      "sha256": "20faca1bce93b51faead26a322a4fd3036e7b9fa01dca3443e6ee9d48070ab8f",
+      "native_classification": "BOUNDED_CURRENT_SOURCE_NAVIGATION",
+      "tally_classification": "EXCLUDED_REPEATED_CURRENT_SOURCE_BASELINE",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201142045635,
+        "mode": "menu",
+        "draw_mode": 0,
+        "toggle_mode": false,
+        "button_pressed": false,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1280/candidate_menu_root_before",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1280/candidate_menu_root_before.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 1850015,
+      "sha256": "95ddaf51782a294329d41cf338fe6505dc14eac4ce8e9f2975f71c88a4db55bd",
+      "native_classification": "EXCLUDED_NONRUNTIME_NAVIGATION_SAMPLE",
+      "tally_classification": "EXCLUDED_NONRUNTIME_MATERIAL_SAMPLE",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201142045635,
+        "mode": "menu",
+        "draw_mode": 0,
+        "toggle_mode": false,
+        "button_pressed": false,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1280/declared_normal",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1280/declared_normal.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 1849482,
+      "sha256": "c1a941e50b84ac8e5744e0917a91001c64d91ca442ad60bfa0665f667ccb5dc2",
+      "native_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "tally_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201142045635,
+        "mode": "menu",
+        "draw_mode": 0,
+        "toggle_mode": true,
+        "button_pressed": false,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1280/declared_hover",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1280/declared_hover.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 1847336,
+      "sha256": "fa51295beac7bb335b59c29364d0a9937ed01cbd06723baca3903ff7f63139ca",
+      "native_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "tally_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201142045635,
+        "mode": "menu",
+        "draw_mode": 2,
+        "toggle_mode": true,
+        "button_pressed": false,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1280/declared_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1280/declared_pressed.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 1840735,
+      "sha256": "654b60b76022b02c2aa30bfc0644b17dde0d83c63c95a2ddcbeb20b2a9de62db",
+      "native_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "tally_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201142045635,
+        "mode": "menu",
+        "draw_mode": 1,
+        "toggle_mode": true,
+        "button_pressed": true,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1280/declared_hover_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1280/declared_hover_pressed.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 1845243,
+      "sha256": "b97f4aaebc09f00f506836d96dc3bfa559b9a816e7bea63f89a3f17b0149b28d",
+      "native_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "tally_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201142045635,
+        "mode": "menu",
+        "draw_mode": 4,
+        "toggle_mode": true,
+        "button_pressed": true,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1280/declared_focus",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1280/declared_focus.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 1848289,
+      "sha256": "6435dd95b01d1225a0e3d479572dc928b235767f95d6125963688d8703c2af0b",
+      "native_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "tally_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201142045635,
+        "mode": "menu",
+        "draw_mode": 0,
+        "toggle_mode": true,
+        "button_pressed": false,
+        "disabled": false,
+        "has_focus": true,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1280/declared_focus_pressed",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1280/declared_focus_pressed.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 1848497,
+      "sha256": "5697703e65d3ea893d48dd5b099f13cad9ed9634ad0c346050bbc94982c9e9a2",
+      "native_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "tally_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201142045635,
+        "mode": "menu",
+        "draw_mode": 1,
+        "toggle_mode": true,
+        "button_pressed": true,
+        "disabled": false,
+        "has_focus": true,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1280/declared_disabled",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1280/declared_disabled.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 1844872,
+      "sha256": "8ee7a17919fcf91dc6429a4f792cbd7ed21a18e08a30270e7399f0f5154dfe36",
+      "native_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "tally_classification": "EXCLUDED_DECLARED_STYLE_DIAGNOSTIC",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201142045635,
+        "mode": "menu",
+        "draw_mode": 3,
+        "toggle_mode": true,
+        "button_pressed": false,
+        "disabled": true,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1280/candidate_menu_down_pause_transition",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1280/candidate_menu_down_pause_transition.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 670861,
+      "sha256": "2e012ff30233ec5d35f5cc8974e5c36b4d75b8587c9311117ceaa0e042eff76e",
+      "native_classification": "EXCLUDED_NONRUNTIME_NAVIGATION_SAMPLE",
+      "tally_classification": "EXCLUDED_NONRUNTIME_MATERIAL_SAMPLE",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201142045635,
+        "mode": "back",
+        "draw_mode": 0,
+        "toggle_mode": false,
+        "button_pressed": false,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1280/candidate_menu_return_after_release",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1280/candidate_menu_return_after_release.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 1852511,
+      "sha256": "47c2f3c2c372cdc83e44168a055e0043e4b5da2732f93d7e01018203250097ff",
+      "native_classification": "EXCLUDED_NONRUNTIME_NAVIGATION_SAMPLE",
+      "tally_classification": "EXCLUDED_NONRUNTIME_MATERIAL_SAMPLE",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201142045635,
+        "mode": "menu",
+        "draw_mode": 0,
+        "toggle_mode": false,
+        "button_pressed": false,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1600/candidate_menu_root_before",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1600/candidate_menu_root_before.png",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "bytes": 2289058,
+      "sha256": "bb8579b84bd289e45d3e89001e113a8941af183156f9df462a52b6a1d1667545",
+      "native_classification": "EXCLUDED_NONRUNTIME_NAVIGATION_SAMPLE",
+      "tally_classification": "EXCLUDED_NONRUNTIME_MATERIAL_SAMPLE",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201192377283,
+        "mode": "menu",
+        "draw_mode": 0,
+        "toggle_mode": false,
+        "button_pressed": false,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1600/candidate_menu_down_pause_transition",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1600/candidate_menu_down_pause_transition.png",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "bytes": 994984,
+      "sha256": "b1e8227bbab1798b460f29bf7f150e78a9e82195729fa10090e506a5b15e4329",
+      "native_classification": "EXCLUDED_NONRUNTIME_NAVIGATION_SAMPLE",
+      "tally_classification": "EXCLUDED_NONRUNTIME_MATERIAL_SAMPLE",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201192377283,
+        "mode": "back",
+        "draw_mode": 0,
+        "toggle_mode": false,
+        "button_pressed": false,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1600/candidate_pause_back_after_release",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1600/candidate_pause_back_after_release.png",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "bytes": 994984,
+      "sha256": "b1e8227bbab1798b460f29bf7f150e78a9e82195729fa10090e506a5b15e4329",
+      "native_classification": "EXCLUDED_NONRUNTIME_NAVIGATION_SAMPLE",
+      "tally_classification": "EXCLUDED_NONRUNTIME_MATERIAL_SAMPLE",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201192377283,
+        "mode": "back",
+        "draw_mode": 0,
+        "toggle_mode": false,
+        "button_pressed": false,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    },
+    {
+      "id": "attempt4_source_1600/candidate_menu_return_after_release",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r85_navigation_reuse/native/attempt4_source_1600/candidate_menu_return_after_release.png",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "bytes": 2290819,
+      "sha256": "978fdf0edf58fe5184c6758084a447270d07becaa7dcc6e38cff437344691245",
+      "native_classification": "EXCLUDED_NONRUNTIME_NAVIGATION_SAMPLE",
+      "tally_classification": "EXCLUDED_NONRUNTIME_MATERIAL_SAMPLE",
+      "current_dev_coverage_credit": 0,
+      "agent_directly_viewed": true,
+      "final_fixture": true,
+      "navigation": {
+        "instance_id": 201192377283,
+        "mode": "menu",
+        "draw_mode": 0,
+        "toggle_mode": false,
+        "button_pressed": false,
+        "disabled": false,
+        "has_focus": false,
+        "native_rect": [
+          18.0,
+          18.0,
+          112.0,
+          112.0
+        ]
+      }
+    }
+  ],
+  "earlier_reject_direct_views": [
+    "attempt1_source_1280/candidate_menu_root_before",
+    "attempt2_source_1280/candidate_menu_root_before",
+    "attempt2_source_1280/declared_focus_pressed",
+    "attempt2_source_1280/declared_disabled",
+    "attempt2_source_1280/candidate_menu_down_pause_transition",
+    "attempt2_source_1280/candidate_pause_back_after_release",
+    "attempt3_source_1280/declared_disabled",
+    "attempt3_source_1280/candidate_menu_down_pause_transition"
+  ],
+  "direct_source_views": [
+    "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+    "assets/opera/worlds/ui/station_marker.png",
+    "assets/opera/worlds/ui/task_card_frame.png"
+  ],
+  "axes": [
+    {
+      "axis": "contour",
+      "observation": "The original near-circle becomes a softly rounded painted frame with four gold corner details. At the unchanged112px target it remains separated from scenery, but this is a deliberate material silhouette change and new-use acceptance remains open.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_AND_ACCEPTANCE_OPEN"
+    },
+    {
+      "axis": "material",
+      "observation": "Parchment grain, broad violet edge bands and gold highlights replace the uniform mathematical fill in the ignored sample. The existing full source is nine-sliced after only outside alpha<=1 padding is omitted; no source pixels were repainted.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_AND_ACCEPTANCE_OPEN"
+    },
+    {
+      "axis": "palette",
+      "observation": "Untinted normal uses the source cream/violet/gold and relates to castle roofs, walls and bridge trim. Hover/pressed/focus/disabled UI modulation is explicitly declared, not byte-identical framebuffer or approved source-color acceptance. Characters/environment are unchanged.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_AND_ACCEPTANCE_OPEN"
+    },
+    {
+      "axis": "light",
+      "observation": "Authored frame highlights remain stable with no source relighting or added lights. The UI stays screen-facing. Mode-local pixels are bound separately because paused and unpaused composites differ slightly.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_AND_ACCEPTANCE_OPEN"
+    },
+    {
+      "axis": "perspective",
+      "observation": "The surface remains an interface card in the corner, never a world prop. It is not warped into the environment and keeps the exact screen transform at both widths.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_AND_ACCEPTANCE_OPEN"
+    },
+    {
+      "axis": "scale",
+      "observation": "112x112 native/18px offsets and font38 remain unchanged. Paper leaves a clear field for the glyph and all corners remain intact in viewed frames. Exact phone density/performance and squint tests are still absent.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_AND_ACCEPTANCE_OPEN"
+    },
+    {
+      "axis": "contact",
+      "observation": "No ground contact is required for this interface. The same named source Button/layer29/owner metadata and original raw touch route open pause and resume. Temporary diagnostic toggle/press/focus/disabled values are restored before actual navigation.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_AND_ACCEPTANCE_OPEN"
+    },
+    {
+      "axis": "occlusion",
+      "observation": "The corner card stays over sky in the viewed promenade and above the dimmed pause UI; it does not cover a visible story action in these samples. Other scenes/routes remain unreviewed. Neighboring flat pause panels/buttons/ornaments remain separate debt.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_AND_ACCEPTANCE_OPEN"
+    },
+    {
+      "axis": "readability",
+      "observation": "The preserved dark Menu/Back glyphs remain distinct against normal parchment in these views; disabled is visibly muted and the glyph becomes light. Primary font/fallback authority, exact APK coverage, child recognition, focus/kind distinctions in other callers and owner review remain open.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_AND_ACCEPTANCE_OPEN"
+    },
+    {
+      "axis": "action-state",
+      "observation": "Final first Back and settled Back paper regions match within that mode; Menu transitions likewise bind to Menu. Each declared state changes actual pixels, including focus-pressed versus focus. These are excluded diagnostics with temporary toggle mode, not proof of natural non-toggle press behavior or formal QA11. The prior machine-only render false positive remains a recorded reject.",
+      "disposition": "PARTIAL_REUSE_SAMPLE_NEW_USE_AND_ACCEPTANCE_OPEN"
+    }
+  ],
+  "same_scene_hashes": "SOURCE_BINDINGS.json",
+  "source_material_reuse_viable_for_bounded_trial": true,
+  "material_new_drawing_required": false,
+  "critical_glyph_reuse_or_drawing_required": null,
+  "reuse_ready": false,
+  "drawing_required": null,
+  "approved": false,
+  "integrated": false,
+  "runtime_verified_replacement": false,
+  "accepted_removed": 0,
+  "mission_complete": false
+}
