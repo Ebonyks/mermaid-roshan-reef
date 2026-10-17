@@ -1,0 +1,17 @@
+{
+  "stock_command": "python3 tools/audit_visual_design.py || true",
+  "current_summary": "VISUALAUDIT| STATE FAIL=15  REVIEW_OPEN=17  MANUAL_OPEN=2  COVERAGE_GAP=87  WAIVED=0  PASS=32  NOT_APPLICABLE=94  RESULT=UNSATISFIED",
+  "scanner_state_counts": {
+    "FAIL": 15,
+    "REVIEW_OPEN": 17,
+    "MANUAL_OPEN": 2,
+    "COVERAGE_GAP": 87,
+    "WAIVED": 0,
+    "PASS": 32,
+    "NOT_APPLICABLE": 94
+  },
+  "result": "UNSATISFIED",
+  "log": "full_ci/FULL_CI.log",
+  "log_sha256": "b56dfb49e2438aa1078908d982442e6477840cfccd94c83fb6e438e58b80e6d8",
+  "limits": "Advisory findings retained separately from82zero trusted probe exits. No artwork/screen/regression total or formal/device/child/owner acceptance inferred."
+}

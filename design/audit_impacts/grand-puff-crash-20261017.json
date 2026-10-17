@@ -84,6 +84,21 @@
     "audit/grand_puff_crash_20261017/full_ci_process.json",
     "audit/grand_puff_crash_20261017/full_ci_process_attempt1.json",
     "audit/grand_puff_crash_20261017/idle_cycle_controls.json",
+    "audit/grand_puff_crash_20261017/integration_gate_authority.json",
+    "audit/grand_puff_crash_20261017/integration_gate_authority.log",
+    "audit/grand_puff_crash_20261017/integration_gate_development.json",
+    "audit/grand_puff_crash_20261017/integration_gate_development.log",
+    "audit/grand_puff_crash_20261017/integration_import.log",
+    "audit/grand_puff_crash_20261017/integration_import_process.json",
+    "audit/grand_puff_crash_20261017/integration_merge.json",
+    "audit/grand_puff_crash_20261017/integration_precommit.json",
+    "audit/grand_puff_crash_20261017/integration_probe_collection.log",
+    "audit/grand_puff_crash_20261017/integration_probe_day_one_story_clips.log",
+    "audit/grand_puff_crash_20261017/integration_probe_dust_boss.log",
+    "audit/grand_puff_crash_20261017/integration_probes.json",
+    "audit/grand_puff_crash_20261017/integration_source_pin.json",
+    "audit/grand_puff_crash_20261017/integration_static.json",
+    "audit/grand_puff_crash_20261017/integration_static.log",
     "audit/grand_puff_crash_20261017/native_debugger.json",
     "audit/grand_puff_crash_20261017/native_debugger.log",
     "audit/grand_puff_crash_20261017/native_debugger.py.txt",
@@ -295,9 +310,19 @@
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; final syntax and 2D regression gates",
       "result": "PASS",
       "evidence": "final_authority_process.json, final_development_process.json, final_syntax.json and final_game2d_process.json; source639 frozen,2D gate is NO_REGRESSION only. Staged-source binding is in precommit_verification.json."
+    },
+    {
+      "command": "Reconcile latest green incoming dev39b0e158 before topic publication",
+      "result": "PASS",
+      "evidence": "integration_merge.json/integration_source_pin.json plus integration_import_process.json, integration_static.json, integration_gate_authority.json and integration_probes.json: source639 unchanged except incoming CollectionSystem; import and collection/story-clips/full-Grand-Puff probes all exit0. Final merge coverage and remote exact combined-commit full CI are separate."
+    },
+    {
+      "command": "Combined-source merge coverage and final source binding",
+      "result": "PASS",
+      "evidence": "integration_gate_development.json: base39b0e158, ALL OK. integration_precommit.json binds639 tested combined-source files to staged canonical Git blobs and verifies incoming R91 packet/source preservation. Exact combined-commit full CI remains pending before dev integration."
     }
   ],
-  "acceptance_gaps": "Remote exact-commit CI/dev integration pending. Local82 probe-by-probe source-equivalence gate, required static gates and scoped Mobile1280x720 display pass. One Windows minus-one test exit remains UNPROVEN despite reporting/observer and2 ordinary passes; cold-load performance remains unaccepted. Actual Lenovo/device/child/owner, formal fresh-Git QA11, whole-game/strict-zero2D and release acceptance remain separate.",
+  "acceptance_gaps": "Remote exact combined-commit full CI/dev integration pending. Local repair82 probe-by-probe gate, displayed Mobile route, required static gates and combined import/authority/coverage plus3 focused probes pass. Historical Windows minus-one exit cause and baseline cold-load performance remain unproven/unaccepted. Device/child/owner, formal QA11, whole-game/strict-zero2D and release acceptance remain separate.",
   "lessons": [
     {
       "lesson": "Real propagated lifecycle delivery locks ancestor child lists; direct notification calls miss this failure mode.",

@@ -24,5 +24,14 @@
     "cause": "UNPROVEN; preserved under open test-fidelity finding, not claimed repaired by reruns."
   },
   "remote_status": "PENDING_TOPIC_CI_AND_DEV_INTEGRATION",
-  "acceptance": "Scoped local Mobile display uses prior-room fixtures. No formal fresh-Git QA11, actual Lenovo/device, child, owner, release or whole-game/strict-zero2D satisfaction. Cold-load performance and historical native-exit cause remain unaccepted observations."
+  "acceptance": "Scoped local Mobile display uses prior-room fixtures. No formal fresh-Git QA11, actual Lenovo/device, child, owner, release or whole-game/strict-zero2D satisfaction. Cold-load performance and historical native-exit cause remain unaccepted observations.",
+  "local_repair_commit": "0b8b73d1131ec6d87fbbbd42028b56e69d704880",
+  "integration_candidate": {
+    "incoming_dev": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+    "source_pin": "audit/grand_puff_crash_20261017/integration_source_pin.json",
+    "status": "PASS_LOCAL_FOCUSED_AND_STATIC_REMOTE_FULL_CI_PENDING",
+    "checks": "audit/grand_puff_crash_20261017/integration_probes.json",
+    "coverage": "audit/grand_puff_crash_20261017/integration_gate_development.json",
+    "binding": "audit/grand_puff_crash_20261017/integration_precommit.json"
+  }
 }

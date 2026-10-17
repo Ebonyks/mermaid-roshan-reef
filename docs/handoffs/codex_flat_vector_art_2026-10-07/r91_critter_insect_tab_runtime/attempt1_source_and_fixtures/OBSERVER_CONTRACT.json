@@ -1,0 +1,33 @@
+{
+  "schema": "reef.critter_insect_tab_observer/1",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "derived_from": [
+    {
+      "source_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source": "r88_critter_book_runtime/capture_entry.gd",
+      "source_sha256": "7836757758dd6dfa69fca6231623a4f53a597244a07075034660f06c659694b6",
+      "new_fixture": "capture_entry.gd",
+      "new_sha256": "a06a5e8f203624ae18620f404c38b0d1a89de2b9242836c689325515394b106f"
+    },
+    {
+      "source_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source": "r88_critter_book_runtime/capture_saved.gd",
+      "source_sha256": "650ed5e800632b452118bdb871898b6e88de7eb51206b7c6363442aa5eaeab0f",
+      "new_fixture": "capture_saved.gd",
+      "new_sha256": "ce445ca8f7ca1a329abe49080c676806ec0fcb3d94b2a686e32c0c04f94fccde"
+    },
+    {
+      "source_revision": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source": "r88_critter_book_runtime/capture_states.gd",
+      "source_sha256": "92a60b5c128112d120a557bc3a2d3364077397010939ad62d4de712e8718fb28",
+      "new_fixture": "capture_states.gd",
+      "new_sha256": "a51f797d7236ef706706020bb68472af165e65a498bcc4d15599e052079dfde6"
+    }
+  ],
+  "scope": "Original R88 fresh/synthetic saved/state flow retained. Add readonly actual Button.icon/sourcehash/counter/sole-icon and actual-font all7counts/six-styles fit checks. Focus/hover/disabled case selects insect by original input; no runtime visual/actor/route/time overrides. Saved preactivity synthetic seed/routing/notification/text-expansion remain declared inherited controls.",
+  "physical_input": "Engine input events in offscreen native Mobile viewport, not physical child/phone evidence; no OS mouse warp.",
+  "all_new_frames_excluded_current_dev_and_formal_QA11": true,
+  "new_art_pixels_generated": 0,
+  "trusted_probes_changed": false,
+  "expected_check_count": "Measure actual completed reports; no assumed606."
+}

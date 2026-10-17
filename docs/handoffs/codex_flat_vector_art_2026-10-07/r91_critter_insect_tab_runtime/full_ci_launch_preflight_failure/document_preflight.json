@@ -1,0 +1,28 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=706|LEDGER=706|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "e1588bcf6af0c34381f185675fc56b876367172512105bd0e8972a3297cb7a5d"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|d5e63a1ec6e79745da504ee3c3945e59ae35ea79\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "14d841846fcb1419a73ee3ae4104b467a688b50496d4ec890c592785c81e3b26"
+    }
+  ],
+  "expected_unchanged_local_probes": 82,
+  "scope": "Source/sidecars and project metadata frozen until CI terminal; actual result not assumed."
+}

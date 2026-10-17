@@ -2033,6 +2033,12 @@ CHG-036 local verification: complete unmodified `scripts/ci.sh` rerun exits 0 wi
 
 CHG-096 payload publication: `c524e0855559bf14e3f1c502b290baf90458a171` / manifest SHA-256 `55fca21887b9fc73b360686cb7c9855129d3c2047fc824d7969b059135796770`; 818 required files / 430522018 bytes anonymously verified at 2026-10-17T13:03:06.432286+00:00. Final receipt metadata is separately verified. Exact-head remoteCI, integration, new-use/formalQA11/device/child/owner and global inventory remain open.
 
+## Insect category tab existing-art candidate (CHG-099)
+
+[R91](../docs/handoffs/codex_flat_vector_art_2026-10-07/r91_critter_insect_tab_runtime/README.md) replaces one font glyph consumer with one intact existing painted butterfly, preserving native input/count/save behavior. [Impact](../design/audit_impacts/flat-vector-critter-insect-tab-runtime-20261017.json). No source pixels or trusted probes changed. Existing butterfly import generates mipmaps and this tab uses linear mip sampling with36px insets; imported basepixels are exact. Native750checks and unchanged local82CI pass; publication/exact-head remoteCI and all formal/source-newuse/device/child/owner acceptance remain pending. Rollback only this visual constructor branch/preload and mipmap metadata; preserve original source art, saves and immutable context history.
+
+CHG-099 payload publication: `92822aaf5f381e623dacf1a9dff0e20f82306c4a`; manifestSHA-256 `55c17387be65fb5dd83d7a0157bdb81ce26d4691f025b16ca0488f245bb792b5`, 306 required files / 170679536 bytes anonymously verified at 2026-10-17T17:23:55.424009+00:00. Final own metadata verified separately. RemoteCI/integration/source-newuse/formalQA11/device/child/owner/global closure remain open.
+
 
 ### Grand Puff interrupted entry recovery CHG-097
 
