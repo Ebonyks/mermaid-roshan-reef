@@ -66,5 +66,42 @@
   ],
   "runtime_tests": "Separate exact runtime topic has82/82local/60native; audit worktree runtime unchanged.",
   "all_acceptance_lanes": "New-use/QA11/device/child/owner/global inventory open;0accepted/devintegrated",
-  "actual_staged_committed_2d": "Run before push; final receipt binds those exact operations."
+  "actual_staged_committed_2d": "Run before push; final receipt binds those exact operations.",
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=796|LEDGER=796|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "094af978e9c26d0259d1d848d6c2ebf6b0d4de929bed983489823358cb950be3",
+      "checked_at_utc": "2026-10-17T05:09:31.376997+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-17T05:09:43.940184+00:00"
+    }
+  ],
+  "payload_actual_staged_2d": {
+    "log": "CANONICAL_STAGED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  },
+  "payload_actual_committed_2d": {
+    "revision": "b4ec17a674487c10b84b818524aab98240293f98",
+    "log": "CANONICAL_COMMITTED_2D.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "status": "NO_REGRESSION"
+  }
 }
