@@ -1,0 +1,72 @@
+{
+ "schema": "reef.remote-verification.v1",
+ "handoff_id": "codex_job_art_imagegen_2026-10-17",
+ "repository": "Ebonyks/mermaid-roshan-reef",
+ "branch": "claude/job-art-imagegen-audit-20261017",
+ "current_revision": 1,
+ "revisions": [
+  {
+   "revision": 1,
+   "verified_commit": "569dbf04f9e26619e6e9ffa896d2ad43b80497f2",
+   "access_mode": "anonymous HTTPS GET from raw.githubusercontent.com (no credentials, no cookies)",
+   "checked_utc": "2026-10-18T09:12:35+00:00",
+   "entry_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/569dbf04f9e26619e6e9ffa896d2ad43b80497f2/docs/handoffs/codex_job_art_imagegen_2026-10-17",
+   "manifest_link": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/569dbf04f9e26619e6e9ffa896d2ad43b80497f2/docs/handoffs/codex_job_art_imagegen_2026-10-17/MANIFEST.json",
+   "manifest_http_status": 200,
+   "manifest_sha256": "54de18385c453ef3ebd09be17c97a441a7b2899b5510f1d8f5135a9ab3ab37fa",
+   "files_checked": 7,
+   "all_match": true,
+   "results": [
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md",
+     "http_status": 200,
+     "bytes": 13316,
+     "sha256": "2f595b35a015abeb6c0d450350333f718efb4251bfc1fe373a3560fabb0549ed",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/AUDIT.md",
+     "http_status": 200,
+     "bytes": 43297,
+     "sha256": "fc5fe8dd03f52bde75446ff6ec0273f171792c35b65296cfe269c6a502210b56",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/BRIEFS.md",
+     "http_status": 200,
+     "bytes": 32340,
+     "sha256": "b1ef06e4547323d64b7133931de294094043799b5d17c8348583ac632e881b5c",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/.gdignore",
+     "http_status": 200,
+     "bytes": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/job_art_register.json",
+     "http_status": 200,
+     "bytes": 88744,
+     "sha256": "586a5bbbc09299bdf36cf456c4e85b55e9263dd344ed4748ee841dd214d50bce",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/measure_baseline.json",
+     "http_status": 200,
+     "bytes": 314090,
+     "sha256": "842051729d0e29bb8eaff5834dd2bf2a74d47111a67c7e38bf649d15b599b592",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/tools/measure_job_art.py",
+     "http_status": 200,
+     "bytes": 21507,
+     "sha256": "90d18a956ec3ece37cd46c3b573fa3224a4e926b8569c85c12ecf05d00c4bcae",
+     "matches": true
+    }
+   ]
+  }
+ ]
+}

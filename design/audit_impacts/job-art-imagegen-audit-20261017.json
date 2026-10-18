@@ -47,7 +47,8 @@
   "docs/handoffs/codex_job_art_imagegen_2026-10-17/tools/measure_job_art.py",
   "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
   "audit/MASTER_AUDIT_2026-08-09.md",
-  "design/05_DOC_LEDGER.md"
+  "design/05_DOC_LEDGER.md",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json"
  ],
  "validation": [
   {
@@ -97,8 +98,8 @@
   },
   {
    "command": "Anonymous HTTPS GET of every MANIFEST.json file from raw.githubusercontent.com at the pushed commit",
-   "result": "PENDING",
-   "evidence": "Recorded in docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json in a follow-up commit."
+   "result": "PASS",
+   "evidence": "Revision 1 at 569dbf04f9e26619e6e9ffa896d2ad43b80497f2, checked 2026-10-18T09:12:35+00:00: manifest HTTP 200, sha256 54de18385c453ef3ebd09be17c97a441a7b2899b5510f1d8f5135a9ab3ab37fa; 7 of 7 listed files match bytes and SHA-256. Receipt: docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json."
   }
  ],
  "acceptance_gaps": "This is a written audit and handoff: no runtime capture, phone, child or owner session exists for any item, and every visual judgement comes from code and source images. Codex implements packages P0-P10; the owner answers Q1-Q5 and accepts each job's look on the phone (DL-VIS-07). The owner's 2026-10-17 ImageGen text is not yet on dev, and design rules DL-ASSET-01, DL-ASSET-02 and DL-ASSET-06 still state the earlier reuse-first rule (package P0).",
