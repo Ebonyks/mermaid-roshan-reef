@@ -1,0 +1,23 @@
+from pathlib import Path
+import subprocess,json,hashlib,time,re
+from datetime import datetime,timezone
+root=Path(__file__).resolve().parents[1]
+w=root/'tmp/opera_foyer_verified_integration'
+e=w/'audit/opera_door_icons_20261017'
+pins={p.relative_to(w).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for folder in ['scripts','scenes','shaders'] for p in (w/folder).rglob('*') if p.is_file()}
+for folder in ['background_tiles','badge_repairs']:
+    for p in (w/'assets/flats/castle/opera_house_venue_2d'/folder).glob('*'):
+        if p.is_file():pins[p.relative_to(w).as_posix()]=hashlib.sha256(p.read_bytes()).hexdigest()
+started=datetime.now(timezone.utc).isoformat();t=time.monotonic()
+command=['C:/Program Files/Git/bin/bash.exe','--noprofile','--norc',str(root/'tmp/opera_icons_full_ci.sh')]
+with (e/'full_ci.log').open('w',encoding='utf8') as log:
+    result=subprocess.run(command,cwd=w,stdout=log,stderr=subprocess.STDOUT)
+text=(e/'full_ci.log').read_text(encoding='utf8',errors='replace')
+probes=re.findall(r'^PROBE (\S+) process exit: (\d+)$',text,re.M)
+expected=re.search(r'for p in (.+?); do',(w/'scripts/ci.sh').read_text()).group(1).split()
+drift=[n for n,h in pins.items() if not (w/n).is_file() or hashlib.sha256((w/n).read_bytes()).hexdigest()!=h]
+status='PASS' if result.returncode==0 and len(probes)==len(expected) and all(code=='0' for _,code in probes) and not drift else 'FAIL'
+receipt={'status':status,'command':command,'started_utc':started,'finished_utc':datetime.now(timezone.utc).isoformat(),'elapsed_seconds':time.monotonic()-t,'process_exit':result.returncode,'expected_probes':len(expected),'completed_probes':probes,'source_drift':drift,'source_sha256_raw_checkout':pins,'log_sha256_raw':hashlib.sha256((e/'full_ci.log').read_bytes()).hexdigest()}
+(e/'full_ci.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf8')
+print(json.dumps({k:v for k,v in receipt.items() if k not in ['source_sha256_raw_checkout','completed_probes']}))
+raise SystemExit(0 if status=='PASS' else 1)

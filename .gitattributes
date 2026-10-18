@@ -69,3 +69,7 @@ audit/grand_puff_crash_20261017/** -text whitespace=-blank-at-eol,-blank-at-eof,
 
 # Preserve exact Windows/native-CI evidence bytes for the Opera room removal.
 audit/remove_opera_anteroom_20261017/*.log -text -diff
+
+# Preserve exact native Opera icon-placement verification logs.
+audit/opera_door_icons_20261017/*.log -text -diff
+audit/opera_door_icons_20261017/*.txt -text -diff

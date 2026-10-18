@@ -1,5 +1,8 @@
 # Master design — document ledger
 
+Opera door icon correction CHG-102 is a scoped artwork/presentation change recorded in the existing master changelog and [impact](audit_impacts/opera-icons-above-doors-20261017.json). Existing document authority and finding lifecycles remain unchanged.
+
+
 _Initial 149-document index: 2026-08-02. Targeted authority reconciliation:
 2026-08-09. Merge synchronization: 2026-08-12. Exhaustive 316-document
 classification and exact-head closure verification: 2026-08-13._

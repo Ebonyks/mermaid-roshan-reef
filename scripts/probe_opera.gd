@@ -257,6 +257,7 @@ func _audit_all_room_cards() -> void:
 				and room_card_geometry_ok)
 		if room_id == "opera_hall":
 			var venue := routes.opera_venue
+			_audit_foyer_door_signs(venue)
 			var venue_ok := venue != null and venue.is_open() \
 				and bool(venue.get_meta("true_2d_venue", false)) \
 				and String(venue.get_meta("historical_layout_commit", "")) \
@@ -886,6 +887,42 @@ func _fit_stage_rect(stage_rect: Rect2, viewport_size: Vector2) -> Rect2:
 	return Rect2(
 		fit_offset + stage_rect.position * fit_scale,
 		stage_rect.size * fit_scale)
+
+
+func _audit_foyer_door_signs(venue: OperaHouseVenue2D) -> void:
+	if venue == null:
+		_check("foyer has movable door signs", false)
+		return
+	var tiles := venue.find_children("VenueTile_*", "TextureRect", true, false)
+	var loaded_tiles_ok := tiles.size() == 8
+	for tile_node: Node in tiles:
+		var tile := tile_node as TextureRect
+		loaded_tiles_ok = loaded_tiles_ok and tile.texture != null
+	_check("all eight foyer background tiles load imported textures", loaded_tiles_ok)
+	var repairs := venue.find_children("DoorBadgeRepair_*", "TextureRect", false, false)
+	var repairs_ok := repairs.size() == 12
+	for repair_node: Node in repairs:
+		var repair := repair_node as TextureRect
+		repairs_ok = repairs_ok and repair.texture != null \
+			and repair.size == Vector2(55.0, 62.5) \
+			and repair.mouse_filter == Control.MOUSE_FILTER_IGNORE
+	_check("twelve small imported repairs replace only the old badge sites", repairs_ok)
+	# Independent measurements of the edited painting's arch keystones.
+	var arch_tops: Array[float] = [69.0, 225.0, 389.0]
+	var door_centers: Array[float] = [446.25, 573.75, 706.25, 833.75]
+	var signs := venue.find_children("DoorIcon_*", "TextureRect", false, false)
+	var placement_ok := signs.size() == 12
+	for row in range(3):
+		for column in range(4):
+			var sign := venue.get_node_or_null("DoorIcon_%d_%d" % [row, column]) as TextureRect
+			placement_ok = placement_ok and sign != null
+			if sign != null:
+				placement_ok = placement_ok \
+					and sign.get_rect().end.y <= arch_tops[row] - 6.0 \
+					and absf(sign.get_rect().get_center().x - door_centers[column]) < 1.0 \
+					and sign.mouse_filter == Control.MOUSE_FILTER_IGNORE
+	_check("all twelve foyer icons are centered above arches with a gap and cannot intercept door taps",
+		placement_ok)
 
 
 func _direct_child_ids(node: Node) -> Array[int]:

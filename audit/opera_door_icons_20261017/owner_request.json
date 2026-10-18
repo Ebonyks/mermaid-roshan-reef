@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-17",
+  "owner_request": "The icons should appear above the doors instead of over them as they do",
+  "baseline": "a9875690ceff436e9ce012a675db09a236aef0f5",
+  "baseline_evidence": "The prior integrated main foyer capture shows all twelve painted medallions overlapping the arch keystones.",
+  "implementation": "Local ImageGen healing removes painted medallions. Input-transparent Canvas signs reuse circular crops of the original twelve emblems and sit above restored arches. Door input, route identity and saves stay unchanged.",
+  "human_acceptance": "Placement remains subject to owner and device review; this correction does not close MA-OPERA-012."
+}

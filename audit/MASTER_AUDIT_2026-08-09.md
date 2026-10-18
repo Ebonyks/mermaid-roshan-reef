@@ -1,5 +1,8 @@
 # Mermaid Roshan: Reef of Light — game-wide master audit
 
+Owner-directed foyer icon placement is tracked in the [bounded impact](../design/audit_impacts/opera-icons-above-doors-20261017.json) and CHG-102; implementation and machine evidence do not close formal visual/device/child/owner acceptance.
+
+
 ## 0. Planning entry
 
 
