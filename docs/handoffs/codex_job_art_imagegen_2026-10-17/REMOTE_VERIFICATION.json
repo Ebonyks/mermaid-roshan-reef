@@ -3,7 +3,7 @@
  "handoff_id": "codex_job_art_imagegen_2026-10-17",
  "repository": "Ebonyks/mermaid-roshan-reef",
  "branch": "claude/job-art-imagegen-audit-20261017",
- "current_revision": 3,
+ "current_revision": 4,
  "revisions": [
   {
    "revision": 1,
@@ -176,6 +176,69 @@
      "http_status": 200,
      "bytes": 90623,
      "sha256": "ac6c5d0b39813d97d937c21c2dd749d350682eafcb913aa09104df77400bf443",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/measure_baseline.json",
+     "http_status": 200,
+     "bytes": 314090,
+     "sha256": "842051729d0e29bb8eaff5834dd2bf2a74d47111a67c7e38bf649d15b599b592",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/tools/measure_job_art.py",
+     "http_status": 200,
+     "bytes": 21507,
+     "sha256": "90d18a956ec3ece37cd46c3b573fa3224a4e926b8569c85c12ecf05d00c4bcae",
+     "matches": true
+    }
+   ]
+  },
+  {
+   "revision": 4,
+   "verified_commit": "06a12ee7302dc22d6ac2cd16ece44c4de6870507",
+   "access_mode": "anonymous HTTPS GET from raw.githubusercontent.com (no credentials, no cookies)",
+   "checked_utc": "2026-10-18T15:46:25+00:00",
+   "entry_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/06a12ee7302dc22d6ac2cd16ece44c4de6870507/docs/handoffs/codex_job_art_imagegen_2026-10-17",
+   "manifest_link": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/06a12ee7302dc22d6ac2cd16ece44c4de6870507/docs/handoffs/codex_job_art_imagegen_2026-10-17/MANIFEST.json",
+   "manifest_http_status": 200,
+   "manifest_sha256": "58ab9f3de39b4c4fd117e681dd0e359afc5fdd9a69d42e13499f1cf94035803c",
+   "files_checked": 7,
+   "all_match": true,
+   "results": [
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md",
+     "http_status": 200,
+     "bytes": 18450,
+     "sha256": "59220269e79bc3e44a207a7598cebc31cc42b96f11c57bc9d7defaa91012bb36",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/AUDIT.md",
+     "http_status": 200,
+     "bytes": 44009,
+     "sha256": "82ddc23b553e3c13497685347313944a96f581241c058d3ada9f6fbcb8a0a4c1",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/BRIEFS.md",
+     "http_status": 200,
+     "bytes": 34735,
+     "sha256": "93c4f5277c146c44a701fc95add8d286fa2756fdcc0fa8c55b5fc50017ee1104",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/.gdignore",
+     "http_status": 200,
+     "bytes": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/job_art_register.json",
+     "http_status": 200,
+     "bytes": 92829,
+     "sha256": "20b29c241f5dcec2ca62692f12bd640749b7162f90d32355374774a76a5a16d1",
      "matches": true
     },
     {
