@@ -1,6 +1,6 @@
-# V32 current page plan
+# V33 current page plan
 
-Status: `SUPPORTING_CURRENT`.34 total pages, both covers included;32 interiors;7 ×5 inches landscape;Sniglet. F = full art. C = complete irregular contour cutouts on contextual low blue stationery. Reduced scenic rectangles are excluded.
+Status: `SUPPORTING_CURRENT`. Interior pagination and exact caption table below are unchanged from V32. V33 changes only covers; see [cover comparison](revisions/v33_story_covers/AUDIT_REVIEW.html).34 total pages, both covers included;32 interiors;7 ×5 inches landscape;Sniglet. F = full art. C = complete irregular contour cutouts on contextual low blue stationery. Reduced scenic rectangles are excluded.
 
 New4 expands dusty-castle inspection. Old4–21 shift forward one place; old22 becomes the quiet clean-room result30.23–29 remain in place. Old30 and31 combine into31;32 and both covers remain unchanged. Door23→Puff24 and bubbles27→rainbow28 still cross page turns. Story1 starts on the right. See [mapped comparison](revisions/v32_rainbow_story/AUDIT_REVIEW.html) and [spread dummy](revisions/v32_rainbow_story/PRINT_DUMMY.html).
 
@@ -39,4 +39,4 @@ New4 expands dusty-castle inspection. Old4–21 shift forward one place; old22 b
 | 31 | C | 30 +31 (combined) | “We helped your rainbow shine!” said Roshan. / “Thank you!” said Grand Puff. / “Come and rest with us!” said Roshan. |
 | 32 | F | 32 | There was room for everyone. / They curled up in the bubbles and fell asleep. |
 
-Front and rear covers retain V31 artwork; rear has no text. Hidden Lamma appearances remain on new10 and the rear cover, unprompted. Source assignments, low-bank motifs, caption geometry and derivative masks are exact in [book.json](book.json); [pagination](revisions/v32_rainbow_story/pagination.json) records the map.
+Front retains its original rendering with bounded painting-debris removal and unwell Puff expression. Rear reuses the actual story26 washing scene without text and adds a tiny shelf Lamma. Hidden Lamma appearances remain on new10 and the rear cover, unprompted. Source assignments, low-bank motifs, caption geometry and derivative masks are exact in [book.json](book.json); [V32 pagination](revisions/v32_rainbow_story/pagination.json) retains the interior map. The owner-rejected page4 and proposed quiet-request replacement remain unimplemented and open.

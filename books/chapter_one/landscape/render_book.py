@@ -188,7 +188,16 @@ for p in B['pages']:
  for balloon in p.get('speech_bubbles',[]):speech(balloon)
  c.showPage()
 PAGE='back_cover'
-full(B['back_cover']['art'])
+if B['back_cover'].get('story_scene_page'):
+ # Reuse the exact authored full-art scene and extensions, omitting its caption.
+ source_page=B['pages'][B['back_cover']['story_scene_page']-1]
+ assert source_page['mode']=='F'
+ if source_page.get('page_extension'):page_extension(source_page)
+ elif source_page['layout']=='extension':extension(source_page['art'][0])
+ elif 'art_crop' in source_page:
+  source_key=source_page['art'][0];region(source_key,source_page['art_crop'],(0,0,W,H))
+ else:full(source_page['art'][0],0 if source_page['layout']=='full_left' else .5)
+else:full(B['back_cover']['art'])
 for patch in B['back_cover'].get('local_patches',[]):local_patch({'local_patch':patch})
 c.showPage();c.save()
 font_path=ROOT/B['font']

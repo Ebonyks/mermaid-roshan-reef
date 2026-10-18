@@ -1,6 +1,6 @@
 # V32 — the magic rainbow pool and a shared welcome
 
-Status: `SUPPORTING_CURRENT`; complete review proof, external owner/child/qualified SLP/physical-print acceptance pending.34 pages including both covers;32 interiors;7 ×5 inches landscape;Sniglet. Exact V31 baseline: `07734bb43018ffdefef3644f337db8fa46038d5b`.
+Status: `HISTORICAL_EVIDENCE`; original published V32 proof; [V33](../v33_story_covers/README.md) supersedes its cover facts. complete review proof, external owner/child/qualified SLP/physical-print acceptance pending.34 pages including both covers;32 interiors;7 ×5 inches landscape;Sniglet. Exact V31 baseline: `07734bb43018ffdefef3644f337db8fa46038d5b`.
 
 [All-page before/after](AUDIT_REVIEW.html) · [Reader](complete/READ_BOOK.html) · [Full PDF](complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf) · [Spread dummy](PRINT_DUMMY.html) · [Language packet](SLP_REVIEW_PACKET.html) · [Manifest](manifest.json)
 

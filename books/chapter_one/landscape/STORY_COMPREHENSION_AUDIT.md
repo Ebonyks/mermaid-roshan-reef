@@ -1,6 +1,6 @@
-# V32 story comprehension and shared-reading audit
+# V33 story comprehension and shared-reading audit
 
-Status: `SUPPORTING_CURRENT`. Internal editorial review for a shared-reading picture book, ages4–5. Professional SLP endorsement and child evidence remain open.
+Status: `SUPPORTING_CURRENT`. V33 leaves all V32 interior text and pictures exact; only cover promises are corrected. The owner rejected the dusty-object insert4 after the V32 review. A quiet request from behind Puff’s door was recommended but remains unimplemented; this editorial item stays open. The unchanged sequence below describes the actual proof, not acceptance of that insert. Internal editorial review for a shared-reading picture book, ages4–5. Professional SLP endorsement and child evidence remain open.
 
 The opening now moves from arrival and invitation3 to concrete cobweb/chest observations4, dusty-floor problem5, shared goal and visible supplies6. This uses existing castle material and preserves the setting. The bath supplies simple repeated actions. The pool sequence12–16 connects gunk clearing, rainbow water, the magic swimming pool, the obstructing cup and Rumi's freedom;17 keeps the immediate hug. Daddy's named speech on14 explains why the waterfall is rainbow. No unsupported stream count or ordinary-water substitution remains.
 

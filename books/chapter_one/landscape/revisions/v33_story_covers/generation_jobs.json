@@ -1,0 +1,42 @@
+[
+  {
+    "id": "front_story_cleanup",
+    "target": "references/front_reference.png",
+    "references": [
+      {
+        "role": "edit_target",
+        "path": "books/chapter_one/landscape/revisions/v33_story_covers/references/front_reference.png",
+        "sha256": "de5c875b5f6e13b017b5acbd7768118577bd2846a3873a40fe12b7a5fc75880d"
+      },
+      {
+        "role": "identity_reference",
+        "path": "books/chapter_one/landscape/art/language_v26/puff_unwell.png",
+        "sha256": "ac6ecf90d5a024f7bd343a26c7e3cd1600cb906aff3a5749ab89600dae23bb38"
+      }
+    ],
+    "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact front-cover edit target, with no lettering. IMAGE_2 is ONLY Grand Puff facial identity/mood reference. Make two local corrections to IMAGE_1. First remove ALL obsolete art-making debris from the lower-right foreground: the tipped pink paint pot, pink paint spill/drops, and the illustrated paper with shells/stars/rainbows. Fill those footprints with the same continuous aqua/lavender marble floor and its existing broad reflected light. Keep Baby Eagle and every toe untouched, keep the bucket/brush and Roshan’s yellow sponge. Second change ONLY the little lavender Puff face peeking through the right-hand door: replace his sharp mischievous brows and grin with a soft worried/unwell expression matching IMAGE_2. Keep his original size, location, lavender cloud body, curls, ears and door exactly fixed. Preserve every pixel outside these two correction neighborhoods as closely as possible: Roshan, Daddy, Rumi, Eagle, all anatomy/costumes, architecture, rainbow waterfall, palette, brushwork and the blank title sky remain unchanged. This is a bounded repair, not a scene redraw. Crisp polished painted2D children’s book; no text, no new props, no sticker rim, no photorealism. Return the complete1484x1060 landscape canvas.",
+    "prompt_sha256": "7ae161acd5386257567da4cc0ef6c3472c27a816473ab884478151476c4e1e09",
+    "generation_method": "built-in image_gen",
+    "attempt": 1
+  },
+  {
+    "id": "rear_hidden_lamma",
+    "target": "references/washing_reference.png",
+    "references": [
+      {
+        "role": "edit_target",
+        "path": "books/chapter_one/landscape/revisions/v33_story_covers/references/washing_reference.png",
+        "sha256": "c6b7dbebb92e233b49b74acd0a6e4feac9e5f164619b169bc6783dccb2661f9f"
+      },
+      {
+        "role": "identity_reference",
+        "path": "assets/sprites/stuffie_studio/lamma.png",
+        "sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268"
+      }
+    ],
+    "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact existing book scene26 washing Grand Puff, the rear-cover edit target. IMAGE_2 is ONLY the canonical white Lamma identity reference. Preserve the entire scene unchanged and add ONE tiny, subtle hidden Lamma head peeking from behind an existing teapot on the small rear wall shelf just to the right of Puff’s right spiral ear and above Rumi. The peeking head is only about25-30pixels tall on the1484x1060 target; most of Lamma is occluded by the existing shelf object. Retain her round white woolly face, small sideways ears, dark lash eyes, tiny peach nose and blush; no visible egg. She is a very easy-to-miss background discovery, not a fifth helper. Keep all characters, anatomy, identities, washing gestures/contact, sponges/brushes, bubbles, room geometry, fixtures, colors and painted2D style EXACTLY fixed. Change only this tiny shelf neighborhood; do not add dust bunnies, drawings, craft paper, paint spill, new furniture or lettering. No full-scene redraw. Return the complete1484x1060 landscape canvas.",
+    "prompt_sha256": "b3411c989525c9e36d072b849e95182ad38dc53c850c1cbe11c26ede8771dead",
+    "generation_method": "built-in image_gen",
+    "attempt": 1
+  }
+]

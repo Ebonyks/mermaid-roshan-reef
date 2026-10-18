@@ -10,7 +10,7 @@
     360
   ],
   "story_pages": 32,
-  "status": "V32 complete review proof; external acceptance pending",
+  "status": "V33 cover continuity review proof; owner/child/print acceptance pending",
   "font": "../archive/rough_v5/fonts/Sniglet-Regular.ttf",
   "sources": {
     "flight": {
@@ -7283,6 +7283,32 @@
         "native_path": "books/chapter_one/landscape/revisions/v32_rainbow_story/art/dusty_chest_attempt2.png",
         "native_sha256": "ba3ab6d786721d37ad431133f63e8dd4ea8f53e96d0edc6418941763cf56f769"
       }
+    },
+    "v33_front_cleanup": {
+      "file": "revisions/v33_story_covers/art/front_cleanup.png",
+      "sha256": "15f0b7292f63732e8afe67270bff02c36d777803eabc5444052b024681cebfe6",
+      "provenance": {
+        "method": "built-in image_gen bounded local edit",
+        "evidence": "revisions/v33_story_covers/generation_evidence.json",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "whole_candidate_not_delivered": true
+      }
+    },
+    "v33_rear_lamma": {
+      "file": "revisions/v33_story_covers/art/rear_lamma.png",
+      "sha256": "a70e038302ece95cb2f1ad1d699f9eed6cf987a567c83c0f6c5c5cc9cc9ab3e6",
+      "provenance": {
+        "method": "built-in image_gen bounded local edit",
+        "evidence": "revisions/v33_story_covers/generation_evidence.json",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "whole_candidate_not_delivered": true
+      }
     }
   },
   "pages": [
@@ -9954,7 +9980,7 @@
     "V30: local adult-Rumi face repairs0/10/33; Roshan brooch removals on covers; dirty-hall face attention4; supplies plural5 with an existing-source-derived yellow sponge cutout. Page5 brush stays exact; pink sponge is reduced/right-shifted beside the added yellow sponge. No new narrative scene. V29 native art/scene compositions/canon/borders remain the base."
   ],
   "cover": {
-    "treatment": "Owner-commissioned unified rendered composition in shared Pearl Castle setting",
+    "treatment": "Existing rendered story ensemble with bounded paint/craft debris removal and unwell Puff facial correction",
     "art": [
       "cover_rendered"
     ],
@@ -10053,163 +10079,168 @@
             570
           ]
         ]
+      },
+      {
+        "source": "v33_front_cleanup",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            1222,
+            777
+          ],
+          [
+            1380,
+            777
+          ],
+          [
+            1410,
+            838
+          ],
+          [
+            1484,
+            850
+          ],
+          [
+            1484,
+            1060
+          ],
+          [
+            1095,
+            1060
+          ],
+          [
+            1095,
+            990
+          ],
+          [
+            1157,
+            965
+          ],
+          [
+            1157,
+            923
+          ],
+          [
+            1138,
+            919
+          ],
+          [
+            1139,
+            908
+          ],
+          [
+            1112,
+            908
+          ],
+          [
+            1107,
+            883
+          ],
+          [
+            1194,
+            866
+          ],
+          [
+            1210,
+            840
+          ]
+        ]
+      },
+      {
+        "source": "v33_front_cleanup",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            1285,
+            437
+          ],
+          [
+            1307,
+            434
+          ],
+          [
+            1340,
+            441
+          ],
+          [
+            1377,
+            432
+          ],
+          [
+            1388,
+            452
+          ],
+          [
+            1384,
+            482
+          ],
+          [
+            1373,
+            506
+          ],
+          [
+            1346,
+            512
+          ],
+          [
+            1308,
+            503
+          ],
+          [
+            1288,
+            486
+          ]
+        ]
       }
     ]
   },
   "back_cover": {
-    "art": "v23_cover_h",
+    "art": "v27_scrub",
     "mode": "full_art",
-    "selection": "H: full ensemble, front-cover aqua/lavender/pink palette, simplified painted dust. Supersedes owner-rejected photorealistic two-character studies A–D.",
+    "story_scene_page": 26,
+    "selection": "Actual cooperative washing scene26 with exact original source layer transforms, caption omitted; obsolete craft-table composition retired.",
     "local_patches": [
       {
-        "source": "v30_rear_identity",
+        "source": "v33_rear_lamma",
         "reference_size": [
           1484,
           1060
         ],
         "polygon": [
           [
-            971,
-            313
+            1004,
+            356
           ],
           [
-            990,
-            294
+            1045,
+            356
           ],
           [
-            1030,
-            290
+            1047,
+            404
           ],
           [
-            1072,
-            303
-          ],
-          [
-            1110,
-            326
-          ],
-          [
-            1137,
-            352
-          ],
-          [
-            1138,
-            380
-          ],
-          [
-            1111,
+            1014,
             405
           ],
           [
-            1063,
-            438
+            1008,
+            398
           ],
           [
-            1027,
-            444
-          ],
-          [
-            998,
-            421
-          ],
-          [
-            974,
-            388
-          ],
-          [
-            945,
-            369
-          ]
-        ]
-      },
-      {
-        "source": "v30_rear_identity",
-        "reference_size": [
-          1484,
-          1060
-        ],
-        "polygon": [
-          [
-            622,
-            479
-          ],
-          [
-            645,
-            475
-          ],
-          [
-            670,
-            484
-          ],
-          [
-            672,
-            508
-          ],
-          [
-            659,
-            530
-          ],
-          [
-            637,
-            533
-          ],
-          [
-            620,
-            519
-          ],
-          [
-            615,
-            497
-          ]
-        ]
-      },
-      {
-        "source": "v31_rear_lamma",
-        "reference_size": [
-          1484,
-          1060
-        ],
-        "polygon": [
-          [
-            39,
-            277
-          ],
-          [
-            59,
-            274
-          ],
-          [
-            66,
-            288
-          ],
-          [
-            96,
-            288
-          ],
-          [
-            110,
-            307
-          ],
-          [
-            108,
-            334
-          ],
-          [
-            69,
-            337
-          ],
-          [
-            47,
-            326
-          ],
-          [
-            39,
-            304
+            1004,
+            381
           ]
         ]
       }
     ]
   },
-  "revision": "V32 rainbow magic and story space",
+  "revision": "V33 story-faithful covers",
   "review_href": "../AUDIT_REVIEW.html"
 }

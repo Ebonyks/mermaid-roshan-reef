@@ -12,13 +12,14 @@ def overlap(a,b):
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--proof',required=True,type=Path);ap.add_argument('--baseline',required=True,type=Path);args=ap.parse_args()
  b=json.loads((ROOT/'book.json').read_text(encoding='utf8'));p=json.loads((args.proof/'page_provenance.json').read_text(encoding='utf8'));review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'));issues=[];pages={row['page']:row for row in b['pages']}
- revised=b.get('revision','').startswith(('V28','V29','V30','V31','V32'))
- polished=b.get('revision','').startswith(('V29','V30','V31','V32'))
- local_identity=b.get('revision','').startswith(('V30','V31','V32'))
- story_clarity=b.get('revision','').startswith(('V31','V32'))
- rainbow_story=b.get('revision','').startswith('V32')
+ revised=b.get('revision','').startswith(('V28','V29','V30','V31','V32','V33'))
+ polished=b.get('revision','').startswith(('V29','V30','V31','V32','V33'))
+ local_identity=b.get('revision','').startswith(('V30','V31','V32','V33'))
+ story_clarity=b.get('revision','').startswith(('V31','V32','V33'))
+ rainbow_story=b.get('revision','').startswith(('V32','V33'))
+ story_covers=b.get('revision','').startswith('V33')
  by_old={row.get('original_page',row['page']):row for row in b['pages']}
- if revised:review=json.loads((ROOT/('revisions/v32_rainbow_story' if rainbow_story else 'revisions/v31_story_clarity' if story_clarity else 'revisions/v30_identity' if local_identity else 'revisions/v29_polish' if polished else 'revisions/v28_kindness')/'visual_review.json').read_text(encoding='utf8'))
+ if revised:review=json.loads((ROOT/('revisions/v33_story_covers' if story_covers else 'revisions/v32_rainbow_story' if rainbow_story else 'revisions/v31_story_clarity' if story_clarity else 'revisions/v30_identity' if local_identity else 'revisions/v29_polish' if polished else 'revisions/v28_kindness')/'visual_review.json').read_text(encoding='utf8'))
  pdf=PdfReader(args.proof/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf')
  if len(pdf.pages)!=34:issues.append('Expected 32 story pages plus covers.')
  for i,page in enumerate(pdf.pages):
@@ -99,15 +100,22 @@ def main():
  if by_old[9]['art']!=['v26_rumi_trapped']:issues.append('First dirty-pool page must establish the strainer.')
  if [' '.join(q['text'].split()) for q in by_old[19].get('speech_bubbles',[])]!=['Sorry!','We were just playing!']:issues.append('Missing commissioned bunny apology exchange.')
  back=[q for q in p['layers'] if q['page']=='back_cover']
- if not back or back[0]['source_key']!=b['back_cover']['art'] or back[0]['operation']!='page_trim':issues.append('Rear cover must retain its complete accepted full-art base.')
+ if story_covers:
+  scene=[{k:v for k,v in q.items() if k!='page'} for q in p['layers'] if q['page']==26]
+  reused=[{k:v for k,v in q.items() if k!='page'} for q in back if q['operation']!='bounded_inpaint_polygon_visible_pdf_resource']
+  if b['back_cover'].get('story_scene_page')!=26 or scene!=reused:issues.append('Rear cover must reuse exact source26 scene layers/transforms without a caption.')
+ elif not back or back[0]['source_key']!=b['back_cover']['art'] or back[0]['operation']!='page_trim':issues.append('Rear cover must retain its complete accepted full-art base.')
  if not local_identity and len(back)!=1:issues.append('Uncommissioned rear-cover layers.')
  if local_identity:
   expected={'front_cover':{'v30_front_identity':2},'back_cover':{'v30_rear_identity':2},5 if rainbow_story else 4:{'v30_castle_attention':2},11 if rainbow_story else 10:{'v30_rumi_face_crop':1}}
-  if story_clarity:expected['back_cover']['v31_rear_lamma']=1
+  if story_covers:
+   expected['front_cover']['v33_front_cleanup']=2
+   expected['back_cover']={'v33_rear_lamma':1}
+  elif story_clarity:expected['back_cover']['v31_rear_lamma']=1
   for page_id,keys in expected.items():
    actual=Counter(q['source_key'] for q in p['layers'] if q['page']==page_id and q['operation']=='bounded_inpaint_polygon_visible_pdf_resource')
    if dict(actual)!=keys:issues.append(f'Page {page_id}: local identity edit sources/count differ from reviewed scope.')
-  if any(q['operation']!='bounded_inpaint_polygon_visible_pdf_resource' for q in back[1:]):issues.append('Rear cover added a non-local scene layer.')
+  if any(q['operation']!='bounded_inpaint_polygon_visible_pdf_resource' for q in back[2 if story_covers else 1:]):issues.append('Rear cover added a non-local scene layer.')
   if by_old[4]['text']!='Daddy gave her a brush and some sponges.\n“One little job at a time.”':issues.append('Sponge variety introduction missing.')
  for n,key in [(17,'rescue_trapped'),(18,'rescue_release'),(27,'v27_scrub'),(28,'R09_suds'),(29,'R10_jump'),(30,'R11_land')]:
   if revised and n==18:key='approved_rescue_release'
@@ -120,7 +128,7 @@ def main():
   if [by_old[n]['page'] for n in [24,25,28,29]]!=[23,24,27,28]:issues.append('Reveal page-turn order changed.')
   if any(term in ' '.join(q['text'].lower() for q in b['pages']) for term in ['dizzy','wobbled','beat him','stopped him','sparkles flew','fighting']):issues.append('Retired combat wording returned.')
   if any(q['source_key'] in {'v25_shell_duel','approved_apology_canvas','v25_art_simple'} for q in p['layers']):issues.append('Rejected active art returned.')
-  visitor_keys={'v29_lamma09','v31_rear_lamma'} if story_clarity else {'v29_lamma09','v29_bank31_final'} if polished else {'approved_lamba_bath','v28_lamba_toy_peek'}
+  visitor_keys={'v29_lamma09','v33_rear_lamma'} if story_covers else {'v29_lamma09','v31_rear_lamma'} if story_clarity else {'v29_lamma09','v29_bank31_final'} if polished else {'approved_lamba_bath','v28_lamba_toy_peek'}
   visitor_pages={10,'back_cover'} if rainbow_story else {9,'back_cover'} if story_clarity else {9,31}
   if {q['page'] for q in p['layers'] if q['source_key'] in visitor_keys}!=visitor_pages:issues.append('Expected two unprompted hidden appearances.')
   if rainbow_story:
