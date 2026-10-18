@@ -43,8 +43,8 @@ outnumber painted pictures about nine to one: 972 primitive draw calls against
   - Geologist: the whole room and every work object.
   - Teacher: no texture at all.
   - Astronaut's pipe board.
-- **Code-drawn objects the child acts on.** In nine more careers the central
-  object is drawn in code:
+- **Code-drawn objects the child acts on.** In every other career at least
+  one central object is drawn in code:
   - Chef: the oven and cake, bowl, frosting cake and piping bag.
   - Boxer: both gloves.
   - Candymaker: the candies the child sorts and the friends who receive them.
@@ -55,8 +55,11 @@ outnumber painted pictures about nine to one: 972 primitive draw calls against
   - Painter: the cloudy cover.
   - Nursery: the cribs, blanket and patting hand.
   - Pop Star: the rhythm stars.
-- **Decoration over every career.** Spotlight wedges, halos, sparkles and
-  progress dots are drawn over every career. Ambient doodles are drawn over
+  - Ballerina: the pearl-mirror shell frames and the ribbon trail.
+  - Racer: the steering control and the turbo button.
+  - Detective: the clues under the lens.
+- **Decoration over the careers.** Spotlight wedges, halos, sparkles and
+  progress dots are drawn over almost every career. Ambient doodles are drawn over
   every career and every Day One room except the Pool.
 - **Live vector files.** Five SVG files are still in use: four for the
   Geologist and one for the Teacher.
@@ -72,10 +75,11 @@ outnumber painted pictures about nine to one: 972 primitive draw calls against
   - 25 kart views.
 - **A complete painted Geologist grotto** has sat in `assets_src` since
   2026-09-05.
-- **Three code paths ask for art that was never made:**
+- **Four code paths ask for art that was never made:**
   - the Astronaut pipe tiles, tank and intake;
   - the Pop Star star notes;
-  - the Magician portal ring.
+  - the Magician portal ring;
+  - success images for six careers.
 - **Two Geologist paths are set to empty strings,** so painted pan and geode
   art can never load even if it is added.
 - **Much painted art is loaded but never drawn, or is drawn badly:**
@@ -108,7 +112,7 @@ From `tools/measure_job_art.py` at the baseline.
 
 | Group (scripts) | Primitive draw calls | Primitive nodes/styles | Texture draw calls |
 |---|---:|---:|---:|
-| Shared gesture surface (`gesture`), nine careers | 439 | 0 | 61 |
+| Shared gesture surface (`gesture`), used by eleven careers | 439 | 0 | 61 |
 | Shared career world (`world`, `backdrop`, `hotspot`, `living_world_canvas.gd`, venue) | 288 | 11 | 17 |
 | Shared Hall HUD (`opera_performance_overlay.gd`) | 23 | 0 | 0 |
 | Geologist surface | 49 | 0 | 5 |
@@ -564,6 +568,9 @@ These need no new art; each is a fix in code or import.
      (CHG-096) and the insect tab (CHG-099). Neither is a job game.
    - It is now generating a new Geologist mineral while
      `painted_work_v1/mineral.png` sits finished on the stranded branch.
+   - None of the 74 stranded images appears by name anywhere in that
+     program's packet. The grotto candidate appears there only in source hash
+     lists, and `codex/job-art-review-v2-20261001` only in CI checkout logs.
 4. **Fallback code hides missing art.** Most surfaces draw a code shape when
    a texture is missing. Missing pipe tiles, star notes and portal rings
    therefore never failed a check.

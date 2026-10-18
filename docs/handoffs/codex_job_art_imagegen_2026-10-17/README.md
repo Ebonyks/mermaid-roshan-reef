@@ -17,7 +17,14 @@ sub optimal to retain quality."
 - **To:** Codex: every code change, every image and every capture.
 - **Owner:** answers Q1-Q5 below and accepts the look.
 
-**Status:** `PROPOSED / CANDIDATE`, revision 1.
+**Status:** `PROPOSED / CANDIDATE`, revision 2. Revision 2 corrects three
+counts from revision 1:
+- every career, not nine, has at least one code-drawn object the child acts on;
+- four code paths, not three, request art that was never made;
+- the shared gesture surface serves eleven careers, not nine.
+
+It also records that none of the stranded images is named in Codex's
+flat-vector packet.
 - Baseline: `dev` `7a65b9f0abacddeee70230f220955f4d18d551b5`.
 - Finding: [`MA-VIS-010`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-010)
   (P1, `CONFIRMED_OPEN`).
@@ -43,10 +50,20 @@ sub optimal to retain quality."
   - Geologist has no painted room or work object at all, and its gold-star
     authored-art score is 0.
   - Teacher loads no texture.
-  - In nine more careers the object the child acts on is code-drawn: Chef's
-    oven and cake, Boxer's gloves, Candymaker's candies, Doctor's sink and
-    patient, Farmer's seed bed and gate, Magician's rope and portal,
-    Painter's cover, Nursery's crib, blanket and hand, and Pop Star's stars.
+  - In every other career at least one object the child acts on is
+    code-drawn:
+    - Chef: the oven and cake.
+    - Boxer: the gloves.
+    - Candymaker: the candies.
+    - Doctor: the sink and the patient.
+    - Farmer: the seed bed and the gate.
+    - Magician: the rope and the portal.
+    - Painter: the cover.
+    - Nursery: the crib, the blanket and the hand.
+    - Pop Star: the stars.
+    - Ballerina: the shell frames and the ribbon.
+    - Racer: the steering wheel and the turbo button.
+    - Detective: the clues.
   - Five SVG files are live.
 - **Painted art was made and not used.**
   - 74 painted job images are stranded on unmerged branches. They include the
@@ -54,8 +71,8 @@ sub optimal to retain quality."
     and kart views.
   - A complete painted Geologist grotto has sat in `assets_src` since
     2026-09-05.
-  - Three code paths ask for art that was never made: pipe tiles, star notes
-    and portal rings.
+  - Four code paths ask for art that was never made: pipe tiles, star notes,
+    portal rings and success images for six careers.
   - Two Geologist texture paths are empty strings.
   - Painted art is loaded and not drawn, or drawn stretched, ghosted or
     covered (AUDIT section 6).
@@ -250,7 +267,7 @@ missing textures fail its probe (BRIEFS C9).
 
 | Codex work | State | Overlap |
 |---|---|---|
-| `codex/flat-vector-r6-20261012` (R6 to R100) and `codex/flat-vector-geologist-pan-runtime-20261017` | pushed; pan CI running | P1. Use this register as the job worklist and record its closures in the flat-vector tally as a by-product; the 74 stranded images and the grotto are not in that tally's job routes. |
+| `codex/flat-vector-r6-20261012` (R6 to R100) and `codex/flat-vector-geologist-pan-runtime-20261017` | pushed; pan CI running | P1. Use this register as the job worklist and record its closures in the flat-vector tally as a by-product. None of the 74 stranded images appears by name anywhere in that program's packet. The grotto appears there only in source hash lists, and `codex/job-art-review-v2-20261001` only in CI checkout logs. |
 | `codex/flat-vector-touch-runtime-20261016`, `codex/flat-vector-navigation-runtime-20261017` | pushed, unmerged | none (shared UI outside jobs) |
 | local `candymaker-boxes-friends-20261017` | uncommitted | JA-CDY-01; that work's new `candymaker_sort_boxes_v2.png` |
 | local `detective-scene-investigation-20261017` | uncommitted | JA-DET-01 to -03; re-check after it lands |
@@ -272,6 +289,9 @@ missing textures fail its probe (BRIEFS C9).
 ## Delivery
 
 This packet is committed and pushed to `Ebonyks/mermaid-roshan-reef` on
-branch `claude/job-art-imagegen-audit-20261017`. The immutable tree link, the
-manifest link and the anonymous verification receipt are recorded in
-`REMOTE_VERIFICATION.json` once the remote check has run.
+branch `claude/job-art-imagegen-audit-20261017`.
+
+- Revision 1 (`569dbf04`) passed anonymous verification: the manifest and
+  all 7 files matched bytes and SHA-256.
+- Each revision's immutable tree link, manifest link and receipt are in
+  [REMOTE_VERIFICATION.json](REMOTE_VERIFICATION.json).

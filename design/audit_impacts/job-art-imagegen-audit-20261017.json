@@ -1,6 +1,6 @@
 {
  "id": "job-art-imagegen-audit-20261017",
- "scope": "Owner request 2026-10-17: identify weak artwork in the game, particularly in the jobs; identify where ImageGen versions were made but are not properly in the game and where ImageGen art is still needed, to eliminate flat vector art; then make a Codex handoff to revise them. Claude wrote an audit, written ImageGen briefs and a 108-item register (docs/handoffs/codex_job_art_imagegen_2026-10-17/), with a numbers-only measurement tool that never writes images. Findings at dev 7a65b9f0: the Opera career code makes 972 primitive draw calls against 107 texture draws; 28 of 61 career phases draw their own picture; five SVG files are live; 74 finished painted job images sit on four unmerged branches with no copy on dev; a painted Geologist grotto has sat unprepared in assets_src since 2026-09-05; three code paths request painted art that was never made and two Geologist texture paths are empty strings; much painted art is loaded but not drawn, or is stretched, ghosted or covered. New finding MA-VIS-010 (P1). Cross-reference history added to MA-VIS-008 and MA-OPERA-001 with lifecycles unchanged; master audit triage row, task route and change history; document ledger rows. No game file, asset, image or other finding lifecycle changes.",
+ "scope": "Owner request 2026-10-17: identify weak artwork in the game, particularly in the jobs; identify where ImageGen versions were made but are not properly in the game and where ImageGen art is still needed, to eliminate flat vector art; then make a Codex handoff to revise them. Claude wrote an audit, written ImageGen briefs and a 108-item register (docs/handoffs/codex_job_art_imagegen_2026-10-17/), with a numbers-only measurement tool that never writes images. Findings at dev 7a65b9f0: the Opera career code makes 972 primitive draw calls against 107 texture draws; 28 of 61 career phases draw their own picture; five SVG files are live; 74 finished painted job images sit on four unmerged branches with no copy on dev; a painted Geologist grotto has sat unprepared in assets_src since 2026-09-05; four code paths request painted art that was never made and two Geologist texture paths are empty strings; much painted art is loaded but not drawn, or is stretched, ghosted or covered. New finding MA-VIS-010 (P1). Cross-reference history added to MA-VIS-008 and MA-OPERA-001 with lifecycles unchanged; master audit triage row, task route and change history; document ledger rows. No game file, asset, image or other finding lifecycle changes. Revision 2 (same task, after review of revision 1): corrected three counts. Every career, not nine, has a code-drawn object the child acts on. Four code paths, not three, request never-made art (the fourth is six per-career success images). The shared gesture surface serves eleven careers. It also records that no stranded image is named in Codex's flat-vector packet. The finding, triage row and README status were updated to match.",
  "baseline": "7a65b9f0abacddeee70230f220955f4d18d551b5",
  "rules": [
   "DL-AUTH-05",
@@ -97,9 +97,19 @@
    "evidence": "Docs-only change; the run is required before merging into dev."
   },
   {
-   "command": "Anonymous HTTPS GET of every MANIFEST.json file from raw.githubusercontent.com at the pushed commit",
+   "command": "Anonymous HTTPS GET of every MANIFEST.json file from raw.githubusercontent.com at the pushed commit (revision 1)",
    "result": "PASS",
    "evidence": "Revision 1 at 569dbf04f9e26619e6e9ffa896d2ad43b80497f2, checked 2026-10-18T09:12:35+00:00: manifest HTTP 200, sha256 54de18385c453ef3ebd09be17c97a441a7b2899b5510f1d8f5135a9ab3ab37fa; 7 of 7 listed files match bytes and SHA-256. Receipt: docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json."
+  },
+  {
+   "command": "Anonymous HTTPS GET of every MANIFEST.json file from raw.githubusercontent.com at the pushed commit (revision 2)",
+   "result": "PENDING",
+   "evidence": "Recorded in REMOTE_VERIFICATION.json in the follow-up receipt commit."
+  },
+  {
+   "command": "git grep of codex/flat-vector-r6-20261012 docs/handoffs/codex_flat_vector_art_2026-10-07 for the stranded file names and branches",
+   "result": "PASS",
+   "evidence": "painted_work_v1, painted_geode_v1, coherent_geode, wash_connected, refinement_v1/cradle and boxing_glove appear in 0 files. geology_grotto_candidate appears in 5 files (source hash lists and licence snapshots). job-art-review-v2 and racer-existing-engine appear in 8 files each (CI checkout logs)."
   }
  ],
  "acceptance_gaps": "This is a written audit and handoff: no runtime capture, phone, child or owner session exists for any item, and every visual judgement comes from code and source images. Codex implements packages P0-P10; the owner answers Q1-Q5 and accepts each job's look on the phone (DL-VIS-07). The owner's 2026-10-17 ImageGen text is not yet on dev, and design rules DL-ASSET-01, DL-ASSET-02 and DL-ASSET-06 still state the earlier reuse-first rule (package P0).",
