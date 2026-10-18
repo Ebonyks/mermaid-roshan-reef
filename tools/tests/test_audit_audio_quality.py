@@ -32,6 +32,8 @@ class AudioQualityPolicyTests(unittest.TestCase):
             source.mkdir(parents=True)
             entries = []
             for key, text in MODULE.OBJECTIVE_GUIDE_TEXT.items():
+                source = root / MODULE.OBJECTIVE_GUIDE_SOURCE_ROOTS[key] / "native"
+                source.mkdir(parents=True, exist_ok=True)
                 output = runtime / (key + ".ogg")
                 native = source / (key + ".wav")
                 output.write_bytes(("OGG fixture " + key).encode())
@@ -44,7 +46,7 @@ class AudioQualityPolicyTests(unittest.TestCase):
                     "trigger": "actionable", "visual_pointer": "synchronized",
                     "historical_family_recording_gap": "retained"})
             manifest = {"schema": "reef.objective-guide-runtime.v1", "speaker": "guide",
-                "synthesis_calls": 2, "protected_original_changes": 0, "entries": entries}
+                "synthesis_calls": 7, "protected_original_changes": 0, "entries": entries}
             path = runtime / "OBJECTIVE_GUIDE_MANIFEST.json"
             def store():
                 path.write_text(json.dumps(manifest), encoding="utf-8")
@@ -64,6 +66,20 @@ class AudioQualityPolicyTests(unittest.TestCase):
                 self.assertTrue(MODULE.validate_objective_guides(root)["blocking"])
                 entries[0]["speaker"] = "guide"
                 store()
+                manifest["synthesis_calls"] = 2
+                store()
+                self.assertTrue(MODULE.validate_objective_guides(root)["blocking"])
+                manifest["synthesis_calls"] = 7
+                care = next(e for e in entries if e["key"] == "guide_puff_clean")
+                actual_source = care["native_source_path"]
+                wrong_source = root / "assets_src/audio/objective_guides_20261014/native/guide_puff_clean.wav"
+                wrong_source.write_bytes((root / actual_source).read_bytes())
+                care["native_source_path"] = wrong_source.relative_to(root).as_posix()
+                store()
+                self.assertTrue(MODULE.validate_objective_guides(root)["blocking"])
+                care["native_source_path"] = actual_source
+                store()
+                self.assertFalse(MODULE.validate_objective_guides(root)["blocking"])
                 (root / entries[0]["native_source_path"]).write_bytes(b"changed native")
                 self.assertTrue(MODULE.validate_objective_guides(root)["blocking"])
 

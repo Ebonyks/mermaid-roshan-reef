@@ -1,0 +1,116 @@
+{
+  "job_id": "grand-puff-rainbow-emergence-20261017",
+  "revision": 1,
+  "source_commit": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+  "lane": "gameplay_sprite_candidate_for_replay_or_missing_clip",
+  "intention": "Roshan's completed cleaning frees the happy, healthy rainbow dust bunny from his old dusty shell; he jumps out and settles beside the empty coat.",
+  "action": "Four complete authored sprite compositions: relieved whole coat; coat opening with rainbow friend emerging; full rainbow friend airborne above/right of the collapsing empty coat; grateful landed friend beside the unchanged empty coat. The coat has no separate living face after he leaves.",
+  "fixed": "Approved Grand Puff lavender cloud curls, pearl-paw/ear/star identity and existing rainbow friend palette/anatomy. Fixed orthographic camera and ground baseline, no room/background, no family joining during gameplay.",
+  "entry_exit": "First cell matches the care atlas relief pose. The old coat crumples softly left and remains there, empty; rainbow bunny lands right, whole and healthy. No harm, implosion, disappearance, extra creature, new outfit, or tissue/medicine prop.",
+  "method": "One bounded built-in ImageGen sheet for the named missing emergence/jump/settle keys, local Aseprite registration/timing and Canvas playback. Four complete painted keys; no separate body-part animation or static-sticker bounce. Normal Day One selected movie remains byte-for-byte unchanged and owns its existing family transformation; this local sprite lane prevents the old replay/missing-file implosion.",
+  "layout": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "grid": [
+      2,
+      2
+    ],
+    "cell": [
+      512,
+      512
+    ],
+    "root": [
+      256,
+      470
+    ],
+    "reading_order": [
+      "relieved_coat",
+      "emerging_crouch",
+      "airborne",
+      "landed_beside_empty_shell"
+    ]
+  },
+  "tolerances": "All complete contours inside each cell with transparent margins. Fixed floor; grounded coat/support never drift more than4px after whole-key registration. Correct rainbow paws/body change between crouch, airborne and landing. No cropped ears, duplicate characters, costume/anatomy drift or floating shell. Full-speed and frame-step transition/seam review remains required.",
+  "limits": {
+    "generated_takes": 2,
+    "calls_used": 2,
+    "wall_minutes": 20,
+    "cleanup_minutes": 40,
+    "paid_external_api_budget": 0,
+    "aggregate_task_image_call_cap": 4,
+    "aggregate_task_calls_before_this_job": 1
+  },
+  "stop": "After two nonviable takes or cap, retain rejects and diagnose. Never reset the action cap by generating individual replacement frames.",
+  "inputs": [
+    {
+      "path": "assets_src/animation/grand_puff_care_20261017/cold_keys_input_before_floor_cleanup.png",
+      "sha256": "39f9a27fae885f129cb3fcd9df16bf652e37a829128721a912bfd8ddb2de5a5d",
+      "role": "edit_target_current_care_candidate",
+      "acceptance": "Candidate pose family, not owner accepted",
+      "original_request_path": "assets/sprites/dust_bunnies/boss/grand_puff_cold_keys_v1.png",
+      "retention": "Exact original generation-input bytes reconstructed through the same Aseprite source procedure with only the later 84-pixel floor cleanup disabled. SHA-256 equals the recorded input. Current runtime atlas remains untouched."
+    },
+    {
+      "path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/grand_puff.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "role": "lavender_coat_identity_reference"
+    },
+    {
+      "path": "assets/sprites/dust_bunnies/rainbow_friend.png",
+      "sha256": "1cff185278d662b2fc049ffd1460848ca76aa7a57933dbc06279ae0a07747580",
+      "role": "existing_rainbow_friend_identity_reference"
+    }
+  ],
+  "attempts": [
+    {
+      "number": 1,
+      "prompt_path": "emergence_prompt_take01.txt",
+      "native_path": "emergence_native_take01.png",
+      "sha256": "42fd3ec6f8343c1674c5d6d85120bfeec756cef31a4f697b3ba659078d89a94f",
+      "tool_output_id": "exec-e21d0203-4c80-4ace-910f-70a3e376fe31",
+      "tool_wall_seconds": 42.7,
+      "usage": "1 built-in call; billing/revision/seed not exposed",
+      "disposition": "REJECTED_GEOMETRY_CONTINUITY",
+      "review": "Rainbow friend shrinks between emerging/airborne/landed keys; empty shell changes size from airborne to landed. Story intent present but fixed size/contact contract unmet.",
+      "prompt_sha256": "6a06ce797f16b6d1fef97ddbeb0cd4483d0de4a3f5dd1fae660f6648b9aa07bf",
+      "native_sha256": "42fd3ec6f8343c1674c5d6d85120bfeec756cef31a4f697b3ba659078d89a94f",
+      "native_dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "number": 2,
+      "prompt_path": "emergence_prompt_take02.txt",
+      "native_path": "emergence_native_take02.png",
+      "sha256": "9b07039fce91d67c80796e81d8c280a384f504c5b0ff384c5903a5a8c566ef98",
+      "tool_output_id": "exec-382153be-c372-4ec3-bad9-dee250b0bc4a",
+      "tool_wall_seconds": 40.7,
+      "disposition": "REJECTED_AS_FULL_SHEET: residual friend/shell size continuity failure; individual whole-figure keys remain local compositing candidates",
+      "prompt_sha256": "f835069e04387cdc8550d51fc471091952911af573de92733e801b3a845d3041",
+      "native_sha256": "9b07039fce91d67c80796e81d8c280a384f504c5b0ff384c5903a5a8c566ef98",
+      "native_dimensions": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "reviews": {
+    "source_export": "PENDING",
+    "agent_static": "PENDING",
+    "engine_action_and_contact": "PENDING",
+    "human_identity_motion": "PENDING",
+    "device_child_owner": "PENDING"
+  },
+  "cinematic_machine": "NOT_APPLICABLE to gameplay sprite sheet; selected clip contract remains DL-CIN-16.",
+  "runtime_integration": "NOT_INTEGRATED: rejected source studies only; original owner-selected transformation clip supplies the requested action unchanged.",
+  "delivery_accepted": false,
+  "method_change": "Stopped generation at two-take cap. Local Aseprite whole-figure isolation/compositing was investigated then withdrawn: existing selected movie already contains correct emergence, and owner requests minimal encounter changes. No new fallback atlas or generation, no cap reset.",
+  "local_workflow_script": {
+    "path": "assets_src/animation/grand_puff_care_20261017/register_poses.lua",
+    "sha256": "be863896ab201608c718d749189c406ac006db95034c1ef5f79361fb8136bd4b",
+    "version": "Aseprite 1.3.18.4, Lua API41"
+  }
+}

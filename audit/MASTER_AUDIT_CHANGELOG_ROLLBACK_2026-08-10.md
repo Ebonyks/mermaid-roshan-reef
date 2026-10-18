@@ -2048,3 +2048,38 @@ CHG-099 payload publication: `92822aaf5f381e623dacf1a9dff0e20f82306c4a`; manifes
 - Risk and dependency: deferred recovery could replace a newer route. The candidate binds the activity dictionary by identity, checks main/tree/lifecycle ownership, and adds a stale-route negative. Existing save and story-clip cancellation remain synchronous; the story probe propagates actual application notifications. Separate probe corrections mirror live/saved first-attack counters, bring the full mist veil into camera view through genuine floor taps, and sample one complete breathing cycle. Their existing visibility, movement, save and phase assertions remain intact; the Opera gate remains unchanged.
 - Evidence: owner Mobile crash stack and falsifiable before/after reproduction retained. Expanded story interruption, retry, passive/input/combat continuation, exact Godot4.7.2 local gates and remote integration are separate statuses in the impact. The sealed full run2 retains its four failures; exact retry/reconciliation records distinguish baseline test defects and the unchanged Opera cold-load observation. No device/child/owner or master-audit satisfaction follows.
 - Rollback: manual bounded code/probe reversal on a clean topic, preserving this evidence and every save key, protected original and later unrelated change. Re-run exact-engine focused/full gates; never restore known crashing lifecycle behavior as an accepted production fallback.
+
+### Grand Puff cold and care CHG-098
+
+- Date: 2026-10-17. Manual owner commission, not an automatic planner emitter.
+  Baseline `1a4e8a1ceae29b401d63900a57a531b2f4442ba8`; exact current source and
+  evidence are bound in [the impact](../design/audit_impacts/grand-puff-care-20261017.json)
+  and `audit/grand_puff_care_20261017/source_pin_final_v2.json`.
+- Benefit: Grand Puff is a sick friend who welcomes cleaning. Warm Canvas
+  acting, soap contact and five neutral Guide cues replace hostile story
+  meaning. Original circles/lane, timing, windows, three saved rounds and
+  rewards remain. The unchanged selected emergence movie also supports a
+  completed helping replay; missing media safely preserves progress.
+- Bounded repair: actual displayed review found the arena-return fade frozen
+  opaque over the movie's paused tree. The negative handoff assertion fails
+  before the pause-mode correction. Post-repair 1280×720 and 1560×720 Mobile
+  captures show the selected movie and rainbow friend, then reach Day Two.
+- Source and risk: one cold-pose ImageGen call plus local Aseprite registration;
+  two additional emergence studies rejected at the action cap and never used
+  at runtime. Selected movie, protected book/family originals and rainbow
+  follower remain unchanged. Original prototype cleanup minutes were not
+  instrumented; final visual/motion/time-accounting acceptance remains open.
+  Legacy spatial kit compatibility remains measured debt, not final 2D.
+- Verification: explicit original-profile/cadence, actual touch, passive/held/
+  drag negatives, saved checkpoints, focus-loss entry recovery, first and
+  replay clip ownership, exact Guide priority/teardown and siblings are kept.
+  The console-launcher balance run passes all eight playing styles and four
+  negative controls. Incomplete direct-GUI headless runs and the original-
+  controller comparison remain diagnostic failures; no native exception was
+  observed and cause is unproven. Complete-suite and published-head statuses
+  remain separate in the impact. No device/child/owner or global closure.
+- Rollback: reverse only this scoped implementation on a clean topic and rerun
+  the exact-engine gates, preserving every save key, protected source and
+  immutable evidence. Never accept the known black fade or entry crash as a
+  runtime fallback. Technical rollback does not revoke the owner's care canon
+  or authorize retired 3D resources, family imitation or replacement footage.

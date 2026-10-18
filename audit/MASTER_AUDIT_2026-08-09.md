@@ -65,6 +65,8 @@ active-fact checks; do not hand-copy its counts into planning rules.
 
 <!-- AUDIT_TASK_INDEX_START -->
 
+Owner-directed [Grand Puff cold/care rework](../design/GRAND_PUFF_CARE_2026-10-17.md) (2026-10-17, CHG-098) preserves the original five circle/circle/lane steps, timing, three saved rounds and rewards. Sympathetic Canvas acting, soap cleaning and exact neutral Guide cues replace hostile meaning. The selected emergence footage remains unchanged and can repeat only after a completed helping replay. Source attempts, strict gates and actual evidence are in [the impact](../design/audit_impacts/grand-puff-care-20261017.json); related MA-PLAY-001 and MA-ACCESS-001 stay open/external. No whole-game, device, child, owner or release acceptance is claimed.
+
 Owner-reported [Grand Puff entry crash repair](../design/audit_impacts/grand-puff-crash-20261017.json) (2026-10-17, CHG-097) reproduces the exact propagated focus-loss failure at `d5e63a1e`: synchronous castle recovery cannot mount under a locked notification traversal, and detached dressing cannot free itself from its teardown callback. The bounded candidate defers recovery with an activity-identity guard and queues dressing deletion. Before/after logs, repeated interruption/retry, combat-to-Day-Two and exact-engine regression statuses are recorded separately in the impact. The full-run follow-up preserves baseline counterexamples and strict probe-only fixes for partial mist framing, idle-cycle sampling and first-dodge fixture contamination; gameplay behavior and assertion thresholds remain unchanged. `MA-PLAY-001` and `MA-CI-007` remain open; device/child/owner and whole-game satisfaction are not claimed.
 
 

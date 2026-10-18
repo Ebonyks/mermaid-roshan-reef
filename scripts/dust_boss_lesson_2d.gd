@@ -94,12 +94,15 @@ func _draw_counter() -> void:
 		var fraction: float = clampf(arrive - float(i) * 0.08, 0.0, 1.0)
 		var point: Vector2 = _beam_from.lerp(_beam_to, fraction) - Vector2(0.0, sin(fraction * PI) * 30.0)
 		var edge: float = 24.0 - float(i) * 2.0
-		_stamp(STAR, point, Vector2.ONE * edge, _beam_time / 0.55 * (1.0 - float(i) * 0.08))
+		_stamp(BUBBLES, point, Vector2.ONE * edge, _beam_time / 0.55 * (1.0 - float(i) * 0.08))
 	if arrive >= 1.0:
 		var bloom: float = (elapsed - 0.16) / 0.39
 		for i: int in range(5):
 			var direction := Vector2.from_angle(TAU * float(i) / 5.0)
-			_stamp(STAR, _beam_to + direction * bloom * 42.0, Vector2.ONE * (18.0 - bloom * 8.0), 1.0 - bloom)
+			_stamp(BUBBLES, _beam_to + direction * bloom * 42.0,
+				Vector2.ONE * (38.0 - bloom * 10.0), 1.0 - bloom)
+			_stamp(DUST, _beam_to + direction * (20.0 + bloom * 58.0),
+				Vector2(26.0, 18.0) * (1.0 - bloom * 0.5), (1.0 - bloom) * 0.6)
 
 func _draw_floor_effects() -> void:
 	if tuft_visible:

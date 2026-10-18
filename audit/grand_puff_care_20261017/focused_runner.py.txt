@@ -1,0 +1,30 @@
+from pathlib import Path
+import os, subprocess, json, time, sys, re, tempfile
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / 'audit/grand_puff_care_20261017'
+ENGINE = r'C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\godot-4.7.2\editor\Godot_v4.7.2-stable_win64.exe'
+env = dict(os.environ, PYTHONUTF8='1', PYTHONIOENCODING='utf-8', GODOT=ENGINE)
+names = sys.argv[1:] or ['probe_dust_boss', 'probe_day_one_story_clips', 'probe_audio', 'probe_dust_boss_sprite']
+results = []
+result_name = os.environ.get('CARE_RESULT_NAME','focused_results.json')
+for name in names:
+    command = [ENGINE, '--headless', '--path', str(ROOT), '-s', 'scripts/' + name + '.gd']
+    log = OUT / (name + '.log')
+    user = Path(tempfile.mkdtemp(prefix=name+'-', dir=ROOT/'tmp/puff-crash'))
+    child_env = dict(env, APPDATA=str(user), LOCALAPPDATA=str(user), XDG_DATA_HOME=str(user), XDG_CONFIG_HOME=str(user))
+    start = time.time()
+    with log.open('w', encoding='utf-8') as stream:
+        child = subprocess.Popen(command, cwd=ROOT, env=child_env, stdout=stream, stderr=subprocess.STDOUT)
+        print(name, 'pid', child.pid, flush=True)
+        try:
+            code = child.wait(timeout=900)
+        except subprocess.TimeoutExpired:
+            child.kill(); code = child.wait()
+    text = log.read_text(encoding='utf-8', errors='replace')
+    failures = [line for line in text.splitlines() if re.search(r'FAIL|SCRIPT ERROR|Parse Error|Compile Error|TIMEOUT', line)]
+    row = dict(probe=name, command=command, exit=code, seconds=round(time.time()-start,2), failures=failures, log=log.relative_to(ROOT).as_posix())
+    results.append(row)
+    (OUT / result_name).write_text(json.dumps(results, indent=2)+'\n',encoding='utf-8')
+    print(json.dumps(row), flush=True)
+sys.exit(0 if all(r['exit']==0 and not r['failures'] for r in results) else 1)

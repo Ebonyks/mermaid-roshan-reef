@@ -1,5 +1,13 @@
 # The Dust Bunny Boss — character sheet and AI contract (2026-08-02)
 
+Current-story correction (owner, 2026-10-17): Grand Puff is a friend with a cold.
+Roshan cleans his dusty coat, he feels happy and healthy, and the rainbow bunny
+jumps out of the old shell. Preserve the current battle patterns, shapes and
+timing. The [care brief](design/GRAND_PUFF_CARE_2026-10-17.md) owns this scoped
+replacement of hostile/injury/rage/destruction meaning. Earlier prose below
+is historical where it conflicts; original identity, gentle no-loss behavior
+and compatible mechanics retain their declared scope.
+
 Owner direction (2026-08-02): build the AI behaviour of the **big dust bunny**
 from the codex art database. He gets his own boss arena with a **showing**
 before the fight, and — unlike every other enemy in the game — he cannot be
