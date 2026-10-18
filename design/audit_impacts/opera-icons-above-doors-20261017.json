@@ -1,6 +1,6 @@
 {
   "id": "opera-icons-above-doors-20261017",
-  "scope": "Owner-requested placement of twelve original round foyer icons above the doors. Preserve all8 original background tiles byte-for-byte; overlay12 small feathered ImageGen-healed badge patches at their old locations, and draw original-emblem crops above the arches. No whole-background substitution, room/door geometry, touch-region, career, save, or protected-original change. The initial whole-background candidate and interrupted suite remain archived as rejected review evidence.",
+  "scope": "Owner-requested placement of twelve original round foyer icons above the doors. Preserve all8 original background tiles byte-for-byte; overlay12 small feathered ImageGen-healed badge patches at their old locations, and draw original-emblem crops above the arches. No whole-background substitution, room/door geometry, touch-region, career, save, or protected-original change. The initial whole-background candidate and interrupted suite remain archived as rejected review evidence. Reconcile current dev melody commit dbd42d9b and its separately owner-authorized CI-budget update1549c377. Preserve both additive license records; gameplay, scene, shader and image sources are byte-identical to the passed full82 icon candidate. Incoming music/tooling changes receive affected-source checks and a fresh combined-head remote CI.",
   "baseline": "a9875690ceff436e9ce012a675db09a236aef0f5",
   "rules": [
     "DL-AUTH-05",
@@ -11,7 +11,14 @@
     "DL-ASSET-04",
     "DL-ASSET-06",
     "DL-UI-03",
-    "DL-QA-14"
+    "DL-QA-14",
+    "DL-SND-04",
+    "DL-SND-05",
+    "DL-SND-06",
+    "DL-SND-07",
+    "DL-SND-08",
+    "DL-SND-09",
+    "DL-QA-13"
   ],
   "findings": [],
   "no_findings_reason": "Bounded owner composition correction; does not close the broader Opera external acceptance finding MA-OPERA-012.",
@@ -98,11 +105,28 @@
     "audit/opera_door_icons_20261017/local_patch_build.log",
     "audit/opera_door_icons_20261017/local_patch_import.log",
     "audit/opera_door_icons_20261017/local_review_launcher.py.txt",
+    "audit/opera_door_icons_20261017/melody_reconciliation.json",
     "audit/opera_door_icons_20261017/mobile_display.json",
     "audit/opera_door_icons_20261017/mobile_foyer.png",
     "audit/opera_door_icons_20261017/native_packaging.json",
     "audit/opera_door_icons_20261017/original_background_preservation.json",
     "audit/opera_door_icons_20261017/owner_request.json",
+    "audit/opera_door_icons_20261017/reconcile_audio.json",
+    "audit/opera_door_icons_20261017/reconcile_audio.log",
+    "audit/opera_door_icons_20261017/reconcile_driver.py.txt",
+    "audit/opera_door_icons_20261017/reconcile_gates.json",
+    "audit/opera_door_icons_20261017/reconcile_gates.log",
+    "audit/opera_door_icons_20261017/reconcile_gates_initial.json",
+    "audit/opera_door_icons_20261017/reconcile_gates_initial.log",
+    "audit/opera_door_icons_20261017/reconcile_import.json",
+    "audit/opera_door_icons_20261017/reconcile_import.log",
+    "audit/opera_door_icons_20261017/reconcile_native.json",
+    "audit/opera_door_icons_20261017/reconcile_native.log",
+    "audit/opera_door_icons_20261017/reconcile_render.json",
+    "audit/opera_door_icons_20261017/reconcile_render.log",
+    "audit/opera_door_icons_20261017/reconcile_result.json",
+    "audit/opera_door_icons_20261017/reconcile_tests.json",
+    "audit/opera_door_icons_20261017/reconcile_tests.log",
     "audit/opera_door_icons_20261017/rejected_dark_shader.png",
     "audit/opera_door_icons_20261017/review_launcher.py.txt",
     "audit/opera_door_icons_20261017/source_binding.json",
@@ -147,6 +171,16 @@
       "command": "Unmodified scripts/ci.sh full local regression and required static/authority/coverage gates",
       "result": "PASS",
       "evidence": "audit/opera_door_icons_20261017/full_ci.json; exit0, all82 trusted probes exit0, no pinned runtime drift; raw log SHA-256 58fb10256fc165929836a05a7c72f2876d73bb14156a5c9c9fced1dc970a2428. Exact published-head CI remains separate."
+    },
+    {
+      "command": "Reconcile current dev melody/CI-budget update with the icon task",
+      "result": "PASS",
+      "evidence": "audit/opera_door_icons_20261017/reconcile_result.json; all pinned runtime/art bytes unchanged,45 music/audio/baseline tests,44-cue reproduction,857-row ledger, native import and Audio/Opera pass. Parent icon CI39087719032 succeeds. New combined-head CI is separately pending."
+    },
+    {
+      "command": "Fresh full GitHub CI for the combined melody/icon integration head",
+      "result": "PENDING",
+      "evidence": "Exact new commit/run will be tracked in the published task status and final report; do not substitute either parent CI for this check."
     }
   ],
   "acceptance_gaps": "Formal visual/device/child/owner acceptance remains separate.",

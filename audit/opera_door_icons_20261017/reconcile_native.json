@@ -1,0 +1,39 @@
+{
+  "mode": "native",
+  "status": "PASS",
+  "started_utc": "2026-10-18T02:52:36.136327+00:00",
+  "finished_utc": "2026-10-18T02:53:51.325893+00:00",
+  "elapsed_seconds": 75.18752430001041,
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera_foyer_verified_integration",
+        "-s",
+        "scripts/probe_audio.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "process_exit": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera_foyer_verified_integration",
+        "-s",
+        "scripts/probe_opera.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "process_exit": 0
+    }
+  ],
+  "log_sha256_raw": "af699921ed9b8100de48f99706a90467d5d9ab175a1c33fb2e22ea6cd0ed0e22",
+  "scope": "Merged current-dev Opera melody with the already-passed icon source; isolated native user directories and unchanged touch flags."
+}

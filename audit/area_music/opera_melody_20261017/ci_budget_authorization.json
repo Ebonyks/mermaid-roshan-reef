@@ -1,0 +1,81 @@
+{
+  "status": "APPLIED_OWNER_AUTHORIZED_LOCAL_PASS_REMOTE_PENDING",
+  "baseline": "dbd42d9b1580df56ee0b3114fd68eb091c4dea15",
+  "authorization": {
+    "date": "2026-10-17",
+    "human_answer": "Raise to 90 minutes (Recommended)",
+    "question": "May I raise only the probes job timeout from55 to90 minutes in .github/workflows/probes.yml?",
+    "scope": "Only jobs.probes.timeout-minutes; all checks, action pins, permissions and assertions unchanged."
+  },
+  "historical_proposal": "audit/area_music/opera_melody_20261017/ci_budget_proposal.json",
+  "baseline_run": {
+    "run": 39080803885,
+    "head_sha": "a9875690ceff436e9ce012a675db09a236aef0f5",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39080803885",
+    "conclusion": "cancelled",
+    "annotation": "The job has exceeded the maximum execution time of 55m0s",
+    "all_trusted_step": {
+      "name": "Run trusted probes",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 7,
+      "started_at": "2026-10-18T00:20:29Z",
+      "completed_at": "2026-10-18T00:38:34Z"
+    }
+  },
+  "earlier_timeout_run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39076579314",
+  "workflow": {
+    "path": ".github/workflows/probes.yml",
+    "normalized_before_sha256": "dc39e75ce124e957963f8891539ca45682016a70807bff1e70b8eb10cba4ab29",
+    "normalized_after_sha256": "c9cb8e56a53b2b6920667e11f57cf076f639e08a4ef272f9a7bfac872b561eca",
+    "exact_single_field_replacement": true,
+    "from_minutes": 55,
+    "to_minutes": 90,
+    "steps_pins_permissions_triggers_assertions_unchanged": true
+  },
+  "local_checks": [
+    {
+      "command": "python -B tools/audit_godot_baseline.py",
+      "exit_code": 0,
+      "stdout": "GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -B tools/audit_probe_parity.py",
+      "exit_code": 0,
+      "stdout": "PROBE_PARITY|result: ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -B tools/audit_probe_parity.py --stress",
+      "exit_code": 0,
+      "stdout": "PROBE_PARITY|stress missing loop: OK\nPROBE_PARITY|stress duplicate probe: OK\nPROBE_PARITY|stress local/remote mismatch: OK\nPROBE_PARITY|stress missing probe file: OK\nPROBE_PARITY|stress missing separate invocation: OK\nPROBE_PARITY|stress missing parity gate: OK\nPROBE_PARITY|stress missing local music verifier: OK\nPROBE_PARITY|stress missing pinned music verifier: OK\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "exit_code": 0,
+      "stdout": "DOCAUTH|INVENTORY=706|LEDGER=706|ACTIVE=69|RECORDS=72\nDOCAUTH|RESULT|ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "stdout": "AUDITDEV|BASE|a9875690ceff436e9ce012a675db09a236aef0f5\nAUDITDEV|RESULT|ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "exit_code": 0,
+      "stdout": "DOCAUTH|STRESS|6/6\n",
+      "stderr": "......................................................\n----------------------------------------------------------------------\nRan 54 tests in 21.485s\n\nOK\n"
+    }
+  ],
+  "full_runtime_evidence": {
+    "path": "audit/area_music/opera_melody_20261017/verification.json",
+    "archive_sha256": "375457cbfde503380d51d9d5d1fd20633a7a0df522445bf75910c06a09576699",
+    "scope": "Unchanged runtime/audio/test inputs from parent source; full82-probe and static localPASS. Not a completed remote workflow claim."
+  },
+  "acceptance_gaps": "Exact published-head CI remains required before integration. No runtime behavior or asset changes: reuse the source-pinned complete local82-probe/music evidence from the parent revision. MA-CI-008 remains IN_PROGRESS; this budget repair does not resolve unsupported/capped sensors or establish Mobile visual, device, child, owner or whole-game acceptance.",
+  "checked_at_utc": "2026-10-18T01:38:49.944305+00:00"
+}

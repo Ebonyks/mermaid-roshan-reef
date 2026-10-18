@@ -1,0 +1,83 @@
+{
+  "mode": "gates",
+  "status": "PASS",
+  "started_utc": "2026-10-18T02:55:32.921747+00:00",
+  "finished_utc": "2026-10-18T02:55:58.207809+00:00",
+  "elapsed_seconds": 25.28536549996352,
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/probe_opera.gd",
+        "tools/build_opera_door_icon_patches.gd"
+      ],
+      "process_exit": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/probe_opera.gd",
+        "tools/build_opera_door_icon_patches.gd"
+      ],
+      "process_exit": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "process_exit": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "process_exit": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_godot_baseline.py",
+        "--godot",
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe"
+      ],
+      "process_exit": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/record_owner_decision.py",
+        "--check",
+        "--base",
+        "a9875690ceff436e9ce012a675db09a236aef0f5"
+      ],
+      "process_exit": 0
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "core.safecrlf=false",
+        "diff",
+        "--check"
+      ],
+      "process_exit": 0
+    }
+  ],
+  "log_sha256_raw": "91782b7dce4987da103ade87f5f3ebbe78043dcbe5ca50716aa566157436c250",
+  "scope": "Merged current-dev Opera melody with the already-passed icon source; isolated native user directories and unchanged touch flags."
+}

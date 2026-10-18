@@ -4,11 +4,11 @@
   "seed_derivation": "All noise and micro-variation use SHA-256-derived NumPy PCG64 seeds namespaced by cue ID and event; no unseeded random state",
   "license": "Project-owned original composition and synthesis",
   "generator": "tools/build_area_music.py",
-  "generator_version": 2,
-  "generator_sha256": "7fc24fda89d9e730e99aea3d23ff83fbae2d21300a63040e4e569c22754ad70e",
+  "generator_version": 3,
+  "generator_sha256": "ba094ea2cc149dd7de0655a60c680443020d6d603142798b511e8d6fd10367fb",
   "score_catalog": "assets_src/audio/music/area_music_scores.json",
   "score_schema": "reef.area-music-scores.v1",
-  "score_catalog_sha256": "af462ebcbb980f3b35bfd7342bbe1455a042bb19229681ef3ab97a4eca8e67cb",
+  "score_catalog_sha256": "3e733a0f79f1cea031667bc67417292b7ffe898e897d525d71972a2b67651870",
   "dependencies": {
     "python": "3.13.14",
     "numpy": "2.5.1",
@@ -64,8 +64,8 @@
       "title": "Pearl Curtain Promenade",
       "family": "castle_room",
       "area": "Opera Hall",
-      "brief": "A poised 6/8 theatre promenade: harp footsteps, clarinet curtain calls, and pearl-bell glints create anticipation without rushing the child toward a door.",
-      "cue_score_sha256": "9d401bf11ea78729739c35aace2d77c7607cba1fa9630038c0dafc2972fde21b",
+      "brief": "A focused D-major 6/8 theatre promenade: clarinet repeats Roshan's six-note hook, pauses for an answer, rises once, then resolves home over quiet harp and rounded bass.",
+      "cue_score_sha256": "972b3dc202ccc98ed2129ec38362e0c1cfc6a6ea34d7f60c2e47ecc5ef6ff724",
       "path": "assets/audio/music/castle_opera_hall.ogg",
       "import_path": "assets/audio/music/castle_opera_hall.ogg.import",
       "tempo_bpm": 92,
@@ -75,7 +75,7 @@
       ],
       "bars": 8,
       "tonic_midi": 62,
-      "mode": "lydian",
+      "mode": "major",
       "texture": "theatre",
       "percussion": "brush",
       "instruments": {
@@ -84,32 +84,217 @@
         "bass": "warm_bass",
         "accent": "bell"
       },
-      "motif_treatment": "curtain_call",
+      "motif_treatment": "curtain_call_authored_question_answer",
       "progression": [
         0,
-        3,
-        1,
         4,
         0,
-        5,
+        4,
         3,
+        0,
+        4,
         0
       ],
       "melody": [
         0,
         2,
-        3,
+        4,
         5,
         4,
         2,
         1,
+        -1,
         null,
-        2,
-        4,
-        6,
-        5
+        0
       ],
       "energy": 0.42,
+      "authored_melody": {
+        "octave": 1,
+        "bars": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              3
+            ],
+            [
+              -1,
+              2
+            ],
+            [
+              null,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              -1,
+              2
+            ],
+            [
+              null,
+              1
+            ]
+          ],
+          [
+            [
+              3,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              -1,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              4
+            ],
+            [
+              null,
+              2
+            ]
+          ]
+        ],
+        "bar_gains": [
+          1.0,
+          0.84,
+          0.98,
+          0.86,
+          1.08,
+          0.98,
+          0.9,
+          0.86
+        ]
+      },
       "seed_namespace": "castle_opera_hall",
       "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
       "ogg_stream_serial": 566160894,
@@ -123,36 +308,35 @@
       "duration_seconds": 31.304354,
       "samples_per_beat": 31304.35416667,
       "raw_seam": {
-        "boundary_jump": 0.00076013,
-        "adjacent_p999": 0.07283117,
-        "jump_ratio": 0.01044
+        "boundary_jump": 0.0006067,
+        "adjacent_p999": 0.08893812,
+        "jump_ratio": 0.00682
       },
       "development": {
         "midpoint_bar": 4,
         "changes": [
-          "progression_order",
-          "alternating_inversion",
-          "melody_rotation",
-          "answer_note_lifts",
-          "motif_instrument_and_register"
+          "explicit_bar_harmony",
+          "hook_return",
+          "rising_answer",
+          "dominant_to_tonic_cadence"
         ]
       },
-      "normalization_gain_db": -2.55,
+      "normalization_gain_db": -4.19,
       "peak_limited": false,
-      "pcm_peak": 12244,
-      "pcm_peak_dbfs": -8.5503,
-      "pcm_rms_dbfs": -20.4997,
+      "pcm_peak": 10138,
+      "pcm_peak_dbfs": -10.1897,
+      "pcm_rms_dbfs": -20.7592,
       "pcm_loudness": {
-        "integrated_lufs": -18.01,
-        "true_peak_dbtp": -8.51,
-        "loudness_range_lu": 4.2,
-        "threshold_lufs": -28.13
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -10.13,
+        "loudness_range_lu": 3.4,
+        "threshold_lufs": -28.24
       },
       "codec": "vorbis",
       "sample_rate_hz": 48000,
       "channels": 2,
-      "file_bytes": 383596,
-      "average_bitrate_bps": 98030,
+      "file_bytes": 384107,
+      "average_bitrate_bps": 98160,
       "tags": {
         "ENCODER": "Lavc libvorbis",
         "TITLE": "Pearl Curtain Promenade",
@@ -170,18 +354,18 @@
       },
       "decoded_sample_count": 1502609,
       "decoded_seam": {
-        "boundary_jump": 0.00137333,
-        "adjacent_p999": 0.05255287,
-        "jump_ratio": 0.02613
+        "boundary_jump": 0.00103763,
+        "adjacent_p999": 0.05420087,
+        "jump_ratio": 0.01914
       },
       "loudness": {
-        "integrated_lufs": -17.99,
-        "true_peak_dbtp": -8.66,
-        "loudness_range_lu": 4.2,
-        "threshold_lufs": -28.11
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -10.19,
+        "loudness_range_lu": 3.4,
+        "threshold_lufs": -28.22
       },
-      "pcm_sha256": "e9f18a3fdfea03462817f152d7dc4f4d975b31c6a2bfc2086e65ccdc0391e404",
-      "sha256": "c6f509938dcb590e8d2d28672e627352d934ad11385ac15de221db234d2b8518"
+      "pcm_sha256": "2412e795c99f1dc463dc50161b6affcd2f81891bf823a15db5d88834894664d5",
+      "sha256": "ee451290d2b34c4857461ca49edc6a1baa03974b4a029304c3a77f9eeb5e9241"
     },
     {
       "id": "castle_kitchen",
