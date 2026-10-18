@@ -2585,3 +2585,5 @@ CHG-107 delivery: `b304633d55619568a844371493c102a929f3f90f`; 27 direct required
 ## Painted pan current-Dev revalidation — CHG-108
 
 The same painted-pan source is reconciled and published at `4918dc910b2f922a85f458cc0cdc710e8059c187`, with82unique trusted checks and two-aspect native context. [R99](../docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_merge_revalidation/README.md) preserves initial console -1/no-verdict failure and native continuation, exact source/save guards and anonymous source delivery. Eight frame events; zero new artwork/artifacts/generation/accepted removal. New exact-sourceCI and Dev/formalQA11/device/child/owner remain separate. Rollback: preserve existing source/archive and revert only this current metadata delta, never restore flat pan as an accepted production fallback.
+
+CHG-108 delivery: `6ea9f9d3d6b7fd353f8518d0e4b5c0d7caa9cb4c`; 29 direct required files / 5473836 bytes anonymously exact at 2026-10-18T02:20:42.422697+00:00. Actual runtime source/local82/current-source manifest receipt verified; sourceCI and Dev/formal/physical acceptance remain separate.
