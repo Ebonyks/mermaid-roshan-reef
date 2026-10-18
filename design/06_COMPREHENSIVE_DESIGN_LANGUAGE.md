@@ -602,6 +602,13 @@ MUST NOT pay progress.
 Owner decision 2026-09-30 (`DL-INT-14`, target) makes the final stage twirl a
 twirl-off against the ballerina imp; the "not a race" clause does not apply to
 that contest.
+Owner decisions 2026-10-17 and 2026-10-18 (`MA-OPERA-014`; target, implementation
+pending) rebuild the Ballerina from the ground up as the music-box ballet in the
+[rebuild handoff](../docs/handoffs/codex_minigame_rebuilds_2026-10-17/BALLERINA.md):
+Lamma shows each step, the child performs one of five one-finger moves on
+Roshan, whose animation lands on the beat, then a ribbon dance and the twirl-off.
+This rule describes the shipping recital until the rebuild lands and is then
+rewritten.
 
 `DL-INT-09` — Boxer is one full-stage five-phase two-glove specialist: Glove
 Guide, Jab Practice, Soft Guard, Title Imp, and Belt. Separate touch indices may
@@ -624,6 +631,12 @@ ordinary-unforced alternate path and directly exercises the same Canvas route;
 and exact-head remote gates until external acceptance completes.
 Owner decision 2026-09-30 (`DL-INT-14`, target) adds one RACE rule: the imp's
 kart finishing two laps first is his win and restarts the race.
+Owner decisions 2026-10-17 and 2026-10-18 (`MA-OPERA-014`; target, implementation
+pending) rebuild the Racer as a true-Canvas side-scrolling three-lane race in the
+[rebuild handoff](../docs/handoffs/codex_minigame_rebuilds_2026-10-17/RACER.md),
+replacing TUNE, TO THE LINE and the circle/steering grammar. The ban on an
+external kart scene or a probe-only bypass stays. This rule describes the
+shipping race until the rebuild lands and is then rewritten.
 
 `DL-INT-11` — Candymaker SYRUP uses one complete phone-legible mold and one
 generous pitcher grab region. The painted left spout, transformed stream origin,
