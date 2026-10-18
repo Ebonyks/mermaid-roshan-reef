@@ -1,0 +1,1714 @@
+{
+  "baseline": "a9875690ceff436e9ce012a675db09a236aef0f5",
+  "started_utc": "2026-10-18T00:28:34Z",
+  "ci_script_sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+  "method": "Exact scripts/ci.sh static prefix (only cwd rewritten to worktree), import, migration gate and unchanged full trusted probe list/flags; four independent profile-isolated subprocess workers. Static checks wait for the audio ledger and run independently of the game probes. No gameplay/probe changes.",
+  "status": "PASS",
+  "sources_before": {
+    "count": 1184,
+    "sha256": "c0d3d36cc3f52680d5325455a64965443a337446239028e64fee1303df537caa",
+    "complete_manifest": "verification_logs.zip:sources_before.json"
+  },
+  "godot": {
+    "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+    "sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+    "version": "4.7.2.stable.official.ed1daf0bf"
+  },
+  "preflight_script_sha256": "9d0bb10967f2f612b780dcd2846dba1ca73ef8d57d6fc0063a22bc78215549cd",
+  "import": {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      ".",
+      "--import"
+    ],
+    "exit": 0,
+    "seconds": 92.043,
+    "log_sha256": "83619edc3dec6f8d510e4992e8efa619e13da2b87f12f4fd61f145d8b678d5e7",
+    "log": "tmp/opera-music-20261017/import-final.log"
+  },
+  "game2d": {
+    "command": [
+      "python",
+      "-B",
+      "tools/audit_game_2d.py",
+      "--regression-gate"
+    ],
+    "exit": 0,
+    "seconds": 106.412,
+    "log_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "log": "tmp/opera-music-20261017/game2d-regression.log"
+  },
+  "probes": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_reef_districts.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 14.223,
+      "log_sha256": "97a6d8b58ab878973011b9bddb5709bdfdafcc6fd2f58069e7826b2cb095c0bd",
+      "log": "tmp/opera-music-20261017/probe_reef_districts.log",
+      "name": "probe_reef_districts",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_ocean_kingdoms.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 16.212,
+      "log_sha256": "df234d3d43c3aa502846363ab085a2cdb54b8b65e295a3444595f275951f7b59",
+      "log": "tmp/opera-music-20261017/probe_ocean_kingdoms.log",
+      "name": "probe_ocean_kingdoms",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 46.667,
+      "log_sha256": "0e07dd27272ebab6cad748271988904e8622cc0bf05a87929a4a1ad9a54d7a1e",
+      "log": "tmp/opera-music-20261017/probe_audit.log",
+      "name": "probe_audit",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_passive.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 71.631,
+      "log_sha256": "5946d5388fd2fe27c4d0d930f2a17e9df27da03dc37b8d7fe0a2ffe76fe5395f",
+      "log": "tmp/opera-music-20261017/probe_passive.log",
+      "name": "probe_passive",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_living_world.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 17.133,
+      "log_sha256": "b18af2adbf40b63615f990dad8d30a8c0168ccd87eefe3c287993cb30d795f98",
+      "log": "tmp/opera-music-20261017/probe_living_world.log",
+      "name": "probe_living_world",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_load.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 17.845,
+      "log_sha256": "d1b64a9cf36f331c655da3d789f62d551d78bca1fff25754445d3daa5c3ed1c8",
+      "log": "tmp/opera-music-20261017/probe_load.log",
+      "name": "probe_load",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_rank.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 18.618,
+      "log_sha256": "435e795685cc5cd4b9bbd6442e111d2b46ec44535660a0a13aae8d13f83c5c7d",
+      "log": "tmp/opera-music-20261017/probe_rank.log",
+      "name": "probe_rank",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_save_recovery.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 14.692,
+      "log_sha256": "113bce7f4f4618f7dadfe05c3dfbb527ddb58bc8cc0f915590c473f07c5de38f",
+      "log": "tmp/opera-music-20261017/probe_save_recovery.log",
+      "name": "probe_save_recovery",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_galaxy_state.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 14.802,
+      "log_sha256": "88706ca5fe85992a990009ff9e1c4dc2416f14de6666fc5dc76f00060c6f978a",
+      "log": "tmp/opera-music-20261017/probe_galaxy_state.log",
+      "name": "probe_galaxy_state",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_collection.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 13.799,
+      "log_sha256": "b109f82b958ac2652e4b94d374fb4016f9ca24ac49ed0eb0d2b129d1aadff690",
+      "log": "tmp/opera-music-20261017/probe_collection.log",
+      "name": "probe_collection",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_mg2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 23.515,
+      "log_sha256": "ccb92546d4be75b91bd1f7af6c32a88c5e382b37e6263e661eb0040a94f08e09",
+      "log": "tmp/opera-music-20261017/probe_mg2d.log",
+      "name": "probe_mg2d",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_fetch.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 16.152,
+      "log_sha256": "34a235d553c2c0c43611d5e79ca75d3d502cd90ebf25d2dd676229033a197fa6",
+      "log": "tmp/opera-music-20261017/probe_fetch.log",
+      "name": "probe_fetch",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_melody.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 36.786,
+      "log_sha256": "6d8eba808295713b470034f69b7bb7d8072f13dfab0e88fdd1774305dd7d476b",
+      "log": "tmp/opera-music-20261017/probe_melody.log",
+      "name": "probe_melody",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dolls.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 23.166,
+      "log_sha256": "d6fe1bf694b8499806f1cb9c4d89e4e1242d6cdcd6da470ea49e401cd4249dbf",
+      "log": "tmp/opera-music-20261017/probe_dolls.log",
+      "name": "probe_dolls",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_seek.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 15.056,
+      "log_sha256": "ad3d7281a2cfef86bd440a62afc6afd83cadf88ddc2fe62645894b7646f00b14",
+      "log": "tmp/opera-music-20261017/probe_seek.log",
+      "name": "probe_seek",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_audio.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 14.941,
+      "log_sha256": "08761f2d63e050264e0f256ca162f5707ce350cb337d0edecf40217606f0e7fa",
+      "log": "tmp/opera-music-20261017/probe_audio.log",
+      "name": "probe_audio",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dance.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 14.743,
+      "log_sha256": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e",
+      "log": "tmp/opera-music-20261017/probe_dance.log",
+      "name": "probe_dance",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_l2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 19.681,
+      "log_sha256": "1a48283bfa0f672be865dd02a601eb79e7ade9dd9439731d8bab59e16eb124a4",
+      "log": "tmp/opera-music-20261017/probe_l2.log",
+      "name": "probe_l2",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_l2_living_cards.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 16.03,
+      "log_sha256": "921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4",
+      "log": "tmp/opera-music-20261017/probe_l2_living_cards.log",
+      "name": "probe_l2_living_cards",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_sky_lagoon_animals.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 18.912,
+      "log_sha256": "1f403e7dc1d681de9f8ee0f2ffbb4158afc26142f61693fb695760e89c42fc08",
+      "log": "tmp/opera-music-20261017/probe_sky_lagoon_animals.log",
+      "name": "probe_sky_lagoon_animals",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_l2_reenter.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 18.0,
+      "log_sha256": "0836edebc4578a0f6ad00c902b5b9db5457646438bb895b91e769498e18b9b94",
+      "log": "tmp/opera-music-20261017/probe_l2_reenter.log",
+      "name": "probe_l2_reenter",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_crown.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 30.986,
+      "log_sha256": "e50ffbbe3959e31009cf6d7d1984b1db97ca6ea4870f1c3efd6fdc32d38c54ff",
+      "log": "tmp/opera-music-20261017/probe_crown.log",
+      "name": "probe_crown",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_throne.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 42.91,
+      "log_sha256": "d1c55302fcac9b19a5c500dded91356ce430c716a881b35ab9754c8db5984461",
+      "log": "tmp/opera-music-20261017/probe_throne.log",
+      "name": "probe_throne",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_northern.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 15.223,
+      "log_sha256": "fba9e9483c9e24b53dd6437408ab313959bb7968d3a41347a011b6c0fa98013c",
+      "log": "tmp/opera-music-20261017/probe_northern.log",
+      "name": "probe_northern",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_human_art_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 14.917,
+      "log_sha256": "5b5415d1b810a7a04bf84518731c22c3121478261795d5c89429aeca2c966dc5",
+      "log": "tmp/opera-music-20261017/probe_human_art_audit.log",
+      "name": "probe_human_art_audit",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_train.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 17.112,
+      "log_sha256": "2617369a4b121d48b4e9cb8c9ced9a4fee3e787530afaa463169a19ab224ddb7",
+      "log": "tmp/opera-music-20261017/probe_train.log",
+      "name": "probe_train",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_verbs.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 55.48,
+      "log_sha256": "6edb0718ebc197c6ec89988f7138a04c56b36c8c5e78f2f54e6688308cbf454a",
+      "log": "tmp/opera-music-20261017/probe_verbs.log",
+      "name": "probe_verbs",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_skins.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 15.111,
+      "log_sha256": "8925983b17113d743ea7d1c6b17a05e8946c83d9b570c1c7f96aa7d35594909d",
+      "log": "tmp/opera-music-20261017/probe_skins.log",
+      "name": "probe_skins",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_touch_router.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 16.289,
+      "log_sha256": "c2892f8084bd847bc1ef4669ea66e602741a48571030e21b659066cb38aea07e",
+      "log": "tmp/opera-music-20261017/probe_touch_router.log",
+      "name": "probe_touch_router",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_touch_stress.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 21.317,
+      "log_sha256": "cc71f665edb7839797685f6ebb2e45bda13d3c7152e44cd5f32dc587382b6cc5",
+      "log": "tmp/opera-music-20261017/probe_touch_stress.log",
+      "name": "probe_touch_stress",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_interaction.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 34.82,
+      "log_sha256": "75e9425089cda25286cf58484513493b928490e6fa9f0d6971cfab45fcf12a63",
+      "log": "tmp/opera-music-20261017/probe_interaction.log",
+      "name": "probe_interaction",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_touch_adversary.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 94.5,
+      "log_sha256": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643",
+      "log": "tmp/opera-music-20261017/probe_touch_adversary.log",
+      "name": "probe_touch_adversary",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_touch_look.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 18.72,
+      "log_sha256": "60351641e3a32197e818e5df8416233946f40c138599c4ae85a723642cdc25fb",
+      "log": "tmp/opera-music-20261017/probe_touch_look.log",
+      "name": "probe_touch_look",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_ui_system.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 36.905,
+      "log_sha256": "16e805d205981ac442216d21b966576c0610f50a075fe3dfcd5887cdbaf29cbc",
+      "log": "tmp/opera-music-20261017/probe_ui_system.log",
+      "name": "probe_ui_system",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_voice.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 16.098,
+      "log_sha256": "ab84c26bada4903e916027d07972e8e29aa4fe63b71cc5eef0ad8dfe85bd979c",
+      "log": "tmp/opera-music-20261017/probe_voice.log",
+      "name": "probe_voice",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_voice.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 13.616,
+      "log_sha256": "4bd0c166190a00d90ef565f5d17abfbc7a0e5263f2d190b0b2815c021b57df29",
+      "log": "tmp/opera-music-20261017/probe_day_one_voice.log",
+      "name": "probe_day_one_voice",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_d8_revisits.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 0.775,
+      "log_sha256": "8a62f8e03b7bbc051aa7e60d1919e69a59951770d17b526d811fe1d4aa1dc631",
+      "log": "tmp/opera-music-20261017/probe_day_one_d8_revisits.log",
+      "name": "probe_day_one_d8_revisits",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_handoffs.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 17.226,
+      "log_sha256": "908a3ed2410a386f95ff5d4b1a9190b6b2e049faf6f08be47f7dd399298c1a82",
+      "log": "tmp/opera-music-20261017/probe_day_one_handoffs.log",
+      "name": "probe_day_one_handoffs",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_kart_feel.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 74.71,
+      "log_sha256": "67973bd8c8903808c1ec550661e53c20d5bfe46a27d0899050c882ac67d6641c",
+      "log": "tmp/opera-music-20261017/probe_kart_feel.log",
+      "name": "probe_kart_feel",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_combat.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 22.069,
+      "log_sha256": "67aec55ee70333770a4faecb2cfd06051dfd5f0c3522629f4a522650ae60e613",
+      "log": "tmp/opera-music-20261017/probe_combat.log",
+      "name": "probe_combat",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dust_bunny.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 0.756,
+      "log_sha256": "4663fb2a0de3512c5d77b0e136a6a59139e23f411d0224912e38b45ebde441dc",
+      "log": "tmp/opera-music-20261017/probe_dust_bunny.log",
+      "name": "probe_dust_bunny",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dust_bunny_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 0.988,
+      "log_sha256": "8fc65c5380675ca971e99523bbe8e17c34f09c503cd2d87029fe79d4b73aed3d",
+      "log": "tmp/opera-music-20261017/probe_dust_bunny_boss.log",
+      "name": "probe_dust_bunny_boss",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dust_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 60.787,
+      "log_sha256": "fd07043d399d7e0b22a7aee1965e63d69b9ded85b9cf05b162ed514fad7080bb",
+      "log": "tmp/opera-music-20261017/probe_dust_boss.log",
+      "name": "probe_dust_boss",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_hit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 17.182,
+      "log_sha256": "785d740aaff6eb57e72a8ecc2fa239cfd66b6f84d956f2ff0bb0ab109e22aaf7",
+      "log": "tmp/opera-music-20261017/probe_hit.log",
+      "name": "probe_hit",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_partner.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 18.987,
+      "log_sha256": "975f35172cb1329e2eb83c9d772ba96fdaf1c79126ba32f7b9a97a6e5a72ba5c",
+      "log": "tmp/opera-music-20261017/probe_partner.log",
+      "name": "probe_partner",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_combat_tutorial.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 22.84,
+      "log_sha256": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f",
+      "log": "tmp/opera-music-20261017/probe_combat_tutorial.log",
+      "name": "probe_combat_tutorial",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_imp_ai.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 3.62,
+      "log_sha256": "9ae03f976731e38ad51ab9e60fa5e43461359f99af606bbb269f3c7c660ab874",
+      "log": "tmp/opera-music-20261017/probe_imp_ai.log",
+      "name": "probe_imp_ai",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_mic.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 17.921,
+      "log_sha256": "4c186e6413f73aacf682d34e95d955e600da20b553d525b7b4d49cf7bdd8dd26",
+      "log": "tmp/opera-music-20261017/probe_mic.log",
+      "name": "probe_mic",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_stuffie.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 28.261,
+      "log_sha256": "ce98c5879cc8f528799c7c4a8bcfdb583da7c27f90f837794b913fc5691b7455",
+      "log": "tmp/opera-music-20261017/probe_stuffie.log",
+      "name": "probe_stuffie",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dungeon.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 21.107,
+      "log_sha256": "e375bfcd6815b9b8d614c8ce0b555d08c2bc3c1c9daced36bc7bde6c04a5b836",
+      "log": "tmp/opera-music-20261017/probe_dungeon.log",
+      "name": "probe_dungeon",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_ember.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 20.789,
+      "log_sha256": "bfd3bbf78d4afc8f0be1f7b1b24e83c9e1369694a5ad2ddf6f93502c08621e70",
+      "log": "tmp/opera-music-20261017/probe_ember.log",
+      "name": "probe_ember",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_opera.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 83.961,
+      "log_sha256": "2b75a43599cd5663731639a13011d6cc3d0fe91b3dac023b05a922d3f9460a8c",
+      "log": "tmp/opera-music-20261017/probe_opera.log",
+      "name": "probe_opera",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_opera_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 49.133,
+      "log_sha256": "a1c1a8a0d6b0690f610f1bc0706e4d6c9dc783e7a2c0b6e9d3180e1d5c2a2b77",
+      "log": "tmp/opera-music-20261017/probe_opera_2d.log",
+      "name": "probe_opera_2d",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_opera_diegetic_paths.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 6.194,
+      "log_sha256": "8b4fa69dca1eb815b72a9592ac787d7f7cf9650e94c21745b3a3293da39dfeb8",
+      "log": "tmp/opera-music-20261017/probe_opera_diegetic_paths.log",
+      "name": "probe_opera_diegetic_paths",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_opera_detective.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 17.171,
+      "log_sha256": "ada2802f1fd8ddfa452d4ca6d40b560d95e2fe6a0d784f3c5ebc5161755a2498",
+      "log": "tmp/opera-music-20261017/probe_opera_detective.log",
+      "name": "probe_opera_detective",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_opera_pipe.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 1.348,
+      "log_sha256": "9e37f1451cf963674947e78580377efe684cb07070ef3ded7221671a9cf74efc",
+      "log": "tmp/opera-music-20261017/probe_opera_pipe.log",
+      "name": "probe_opera_pipe",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_opera_nursery.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 15.494,
+      "log_sha256": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac",
+      "log": "tmp/opera-music-20261017/probe_opera_nursery.log",
+      "name": "probe_opera_nursery",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_opera_gesture_quality.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 3.881,
+      "log_sha256": "a43da324a58611dbc9bf75af931039b7b963e01d25b34da73f4a06aed6f8f7cd",
+      "log": "tmp/opera-music-20261017/probe_opera_gesture_quality.log",
+      "name": "probe_opera_gesture_quality",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_kitchen_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 1.494,
+      "log_sha256": "085ee788c6a4ea61b380dc094a318f0546223c723a4a06343e564902678217fd",
+      "log": "tmp/opera-music-20261017/probe_kitchen_props.log",
+      "name": "probe_kitchen_props",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_bathroom_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 1.01,
+      "log_sha256": "f1a9243fa397b4679dd72416d4e7b6fba6d21014c949cf112f3e3c29eefd494f",
+      "log": "tmp/opera-music-20261017/probe_bathroom_props.log",
+      "name": "probe_bathroom_props",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_castle_door_language.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 18.616,
+      "log_sha256": "4abaa12c13b1268f31ba2dcbd5a0d01bef5d51f9d72bfae4a3e1289ea6b2240b",
+      "log": "tmp/opera-music-20261017/probe_castle_door_language.log",
+      "name": "probe_castle_door_language",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_bathroom_integration.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 40.7,
+      "log_sha256": "0b93b196a5572ccb0f9f76698bce1c3d2aa27084f08b0cca93da8ab561ace330",
+      "log": "tmp/opera-music-20261017/probe_bathroom_integration.log",
+      "name": "probe_bathroom_integration",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_bathroom_bunny.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 17.25,
+      "log_sha256": "b2317cefbc14362cdb2509477c136b7ddbf79e88550d370040f165ad452d500c",
+      "log": "tmp/opera-music-20261017/probe_day_one_bathroom_bunny.log",
+      "name": "probe_day_one_bathroom_bunny",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_bathroom_cleanup.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 21.456,
+      "log_sha256": "e3ac904c4ddad2ceec6937274324e0f46e845f5bc74095a74bd985a7a25a3d14",
+      "log": "tmp/opera-music-20261017/probe_day_one_bathroom_cleanup.log",
+      "name": "probe_day_one_bathroom_cleanup",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_bathroom_movie_handoff.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 14.865,
+      "log_sha256": "3c38263a6313fdfe5cfb49b7378d9e9890d36373f6f014af0411e016529f5f86",
+      "log": "tmp/opera-music-20261017/probe_day_one_bathroom_movie_handoff.log",
+      "name": "probe_day_one_bathroom_movie_handoff",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_director.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 12.989,
+      "log_sha256": "c55a83f10ed8b5e8f241a127a88fdfb1001bbdb65486d44989606a1ece6e1c0e",
+      "log": "tmp/opera-music-20261017/probe_day_one_director.log",
+      "name": "probe_day_one_director",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_integration.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 15.106,
+      "log_sha256": "5d2a85cd038e521120be433551a63bdcaa394be2c493b151f616650805b1ab46",
+      "log": "tmp/opera-music-20261017/probe_day_one_integration.log",
+      "name": "probe_day_one_integration",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_pool_cleanup.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 22.968,
+      "log_sha256": "40b24582c0e54313b93a365c2b1dda003bf3ad6464b167566c8035ebd0cb1f74",
+      "log": "tmp/opera-music-20261017/probe_day_one_pool_cleanup.log",
+      "name": "probe_day_one_pool_cleanup",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_art_attack_state.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 15.784,
+      "log_sha256": "f60c2a724f4c1d99e78da2e83ed099fad0afd2bd2bbd4ba7e730c3ee1f1b6114",
+      "log": "tmp/opera-music-20261017/probe_day_one_art_attack_state.log",
+      "name": "probe_day_one_art_attack_state",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_castle_dressing.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 0.747,
+      "log_sha256": "17ea5dbf7d18d174c7029081bb94f79ae44f439fb81b7c77093083efceba80a0",
+      "log": "tmp/opera-music-20261017/probe_day_one_castle_dressing.log",
+      "name": "probe_day_one_castle_dressing",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_story_clips.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 23.635,
+      "log_sha256": "e4c0f72382cbb9205fdd8c9fd87f274ec16b909bb9135b7938f220f4553872e3",
+      "log": "tmp/opera-music-20261017/probe_day_one_story_clips.log",
+      "name": "probe_day_one_story_clips",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_chapter2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 201.141,
+      "log_sha256": "b788463e26d904eefa10f9d1e12b277996d0c5967b3ccffa8a28b254453b1e13",
+      "log": "tmp/opera-music-20261017/probe_chapter2.log",
+      "name": "probe_chapter2",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_chapter2_farmer_resume.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 27.339,
+      "log_sha256": "2f43fc12adfc92b0ef5bfde77ceba276190604eb8b7471697746afcbe21d942d",
+      "log": "tmp/opera-music-20261017/probe_chapter2_farmer_resume.log",
+      "name": "probe_chapter2_farmer_resume",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_chapter2_lawn.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 20.838,
+      "log_sha256": "b50aaf7aeae0823dcbfb26e58ab58b9b739c7780e04efb36fb554433be6d55e1",
+      "log": "tmp/opera-music-20261017/probe_chapter2_lawn.log",
+      "name": "probe_chapter2_lawn",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_alpha_milestone_save.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 19.584,
+      "log_sha256": "c8fee9f0a438dd1b2493699c49a5d84994e818e7bd65fb0f6655fbfca08bc584",
+      "log": "tmp/opera-music-20261017/probe_alpha_milestone_save.log",
+      "name": "probe_alpha_milestone_save",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dust_boss_balance.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 240.828,
+      "log_sha256": "62759c1cbc8bb229b566feb813614a3dd143799b0501837097ce83498f1275ef",
+      "log": "tmp/opera-music-20261017/probe_dust_boss_balance.log",
+      "name": "probe_dust_boss_balance",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_start_menu_routing.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 13.477,
+      "log_sha256": "c192b57ce2a0672867a9ce4420e32fde1eab6d258fc7e9e200127891e4d0c163",
+      "log": "tmp/opera-music-20261017/probe_start_menu_routing.log",
+      "name": "probe_start_menu_routing",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_start_menu_new_game.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 39.65,
+      "log_sha256": "db24b691798c9dd2195c5aa43d0c047500198971312871c20a593c459975f5e1",
+      "log": "tmp/opera-music-20261017/probe_start_menu_new_game.log",
+      "name": "probe_start_menu_new_game",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_castle_pool_life_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 15.062,
+      "log_sha256": "3c743dae2d362340c1369418a95b8feacb00f3f8933ddb78daa109c17bf5b6b9",
+      "log": "tmp/opera-music-20261017/probe_castle_pool_life_2d.log",
+      "name": "probe_castle_pool_life_2d",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_castle_pearl_art.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 20.276,
+      "log_sha256": "95842c47590dabb3a14cacc7ea4c8f143f5d1e9d3c5501a8da3de24044c43446",
+      "log": "tmp/opera-music-20261017/probe_castle_pearl_art.log",
+      "name": "probe_castle_pearl_art",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_fairy_art.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 1.061,
+      "log_sha256": "97aa66835cca2cf482d202e46a6119b11319755d18c86c10f76174a009ff34c4",
+      "log": "tmp/opera-music-20261017/probe_fairy_art.log",
+      "name": "probe_fairy_art",
+      "pass": true,
+      "timeout_after_verdict": false
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 18.922,
+      "log_sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+      "log": "tmp/opera-music-20261017/probe_props.log",
+      "name": "probe_props",
+      "pass": true,
+      "timeout_after_verdict": false
+    }
+  ],
+  "static": {
+    "command": [
+      "C:/Program Files/Git/bin/bash.exe",
+      "C:\\Users\\Peter\\.codex\\worktrees\\opera-melody-20261017\\mermaid-roshan-reef\\tmp\\opera-music-20261017\\ci-preflight.sh"
+    ],
+    "exit": 0,
+    "seconds": 2106.338,
+    "log_sha256": "63b654d8613b56e68962431e90f0ad6f6ed60ac2d3b9a501fae038dabbd69fc1",
+    "log": "tmp/opera-music-20261017/full-static-gates.log"
+  },
+  "sources_after": {
+    "count": 1184,
+    "sha256": "c0d3d36cc3f52680d5325455a64965443a337446239028e64fee1303df537caa",
+    "complete_manifest": "verification_logs.zip:sources_after.json"
+  },
+  "source_unchanged": true,
+  "finished_utc": "2026-10-18T01:03:43Z",
+  "evidence_archive": {
+    "path": "audit/area_music/opera_melody_20261017/verification_logs.zip",
+    "sha256": "375457cbfde503380d51d9d5d1fd20633a7a0df522445bf75910c06a09576699",
+    "bytes": 535089,
+    "scope": "Lossless command logs, first incomplete candidate, full final source manifests, local drivers and exact composition/renderer/test sources. No protected audio payloads."
+  },
+  "archive_scan": {
+    "result": "PASS",
+    "method": "tools.audit_game_2d._model_archive_evidence",
+    "archive_sha256": "375457cbfde503380d51d9d5d1fd20633a7a0df522445bf75910c06a09576699",
+    "model_evidence": null
+  }
+}

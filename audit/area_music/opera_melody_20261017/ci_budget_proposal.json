@@ -1,0 +1,10 @@
+{
+  "status": "PROPOSED_OWNER_AUTHORIZATION_REQUIRED_NOT_APPLIED",
+  "scope": "Only increase jobs.probes.timeout-minutes from55 to90 so existing required and review steps can finish; no step, pin, dependency, trigger, permission or assertion changes.",
+  "reason": "The exact incoming dev run39080803885 passed Run trusted probes but was cancelled during later captures. GitHub annotation: The job has exceeded the maximum execution time of55m0s. Earlier dev run39076579314 also timed out near its final capture.",
+  "authorization_rule": "AGENTS.md Security: Changes to .github/workflows/ are high-risk: explicit-task-only. Music task does not explicitly authorize this workflow edit.",
+  "path": ".github/workflows/probes.yml",
+  "current_sha256": "e615577c954cf2adee5d54cdd4ed6d6753751e519dd6dd625af2711130d544fc",
+  "diff": "--- a/.github/workflows/probes.yml\n+++ b/.github/workflows/probes.yml\n@@ -50,7 +50,7 @@\n     # Green runs now take ~24 min (probes ~14 min + visual captures); at 30\n     # the slow-runner tail dies mid-capture and GitHub reports the timeout as\n     # \"cancelled\", which reads like a phantom cancel. Keep ~20 min headroom.\n-    timeout-minutes: 55\n+    timeout-minutes: 90\n     steps:\n       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1\n         with:\n",
+  "baseline_run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39080803885"
+}
