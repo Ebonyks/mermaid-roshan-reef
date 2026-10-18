@@ -1,0 +1,20 @@
+{
+  "status": "RECOVERED_EXACT",
+  "cause": "The temporary sparse integration checkout used directory junctions to shared source folders. Git sparse cleanup traversed those junctions and removed tracked source files. This was an agent setup error; no creative or save change was intended or authorized.",
+  "affected_tracked_files": 19151,
+  "source_commit": "77f72a7c59e504bf62ae98d85eee3be849c0fbc3",
+  "recovery_receipt": "source_asset_recovery.json",
+  "protected_raw_receipt": "protected_asset_recovery.json",
+  "protected_binary_files_verified": 740,
+  "review_link_removal_receipt": "review_link_detach.json",
+  "replacement_setup": "All source/cache folder junctions removed; Git sparse checkout disabled into a complete ordinary private checkout; cache copied as ordinary files. Import and focused probes must pass anew.",
+  "aborted_setup_artifacts": [
+    "setup_failure_integration_probe_collection.log",
+    "setup_failure_integration_probe_opera.log",
+    "setup_failure_integration_probe_throne.json",
+    "setup_failure_integration_probe_throne.log",
+    "setup_failure_setup_failure.json"
+  ],
+  "acceptance": "Aborted incomplete-fixture outputs do not count as runtime acceptance. Original machine failures and recovery evidence are preserved. Device, child, owner and authoritative visual gates remain separate.",
+  "save_scope": "Only tracked assets/assets_src/gen2/export were restored from immutable Git blobs. Actual user-save directories were not read, rewritten or deleted. No full pre-incident ignored/untracked inventory is claimed."
+}

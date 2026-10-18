@@ -2052,9 +2052,11 @@ CHG-099 payload publication: `92822aaf5f381e623dacf1a9dff0e20f82306c4a`; manifes
 ### Grand Puff cold and care CHG-098
 
 - Date: 2026-10-17. Manual owner commission, not an automatic planner emitter.
-  Baseline `1a4e8a1ceae29b401d63900a57a531b2f4442ba8`; exact current source and
-  evidence are bound in [the impact](../design/audit_impacts/grand-puff-care-20261017.json)
-  and `audit/grand_puff_care_20261017/source_pin_final_v2.json`.
+  Baseline `1a4e8a1ceae29b401d63900a57a531b2f4442ba8`; the original care source
+  and evidence are bound in [the impact](../design/audit_impacts/grand-puff-care-20261017.json)
+  and `audit/grand_puff_care_20261017/source_pin_final_v2.json`. The later dev
+  reconciliation has its own `source_pin_integration.json` and full-suite
+  receipt, preserving the original results separately.
 - Benefit: Grand Puff is a sick friend who welcomes cleaning. Warm Canvas
   acting, soap contact and five neutral Guide cues replace hostile story
   meaning. Original circles/lane, timing, windows, three saved rounds and
@@ -2083,3 +2085,13 @@ CHG-099 payload publication: `92822aaf5f381e623dacf1a9dff0e20f82306c4a`; manifes
   immutable evidence. Never accept the known black fade or entry crash as a
   runtime fallback. Technical rollback does not revoke the owner's care canon
   or authorize retired 3D resources, family imitation or replacement footage.
+
+### Direct Opera foyer entry and source recovery CHG-101
+
+- Date: 2026-10-17. Owner removes the pictured purple stage/footlights antechamber and requests a refreshed Godot AI preview in the existing Opera House main foyer. This is a manual, non-emitting extension; the sealed planner inventory is unchanged.
+- Exact implementation source: `77f72a7c59e504bf62ae98d85eee3be849c0fbc3`; first current-dev reconciliation and recovery evidence: `6d71903d9fc2f18f243bc07c465dc26fc3b3252e`. Dependency `39b0e158db7de3d0c178c4444f97c04fda75bec5` preserves the painted butterfly tab. Later dependency `1a4e8a1ceae29b401d63900a57a531b2f4442ba8` preserves CHG-097's Grand Puff interruption repair and strengthened fixtures. Final combined-source hashes and exact-head CI are tracked separately in the [impact](../design/audit_impacts/remove-opera-anteroom-20261017.json).
+- Paths and benefit: the impact enumerates every file. `scripts/castle_career_routes.gd` immediately opens the existing painted three-floor venue on the stable `opera_hall` route; `scripts/opera_house_venue_2d.gd` makes one Back return to Castle Main Hall. `scripts/probe_opera.gd` exercises direct entry and exact Back/save behavior. Original route IDs, careers, save keys and source art remain.
+- Plausible negative effects: stale navigation owners, revealing the removed room on Back, duplicate career rewards, interrupted voice guidance, or incorrect career return. Focused direct-entry/Back, all-career lifecycle and progress snapshots, passive/cancel/re-entry checks and full exact-head regressions are required. Royal Hall verification retains all five visible mist cards, exact voice feedback and no-award assertions; merged framing follows real floor taps and the room greeting finishes naturally. The upstream verb probe observes its full authored cycle without lowering its motion floor.
+- Process incident and recovery: sparse-checkout cleanup followed temporary source-folder junctions and removed19,151 tracked files. All were restored from exact pre-incident77f72a7c blobs; tracked assets/assets_src/gen2/export compare clean, and all740 protected binary artwork/voice files match their raw Git blob IDs. [Incident/recovery](remove_opera_anteroom_20261017/source_recovery_incident.json), source/protected receipts and the hashed literal path manifest preserve responsibility and scope. All source/cache links were removed from the integration checkout, replaced by complete ordinary private files. Aborted setup transcripts are not acceptance evidence; actual user-save directories were untouched. No full pre-incident ignored/untracked inventory is claimed.
+- Evidence and limits: original native-suite failures, original launcher timeout, baseline controls, unchanged reruns and classifier correction are retained. Source-bound local82 verification, ordinary private exact4.7.2 import and three focused integration probes pass at their recorded source pins. A later dev advance requires affected-probe reconciliation and a new exact-head full CI. Godot AI's local plugin/game bridge is live in the main foyer; the chat tool namespace remains unexposed. Authoritative visual/device/child/owner, strict-zero2D and release acceptance remain separate. MA-OPERA-012 and MA-CI-007 lifecycles are not closed.
+- Rollback class: `manual_reconstruction`. Begin clean on `codex/rollback-chg-101`, inspect exact source/path sets and later callers, and reconstruct only the requested Opera routing/test behavior. Preserve CHG-097, the painted butterfly tab, every save key, protected original and immutable failure/recovery record. Never revert the mixed merge wholesale, delete recovered source art, revive deprecated3D resources or promote the known redundant-room flow as accepted. Inspect the diff and earn focused/full exact-engine gates plus applicable external acceptance; no automatic revert or master push is authorized.

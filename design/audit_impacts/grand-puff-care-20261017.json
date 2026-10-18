@@ -373,6 +373,18 @@
     "audit/grand_puff_care_20261017/game2d_final.json",
     "audit/grand_puff_care_20261017/game2d_final.log",
     "audit/grand_puff_care_20261017/historical_input_retention.json",
+    "audit/grand_puff_care_20261017/integration_ci.log",
+    "audit/grand_puff_care_20261017/integration_ci_result.json",
+    "audit/grand_puff_care_20261017/integration_ci_runner.py.txt",
+    "audit/grand_puff_care_20261017/integration_final_gates.json",
+    "audit/grand_puff_care_20261017/integration_final_gates.log",
+    "audit/grand_puff_care_20261017/integration_preparation.py.txt",
+    "audit/grand_puff_care_20261017/integration_resolution.json",
+    "audit/grand_puff_care_20261017/integration_resolution.py.txt",
+    "audit/grand_puff_care_20261017/integration_source_binding.json",
+    "audit/grand_puff_care_20261017/integration_source_binding.py.txt",
+    "audit/grand_puff_care_20261017/integration_verification.json",
+    "audit/grand_puff_care_20261017/integration_verification_builder.py.txt",
     "audit/grand_puff_care_20261017/isolated_care_results.json",
     "audit/grand_puff_care_20261017/legacy_balance_control.json",
     "audit/grand_puff_care_20261017/legacy_balance_control.log",
@@ -403,6 +415,7 @@
     "audit/grand_puff_care_20261017/source_pin.json",
     "audit/grand_puff_care_20261017/source_pin_final.json",
     "audit/grand_puff_care_20261017/source_pin_final_v2.json",
+    "audit/grand_puff_care_20261017/source_pin_integration.json",
     "audit/grand_puff_care_20261017/source_pin_projection_fixed.json",
     "audit/grand_puff_care_20261017/source_pin_saved_intro_negative.json",
     "audit/grand_puff_care_20261017/staged_source_binding.json",
@@ -473,6 +486,16 @@
       "command": "Exact published combined-source CI and dev integration",
       "result": "PENDING",
       "evidence": "Recorded before publication. Later GitHub workflow verdicts bind their exact commit; no master promotion requested."
+    },
+    {
+      "command": "Resolved latest dev reconciliation: full unmodified local CI and exact combined source binding",
+      "result": "PASS",
+      "evidence": "audit/grand_puff_care_20261017/integration_verification.json; integration_ci_result.json and log; source_pin_integration.json; integration_source_binding.json. Own nine care scripts unchanged from tested ee5a9cec parent; all335 combined sources pinned and mapped to staged blobs. Original V2 full/display evidence retained separately."
+    },
+    {
+      "command": "Final combined parser/inference, authority/development and protected/profile preservation",
+      "result": "PASS",
+      "evidence": "audit/grand_puff_care_20261017/integration_final_gates.json and corresponding log; all actual exits retained. Published-head CI remains separate."
     }
   ],
   "acceptance_gaps": "Scoped machine gameplay/audio/export and desktop Mobile display checks pass. Full/current-source and exact published-head gates tracked separately in verification.json. Target Lenovo performance/playback/listening, child comprehension, full fresh-save QA11 and formal owner identity/style/motion/contact remain open. Initial prototype cleanup minutes were NOT_MEASURED; no claim of complete final-animation accounting. Earlier direct GUI balance exits remain unproven under MA-CI-007. Related finding lifecycle and game-wide UNSATISFIED unchanged; no release promotion requested.",

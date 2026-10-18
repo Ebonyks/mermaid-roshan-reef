@@ -1,0 +1,32 @@
+{
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--fixed-fps",
+    "120",
+    "--path",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+    "-s",
+    "scripts/probe_throne.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 48.86128568649292,
+  "source_sha256": {
+    "scripts/castle_career_routes.gd": "412459b56638be07ef9d953a5de7f27e074429703a4c860f97a8d54b9d27a3c8",
+    "scripts/opera_house_venue_2d.gd": "1025986072f5d64d356ac779a797d3b8006a36b10d9ffa96616ecc6d76077305",
+    "scripts/probe_opera.gd": "f918cd813e8fdf4710d0a0d695730d855bfbf090f5b606cb0c1c916d4c44ca10",
+    "scripts/probe_throne.gd": "161bb3d95269ca46116ee3b33982a899f2f023622bbbaf21d0566ac430c18d2d",
+    "scripts/arena/castle_rooms_25d.gd": "f3203cb1e8955ae29b9536f266a57a33373ec459f2828724f2f6be59d1283c8c"
+  },
+  "source_drift": [],
+  "reported_failures": [
+    "THRONE|locked_gate_has_spoken_feedback|FAIL|voice_i=1->1 stream=res://assets/audio/voices/filler_v1/roshan_intro1.ogg caption=The royal mist is resting. It will float away for a special royal adventure!",
+    "THRONE|done: FAILED (1)"
+  ],
+  "log_sha256": "dd0ea5639d4eb803c1d836b1fc87fe9a7f63bf0ba318b161bde1984e2b403f03",
+  "status": "FAIL",
+  "scope": "Rerun after baseline-reproduced camera-readiness setup correction; real viewport floor taps, five-mist and no-award assertions unchanged. Separate isolated save profile."
+}

@@ -64,6 +64,8 @@ active-fact checks; do not hand-copy its counts into planning rules.
 
 
 <!-- AUDIT_TASK_INDEX_START -->
+Owner-requested [CHG-101 Opera antechamber removal](MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#direct-opera-foyer-entry-and-source-recovery-chg-101): [routing impact](../design/audit_impacts/remove-opera-anteroom-20261017.json) (2026-10-17) makes the existing three-floor venue the immediate Opera destination and makes one Back return to the Castle Main Hall. The logical room ID and career/save ownership are retained. Focused route/save checks and displayed Mobile diagnostics pass; the restarted local Godot AI bridge is verified live with the game left in the main foyer. All 82 trusted probes pass through source-bound per-probe verification after a baseline-reproduced Royal Hall harness readiness repair and unchanged Chapter Two/verb reruns; the initial red suite is preserved. Published-head CI/integration and external acceptance remain separately tracked; `MA-OPERA-012` is not closed.
+
 
 Owner-directed [Grand Puff cold/care rework](../design/GRAND_PUFF_CARE_2026-10-17.md) (2026-10-17, CHG-098) preserves the original five circle/circle/lane steps, timing, three saved rounds and rewards. Sympathetic Canvas acting, soap cleaning and exact neutral Guide cues replace hostile meaning. The selected emergence footage remains unchanged and can repeat only after a completed helping replay. Source attempts, strict gates and actual evidence are in [the impact](../design/audit_impacts/grand-puff-care-20261017.json); related MA-PLAY-001 and MA-ACCESS-001 stay open/external. No whole-game, device, child, owner or release acceptance is claimed.
 

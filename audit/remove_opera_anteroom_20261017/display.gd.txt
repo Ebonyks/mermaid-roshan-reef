@@ -1,0 +1,46 @@
+extends SceneTree
+
+func _init() -> void:
+	var main := (load("res://scenes/main.tscn") as PackedScene).instantiate() as ReefMain
+	root.add_child(main)
+	await process_frame
+	await process_frame
+	root.size = Vector2i(1280, 720)
+	root.title = "Mermaid Roshan - Opera House Main Foyer (review)"
+	main.day_one_active = false
+	main.chapter2_active = false
+	main.start_menu_active = false
+	if main.start_menu_layer != null:
+		main.start_menu_layer.hide()
+	main._skip_intro()
+	main.game = "level2"
+	main.g["t"] = 0.0
+	main._enter_castle_interior_now(false)
+	for i in range(30):
+		await process_frame
+	main._castle_rooms_ref().show_room("opera_hall", false)
+	for i in range(20):
+		await process_frame
+	var venue: OperaHouseVenue2D = main._castle_career_routes_ref().opera_venue
+	if main.fade_rect != null:
+		main.fade_rect.modulate.a = 0.0
+	await create_timer(8.0).timeout
+	await RenderingServer.frame_post_draw
+	var capture := root.get_texture().get_image()
+	capture.save_png("res://tmp/remove_opera_main_foyer.png")
+	var receipt := {
+		"engine": Engine.get_version_info(),
+		"renderer": RenderingServer.get_current_rendering_method(),
+		"viewport": [root.size.x, root.size.y],
+		"room_id": main.castle_room_id,
+		"venue_open": venue != null and venue.is_open(),
+		"navigation": main._navigation_ref().top_id(),
+		"save_profile": ProjectSettings.get_setting("application/config/custom_user_dir_name"),
+		"screenshot": "tmp/remove_opera_main_foyer.png",
+		"screenshot_sha256": FileAccess.get_sha256("res://tmp/remove_opera_main_foyer.png"),
+		"claim": "Diagnostic displayed Mobile review only; not authoritative visual, device, child, owner or release acceptance. Standalone CLI preview, not a verified Godot AI reconnection."
+	}
+	var file := FileAccess.open("res://tmp/remove_opera_display.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(receipt, "\t"))
+	file.close()
+	print("OPERA_PREVIEW|MAIN_FOYER_READY|", JSON.stringify(receipt))

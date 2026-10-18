@@ -221,6 +221,9 @@ func _rebuild_room() -> void:
 		root.add_child(opera_venue)
 		buttons = opera_venue.career_buttons()
 		_refresh_completion()
+		# The painted three-floor venue is the room itself. Never stop at the
+		# retired stage/footlights antechamber on entry or career return.
+		opera_venue.open(m.opera_stars)
 		return
 	var width := float(indices.size()) * CARD_SIZE.x \
 		+ float(indices.size() - 1) * CARD_GAP

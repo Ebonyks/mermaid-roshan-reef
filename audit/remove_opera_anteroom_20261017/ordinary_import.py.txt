@@ -1,0 +1,32 @@
+from pathlib import Path
+import os,shutil,subprocess,json,time,hashlib,re,sys
+root=Path(__file__).resolve().parents[1]
+work=root/'tmp/opera_foyer_verified_integration'
+out=work/'audit/remove_opera_anteroom_20261017'
+assert work.resolve().is_relative_to(root/'tmp')
+for current,dirs,files in os.walk(work,topdown=True,followlinks=False):
+    assert not any((Path(current)/name).is_junction() or (Path(current)/name).is_symlink() for name in dirs)
+cache=work/'.godot/imported'
+assert not cache.is_junction()
+shutil.copytree(root/'.godot/imported',cache,dirs_exist_ok=True)
+for ext in ['json','log']:
+    old=out/('integration_import.'+ext)
+    if old.exists():shutil.copy2(old,out/('integration_preincident_import.'+ext))
+sources=['scripts/castle_career_routes.gd','scripts/opera_house_venue_2d.gd','scripts/probe_opera.gd','scripts/probe_throne.gd','scripts/collection_system.gd','assets/mg/butterfly.png.import']
+frozen={p:hashlib.sha256((work/p).read_bytes()).hexdigest() for p in sources}
+for p in sources:
+    assert (work/p).read_bytes().replace(b'\r\n',b'\n')==subprocess.check_output(['git','show',':'+p],cwd=work)
+godot=json.loads((root/'audit/remove_opera_anteroom_20261017/focused.json').read_text())['command'][0]
+command=[godot,'--headless','--path',str(work),'--import']
+started=time.time()
+logpath=out/'integration_import.log'
+with logpath.open('w',encoding='utf-8') as log:
+    try:code=subprocess.run(command,cwd=work,stdout=log,stderr=subprocess.STDOUT,timeout=720).returncode
+    except subprocess.TimeoutExpired:code=124
+text=logpath.read_text(encoding='utf-8',errors='replace')
+bad=re.findall(r'^.*(?:SCRIPT ERROR|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource|ERROR:.*(?:Failed loading resource|Cannot open file|No loader found|Resource file not found)).*$',text,re.M)
+drift=[p for p,h in frozen.items() if hashlib.sha256((work/p).read_bytes()).hexdigest()!=h]
+data={'command':command,'exit_code':code,'elapsed_seconds':time.time()-started,'status':'PASS' if code==0 and not bad and not drift else 'FAIL','reported_errors':bad,'source_sha256':frozen,'source_drift':drift,'log_sha256':hashlib.sha256(logpath.read_bytes()).hexdigest(),'scope':'Exact approved 4.7.2 import of the complete ordinary private integration checkout after all source-folder/cache junctions were removed. Import cache is an ordinary copy, and no runtime/source path writes through to the shared workspace. Frozen candidate GD/import settings match staged Git blobs canonically.'}
+(out/'integration_import.json').write_text(json.dumps(data,indent=2)+'\n')
+print(json.dumps(data))
+sys.exit(0 if data['status']=='PASS' else 1)

@@ -1,0 +1,24 @@
+from pathlib import Path
+import subprocess,json,hashlib
+root=Path(__file__).resolve().parents[1]
+head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
+tree=subprocess.check_output(['git','ls-tree','-r','-z',head,'--','assets/book','assets/audio/voices','assets/characters/friends'],cwd=root)
+binary={'.png','.jpg','.jpeg','.webp','.gif','.ogg','.wav','.mp3','.flac','.mp4','.webm'}
+entries=[]
+for line in tree.split(b'\0'):
+    if not line:continue
+    meta,name=line.split(b'\t',1)
+    path=name.decode('utf-8')
+    if Path(path).suffix.lower() in binary:
+        expected=meta.decode().split()[2]
+        assert (root/path).is_file(),path
+        entries.append((path,expected))
+assert len(entries)>100,len(entries)
+observed=subprocess.check_output(['git','hash-object','--no-filters','--stdin-paths'],cwd=root,input=('\n'.join(p for p,h in entries)+'\n').encode()).decode().splitlines()
+assert len(observed)==len(entries)
+mismatches=[p for (p,expected),actual in zip(entries,observed) if expected!=actual]
+assert not mismatches,mismatches
+manifest='\n'.join(p+'\0'+h for p,h in entries)+'\n'
+data={'status':'EXACT_RAW_BYTES','source_commit':head,'protected_binary_files':len(entries),'roots':['assets/book','assets/audio/voices','assets/characters/friends'],'raw_git_blob_mismatches':mismatches,'path_and_blob_manifest_sha256':hashlib.sha256(manifest.encode()).hexdigest(),'verification':'Each protected binary file was read by git hash-object --no-filters and matched its exact immutable Git blob ID; no text conversion, recompression or asset substitution is involved.'}
+(root/'tmp/opera_protected_recovery.json').write_text(json.dumps(data,indent=2)+'\n')
+print(json.dumps(data))

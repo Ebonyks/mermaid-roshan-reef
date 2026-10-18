@@ -171,8 +171,9 @@ func _audit_all_room_cards() -> void:
 		await _frames(3)
 		routes.sync()
 		if room_id == "opera_hall":
-			routes.open_opera_venue()
-			await _frames(3)
+			_check("Opera doorway opens the main venue without a stage-star tap",
+				routes.opera_venue != null and routes.opera_venue.is_open()
+				and main._navigation_ref().top_id() == "opera_venue")
 		var expected: Array[int] = CastleCareerRoutes.act_indices_for_room(room_id)
 		var actual: Array[int] = []
 		var room_card_rects: Array[Rect2] = []
@@ -285,10 +286,8 @@ func _audit_no_hidden_hub() -> void:
 	routes.sync()
 	var stars_before := main.opera_stars
 	var pearls_before := main.pearl_count
-	main._start_opera()
-	await _frames(3)
 	var venue := routes.opera_venue
-	_check("the Opera stage star opens the recovered three-floor venue",
+	_check("Opera entry goes directly to the recovered three-floor venue",
 		main.opera_game == null and main.opera_pending_act_index == -1
 		and routes.root != null and routes.root.visible
 		and venue != null and venue.is_open()
@@ -567,14 +566,11 @@ func _audit_job_playtest_menu() -> void:
 		and _playtest_progress_snapshot() == story_baseline)
 	_tap_control(main.global_navigation_button, 200)
 	await _frames(3)
-	_check("next Back closes only the Opera venue and preserves its room",
-		not venue.is_open() and main.castle_room_id == "opera_hall"
-		and main.castle_room_layer.visible
-		and main._navigation_ref().top_id() == "pearl_castle_room")
-	_tap_control(main.global_navigation_button, 201)
-	await _frames(3)
-	_check("room Back then returns safely to the Castle Main Hall",
-		main.castle_room_id == "main_hall" and main.castle_room_layer.visible)
+	_check("one Back leaves the Opera venue directly for the Castle Main Hall",
+		main.castle_room_id == "main_hall" and main.castle_room_layer.visible
+		and main._navigation_ref().top_id() != "pearl_castle_room"
+		and main._navigation_ref().top_id() != "opera_venue"
+		and _playtest_progress_snapshot() == story_baseline)
 	main.save_data = original_save
 	main.day_one_giant_dust_bunny_boss_defeated = original_boss_defeated
 	main._chapter_two_ref().restore_state(original_story)

@@ -99,11 +99,16 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 
 
 func open(star_mask: int) -> void:
-	m._navigation_push("opera_venue", self, Callable(self, "close"))
+	m._navigation_push("opera_venue", self, Callable(self, "_go_back"))
 	visible = true
 	accepting_input = true
 	refresh(star_mask)
 	guide_current_floor()
+
+
+func _go_back() -> void:
+	close()
+	m._castle_rooms_ref().show_room("main_hall", true)
 
 
 func close() -> void:

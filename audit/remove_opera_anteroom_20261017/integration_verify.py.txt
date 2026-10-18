@@ -1,0 +1,70 @@
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
+import subprocess,json,hashlib,os,time,re,sys,shutil
+root=Path(__file__).resolve().parents[1]
+work=root/'tmp/opera_foyer_verified_integration'
+out=work/'audit/remove_opera_anteroom_20261017'
+impact_path=work/'design/audit_impacts/remove-opera-anteroom-20261017.json'
+assert (out/'local_verification.json').exists()
+assert subprocess.check_output(['git','rev-parse','MERGE_HEAD'],cwd=work,text=True).strip()==json.loads((root/'tmp/opera_task_commit.json').read_text())['commit']
+assert not subprocess.check_output(['git','diff','--name-only','--diff-filter=U'],cwd=work,text=True).strip()
+import_receipt=json.loads((out/'integration_import.json').read_text())
+assert import_receipt['status']=='PASS'
+assert 'ordinary private integration checkout' in import_receipt['scope'] and not import_receipt['source_drift']
+godot=import_receipt['command'][0]
+sources=['scripts/castle_career_routes.gd','scripts/opera_house_venue_2d.gd','scripts/probe_opera.gd','scripts/probe_throne.gd','scripts/collection_system.gd','assets/mg/butterfly.png.import']
+frozen={p:hashlib.sha256((work/p).read_bytes()).hexdigest() for p in sources}
+failure_re=re.compile(r'FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error')
+def probe(name):
+    profile=work/'tmp'/('verify_'+name+'_'+str(int(time.time())))
+    for folder in ['appdata','localappdata','data','config']:(profile/folder).mkdir(parents=True,exist_ok=True)
+    env=dict(os.environ,PYTHONUTF8='1',PYTHONIOENCODING='utf-8',APPDATA=str(profile/'appdata'),LOCALAPPDATA=str(profile/'localappdata'),XDG_DATA_HOME=str(profile/'data'),XDG_CONFIG_HOME=str(profile/'config'))
+    command=[godot,'--headless','--path',str(work),'-s','scripts/'+name+'.gd','--','--touch','--classic-touch-test']
+    logpath=out/('integration_'+name+'.log')
+    started=time.time()
+    with logpath.open('w',encoding='utf-8') as stream:
+        try:code=subprocess.run(command,cwd=work,env=env,stdout=stream,stderr=subprocess.STDOUT,timeout=600).returncode
+        except subprocess.TimeoutExpired:code=124
+    raw=logpath.read_bytes();text=raw.decode('utf-8',errors='replace')
+    errors=[line for line in text.splitlines() if failure_re.search(line)]
+    drift=[p for p,h in frozen.items() if hashlib.sha256((work/p).read_bytes()).hexdigest()!=h]
+    result={'command':command,'status':'PASS' if code==0 and not errors and not drift and 'ALL OK' in text else 'FAIL','exit_code':code,'elapsed_seconds':time.time()-started,'reported_failures':errors,'source_sha256':frozen,'source_drift':drift,'log_sha256':hashlib.sha256(raw).hexdigest()}
+    (out/('integration_'+name+'.json')).write_text(json.dumps(result,indent=2)+'\n')
+    return name,result
+names=['probe_opera','probe_collection','probe_throne']
+with ThreadPoolExecutor(max_workers=3) as pool:results=dict(pool.map(probe,names))
+assert all(r['status']=='PASS' for r in results.values()),results
+impact=json.loads(impact_path.read_text())
+new_names=['integration_import.json','integration_import.log','integration_gates.log','integration_verification.json','integration_verify.py.txt']+[f'integration_{n}.{ext}' for n in names for ext in ['json','log']]
+for name in new_names:
+    rel='audit/remove_opera_anteroom_20261017/'+name
+    if rel not in impact['files']:impact['files'].append(rel)
+shutil.copy2(__file__,out/'integration_verify.py.txt')
+row={'command':'Reconcile latest origin/dev in isolated checkout; exact-engine import and Opera/collection/throne focused integration probes; merged parser/lint, authority, coverage, owner append-only and whitespace gates','result':'PENDING','evidence':'integration_import.json/.log, integration_probe_*.json/.log, integration_verification.json and integration_gates.log. Preserve upstream painted butterfly tab and mipmaps. The source-folder junction incident, exact 19,151-file restoration, raw verification of all 740 protected binaries, and aborted setup transcripts are retained separately; this rerun uses ordinary private files and cache. Full published exact-head CI must pass before dev integration.'}
+impact['validation'].append(row)
+impact_path.write_text(json.dumps(impact,indent=2)+'\n')
+subprocess.run(['git','add','design/audit_impacts/remove-opera-anteroom-20261017.json'],cwd=work,check=True)
+subprocess.run(['git','add','-f',str(out.relative_to(work))],cwd=work,check=True)
+changed=[p for p in sources if p.endswith('.gd')]
+commands=[
+ [sys.executable,'-X','utf8','-B','-m','gdtoolkit.parser',*changed],
+ [sys.executable,'-X','utf8','-B','tools/lint_inference.py',*changed],
+ [sys.executable,'-X','utf8','-B','tools/audit_document_authority.py'],
+ [sys.executable,'-X','utf8','-B','tools/audit_development.py','--base','auto'],
+ [sys.executable,'-X','utf8','-B','tools/record_owner_decision.py','--check','--base','origin/dev'],
+ ['git','diff','--cached','--check']]
+exits=[]
+with (out/'integration_gates.log').open('w',encoding='utf-8') as stream:
+    for command in commands:
+        stream.write('COMMAND '+json.dumps(command)+'\n');stream.flush()
+        code=subprocess.run(command,cwd=work,stdout=stream,stderr=subprocess.STDOUT).returncode
+        exits.append(code);stream.write('EXIT '+str(code)+'\n');stream.flush()
+        if code:break
+data={'status':'PASS' if len(exits)==len(commands) and not any(exits) else 'FAIL','integration_base':subprocess.check_output(['git','rev-parse','HEAD'],cwd=work,text=True).strip(),'task_parent':subprocess.check_output(['git','rev-parse','MERGE_HEAD'],cwd=work,text=True).strip(),'source_sha256':frozen,'source_git_lf_sha256':{p:hashlib.sha256((work/p).read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in sources},'probe_receipts':{n:'integration_'+n+'.json' for n in names},'gate_exits':exits,'scope':'Latest dev reconciliation with upstream butterfly tab/mipmaps preserved. Exact 4.7.2 import plus three focused integration probes and static/authority gates. Original 82-probe per-probe evidence remains source-bound; full exact published-head CI is separately required before updating dev.'}
+(out/'integration_verification.json').write_text(json.dumps(data,indent=2)+'\n')
+row['result']=data['status']
+impact_path.write_text(json.dumps(impact,indent=2)+'\n')
+subprocess.run(['git','add','design/audit_impacts/remove-opera-anteroom-20261017.json'],cwd=work,check=True)
+subprocess.run(['git','add','-f',str(out.relative_to(work))],cwd=work,check=True)
+print(json.dumps(data))
+sys.exit(0 if data['status']=='PASS' else 1)
