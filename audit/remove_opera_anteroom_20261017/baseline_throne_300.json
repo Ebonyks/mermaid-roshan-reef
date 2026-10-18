@@ -1,0 +1,53 @@
+{
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--fixed-fps",
+    "300",
+    "--path",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera_throne_baseline_1792269572",
+    "-s",
+    "scripts/probe_throne.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "process_exit": 0,
+  "elapsed_seconds": 27.318002700805664,
+  "baseline_script_sha256": "b144585734a0983eab157bf03f265b76d4cd33c90e414cd9309e8e89a263af49",
+  "baseline_bindings": {
+    "scripts/arena/castle_rooms_25d.gd": {
+      "baseline_git_lf_sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+      "fixture_lf_sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+      "identical": true
+    },
+    "scripts/probe_throne.gd": {
+      "baseline_git_lf_sha256": "e1f37bcc4c328caa013d6d24ded2154ce47a5a5f884e5926a2508a1dc0c64a15",
+      "fixture_lf_sha256": "e1f37bcc4c328caa013d6d24ded2154ce47a5a5f884e5926a2508a1dc0c64a15",
+      "identical": true
+    },
+    "scripts/castle_career_routes.gd": {
+      "baseline_git_lf_sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "fixture_lf_sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "identical": true
+    },
+    "scripts/opera_house_venue_2d.gd": {
+      "baseline_git_lf_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "fixture_lf_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "identical": true
+    },
+    "scripts/probe_opera.gd": {
+      "baseline_git_lf_sha256": "7ae3134a6197f8dfe0ac3a415c67ed02bcf5a8f9dfe02c96c5880bff5033d1c0",
+      "fixture_lf_sha256": "7ae3134a6197f8dfe0ac3a415c67ed02bcf5a8f9dfe02c96c5880bff5033d1c0",
+      "identical": true
+    }
+  },
+  "reported_failures": [
+    "THRONE|walking_brings_royal_hall_on_screen|FAIL|8 floor taps, foot=2015",
+    "THRONE|done: FAILED (1)"
+  ],
+  "reproduced_five_mist_failure": false,
+  "log_sha256": "968582afe7243244880951c169fa277a8b31cf8cdd8aab175c7af60ed5cf27ac",
+  "scope": "Same unchanged baseline fixture, controlled 300fps simulation cadence. This is a diagnostic reproduction, not a runtime change or a waiver."
+}

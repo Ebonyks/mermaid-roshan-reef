@@ -1,0 +1,39 @@
+{
+  "id": "pool-repair-ci07-reconciliation",
+  "topic": "6ac82b4e87704835f8d8d102e6b8fa005d5d1bc6",
+  "incoming_dev": "a9875690ceff436e9ce012a675db09a236aef0f5",
+  "common_ancestor": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+  "incoming_runtime": "Two production edits only: open existing Opera venue immediately; Back closes venue and returns Main Hall. Opera assertions updated for that requested behavior; throne probe waits for real greeting completion without cancelling voice.",
+  "overlaps": "No Pool source overlap. Shared attrs/master/findings/ledger additions retained. Sole textual conflict .gitattributes resolved by retaining both independent Pool evidence and Opera log rules. Incoming rollback/owner-decision records remain unchanged.",
+  "pool_raw_hashes": {
+    "scripts/games/pool_skimmer_activity.gd": "65afbeba1988cc1b004918a3a5679bfd254e02b6fff4d36511393d9f3ae085ab",
+    "assets/shaders/castle_fixture_water.gdshader": "f129ae768ba7cc1e3ed642931248775fec47b89b22c3e8cc9a074e2c719b2891",
+    "scripts/games/day_one_dust_bunny_swimmer.gd": "82bbfd3c845c951a8fdc4abf74484f1ee0f0721440abfb4491dc19ed3f30712d",
+    "scripts/probe_day_one_pool_cleanup.gd": "1687975e1d3e52a38ab9dfc763199579d94b7be5b3ff1695cab256ce576b68d8",
+    "scripts/games/pool_waterfall_activity.gd": "924035d3e26536d820e0f109ebd9a814582e554f52ce617ddc178ccb2957b4b9",
+    "scripts/probe_day_one_pool_shots.gd": "b6bac0646759da60ab2216b7a21c750ca19346ecfcefc21697d29ad0a6ad29b7",
+    "scripts/arena/castle_rooms_25d.gd": "cc2159703cb8f731784cd51d0b8d40375d0d0da9fbfdb436d8012984a3ca13a9",
+    "shaders/pool_blocked_fountain.gdshader": "ad13c03ec16fa9d6f740d11ca162bd309be46a5cd80ee64432a0cbde8956e330",
+    "scripts/arena/castle_fixture_rigs.gd": "b1c226ec13827480df85654df6b89d8178a3d49c9d7361bf8b244cfecb629d7b",
+    "scripts/games/pool_seahorse_rescue_activity.gd": "928f6e39128c108e85fc801788c68c4e44509a0bd2aaad9b822049208b6eae5f",
+    "scripts/main.gd": "82c3e537d6f5dc251bb3857d1430089138377883860b44a668f4aced984dadad",
+    "shaders/pool_floating_debris.gdshader": "7581bcb94bb9d7d07b52355b469751c638b344697dbed1494b2c2588dbfa0268",
+    "scripts/arena/day_one_castle_dressing.gd": "62a37f285b84d628c9d8708e2c19b7f4f0b88ce391e2ea1ac4768542dff897a9"
+  },
+  "pool_source_mismatch_count": 0,
+  "topic_remote_ci": {
+    "run_id": 39084577588,
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39084577588",
+    "head": "6ac82b4e87704835f8d8d102e6b8fa005d5d1bc6",
+    "conclusion": "success",
+    "required_stages": "music provenance, static, exact4.7.2 import, every-script analyzer, trusted probes and displayed boot all success; advisory/visual acceptance remains separate"
+  },
+  "topic_remote_bytes": {
+    "access_mode": "anonymous HTTPS raw.githubusercontent.com",
+    "files": 116,
+    "bytes": 77736956,
+    "mismatches": 0,
+    "ignored_receipt_sha256": "a485747a2c9df93df666be20bbbe9604104b5eeac0995f4f7d36db2380b7f6ac"
+  },
+  "verification": "Scoped preflight PASS: document authority, parser and inference on all four inherited scripts, strict existing 2D regression gate (NO_REGRESSION only), development audit against exact incominga987, unstaged and staged diff checks all exit0. Canonical CI07 PASS: actual exit0 in3343.920s,82 ordered roster entries exit0, literal log SHA5df8a2cb4f8dc87a6b710c8cff653d1e839c194ac35fd52209dcc25d2eb9ac30. FINAL_LOCAL_CI07_VERIFICATION.json proves36 frozen paths,13 Pool sources,48 media and all91 prior-topic packet files unchanged. The display-only HEADLESS SKIP exception is explicit. Exact reconciled-head remoteCI/dev integration and device/child/owner acceptance remain pending at preparation. No root changes, private backups untouched, no release."
+}

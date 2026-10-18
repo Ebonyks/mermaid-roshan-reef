@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "previous_candidate": "6d71903d9fc2f18f243bc07c465dc26fc3b3252e",
+  "upstream": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+  "source_sha256": {
+    "scripts/castle_career_routes.gd": "412459b56638be07ef9d953a5de7f27e074429703a4c860f97a8d54b9d27a3c8",
+    "scripts/opera_house_venue_2d.gd": "1025986072f5d64d356ac779a797d3b8006a36b10d9ffa96616ecc6d76077305",
+    "scripts/probe_opera.gd": "f918cd813e8fdf4710d0a0d695730d855bfbf090f5b606cb0c1c916d4c44ca10",
+    "scripts/probe_throne.gd": "ffbb85dae31091c1aca4b5d1e4be44a7d14b9b867dfad74e67b266b01c0a1002",
+    "scripts/probe_verbs.gd": "99d4f4c35d45fb1704e072cdddadfbee8a4d7f131ec7d176b8a7f71018ee55d5",
+    "scripts/probe_dust_boss.gd": "d1e86eebf6167ca50ba611ef1a8ea0a801fc9f5dfb653f74f67540f0a78f0be3",
+    "scripts/probe_day_one_story_clips.gd": "8e1d3559af371156ea6a358d25a2968fe812f7c11b22f336750461eb112ba72f",
+    "scripts/day_one_flow.gd": "2fbe1025e2e0b13b57edd48bd6f79599ff2d783f1e166ba34115bfa6cc4b0578",
+    "scripts/arena/day_one_castle_dressing.gd": "cd21c1552bed9486c01da62cc6117fab00c82b7c31eae2f1e2062e56ca48aefe"
+  },
+  "source_git_lf_sha256": {
+    "scripts/castle_career_routes.gd": "1897f6b883cf910d4a6925d0ac3330c14c6398fff970d09c8b04f5c28f49b9e9",
+    "scripts/opera_house_venue_2d.gd": "3b2e258409663759e79c76cca7bc4aeb387629688a60349589bf79c8bdf4063a",
+    "scripts/probe_opera.gd": "f6963ee8e3e290910cb3bbebe10e51ab09c730491728334ce302cd4ff56fc999",
+    "scripts/probe_throne.gd": "d0a2253ceeed3005e35c71fe6949b697304d913be2d5a752f713a069a4e54a88",
+    "scripts/probe_verbs.gd": "501b9d94e2c8543286afc5f656d22375e59c5318dcf313cca2df6923cf0791db",
+    "scripts/probe_dust_boss.gd": "8d0fbdcfca3612f13490193f058b2a4083564bb29ac722670812e1394c5e0014",
+    "scripts/probe_day_one_story_clips.gd": "7c2bc849975712b8f45c2f1c052d131a6a3acb436d1ff9a86e31756b2eca4524",
+    "scripts/day_one_flow.gd": "fc5f524fdf6a3fe618b8bf28a19fe6b6b13330ee5f82af1242e3ea7c0696a2e2",
+    "scripts/arena/day_one_castle_dressing.gd": "d17608defd90ad71377f5e8a661056c60cd901c66a5861de4dc1fd6823b2453c"
+  },
+  "affected_probes": {
+    "opera": "r2_opera.json",
+    "throne": "r2_throne.json",
+    "throne_120": "r2_throne_120.json",
+    "verbs": "r2_verbs.json",
+    "story_clips": "r2_story_clips.json",
+    "dust_boss": "r2_dust_boss.json"
+  },
+  "gate_exits": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "scope": "Reconcile green CHG-097 dependency without changing the Opera runtime behavior. Preserve upstream five-mist framing, full authored-cycle motion and live/saved first-attack assertions; keep natural room-voice readiness. No thresholds weakened, no finding closure; new full exact-head CI required."
+}

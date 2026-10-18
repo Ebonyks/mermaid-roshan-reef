@@ -69,3 +69,6 @@ audit/grand_puff_crash_20261017/** -text whitespace=-blank-at-eol,-blank-at-eof,
 
 # Pool native capture/probe receipts bind literal evidence bytes across platforms.
 audit/cycles/pool-visual-repair-20261017/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# Preserve exact Windows/native-CI evidence bytes for the Opera room removal.
+audit/remove_opera_anteroom_20261017/*.log -text -diff

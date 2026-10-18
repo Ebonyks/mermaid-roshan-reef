@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_RAW_BYTES",
+  "source_commit": "77f72a7c59e504bf62ae98d85eee3be849c0fbc3",
+  "protected_binary_files": 740,
+  "roots": [
+    "assets/book",
+    "assets/audio/voices",
+    "assets/characters/friends"
+  ],
+  "raw_git_blob_mismatches": [],
+  "path_and_blob_manifest_sha256": "54bf5edd4457b7cd3562039f277550422ab487059fb7f8175d86e6397c998229",
+  "verification": "Each protected binary file was read by git hash-object --no-filters and matched its exact immutable Git blob ID; no text conversion, recompression or asset substitution is involved."
+}

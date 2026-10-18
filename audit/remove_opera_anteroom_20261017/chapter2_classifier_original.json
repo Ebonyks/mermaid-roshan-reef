@@ -1,0 +1,28 @@
+{
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+    "-s",
+    "scripts/probe_chapter2.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 285.2980532646179,
+  "source_sha256": {
+    "scripts/castle_career_routes.gd": "412459b56638be07ef9d953a5de7f27e074429703a4c860f97a8d54b9d27a3c8",
+    "scripts/opera_house_venue_2d.gd": "1025986072f5d64d356ac779a797d3b8006a36b10d9ffa96616ecc6d76077305",
+    "scripts/probe_opera.gd": "f918cd813e8fdf4710d0a0d695730d855bfbf090f5b606cb0c1c916d4c44ca10",
+    "scripts/probe_throne.gd": "b97b39e0e461065598a780e5922be9e21c2c3561914b925f257813e9f303feec",
+    "scripts/probe_chapter2.gd": "0276b386e1a8f4432fc88a533dec6723d77791fa518f15f37960112c5155d6ff",
+    "scripts/main.gd": "b7141748c9664fa4023d254495fd61ae4e80d6e536c3ada3972c2ea0104696c7"
+  },
+  "source_drift": [],
+  "reported_failures": [],
+  "log_sha256": "c2b982a92414052f74463df5b550bf94d41e176f516a47aae66b479814f2eaf7",
+  "status": "FAIL",
+  "scope": "Direct native process rerun of the unchanged Chapter Two probe after the original CI shell reported exit 127 without a verdict. No probe or production behavior is changed; original incomplete transcript and failure stay preserved. Separate isolated save profile; native process exit and final verdict required."
+}

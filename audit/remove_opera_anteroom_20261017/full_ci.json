@@ -1,0 +1,22 @@
+{
+  "command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "--noprofile",
+    "--norc",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\remove_opera_full_ci.sh"
+  ],
+  "started_unix": 1792260611.5536644,
+  "elapsed_seconds": 7200.281803846359,
+  "exit_code": 124,
+  "source_sha256": {
+    "scripts/castle_career_routes.gd": "412459b56638be07ef9d953a5de7f27e074429703a4c860f97a8d54b9d27a3c8",
+    "scripts/opera_house_venue_2d.gd": "1025986072f5d64d356ac779a797d3b8006a36b10d9ffa96616ecc6d76077305",
+    "scripts/probe_opera.gd": "f918cd813e8fdf4710d0a0d695730d855bfbf090f5b606cb0c1c916d4c44ca10"
+  },
+  "source_drift": [],
+  "log_sha256": "0fe7b03f81b865499489631ae1f800629d52b0061d2bfc21e30861b78e32ee24",
+  "status": "FAIL",
+  "scope": "Original outer Python launcher timed out after 7200 seconds. Its exact log snapshot is ci_wrapper_timeout.log. Native suite continued and ultimately exited 1; see ci_worker.json. This receipt is retained as failure evidence, not used as the final per-probe verdict.",
+  "native_receipt": "audit/remove_opera_anteroom_20261017/ci_worker.json",
+  "log_path": "audit/remove_opera_anteroom_20261017/ci_wrapper_timeout.log"
+}
