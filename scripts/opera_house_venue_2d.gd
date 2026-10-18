@@ -4,11 +4,18 @@ extends Control
 ##
 ## The accepted master painting supplies every visible portal. Controls are
 ## invisible physical portal hit regions; there is no card grid, career
-## crest, floating door frame, completion pearl, or all-career menu.
+## floating door frame, completion pearl, or all-career menu. The owner-directed
+## round signs sit above the arches, separate from the door touch regions.
 
 const CANVAS_SIZE := Vector2(1280.0, 720.0)
 const TILE_ROOT := \
 	"res://assets/flats/castle/opera_house_venue_2d/background_tiles/"
+const BADGE_REPAIR_ROOT := "res://assets/flats/castle/opera_house_venue_2d/badge_repairs/"
+const DOOR_ICON_SOURCE := "res://assets/flats/castle/opera_house_venue_2d/room_opera_house_venue.png"
+const DOOR_ICON_X: Array[int] = [357, 459, 565, 667]
+const DOOR_ICON_Y: Array[int] = [70, 195, 328]
+const DOOR_SIGN_Y: Array[float] = [47.0, 203.0, 367.0]
+const DOOR_SIGN_SIZE := Vector2(28.0, 28.0)
 const TILE_LOGICAL_SIZE := Vector2(320.0, 360.0)
 const TILE_COLUMNS := 4
 const TILE_ROWS := 2
@@ -88,6 +95,8 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 	set_meta("floating_portal_decoration_count", 0)
 	set_meta("chapter2_initial_tutorial_mode", chapter2_tutorial_mode)
 	_build_background_tiles()
+	_build_badge_repairs()
+	_build_door_signs()
 	_build_input_blocker()
 	_build_floor_glow()
 	_build_actor()
@@ -286,6 +295,53 @@ func _build_background_tiles() -> void:
 			tile.set_meta("source_asset_role", "clean_background_tile")
 			tile.set_meta("source_master_grid", "2x4_3640x2048")
 			tile_root.add_child(tile)
+
+
+func _build_badge_repairs() -> void:
+	# Heal only the old badge sites. Every original background tile remains
+	# unchanged, and no generated pixel is drawn outside these local patches.
+	var feather := ShaderMaterial.new()
+	feather.shader = load("res://shaders/opera_badge_repair_feather.gdshader") as Shader
+	for row in range(DOOR_ICON_Y.size()):
+		for column in range(DOOR_ICON_X.size()):
+			var repair := TextureRect.new()
+			repair.name = "DoorBadgeRepair_%d_%d" % [row, column]
+			repair.position = Vector2(float(DOOR_ICON_X[column] - 22),
+				float(DOOR_ICON_Y[row] - 22)) * 1.25
+			repair.size = Vector2(55.0, 62.5)
+			repair.texture = load(BADGE_REPAIR_ROOT
+				+ "door_badge_heal_r%d_c%d.png" % [row, column]) as Texture2D
+			repair.material = feather
+			repair.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			repair.stretch_mode = TextureRect.STRETCH_SCALE
+			repair.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			repair.z_index = 1
+			add_child(repair)
+
+
+func _build_door_signs() -> void:
+	# Reuse the twelve original round emblems. Local repair patches restore
+	# their old arch positions; each sign now has an independently placed quad.
+	var source_texture := load(DOOR_ICON_SOURCE) as Texture2D
+	var source_image := source_texture.get_image()
+	var mask := ShaderMaterial.new()
+	mask.shader = load("res://shaders/opera_door_icon_mask.gdshader") as Shader
+	for row in range(DOOR_ICON_Y.size()):
+		for column in range(DOOR_ICON_X.size()):
+			var source_rect := Rect2i(DOOR_ICON_X[column] - 14,
+				DOOR_ICON_Y[row] - 14, 28, 28)
+			var sign := TextureRect.new()
+			sign.name = "DoorIcon_%d_%d" % [row, column]
+			sign.texture = ImageTexture.create_from_image(source_image.get_region(source_rect))
+			sign.material = mask
+			sign.position = Vector2(float(DOOR_ICON_X[column]) * 1.25,
+				DOOR_SIGN_Y[row]) - DOOR_SIGN_SIZE * 0.5
+			sign.size = DOOR_SIGN_SIZE
+			sign.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			sign.stretch_mode = TextureRect.STRETCH_SCALE
+			sign.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			sign.z_index = 2
+			add_child(sign)
 
 
 func _build_input_blocker() -> void:

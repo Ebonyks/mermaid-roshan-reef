@@ -17,6 +17,7 @@
     "DL-QA-11"
   ],
   "findings": [
+    "MA-CI-008",
     "MA-VIS-006"
   ],
   "files": [
@@ -30,6 +31,25 @@
     "design/05_DOC_LEDGER.md",
     "design/audit_impacts/flat-vector-geologist-pan-runtime-20261017.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_WORKFLOW.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/CANCELLATION_ANNOTATIONS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/CANCELLED_RUN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/CONTEXT_REUSE_PROOF.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/LOCAL_82_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/MERGE_START.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/PRECHECK_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/RUNTIME_SOURCE_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/STATIC_LAUNCH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/STATIC_PREFIX.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/STATIC_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/TRUSTED_LAUNCH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/TRUSTED_PROBES.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/current_ci_static_prefix.sh",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/run_current_dev_probes.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/run_current_static.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/.gdignore",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/CANDIDATE_SOURCE_PIN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/CAPTURE_INDEX.json",
@@ -266,6 +286,16 @@
       "command": "CurrentDev a9875690 reconciliation: unchanged runtime source, retained two healthy checks, exact-native third-probe diagnostic and remaining trusted probes, plus two-aspect current native context",
       "result": "PASS",
       "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/NATIVE_RESUME_RESULT.json;82unique trusted checks. Initial -1/no-verdict failure preserved; unknown cause. docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/NATIVE_CONTEXT_RESULT.json; partial agent view only, formal/device/child/owner remain open."
+    },
+    {
+      "command": "GitHub39089515223 exact4918dc91 mandatory steps and overalljobbudget",
+      "result": "FAIL",
+      "evidence": "Trusted probes and boot gate success, area-music success; overalljobcancelled. GitHub annotation: job exceeded maximum55m0s. Exact logs/metadata retained; no overallgreenclaim."
+    },
+    {
+      "command": "Current pan+Dev7a65b9f0 exact4.7.2 all82trusted probe-by-probe and unchanged ci.sh static prefix",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/LOCAL_82_RESULT.json; docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/STATIC_RESULT.json; original cancelled run retained, no creative/physical acceptance."
     }
   ],
   "acceptance_gaps": "Candidate source art is not accepted for this new use. FormalQA11, phone performance/touch, child/owner and all other job art/callers/unknown whole-game coverage remain pending.",
@@ -285,5 +315,17 @@
     "new_generation_calls": 0,
     "accepted_removed": 0,
     "stage": "LOCAL_VALIDATED_PENDING_EXACT_HEAD_CI_AND_DEV"
+  },
+  "ci_budget_reconciliation_20261018": {
+    "source": "4918dc910b2f922a85f458cc0cdc710e8059c187",
+    "incoming_dev": "7a65b9f0abacddeee70230f220955f4d18d551b5",
+    "published_run": 39089515223,
+    "old_CI": "Trusted probes/boot success; overall55minutejobtimeout before final advisory capture, never overallPASS.",
+    "upstream_authorized_workflow": "Exactorigin/dev 90minuteprobes job from1549c377; no new policy edit or assertion/check/action-pin reduction.",
+    "new_merged_validation": "PASS82trusted and exact repository static prefix; new exact-sourceCI pending",
+    "pan_runtime_and_source_pixels_unchanged": true,
+    "new_generation_calls": 0,
+    "new_native_frames": 0,
+    "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/STATUS.json"
   }
 }

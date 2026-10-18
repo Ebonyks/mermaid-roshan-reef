@@ -1,0 +1,38 @@
+{
+  "tested_topic": "ee3f3f65b2ca8e3b17754dd597e22cbafa3cd989",
+  "tested_topic_full_ci": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39087719032",
+  "tested_topic_full_ci_status": "SUCCESS",
+  "incoming_dev": "1549c3777b653381030a3cc47f5b2479fb0d9a72",
+  "unchanged_runtime_and_art_pin_count": 686,
+  "runtime_and_art_drift": [],
+  "affected_checks": {
+    "import": {
+      "status": "PASS",
+      "log_sha256_raw": "55a78d601c2f683731bf352c361d4011c153bd5f904a5b6f35982724b9eb1508"
+    },
+    "tests": {
+      "status": "PASS",
+      "log_sha256_raw": "e3f4ddae8302761ab59f5d8bb8a55a14ff0519455a40db7152e2d0fe7bc5666b"
+    },
+    "render": {
+      "status": "PASS",
+      "log_sha256_raw": "1deac06ed232e3fdf696b5def82195c488e562712435d2e40c2a8102b702ce1c"
+    },
+    "audio": {
+      "status": "PASS",
+      "log_sha256_raw": "c184a29fc6d4e0457c73dae678aeabd45ee16b3d4a8e4d3f8ebbef216500b440"
+    },
+    "native": {
+      "status": "PASS",
+      "log_sha256_raw": "af699921ed9b8100de48f99706a90467d5d9ab175a1c33fb2e22ea6cd0ed0e22"
+    },
+    "gates": {
+      "status": "PASS",
+      "log_sha256_raw": "91782b7dce4987da103ade87f5f3ebbe78043dcbe5ca50716aa566157436c250"
+    }
+  },
+  "coverage": "Unchanged scripts/scenes/shaders/foyer assets retain the full82 source-bound local pass and exact-topic CI. The only incoming runtime-data change is the Opera music file; fresh native Audio/Opera and deterministic44-cue/857-row/new music tests pass on the merged combination. No unrelated native result is relabelled as a merged-source rerun.",
+  "workflow_scope": "Exactly the already-owner-authorized incoming55to90 minute job budget; all checks/action pins/permissions/assertions preserved.",
+  "combined_head_ci": "PENDING; must pass before dev integration.",
+  "acceptance": "Formal visual/audio listening/device/child/owner acceptance remains open."
+}

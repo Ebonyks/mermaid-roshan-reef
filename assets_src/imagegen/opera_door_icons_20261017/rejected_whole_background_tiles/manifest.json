@@ -1,0 +1,145 @@
+{
+	"derivation": "Godot Image Lanczos whole-canvas normalization, then non-overlapping 4x2 crops; no scene-content synthesis in packaging",
+	"master_size": [
+		3640,
+		2048
+	],
+	"native_size": [
+		1672,
+		940
+	],
+	"resolution_limit": "Native generation dimensions are recorded without claiming that normalization creates native 2K detail.",
+	"role": "owner_directed_foyer_icon_placement",
+	"source": "assets_src/imagegen/opera_door_icons_20261017/foyer_icons_above_doors.png",
+	"source_sha256": "c88841448c1eab1e5e34acb21f0326a29b417b0b32495ea2526f4a99bbe76880",
+	"tiles": [
+		{
+			"column": 0,
+			"path": "assets/flats/castle/opera_house_venue_2d/icons_above_doors/room_opera_house_venue_background_r0_c0.png",
+			"row": 0,
+			"sha256": "2631b219f6b8c065a29c4ffd027443b84d00e82b7d4c62a679f25d23da32b594",
+			"size": [
+				910,
+				1024
+			],
+			"source_rect": [
+				0,
+				0,
+				910,
+				1024
+			]
+		},
+		{
+			"column": 1,
+			"path": "assets/flats/castle/opera_house_venue_2d/icons_above_doors/room_opera_house_venue_background_r0_c1.png",
+			"row": 0,
+			"sha256": "40bf14861060b6784e9638db448e3cbcb74e6cb379e75044f36df1726ecfb7d5",
+			"size": [
+				910,
+				1024
+			],
+			"source_rect": [
+				910,
+				0,
+				910,
+				1024
+			]
+		},
+		{
+			"column": 2,
+			"path": "assets/flats/castle/opera_house_venue_2d/icons_above_doors/room_opera_house_venue_background_r0_c2.png",
+			"row": 0,
+			"sha256": "1a303d5e6ff9e62d98b894cbac3bf6fd51a25eb8303b5e6cc69f9d0400829898",
+			"size": [
+				910,
+				1024
+			],
+			"source_rect": [
+				1820,
+				0,
+				910,
+				1024
+			]
+		},
+		{
+			"column": 3,
+			"path": "assets/flats/castle/opera_house_venue_2d/icons_above_doors/room_opera_house_venue_background_r0_c3.png",
+			"row": 0,
+			"sha256": "e21c9748414e5ead069815f0c1f61ccd71cae61e3a5b5dc2d184b193bebbd1ac",
+			"size": [
+				910,
+				1024
+			],
+			"source_rect": [
+				2730,
+				0,
+				910,
+				1024
+			]
+		},
+		{
+			"column": 0,
+			"path": "assets/flats/castle/opera_house_venue_2d/icons_above_doors/room_opera_house_venue_background_r1_c0.png",
+			"row": 1,
+			"sha256": "7deb5a1c834cc09b9bea73a1e1cd25e1d61ae449f07b3c0a98e2fb4837e22c21",
+			"size": [
+				910,
+				1024
+			],
+			"source_rect": [
+				0,
+				1024,
+				910,
+				1024
+			]
+		},
+		{
+			"column": 1,
+			"path": "assets/flats/castle/opera_house_venue_2d/icons_above_doors/room_opera_house_venue_background_r1_c1.png",
+			"row": 1,
+			"sha256": "efbec1d72d5673c72e5b01e3336d01da3fe64be4e8439fae51902c6d2ed59238",
+			"size": [
+				910,
+				1024
+			],
+			"source_rect": [
+				910,
+				1024,
+				910,
+				1024
+			]
+		},
+		{
+			"column": 2,
+			"path": "assets/flats/castle/opera_house_venue_2d/icons_above_doors/room_opera_house_venue_background_r1_c2.png",
+			"row": 1,
+			"sha256": "5cd250243aa14d9685cf818e3c5ddbd81426e6da027d17b26d74f393701e75ae",
+			"size": [
+				910,
+				1024
+			],
+			"source_rect": [
+				1820,
+				1024,
+				910,
+				1024
+			]
+		},
+		{
+			"column": 3,
+			"path": "assets/flats/castle/opera_house_venue_2d/icons_above_doors/room_opera_house_venue_background_r1_c3.png",
+			"row": 1,
+			"sha256": "6c7de0ba8e575061016e78d00dadf6d8ea6dd223efe13996c5f86050eb43545e",
+			"size": [
+				910,
+				1024
+			],
+			"source_rect": [
+				2730,
+				1024,
+				910,
+				1024
+			]
+		}
+	]
+}

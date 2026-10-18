@@ -1,0 +1,21 @@
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "-m", "gdtoolkit.parser", "scripts/opera_house_venue_2d.gd", "scripts/probe_opera.gd", "tools/build_opera_door_icon_patches.gd"]
+EXIT=0
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "tools/lint_inference.py", "scripts/opera_house_venue_2d.gd", "scripts/probe_opera.gd", "tools/build_opera_door_icon_patches.gd"]
+EXIT=0
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "tools/audit_document_authority.py"]
+DOCAUTH|INVENTORY=706|LEDGER=706|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+EXIT=0
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "tools/audit_development.py", "--base", "auto"]
+AUDITDEV|BASE|1549c3777b653381030a3cc47f5b2479fb0d9a72
+AUDITDEV|RESULT|ALL OK
+EXIT=0
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "tools/audit_godot_baseline.py", "--godot", "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe"]
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+EXIT=0
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "tools/record_owner_decision.py", "--check", "--base", "a9875690ceff436e9ce012a675db09a236aef0f5"]
+DECISIONS|COUNT|47
+DECISIONS|RESULT|ALL OK
+EXIT=0
+["git", "-c", "core.safecrlf=false", "diff", "--check"]
+EXIT=0

@@ -12,6 +12,21 @@
 > Historical 42/42 verification statements below remain dated evidence for the
 > original rollout rather than claims about this later cue.
 
+> **2026-10-17 Opera melodic-focus candidate:** The current three-floor venue
+> owns `castle_opera_hall` through the Castle room soundtrack mapping; the
+> retained `opera_lobby` is not that room's active cue. “Pearl Curtain Promenade”
+> now has an explicitly authored D-major eight-bar 6/8 lead at 92 eighths/minute:
+> the six-note Roshan hook returns unchanged in bar 3, a higher response develops
+> bars 5–6, and a dominant-to-tonic cadence ends with room to breathe. Harp and
+> bass sit behind a centered clarinet; one bell punctuates the final arrival.
+> The optional `authored_melody` score records every pitch, duration, rest,
+> register and bar dynamic. Its exact per-bar progression replaces automatic
+> rotation/lifts only for this cue; all other scores retain their arrangements.
+> Renderer v3 preserves the existing synthesis/loop/mix contract. This is an
+> owner-requested composition candidate, with exact evidence and remaining
+> listening/device/child/owner gates in the [impact](design/audit_impacts/opera-melody-20261017.json).
+> No human improvement grade or `MA-AUDIO-001` closure is claimed.
+
 ## 1. Purpose and audience
 
 This is the human-readable source of truth for how music should work in *Mermaid Roshan: Reef of Light*. It is for the owner, composers, audio implementers, reviewers, and future maintainers who need to understand both the feeling of the score and the reasons behind the file-and-code decisions.
@@ -210,7 +225,7 @@ The Main Hall is deliberately absent from this table because it retains `hall.og
 
 | Slug and title | Authored form | Palette | Individual composition brief |
 |---|---|---|---|
-| `castle_opera_hall` — *Pearl Curtain Promenade* | 8 bars · 92 BPM · 6/8 · D Lydian | Clarinet, harp, warm bass, bell; brushes | A poised theatre promenade. Harp footsteps and clarinet curtain calls create anticipation without rushing the child toward a door. |
+| `castle_opera_hall` — *Pearl Curtain Promenade* | 8 bars · 92 BPM · 6/8 · D major | Clarinet, harp, warm bass, bell; brushes | Authored hook and answer: repeated clarinet theme, one higher response and a clear home cadence over quiet harp, with breath between phrases. |
 | `castle_kitchen` — *Copper Kettle Waltz* | 12 bars · 90 BPM · 3/4 · C major | Clarinet, toy piano, warm bass, pizzicato; brushes | A homey little classical waltz. Toy-piano flourishes and pizzicato stirring motions leave generous room for cooking voices. |
 | `castle_library` — *Lanterns Between Pages* | 8 bars · 76 BPM · 4/4 · F major | Flute, harp, warm bass, music box; no percussion | Flute phrases open like picture-book pages over soft harp arpeggios. Long rests and sustained warmth keep it curious rather than sleepy. |
 | `castle_playroom` — *Stuffie Parade* | 12 bars · 108 BPM · 4/4 · B-flat major | Marimba, warm brass, warm bass, toy piano; soft march | A soft toy march with marimba feet and rounded brass answers. It invites make-believe marching but never sounds military. |

@@ -1,0 +1,66 @@
+[
+  {
+    "gate": "parser",
+    "command": [
+      "python",
+      "-m",
+      "gdtoolkit.parser",
+      "scripts/opera_geology_surface.gd",
+      "scripts/opera_house_venue_2d.gd",
+      "scripts/probe_opera.gd"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 1.256,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "gate": "inference",
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "scripts/opera_geology_surface.gd",
+      "scripts/opera_house_venue_2d.gd",
+      "scripts/probe_opera.gd"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.126,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "gate": "authority",
+    "command": [
+      "python",
+      "-B",
+      "tools/audit_document_authority.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 16.503,
+    "log_sha256": "36d337d806536214c32e1e100e2d0de997b94eb8a8a7d454a30339d45e462a75"
+  },
+  {
+    "gate": "development",
+    "command": [
+      "python",
+      "-B",
+      "tools/audit_development.py",
+      "--base",
+      "auto"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2.454,
+    "log_sha256": "580bff84ff502abd8798092f2eaef19e92724a1b266d75a9a41d7827197bf418"
+  },
+  {
+    "gate": "game2d",
+    "command": [
+      "python",
+      "-B",
+      "tools/audit_game_2d.py",
+      "--regression-gate"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 204.354,
+    "log_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac"
+  }
+]

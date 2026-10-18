@@ -73,3 +73,9 @@ docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/**/*.lo
 audit/remove_opera_anteroom_20261017/*.log -text -diff
 
 docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/**/*.log -text -diff
+
+# Preserve exact native Opera icon-placement verification logs.
+audit/opera_door_icons_20261017/*.log -text -diff
+audit/opera_door_icons_20261017/*.txt -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/**/*.log -text -diff
