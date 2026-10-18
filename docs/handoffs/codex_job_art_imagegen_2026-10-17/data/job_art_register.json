@@ -1333,18 +1333,29 @@
    "id": "JA-CDY-03",
    "job": "candymaker",
    "phase": "SHARE",
-   "element": "Six waving friends",
+   "element": "Recipients of the shared candies",
    "where": [
     "scripts/opera_gesture_surface.gd:2988-3014"
    ],
    "now": "stick-figure circles and lines",
    "class": "FLAT_CENTRAL",
    "severity": "HIGH",
-   "available_art": [],
+   "available_art": [
+    {
+     "path": "assets/sprites/stuffie_studio/lamma.png",
+     "location": "dev",
+     "sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268",
+     "size": [
+      949,
+      1024
+     ],
+     "note": "Lamb-a' stuffie identity; generate a happy-with-candy state"
+    }
+   ],
    "action": "IMAGEGEN",
    "brief": "JB-CDY-02",
    "package": "P7",
-   "note": "Owner Q4; the protected friend portraits are not to be altered."
+   "note": "Owner answer Q4 2026-10-18 \"use extra stuffies\" (ODR-JOBART-SHARE-STUFFIES-20261018): recipients are stuffies, not new sea creatures or the protected portraits. Codex's in-flight candymaker-boxes-friends-20261017 work records ODR-CANDY-BOXES-FAMILY-20261017 (Baby Eagle, Rumi, Daddy Mermaid with voiced thanks); further recipients are stuffies, Lamb-a' and Mewsha first."
   },
   {
    "id": "JA-CDY-04",
@@ -2433,7 +2444,7 @@
    "action": "WIRE_EXISTING",
    "brief": null,
    "package": "P5",
-   "note": "Owner Q3 (career design)."
+   "note": "Owner answer Q3 2026-10-18 \"use them\" (ODR-JOBART-NURSERY-FRAMES-20261018): wire the stranded frames as they are."
   },
   {
    "id": "JA-NUR-03",
@@ -2531,7 +2542,7 @@
    "action": "IMAGEGEN",
    "brief": "JB-NUR-01",
    "package": "P5",
-   "note": "Owner Q3 (career design)."
+   "note": "Owner answer Q3 2026-10-18 \"use them\" (ODR-JOBART-NURSERY-FRAMES-20261018): wire the stranded frames as they are."
   },
   {
    "id": "JA-NUR-04",
@@ -2697,7 +2708,8 @@
    "available_art": [],
    "action": "REMOVE",
    "brief": null,
-   "package": "P8"
+   "package": "P8",
+   "note": "Owner answer Q2 2026-10-18 \"yes\" (ODR-JOBART-DECORATION-20261018)."
   },
   {
    "id": "JA-SHR-02",
@@ -2759,7 +2771,8 @@
    "available_art": [],
    "action": "REMOVE",
    "brief": null,
-   "package": "P8"
+   "package": "P8",
+   "note": "Owner answer Q2 2026-10-18 \"yes\" (ODR-JOBART-DECORATION-20261018)."
   },
   {
    "id": "JA-SHR-05",
@@ -2816,9 +2829,9 @@
    "severity": "LOW",
    "available_art": [],
    "action": "REMOVE",
-   "brief": "JB-SHR-01",
+   "brief": null,
    "package": "P8",
-   "note": "Owner Q2."
+   "note": "Owner answer Q2 2026-10-18 \"yes\" (ODR-JOBART-DECORATION-20261018): remove from job scenes; JB-SHR-01 closed."
   },
   {
    "id": "JA-SHR-08",
@@ -3329,5 +3342,29 @@
    "package": "P10",
    "note": "Delete after the job's painted art lands; make missing textures fail loudly in probes (BRIEFS C9)."
   }
- ]
+ ],
+ "owner_answers_2026_10_18": {
+  "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+  "Q1": {
+   "answer": "all the above",
+   "decision": "ODR-JOBART-ORDER-20261018"
+  },
+  "Q2": {
+   "answer": "yes",
+   "decision": "ODR-JOBART-DECORATION-20261018"
+  },
+  "Q3": {
+   "answer": "use them",
+   "decision": "ODR-JOBART-NURSERY-FRAMES-20261018"
+  },
+  "Q4": {
+   "answer": "use extra stuffies",
+   "decision": "ODR-JOBART-SHARE-STUFFIES-20261018"
+  },
+  "Q5": {
+   "answer": "yes",
+   "decision": "ODR-JOBART-PROCESS-20261018"
+  }
+ },
+ "packages_note": "Owner answer Q1 2026-10-18 \"all the above\" (ODR-JOBART-ORDER-20261018): every package is first priority; packages editing scripts/opera_gesture_surface.gd (P4, P6, P7, P8) take turns in that file in the listed order."
 }

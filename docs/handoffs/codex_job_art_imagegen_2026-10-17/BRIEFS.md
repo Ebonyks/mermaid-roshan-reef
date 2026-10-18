@@ -382,18 +382,45 @@ four twist states, untwisted to fully twisted. Each state is a whole picture
 
 **Deliver.** `widget_wrap_candy_{0..3}.png`, 256².
 
-### JB-CDY-02 Waving sea friends for SHARE (JA-CDY-03; owner Q4)
+### JB-CDY-02 Stuffie recipients for SHARE (JA-CDY-03; owner answer Q4)
 
 **Replaces.** The six stick figures at `gesture:2988-3014`.
 
-**Picture.** Six small painted sea friends: a seahorse, a pufferfish, a crab,
-a turtle, an octopus and a starfish. They are new characters, in the finish
-of A3. Each has two states: waving with an open fin or claw, and holding a
-candy with a happy face. They must not copy or alter the protected friend
-portraits.
+**Owner answers.**
+- 2026-10-18: "use extra stuffies" (`ODR-JOBART-SHARE-STUFFIES-20261018`).
+- An earlier direction of 2026-10-17 (`ODR-CANDY-BOXES-FAMILY-20261017`) is
+  recorded in Codex's in-flight `candymaker-boxes-friends-20261017` work, not
+  on `dev` at revision 3. It makes the recipients Baby Eagle, Rumi and Daddy
+  Mermaid, with voiced thanks, using their existing art.
 
-**Deliver.** `assets/opera/worlds/actors/candy_friend_<name>_{wave,happy}.png`,
-256².
+Any recipients beyond those three are stuffies. They are never new sea
+creatures and never the protected friend portraits.
+
+**Picture, in this order:**
+1. **Lamb-a'.** Reuse `assets/sprites/stuffie_studio/lamma.png` (949×1024,
+   sha256 `fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268`)
+   as the identity. Generate one more whole-body state of the same plush:
+   holding a wrapped candy with a happy face. Keep her rounded squishy shape,
+   pale blue-grey wool, her painted egg, the pink cheeks and the soft
+   blue-grey contour.
+2. **Mewsha.** The companion cat stuffie has no painted whole-body cutout in
+   2D. She is drawn from tinted `assets/mg/cat_body.png` and
+   `cat_accent.png`, and her line layer `cat_line.png` is an 8×8 placeholder.
+   - Generate a painted plush cat in the finish of Lamb-a', in her roster
+     colours (`scripts/companion.gd:34-37`): soft pink body, purple accent,
+     cream third colour.
+   - Two states: waving, and happy holding a candy.
+   - The owner confirms her look before she ships, because she is a real
+     companion.
+3. **More stuffies, only if the job needs more recipients than these.** New
+   painted plush toys in the same finish, one at a time, each with the same
+   two states.
+
+**Deliver.** `assets/opera/worlds/actors/candy_stuffie_<name>_{wave,happy}.png`,
+512² (`lamma_happy` needs only the happy state).
+
+**Done when:** Codex's in-flight Candymaker change and these stuffies agree on
+the recipient count.
 
 Two Candymaker items are in flight in Codex's `candymaker-boxes-friends-20261017`:
 SORT (JA-CDY-01) and the sort boxes. Finish them there.
@@ -566,7 +593,8 @@ Wire the stranded art first:
 - `wash_connected_v1_20261002/*` gives WASH HANDS a picture;
 - `refinement_v2/care_00..07` covers FEED and BURP.
 
-Owner Q3 covers their design.
+The owner answered "use them" (`ODR-JOBART-NURSERY-FRAMES-20261018`); wire
+them as they are, in the Nursery.
 
 ### JB-NUR-01 Bottle states (JA-NUR-03)
 
@@ -674,13 +702,12 @@ They match `assets/castle/day_one_art_studio/paint_bottle_pink.png` and
 
 ## 16. Shared families
 
-### JB-SHR-01 Ambient motifs (owner Q2 only)
+### JB-SHR-01 Ambient motifs: closed (owner answer Q2)
 
-Only if the owner keeps ambient motifs in jobs. Paint the motif set of
-`scripts/living_world_canvas.gd:114-349` (bubble, leaf, flower, fish,
-butterfly, note, heart, shell, star and the rest) as a 128² atlas.
-
-Default: remove the motifs from job scenes instead (JA-SHR-07).
+Not needed. The owner accepted the default on 2026-10-18
+(`ODR-JOBART-DECORATION-20261018`): the code motifs of
+`scripts/living_world_canvas.gd:114-349` are removed from job scenes
+(JA-SHR-07), not repainted.
 
 ### JB-SHR-02 Invitation ring (JA-SHR-02, JA-BOX-03)
 

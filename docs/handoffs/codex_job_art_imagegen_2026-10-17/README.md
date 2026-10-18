@@ -17,7 +17,10 @@ sub optimal to retain quality."
 - **To:** Codex: every code change, every image and every capture.
 - **Owner:** answers Q1-Q5 below and accepts the look.
 
-**Status:** `PROPOSED / CANDIDATE`, revision 2. Revision 2 corrects three
+**Status:** `PROPOSED / CANDIDATE`, revision 3.
+- Revision 3 records the owner's answers of 2026-10-18 to Q1-Q5 (see
+  [Owner answers](#owner-answers-2026-10-18)).
+- Revision 2 corrected three
 counts from revision 1:
 - every career, not nine, has at least one code-drawn object the child acts on;
 - four code paths, not three, request art that was never made;
@@ -80,6 +83,11 @@ flat-vector packet.
   are wiring, drawing fixes, deletions or work already in flight.
 
 ## Packages, in order
+
+Owner answer Q1 ("all the above"): every package below is first priority.
+- Run packages in parallel where they do not edit the same files.
+- Packages that edit `scripts/opera_gesture_surface.gd` (P4, P6, P7 and P8)
+  take turns in that file, in the order listed.
 
 Each package is one branch from current `dev`, carrying:
 - one impact record;
@@ -175,7 +183,7 @@ owner looks again at the Chef (the owner rejected its look on 2026-10-03).
 **Wire:**
 - the stranded cradle hands and pillows;
 - the wash frames (WASH HANDS currently shows nothing);
-- the care frames (owner Q3);
+- the care frames, as they are (owner answer Q3: "use them");
 - the crib mobile;
 - the painted gloves.
 
@@ -204,7 +212,8 @@ JB-PNT-01.
 ### P7 Ballerina, Racer, Pop Star, Detective, Candymaker (JA-BAL-*, JA-RAC-*, JA-POP-*, JA-DET-*, JA-CDY-*)
 
 **Generate:** the shell frame, ribbon, twirl ring, race controls, singing
-stars, music notes, wrapper twist and sea friends (owner Q4).
+stars, music notes and wrapper twist. For the SHARE recipients, use stuffies
+(owner answer Q4, brief JB-CDY-02).
 
 **Fix:** the crops, the 60% ghosting and the tilted mic.
 
@@ -216,7 +225,7 @@ stars, music notes, wrapper twist and sea friends (owner Q4).
 **Remove:**
 - the spotlight wedges over the 13 painted rooms;
 - the causal-backdrop and playfield stripes;
-- the ambient doodles in jobs (owner Q2).
+- the ambient doodles in jobs (owner answer Q2: "yes" to the default).
 
 **Replace** with painted families:
 - the invitation ring;
@@ -278,6 +287,9 @@ missing textures fail its probe (BRIEFS C9).
 
 ## Questions for the owner
 
+The owner answered these on 2026-10-18; the answers and what they change are
+in [Owner answers](#owner-answers-2026-10-18).
+
 | # | Question | Default if unanswered |
 |---|---|---|
 | Q1 | Which jobs first? | Geologist and Teacher (the two that are almost all code), then Astronaut and Chef, then the stranded-art wins (Nursery, Boxer), then the rest |
@@ -285,6 +297,19 @@ missing textures fail its probe (BRIEFS C9).
 | Q3 | The stranded Nursery frames show Roshan in the older career design (loose rainbow lock, headband, no tiara), which matches the Nursery atlas the child sees in the same scene. Use them, or regenerate them following the base-world child (`ODR-ROSHAN-Q13`)? | Use them in the Nursery so the scene stays consistent; new Roshan art elsewhere follows the base-world child |
 | Q4 | Candymaker SHARE needs six friends. New painted sea friends (seahorse, pufferfish, crab, turtle, octopus, starfish), or the protected family friend portraits? | New painted sea friends; the protected portraits stay untouched |
 | Q5 | May Codex work in one branch per package, with one impact record and green CI before merging, and stop publishing per-step receipts for internal work? | Yes. External handoffs (Grok and others) keep the full GitHub delivery rule. |
+
+## Owner answers (2026-10-18)
+
+The owner answered in the session, quoted verbatim below. The answers are
+recorded in the owner decision register (`design/reference/OWNER_DECISIONS.md`).
+
+| # | Owner answer | Decision ID | What it means for Codex |
+|---|---|---|---|
+| Q1 | "all the above" | `ODR-JOBART-ORDER-20261018` | Every job package is first priority; no job waits for another. Packages run in parallel where their files do not overlap. Where they share a file, they go in the listed order. |
+| Q2 | "yes" | `ODR-JOBART-DECORATION-20261018` | The stated default is accepted. Remove the spotlight wedges, the causal-backdrop and playfield stripes, and the ambient doodles from job scenes (JA-SHR-01, -04, -07). Replace the invitation halo and the sparkles with one painted ring and sparkle family (JB-SHR-02, JB-SHR-04). No ambient motif atlas is needed (JB-SHR-01 closed). |
+| Q3 | "use them" | `ODR-JOBART-NURSERY-FRAMES-20261018` | Wire the stranded Nursery care and wash frames as they are, in the older career design, in the Nursery (JA-NUR-02, JA-NUR-03). New Roshan art elsewhere still follows the base-world child (`ODR-ROSHAN-Q13`). |
+| Q4 | "use extra stuffies" | `ODR-JOBART-SHARE-STUFFIES-20261018` | The Candymaker SHARE recipients are stuffies, not new sea creatures and not the protected friend portraits. Codex's in-flight Candymaker work carries an earlier direction of 2026-10-17 (`ODR-CANDY-BOXES-FAMILY-20261017`, not on `dev` at revision 3) naming Baby Eagle, Rumi and Daddy Mermaid, with voiced thanks. Any further recipients are extra stuffies, Lamb-a' and Mewsha first (brief JB-CDY-02). |
+| Q5 | "yes" | `ODR-JOBART-PROCESS-20261018` | Codex works one branch per package, with one impact record, green CI, then a merge to `dev`. It stops publishing per-step receipts for internal work. External handoffs (Grok and others) keep the full GitHub delivery rule. |
 
 ## Delivery
 

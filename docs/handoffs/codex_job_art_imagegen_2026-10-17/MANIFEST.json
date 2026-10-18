@@ -1,8 +1,8 @@
 {
  "schema": "reef.claude-handoff-manifest.v1",
  "handoff_id": "codex_job_art_imagegen_2026-10-17",
- "revision": 2,
- "status": "PROPOSED / CANDIDATE (revision 2: count corrections after review of revision 1)",
+ "revision": 3,
+ "status": "PROPOSED / CANDIDATE (revision 3: owner answers of 2026-10-18 recorded; stuffie SHARE brief)",
  "baseline": "7a65b9f0abacddeee70230f220955f4d18d551b5",
  "repository": "Ebonyks/mermaid-roshan-reef",
  "branch": "claude/job-art-imagegen-audit-20261017",
@@ -17,8 +17,8 @@
  "files": [
   {
    "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md",
-   "bytes": 14136,
-   "sha256": "b0b3306afe9d541cfc53203a211be2f6f847353beb5cf4c62fea797566071cd9"
+   "bytes": 16648,
+   "sha256": "17496a500e93c139a7ee7a395ac9422be2b3df6e0eb460eb8f46554bcae8d119"
   },
   {
    "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/AUDIT.md",
@@ -27,8 +27,8 @@
   },
   {
    "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/BRIEFS.md",
-   "bytes": 32340,
-   "sha256": "b1ef06e4547323d64b7133931de294094043799b5d17c8348583ac632e881b5c"
+   "bytes": 33835,
+   "sha256": "2ff07995e926ae80649627872d1e2751a6716707b1f7ef462312e4fe88998f99"
   },
   {
    "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/.gdignore",
@@ -37,8 +37,8 @@
   },
   {
    "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/job_art_register.json",
-   "bytes": 88744,
-   "sha256": "586a5bbbc09299bdf36cf456c4e85b55e9263dd344ed4748ee841dd214d50bce"
+   "bytes": 90623,
+   "sha256": "ac6c5d0b39813d97d937c21c2dd749d350682eafcb913aa09104df77400bf443"
   },
   {
    "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/measure_baseline.json",
@@ -50,5 +50,6 @@
    "bytes": 21507,
    "sha256": "90d18a956ec3ece37cd46c3b573fa3224a4e926b8569c85c12ecf05d00c4bcae"
   }
- ]
+ ],
+ "owner_answers": "README.md#owner-answers-2026-10-18"
 }
