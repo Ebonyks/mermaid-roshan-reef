@@ -1,0 +1,131 @@
+{
+ "id": "job-art-imagegen-audit-20261017",
+ "scope": "Owner request 2026-10-17: identify weak artwork in the game, particularly in the jobs; identify where ImageGen versions were made but are not properly in the game and where ImageGen art is still needed, to eliminate flat vector art; then make a Codex handoff to revise them. Claude wrote an audit, written ImageGen briefs and a 108-item register (docs/handoffs/codex_job_art_imagegen_2026-10-17/), with a numbers-only measurement tool that never writes images. Findings at dev 7a65b9f0: the Opera career code makes 972 primitive draw calls against 107 texture draws; 28 of 61 career phases draw their own picture; five SVG files are live; 74 finished painted job images sit on four unmerged branches with no copy on dev; a painted Geologist grotto has sat unprepared in assets_src since 2026-09-05; three code paths request painted art that was never made and two Geologist texture paths are empty strings; much painted art is loaded but not drawn, or is stretched, ghosted or covered. New finding MA-VIS-010 (P1). Cross-reference history added to MA-VIS-008 and MA-OPERA-001 with lifecycles unchanged; master audit triage row, task route and change history; document ledger rows. No game file, asset, image or other finding lifecycle changes.",
+ "baseline": "7a65b9f0abacddeee70230f220955f4d18d551b5",
+ "rules": [
+  "DL-AUTH-05",
+  "DL-AUTH-06",
+  "DL-AUTH-07",
+  "DL-VIS-01",
+  "DL-VIS-02",
+  "DL-VIS-04",
+  "DL-VIS-05",
+  "DL-VIS-07",
+  "DL-MED-05",
+  "DL-LAY-03",
+  "DL-LAY-05",
+  "DL-INT-02",
+  "DL-INT-03",
+  "DL-READ-02",
+  "DL-READ-04",
+  "DL-PERF-04",
+  "DL-PERF-06",
+  "DL-ASSET-01",
+  "DL-ASSET-02",
+  "DL-ASSET-03",
+  "DL-ASSET-04",
+  "DL-ASSET-06",
+  "DL-UI-06"
+ ],
+ "findings": [
+  "MA-VIS-010",
+  "MA-VIS-008",
+  "MA-OPERA-001",
+  "MA-TYPE-004",
+  "MA-2D-002",
+  "MA-ASSET-001",
+  "MA-DOC-008"
+ ],
+ "files": [
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/.gdignore",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/AUDIT.md",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/BRIEFS.md",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/MANIFEST.json",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/job_art_register.json",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/measure_baseline.json",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/tools/measure_job_art.py",
+  "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+  "audit/MASTER_AUDIT_2026-08-09.md",
+  "design/05_DOC_LEDGER.md"
+ ],
+ "validation": [
+  {
+   "command": "Read-only source review: the master audit planning entry and task index, design 06 sections 4, 5, 6, 12 and 14, the development contract, the active findings, the document ledger, the gold-star scorecard (design/reference/games.json), the owner decision register, and Codex's flat-vector program on codex/flat-vector-r6-20261012 (CURRENT.json, PRODUCTION_QUEUE.json, PRODUCTION_WORKFLOW.md, r96 tally and per-piece register, r95 OWNER_PRIORITY.json)",
+   "result": "PASS",
+   "evidence": "Cited by path in AUDIT.md sections 2, 3 and 7 and in the MA-VIS-010 record."
+  },
+  {
+   "command": "Code reading of every job script in four read-only sweeps (shared gesture surface; career world, backdrop, hotspots, living world and chef surface; specialist surfaces; Day One and Chapter Two), with every claim used spot-checked by Claude against the source",
+   "result": "PASS",
+   "evidence": "Line citations in AUDIT.md sections 3-6 and in data/job_art_register.json. Spot checks include opera_geology_surface.gd:40-47, opera_boxing_surface.gd:761-780, opera_gesture_surface.gd:655-682, 704-725, 740-770, 1961-1972, 3131-3149, 3685-3740, 5021-5032, 5358-5382, 5816-5860, opera_career_world_2d.gd:1217-1228, 2164-2182, 2335-2348, 2417-2473, 2740-2752, 4650-4660, opera_world_backdrop_2d.gd:255-270, 350-361, opera_world_hotspot_2d.gd:273-310, opera_chef_surface.gd:166-177, castle_career_routes.gd:44-50, main.gd:7446-7472."
+  },
+  {
+   "command": "python -B docs/handoffs/codex_job_art_imagegen_2026-10-17/tools/measure_job_art.py --base origin/dev --branch origin/codex/job-art-review-v2-20261001 --branch origin/codex/racer-existing-engine-2d-20261003 --branch origin/codex/astronaut-clearance-20261006 --branch origin/codex/flat-vector-geologist-pan-runtime-20261017 --branch origin/codex/studio-scene-integration --program-branch origin/codex/flat-vector-r6-20261012 --out docs/handoffs/codex_job_art_imagegen_2026-10-17/data/measure_baseline.json",
+   "result": "PASS",
+   "evidence": "At 7a65b9f0: 61 phases in 15 careers, 33 with painted widget art, 28 drawing their own picture; 1,169 primitive draw calls in 70 runtime scripts (1,047 in job scripts, 972 in the Opera career groups against 107 texture draws); 5 runtime SVG files; stranded images 40 + 25 + 3 + 6 with no same bytes on dev (the pan's bytes exist only under assets_src); cutout check 74 CUTOUT_OK and 1 NO_ALPHA; 3 of 243 non-merge commits on the flat-vector branch change scripts, assets or scenes. A second run reproduced the file byte for byte. The tool reads pixels for the alpha profile and writes no image."
+  },
+  {
+   "command": "Viewing existing images only: stranded Geologist fossil, layered rock, mineral, pan, work slab, opened geode, six-state geode sheet, river junctions and nodes; Nursery care_00, wash ready and cradle; boxing glove; kart straight and side; Astronaut gear, pipe and fluid; Pool skimmer; the geology grotto candidate; one July concept card; approved props used as style anchors",
+   "result": "PASS",
+   "evidence": "Branch files were byte-copied with git show to the session scratchpad for viewing only; nothing was created or edited. Verdicts in AUDIT.md section 3.1."
+  },
+  {
+   "command": "python -B tools/audit_document_authority.py",
+   "result": "PASS",
+   "evidence": "DOCAUTH|INVENTORY=709|LEDGER=709|ACTIVE=70|RECORDS=73; DOCAUTH|RESULT|ALL OK on the staged candidate from 7a65b9f0."
+  },
+  {
+   "command": "python -B tools/audit_development.py --base auto",
+   "result": "PASS",
+   "evidence": "AUDITDEV|BASE|7a65b9f0abacddeee70230f220955f4d18d551b5; AUDITDEV|RESULT|ALL OK on the staged candidate (rerun after MANIFEST.json and this record were staged)."
+  },
+  {
+   "command": "python -B tools/audit_game_2d.py --regression-gate",
+   "result": "PASS",
+   "evidence": "Result NO_REGRESSION: the production and probe 3D-debt counts (52 and 61) and the zero model-file count are unchanged, and the status stays UNSATISFIED as before. Run after the last JSON edit, before push."
+  },
+  {
+   "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+   "result": "PASS",
+   "evidence": "Ran 54 tests, OK, on the staged candidate."
+  },
+  {
+   "command": "Probe Suite (.github/workflows/probes.yml) on the pushed branch head",
+   "result": "PENDING",
+   "evidence": "Docs-only change; the run is required before merging into dev."
+  },
+  {
+   "command": "Anonymous HTTPS GET of every MANIFEST.json file from raw.githubusercontent.com at the pushed commit",
+   "result": "PENDING",
+   "evidence": "Recorded in docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json in a follow-up commit."
+  }
+ ],
+ "acceptance_gaps": "This is a written audit and handoff: no runtime capture, phone, child or owner session exists for any item, and every visual judgement comes from code and source images. Codex implements packages P0-P10; the owner answers Q1-Q5 and accepts each job's look on the phone (DL-VIS-07). The owner's 2026-10-17 ImageGen text is not yet on dev, and design rules DL-ASSET-01, DL-ASSET-02 and DL-ASSET-06 still state the earlier reuse-first rule (package P0).",
+ "lessons": [
+  {
+   "lesson": "Finished painted art can sit on topic branches for weeks while audits of dev report the gap as unsolved; dev-only inventories miss it.",
+   "write_back": "tools/measure_job_art.py --branch reconciliation (git blob check against dev) and the P10 census gate in the job-art handoff",
+   "recurrence_key": "stranded-art"
+  },
+  {
+   "lesson": "Code-drawn fallbacks behind texture loads hide missing or never-made art: pipe tiles, star notes and portal rings failed no check.",
+   "write_back": "BRIEFS.md rule C9 (delete the fallback and make the job probe fail when its texture is missing)",
+   "recurrence_key": "silent-fallback-art"
+  }
+ ],
+ "references_used": [
+  {
+   "path": "docs/handoffs/codex_gold_star_2026-10-03/README.md",
+   "purpose": "GS5 item 5 asks for painted replacements of code props, halos, spotlights and motifs; the briefs supply the written descriptions"
+  },
+  {
+   "path": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md",
+   "purpose": "Roshan identity decisions (ODR-ROSHAN-IDENTITY, -IRIDESCENT, -Q12, -Q13) bound in BRIEFS rule C6"
+  },
+  {
+   "path": "design/reference/games.json",
+   "purpose": "Gold-star C7 authored-art scores per career"
+  }
+ ]
+}
