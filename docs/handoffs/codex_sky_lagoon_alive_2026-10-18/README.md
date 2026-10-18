@@ -41,6 +41,28 @@ The demo shows how far existing art can go. It also exposes the gaps below,
 where the painting cannot supply what a truthful interaction (`DL-INT-02`) or
 real parallax needs.
 
+## What already exists (read before generating anything)
+
+- **Runtime layer stack.** The shipping promenade already stages Sky Lagoon
+  on eight Canvas layers (`scripts/arena/sky_lagoon_promenade.gd:243-250`):
+  base, rear mural, rear atmosphere (0.82 parallax), landmarks, interactive,
+  actors, foreground mural, foreground (1.06 parallax). The v5 painting
+  itself is still one plate, and its mural layers are locked at 1.0, so only
+  added stickers move at a different depth. G2 below is about the plate.
+- **Earlier object-animation attempts are not usable.** The ten objects in
+  `assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/` and its
+  `sky_lagoon_local_motion_v1` / `sky_lagoon_moderate_motion_v2`
+  predecessors (fir, huckleberry, hydrangea, bellflower, cloud, smoke,
+  swing, seesaw, gate, glass) never passed audit. Per the owner, the LTX 2.5
+  workflows behind them did not produce quality results
+  (`ODR-SKY-OBJECTS-UNACCEPTED-20261018`; see Owner corrections below). Do
+  not reuse their frames as runtime art, and do not repeat the same
+  workflow for G3–G5. The `sky_lagoon_garden_motion_v2_2026-09-16` layer
+  cut-outs remain a `REVIEW_DRAFT_NOT_RUNTIME`; they are not an accepted
+  depth split either.
+- This is why the demo animates only the approved plate, and borrows
+  approved sprites, instead of placing those objects.
+
 ## Source plate (do not modify)
 
 The approved v5 panorama is 6144×2048 master pixels, split into 6 columns × 2
@@ -180,7 +202,8 @@ per-pixel difference report, not by eye.
 ### G3 (P1): tap-responsive foreground flower clusters
 
 **Why reuse fails:** flowers in the plate can only wobble as part of the
-painted bed. A truthful tap (`DL-INT-02`) should make that particular flower
+painted bed, and the earlier hydrangea and bellflower objects never passed
+audit (see Owner corrections). A truthful tap (`DL-INT-02`) should make that particular flower
 cluster bend and spring back.
 
 **Deliver** three whole-drawing clusters, isolated from the plate's own
@@ -232,6 +255,15 @@ the cabin itself changing: the door opens or a window lights.
 patches cut from the plate at exact plate alignment, with 2 states each
 (closed/dark is the plate itself; open or lit is an edited patch). Record
 patch rectangles in master pixels.
+
+## Owner corrections
+
+- 2026-10-18 (`ODR-SKY-OBJECTS-UNACCEPTED-20261018`): the owner stated that
+  the earlier Sky Lagoon objects "never passed audit due to flaws in ltx 2.5
+  workflows not producing quality products". The v3 objects and their
+  predecessors are therefore not a source for this work, and new
+  whole-drawing frames (G3–G5) need a different, piloted method under
+  `DL-MOT-14` to `DL-MOT-16`. Pilot one object first, within the task caps.
 
 ## Out of scope
 

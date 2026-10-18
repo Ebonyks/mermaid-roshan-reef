@@ -32,7 +32,10 @@
     "scripts/demo/sky_lagoon_alive.gd",
     "scripts/probe_sky_lagoon_alive.gd",
     "docs/handoffs/codex_sky_lagoon_alive_2026-10-18/README.md",
-    "design/05_DOC_LEDGER.md"
+    "design/05_DOC_LEDGER.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/cycles/sky-lagoon-alive-20261018/owner_answers.json"
   ],
   "validation": [
     {
@@ -85,6 +88,17 @@
     {
       "path": "scripts/arena/sky_lagoon_promenade.gd",
       "purpose": "Land route, animal sizes and frame timing mirrored so the demo matches the shipping scene's scale."
+    },
+    {
+      "path": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/README.md",
+      "purpose": "Checked as prior object-animation work; excluded per the owner correction."
+    }
+  ],
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-SKY-OBJECTS-UNACCEPTED-20261018",
+      "evidence": "Owner, 2026-10-18 in this task: the earlier Sky Lagoon objects \"never passed audit due to flaws in ltx 2.5 workflows not producing quality products\".",
+      "write_back": "Recorded via tools/record_owner_decision.py; the Codex handoff now has 'What already exists' and 'Owner corrections' sections that exclude the v3 objects and require a different, piloted method for G3-G5."
     }
   ]
 }
