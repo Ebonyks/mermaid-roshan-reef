@@ -330,6 +330,8 @@ poses as broken motion.
 
 ## MA-VIS-006
 
+[R100 same-pan/currentDev82trusted/static checks and source-bound retained captures add no formalQA11/device/child/owner acceptance; lifecycle CONFIRMED_OPEN.](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/README.md)
+
 R99 source stage2026-10-18: [current-Dev painted pan](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_merge_revalidation/README.md) is actually published and source-byte verified, with82unique trusted checks and refreshed two-aspect partial context. Initial premature console failure is retained; new sourceCI/Dev/formalQA11/device/child/owner remain open. Lifecycle unchanged.
 
 R98production2026-10-17: [actual pan runtimece05d4d3](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/README.md) passes current local82probe-by-probe and181sourcefiles anonymously verify. Exact-sourceCI39079175770running; Dev/formalQA11/device/child/owner remain pending. No lifecycle or accepted-removal change.
@@ -1611,6 +1613,8 @@ R93 follow-up also records the separately verified R91 insect-tab payload (750na
 | history | 2026-08-26: counted at `9a1754c1`; opened `CONFIRMED_OPEN`. |
 
 ## MA-CI-008
+
+[R100 retains the55minute cancelled pan workflow and exact upstream owner-authorized90minute budget; machine PASS never closes the separate advisory sensor gaps, lifecycle IN_PROGRESS.](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/README.md)
 
 | Field | Value |
 |---|---|

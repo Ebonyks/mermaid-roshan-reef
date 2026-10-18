@@ -1412,3 +1412,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/README.md` | 🟣 | `SUPPORTING_EVIDENCE / SOURCE_PUBLICATION`; actual runtimece05d4d3,82local PASS,181direct files anonymously exact, sourceCI39079175770running; Dev/formal/device/child/owner open. No new artifact/removal count. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_merge_revalidation/README.md` | 🟣 | `SUPPORTING_EVIDENCE / CANDIDATE`; actual current-Dev painted-pan source,82unique machine checks/two-aspect native context, exact source delivery and pending newCI/Dev. Original console failure retained; no formal/physical acceptance or accepted removal. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/README.md` | 🟣 | `SUPPORTING_EVIDENCE / CANDIDATE`; actual same-pan/currentDev source delivery and82trusted/static PASS,55minute cancellation retained and existing authorized90minuteCI inherited. No new art/frame or accepted-removal credit; exactCI/Dev/formal/physical acceptance open. |
