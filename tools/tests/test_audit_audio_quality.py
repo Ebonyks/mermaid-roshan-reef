@@ -7,6 +7,9 @@ import unittest
 from unittest.mock import patch
 from pathlib import Path
 
+# Keep authored-score regression cases in the existing local/CI audio gate.
+from tools.tests.test_authored_area_music import AuthoredAreaMusicTests
+
 
 ROOT = Path(__file__).resolve().parents[2]
 SPEC = importlib.util.spec_from_file_location(

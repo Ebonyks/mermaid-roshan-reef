@@ -1,0 +1,18 @@
+from pathlib import Path
+import re, json, subprocess
+root = Path(__file__).resolve().parents[2]
+for rel, left_key, right_key, incoming_first in [
+    ('ASSET_LICENSES.md', 'GRAND_PUFF_CARE_20261017', 'melodic-focus revision', True),
+    ('audit/MASTER_AUDIT_2026-08-09.md', 'Grand Puff cold/care rework', 'Opera melodic-focus candidate', False),
+]:
+    path = root / rel
+    text = path.read_text(encoding='utf-8')
+    pattern = re.compile(r'^<<<<<<< HEAD\n(.*?)^=======\n(.*?)^>>>>>>> [^\n]+\n', re.M | re.S)
+    matches = list(pattern.finditer(text))
+    assert len(matches) == 1, rel
+    left, right = matches[0].groups()
+    assert left_key in left and right_key in right
+    first, second = (right, left) if incoming_first else (left, right)
+    path.write_text(pattern.sub(lambda _m: first.rstrip('\n') + '\n\n' + second.lstrip('\n'), text), encoding='utf-8')
+subprocess.run(['git', 'add', '--', 'ASSET_LICENSES.md', 'audit/MASTER_AUDIT_2026-08-09.md'], cwd=root, check=True)
+print('CARE_R2_APPENDS|PASS|audio summary remains unmerged until measured regeneration')

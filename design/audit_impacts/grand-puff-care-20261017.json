@@ -379,6 +379,18 @@
     "audit/grand_puff_care_20261017/integration_final_gates.json",
     "audit/grand_puff_care_20261017/integration_final_gates.log",
     "audit/grand_puff_care_20261017/integration_preparation.py.txt",
+    "audit/grand_puff_care_20261017/integration_r2_ci.log",
+    "audit/grand_puff_care_20261017/integration_r2_ci_result.json",
+    "audit/grand_puff_care_20261017/integration_r2_ci_runner.py.txt",
+    "audit/grand_puff_care_20261017/integration_r2_final_gates.json",
+    "audit/grand_puff_care_20261017/integration_r2_final_gates.log",
+    "audit/grand_puff_care_20261017/integration_r2_preparation.py.txt",
+    "audit/grand_puff_care_20261017/integration_r2_resolution.json",
+    "audit/grand_puff_care_20261017/integration_r2_resolution.py.txt",
+    "audit/grand_puff_care_20261017/integration_r2_source_binding.json",
+    "audit/grand_puff_care_20261017/integration_r2_source_binding.py.txt",
+    "audit/grand_puff_care_20261017/integration_r2_verification.json",
+    "audit/grand_puff_care_20261017/integration_r2_verification_builder.py.txt",
     "audit/grand_puff_care_20261017/integration_resolution.json",
     "audit/grand_puff_care_20261017/integration_resolution.py.txt",
     "audit/grand_puff_care_20261017/integration_source_binding.json",
@@ -407,6 +419,9 @@
     "audit/grand_puff_care_20261017/projection_expansion_negative.json",
     "audit/grand_puff_care_20261017/projection_fixed_dust_pass.log",
     "audit/grand_puff_care_20261017/projection_fixed_focused_results.json",
+    "audit/grand_puff_care_20261017/r2_audio_ledger_write.json",
+    "audit/grand_puff_care_20261017/r2_audio_ledger_write.log",
+    "audit/grand_puff_care_20261017/r2_audio_ledger_writer.py.txt",
     "audit/grand_puff_care_20261017/required_guide_results.json",
     "audit/grand_puff_care_20261017/restore_historical_cold_input.lua.txt",
     "audit/grand_puff_care_20261017/saved_intro_negative.log",
@@ -416,6 +431,7 @@
     "audit/grand_puff_care_20261017/source_pin_final.json",
     "audit/grand_puff_care_20261017/source_pin_final_v2.json",
     "audit/grand_puff_care_20261017/source_pin_integration.json",
+    "audit/grand_puff_care_20261017/source_pin_integration_r2.json",
     "audit/grand_puff_care_20261017/source_pin_projection_fixed.json",
     "audit/grand_puff_care_20261017/source_pin_saved_intro_negative.json",
     "audit/grand_puff_care_20261017/staged_source_binding.json",
@@ -496,6 +512,16 @@
       "command": "Final combined parser/inference, authority/development and protected/profile preservation",
       "result": "PASS",
       "evidence": "audit/grand_puff_care_20261017/integration_final_gates.json and corresponding log; all actual exits retained. Published-head CI remains separate."
+    },
+    {
+      "command": "Resolved newer dev music/CI reconciliation: full unmodified local CI and exact source binding",
+      "result": "PASS",
+      "evidence": "audit/grand_puff_care_20261017/integration_r2_verification.json; integration_r2_ci_result.json and log; source_pin_integration_r2.json; integration_r2_source_binding.json. Own nine care scripts unchanged from tested ee5a9cec parent; all frozen combined sources pinned and mapped to staged blobs. Original V2 full/display evidence retained separately."
+    },
+    {
+      "command": "Final newer-dev parser/inference, authority/development and protected/profile preservation",
+      "result": "PASS",
+      "evidence": "audit/grand_puff_care_20261017/integration_r2_final_gates.json and corresponding log; all actual exits retained. Published-head CI remains separate."
     }
   ],
   "acceptance_gaps": "Scoped machine gameplay/audio/export and desktop Mobile display checks pass. Full/current-source and exact published-head gates tracked separately in verification.json. Target Lenovo performance/playback/listening, child comprehension, full fresh-save QA11 and formal owner identity/style/motion/contact remain open. Initial prototype cleanup minutes were NOT_MEASURED; no claim of complete final-animation accounting. Earlier direct GUI balance exits remain unproven under MA-CI-007. Related finding lifecycle and game-wide UNSATISFIED unchanged; no release promotion requested.",
