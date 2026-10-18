@@ -177,7 +177,6 @@ func _build_painting() -> void:
 	mask_viewport = SubViewport.new()
 	mask_viewport.name = "MotionMaskViewport"
 	mask_viewport.size = MASK_SIZE
-	mask_viewport.disable_3d = true
 	mask_viewport.transparent_bg = true
 	mask_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 	var mask_quad := Polygon2D.new()

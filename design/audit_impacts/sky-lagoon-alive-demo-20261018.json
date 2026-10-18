@@ -61,6 +61,11 @@
       "evidence": "ROSHAN2D ALL OK; PROBE_PARITY ALL OK. The new probe is not added to the trusted CI roster because the demo is not integrated."
     },
     {
+      "command": "python3 -B tools/audit_document_authority.py; python3 -B tools/audit_development.py --base auto; python3 tools/audit_game_2d.py (full Git history)",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK (717/717 ledger). AUDITDEV ALL OK against base cb203961. GAME2D inventory exact; the overall status stays at the repository's existing UNSATISFIED baseline. A first run flagged the demo's SubViewport `disable_3d` line through the `*_3d` identifier pattern; the line was removed and both probe runs were repeated with PASS."
+    },
+    {
       "command": "Mobile renderer (Vulkan) run, Speedy-tier frame-time and overdraw on the target phone",
       "result": "PENDING",
       "evidence": "Not measurable in this container. Required before any integration (DL-PERF-01, DL-PERF-03)."
