@@ -295,13 +295,14 @@ observed child session (does she understand listen-then-play, and does she
 want to play again?), and the owner's verdict. Machine success grants none of
 these.
 
-## 12. Choices for the owner
+## 12. The owner's choices (2026-10-18)
 
-Defaults apply until the owner says otherwise; see the README's questions.
+The owner chose the recommended option for each question (README §6):
 
-1. Rhythmic echo plus play-along (recommended) versus play-along only.
-2. A new original concert song first (recommended; clean rights, exact chart
-   from the score), with Iko Iko for the Day Two story once its rights are
-   confirmed.
-3. Daddy and Baby Eagle as the free-play band (recommended), or an Opera house
-   band so that the family band stays special to the birthday story.
+1. **Rhythmic echo plus play-along**, not play-along only
+   (`ODR-POPSTAR-CORE-20261018`).
+2. **A new concert arrangement of the existing song first**, with Iko Iko for
+   the Day Two story once its rights are confirmed
+   (`ODR-POPSTAR-SONG-20261018`).
+3. **Daddy and Baby Eagle** as the free-play band
+   (`ODR-POPSTAR-BAND-20261018`).

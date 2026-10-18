@@ -1,8 +1,9 @@
 {
   "id": "minigame-rebuild-handoff-20261017",
-  "scope": "Owner-requested analysis and ground-up redesign of the three weakest Opera careers (Pop Star, Ballerina, Racer), citing published console, PC and mobile games and child-development research, delivered as a written Codex handoff. It records the owner's verdict (ODR-MINIGAME-REBUILD-20261017), opens MA-OPERA-014 and moves MA-OPERA-005 to CONFIRMED_OPEN on owner evidence. It benefits the child by replacing generic chores with one real skill per job: a music-timed drum echo, a danced ballet and a lane race. No game script, scene, asset, audio or workflow is changed.",
+  "scope": "Owner-requested analysis and ground-up redesign of the three weakest Opera careers (Pop Star, Ballerina, Racer), citing published console, PC and mobile games and child-development research, delivered as a written Codex handoff. It records the owner's verdict (ODR-MINIGAME-REBUILD-20261017), opens MA-OPERA-014 and moves MA-OPERA-005 to CONFIRMED_OPEN on owner evidence. It benefits the child by replacing generic chores with one real skill per job: a music-timed drum echo, a danced ballet and a lane race. No game script, scene, asset, audio or workflow is changed. Revision 2 (2026-10-18) records the owner's answers to the five design questions (all defaults: ODR-POPSTAR-CORE-20261018, ODR-POPSTAR-SONG-20261018, ODR-POPSTAR-BAND-20261018, ODR-BALLET-CONCEPT-20261018, ODR-RACER-VIEW-20261018) in the register, the packet, MA-OPERA-014 and target notes under DL-INT-08 and DL-INT-10, and follows the owner's instruction to merge into dev after green CI.",
   "baseline": "7a65b9f0abacddeee70230f220955f4d18d551b5",
   "rules": [
+    "DL-AUTH-01",
     "DL-AUTH-05",
     "DL-AUTH-06",
     "DL-AUTH-07",
@@ -58,7 +59,9 @@
     "audit/MASTER_AUDIT_2026-08-09.md",
     "design/05_DOC_LEDGER.md",
     "design/reference/OWNER_DECISIONS.md",
-    "design/reference/owner_decisions.json"
+    "design/reference/owner_decisions.json",
+    "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md"
   ],
   "validation": [
     {
@@ -92,17 +95,32 @@
       "evidence": "Woodruff Carr et al. 2014 (PMC4210020): 35 children aged 3-4, 22 synchronized at both rates, 13 at neither. Bobin-Bègue et al. 2014 (PMC4256987): median intervals about 508 ms and 463 ms; anticipation rarely found in young children (from cited literature). Other references are research-agent fetches listed in REFERENCES.md with UNVERIFIED marks kept."
     },
     {
-      "command": "Probe Suite (GitHub Actions) on the pushed branch head",
-      "result": "PENDING",
-      "evidence": "Required before merging into dev."
+      "command": "Probe Suite (GitHub Actions) on revision 1 head 0cd5eb4b446ee3b82c44261a1d3bdea3d2c1a7ae",
+      "result": "PASS",
+      "evidence": "Run 39113827258 (Probe suite, graphics fork) completed with conclusion success."
     },
     {
-      "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed commit, compared with MANIFEST.json SHA-256",
+      "command": "Anonymous raw.githubusercontent.com fetch of every packet file at revision 1 (0cd5eb4b446ee3b82c44261a1d3bdea3d2c1a7ae), compared with MANIFEST.json SHA-256",
+      "result": "PASS",
+      "evidence": "8/8 files match bytes and SHA-256; manifest sha256 98b3f51aa9d5dbb01043a4623ef12581f2092626a67bf0e3bef202d06e6e7ba3; checked 2026-10-18T09:03:28Z."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check after the revision-2 intake",
+      "result": "PASS",
+      "evidence": "DECISIONS|COUNT|53 and DECISIONS|RESULT|ALL OK after appending the five 2026-10-18 answers with source audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json."
+    },
+    {
+      "command": "Probe Suite (GitHub Actions) on the revision 2 head",
       "result": "PENDING",
-      "evidence": "Required before reporting the handoff delivered (CLAUDE.md external handoff rule)."
+      "evidence": "Required before merging into dev (owner instruction 2026-10-18)."
+    },
+    {
+      "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the revision 2 head, compared with MANIFEST.json SHA-256",
+      "result": "PENDING",
+      "evidence": "Required before reporting revision 2 delivered."
     }
   ],
-  "acceptance_gaps": "Nothing is implemented. The owner's answers to Q1-Q5 are pending (defaults apply). Every runtime, art, animation, voice, target-phone, observed-child and owner gate for the rebuilt Pop Star, Ballerina and Racer remains open, as do the rule rewrites (DL-INT-07, DL-INT-08, DL-INT-10, DL-INT-14, DL-QA-12) that land with the implementation.",
+  "acceptance_gaps": "Nothing is implemented. The owner accepted the design direction (Q1-Q5 defaults, 2026-10-18), not any built game. Every runtime, art, animation, voice, target-phone, observed-child and owner gate for the rebuilt Pop Star, Ballerina and Racer remains open, as do the rule rewrites (DL-INT-07, DL-INT-08, DL-INT-10, DL-INT-14, DL-QA-12) that land with the implementation.",
   "references_used": [
     {
       "path": "design/reference/games.json",

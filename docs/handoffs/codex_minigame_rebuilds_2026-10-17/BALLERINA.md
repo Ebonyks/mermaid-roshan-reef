@@ -3,8 +3,9 @@
 - **Status:** `PROPOSED / CANDIDATE` design for Codex. Written by Claude; no
   game file, image or audio is changed by this document.
 - **Owner direction:** the Ballerina must be completely rebuilt (2026-10-17).
-  It supersedes the three-act recital contract in `DL-INT-08` once the owner
-  accepts this design and Codex lands it; until then `DL-INT-08` still
+  The owner chose this music-box ballet on 2026-10-18
+  (`ODR-BALLET-CONCEPT-20261018`). It supersedes the three-act recital
+  contract in `DL-INT-08` once Codex lands it; until then `DL-INT-08` still
   describes the shipping game.
 - **Canon used:** the candidate Day Two draft makes the ballet a little stage
   show whose star is Lamma, with Kitty and Bunny; the music box; Roshan

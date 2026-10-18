@@ -2,11 +2,12 @@
 
 - **Status:** `PROPOSED / CANDIDATE` design for Codex. Written by Claude; no
   game file, image or audio is changed by this document.
-- **Owner direction:** the Racer must be completely rebuilt (2026-10-17). This
-  supersedes TUNE, TO THE LINE and the circle/steering-bar grammar in
-  `DL-INT-10` once the owner accepts the design and Codex lands it. The parts
-  of `DL-INT-10` that forbid an external kart scene or a probe-only bypass
-  stay. The imp's win rule is `DL-INT-14`.
+- **Owner direction:** the Racer must be completely rebuilt (2026-10-17). The
+  owner chose this side-scrolling race on 2026-10-18
+  (`ODR-RACER-VIEW-20261018`). It supersedes TUNE, TO THE LINE and the
+  circle/steering-bar grammar in `DL-INT-10` once Codex lands it. The parts of
+  `DL-INT-10` that forbid an external kart scene or a probe-only bypass stay.
+  The imp's win rule is `DL-INT-14`.
 - **Shared systems:** [SHARED_SYSTEMS.md](SHARED_SYSTEMS.md). **Evidence:**
   [REFERENCES.md](REFERENCES.md).
 

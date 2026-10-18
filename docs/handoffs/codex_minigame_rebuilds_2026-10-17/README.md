@@ -1,8 +1,11 @@
 # Rebuilding Pop Star, Ballerina and Racer: Codex handoff
 
-- **Status:** `PROPOSED / CANDIDATE`. Owner-requested analysis and redesign;
-  the designs await the owner's answers to section 6 (defaults apply until
-  then). Publication grants no visual, device, child or owner acceptance.
+- **Status:** `PROPOSED / CANDIDATE` for implementation. The owner accepted
+  the design direction on 2026-10-18 by choosing the default for all five
+  questions (section 6). Publication grants no visual, device, child or owner
+  acceptance of a built game.
+- **Revisions:** 1 (`0cd5eb4b`, 2026-10-18): first publication; 2 (2026-10-18):
+  the owner's answers recorded.
 - **Prepared by:** Claude, as written analysis and specification only: no
   game change, no image (CLAUDE.md "Claude writes, Codex builds images").
   Codex implements.
@@ -12,8 +15,12 @@
   SHA-256 manifest ([MANIFEST.json](MANIFEST.json)).
 - **Records:**
   - finding [`MA-OPERA-014`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014);
-  - owner decision `ODR-MINIGAME-REBUILD-20261017` in
-    [the decision register](../../../design/reference/OWNER_DECISIONS.md);
+  - owner decisions in
+    [the decision register](../../../design/reference/OWNER_DECISIONS.md):
+    - the verdict, `ODR-MINIGAME-REBUILD-20261017`;
+    - the five answers, `ODR-POPSTAR-CORE-20261018`,
+      `ODR-POPSTAR-SONG-20261018`, `ODR-POPSTAR-BAND-20261018`,
+      `ODR-BALLET-CONCEPT-20261018` and `ODR-RACER-VIEW-20261018`;
   - [impact record](../../../design/audit_impacts/minigame-rebuild-handoff-20261017.json).
 
 ## 1. The request
@@ -82,13 +89,17 @@ Suggested order: MR1 first; the Pop Star next, because Codex's rhythm work on
 it is already in progress; then the Ballerina and the Racer. Art pilots can
 start at once.
 
-## 6. Questions for the owner
+## 6. The owner's answers (2026-10-18)
 
-Codex proceeds on the default unless the owner chooses otherwise.
+The owner chose the default for every question: "Use the defaults for Q1-Q5,
+and merge the handoff into dev once its CI passes." The answers are recorded in
+the decision register (section header) with the owner's words in
+`audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json`. They set
+the design direction; they accept no built game.
 
-| # | Question | Default |
+| # | Question | Owner's answer |
 |---|---|---|
-| Q1 | Pop Star core: the timed echo plus play-along choruses, or ribbon play-along only (the direction Codex drafted on 2026-10-17)? | Timed echo plus play-along: it keeps the note-memory mechanic you called usable and makes it a rhythm game |
+| Q1 | Pop Star core: the timed echo plus play-along choruses, or ribbon play-along only (the direction Codex drafted on 2026-10-17)? | Timed echo plus play-along: it keeps the note-memory mechanic the owner called usable and makes it a rhythm game |
 | Q2 | Pop Star song: a new concert arrangement of the existing "Starlight Singalong", or Iko Iko? | The original song first (clean rights, exact chart from its score). Iko Iko for the Day Two story once its game-use rights are confirmed |
 | Q3 | Pop Star band: Daddy and Baby Eagle, or an Opera house band so the family band stays special to the birthday story? | Daddy and Baby Eagle |
 | Q4 | Ballerina: the music-box ballet (dance at her own pace; Roshan lands on the beat), a rhythm-judged ballet, or "make your own dance" first? | Music-box ballet; "make your own dance" as a later encore |
@@ -125,4 +136,4 @@ Not asked because they are already decided or are defaults:
 - **Machine-verified:** the document and coverage gates for this change
   (impact record).
 - **Outstanding:** every runtime, art, voice, device, child and owner gate for
-  the rebuilt games, and the owner's answers in section 6.
+  the rebuilt games. The owner's answers in section 6 are recorded.

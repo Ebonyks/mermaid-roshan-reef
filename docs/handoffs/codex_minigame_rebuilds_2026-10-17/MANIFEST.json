@@ -1,17 +1,24 @@
 {
  "schema": "codex_handoff_manifest/1",
  "handoff": "codex_minigame_rebuilds_2026-10-17",
- "status": "PROPOSED / CANDIDATE",
+ "status": "PROPOSED / CANDIDATE (owner accepted the design direction 2026-10-18)",
  "prepared_by": "Claude (written analysis and specification only; no game changes and no images)",
  "recipient": "Codex",
  "evidence_baseline": "dev 7a65b9f0abacddeee70230f220955f4d18d551b5",
  "entry": "README.md",
- "owner_decision": "ODR-MINIGAME-REBUILD-20261017",
+ "owner_decision": [
+  "ODR-MINIGAME-REBUILD-20261017",
+  "ODR-POPSTAR-CORE-20261018",
+  "ODR-POPSTAR-SONG-20261018",
+  "ODR-POPSTAR-BAND-20261018",
+  "ODR-BALLET-CONCEPT-20261018",
+  "ODR-RACER-VIEW-20261018"
+ ],
  "finding": "MA-OPERA-014",
  "file_count": 8,
- "total_bytes": 111624,
+ "total_bytes": 112351,
  "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
- "revision": "1 (2026-10-18)",
+ "revision": "2 (2026-10-18): the owner's answers to Q1-Q5 recorded; revision 1 was 0cd5eb4b446ee3b82c44261a1d3bdea3d2c1a7ae",
  "files": [
   {
    "path": ".gdignore",
@@ -21,8 +28,8 @@
   },
   {
    "path": "README.md",
-   "bytes": 9474,
-   "sha256": "19048fdf074d4d90857833ce1ab359bf22fa71fe364d80cc9b27bcb9021f3dc9",
+   "bytes": 10136,
+   "sha256": "913d6ce985093f5adfd2d742e34ad70be54880eb6cf5fe4170d638ef91e32d6f",
    "role": "handoff entry point, work order and owner questions"
   },
   {
@@ -33,20 +40,20 @@
   },
   {
    "path": "POP_STAR.md",
-   "bytes": 21476,
-   "sha256": "2f16ea1e6af9d91baaa86d4a32b2c39c4225dccff02d12e2b28636e5970217b9",
+   "bytes": 21437,
+   "sha256": "a810c27e625b760323777daf9638d2b11fe8f8b66a8ebe40e1bef1c53206a0e1",
    "role": "Pop Star rebuild specification (Roshan's Rainbow Band)"
   },
   {
    "path": "BALLERINA.md",
-   "bytes": 15601,
-   "sha256": "7e654a20c9c5f3cb2c3410c8486e519e6a2758a580a8ec55a10be9cd8d9901f1",
+   "bytes": 15654,
+   "sha256": "7c62ab216acdbb12c4d77dc598245cec517e9136437c824f5402538305a815dc",
    "role": "Ballerina rebuild specification (Lamma's Music-Box Ballet)"
   },
   {
    "path": "RACER.md",
-   "bytes": 14527,
-   "sha256": "e73dd518aa6f47c89a36e141a9403fa1dc14d87bce2a9d7d33cb8c8d39ecebcb",
+   "bytes": 14578,
+   "sha256": "c4d0af15abc25e6a824a1f7cdde6ec3497434e2c5990ab617cb49d86478d2bad",
    "role": "Racer rebuild specification (Reef Grand Prix)"
   },
   {
