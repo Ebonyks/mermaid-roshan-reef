@@ -79,11 +79,11 @@ const BATHTUB_SWIMMER_BOUNDS := Rect2(220.0, 225.0, 150.0, 112.0)
 const BATHTUB_SWIMMER_START := Vector2(277.0, 255.0)
 const BLOCKED_DOOR_SFX_COOLDOWN_SECONDS := 1.2
 const BLOCKED_DOOR_SECOND_TAP_WINDOW_SECONDS := 6.0
-const RUMI_IDLE_POSITION := Vector2(650.0, 350.0)
+const RUMI_IDLE_POSITION := Vector2(565.0, 300.0)
 const RUMI_POSE_ATLAS := \
 	"res://assets/characters/rumi/rumi_eight_pose_runtime.png"
 const RUMI_IDLE_SCALE := 0.96
-const RUMI_TAP_HIT_RECT := Rect2(530.0, 230.0, 240.0, 240.0)
+const RUMI_TAP_HIT_RECT := Rect2(505.0, 150.0, 165.0, 310.0)
 const HALL_SIGN_Z := 0.68
 const HALL_DOOR_GLOW_STAGE_Z := -950
 const HALL_LIGHT_Z := 7.0
@@ -2038,13 +2038,15 @@ func _sync_day_one_pool_cleanup(room_id: String) -> void:
 		_on_day_one_pool_finale_started)
 	day_one_pool_cleanup.reveal_completed.connect(
 		_on_day_one_pool_reveal_completed)
+	# Stage Roshan before the skimmer claims her; otherwise it copied her old
+	# centre-room position and its handle cut across the star before any input.
+	_position_player_at_foot(Vector2(150.0, 610.0), false)
 	day_one_pool_cleanup.setup(m)
 	# Keep exactly one approved land bunny in its lower-left shore slot while the
 	# bespoke cleanup owns the separate central-water swimmer.
 	if m.day_one_castle_dressing != null \
 			and is_instance_valid(m.day_one_castle_dressing):
 		m.day_one_castle_dressing.set_visible_room("mermaid_pool")
-	_position_player_at_foot(Vector2(330.0, 640.0), false)
 
 
 func _clear_day_one_pool_cleanup() -> void:
@@ -2111,26 +2113,44 @@ func _sync_day_one_persistent_rumi() -> void:
 	var frames := SpriteFrames.new()
 	frames.remove_animation(&"default")
 	frames.add_animation(&"idle")
-	frames.set_animation_speed(&"idle", 1.5)
+	frames.set_animation_speed(&"idle", 1.0)
 	frames.set_animation_loop(&"idle", true)
-	for column: int in range(2):
+	# Hold one approved pose; alternating different hair/tail silhouettes caused
+	# an unmotivated whole-body jump. The greeting has its own one-shot wave.
+	for column: int in range(1):
 		var frame := AtlasTexture.new()
 		frame.atlas = pose_atlas
 		frame.region = Rect2(Vector2(float(column) * 256.0, 0.0),
 			Vector2(256.0, 384.0))
 		frames.add_frame(&"idle", frame)
+	frames.add_animation(&"greet")
+	frames.set_animation_speed(&"greet", 4.0)
+	frames.set_animation_loop(&"greet", false)
+	for column: int in [0, 2, 3, 2, 0]:
+		var frame := AtlasTexture.new()
+		frame.atlas = pose_atlas
+		frame.region = Rect2(float(column) * 256.0, 0.0, 256.0, 384.0)
+		# Keep complete source cells and register their pose through sprite
+		# offsets; source sampling and the visible silhouette stay independent.
+		frames.add_frame(&"greet", frame)
 	_day_one_persistent_rumi = AnimatedSprite2D.new()
 	_day_one_persistent_rumi.name = "DayOnePersistentRumi"
 	_day_one_persistent_rumi.sprite_frames = FashionSkinEngine.animation_frames(m,frames)
 	_day_one_persistent_rumi.animation = &"idle"
 	_day_one_persistent_rumi.position = RUMI_IDLE_POSITION
 	_day_one_persistent_rumi.scale = Vector2.ONE * RUMI_IDLE_SCALE
-	_day_one_persistent_rumi.z_index = 18
+	# Her raised hand crosses the rear waterfall's edge. Keep the complete
+	# authored hand in front of that fixture instead of slicing it at the lip.
+	_day_one_persistent_rumi.z_index = 96
 	_day_one_persistent_rumi.set_meta("approved_private_canon", true)
 	_day_one_persistent_rumi.set_meta("persistent_day_one_friend", true)
 	_day_one_persistent_rumi.set_meta("identity_audio_synthesized", false)
+	_day_one_persistent_rumi.frame_changed.connect(_sync_rumi_pose_offset)
+	_day_one_persistent_rumi.animation_changed.connect(_sync_rumi_pose_offset)
 	m.castle_room_world_root.add_child(_day_one_persistent_rumi)
 	_day_one_persistent_rumi.play(&"idle")
+	_day_one_persistent_rumi.animation_finished.connect(
+		_day_one_persistent_rumi.play.bind(&"idle"))
 	_day_one_persistent_rumi_hotspot = Button.new()
 	_day_one_persistent_rumi_hotspot.name = "PersistentRumiHotspot"
 	_day_one_persistent_rumi_hotspot.position = RUMI_TAP_HIT_RECT.position
@@ -2146,6 +2166,19 @@ func _sync_day_one_persistent_rumi() -> void:
 	if m.castle_room_item_hotspot_layer != null:
 		m.castle_room_item_hotspot_layer.add_child(
 			_day_one_persistent_rumi_hotspot)
+
+
+func _sync_rumi_pose_offset() -> void:
+	if not is_instance_valid(_day_one_persistent_rumi):
+		return
+	var registered := Vector2.ZERO
+	if _day_one_persistent_rumi.animation == &"greet":
+		match _day_one_persistent_rumi.frame:
+			1, 3:
+				registered = Vector2(36.0, -5.0)
+			2:
+				registered = Vector2(41.0, -6.0)
+	_day_one_persistent_rumi.offset = registered
 
 
 func _clear_day_one_persistent_rumi() -> void:
@@ -2165,6 +2198,7 @@ func _on_day_one_persistent_rumi_pressed() -> void:
 		return
 	m.g["day_one_persistent_rumi_greeting_count"] = int(
 		m.g.get("day_one_persistent_rumi_greeting_count", 0)) + 1
+	_day_one_persistent_rumi.play(&"greet")
 	_say_day_one_context("day1_pool_rumi_reply",
 		"We saved the pool and the seahorse! Hi, Rumi!", 0, false)
 	_item_burst(_day_one_persistent_rumi.position, Color(0.68, 0.82, 1.0), 6)

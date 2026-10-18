@@ -973,6 +973,8 @@ Latest stable Godot reverified 2026-10-03 at the owner’s request: 4.7.2-stable
 
 ## Mermaid Pool five-star round — 2026-10-04
 
+The scoped 2026-10-17 [Pool repair impact](audit_impacts/pool-visual-repair-20261017.json) records the owner's later per-object color/contact, float visibility, guidance and motion repairs. It preserves revision 2's single selected-clip Rumi rise and unresolved QP-2a. Native desktop Mobile evidence and machine gates do not grant device, child, owner or whole-game acceptance.
+
 | Doc | | Note |
 |---|---|---|
 | `docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md` | 🟣 | `PROPOSED / CANDIDATE` owner-requested five-star framework for the master audit's first refined area, the Day One Mermaid Pool: the definition by pillar and rule, the beat-by-beat sequence, Claude's code repairs (`MA-VIS-009`, `MA-PLAY-006`, `MA-TOUCH-003`, all fixed pending verification), the corrected overdraw meter, before and after measurements, the gap register, the ordered path to 4/5 and 5/5, and the phone, child and owner sessions. Machine evidence only. Revision 2 (2026-10-05): section 11 records the owner's answers to QP-1 to QP-3. Rumi rises once, in the clip; the castle stops drawing under story clips; the QP-2 dirty-look scope is open as QP-2a. |

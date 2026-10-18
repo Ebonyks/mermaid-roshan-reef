@@ -1,0 +1,3116 @@
+{
+  "source_paths": [
+    "scripts/games/pool_skimmer_activity.gd",
+    "assets/shaders/castle_fixture_water.gdshader",
+    "scripts/games/day_one_dust_bunny_swimmer.gd",
+    "scripts/probe_day_one_pool_cleanup.gd",
+    "scripts/games/pool_waterfall_activity.gd",
+    "scripts/probe_day_one_pool_shots.gd",
+    "scripts/arena/castle_rooms_25d.gd",
+    "shaders/pool_blocked_fountain.gdshader",
+    "scripts/arena/castle_fixture_rigs.gd",
+    "scripts/games/pool_seahorse_rescue_activity.gd",
+    "scripts/main.gd",
+    "shaders/pool_floating_debris.gdshader",
+    "scripts/arena/day_one_castle_dressing.gd"
+  ],
+  "references": [
+    {
+      "path": ".github/workflows/race-feel.yml",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "AGENTS.md",
+      "targets": [
+        10
+      ],
+      "disposition": "CANONICAL_AUTHORITY_PATH_REFERENCE_NO_RESOURCE_HASH_UPDATE"
+    },
+    {
+      "path": "CLAUDE.md",
+      "targets": [
+        10
+      ],
+      "disposition": "CANONICAL_AUTHORITY_PATH_REFERENCE_NO_RESOURCE_HASH_UPDATE"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "targets": [
+        1
+      ],
+      "disposition": "CURRENT_RENDERER_CONTRACT_UPDATED"
+    },
+    {
+      "path": "assets_src/castle/depth_cards/static_depth_card_refinement.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/castle/seasonal_halloween_whole_castle_20261008/generation.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_davinci_draft_2026-09-04/INTEGRATION_VALIDATION.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/CONTINUITY_LOCKS.json",
+      "targets": [
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/shots/D1-C07-S06/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/shots/D1-C08-S01/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/shots/D1-C08-S02/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/shots/D1-C08-S03/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/shots/D1-C08-S04/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/shots/D1-C08-S05/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C07/shots/D1-C07-S06/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C08/shots/D1-C08-S01/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C08/shots/D1-C08-S02/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C08/shots/D1-C08-S03/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C08/shots/D1-C08-S04/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C08/shots/D1-C08-S05/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C07/README.md",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C07/shots/D1-C07-S06/RECONSTRUCTION.md",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C07/shots/D1-C07-S06/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/README.md",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/shots/D1-C08-S01/RECONSTRUCTION.md",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/shots/D1-C08-S01/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/shots/D1-C08-S02/RECONSTRUCTION.md",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/shots/D1-C08-S02/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/shots/D1-C08-S03/RECONSTRUCTION.md",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/shots/D1-C08-S03/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/shots/D1-C08-S04/RECONSTRUCTION.md",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/shots/D1-C08-S04/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/shots/D1-C08-S05/RECONSTRUCTION.md",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/shots/D1-C08-S05/SHOT_PACKET.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/frozen_reconciliation.json",
+      "targets": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/frozen_sources.json",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/prop_binding_revalidation.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/fashion_designer/slots_v1/frozen_sources.json",
+      "targets": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/imagegen/boot_splash_2026-08-01/README.md",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/machine_verification.json",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/review/fashion_walkthrough_20261007/evidence/build_walkthrough.py",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/review/fashion_walkthrough_20261007/evidence/runtime_machine_verification.json",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "assets_src/review/fashion_walkthrough_20261007/steps.json",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "targets": [
+        10
+      ],
+      "disposition": "CANONICAL_AUTHORITY_PATH_REFERENCE_NO_RESOURCE_HASH_UPDATE"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-26.md",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/OPERA_MECHANICS_REAUDIT_2026-09-05.md",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/ROADMAP.md",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/ROSHAN_CONTEXTUAL_VOICE_LEDGER_2026-08-31.json",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/TABLET_PERF_EVALUATION_2026-08-30.md",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/VOICE_REPETITION_BINDING_AUDIT_2026-08-31.json",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/2026-10-03/CURRENT_SURFACES.md",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/2026-10-03/ROADMAP.md",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/2026-10-03/STUDY_REPORT.md",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/2026-10-03/study.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/2026-10-03b/ROADMAP.md",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/2026-10-03b/study.json",
+      "targets": [
+        6,
+        8,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/luna-findings.json",
+      "targets": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/luna-manifest.json",
+      "targets": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/audio_ownership/DRAFT_RECEIPT.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/audio_ownership/MANIFEST.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/audio_ownership/REVIEW_RECEIPT.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/finalization_precommit/audio_shutdown/gate/audio-shutdown-verbose-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/full_local_ci/gate/candidate-full-ci-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/full_local_ci_02/gate/candidate-full-ci-02.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial-runtime-sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_diagnostics/farmer-delivery-observe-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/candidate-import-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/candidate-import-02.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/chapter2-analyzer-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/chapter2-route-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/dust-visible-entry-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/tutorial-real-charge-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/pins/candidate-runtime-sources.v1.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/pins/candidate-runtime-sources.v2.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision3/diagnostics/gates/chapter2-resume-observe-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision3/diagnostics/gates/equality-control01-check-02.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision3/diagnostics/gates/equality-control01-probe-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision3/gate/chapter2-route-02.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision3/pins/candidate-runtime-sources.v3.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision4/gate/chapter2-route-03.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision4/pins/candidate-runtime-sources.v4.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/chapter2_route04/gate/chapter2-route-04.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/chapter2_route04/pins/candidate-runtime-sources.v5.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/INTERPRETATION.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/focused_gates/dolls-objective-02.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/focused_gates/main-analyzer-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/focused_gates/seek-objective-02.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/focused_gates/voice-routing-02.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/native/candidate-revision5-application.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/native/candidate-runtime-sources.v5.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/native/reviewed-revision5.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/native/static-parser-inference-revision5-01.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision6/application/native/candidate-runtime-sources.v6.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision6/chapter2_route05/gate/chapter2-route-05.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision6/chapter2_route05/pins/candidate-runtime-sources.v6.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision7/application/native/candidate-runtime-sources.v7.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision7/application/static/static-parser-inference-revision7-01.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision7/chapter2_route06/gate/chapter2-route-06.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision7/chapter2_route06/pins/candidate-runtime-sources.v7.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision8/application/runtime_sources.v8.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision8/focused_machine/farmer-resume-analyzer-v8-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision8/focused_machine/farmer-resume-v8-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision8/focused_machine/static-parser-inference-revision8-01.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/window_mode_diagnostics/control/chapter2-window-control-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/window_mode_diagnostics/failed_route03/chapter2-route-03.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/attributes.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/implementation_commit.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/runtime_blob_mapping.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/voice_lifecycle/focused_gates/dolls-objective-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/voice_lifecycle/focused_gates/kart-teardown-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/voice_lifecycle/focused_gates/seek-objective-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/voice_lifecycle/focused_gates/start-new-reload-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/voice_lifecycle/focused_gates/voice-routing-01.sources.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/REPAIR_GUIDE.md",
+      "targets": [
+        9
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool/receipt.json",
+      "targets": [
+        5
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/matrix.json",
+      "targets": [
+        0,
+        2,
+        4,
+        6,
+        9,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L01.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L05.json",
+      "targets": [
+        2
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L06.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L07.json",
+      "targets": [
+        0,
+        3,
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L08.json",
+      "targets": [
+        3,
+        4
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L09.json",
+      "targets": [
+        3,
+        9
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L10.json",
+      "targets": [
+        3,
+        4,
+        6,
+        9
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L11.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L13.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L15.json",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L16.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L19.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L27.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L32.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L35.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L36.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L37.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L38.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L39.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L40.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L41.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L42.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L43.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L45.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L46.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L47.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L48.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L49.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L50.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L53.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L54.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L55.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L56.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/L57.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/reports/original/L47.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/capture_pool.py",
+      "targets": [
+        5
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/pool_burst_diagnostic.gd",
+      "targets": [
+        5
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/pool_diagnostic.gd",
+      "targets": [
+        5
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/run_farmer_diagnostic.py",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/runtime/L05/attempt_1/receipt.json",
+      "targets": [
+        2
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/runtime/L07/attempt_1/receipt.json",
+      "targets": [
+        0,
+        3
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/runtime/L08/attempt_1/receipt.json",
+      "targets": [
+        3,
+        4
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/runtime/L09/attempt_1/receipt.json",
+      "targets": [
+        3,
+        9
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/runtime/L10/attempt_1/receipt.json",
+      "targets": [
+        3
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/runtime/L11/attempt_1/receipt.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/receipt.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/runtime/L51/attempt_1/receipt.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/source_snapshots/matrix_54_initial.json",
+      "targets": [
+        0,
+        2,
+        4,
+        6,
+        9,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/summary.json",
+      "targets": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        9,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/verification/farmer_production_config/receipt.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/verification/farmer_supplied_phases/receipt.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/verification/sessions.json",
+      "targets": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        9,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/pool-five-star-20261005/owner_answers.json",
+      "targets": [
+        3
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/REVIEW.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "disposition": "THIS_TASK_SOURCE_BOUND_DIAGNOSTIC_KEEP_CAPTURE_HASHES"
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/SOURCE_PIN.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "disposition": "THIS_TASK_SOURCE_BOUND_DIAGNOSTIC_KEEP_CAPTURE_HASHES"
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/receipt.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "disposition": "THIS_TASK_SOURCE_BOUND_DIAGNOSTIC_KEEP_CAPTURE_HASHES"
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/receipt.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "disposition": "THIS_TASK_SOURCE_BOUND_DIAGNOSTIC_KEEP_CAPTURE_HASHES"
+    },
+    {
+      "path": "audit/day_one_playthroughs_2026-09-02/PROTOCOL.md",
+      "targets": [
+        6,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/day_one_playthroughs_2026-09-02/README.md",
+      "targets": [
+        0,
+        6,
+        9,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/day_one_playthroughs_2026-09-02/run_03_passive_watcher.md",
+      "targets": [
+        0,
+        2,
+        4,
+        6,
+        9,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/day_one_playthroughs_2026-09-02/run_06_quit_and_resume.md",
+      "targets": [
+        0,
+        4,
+        6,
+        9,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/day_one_playthroughs_2026-09-02/run_07_sloppy_gestures.md",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/day_one_playthroughs_2026-09-02/run_11_non_reader.md",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/day_one_playthroughs_2026-09-02/run_12_save_routing.md",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/doorframe_restore_20261015.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "targets": [
+        0,
+        2,
+        3,
+        6,
+        9,
+        10,
+        12
+      ],
+      "disposition": "CANONICAL_AUTHORITY_PATH_REFERENCE_NO_RESOURCE_HASH_UPDATE"
+    },
+    {
+      "path": "audit/typography_manifest.json",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CATALOG_ADVISORY_OR_IMMUTABLE_BASELINE_PRESERVED"
+    },
+    {
+      "path": "audit/visual_design_report.json",
+      "targets": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/00_MASTER_INDEX.md",
+      "targets": [
+        10
+      ],
+      "disposition": "CANONICAL_AUTHORITY_PATH_REFERENCE_NO_RESOURCE_HASH_UPDATE"
+    },
+    {
+      "path": "design/03_TECHNICAL_ARCHITECTURE.md",
+      "targets": [
+        10
+      ],
+      "disposition": "CANONICAL_AUTHORITY_PATH_REFERENCE_NO_RESOURCE_HASH_UPDATE"
+    },
+    {
+      "path": "design/04_OPEN_WORK.md",
+      "targets": [
+        10
+      ],
+      "disposition": "CANONICAL_AUTHORITY_PATH_REFERENCE_NO_RESOURCE_HASH_UPDATE"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "targets": [
+        10
+      ],
+      "disposition": "CANONICAL_AUTHORITY_PATH_REFERENCE_NO_RESOURCE_HASH_UPDATE"
+    },
+    {
+      "path": "design/08_TARGET_ARCHITECTURE.md",
+      "targets": [
+        10
+      ],
+      "disposition": "CANONICAL_AUTHORITY_PATH_REFERENCE_NO_RESOURCE_HASH_UPDATE"
+    },
+    {
+      "path": "design/DAY_ONE_DRAFT_BOUNDARY_EVIDENCE_2026-09-04.md",
+      "targets": [
+        5
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/HANDOFF_GROK_DAY_ONE_POOL_NEXT_ANIMATION_2026-08-23.md",
+      "targets": [
+        5
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/2026-09-06-chapter2-lawn-ember-alpha.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/2026-09-06-hall-art-followup.json",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/2026-09-06-minigame-art-quality.json",
+      "targets": [
+        0,
+        3,
+        5,
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/2026-09-06-pool-roshan-action.json",
+      "targets": [
+        0,
+        3,
+        5
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/2026-09-06-stage-pathfinding.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/2026-09-06-upper-left-one-button-correction.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/2026-09-09-day-one-toilet-clean.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/2026-09-09-seahorse-mouth.json",
+      "targets": [
+        3,
+        5,
+        9
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/day-one-continue-softlock-20260923.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/day-one-flow-extraction-20261005.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/day-one-story-clips-runtime-20260923.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/day-one-two-alpha-20260930.json",
+      "targets": [
+        3,
+        4,
+        9,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/day-one-usability-fixes-20260912.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/day-two-safe-return-20260909.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/early_level_back_arrow_20260906.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/fashion-designer-runtime-20261006.json",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/fashion-engine-20261007.json",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/fashion-slots-20261007.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/gold-star-pool-five-star-20261003.json",
+      "targets": [
+        0,
+        3,
+        4,
+        9
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/luna-gameplay-repairs-20261014.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/main-gd-dead-code-and-storage-plan-20260930.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/opera-job-playtest-20260930.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/pool-five-star-framework-20261004.json",
+      "targets": [
+        0,
+        2,
+        3,
+        6,
+        9,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/pool-owner-answers-20261005.json",
+      "targets": [
+        3,
+        5,
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/pool-visual-repair-20261017.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/rainbow-friend-follower-20260923.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/reference-consolidation-handoff-20260930.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/remove-3d-reef-20260923.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/restore-doorframes-20261015.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/retired-reef-20260909.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/roshan-motion-language-20261004.json",
+      "targets": [
+        0,
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/start-menu-options-hold-20260923.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/visual-polish-repairs-20260926.json",
+      "targets": [
+        6,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/audit_impacts/whole-castle-halloween-concept-20261008.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/fashion_designer/REUSE_INVENTORY_20261006.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/reference/GOLD_STAR.md",
+      "targets": [
+        0,
+        3,
+        4,
+        6,
+        9,
+        12
+      ],
+      "disposition": "CURRENT_CATALOG_ADVISORY_OR_IMMUTABLE_BASELINE_PRESERVED"
+    },
+    {
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "targets": [
+        3
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "design/reference/games.json",
+      "targets": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "CURRENT_CATALOG_ADVISORY_OR_IMMUTABLE_BASELINE_PRESERVED"
+    },
+    {
+      "path": "design/reference/gold_star.json",
+      "targets": [
+        0,
+        3,
+        4,
+        6,
+        9,
+        12
+      ],
+      "disposition": "CURRENT_CATALOG_ADVISORY_OR_IMMUTABLE_BASELINE_PRESERVED"
+    },
+    {
+      "path": "design/reference/overdraw.json",
+      "targets": [
+        0,
+        2,
+        4,
+        9,
+        12
+      ],
+      "disposition": "CURRENT_CATALOG_ADVISORY_OR_IMMUTABLE_BASELINE_PRESERVED"
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "targets": [
+        3
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/CANDIDATE_SOURCE_PIN.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/GIT_SOURCE_BINDING.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/MANIFEST.json",
+      "targets": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/REMOTE_VERIFICATION.json",
+      "targets": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/SOURCE_PIN.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/attempt5_source_and_fixtures/CANDIDATE_SOURCE_PIN.json",
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/build_runtime_manifest.py",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/import_01/STATIC_GATES.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/import_02/STATIC_GATES.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_gold_star_2026-10-03/MANIFEST.json",
+      "targets": [
+        0,
+        3,
+        4,
+        9
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_gold_star_2026-10-03/POOL_FIVE_STAR.md",
+      "targets": [
+        0,
+        3,
+        4,
+        9
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_gold_star_2026-10-03/README.md",
+      "targets": [
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_job_platform_architecture_2026-09-30/README.md",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_master_audit_refinement_2026-09-30/data/live_vs_documented_counts.json",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_master_audit_refinement_2026-09-30/seed/canon_seed.json",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_master_audit_refinement_2026-09-30/seed/patterns_seed.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_master_audit_refinement_2026-09-30/tools/measure_reference_health.py",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md",
+      "targets": [
+        6,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_pool_five_star_2026-10-04/MANIFEST.json",
+      "targets": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        9,
+        10,
+        12
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/ANALYSIS.md",
+      "targets": [
+        0,
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/data/motion_measurements.json",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-POOL-SKIMMER-SCOOP.json",
+      "targets": [
+        0
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-WATER-SWIM-STANDARD.json",
+      "targets": [
+        0
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/tools/measure_roshan_motion.py",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_visual_polish_2026-09-25/README.md",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "docs/handoffs/codex_visual_polish_2026-09-25/TRANSPARENCY_AUDIT.md",
+      "targets": [
+        6
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "targets": [
+        1
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "targets": [
+        2
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/debug_export_stage_pathfinding.gd",
+      "targets": [
+        6
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "targets": [
+        2
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "targets": [
+        0,
+        2,
+        4,
+        9
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "targets": [
+        7
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "targets": [
+        11
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_castle_pool_life_2d.gd",
+      "targets": [
+        2,
+        6,
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_bunny.gd",
+      "targets": [
+        2
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_integration.gd",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_movie_handoff.gd",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_day_one_castle_dressing.gd",
+      "targets": [
+        12
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_day_one_contextual_voice.gd",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_day_one_d8_revisits.gd",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_day_one_integration.gd",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_cleanup.gd",
+      "targets": [
+        0,
+        2,
+        4,
+        9
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_day_one_story_clips.gd",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_load.gd",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_start_menu_routing.gd",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_ui_system.gd",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "scripts/probe_visual_audit.gd",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tests/test_audit_typography.py",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "tests/test_type_c_layout.py",
+      "targets": [
+        10
+      ],
+      "disposition": "DATED_PROVENANCE_OR_PRIOR_TASK_EVIDENCE_PRESERVED"
+    },
+    {
+      "path": "tools/audit_castle_interactions_v2.py",
+      "targets": [
+        1,
+        6,
+        8,
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/audit_castle_item_style.py",
+      "targets": [
+        6
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/audit_castle_native_interactions.py",
+      "targets": [
+        6,
+        8
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/audit_castle_static_depth_cards.py",
+      "targets": [
+        6
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/audit_day_one_contextual_voices.py",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/audit_stage_pathfinding.py",
+      "targets": [
+        6
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/audit_typography.py",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/audit_visual_design.py",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/build_castle_interaction_v2_manifest.py",
+      "targets": [
+        1
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/build_day_one_grok_regeneration_handoffs.py",
+      "targets": [
+        6
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/capture_pool_repair.py",
+      "targets": [
+        5,
+        7,
+        11
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/check_grade_headroom.py",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/game_2d_migration_manifest.json",
+      "targets": [
+        1,
+        6,
+        8,
+        10
+      ],
+      "disposition": "CURRENT_CATALOG_ADVISORY_OR_IMMUTABLE_BASELINE_PRESERVED"
+    },
+    {
+      "path": "tools/plan_audit_rollback.py",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/review_castle_interaction_frames_v4.py",
+      "targets": [
+        6,
+        8
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/sim_render_grade.py",
+      "targets": [
+        6,
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/study_game.py",
+      "targets": [
+        6
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/tests/test_audit_opera_capture.py",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/tests/test_audit_visual_design.py",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/tests/test_plan_audit_rollback.py",
+      "targets": [
+        10
+      ],
+      "disposition": "CURRENT_CALLER_OR_GATE_PATH_REFERENCE_UNCHANGED"
+    },
+    {
+      "path": "tools/visual_audit_spec.json",
+      "targets": [
+        6
+      ],
+      "disposition": "CURRENT_CATALOG_ADVISORY_OR_IMMUTABLE_BASELINE_PRESERVED"
+    }
+  ],
+  "per_source_reference_counts": {
+    "scripts/games/pool_skimmer_activity.gd": 89,
+    "assets/shaders/castle_fixture_water.gdshader": 61,
+    "scripts/games/day_one_dust_bunny_swimmer.gd": 80,
+    "scripts/probe_day_one_pool_cleanup.gd": 85,
+    "scripts/games/pool_waterfall_activity.gd": 82,
+    "scripts/probe_day_one_pool_shots.gd": 70,
+    "scripts/arena/castle_rooms_25d.gd": 170,
+    "shaders/pool_blocked_fountain.gdshader": 8,
+    "scripts/arena/castle_fixture_rigs.gd": 68,
+    "scripts/games/pool_seahorse_rescue_activity.gd": 87,
+    "scripts/main.gd": 207,
+    "shaders/pool_floating_debris.gdshader": 8,
+    "scripts/arena/day_one_castle_dressing.gd": 75
+  },
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "hash_binding_search": {
+    "hashes": {
+      "scripts/games/pool_skimmer_activity.gd": {
+        "baseline_lf": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+        "baseline_crlf": "c448fe28536b321bc8d9a665a208f49c7a956c933dfa6c78c9371152466aeb42"
+      },
+      "assets/shaders/castle_fixture_water.gdshader": {
+        "baseline_lf": "168cb9fe89d06e11101b4dcc5084247158c7411463f3c3e168493453e64431aa",
+        "baseline_crlf": "f27b8676850ad8cc54adb91e6572d9996b3fc53327a476be23aa32d5438b9df7"
+      },
+      "scripts/games/day_one_dust_bunny_swimmer.gd": {
+        "baseline_lf": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+        "baseline_crlf": "fd95b806ed3bd4f749bf7726bc1b15feeb2e25a33807bb2321e473a621f654f3"
+      },
+      "scripts/probe_day_one_pool_cleanup.gd": {
+        "baseline_lf": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+        "baseline_crlf": "5ca97a191d0e3eef9610e664fba15d507a76632b4c3538f35f6efa12ea9a35bf"
+      },
+      "scripts/games/pool_waterfall_activity.gd": {
+        "baseline_lf": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+        "baseline_crlf": "bd31d50392c44e518198ab0c6a51be203d10e94e33c98817604f5c851978a5e2"
+      },
+      "scripts/probe_day_one_pool_shots.gd": {
+        "baseline_lf": "b5d36a535a72975d7c2c2000fba5e94facde3f949ea92dbf18d85de9f9f5dafd",
+        "baseline_crlf": "6c591c328b517b71528d9129d11339888fd95abda23846a20068ca8047be98e6"
+      },
+      "scripts/arena/castle_rooms_25d.gd": {
+        "baseline_lf": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+        "baseline_crlf": "f3203cb1e8955ae29b9536f266a57a33373ec459f2828724f2f6be59d1283c8c"
+      },
+      "scripts/arena/castle_fixture_rigs.gd": {
+        "baseline_lf": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+        "baseline_crlf": "c0efa70a5a00ba5c6204b5c960ce6de4ea702971dc7554cda23b32bf42f895e1"
+      },
+      "scripts/games/pool_seahorse_rescue_activity.gd": {
+        "baseline_lf": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+        "baseline_crlf": "eb7dfad344d0f9a3a30abc2f7fe293267de0d899088e59b596a9df5ce17da60c"
+      },
+      "scripts/main.gd": {
+        "baseline_lf": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+        "baseline_crlf": "b7141748c9664fa4023d254495fd61ae4e80d6e536c3ada3972c2ea0104696c7"
+      },
+      "scripts/arena/day_one_castle_dressing.gd": {
+        "baseline_lf": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+        "baseline_crlf": "1f12db9760f97d65a00c49c179b4448273c367ed1d715fad845c65dc7f89cc91"
+      }
+    },
+    "hash_reference_files": [
+      "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+      "assets_src/fashion_designer/skin_engine_v2/frozen_reconciliation.json",
+      "assets_src/fashion_designer/slots_v1/frozen_sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/campaign/luna-findings.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/campaign/luna-manifest.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/audio_ownership/DRAFT_RECEIPT.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/audio_ownership/MANIFEST.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/audio_ownership/REVIEW_RECEIPT.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/finalization_precommit/audio_shutdown/gate/audio-shutdown-verbose-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/finalization_precommit/integrity_review/evidence_integrity_review.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/full_local_ci/gate/candidate-full-ci-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/full_local_ci_02/gate/candidate-full-ci-02.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial-runtime-sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_diagnostics/farmer-delivery-observe-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/candidate-import-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/candidate-import-02.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/chapter2-analyzer-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/chapter2-route-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/dust-visible-entry-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/tutorial-real-charge-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/pins/candidate-runtime-sources.v1.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/pins/candidate-runtime-sources.v2.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision3/diagnostics/gates/chapter2-resume-observe-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision3/diagnostics/gates/equality-control01-check-02.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision3/diagnostics/gates/equality-control01-probe-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision3/gate/chapter2-route-02.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision3/pins/candidate-runtime-sources.v3.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision4/gate/chapter2-route-03.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision4/pins/candidate-runtime-sources.v4.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/chapter2_route04/gate/chapter2-route-04.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/chapter2_route04/pins/candidate-runtime-sources.v5.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/INTERPRETATION.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/focused_gates/dolls-objective-02.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/focused_gates/main-analyzer-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/focused_gates/seek-objective-02.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/focused_gates/voice-routing-02.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/native/candidate-revision5-application.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/native/candidate-runtime-sources.v5.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/native/reviewed-revision5.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/native/static-parser-inference-revision5-01.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision6/application/native/candidate-runtime-sources.v6.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision6/chapter2_route05/gate/chapter2-route-05.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision6/chapter2_route05/pins/candidate-runtime-sources.v6.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision7/application/native/candidate-runtime-sources.v7.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision7/application/static/static-parser-inference-revision7-01.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision7/chapter2_route06/gate/chapter2-route-06.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision7/chapter2_route06/pins/candidate-runtime-sources.v7.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision8/application/runtime_sources.v8.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision8/focused_machine/farmer-resume-analyzer-v8-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision8/focused_machine/farmer-resume-v8-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision8/focused_machine/static-parser-inference-revision8-01.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/window_mode_diagnostics/control/chapter2-window-control-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/candidate/window_mode_diagnostics/failed_route03/chapter2-route-03.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/literal_blob_mapping.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/publication/source_binding_01/runtime_blob_mapping.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/voice_lifecycle/focused_gates/dolls-objective-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/voice_lifecycle/focused_gates/kart-teardown-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/voice_lifecycle/focused_gates/seek-objective-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/voice_lifecycle/focused_gates/start-new-reload-01.sources.json",
+      "audit/cycles/luna-gameplay-repairs-20261014/voice_lifecycle/focused_gates/voice-routing-01.sources.json",
+      "audit/cycles/luna-playtest-20261012/captures/pool/receipt.json",
+      "audit/cycles/luna-playtest-20261012/captures/pool_burst/receipt.json",
+      "audit/cycles/luna-playtest-20261012/captures/pool_burst_repeat/receipt.json",
+      "audit/cycles/luna-playtest-20261012/captures/pool_burst_slow/receipt.json",
+      "audit/cycles/luna-playtest-20261012/captures/pool_burst_slow_repeat/receipt.json",
+      "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/receipt.json",
+      "audit/cycles/luna-playtest-20261012/runtime/L05/attempt_1/receipt.json",
+      "audit/cycles/luna-playtest-20261012/runtime/L07/attempt_1/receipt.json",
+      "audit/cycles/luna-playtest-20261012/runtime/L08/attempt_1/receipt.json",
+      "audit/cycles/luna-playtest-20261012/runtime/L09/attempt_1/receipt.json",
+      "audit/cycles/luna-playtest-20261012/runtime/L10/attempt_1/receipt.json",
+      "audit/cycles/luna-playtest-20261012/verification/capture_assets.json",
+      "audit/cycles/pool-visual-repair-20261017/FRAME_BINDING_REVALIDATION.json",
+      "audit/doorframe_restore_20261015.json",
+      "design/reference/games.json",
+      "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/CANDIDATE_SOURCE_PIN.json",
+      "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/GIT_SOURCE_BINDING.json",
+      "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/MANIFEST.json",
+      "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/REMOTE_VERIFICATION.json",
+      "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/SOURCE_PIN.json",
+      "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/attempt5_source_and_fixtures/CANDIDATE_SOURCE_PIN.json",
+      "docs/handoffs/codex_gold_star_2026-10-03/MANIFEST.json",
+      "docs/handoffs/codex_pool_five_star_2026-10-04/MANIFEST.json",
+      "tools/build_castle_interaction_v2_manifest.py"
+    ]
+  },
+  "method": "rg exact full-source paths for all13 frozen files across assets/assets_src/scripts/tools/design/audit/docs/tests/scenes/.github and entry contracts; second rg search for each existing baseline source's LF and CRLF SHA-256 catches hash-only provenance references.",
+  "current_updates": [
+    "assets/flats/castle/interactions_v2/castle_interactions_v2.json: normalized renderer hash and dated behavior revision, preserving previous hashes",
+    "tools/build_castle_interaction_v2_manifest.py: reproduce the current behavior description; current generator pin refreshed",
+    "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json: binding-only refresh after96frame/12occlusion equality and exact prior-payload reproduction; original review unchanged"
+  ],
+  "preservation": "Historical captures, generations, handoffs, immutable2D ceilings and previous task source pins retain their original hashes. Gold-star stale advisories and broad unresolved visual-audit findings are not silently refreshed into acceptance. Current overdraw is source-bound supporting machine evidence only.",
+  "validation": "Relevant castle static gates and64contract unit tests PASS after bounded current-binding updates; seven isolated exact-engine sibling probes PASS. Full rerun remains required."
+}

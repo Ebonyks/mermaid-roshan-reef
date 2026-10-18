@@ -36,17 +36,21 @@ const SCOOP_SECONDS := 0.42
 const GUIDE_HAND_PATH := "res://assets/castle/training/ghost_hand.png"
 const BUBBLES_PATH := "res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png"
 const CLEAR_RING_PATH := "res://assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png"
+const WATER_CONTACT_ATLAS := preload("res://assets/sprites/fx_water/fx_water_ripple_ring_atlas.png")
+const DEBRIS_SHADER := preload("res://shaders/pool_floating_debris.gdshader")
 const GUIDE_HAND_SIZE := 60.0
 # Measured fingertip of the 512px ghost hand, relative to its centre.
 const GUIDE_FINGERTIP := Vector2(-38.5, 191.0)
-const POOL_VISUAL_BOUNDS := Rect2(170.0, 220.0, 940.0, 250.0)
+const POOL_VISUAL_BOUNDS := Rect2(170.0, 270.0, 940.0, 310.0)
 const TRASH_POSITIONS: Array[Vector2] = [
-	Vector2(310.0, 316.0),
-	Vector2(535.0, 276.0),
+	Vector2(310.0, 330.0),
+	Vector2(600.0, 330.0),
 	Vector2(795.0, 292.0),
-	Vector2(404.0, 401.0),
-	Vector2(676.0, 425.0),
-	Vector2(955.0, 382.0),
+	# Keep the complete pink float (453,428) and star (719,405) readable.
+	# The old leaf/ribbon positions covered their lower/left silhouettes.
+	Vector2(380.0, 540.0),
+	Vector2(580.0, 500.0),
+	Vector2(1050.0, 430.0),
 ]
 const TRASH_TINTS: Array[Color] = [
 	Color(0.78, 0.83, 0.71, 0.90),
@@ -78,6 +82,7 @@ var _last_input_time: float = 0.0
 var _skimmer_position := Vector2(640.0, 380.0)
 var _trash_sprites: Array[Sprite2D] = []
 var _trash_base_positions: Array[Vector2] = []
+var _trash_contacts: Array[Sprite2D] = []
 var _flight_tweens: Array[Tween] = []
 var _skimmer: Sprite2D = null
 var _basket: Sprite2D = null
@@ -97,6 +102,15 @@ var _target_index: int = -1
 var _scoop_time: float = 0.0
 var _owned_touch: int = -1
 var _hand_offset: Vector2 = HAND_OFFSET
+
+
+static func room_prop_material() -> ShaderMaterial:
+	var material := ShaderMaterial.new()
+	material.shader = DEBRIS_SHADER
+	material.set_shader_parameter("immersion", 0.0)
+	# Net mesh and painted translucent details are intentional, not glow.
+	material.set_shader_parameter("suppress_aura", false)
+	return material
 
 
 func setup(initial_mask: int = 0) -> void:
@@ -241,6 +255,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_demo_time += maxf(delta, 0.0)
+	_advance_floating_pieces()
 	_advance_cleaning(maxf(delta, 0.0))
 	if _demo_pointer == null or not is_instance_valid(_demo_pointer):
 		queue_redraw()
@@ -252,10 +267,11 @@ func _process(delta: float) -> void:
 	var idle_seconds: float = _demo_time - _last_input_time
 	_demo_pointer.visible = idle_seconds > 0.45
 	if _demo_pointer.visible:
-		var route_index: int = int(floor(_demo_time * 0.72)) % TRASH_COUNT
+		# Stay with one missed piece until it is collected. Jumping the guide
+		# across the room every second made its instruction impossible to follow.
+		var route_index: int = 0
 		while (_progress_mask & (1 << route_index)) != 0:
 			route_index = (route_index + 1) % TRASH_COUNT
-		var route_phase: float = fmod(_demo_time * 0.72, 1.0)
 		var route_position: Vector2 = _trash_contact_position(route_index)
 		# The approved guide hand taps down onto the live piece from above; it
 		# never catches anything without live input.
@@ -263,7 +279,10 @@ func _process(delta: float) -> void:
 			-30.0 - absf(sin(_demo_time * 3.2)) * 12.0)
 		_demo_pointer.position = fingertip - GUIDE_FINGERTIP * _demo_pointer.scale
 		_demo_pointer.rotation = sin(_demo_time * 2.0) * 0.04
-		_demo_pointer.modulate.a = 0.86 + route_phase * 0.12
+		_demo_pointer.modulate.a = 0.94
+
+
+func _advance_floating_pieces() -> void:
 	for index: int in range(_trash_sprites.size()):
 		var piece: Sprite2D = _trash_sprites[index]
 		if piece == null or not is_instance_valid(piece) \
@@ -274,6 +293,9 @@ func _process(delta: float) -> void:
 		piece.position = _trash_base_positions[index] + Vector2(
 			sin(phase) * (3.0 + float(index % 2)), cos(phase * 0.83) * 2.4)
 		piece.rotation = TRASH_ROTATIONS[index] + sin(phase * 0.62) * 0.025
+		if index < _trash_contacts.size():
+			var contact: Sprite2D = _trash_contacts[index]
+			contact.position = piece.position + Vector2(0.0, TRASH_MAX_SIZES[index].y * 0.27)
 	# The authored V4 pool is the one visible water surface: no code-drawn
 	# contact arcs. The generous catch radius stays entirely invisible.
 
@@ -449,6 +471,11 @@ func _collect_item(index: int) -> void:
 		var piece: Sprite2D = _trash_sprites[index]
 		if piece != null and is_instance_valid(piece):
 			piece.set_meta("in_flight", true)
+			if index < _trash_contacts.size():
+				_trash_contacts[index].visible = false
+			var material: ShaderMaterial = piece.material as ShaderMaterial
+			if material != null:
+				material.set_shader_parameter("immersion", 0.0)
 			piece.z_index = 176
 			var flight: Tween = piece.create_tween().set_parallel(true)
 			_flight_tweens.append(flight)
@@ -490,6 +517,7 @@ func _build_activity_art() -> void:
 	_basket.position = BASKET_POSITION
 	_basket.z_index = 175
 	_basket.modulate = Color(0.84, 0.88, 0.82, 0.96)
+	_basket.material = room_prop_material()
 	_fit_sprite(_basket, BASKET_MAX_SIZE)
 	add_child(_basket)
 
@@ -499,7 +527,15 @@ func _build_activity_art() -> void:
 		piece.texture = _atlas_frame(index)
 		piece.position = TRASH_POSITIONS[index]
 		piece.z_index = 2 + int(round((piece.position.y - 260.0) / 22.0))
-		piece.modulate = TRASH_TINTS[index]
+		piece.modulate = Color(0.94, 0.97, 0.96, 1.0)
+		var frame: AtlasTexture = piece.texture as AtlasTexture
+		var material := ShaderMaterial.new()
+		material.shader = DEBRIS_SHADER
+		var source_size: Vector2 = _atlas.get_size()
+		material.set_shader_parameter("atlas_uv_rect", Vector4(
+			frame.region.position.x / source_size.x, frame.region.position.y / source_size.y,
+			frame.region.size.x / source_size.x, frame.region.size.y / source_size.y))
+		piece.material = material
 		piece.rotation = TRASH_ROTATIONS[index]
 		piece.set_meta("trash_index", index)
 		piece.set_meta("in_flight", false)
@@ -507,10 +543,24 @@ func _build_activity_art() -> void:
 		add_child(piece)
 		_trash_sprites.append(piece)
 		_trash_base_positions.append(piece.position)
+		var contact := Sprite2D.new()
+		contact.name = "FloatingTrashWaterContact_%02d" % index
+		contact.texture = WATER_CONTACT_ATLAS
+		contact.hframes = 4
+		contact.vframes = 2
+		contact.frame = 3
+		contact.scale = Vector2((TRASH_MAX_SIZES[index].x + 14.0) / 219.0, 12.0 / 65.0)
+		contact.position = piece.position + Vector2(0.0, TRASH_MAX_SIZES[index].y * 0.27)
+		contact.self_modulate = Color(0.67, 0.91, 0.91, 0.27)
+		contact.z_index = piece.z_index - 1
+		contact.visible = (_progress_mask & (1 << index)) == 0
+		add_child(contact)
+		_trash_contacts.append(contact)
 
 	_skimmer = Sprite2D.new()
 	_skimmer.name = "PoolSkimmer"
 	_skimmer.texture = load(SKIMMER_PATH) as Texture2D
+	_skimmer.material = room_prop_material()
 	_skimmer.z_index = 35
 	_fit_sprite(_skimmer, SKIMMER_MAX_SIZE)
 	_cleaner = Node2D.new()
@@ -638,6 +688,7 @@ func _clear_owned_children() -> void:
 		child.free()
 	_trash_sprites.clear()
 	_trash_base_positions.clear()
+	_trash_contacts.clear()
 	_skimmer = null
 	_basket = null
 	_demo_pointer = null

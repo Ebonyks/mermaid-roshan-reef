@@ -595,7 +595,23 @@ func tick(_delta: float) -> void:
 	m.g["castle_fixture_jolt_allocated"] = _spring_rigs.size()
 	m.g["castle_fixture_jolt_awake"] = awake
 	for rig_value: Variant in m.castle_room_fixture_rigs.values():
-		_tick_bubbles(rig_value as Dictionary)
+		var rig: Dictionary = rig_value as Dictionary
+		_tick_bubbles(rig)
+		var fixture: Sprite2D = rig.get("sprite") as Sprite2D
+		# Clean water keeps flowing after its reward and on revisits. The earlier
+		# one-second interaction profile always ended with both outlets stopped.
+		if String(rig.get("key", "")) in ["mermaid_pool:waterfall", "mermaid_pool:seahorse_fountain"] \
+				and (not m.day_one_is_active() or m.day_one_pool_cleanup_step >= 4) \
+				and fixture != null and not bool(fixture.get_meta("busy", false)):
+			for water_value: Variant in rig.get("water", []):
+				var water: Dictionary = water_value as Dictionary
+				var material: ShaderMaterial = water.get("material") as ShaderMaterial
+				var node: Sprite2D = water.get("node") as Sprite2D
+				if material != null and node != null:
+					material.set_shader_parameter("flow_amount", 1.0)
+					material.set_shader_parameter("fill_amount", 1.0)
+					node.visible = true
+					water["flow_amount"] = 1.0
 
 
 func physics_tick(_delta: float) -> void:
@@ -750,6 +766,9 @@ func _add_water_layer(rig: Dictionary, layer: Dictionary,
 	material.set_shader_parameter("shallow_color",
 		_layer_color(layer, "shallow", Color(0.48, 0.90, 0.96)))
 	var alpha_base := float(layer.get("alpha_base", 0.84))
+	if String(rig.get("key", "")) in ["mermaid_pool:waterfall", "mermaid_pool:seahorse_fountain"]:
+		material.set_shader_parameter("painted_highlight_only", true)
+		alpha_base = minf(alpha_base, 0.085)
 	if String(rig.get("key", "")) == "bubble_bath:bathtub" \
 			and role == "fill":
 		alpha_base = minf(alpha_base, 0.24)

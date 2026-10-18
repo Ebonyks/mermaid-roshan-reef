@@ -1,0 +1,42 @@
+{
+  "id": "pool-default-profile-hash-only-followup-20261018",
+  "status": "OBSERVATION_UNKNOWN_WRITER_NO_RESTORE",
+  "original_incident": "VERIFICATION_INCIDENT.json",
+  "observed": {
+    "default_save": {
+      "bytes": 4813,
+      "modified_utc": "2026-10-18T00:07:36.2822745Z",
+      "sha256": "50317a2a23ae53ab0c9dc7fa4ebc422de9841a867792e7d4293028f31a8fe63e"
+    },
+    "default_backup": {
+      "bytes": 4813,
+      "modified_utc": "2026-10-18T00:07:36.3419971Z",
+      "sha256": "812066f1e3a4ca395b82e8629d1e607ab41e652db5cc269b87bc41d560e9fe78"
+    }
+  },
+  "writer": "UNKNOWN: neither another Pool-task write nor recovery of prior progress is established",
+  "preservation": {
+    "new_ignored_private_directory": "tmp/pool-repair/default-profile-followup-20261018-843f590e37dc42e191cf673cc8c25be1",
+    "method": "Separate new copies, each file stable across before/copy/after SHA checks; no replacement of original incident snapshots",
+    "pair_atomicity": "Not claimed; each file was individually stable",
+    "original_private_backups": [
+      {"bytes": 4233, "sha256": "b81409bba2d108625739b2e1c10be48dc0d9571baf2d1cc4d7b1233b02cd07eb"},
+      {"bytes": 4233, "sha256": "c9b95b66fd00f22f2e2c5b41d2803e4f5c581c58be483e2e3a593dea0dabd5d6"},
+      {"bytes": 1916, "sha256": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158"}
+    ],
+    "original_backups_verified_unchanged": true,
+    "save_contents_parsed_inspected_or_published": false,
+    "restore_performed": false
+  },
+  "ci06_environment_and_timing": {
+    "start_utc": "2026-10-17T23:27:35.218Z",
+    "end_utc": "2026-10-18T00:48:53.478Z",
+    "observation_overlaps_run_window": true,
+    "actual_global_user_data": "C:/Users/Peter/AppData/Local/Temp/reef_pool_full_ci06_k3lafg_v/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light",
+    "preflight": "FULL_CI06_PROCESS.json and full-ci06.log record the engine-reported temporary directory; wrapper asserts it is below its fresh profile root before scripts/ci.sh",
+    "canonical_runner": "scripts/ci.sh creates fresh per-probe APPDATA/LOCALAPPDATA and XDG bases; no runner or cap edits",
+    "limit": "The canonical log has no per-stage timestamps and not every probe emits an engine userdata receipt. These controls and the overlapping window do not conclusively identify or exclude a writer. No attribution is inferred from current process snapshots."
+  },
+  "owner_preview": "Parent rechecked its distinct custom MermaidReef-OperaRemovalReview-20261017 userdata setting; no preview process or file was altered by this task",
+  "acceptance_limit": "Prior default-desktop progress remains unknown. Both observed generations are preserved privately; no unverified restore, recovery claim, private JSON publication or new defect attribution is made."
+}

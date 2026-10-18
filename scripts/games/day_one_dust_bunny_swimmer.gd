@@ -92,7 +92,7 @@ func setup(swim_bounds: Rect2, start_position: Vector2,
 	set_meta("true_2d", true)
 	set_meta("shared_swimmer_asset", SWIMMER_TEXTURE_PATH)
 	set_meta("swim_bounds", _swim_bounds)
-	set_meta("simple_animation", "bounded_bob_paddle")
+	set_meta("simple_animation", "short_glide_settle")
 	set_meta("comic_reaction", "one_shot_spin_no")
 	set_process(true)
 	return true
@@ -107,7 +107,7 @@ func audit_snapshot() -> Dictionary:
 		"asset": SWIMMER_TEXTURE_PATH,
 		"true_2d": true,
 		"depth_z": z_index,
-		"animation": "bounded_bob_paddle",
+		"animation": "short_glide_settle",
 		"bounds": _swim_bounds,
 		"position": position,
 		"inside_bounds": _swim_bounds.has_point(position),
@@ -218,9 +218,16 @@ func _finish_comic_no() -> void:
 
 func _process(delta: float) -> void:
 	_elapsed += maxf(delta, 0.0)
-	var desired := _rest_position + Vector2(
-		sin(_elapsed * 0.72) * _travel.x,
-		sin(_elapsed * 1.38 + 0.7) * _travel.y)
+	# A short straight swim, a quiet one-second rest, then turn and return.
+	# The previous independent x/y sine waves, roll and squash made the bunny
+	# slide backwards and orbit an arbitrary point without ever settling.
+	var phase: float = fmod(_elapsed, 12.0)
+	var returning: bool = phase >= 6.0
+	var leg: float = clampf((phase - 6.0 if returning else phase) / 5.0, 0.0, 1.0)
+	var distance_ratio: float = (1.0 - cos(leg * PI)) * 0.5
+	if returning:
+		distance_ratio = 1.0 - distance_ratio
+	var desired := _rest_position + Vector2(distance_ratio * _travel.x, 0.0)
 	position = Vector2(
 		clampf(desired.x, _safe_center_bounds.position.x,
 			_safe_center_bounds.end.x),
@@ -228,10 +235,9 @@ func _process(delta: float) -> void:
 			_safe_center_bounds.end.y))
 	if _sprite == null:
 		return
-	var paddle: float = sin(_elapsed * 2.6)
-	_sprite.rotation = paddle * 0.025
-	_sprite.scale = _base_scale * Vector2(
-		1.0 + paddle * 0.015, 1.0 - paddle * 0.012)
+	_sprite.flip_h = returning
+	_sprite.rotation = 0.0
+	_sprite.scale = _base_scale
 
 
 func _build_ripple() -> void:

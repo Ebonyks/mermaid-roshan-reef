@@ -1,0 +1,70 @@
+{
+  "scope": "Three bounded diagnostics after terminal CI05; not a replacement for the failed canonical full-suite result",
+  "candidate_freeze": "CANDIDATE_FREEZE.json",
+  "full_ci05_status": "FAIL",
+  "full_ci05_log_sha256": "8ff7bf14a9a4deaaa74a72c00f9e3f5acca2bc999e633b472ace1381d00b7cb8",
+  "same_canonical_cap_seconds": 480,
+  "no_additional_diagnostic_process_spawns_during_each_probe": true,
+  "rows": [
+    {
+      "probe": "probe_kart_feel",
+      "command": [
+        "C:/Program Files/Git/bin/bash.exe",
+        "-c",
+        "set -o pipefail; timeout 8m \"$GODOT\" --headless -s scripts/probe_kart_feel.gd -- --touch --classic-touch-test"
+      ],
+      "cap_seconds": 480,
+      "actual_user_data": "C:/Users/Peter/AppData/Local/Temp/reef_pool_ci05_rerun_probe_kart_feel_ugjhbcee/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light",
+      "start_utc": "2026-10-17T23:14:19.421069+00:00",
+      "status": "TERMINAL",
+      "pid": 167376,
+      "end_utc": "2026-10-17T23:15:23.489577+00:00",
+      "wall_seconds": 64.067,
+      "exit": 0,
+      "terminal_verdict": true,
+      "failure_markers": false,
+      "log_sha256": "46ff279c63064ea1d6dd43b95ce692427665536623b6c235a45c61f2cbb5082e",
+      "diagnostic_pass": true
+    },
+    {
+      "probe": "probe_dust_boss",
+      "command": [
+        "C:/Program Files/Git/bin/bash.exe",
+        "-c",
+        "set -o pipefail; timeout 8m \"$GODOT\" --headless -s scripts/probe_dust_boss.gd -- --touch --classic-touch-test"
+      ],
+      "cap_seconds": 480,
+      "actual_user_data": "C:/Users/Peter/AppData/Local/Temp/reef_pool_ci05_rerun_probe_dust_boss_o80k6a2h/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light",
+      "start_utc": "2026-10-17T23:15:23.889840+00:00",
+      "status": "TERMINAL",
+      "pid": 164596,
+      "end_utc": "2026-10-17T23:16:11.100935+00:00",
+      "wall_seconds": 47.21,
+      "exit": 0,
+      "terminal_verdict": true,
+      "failure_markers": false,
+      "log_sha256": "71a0c009fc66f5553c761ce55075fe2bdbd893ffee760061328825750a090782",
+      "diagnostic_pass": true
+    },
+    {
+      "probe": "probe_opera",
+      "command": [
+        "C:/Program Files/Git/bin/bash.exe",
+        "-c",
+        "set -o pipefail; timeout 8m \"$GODOT\" --headless -s scripts/probe_opera.gd -- --touch --classic-touch-test"
+      ],
+      "cap_seconds": 480,
+      "actual_user_data": "C:/Users/Peter/AppData/Local/Temp/reef_pool_ci05_rerun_probe_opera__nqq990j/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light",
+      "start_utc": "2026-10-17T23:16:11.610398+00:00",
+      "status": "TERMINAL",
+      "pid": 137992,
+      "end_utc": "2026-10-17T23:17:02.200563+00:00",
+      "wall_seconds": 50.589,
+      "exit": 0,
+      "terminal_verdict": true,
+      "failure_markers": false,
+      "log_sha256": "c218617b67fda1607987c549a6a61c06e5837437c3a88b05ca32ea5a7667eef2",
+      "diagnostic_pass": true
+    }
+  ]
+}

@@ -24,6 +24,7 @@ uniform float flow_speed : hint_range(0.0, 4.0) = 1.0;
 uniform vec2 flow_axis = vec2(0.0, 1.0);
 uniform bool stream_mode = false;
 uniform bool reveal_from_top = false;
+uniform bool painted_highlight_only = false;
 
 void fragment() {
 	float mask_alpha = texture(shape_mask, UV).a;
@@ -64,6 +65,13 @@ void fragment() {
 		clamp(0.24 + painted_ripple * 0.72, 0.0, 1.0));
 	base = mix(base, foam_color, clamp(foam + shimmer * 0.28, 0.0, 1.0));
 	vec3 emission = base * (0.16 + shimmer * 0.10) + foam_color * foam * 0.16;
-	COLOR = vec4(base + emission, alpha_base * visible
-		* (0.78 + painted_ripple * turbulence * 0.20));
+	if (painted_highlight_only) {
+		// Complete painted rainbow/arc pixels stay visible beneath a narrow
+		// downward glint. Keep the shared outlet-to-landing reveal on startup.
+		float band = pow(max(0.0, sin((UV.y - TIME * flow_speed * 0.22) * 35.0)), 12.0);
+		COLOR = vec4(vec3(0.92, 0.98, 1.0), visible * alpha_base * band);
+	} else {
+		COLOR = vec4(base + emission, alpha_base * visible
+			* (0.78 + painted_ripple * turbulence * 0.20));
+	}
 }

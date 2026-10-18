@@ -2,15 +2,15 @@
  "schema": "overdraw_measurements/1",
  "status": "SUPPORTING_CURRENT",
  "note": "Machine measurement only, never acceptance. Layer counts come from a real Mobile-renderer frame read into memory and reduced to numbers; nothing is saved or shown as an image. Node fields come from the live Canvas tree. Code-drawing scripts are judged by the classification in gold_star.json.",
- "measured_at": "2026-10-05T05:53:09Z",
- "head": "356afeb94bef803f3d1d2268adfed3f1405143b7",
+ "measured_at": "2026-10-17T18:51:31Z",
+ "head": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
  "godot": "4.7.2.stable.official.ed1daf0bf",
  "selftest": {
   "result": "PASS",
   "gpu": {
    "frame": [
-    1920,
-    1080
+    2560,
+    1369
    ],
    "max": 6,
    "mean": 6.0,
@@ -22,8 +22,8 @@
   },
   "gpu_translucent": {
    "frame": [
-    1920,
-    1080
+    2560,
+    1369
    ],
    "max": 1,
    "mean": 1.0,
@@ -1014,41 +1014,41 @@
     "entry_transition": {
      "gpu": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
-      "max": 8,
-      "mean": 4.38,
-      "p50": 4,
-      "p95": 6,
-      "share_ge3": 1.0,
-      "share_ge4": 1.0,
-      "share_ge6": 0.12
+      "max": 5,
+      "mean": 1.99,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.011,
+      "share_ge4": 0.001,
+      "share_ge6": 0.0
      },
      "gpu_translucent": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
-      "max": 4,
-      "mean": 0.3,
+      "max": 2,
+      "mean": 0.0,
       "p50": 0,
-      "p95": 2,
-      "share_ge3": 0.019,
+      "p95": 0,
+      "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "gpu_peak": 8,
+     "gpu_peak": 5,
      "node_depth": {
-      "max": 6,
-      "mean": 3.15,
-      "p50": 3,
-      "p95": 4,
-      "share_ge3": 1.0,
-      "share_ge4": 0.147,
+      "max": 1,
+      "mean": 1.0,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "hidden_share": 0.81,
+     "hidden_share": 0.5,
      "duplicates": [],
      "broad_overlays": [],
      "full_width_alpha_layers": 0,
@@ -1063,63 +1063,49 @@
        "source": "living_world_canvas.gd",
        "screen_share": 1.0,
        "hidden_share": 1.0
-      },
-      {
-       "name": "WaterfallContactAndReveal",
-       "kind": "custom",
-       "source": "pool_waterfall_activity.gd",
-       "screen_share": 1.0,
-       "hidden_share": 1.0
-      },
-      {
-       "name": "CastleRoomTransitionCover",
-       "kind": "vector",
-       "source": "",
-       "screen_share": 1.0,
-       "hidden_share": 1.0
       }
      ],
-     "roshan_covered_share": 1.0,
-     "items": 45
+     "roshan_covered_share": 0.0,
+     "items": 3
     },
     "start": {
      "gpu": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
-      "max": 5,
-      "mean": 1.39,
+      "max": 4,
+      "mean": 1.27,
       "p50": 1,
-      "p95": 3,
-      "share_ge3": 0.123,
-      "share_ge4": 0.025,
+      "p95": 2,
+      "share_ge3": 0.048,
+      "share_ge4": 0.003,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
-      "max": 4,
-      "mean": 0.3,
+      "max": 3,
+      "mean": 0.12,
       "p50": 0,
-      "p95": 2,
-      "share_ge3": 0.02,
+      "p95": 1,
+      "share_ge3": 0.001,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "gpu_peak": 5,
+     "gpu_peak": 4,
      "node_depth": {
-      "max": 4,
+      "max": 3,
       "mean": 1.15,
       "p50": 1,
       "p95": 2,
-      "share_ge3": 0.004,
+      "share_ge3": 0.006,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "hidden_share": 0.07,
+     "hidden_share": 0.08,
      "duplicates": [],
      "broad_overlays": [],
      "full_width_alpha_layers": 0,
@@ -1127,46 +1113,93 @@
      "code_drawing_hidden": [],
      "wasted_layers": [],
      "roshan_covered_share": 0.01,
-     "items": 42
+     "items": 49
     },
     "skimmer_contact": {
      "gpu": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
-      "max": 5,
-      "mean": 1.39,
+      "max": 4,
+      "mean": 1.16,
       "p50": 1,
-      "p95": 3,
-      "share_ge3": 0.12,
-      "share_ge4": 0.024,
+      "p95": 2,
+      "share_ge3": 0.009,
+      "share_ge4": 0.0,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.12,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 4,
+     "node_depth": {
+      "max": 4,
+      "mean": 1.15,
+      "p50": 1,
+      "p95": 2,
+      "share_ge3": 0.007,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.08,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.01,
+     "items": 48
+    },
+    "waterfall_start": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 1.33,
+      "p50": 1,
+      "p95": 3,
+      "share_ge3": 0.099,
+      "share_ge4": 0.007,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
       ],
       "max": 4,
-      "mean": 0.3,
+      "mean": 0.18,
       "p50": 0,
       "p95": 2,
-      "share_ge3": 0.02,
+      "share_ge3": 0.002,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
      "gpu_peak": 5,
      "node_depth": {
-      "max": 3,
-      "mean": 1.15,
+      "max": 4,
+      "mean": 1.18,
       "p50": 1,
       "p95": 2,
-      "share_ge3": 0.004,
+      "share_ge3": 0.03,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "hidden_share": 0.07,
+     "hidden_share": 0.1,
      "duplicates": [],
      "broad_overlays": [],
      "full_width_alpha_layers": 0,
@@ -1174,187 +1207,93 @@
      "code_drawing_hidden": [],
      "wasted_layers": [],
      "roshan_covered_share": 0.02,
-     "items": 41
-    },
-    "waterfall_start": {
-     "gpu": {
-      "frame": [
-       1920,
-       1080
-      ],
-      "max": 5,
-      "mean": 1.41,
-      "p50": 1,
-      "p95": 3,
-      "share_ge3": 0.134,
-      "share_ge4": 0.012,
-      "share_ge6": 0.0
-     },
-     "gpu_translucent": {
-      "frame": [
-       1920,
-       1080
-      ],
-      "max": 3,
-      "mean": 0.3,
-      "p50": 0,
-      "p95": 2,
-      "share_ge3": 0.008,
-      "share_ge4": 0.0,
-      "share_ge6": 0.0
-     },
-     "gpu_peak": 5,
-     "node_depth": {
-      "max": 4,
-      "mean": 1.17,
-      "p50": 1,
-      "p95": 2,
-      "share_ge3": 0.025,
-      "share_ge4": 0.0,
-      "share_ge6": 0.0
-     },
-     "hidden_share": 0.09,
-     "duplicates": [],
-     "broad_overlays": [],
-     "full_width_alpha_layers": 0,
-     "code_drawing": [],
-     "code_drawing_hidden": [],
-     "wasted_layers": [],
-     "roshan_covered_share": 0.0,
-     "items": 36
+     "items": 37
     },
     "waterfall_stroke": {
      "gpu": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
       "max": 6,
-      "mean": 1.18,
+      "mean": 1.17,
       "p50": 1,
       "p95": 2,
-      "share_ge3": 0.035,
-      "share_ge4": 0.008,
+      "share_ge3": 0.028,
+      "share_ge4": 0.007,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
-      "max": 4,
-      "mean": 0.08,
+      "max": 3,
+      "mean": 0.12,
       "p50": 0,
       "p95": 1,
-      "share_ge3": 0.0,
+      "share_ge3": 0.002,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
      "gpu_peak": 6,
      "node_depth": {
-      "max": 6,
-      "mean": 1.16,
+      "max": 5,
+      "mean": 1.18,
       "p50": 1,
       "p95": 2,
-      "share_ge3": 0.024,
+      "share_ge3": 0.03,
       "share_ge4": 0.007,
       "share_ge6": 0.0
      },
-     "hidden_share": 0.09,
+     "hidden_share": 0.1,
      "duplicates": [],
      "broad_overlays": [],
      "full_width_alpha_layers": 0,
      "code_drawing": [],
      "code_drawing_hidden": [],
      "wasted_layers": [],
-     "roshan_covered_share": 0.05,
-     "items": 37
+     "roshan_covered_share": 0.04,
+     "items": 38
     },
     "seahorse_start": {
      "gpu": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
-      "max": 5,
-      "mean": 1.39,
+      "max": 4,
+      "mean": 1.26,
       "p50": 1,
       "p95": 3,
-      "share_ge3": 0.12,
-      "share_ge4": 0.011,
+      "share_ge3": 0.056,
+      "share_ge4": 0.003,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
       "max": 3,
-      "mean": 0.28,
-      "p50": 0,
-      "p95": 2,
-      "share_ge3": 0.008,
-      "share_ge4": 0.0,
-      "share_ge6": 0.0
-     },
-     "gpu_peak": 5,
-     "node_depth": {
-      "max": 3,
-      "mean": 1.15,
-      "p50": 1,
-      "p95": 2,
-      "share_ge3": 0.012,
-      "share_ge4": 0.0,
-      "share_ge6": 0.0
-     },
-     "hidden_share": 0.09,
-     "duplicates": [],
-     "broad_overlays": [],
-     "full_width_alpha_layers": 0,
-     "code_drawing": [],
-     "code_drawing_hidden": [],
-     "wasted_layers": [],
-     "roshan_covered_share": 0.0,
-     "items": 32
-    },
-    "seahorse_tug": {
-     "gpu": {
-      "frame": [
-       1920,
-       1080
-      ],
-      "max": 5,
-      "mean": 1.16,
-      "p50": 1,
-      "p95": 2,
-      "share_ge3": 0.015,
-      "share_ge4": 0.0,
-      "share_ge6": 0.0
-     },
-     "gpu_translucent": {
-      "frame": [
-       1920,
-       1080
-      ],
-      "max": 3,
-      "mean": 0.06,
+      "mean": 0.12,
       "p50": 0,
       "p95": 1,
-      "share_ge3": 0.0,
+      "share_ge3": 0.002,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "gpu_peak": 5,
+     "gpu_peak": 4,
      "node_depth": {
       "max": 3,
-      "mean": 1.15,
+      "mean": 1.14,
       "p50": 1,
       "p95": 2,
-      "share_ge3": 0.004,
+      "share_ge3": 0.014,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "hidden_share": 0.09,
+     "hidden_share": 0.1,
      "duplicates": [],
      "broad_overlays": [],
      "full_width_alpha_layers": 0,
@@ -1364,30 +1303,77 @@
      "roshan_covered_share": 0.0,
      "items": 33
     },
-    "finale": {
+    "seahorse_tug": {
      "gpu": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
-      "max": 5,
-      "mean": 1.37,
+      "max": 4,
+      "mean": 1.25,
       "p50": 1,
-      "p95": 3,
-      "share_ge3": 0.112,
-      "share_ge4": 0.008,
+      "p95": 2,
+      "share_ge3": 0.05,
+      "share_ge4": 0.002,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
       "max": 3,
-      "mean": 0.25,
+      "mean": 0.12,
       "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.001,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 4,
+     "node_depth": {
+      "max": 4,
+      "mean": 1.14,
+      "p50": 1,
       "p95": 2,
-      "share_ge3": 0.006,
+      "share_ge3": 0.008,
+      "share_ge4": 0.001,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.1,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 35
+    },
+    "finale": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 1.25,
+      "p50": 1,
+      "p95": 3,
+      "share_ge3": 0.061,
+      "share_ge4": 0.004,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.12,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.001,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
@@ -1397,11 +1383,11 @@
       "mean": 1.17,
       "p50": 1,
       "p95": 2,
-      "share_ge3": 0.024,
+      "share_ge3": 0.029,
       "share_ge4": 0.003,
       "share_ge6": 0.0
      },
-     "hidden_share": 0.13,
+     "hidden_share": 0.14,
      "duplicates": [],
      "broad_overlays": [],
      "full_width_alpha_layers": 0,
@@ -1409,46 +1395,46 @@
      "code_drawing_hidden": [],
      "wasted_layers": [],
      "roshan_covered_share": 0.0,
-     "items": 22
+     "items": 23
     },
     "story_clip": {
      "gpu": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
-      "max": 6,
-      "mean": 2.02,
+      "max": 5,
+      "mean": 1.98,
       "p50": 2,
       "p95": 2,
-      "share_ge3": 0.013,
-      "share_ge4": 0.011,
+      "share_ge3": 0.01,
+      "share_ge4": 0.0,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
       "frame": [
-       1920,
-       1080
+       2560,
+       1369
       ],
-      "max": 3,
-      "mean": 0.01,
+      "max": 2,
+      "mean": 0.0,
       "p50": 0,
       "p95": 0,
       "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "gpu_peak": 6,
+     "gpu_peak": 5,
      "node_depth": {
-      "max": 2,
-      "mean": 1.01,
+      "max": 1,
+      "mean": 1.0,
       "p50": 1,
       "p95": 1,
       "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "hidden_share": 0.01,
+     "hidden_share": 0.0,
      "duplicates": [],
      "broad_overlays": [],
      "full_width_alpha_layers": 0,
@@ -1456,7 +1442,7 @@
      "code_drawing_hidden": [],
      "wasted_layers": [],
      "roshan_covered_share": 0.0,
-     "items": 3
+     "items": 2
     }
    },
    "effects": {
@@ -1469,8 +1455,8 @@
      "transient": [
       {
        "name": "LaneClearRing0",
-       "seconds": 0.6,
-       "screen_share": 0.001,
+       "seconds": 0.3,
+       "screen_share": 0.002,
        "over_roshan_share": 0.02
       }
      ],
@@ -1484,13 +1470,13 @@
     }
    },
    "inputs": {
-    "scripts/arena/day_one_castle_dressing.gd": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+    "scripts/arena/day_one_castle_dressing.gd": "fae8a54b4d9d023b3245a3978bf08285b9994a328f960953e15b1ae6cf1c0f17",
     "scripts/day_one_contact_action_2d.gd": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
-    "scripts/games/day_one_dust_bunny_swimmer.gd": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+    "scripts/games/day_one_dust_bunny_swimmer.gd": "4e5ad1c3c1f58f81d74d15ec80c5437438454a1163e49ad5224ab8f13e0ef3a6",
     "scripts/games/day_one_pool_cleanup.gd": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
-    "scripts/games/pool_seahorse_rescue_activity.gd": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
-    "scripts/games/pool_skimmer_activity.gd": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
-    "scripts/games/pool_waterfall_activity.gd": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+    "scripts/games/pool_seahorse_rescue_activity.gd": "891157adf363f9b91d59913d88c7acfecde5e80571ce47a7d091498b03c03cd7",
+    "scripts/games/pool_skimmer_activity.gd": "38b3d524e638f764ded75d7e68e670318539be67160441b00f750ff2465f6db3",
+    "scripts/games/pool_waterfall_activity.gd": "fd271ae14ddbb98fef40a07ec45feadd2ac12981b0bed4a5a0f0c90f7e0f2160",
     "scripts/living_world.gd": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
     "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
     "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",

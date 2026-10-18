@@ -10,7 +10,8 @@ signal progress_changed(taps: int)
 signal completed
 
 const SEAHORSE_TEXTURE_PATH := \
-	"res://assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png"
+	"res://assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_seahorse_fountain_rest.png"
+const BLOCKED_FOUNTAIN_SHADER := preload("res://shaders/pool_blocked_fountain.gdshader")
 const MOUTH_TRASH_TEXTURE_PATH := \
 	"res://assets/castle/day_one_pool/activities/seahorse_mouth_trash.png"
 const BASKET_TEXTURE_PATH := \
@@ -20,12 +21,12 @@ const CANVAS_SIZE := Vector2(1280.0, 720.0)
 const BASKET_ANCHOR := Vector2(980.0, 560.0)
 const TAP_REGION_GROWTH := 0.55
 const BUBBLE_LIFETIME := 1.35
-# Normalized centered-texture anchors: nozzle center (394, 322) in the
-# 936x1024 seahorse and the far weed tip in the obstruction. Keeping these as
-# explicit visual anchors makes the growth enter the mouth instead of hovering
-# beside it; the broad toddler tap envelope remains independent below.
-const SEAHORSE_MOUTH_ANCHOR := Vector2(394.0 / 936.0 - 0.5, 322.0 / 1024.0 - 0.5)
-const PROP_NOZZLE_ANCHOR := Vector2(0.488, 0.184)
+# Normalized centered-texture anchors: canonical V4 nozzle (91, 70) in the
+# 195x215 rest card and the bag's pinched neck (376, 205) in the obstruction.
+# The long weed tip is trailing refuse, not the plug: anchoring that tip left
+# the visible bag a whole prop-width away from the mouth.
+const SEAHORSE_MOUTH_ANCHOR := Vector2(91.0 / 195.0 - 0.5, 70.0 / 215.0 - 0.5)
+const PROP_NOZZLE_ANCHOR := Vector2(376.0 / 1024.0 - 0.5, 205.0 / 576.0 - 0.5)
 # Approved Day One guide and effect art; replaces code-drawn rings and dots.
 const GUIDE_HAND_PATH := "res://assets/castle/training/ghost_hand.png"
 const BUBBLES_PATH := "res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png"
@@ -38,7 +39,7 @@ const GUIDE_IDLE_SECONDS := 2.0
 # so purposeful pulling finishes in half the presses of tapping (DL-AGE-05).
 const PULL_DISTANCE := 48.0
 # Taps while Roshan is already tugging wait their turn instead of vanishing.
-const MAX_QUEUED_TUGS := 3
+const MAX_QUEUED_TUGS := TAP_TOTAL - 1
 const BEAD_SIZE := 18.0
 
 var fixture_center := Vector2.ZERO
@@ -212,7 +213,8 @@ func audit_snapshot() -> Dictionary:
 		"seahorse_present": _seahorse != null and is_instance_valid(_seahorse),
 		"mouth_trash_present": _mouth_trash != null and is_instance_valid(_mouth_trash),
 		"basket_present": _basket != null and is_instance_valid(_basket),
-		"seahorse_base_stays_sick": true,
+		"canonical_fixture_preserved": true,
+		"blocked_water_arc_masked": true,
 		"prop_is_separate": true,
 		"quick_cadence_strength": _tug_strength,
 		"touch_active": _touch_active,
@@ -309,13 +311,15 @@ func _register_tap(point: Vector2) -> void:
 	_idle_time = 0.0
 	if _contact_action != null and _contact_action.available():
 		if _contact_action.active:
+			var remaining: int = maxi(TAP_TOTAL - _taps - 1, 0)
+			if _queued_tugs >= remaining:
+				return
 			# Roshan is already on her way or tugging: this tap waits its turn and
 			# answers at once, so a quick child never loses a tap.
-			_queued_tugs = mini(_queued_tugs + 1,
-				mini(MAX_QUEUED_TUGS, maxi(TAP_TOTAL - _taps - 1, 0)))
+			_queued_tugs = mini(_queued_tugs + 1, mini(MAX_QUEUED_TUGS, remaining))
 			_add_bubbles(_prop_rest_position, 0.4)
 			return
-		_contact_action.request(_prop_rest_position, Callable(self, "_finish_tug"))
+		_contact_action.request(_grip_position(), Callable(self, "_finish_tug"))
 		return
 	_finish_tug()
 
@@ -345,7 +349,7 @@ func _finish_tug() -> void:
 		# Each waiting tap is its own tug: Roshan's hand stays on the trash and
 		# does the full local work again before the next one is paid.
 		_queued_tugs -= 1
-		_contact_action.request(_prop_rest_position, Callable(self, "_finish_tug"))
+		_contact_action.request(_grip_position(), Callable(self, "_finish_tug"))
 	queue_redraw()
 
 
@@ -372,6 +376,33 @@ func _set_tug_rotation(angle: float) -> void:
 		return
 	_mouth_trash.rotation = angle
 	_mouth_trash.position = _mouth_anchor - _prop_nozzle_offset.rotated(angle)
+
+
+func _grip_position() -> Vector2:
+	# Roshan grips the bag's visible left cheek, not the texture's empty centre.
+	var grip_pixel := Vector2(230.0, 280.0) - _mouth_trash_texture.get_size() * 0.5
+	return _mouth_trash.position + (grip_pixel * _prop_scale).rotated(_mouth_trash.rotation)
+
+
+func _blocked_fountain_material() -> ShaderMaterial:
+	# V4's approved stream polygon in source-rect space, translated to this rest
+	# card's registration bbox [19,10,186,203]. This stops water, not anatomy.
+	# The old shader polygon stops short of the painted spray's fringe. Trace
+	# that complete local arc and landing, leaving the coral and pedestal intact.
+	var points := PackedVector2Array([Vector2(100, 63), Vector2(110, 70),
+		Vector2(100, 90), Vector2(87, 116), Vector2(67, 151),
+		Vector2(48, 181), Vector2(43, 199), Vector2(16, 199),
+		Vector2(27, 163), Vector2(45, 126), Vector2(62, 98), Vector2(80, 77)])
+	var mask: Image = Image.create(195, 215, false, Image.FORMAT_RGBA8)
+	for y: int in range(215):
+		for x: int in range(195):
+			if Geometry2D.is_point_in_polygon(Vector2(float(x) + 0.5, float(y) + 0.5), points) \
+					or (x < 76 and y > 177):
+				mask.set_pixel(x, y, Color.WHITE)
+	var material := ShaderMaterial.new()
+	material.shader = BLOCKED_FOUNTAIN_SHADER
+	material.set_shader_parameter("stream_mask", ImageTexture.create_from_image(mask))
+	return material
 
 
 func _stop_tug_tween() -> void:
@@ -440,11 +471,15 @@ func _build_activity_art() -> void:
 		_seahorse = Sprite2D.new()
 		_seahorse.name = "SickSeahorseBase"
 		_seahorse.texture = _seahorse_texture
-		_seahorse.position = fixture_center
+		# The manifest's 167x193 visible rect is [19,10,186,203] in the
+		# padded rest card. Match that exact visible size and centre, not its padding.
+		var uniform_scale: float = minf(fixture_size.x / 167.0, fixture_size.y / 193.0)
+		_seahorse.position = fixture_center - Vector2(5.0, -1.0) * uniform_scale
 		_seahorse.z_index = 2
-		_base_scale = _fit_scale(_seahorse_texture, fixture_size * 0.96)
+		_base_scale = Vector2.ONE * uniform_scale
 		_seahorse.scale = _base_scale
-		_seahorse.modulate = Color(0.84, 0.90, 0.82, 0.98)
+		_seahorse.modulate = Color.WHITE
+		_seahorse.material = _blocked_fountain_material()
 		add_child(_seahorse)
 
 	if _mouth_trash_texture != null:
@@ -454,8 +489,7 @@ func _build_activity_art() -> void:
 		_prop_scale = _fit_scale(_mouth_trash_texture,
 			Vector2(base_dimension * 0.62, base_dimension * 0.62))
 		_mouth_trash.scale = _prop_scale
-		# Register the prop's right-hand weed tip to the seahorse's authored
-		# mouth anchor. These visual anchors are independent of the broad hit box.
+		# Embed the bag neck at the nozzle; the weed trails outside the blockage.
 		_mouth_anchor = fixture_center
 		if _seahorse != null:
 			_mouth_anchor = _seahorse.position + _seahorse.texture.get_size() \
@@ -464,8 +498,9 @@ func _build_activity_art() -> void:
 		_prop_nozzle_offset = prop_display_size * PROP_NOZZLE_ANCHOR
 		_prop_rest_position = _mouth_anchor - _prop_nozzle_offset
 		_mouth_trash.position = _prop_rest_position
-		_mouth_trash.z_index = 6
-		_mouth_trash.modulate = Color(0.78, 0.82, 0.68, 0.96)
+		_mouth_trash.z_index = 1 # The nozzle/body occlude the embedded seam.
+		_mouth_trash.modulate = Color(0.93, 0.96, 0.94, 1.0)
+		_mouth_trash.material = PoolSkimmerActivity.room_prop_material()
 		add_child(_mouth_trash)
 
 	if _basket_texture != null:
@@ -477,6 +512,7 @@ func _build_activity_art() -> void:
 		_basket.z_index = 320
 		_basket.scale = _fit_scale(_basket_texture, Vector2(145.0, 112.0))
 		_basket.modulate = Color(0.84, 0.88, 0.82, 0.96)
+		_basket.material = PoolSkimmerActivity.room_prop_material()
 		add_child(_basket)
 
 	_feedback_layer = Control.new()
@@ -544,7 +580,7 @@ func _update_guide_hand() -> void:
 		return
 	# A small tap-tap bob right on the trash in the mouth: the live target.
 	var bob := absf(sin(_activity_time * 3.4)) * -14.0
-	var fingertip := _prop_rest_position + Vector2(0.0, -10.0 + bob)
+	var fingertip := _grip_position() + Vector2(0.0, -10.0 + bob)
 	_guide_hand.position = fingertip - GUIDE_FINGERTIP * _guide_hand.scale
 
 

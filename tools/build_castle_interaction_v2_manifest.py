@@ -540,6 +540,7 @@ def main() -> None:
             "primary_animation_is_overlay": False,
             "water_renderer": WATER_SHADER.relative_to(ROOT).as_posix(),
             "water_renderer_sha256": repository_text_sha256(WATER_SHADER),
+            "water_renderer_revision": {"date":"2026-10-17","scope":"Pool-only optional painted_highlight_only branch preserves authored rainbow/arc RGB with restrained downward highlights. Other rooms retain the existing default shader branch.","startup":"Existing flow_amount, fill_amount and outlet-to-landing reveal remain authoritative; sustained Pool sheen starts only after the authored fixture action settles.","acceptance":"Current implementation/source binding only. Historical art approval does not accept this new shader performance; actual-device, child and owner visual/motion review remain separate.","authored_frame_pixels_unchanged":True,"previous_renderer_sha256":"168cb9fe89d06e11101b4dcc5084247158c7411463f3c3e168493453e64431aa","previous_generator_sha256":"628a797bfe82d369f01a6b5847c624636bb7a62aa19c96255f2fa4c7908aff61"},
             "water_ripple_texture": RIPPLE_TEXTURE.relative_to(ROOT).as_posix(),
             "water_ripple_texture_sha256": sha256(RIPPLE_TEXTURE),
             "water_caustics_texture": CAUSTICS_TEXTURE.relative_to(ROOT).as_posix(),

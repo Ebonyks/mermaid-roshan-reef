@@ -273,6 +273,10 @@ func _refresh_dust_visibility() -> void:
 		var room_index: int = ROOM_IDS.find(room_id)
 		var phase: float = _elapsed * (0.8 + float(room_index) * 0.08) + float(room_index) * 1.45
 		bunny.position = center + Vector2(sin(phase) * 42.0, 82.0 + sin(phase * 1.8) * 2.0)
+		if room_id == "mermaid_pool":
+			# A shore sitter stays supported on its patch of rim. The old 84px
+			# side-to-side slide had no footwork and crossed the painted stones.
+			bunny.position = center + Vector2(0.0, 82.0)
 		bunny.visible = _visible_room_id == room_id and room_is_dirty(room_id)
 
 

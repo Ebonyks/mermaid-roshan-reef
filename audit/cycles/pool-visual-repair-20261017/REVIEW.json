@@ -1,0 +1,967 @@
+{
+  "id": "pool-visual-repair-20261017",
+  "asset_classification": "REVIEW_ONLY_RUNTIME_DIAGNOSTIC: PNGs/MP4s are not accepted cinematic assets, generator inputs or delivery footage.",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "source_pin": "SOURCE_PIN.json",
+  "implementation": "Source-art reuse only: bounded water-contact/color materials, unobscured pink float/star, stable missed-item hand, local bag/nozzle/grip contact, remaining-bounded tug queue, shore sitter and short swimming route, stationary registered Rumi greeting and sustained painted-water highlights.",
+  "agent_visual_review": "Parent and implementer inspected native desktop Mobile states. Known float cuts, bag distance, continuous Rumi idle jumping, greeting hand occlusion and active/passive fixture identity changes are repaired in the reviewed candidate. This is agent diagnostic review, not owner/device/child acceptance.",
+  "native_captures": [
+    {
+      "directory": "mobile720",
+      "receipt": "mobile720/receipt.json",
+      "scope": "1280x720; direct room setup, clip cancellation; native petal/star negative and Rumi body positive touch checks PASS"
+    },
+    {
+      "directory": "mobile800",
+      "receipt": "mobile800/receipt.json",
+      "scope": "1280x800; same routed checks PASS"
+    }
+  ],
+  "motion": {
+    "directory": "motion",
+    "scope": "Native timestamp-preserving diagnostic playback. Source capture precedes invisible Rumi hitbox narrowing and focused-probe profile guard; rendered product pixels match the final candidate. Final touch behavior is verified separately in mobile720/mobile800.",
+    "source": {
+      "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "viewport": [
+        1280,
+        720
+      ],
+      "actual_user_data_dir": "C:/Users/Peter/AppData/Local/Temp/reef-pool-visual-repair-g1tjoqxr/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light/",
+      "sources": {
+        "assets/castle/day_one_pool/activities/floating_trash_atlas.png": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33",
+        "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9",
+        "assets/characters/rumi/rumi_eight_pose_runtime.png": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+        "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_seahorse_fountain_rest.png": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+        "assets/shaders/castle_fixture_water.gdshader": "f129ae768ba7cc1e3ed642931248775fec47b89b22c3e8cc9a074e2c719b2891",
+        "assets/sprites/fx_water/fx_water_ripple_ring_atlas.png": "5fbfa30a61fb0275274e7eef70a4d6df7f46a8cd9f7c209d2cd2305710a9700c",
+        "design/reference/overdraw.json": "7a7f4050e7c620aea3a02c8b257fa1224444f15cb45d740f6def18a5c7d9eeb3",
+        "scripts/arena/castle_fixture_rigs.gd": "b1c226ec13827480df85654df6b89d8178a3d49c9d7361bf8b244cfecb629d7b",
+        "scripts/arena/castle_rooms_25d.gd": "1fb743e53cf92bf07d141f418794de3768f708c9b459b18219eedc8a30b862a2",
+        "scripts/arena/day_one_castle_dressing.gd": "498891bb38414dc21101fcd7bb2245688ad4d6593bc5b6c949c3058173092662",
+        "scripts/games/day_one_dust_bunny_swimmer.gd": "82bbfd3c845c951a8fdc4abf74484f1ee0f0721440abfb4491dc19ed3f30712d",
+        "scripts/games/pool_seahorse_rescue_activity.gd": "928f6e39128c108e85fc801788c68c4e44509a0bd2aaad9b822049208b6eae5f",
+        "scripts/games/pool_skimmer_activity.gd": "65afbeba1988cc1b004918a3a5679bfd254e02b6fff4d36511393d9f3ae085ab",
+        "scripts/games/pool_waterfall_activity.gd": "924035d3e26536d820e0f109ebd9a814582e554f52ce617ddc178ccb2957b4b9",
+        "scripts/main.gd": "82c3e537d6f5dc251bb3857d1430089138377883860b44a668f4aced984dadad",
+        "scripts/probe_day_one_pool_cleanup.gd": "b69cc6a29be9eefe8b141de69931cd15b02d3fb7315e9387716b3cabc046d41d",
+        "scripts/probe_day_one_pool_shots.gd": "cad67bd0a66347a92483c87e81f8350ed52ddd6fc01070b5157ef17a911d4137",
+        "shaders/pool_blocked_fountain.gdshader": "ad13c03ec16fa9d6f740d11ca162bd309be46a5cd80ee64432a0cbde8956e330",
+        "shaders/pool_floating_debris.gdshader": "7581bcb94bb9d7d07b52355b469751c638b344697dbed1494b2c2588dbfa0268"
+      },
+      "motion": {
+        "dirty": {
+          "path": "motion_dirty.mp4",
+          "sha256": "3cbd0ff39ac9b6595b72ebe47f4b93c50491ac62cb647e1ffaab3213668920b2",
+          "frame_times": [
+            [
+              0,
+              0.002
+            ],
+            [
+              1,
+              0.086
+            ],
+            [
+              2,
+              0.186
+            ],
+            [
+              3,
+              0.287
+            ],
+            [
+              4,
+              0.386
+            ],
+            [
+              5,
+              0.486
+            ],
+            [
+              6,
+              0.586
+            ],
+            [
+              7,
+              0.686
+            ],
+            [
+              8,
+              0.786
+            ],
+            [
+              9,
+              0.886
+            ],
+            [
+              10,
+              0.986
+            ],
+            [
+              11,
+              1.086
+            ],
+            [
+              12,
+              1.186
+            ],
+            [
+              13,
+              1.286
+            ],
+            [
+              14,
+              1.386
+            ],
+            [
+              15,
+              1.486
+            ],
+            [
+              16,
+              1.586
+            ],
+            [
+              17,
+              1.686
+            ],
+            [
+              18,
+              1.786
+            ],
+            [
+              19,
+              1.886
+            ],
+            [
+              20,
+              1.987
+            ],
+            [
+              21,
+              2.086
+            ],
+            [
+              22,
+              2.186
+            ],
+            [
+              23,
+              2.286
+            ],
+            [
+              24,
+              2.386
+            ],
+            [
+              25,
+              2.486
+            ],
+            [
+              26,
+              2.586
+            ],
+            [
+              27,
+              2.687
+            ],
+            [
+              28,
+              2.786
+            ],
+            [
+              29,
+              2.886
+            ],
+            [
+              30,
+              2.986
+            ],
+            [
+              31,
+              3.086
+            ],
+            [
+              32,
+              3.187
+            ],
+            [
+              33,
+              3.287
+            ],
+            [
+              34,
+              3.386
+            ],
+            [
+              35,
+              3.486
+            ],
+            [
+              36,
+              3.586
+            ],
+            [
+              37,
+              3.686
+            ],
+            [
+              38,
+              3.786
+            ],
+            [
+              39,
+              3.886
+            ],
+            [
+              40,
+              3.986
+            ],
+            [
+              41,
+              4.086
+            ],
+            [
+              42,
+              4.187
+            ],
+            [
+              43,
+              4.286
+            ],
+            [
+              44,
+              4.386
+            ],
+            [
+              45,
+              4.486
+            ],
+            [
+              46,
+              4.586
+            ],
+            [
+              47,
+              4.686
+            ],
+            [
+              48,
+              4.786
+            ],
+            [
+              49,
+              4.886
+            ],
+            [
+              50,
+              4.986
+            ],
+            [
+              51,
+              5.086
+            ],
+            [
+              52,
+              5.186
+            ],
+            [
+              53,
+              5.286
+            ],
+            [
+              54,
+              5.386
+            ],
+            [
+              55,
+              5.486
+            ],
+            [
+              56,
+              5.586
+            ],
+            [
+              57,
+              5.686
+            ],
+            [
+              58,
+              5.786
+            ],
+            [
+              59,
+              5.886
+            ],
+            [
+              60,
+              5.986
+            ],
+            [
+              61,
+              6.086
+            ],
+            [
+              62,
+              6.186
+            ],
+            [
+              63,
+              6.286
+            ],
+            [
+              64,
+              6.386
+            ],
+            [
+              65,
+              6.486
+            ],
+            [
+              66,
+              6.585
+            ],
+            [
+              67,
+              6.686
+            ],
+            [
+              68,
+              6.785
+            ],
+            [
+              69,
+              6.886
+            ],
+            [
+              70,
+              6.986
+            ],
+            [
+              71,
+              7.086
+            ],
+            [
+              72,
+              7.186
+            ],
+            [
+              73,
+              7.287
+            ],
+            [
+              74,
+              7.387
+            ],
+            [
+              75,
+              7.488
+            ],
+            [
+              76,
+              7.587
+            ],
+            [
+              77,
+              7.686
+            ],
+            [
+              78,
+              7.788
+            ],
+            [
+              79,
+              7.888
+            ],
+            [
+              80,
+              7.988
+            ],
+            [
+              81,
+              8.086
+            ],
+            [
+              82,
+              8.186
+            ],
+            [
+              83,
+              8.286
+            ],
+            [
+              84,
+              8.386
+            ],
+            [
+              85,
+              8.486
+            ],
+            [
+              86,
+              8.586
+            ],
+            [
+              87,
+              8.685
+            ],
+            [
+              88,
+              8.785
+            ],
+            [
+              89,
+              8.886
+            ],
+            [
+              90,
+              8.985
+            ],
+            [
+              91,
+              9.085
+            ],
+            [
+              92,
+              9.186
+            ],
+            [
+              93,
+              9.285
+            ],
+            [
+              94,
+              9.386
+            ],
+            [
+              95,
+              9.486
+            ],
+            [
+              96,
+              9.585
+            ],
+            [
+              97,
+              9.685
+            ],
+            [
+              98,
+              9.786
+            ],
+            [
+              99,
+              9.885
+            ],
+            [
+              100,
+              9.985
+            ],
+            [
+              101,
+              10.087
+            ],
+            [
+              102,
+              10.186
+            ],
+            [
+              103,
+              10.287
+            ],
+            [
+              104,
+              10.388
+            ],
+            [
+              105,
+              10.485
+            ],
+            [
+              106,
+              10.585
+            ],
+            [
+              107,
+              10.686
+            ],
+            [
+              108,
+              10.785
+            ],
+            [
+              109,
+              10.885
+            ],
+            [
+              110,
+              10.986
+            ],
+            [
+              111,
+              11.088
+            ],
+            [
+              112,
+              11.186
+            ],
+            [
+              113,
+              11.286
+            ],
+            [
+              114,
+              11.387
+            ],
+            [
+              115,
+              11.488
+            ],
+            [
+              116,
+              11.588
+            ],
+            [
+              117,
+              11.686
+            ],
+            [
+              118,
+              11.786
+            ],
+            [
+              119,
+              11.885
+            ],
+            [
+              120,
+              11.985
+            ]
+          ],
+          "method": "Native viewport PNGs with actual elapsed-time durations; diagnostic H264 preview, no interpolation or generated frames"
+        },
+        "clean": {
+          "path": "motion_clean.mp4",
+          "sha256": "6538ba095096565c0dd213ff29333453aac904e2aceaa343ed71aedaaa883eae",
+          "frame_times": [
+            [
+              0,
+              0.004
+            ],
+            [
+              1,
+              0.07
+            ],
+            [
+              2,
+              0.17
+            ],
+            [
+              3,
+              0.27
+            ],
+            [
+              4,
+              0.37
+            ],
+            [
+              5,
+              0.47
+            ],
+            [
+              6,
+              0.57
+            ],
+            [
+              7,
+              0.67
+            ],
+            [
+              8,
+              0.77
+            ],
+            [
+              9,
+              0.87
+            ],
+            [
+              10,
+              0.97
+            ],
+            [
+              11,
+              1.07
+            ],
+            [
+              12,
+              1.17
+            ],
+            [
+              13,
+              1.27
+            ],
+            [
+              14,
+              1.37
+            ],
+            [
+              15,
+              1.471
+            ],
+            [
+              16,
+              1.57
+            ],
+            [
+              17,
+              1.671
+            ],
+            [
+              18,
+              1.77
+            ],
+            [
+              19,
+              1.87
+            ],
+            [
+              20,
+              1.97
+            ],
+            [
+              21,
+              2.07
+            ],
+            [
+              22,
+              2.17
+            ],
+            [
+              23,
+              2.27
+            ],
+            [
+              24,
+              2.37
+            ],
+            [
+              25,
+              2.47
+            ],
+            [
+              26,
+              2.57
+            ],
+            [
+              27,
+              2.67
+            ],
+            [
+              28,
+              2.77
+            ],
+            [
+              29,
+              2.87
+            ],
+            [
+              30,
+              2.97
+            ],
+            [
+              31,
+              3.07
+            ],
+            [
+              32,
+              3.17
+            ],
+            [
+              33,
+              3.27
+            ],
+            [
+              34,
+              3.37
+            ],
+            [
+              35,
+              3.47
+            ],
+            [
+              36,
+              3.57
+            ],
+            [
+              37,
+              3.67
+            ],
+            [
+              38,
+              3.77
+            ],
+            [
+              39,
+              3.87
+            ],
+            [
+              40,
+              3.97
+            ]
+          ],
+          "method": "Native viewport PNGs with actual elapsed-time durations; diagnostic H264 preview, no interpolation or generated frames"
+        }
+      }
+    }
+  },
+  "machine": {
+    "focused": "focused04.log: exact Godot4.7.2 isolated profile PASS checks_failed=0",
+    "overdraw": "overdraw.log and design/reference/overdraw.json: self-test and Pool measurement PASS; play-state GPU mean1.17-1.33, no measured duplicates or broad overlays; desktop numbers only",
+    "full_local": "CI06 PASS: exit0,4878.260s,82 ordered process exits0, log SHA9aa1d3edfd787eaf08aef5cafa9910f0720721b21360238599f54f1060b6f0d1; exact29-path freeze,48media and18historical/binding files verified unchanged in FINAL_LOCAL_CI06_VERIFICATION.json. The roster includes the explicit human-art HEADLESS SKIP exception; displayed Pool review is separate. Reconciled parent1a4e, new SOURCE_PIN_CI06/CANDIDATE_FREEZE_CI06. Original native-capture bindings remain unchanged; inherited dressing delta is teardown-only. CI03/04/05 FAIL logs remain preserved, and CI05's three127 causes remain unexplained despite controlled reruns and current canonical success."
+  },
+  "verification_incident": "VERIFICATION_INCIDENT.json",
+  "verification_incident_followup": "VERIFICATION_INCIDENT_FOLLOWUP_20261018.json",
+  "artifacts": [
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/00_dirty_arrival.png",
+      "sha256": "2e2f0f13c6ffbc1e3e188e3bdb6b17a4201e25a08ed28fa80f289038b87f7729",
+      "bytes": 1459425
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/00a_roshan_approaching_trash.png",
+      "sha256": "55b9d2525839280b8b24ba25996393f5c4aee171d68ee51c465eaddafd2c66ca",
+      "bytes": 1458207
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/00b_roshan_scooping_trash.png",
+      "sha256": "923d4544ef6516091ffc6796af03de669a56af60f547ef3527c73dd85b5dc427",
+      "bytes": 1455920
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/00c_missed_piece_hand.png",
+      "sha256": "49830642f79bc510f4a1a57f92c4c092ac05d4a719bc12dc842d93a2a48e2729",
+      "bytes": 1457061
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/01_skimmer_catch.png",
+      "sha256": "1cd49796b377439a7a5096bd509f3a3c13ec8e473494c46b0899a9d8548d063b",
+      "bytes": 1455723
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/02_pool_clear_waterfall_dirty.png",
+      "sha256": "87cffa736ed5c5f5b03aa859dbab4eefb661f71733c668568900a127d8d1934b",
+      "bytes": 1439485
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/03_waterfall_scrub.png",
+      "sha256": "1d44c4e36196e9f635f5b50dd10f5d419acbe333ac4ab6d892798fd26466e5d5",
+      "bytes": 1466032
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/04_waterfall_clear_static.png",
+      "sha256": "7ed0ccb8ea42bc1ef62bcdbdc3686698ed71c8064904b7a1cace8c8e6953285a",
+      "bytes": 1457986
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/05_seahorse_tug_midway.png",
+      "sha256": "0389eb43ad20a08e490731669b1427b38c3d78739219664b6b8aa8b93a453be2",
+      "bytes": 1472460
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/06_seahorse_trash_release.png",
+      "sha256": "09ec08cef33c6306a2185f49c745802caf1fb1d386840326f840d713180c7d17",
+      "bytes": 1471636
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/07_rainbow_reveal_active.png",
+      "sha256": "82fa3f6dcddcb8253e270434d35beed05a0b85189ca1e035255f9f43a873fcd4",
+      "bytes": 1479742
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/08_clean_pool_reveal.png",
+      "sha256": "755d9744b5cd8e215aba778a9f0425b6c5ff48b19151299cc2e335daed996035",
+      "bytes": 1477715
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/08_water_motion_0.png",
+      "sha256": "cf42cddacc0dcc1713ced4f99db25b8e45272f7a7e95c20537d4207deabae6a4",
+      "bytes": 1475582
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/08_water_motion_1.png",
+      "sha256": "5a3430947a7d9df409953e89efd7a5d2e7e7439e3dde706c3b2df5b406616084",
+      "bytes": 1475295
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/08_water_motion_2.png",
+      "sha256": "bd813d4131ca5b039359931be0c2ea5b225f485b85046e50718731cd27056528",
+      "bytes": 1474702
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/08_water_motion_3.png",
+      "sha256": "39eedad275341de6913147a63d9513843461deca7b4a916d48f13e9fcf35c430",
+      "bytes": 1476968
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/09_persistent_rumi_rest.png",
+      "sha256": "68c96095ef5a1fa642d4cac9a5a8e46facbb6ae77a7702fd492550706d40d3de",
+      "bytes": 1493179
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/10_persistent_rumi_greeting.png",
+      "sha256": "c29ddab88ba3afb4d13dec1b83847f1b02933d36682280147282365c3aeba1ac",
+      "bytes": 1495050
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/10a_rumi_greet_start.png",
+      "sha256": "bbd55fb6d97c1ea8b19dfe6762d052f68e8f8319a487adb83c03b28b9a223955",
+      "bytes": 1494715
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/10b_rumi_greet_reach.png",
+      "sha256": "c08d4509dcb3e422c37d1e80b22fae604bf81babf3a2d75c7a59a4498d35e6bc",
+      "bytes": 1494282
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/10d_rumi_greet_return.png",
+      "sha256": "fe1db5942d59e55d58529282291e965449f99e574c25fce0554e906e8c0d523c",
+      "bytes": 1493172
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/10e_rumi_greet_rest.png",
+      "sha256": "a5fad64206ade83fa8241ff6aab66dd428c442c3c39d279506d855647af06be2",
+      "bytes": 1494020
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/11_persistent_rumi_settled.png",
+      "sha256": "4f8aea144aa47503f973e2fb3a0d337770e5675cb9753e1a5b25e694c9bcd940",
+      "bytes": 1493905
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/00_dirty_arrival.png",
+      "sha256": "0238d212d37d51ec2ab8759bb4aa945098759d955931a70d7cea7108dfef6b56",
+      "bytes": 1475887
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/00a_roshan_approaching_trash.png",
+      "sha256": "c00a5ad986bd2b11d5f2aeba48e3992ad41c1efab352c1383088c8fadf012aac",
+      "bytes": 1474888
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/00b_roshan_scooping_trash.png",
+      "sha256": "429e5a606584489eb02d42ebcc057f0513add30560de1a6d6f136c387a999457",
+      "bytes": 1472862
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/00c_missed_piece_hand.png",
+      "sha256": "e06edb32119309b1173288d273db47ae75aa78efd4693cc5552390654b5bf858",
+      "bytes": 1473740
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/01_skimmer_catch.png",
+      "sha256": "830c39424c7541afdd158e211d5c21756beb6f6eb8399ee90670054d1d73b154",
+      "bytes": 1473612
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/02_pool_clear_waterfall_dirty.png",
+      "sha256": "73d2bc1e4e021e21a9c47b6156d6f8853645ffaa14a6899959a944c20ae56afd",
+      "bytes": 1455121
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/03_waterfall_scrub.png",
+      "sha256": "793af633556219975b6e61374f257e2c448fb9bab66f5abf4e27f637ad2e1f1c",
+      "bytes": 1481675
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/04_waterfall_clear_static.png",
+      "sha256": "dcaae68727cdd2b1f54115d39bcea6f3d9ea3f93780d9a25b2bf2c59f1f078ec",
+      "bytes": 1474389
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/05_seahorse_tug_midway.png",
+      "sha256": "07ee99903dac36b89c8218764854ccc4049e6267826529903b0ec4aae8b7866d",
+      "bytes": 1488734
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/06_seahorse_trash_release.png",
+      "sha256": "e1c59c821ca289e80523bbc4bd92a504ea0582d7f249c0530baeb3cf5d270726",
+      "bytes": 1487725
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/07_rainbow_reveal_active.png",
+      "sha256": "bdbb4889882df110c8fd66cb0ee140b0efca0559a963f4d0bf0f0a249e13291d",
+      "bytes": 1496223
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/08_clean_pool_reveal.png",
+      "sha256": "966aaf84feacb7f81d3841a718ffed8a954bcb36408f18adcf2878aa3d78cbbe",
+      "bytes": 1493932
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/08_water_motion_0.png",
+      "sha256": "d854b05b296aba8ab7ebf62fcb4cacae0d9cc662ec8877c44cc5ca95ba9c5120",
+      "bytes": 1492518
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/08_water_motion_1.png",
+      "sha256": "9c7f254d21a1f60cdcb575c5d031928383ddbb5b3d5afcce10905e7e9f3faa78",
+      "bytes": 1491584
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/08_water_motion_2.png",
+      "sha256": "93cbf9af9fc28bd212ba432ce5f5f1b9e9aaa59bddfbd6d9f9d04440ce9a144c",
+      "bytes": 1491061
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/08_water_motion_3.png",
+      "sha256": "01d9cfdf03e51f9f9d08e87ba0b8f06d920bf7c3e7a937b11003811a2d5343e6",
+      "bytes": 1492914
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/09_persistent_rumi_rest.png",
+      "sha256": "7a5563e7cfdc109aac025536516b3e4a6bfee33f204fdb28e75ddd0a5ae21875",
+      "bytes": 1509280
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/10_persistent_rumi_greeting.png",
+      "sha256": "40999e3669f9516728f7be0566c52e079948b543f991bdbe0486357b05d88478",
+      "bytes": 1508859
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/10a_rumi_greet_start.png",
+      "sha256": "6bc6ee6957ffa71b71326dc7d32858a9fed9e1da33b8aa66674a32d8a43cf369",
+      "bytes": 1510689
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/10b_rumi_greet_reach.png",
+      "sha256": "1231209c31b489e204db5f7c5957e455612c7cd0d79053e935b12fd2bb29be8b",
+      "bytes": 1509020
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/10d_rumi_greet_return.png",
+      "sha256": "0b1c515bb4474ec45936bf9728edc5e0c5f0dfbb0df1449944c3410ce65582f8",
+      "bytes": 1508744
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/10e_rumi_greet_rest.png",
+      "sha256": "5daf9aaf1b64dec1cae24df9a189f69fb6103511f601c6df5b434cad2b0da136",
+      "bytes": 1509168
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/11_persistent_rumi_settled.png",
+      "sha256": "f52c184565daae765661fc3e22394d665a43e7974374ab78217be535a6b1cd36",
+      "bytes": 1509045
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/motion/motion_clean.mp4",
+      "sha256": "6538ba095096565c0dd213ff29333453aac904e2aceaa343ed71aedaaa883eae",
+      "bytes": 588211
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/motion/motion_dirty.mp4",
+      "sha256": "3cbd0ff39ac9b6595b72ebe47f4b93c50491ac62cb647e1ffaab3213668920b2",
+      "bytes": 1163208
+    }
+  ],
+  "remaining_acceptance": "Exact-head topic remoteCI and dev integration/build remain pending at preparation; actual M11/phone touch, timing, readability, child and owner review remain separate. QP-2a unchanged. No selected d1_pool_clean pixels/cuts changed. Game-wide master audit remains UNSATISFIED. The default-desktop-save incident and unknown prior progress remain explicit in VERIFICATION_INCIDENT.json."
+}

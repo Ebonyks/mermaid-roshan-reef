@@ -2,7 +2,7 @@
   "schema_version": 2,
   "generated_on": "2026-08-02",
   "generator": "tools/build_castle_interaction_v2_manifest.py",
-  "generator_sha256": "628a797bfe82d369f01a6b5847c624636bb7a62aa19c96255f2fa4c7908aff61",
+  "generator_sha256": "e527fa63ff3a1dafb2b0c938d078745182baab3564b7cdba9ecc7965d7180e58",
   "visual_review_evidence": {
     "path": "audit/castle_interactions_v2/castle_interaction_frames_v2.png",
     "sha256": "4ace63822e2d625312f8674196f67f909679e4cac3a8a6cd45a186f48ba5df70",
@@ -29,7 +29,8 @@
     "authored_state_count": 8,
     "primary_animation_is_overlay": false,
     "water_renderer": "assets/shaders/castle_fixture_water.gdshader",
-    "water_renderer_sha256": "168cb9fe89d06e11101b4dcc5084247158c7411463f3c3e168493453e64431aa",
+    "water_renderer_sha256": "c0c8f68f3dd154b148d9b41e6b025f7ab1c6f692560cbf3c46389be02be1b8e2",
+    "water_renderer_revision": {"date":"2026-10-17","scope":"Pool-only optional painted_highlight_only branch preserves authored rainbow/arc RGB with restrained downward highlights. Other rooms retain the existing default shader branch.","startup":"Existing flow_amount, fill_amount and outlet-to-landing reveal remain authoritative; sustained Pool sheen starts only after the authored fixture action settles.","acceptance":"Current implementation/source binding only. Historical art approval does not accept this new shader performance; actual-device, child and owner visual/motion review remain separate.","authored_frame_pixels_unchanged":true,"previous_renderer_sha256":"168cb9fe89d06e11101b4dcc5084247158c7411463f3c3e168493453e64431aa","previous_generator_sha256":"628a797bfe82d369f01a6b5847c624636bb7a62aa19c96255f2fa4c7908aff61"},
     "water_ripple_texture": "assets/terrain/up_water_nrm.jpg",
     "water_ripple_texture_sha256": "e9233e71728ae5b934fb8b0f1af817783df4011fb0403700477c0cdf2b75b219",
     "water_caustics_texture": "assets/terrain/caustics.png",

@@ -1,0 +1,20 @@
+{
+  "probe": "probe_opera",
+  "command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "-c",
+    "set -o pipefail; timeout 8m \"$GODOT\" --headless -s scripts/probe_opera.gd -- --touch --classic-touch-test"
+  ],
+  "cap_seconds": 480,
+  "actual_user_data": "C:/Users/Peter/AppData/Local/Temp/reef_pool_ci05_rerun_probe_opera__nqq990j/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light",
+  "start_utc": "2026-10-17T23:16:11.610398+00:00",
+  "status": "TERMINAL",
+  "pid": 137992,
+  "end_utc": "2026-10-17T23:17:02.200563+00:00",
+  "wall_seconds": 50.589,
+  "exit": 0,
+  "terminal_verdict": true,
+  "failure_markers": false,
+  "log_sha256": "c218617b67fda1607987c549a6a61c06e5837437c3a88b05ca32ea5a7667eef2",
+  "diagnostic_pass": true
+}
