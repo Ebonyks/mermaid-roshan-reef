@@ -21,7 +21,8 @@
   "FIX_USE": "fix how existing painted art is drawn; no new art",
   "REMOVE": "delete the code decoration; nothing replaces it",
   "COORDINATE": "already in flight in another Codex session; finish it there and verify here",
-  "RETIRE": "delete dead or dormant code art after reference proof (DL-PERF-06)"
+  "RETIRE": "delete dead or dormant code art after reference proof (DL-PERF-06)",
+  "SUPERSEDED_BY_REBUILD": "the game is being rebuilt from the ground up (docs/handoffs/codex_minigame_rebuilds_2026-10-17/, MA-OPERA-014); the item documents the current game only and its art follows the rebuild's art order"
  },
  "packages": {
   "P0": "Governance and process",
@@ -252,11 +253,12 @@
    "DEAD_FALLBACK": 1
   },
   "by_action": {
-   "IMAGEGEN": 57,
-   "WIRE_EXISTING": 23,
-   "FIX_USE": 14,
+   "IMAGEGEN": 48,
+   "WIRE_EXISTING": 22,
+   "FIX_USE": 12,
    "COORDINATE": 3,
-   "REMOVE": 10,
+   "REMOVE": 8,
+   "SUPERSEDED_BY_REBUILD": 14,
    "RETIRE": 1
   },
   "by_severity": {
@@ -2085,9 +2087,11 @@
      ]
     }
    ],
-   "action": "IMAGEGEN",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": "JB-BAL-01",
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-BAL-02",
@@ -2111,9 +2115,11 @@
      ]
     }
    ],
-   "action": "IMAGEGEN",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": "JB-BAL-02",
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-BAL-03",
@@ -2127,9 +2133,11 @@
    "class": "FLAT_CENTRAL",
    "severity": "HIGH",
    "available_art": [],
-   "action": "IMAGEGEN",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": "JB-BAL-02",
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-BAL-04",
@@ -2143,9 +2151,11 @@
    "class": "MISUSED",
    "severity": "MEDIUM",
    "available_art": [],
-   "action": "FIX_USE",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": null,
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "FIX_USE",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-BAL-05",
@@ -2159,9 +2169,11 @@
    "class": "FLAT_DECORATION",
    "severity": "LOW",
    "available_art": [],
-   "action": "REMOVE",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": null,
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "REMOVE",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-RAC-01",
@@ -2195,9 +2207,11 @@
      ]
     }
    ],
-   "action": "IMAGEGEN",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": "JB-RAC-01",
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-RAC-02",
@@ -2212,9 +2226,11 @@
    "class": "FLAT_FEEDBACK",
    "severity": "MEDIUM",
    "available_art": [],
-   "action": "IMAGEGEN",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": "JB-RAC-01",
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-RAC-03",
@@ -2228,9 +2244,11 @@
    "class": "FLAT_CENTRAL",
    "severity": "MEDIUM",
    "available_art": [],
-   "action": "IMAGEGEN",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": "JB-SHR-03",
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-RAC-04",
@@ -2264,9 +2282,11 @@
      ]
     }
    ],
-   "action": "IMAGEGEN",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": "JB-RAC-01",
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-RAC-05",
@@ -2280,9 +2300,11 @@
    "class": "MISUSED",
    "severity": "MEDIUM",
    "available_art": [],
-   "action": "FIX_USE",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": null,
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "FIX_USE",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-RAC-06",
@@ -2316,9 +2338,11 @@
      ]
     }
    ],
-   "action": "WIRE_EXISTING",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": null,
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "WIRE_EXISTING",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-NUR-01",
@@ -2646,10 +2670,11 @@
      ]
     }
    ],
-   "action": "IMAGEGEN",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": "JB-POP-01",
    "package": "P7",
-   "note": "Rhythm redesign in flight: Codex popstar-rhythm-20261017."
+   "note": "Rhythm redesign in flight: Codex popstar-rhythm-20261017. Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014).",
+   "action_before_revision_4": "IMAGEGEN"
   },
   {
    "id": "JA-POP-02",
@@ -2673,9 +2698,11 @@
      ]
     }
    ],
-   "action": "IMAGEGEN",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": "JB-POP-02",
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-POP-03",
@@ -2689,9 +2716,11 @@
    "class": "FLAT_DECORATION",
    "severity": "LOW",
    "available_art": [],
-   "action": "REMOVE",
+   "action": "SUPERSEDED_BY_REBUILD",
    "brief": null,
-   "package": "P7"
+   "package": "P7",
+   "action_before_revision_4": "REMOVE",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
   },
   {
    "id": "JA-SHR-01",
@@ -3366,5 +3395,6 @@
    "decision": "ODR-JOBART-PROCESS-20261018"
   }
  },
- "packages_note": "Owner answer Q1 2026-10-18 \"all the above\" (ODR-JOBART-ORDER-20261018): every package is first priority; packages editing scripts/opera_gesture_surface.gd (P4, P6, P7, P8) take turns in that file in the listed order."
+ "packages_note": "Owner answer Q1 2026-10-18 \"all the above\" (ODR-JOBART-ORDER-20261018): every package is first priority; packages editing scripts/opera_gesture_surface.gd (P4, P6, P7, P8) take turns in that file in the listed order.",
+ "revision": 4
 }

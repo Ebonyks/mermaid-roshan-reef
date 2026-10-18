@@ -165,7 +165,7 @@ The alpha check (tool `cutout`) reads pixels only and writes nothing.
 | Branch (head) | Images | Contents | By eye (files viewed) | Verdict |
 |---|---:|---|---|---|
 | `codex/job-art-review-v2-20261001` (`cfcadc96`; 55 ahead of dev, 139 behind) | 40 | Geologist `painted_work_v1_20261001/`: fossil, fossil_soil, grain, layered_rock, mineral, pan, work_slab. `painted_geode_v1_20261001/`: closed, early_crack, middle_open, open_embedded. `coherent_geode_v1_20261002/`: opening_six_states, opening_bridge. `painted_river_v1_20261002/`: dry and wet straight and junctions, earth_bed, nodes. Nursery `refinement_v1/`: cradle (two cupped hands), pillows. `refinement_v2/`: care_00-07 (Roshan in the nursery apron, eight care poses). `wash_connected_v1_20261002/`: ready, wet, rub_palm, rub_palm02, rub_back, rinse, clean. Boxing gloves left and right. Pool skimmer and floating trash. | Good pastel storybook finish, navy-plum contours, broad value bands: fossil, layered_rock, mineral, pan, work_slab, open geode, six-state geode sheet, river junctions and nodes, care_00, wash `ready`, cradle hands, boxing glove. The Pool skimmer has a baked dark glow around the net. | **Ready to wire** after an in-context check. Roshan-bearing frames (care, wash) follow the older career design, which the owner keeps for careers (`ODR-ROSHAN-Q13`), so check them against `roshan_nursery_sheet_a.png`. |
-| `codex/racer-existing-engine-2d-20261003` (`fcee911c`) | 25 | `assets/kart/canvas/` kart and moto front, quarter, rear, side, top. `assets/kart/chase/` kart, moto and truck: straight, left, right, boost, empty. | Good: the side view and chase straight were viewed. | **Optional.** The current Racer uses a painted kart already; this set belongs to an unadopted chase-camera race. Keep it on the branch unless the owner wants that race. |
+| `codex/racer-existing-engine-2d-20261003` (`fcee911c`) | 25 | `assets/kart/canvas/` kart and moto front, quarter, rear, side, top. `assets/kart/chase/` kart, moto and truck: straight, left, right, boost, empty. | Good: the side view and chase straight were viewed. | **Rebuild input.** Racer is being rebuilt as a side-scrolling race (`ODR-RACER-VIEW-20261018`, `MA-OPERA-014`). The canvas side views (kart, moto) can be a source for its kart colour variants. The chase views are not needed. |
 | `codex/astronaut-clearance-20261006` (`ec533a5f`) | 3 | `astronaut_gear_v1.png`, `astronaut_pipe_straight_candidate_v1.png`, `astronaut_radioactive_fluid_v1.png` | The gear is realistic scratched brass, not the pastel style (`DL-VIS-05`). The fluid is a full-bleed neon-green texture with no alpha (`DL-VIS-04`), and "radioactive" is wrong for a four-year-old. The pipe is acceptable but glossier than the set. | **Do not wire** the gear or the fluid. The pipe serves only as a style reference for the pipe brief. |
 | `codex/studio-scene-integration` (`b5f78e3a`) | 6 | Day One studio counters and paint table, clean and dirty | not viewed | **In flight** today in Codex's `studio-room-repair` work; not this packet's. |
 
@@ -389,7 +389,7 @@ remaining objects are flat SVGs.
 | Round progress lights | `:645-655` | circles | concept `boxer_gameplay_round_lamps` | JA-BOX-04 / JB-SHR-03 |
 | Stage wash | `:616` | 6% navy over the painted ring | — | JA-BOX-05 (remove) |
 
-### Ballerina (C7 1)
+### Ballerina (C7 1; being rebuilt, `MA-OPERA-014`: these rows describe the current game only)
 
 | What the child sees | Where | Now | Item / brief |
 |---|---|---|---|
@@ -399,7 +399,7 @@ remaining objects are flat SVGs.
 | Pose portraits | `:613-623` | straight cut through the tail on row 2 | JA-BAL-04 (fix crop) |
 | Dimmer disc over wrong poses | `:586-588` | 44% navy | JA-BAL-05 (remove) |
 
-### Racer (C7 1)
+### Racer (C7 1; being rebuilt, `MA-OPERA-014`: these rows describe the current game only)
 
 | What the child sees | Where | Now | Available | Item / brief |
 |---|---|---|---|---|
@@ -421,7 +421,7 @@ remaining objects are flat SVGs.
 | BEDTIME cribs and the blanket the child swipes | `gesture:3334-3356` | teal rectangle over babies who are already swaddled; flat cribs | `assets/flats/castle/dream_house/dream_bed_0..2.png` as reference | JA-NUR-05 / JB-NUR-02 |
 | Crib mobile | `opera_nursery_catch.gd:233-239` | strings and dots | **painted exists**: `assets/opera/worlds/props/goal_nursery.png` | JA-NUR-06 |
 
-### Pop Star (C7 1; rhythm redesign in flight in Codex's `popstar-rhythm`)
+### Pop Star (C7 1; being rebuilt, `MA-OPERA-014`, folding in Codex's `popstar-rhythm` work: these rows describe the current game only)
 
 | What the child sees | Where | Now | Available | Item / brief |
 |---|---|---|---|---|

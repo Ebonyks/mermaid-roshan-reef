@@ -536,6 +536,11 @@ canvas.
 
 ## 10. Ballerina
 
+> **Closed in revision 4.** This game is being rebuilt from the ground up
+> (`docs/handoffs/codex_minigame_rebuilds_2026-10-17/`, `MA-OPERA-014`). Its
+> art order specifies the new art; rules C1-C10 and the style anchors still
+> apply. The text below is kept as a record of the current game's gaps.
+
 ### JB-BAL-01 Pearl-mirror shell frame (JA-BAL-01)
 
 **Replaces.** The petal circles at `opera_ballet_surface.gd:592-610`.
@@ -564,6 +569,11 @@ centre that holds a pose portrait. Three states: rest, chosen and right.
 `pearl_handle.png` at 128², and `twirl_ring.png` at 512².
 
 ## 11. Racer
+
+> **Closed in revision 4.** This game is being rebuilt from the ground up
+> (`docs/handoffs/codex_minigame_rebuilds_2026-10-17/`, `MA-OPERA-014`). Its
+> art order specifies the new art; rules C1-C10 and the style anchors still
+> apply. The text below is kept as a record of the current game's gaps.
 
 ### JB-RAC-01 Race controls (JA-RAC-01, JA-RAC-02, JA-RAC-04)
 
@@ -621,6 +631,11 @@ over and tucked. The babies under it stay the painted `baby_0..2.png`.
 `widget_nursery_quilt_{folded,half,tucked}.png` at 512×256.
 
 ## 13. Pop Star (rhythm redesign in flight in Codex's `popstar-rhythm-20261017`)
+
+> **Closed in revision 4.** This game is being rebuilt from the ground up
+> (`docs/handoffs/codex_minigame_rebuilds_2026-10-17/`, `MA-OPERA-014`). Its
+> art order specifies the new art; rules C1-C10 and the style anchors still
+> apply. The text below is kept as a record of the current game's gaps.
 
 ### JB-POP-01 Singing stars (JA-POP-01)
 

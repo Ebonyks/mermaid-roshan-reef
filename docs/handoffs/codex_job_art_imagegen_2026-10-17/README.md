@@ -17,7 +17,12 @@ sub optimal to retain quality."
 - **To:** Codex: every code change, every image and every capture.
 - **Owner:** answers Q1-Q5 below and accepts the look.
 
-**Status:** `PROPOSED / CANDIDATE`, revision 3.
+**Status:** `PROPOSED / CANDIDATE`, revision 4.
+- Revision 4 merges `dev` `fa0ee524`, which added the owner-accepted
+  ground-up rebuild of Pop Star, Ballerina and Racer (`docs/handoffs/codex_minigame_rebuilds_2026-10-17/`,
+  [`MA-OPERA-014`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014)).
+  This packet's items for those three games become diagnosis of the current
+  games, and their art follows the rebuild (see P7).
 - Revision 3 records the owner's answers of 2026-10-18 to Q1-Q5 (see
   [Owner answers](#owner-answers-2026-10-18)).
 - Revision 2 corrected three
@@ -79,8 +84,12 @@ flat-vector packet.
   - Two Geologist texture paths are empty strings.
   - Painted art is loaded and not drawn, or drawn stretched, ghosted or
     covered (AUDIT section 6).
-- **ImageGen is still needed** for 57 of the 108 register items. The other 51
-  are wiring, drawing fixes, deletions or work already in flight.
+- **ImageGen is still needed** for 48 of the 108 register items. Of the
+  other 60:
+  - 14 Pop Star, Ballerina and Racer items moved to that rebuild in
+    revision 4;
+  - the rest are wiring, drawing fixes, deletions or work already in
+    flight.
 
 ## Packages, in order
 
@@ -88,6 +97,8 @@ Owner answer Q1 ("all the above"): every package below is first priority.
 - Run packages in parallel where they do not edit the same files.
 - Packages that edit `scripts/opera_gesture_surface.gd` (P4, P6, P7 and P8)
   take turns in that file, in the order listed.
+- The Pop Star, Ballerina and Racer rebuild also edits shared Opera files;
+  coordinate with it the same way.
 
 Each package is one branch from current `dev`, carrying:
 - one impact record;
@@ -209,16 +220,31 @@ ring and pearl lamps.
 **Generate:** the briefs JB-DOC-01 to -03, JB-FRM-01 to -03, JB-MAG-01 and
 JB-PNT-01.
 
-### P7 Ballerina, Racer, Pop Star, Detective, Candymaker (JA-BAL-*, JA-RAC-*, JA-POP-*, JA-DET-*, JA-CDY-*)
+### P7 Detective and Candymaker (JA-DET-*, JA-CDY-*); Pop Star, Ballerina and Racer go to the rebuild
 
-**Generate:** the shell frame, ribbon, twirl ring, race controls, singing
-stars, music notes and wrapper twist. For the SHARE recipients, use stuffies
-(owner answer Q4, brief JB-CDY-02).
+**Detective and Candymaker.**
+- Generate the wrapper twist.
+- Generate the SHARE stuffie recipients (owner answer Q4, brief JB-CDY-02).
+- Fix the clue-board registration and the gold slabs.
+- Detective and Candymaker SORT are in flight (see below). Verify them
+  against this register when they land.
 
-**Fix:** the crops, the 60% ghosting and the tilted mic.
+**Pop Star, Ballerina and Racer.** These are being rebuilt from the ground
+up: Roshan's Rainbow Band, Lamma's Music-Box Ballet and the Reef Grand Prix
+side-scroller. The owner accepted the defaults on 2026-10-18; see `docs/handoffs/codex_minigame_rebuilds_2026-10-17/`.
+- Items JA-POP-*, JA-BAL-* and JA-RAC-* here describe the current games
+  only. Do not paint or fix their current flat pieces.
+- Their art follows the rebuild's art order (its MR5), under this packet's
+  BRIEFS rules C1-C10 and style anchors.
 
-**Coordinate:** Detective, Pop Star rhythm and Candymaker SORT are in flight
-(see below). Verify them against this register when they land.
+**Two stranded assets help the rebuild:**
+- The painted side views on `codex/racer-existing-engine-2d-20261003`
+  (`assets/kart/canvas/kart_side.png` and `moto_side.png`, 512²) can be a
+  source for the Reef Grand Prix kart colour variants, alongside the
+  existing side-view kart that RACER.md names. The chase views are not
+  needed, because the owner chose the side view (`ODR-RACER-VIEW-20261018`).
+- The Lamb-a' (Lamma) art `assets/sprites/stuffie_studio/lamma.png` serves
+  the ballet's lead and this packet's SHARE stuffies alike.
 
 ### P8 Shared career layers (JA-SHR-01 to -10)
 
@@ -284,6 +310,7 @@ missing textures fail its probe (BRIEFS C9).
 | `codex/studio-scene-integration`, local `studio-room-repair-20261017` | in progress | Day One craft room; studio furniture images |
 | local `pool-visual-repair-20261017` | committed locally, pushed | Day One Pool; not in this packet |
 | `codex/arborist-spray-20261015` | pushed, unmerged | JA-ARB-01 |
+| Claude's rebuild handoff `docs/handoffs/codex_minigame_rebuilds_2026-10-17/` (`MA-OPERA-014`) | on `dev` since `fa0ee524`; owner chose its defaults 2026-10-18 | Supersedes the Pop Star, Ballerina and Racer art items here (P7) |
 
 ## Questions for the owner
 
