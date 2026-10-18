@@ -121,8 +121,8 @@
   },
   {
    "command": "Anonymous HTTPS GET of every MANIFEST.json file from raw.githubusercontent.com at the pushed commit (revision 3)",
-   "result": "PENDING",
-   "evidence": "Recorded in REMOTE_VERIFICATION.json in the follow-up receipt commit."
+   "result": "PASS",
+   "evidence": "Revision 3 at fbd540332485cfb0b88b5aee3d1bb024cce79e5c, checked 2026-10-18T14:35:32+00:00: manifest HTTP 200, sha256 f840720e75ee8186e4cd39860639e9f6d549aec56b8ce9b8fd62136bb4ba8f9c; 7 of 7 listed files match bytes and SHA-256. Receipt: docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json."
   },
   {
    "command": "Probe Suite (.github/workflows/probes.yml) on the revision 3 branch head, before merging into dev",
