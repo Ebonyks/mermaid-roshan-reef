@@ -11501,7 +11501,7 @@
       ],
       "reuse_inspection": "Existing complete painted alpha-extracted pan selected for its quality and fit. Reuse is optional under the owner2026-10-17 direction; no failed-reuse prerequisite.",
       "named_gap": null,
-      "status": "IMPLEMENTED_SOURCE_BRANCH_LOCAL82PASS_REMOTE_CI_PENDING",
+      "status": "MERGED_SOURCE_BRANCH_LOCAL82_NATIVE_CONTEXT_PASS_NEW_CI_PENDING",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -11530,7 +11530,14 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261018-R99",
+          "reviewer": "Codex agent; partial current context only",
+          "evidence": "../r99_geologist_pan_merge_revalidation/FRAME_REVIEW.json; actual source 4918dc910b2f922a85f458cc0cdc710e8059c187",
+          "result": "Same pan/current Dev caller checked; formalQA11/device/child/owner and accepted removal remain open."
+        }
+      ],
       "proposed_update": "Inventory the native geology candidate at full alpha. If unsuitable, author one whole pan in the existing overhead angle with readable rim thickness and substrate.",
       "route_refs": [
         "opera.act.16"
@@ -11623,6 +11630,33 @@
         "child": null,
         "owner": null,
         "accepted_removed": 0
+      },
+      "r99_prior_status": "IMPLEMENTED_SOURCE_BRANCH_LOCAL82PASS_REMOTE_CI_PENDING",
+      "r99_source_publication": {
+        "stable_id": "FV-F2DE53A80AA7",
+        "source_revision": "4918dc910b2f922a85f458cc0cdc710e8059c187",
+        "incoming_dev": "a9875690ceff436e9ce012a675db09a236aef0f5",
+        "branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+        "state": "MERGED_ACTUAL_SOURCE_PUBLISHED_LOCAL82_NATIVE_CONTEXT_PASS_NEW_CI_PENDING",
+        "local_unique_trusted_probes": 82,
+        "retained_initial_healthy_checks": 2,
+        "direct_native_continuation_checks": 80,
+        "original_console_failure": "Preserved UNKNOWN-cause -1/no-verdict third probe. No probe/runtime repair or lower floor.",
+        "native_context_cases": 2,
+        "native_context_checks": 54,
+        "new_native_frame_events": 8,
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "Dev_integration": false,
+        "new_generation_calls": 0,
+        "new_implementation_artifacts": 0,
+        "accepted_removed": 0,
+        "mission_complete": false,
+        "exact_source_receipt": "SOURCE_REMOTE_VERIFICATION.json",
+        "original_source_CI_green": "39079175770 at ce05d4d3",
+        "current_source_CI": "SOURCE_CI_HANDLES.json"
       }
     },
     {
@@ -22539,7 +22573,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261017-R98",
+  "revision": "FV-AUDIT-20261018-R99",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -33238,7 +33272,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json; current pan sourcece05d4d3 is committed/published and all82local probes pass; remoteCI39079175770running, Devpending. Existing5bounded implementations/3partialDev artifacts and10775native events unchanged. R97mint alpha candidate remains ready for actual scene fit. Zero new generation/accepted removal; totals unknown.",
+  "current_effective_summary": "SUMMARY.json; current R99 same pan merged source published/local82 and two-aspect context pass, exact new sourceCI/Dev pending. Eight new frame events; no new artwork or implementation artifact, no accepted removal. Historical evidence unchanged; whole-game totals unknown.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -34542,5 +34576,34 @@
     "child": null,
     "owner": null,
     "accepted_removed": 0
-  }
+  },
+  "r99_parent_receipt_revision": "b7a97d8dc4008e3ff618e505ec64c9dffd7dd65e",
+  "r99_pan_merge_revalidation": {
+    "stable_id": "FV-F2DE53A80AA7",
+    "source_revision": "4918dc910b2f922a85f458cc0cdc710e8059c187",
+    "incoming_dev": "a9875690ceff436e9ce012a675db09a236aef0f5",
+    "branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "state": "MERGED_ACTUAL_SOURCE_PUBLISHED_LOCAL82_NATIVE_CONTEXT_PASS_NEW_CI_PENDING",
+    "local_unique_trusted_probes": 82,
+    "retained_initial_healthy_checks": 2,
+    "direct_native_continuation_checks": 80,
+    "original_console_failure": "Preserved UNKNOWN-cause -1/no-verdict third probe. No probe/runtime repair or lower floor.",
+    "native_context_cases": 2,
+    "native_context_checks": 54,
+    "new_native_frame_events": 8,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "Dev_integration": false,
+    "new_generation_calls": 0,
+    "new_implementation_artifacts": 0,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "exact_source_receipt": "SOURCE_REMOTE_VERIFICATION.json",
+    "original_source_CI_green": "39079175770 at ce05d4d3",
+    "current_source_CI": "SOURCE_CI_HANDLES.json"
+  },
+  "new_generation_calls": 0,
+  "r99_new_native_frame_events": 8
 }

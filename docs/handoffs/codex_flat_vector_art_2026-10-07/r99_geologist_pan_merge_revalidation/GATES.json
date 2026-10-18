@@ -1,0 +1,34 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "d8caa43b612489b0251325ebfcfd65e4e504e728b1a1f4fff205d905a1941a27",
+      "output": "DOCAUTH|INVENTORY=812|LEDGER=812|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n"
+    }
+  ],
+  "actual_runtime_source": "4918dc910b2f922a85f458cc0cdc710e8059c187",
+  "actual_runtime_validation": "LOCAL_82_RESULT.json; original fullCI fail remains preserved",
+  "source_delivery": "SOURCE_REMOTE_VERIFICATION.json:current-source manifests anonymous exact",
+  "source_CI": "SOURCE_CI_HANDLES.json; healthy run pending; no restart",
+  "Dev_integration": false,
+  "formal_QA11_device_child_owner": "PENDING",
+  "new_generation_or_artifact_credits": 0,
+  "new_native_frame_events": 8
+}

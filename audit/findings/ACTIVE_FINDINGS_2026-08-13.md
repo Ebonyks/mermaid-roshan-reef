@@ -330,6 +330,8 @@ poses as broken motion.
 
 ## MA-VIS-006
 
+R99 source stage2026-10-18: [current-Dev painted pan](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_merge_revalidation/README.md) is actually published and source-byte verified, with82unique trusted checks and refreshed two-aspect partial context. Initial premature console failure is retained; new sourceCI/Dev/formalQA11/device/child/owner remain open. Lifecycle unchanged.
+
 R98production2026-10-17: [actual pan runtimece05d4d3](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r98_geologist_pan_source_ci/README.md) passes current local82probe-by-probe and181sourcefiles anonymously verify. Exact-sourceCI39079175770running; Dev/formalQA11/device/child/owner remain pending. No lifecycle or accepted-removal change.
 
 R97production2026-10-17: [Aseprite mineral matte](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r97_geologist_mineral_matte/README.md) provides a970x1015clean-alpha source cutout preserving584044body RGBApixels and both raw originals. Source-stage technical readiness only; actual scene/formalQA11/device/child/owner and lifecycle remain open.

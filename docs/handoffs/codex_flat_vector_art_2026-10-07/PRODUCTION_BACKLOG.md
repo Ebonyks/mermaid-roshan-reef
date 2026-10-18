@@ -275,3 +275,5 @@ Each row is one named **design/state family**, not a raw drawing call or instanc
 ## Owner-direction clarification — 2026-10-13 UTC
 
 Publish and verify the current-context R6 review revision, then begin the first fully source-bound individual repair/sample with approved reuse first while continuing unresolved inventory. The published R5 audit supplies the first known items. An unknown all-game denominator blocks final completion; it does not indefinitely block a verified named item. Record the exact item, sources, failed-reuse gap, same-scene identity/contact/state references and gates before candidate work. Keep candidate, integrated, runtime-verified and accepted-removed claims separate. See [direction record](OWNER_DIRECTION_20261013.json).
+
+R99 update: [painted pan current-Dev reconciliation](r99_geologist_pan_merge_revalidation/README.md) publishes the actual merged runtime source and anonymous required-file receipt;82unique trusted checks and two-aspect current context pass. New sourceCI/Dev/formal/physical acceptance remain pending. Same artifact, no new generation or accepted removal; mineral scene fit remains next.
