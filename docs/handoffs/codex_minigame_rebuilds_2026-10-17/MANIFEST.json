@@ -1,0 +1,65 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_minigame_rebuilds_2026-10-17",
+ "status": "PROPOSED / CANDIDATE",
+ "prepared_by": "Claude (written analysis and specification only; no game changes and no images)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev 7a65b9f0abacddeee70230f220955f4d18d551b5",
+ "entry": "README.md",
+ "owner_decision": "ODR-MINIGAME-REBUILD-20261017",
+ "finding": "MA-OPERA-014",
+ "file_count": 8,
+ "total_bytes": 111624,
+ "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
+ "revision": "1 (2026-10-18)",
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 9474,
+   "sha256": "19048fdf074d4d90857833ce1ab359bf22fa71fe364d80cc9b27bcb9021f3dc9",
+   "role": "handoff entry point, work order and owner questions"
+  },
+  {
+   "path": "DIAGNOSIS.md",
+   "bytes": 14890,
+   "sha256": "a30b044195bdc13cf752c87fe2a8dccd6b14ebb37ffaf8bcbbdc3c19f099eca9",
+   "role": "current-state analysis with code anchors at the baseline"
+  },
+  {
+   "path": "POP_STAR.md",
+   "bytes": 21476,
+   "sha256": "2f16ea1e6af9d91baaa86d4a32b2c39c4225dccff02d12e2b28636e5970217b9",
+   "role": "Pop Star rebuild specification (Roshan's Rainbow Band)"
+  },
+  {
+   "path": "BALLERINA.md",
+   "bytes": 15601,
+   "sha256": "7e654a20c9c5f3cb2c3410c8486e519e6a2758a580a8ec55a10be9cd8d9901f1",
+   "role": "Ballerina rebuild specification (Lamma's Music-Box Ballet)"
+  },
+  {
+   "path": "RACER.md",
+   "bytes": 14527,
+   "sha256": "e73dd518aa6f47c89a36e141a9403fa1dc14d87bce2a9d7d33cb8c8d39ecebcb",
+   "role": "Racer rebuild specification (Reef Grand Prix)"
+  },
+  {
+   "path": "SHARED_SYSTEMS.md",
+   "bytes": 12208,
+   "sha256": "488f0d7970c877bfbcfd2dc2bc72378a5d96e64f37e5277cde7d5535b234a238",
+   "role": "shared clock, judge, mercy, move reader, contests, staging, saves, probes and art order"
+  },
+  {
+   "path": "REFERENCES.md",
+   "bytes": 23448,
+   "sha256": "73d596d7ed9e738677a4f3aeb2d9df80de7b6a000603d9825c7598826eafed54",
+   "role": "published game designs and child-development evidence with links"
+  }
+ ]
+}

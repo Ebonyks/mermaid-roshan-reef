@@ -1,0 +1,124 @@
+{
+  "id": "minigame-rebuild-handoff-20261017",
+  "scope": "Owner-requested analysis and ground-up redesign of the three weakest Opera careers (Pop Star, Ballerina, Racer), citing published console, PC and mobile games and child-development research, delivered as a written Codex handoff. It records the owner's verdict (ODR-MINIGAME-REBUILD-20261017), opens MA-OPERA-014 and moves MA-OPERA-005 to CONFIRMED_OPEN on owner evidence. It benefits the child by replacing generic chores with one real skill per job: a music-timed drum echo, a danced ballet and a lane race. No game script, scene, asset, audio or workflow is changed.",
+  "baseline": "7a65b9f0abacddeee70230f220955f4d18d551b5",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-06",
+    "DL-INT-02",
+    "DL-INT-07",
+    "DL-INT-08",
+    "DL-INT-10",
+    "DL-INT-14",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-READ-05",
+    "DL-LAY-08",
+    "DL-MOT-03",
+    "DL-MOT-07",
+    "DL-MOT-09",
+    "DL-MOT-12",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-SND-01",
+    "DL-SND-05",
+    "DL-SAVE-01",
+    "DL-CODE-10"
+  ],
+  "findings": [
+    "MA-OPERA-014",
+    "MA-OPERA-005"
+  ],
+  "finding_scope": "MA-OPERA-014 is opened CONFIRMED_OPEN P1 from the owner's verdict plus static code anchors. MA-OPERA-005 moves FIXED_PENDING_VERIFICATION to CONFIRMED_OPEN because the owner gate for the current Ballerina recital failed; its rebuild is owned by MA-OPERA-014. Related findings MA-OPERA-003, MA-OPERA-006, MA-OPERA-010, MA-PLAY-004, MA-PLAY-005, MA-VIS-008 and MA-TOUCH-004 are cited, not changed.",
+  "files": [
+    "docs/handoffs/codex_minigame_rebuilds_2026-10-17/.gdignore",
+    "docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md",
+    "docs/handoffs/codex_minigame_rebuilds_2026-10-17/DIAGNOSIS.md",
+    "docs/handoffs/codex_minigame_rebuilds_2026-10-17/POP_STAR.md",
+    "docs/handoffs/codex_minigame_rebuilds_2026-10-17/BALLERINA.md",
+    "docs/handoffs/codex_minigame_rebuilds_2026-10-17/RACER.md",
+    "docs/handoffs/codex_minigame_rebuilds_2026-10-17/SHARED_SYSTEMS.md",
+    "docs/handoffs/codex_minigame_rebuilds_2026-10-17/REFERENCES.md",
+    "docs/handoffs/codex_minigame_rebuilds_2026-10-17/MANIFEST.json",
+    "audit/cycles/minigame-rebuild-20261017/owner_request.json",
+    "audit/cycles/minigame-rebuild-20261017/owner_answers.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH|INVENTORY=713|LEDGER=713|ACTIVE=70|RECORDS=73 and DOCAUTH|RESULT|ALL OK on the working tree before the first commit (one table-width issue in the MA-OPERA-005 index row was found and fixed first)."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV|BASE|7a65b9f0abacddeee70230f220955f4d18d551b5 and AUDITDEV|RESULT|ALL OK before the first commit."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Ran 54 tests, OK; DOCAUTH|STRESS|6/6."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check",
+      "result": "PASS",
+      "evidence": "DECISIONS|COUNT|48 and DECISIONS|RESULT|ALL OK after appending ODR-MINIGAME-REBUILD-20261017 with source audit/cycles/minigame-rebuild-20261017/owner_request.json."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "GAME2D RESULT NO_REGRESSION (exact shrinking baseline); migration debt remains UNSATISFIED and unchanged."
+    },
+    {
+      "command": "Research spot-check of the two findings the designs rely on most",
+      "result": "PASS",
+      "evidence": "Woodruff Carr et al. 2014 (PMC4210020): 35 children aged 3-4, 22 synchronized at both rates, 13 at neither. Bobin-Bègue et al. 2014 (PMC4256987): median intervals about 508 ms and 463 ms; anticipation rarely found in young children (from cited literature). Other references are research-agent fetches listed in REFERENCES.md with UNVERIFIED marks kept."
+    },
+    {
+      "command": "Probe Suite (GitHub Actions) on the pushed branch head",
+      "result": "PENDING",
+      "evidence": "Required before merging into dev."
+    },
+    {
+      "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed commit, compared with MANIFEST.json SHA-256",
+      "result": "PENDING",
+      "evidence": "Required before reporting the handoff delivered (CLAUDE.md external handoff rule)."
+    }
+  ],
+  "acceptance_gaps": "Nothing is implemented. The owner's answers to Q1-Q5 are pending (defaults apply). Every runtime, art, animation, voice, target-phone, observed-child and owner gate for the rebuilt Pop Star, Ballerina and Racer remains open, as do the rule rewrites (DL-INT-07, DL-INT-08, DL-INT-10, DL-INT-14, DL-QA-12) that land with the implementation.",
+  "references_used": [
+    {
+      "path": "design/reference/games.json",
+      "purpose": "Gold-star scores and notes for the three careers and their stronger siblings"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/TIMING_SUMMARY.md",
+      "purpose": "Scripted Pop Star durations"
+    },
+    {
+      "path": "docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md",
+      "purpose": "DL-INT-14 contest contract re-specified for the rebuilt skills"
+    },
+    {
+      "path": "assets_src/audio/music/area_music_scores.json",
+      "purpose": "Tempo, meter and motif of the three career songs"
+    }
+  ]
+}
