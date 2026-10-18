@@ -1,0 +1,21 @@
+from pathlib import Path
+import json,hashlib,re,shutil
+root=Path(__file__).resolve().parents[1]
+out=root/'audit/remove_opera_anteroom_20261017'
+path=out/'chapter2_recheck.json'
+data=json.loads(path.read_text())
+raw=(out/'chapter2_recheck.log').read_bytes()
+text=raw.decode('utf-8',errors='replace')
+assert data['exit_code']==0 and not data['reported_failures'] and not data['source_drift'],data
+assert hashlib.sha256(raw).hexdigest()==data['log_sha256']
+assert re.search(r'^CHAPTER2\|RESULT: PASS checks_failed=0\s*$',text,re.M)
+assert all(hashlib.sha256((root/p).read_bytes()).hexdigest()==h for p,h in data['source_sha256'].items())
+if data['status']!='PASS':
+    assert not (out/'chapter2_classifier_original.json').exists()
+    shutil.copy2(path,out/'chapter2_classifier_original.json')
+    data['original_classifier_receipt']='chapter2_classifier_original.json'
+data['status']='PASS'
+data['verdict_marker']='CHAPTER2|RESULT: PASS checks_failed=0'
+data['classification_note']='The direct native process completed with exit 0 and its actual CHAPTER2 RESULT: PASS marker. The launcher classifier expected ALL OK, which is not this probe\'s marker; its original receipt is preserved separately. No native/test failure, transcript or source is changed.'
+path.write_text(json.dumps(data,indent=2)+'\n')
+print(json.dumps({'status':data['status'],'native_exit':data['exit_code'],'actual_verdict':data['verdict_marker']}))

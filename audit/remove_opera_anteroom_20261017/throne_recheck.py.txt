@@ -1,0 +1,25 @@
+from pathlib import Path
+import json, subprocess, os, sys, time, hashlib, re
+root = Path(__file__).resolve().parents[1]
+out = root/'audit/remove_opera_anteroom_20261017'
+fps = sys.argv[1] if len(sys.argv)>1 else 'normal'
+assert fps in ['normal','120']
+godot = json.loads((out/'focused.json').read_text())['command'][0]
+names = ['scripts/castle_career_routes.gd','scripts/opera_house_venue_2d.gd','scripts/probe_opera.gd','scripts/probe_throne.gd','scripts/arena/castle_rooms_25d.gd']
+frozen = {p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in names}
+profile=root/'tmp'/('opera_throne_fixed_'+fps+'_'+str(int(time.time())))
+for name in ['appdata','localappdata','data','config']:(profile/name).mkdir(parents=True,exist_ok=True)
+env=dict(os.environ,PYTHONUTF8='1',PYTHONIOENCODING='utf-8',APPDATA=str(profile/'appdata'),LOCALAPPDATA=str(profile/'localappdata'),XDG_DATA_HOME=str(profile/'data'),XDG_CONFIG_HOME=str(profile/'config'))
+command=[godot,'--headless']+(['--fixed-fps',fps] if fps!='normal' else [])+['--path',str(root),'-s','scripts/probe_throne.gd','--','--touch','--classic-touch-test']
+started=time.time()
+logpath=out/('fixed_throne_'+fps+'.log')
+with logpath.open('w',encoding='utf-8') as log:
+    try:code=subprocess.run(command,cwd=root,env=env,stdout=log,stderr=subprocess.STDOUT,timeout=600).returncode
+    except subprocess.TimeoutExpired:code=124
+text=logpath.read_text(encoding='utf-8',errors='replace')
+failures=[s for s in text.splitlines() if '|FAIL' in s or 'FAILED' in s or 'SCRIPT ERROR' in s]
+drift=[p for p,h in frozen.items() if hashlib.sha256((root/p).read_bytes()).hexdigest()!=h]
+data={'command':command,'exit_code':code,'elapsed_seconds':time.time()-started,'source_sha256':frozen,'source_drift':drift,'reported_failures':failures,'log_sha256':hashlib.sha256(logpath.read_bytes()).hexdigest(),'status':'PASS' if code==0 and not failures and not drift and 'THRONE|done: ALL OK' in text else 'FAIL','scope':'Rerun after baseline-reproduced camera-readiness setup correction; real viewport floor taps, five-mist and no-award assertions unchanged. Separate isolated save profile.'}
+(out/('fixed_throne_'+fps+'.json')).write_text(json.dumps(data,indent=2)+'\n')
+print(json.dumps(data))
+sys.exit(0 if data['status']=='PASS' else 1)

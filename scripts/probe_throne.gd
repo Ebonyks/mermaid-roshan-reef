@@ -153,6 +153,18 @@ func _wait_for_locked_royal_hall_feedback() -> bool:
 		await process_frame
 	return false
 
+func _wait_for_room_voice_idle() -> bool:
+	var deadline_ms: int = Time.get_ticks_msec() + 10000
+	while Time.get_ticks_msec() < deadline_ms:
+		var speaking: bool = main.voice != null and main.voice.playing
+		for value: Variant in main.voice_pool:
+			var player: AudioStreamPlayer = value as AudioStreamPlayer
+			speaking = speaking or (player != null and player.playing)
+		if not speaking:
+			return true
+		await process_frame
+	return false
+
 func _latest_voice_player() -> AudioStreamPlayer:
 	if main.voice_i <= 0 or main.voice_pool.is_empty():
 		return null
@@ -250,6 +262,11 @@ func _run() -> void:
 	_ck("locked_royal_hall_has_five_mist_cards",
 		main.castle_royal_hall_mist_cards.size() == 5
 		and _visible_royal_hall_mist() == 5)
+	# Fast headless walking can reach the gate while its room greeting still
+	# owns the serial voice channel. Let the real clip finish before asking
+	# the locked gate for its separate spoken response; never stop or fake it.
+	_ck("room_greeting_finishes_before_locked_tap",
+		await _wait_for_room_voice_idle())
 	var locked_mist_before: Array[Transform2D] = _mist_transforms()
 	var voice_i_before: int = main.voice_i
 	_ck("locked_royal_hall_tap_reaches_real_button",

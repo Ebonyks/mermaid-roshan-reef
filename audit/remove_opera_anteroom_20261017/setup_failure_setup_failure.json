@@ -1,0 +1,11 @@
+{
+  "status": "ABORTED_FIXTURE_FAILURE",
+  "cause": "Git sparse cleanup followed source-folder junctions in the temporary integration worktree. Missing assets caused preload/compile failures. The review probes were stopped; their outputs are not acceptance evidence.",
+  "saved_transcripts": [
+    "integration_probe_opera.log",
+    "integration_probe_collection.log",
+    "integration_probe_throne.log",
+    "integration_probe_throne.json"
+  ],
+  "recovery": "Restore tracked source assets from exact pre-incident Git commit; verify protected binary blob IDs; remove every review junction; use an ordinary full private checkout before rerunning."
+}

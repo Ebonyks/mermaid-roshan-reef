@@ -67,3 +67,9 @@ docs/handoffs/codex_flat_vector_art_2026-10-07/r91_critter_insect_tab_runtime/**
 # Preserve literal Grand Puff native logs, diagnostic sources and capture hashes.
 audit/grand_puff_crash_20261017/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/**/*.log -text -diff
+
+
+# Preserve exact Windows/native-CI evidence bytes for the Opera room removal.
+audit/remove_opera_anteroom_20261017/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/**/*.log -text -diff

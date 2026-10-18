@@ -1,0 +1,115 @@
+{
+  "stable_id": "FV-F2DE53A80AA7",
+  "state": "PARTIAL_AGENT_CONTEXT_REVIEW_COMPLETE",
+  "source_revision": "ce05d4d38636fefc82af1172153c7f4d6119b562",
+  "incoming_dev": "a9875690ceff436e9ce012a675db09a236aef0f5",
+  "pre_metadata_index_tree": "8fb161de45f9d29aef4afb2589e839bf6b99d1ff",
+  "views": [
+    {
+      "path": "native/1280/01_pan_start.png",
+      "width": 1280,
+      "sha256": "454fcf8ff79c375a378f3dc93122e26b4e82bf6111d2780bc2cc02d388ad822d",
+      "direct_native_full_frame_view": true,
+      "reviewer": "Codex agent; current turn"
+    },
+    {
+      "path": "native/1280/02_pan_partial.png",
+      "width": 1280,
+      "sha256": "ec48d809fa426e871471a3395aadef3894014cbff2c32e4cf0b9bc22bff95818",
+      "direct_native_full_frame_view": true,
+      "reviewer": "Codex agent; current turn"
+    },
+    {
+      "path": "native/1280/03_pan_near_complete.png",
+      "width": 1280,
+      "sha256": "9f8ea127be3597772e4a42ce104d24f64b353f1c10e1682ef4ab75edf06bccf9",
+      "direct_native_full_frame_view": true,
+      "reviewer": "Codex agent; current turn"
+    },
+    {
+      "path": "native/1280/04_pan_complete.png",
+      "width": 1280,
+      "sha256": "87de455fb9b96e17e58e63bbe13852e5b5b51daeb1516ec3d29d01b025b9637b",
+      "direct_native_full_frame_view": true,
+      "reviewer": "Codex agent; current turn"
+    },
+    {
+      "path": "native/1600/01_pan_start.png",
+      "width": 1600,
+      "sha256": "168cbed951f8499615bf7a3f6ffbde4292f9fc1c07a4fbd1504b9a5cbb068dd1",
+      "direct_native_full_frame_view": true,
+      "reviewer": "Codex agent; current turn"
+    },
+    {
+      "path": "native/1600/02_pan_partial.png",
+      "width": 1600,
+      "sha256": "ddc83aec084ca37ef254fc356f06cd8bde91ca092df5a28764fa1fc9fea95d6c",
+      "direct_native_full_frame_view": true,
+      "reviewer": "Codex agent; current turn"
+    },
+    {
+      "path": "native/1600/03_pan_near_complete.png",
+      "width": 1600,
+      "sha256": "d31cb121ad2a8607be8a41d875089262e648a90cd987af3a04ff3a839968417b",
+      "direct_native_full_frame_view": true,
+      "reviewer": "Codex agent; current turn"
+    },
+    {
+      "path": "native/1600/04_pan_complete.png",
+      "width": 1600,
+      "sha256": "8cdb5b3f441a9c02331b47754a23f6a1b15bdc44d7b02b2f9aab660d9a4d7131",
+      "direct_native_full_frame_view": true,
+      "reviewer": "Codex agent; current turn"
+    }
+  ],
+  "same_scene_reference_frames": "All eight current full-frame hashes bind the actual neighboring Roshan, guide, navigation, cave and workspace. Review context only; no generation inputs here.",
+  "same_scene_asset_and_source_hashes": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "LF_sha256": null,
+      "role": "Same-scene actor, complete painted pan, or procedural scene/source binding; unchanged source pins"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_washing_pan_painted.png",
+      "sha256": "df6ec1df1c59a20d427cb50835ae04915b07de0cbe1b470e99d43c55518ff5ab",
+      "LF_sha256": null,
+      "role": "Same-scene actor, complete painted pan, or procedural scene/source binding; unchanged source pins"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "sha256": "05225bc142aeb158d590510e7ccfc938f89fb459808bf64ddc8aaf12bad87417",
+      "LF_sha256": "7e0ec012354fcb20c51d952b25208434906298a938cf597fd75f7ccaccc07415",
+      "role": "Same-scene actor, complete painted pan, or procedural scene/source binding; unchanged source pins"
+    }
+  ],
+  "historical_comparison": "Immutable ce05d4d3/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/CONGRUENCY_REVIEW.json retains original source/candidate controls. No new failing-baseline claim.",
+  "ten_axes": {
+    "contour": "Whole painted plum-edged oval is intact in all eight views; no clipping or new sticker rim observed.",
+    "material": "Broad bronze/gold rim and aqua water retain authored painted bands. Cave stripes, large tan panel, sediment dots and pentagon minerals visibly remain suboptimal and open.",
+    "palette": "Warm gold/aqua relate to the same-scene Roshan hat, trim and tail; plum contour relates to scene outlines. Complete-scene palette acceptance remains open.",
+    "light": "Authored upper-left highlights and darker underside remain unaltered; no relighting or3D material. Neighbor-light consistency is not fully accepted.",
+    "perspective": "One coherent elevated oval; grain/mineral centers remain over water at all four sampled states.",
+    "scale": "Complete pan fits the workspace at1280x720 and1600x720. Uniform fit and1024square imported texture retain original scope.",
+    "contact": "Grains/minerals remain over the water; physical hand-to-pan contact and grounded surface/support are not established.",
+    "occlusion": "Pan contour is clear in both aspects. Existing guide/Roshan overlap at completion remains unresolved and is not an accepted composition.",
+    "readability": "Painted pan is distinct and recognizable in these desktop native views. Actual phone, child and owner recognition remains pending.",
+    "action_state": "Start, partial wash, near-completion and completion are coherent, with three final tokens and27checks per aspect. Continuous acting, natural whole-route and formalQA11 remain separate."
+  },
+  "acceptance": {
+    "candidate": "Current merged-source pan partially reviewed for continued source delivery",
+    "bounded_native_machine": "PASS54CHECKS2CASES8FRAMEEVENTS",
+    "new_exact_head_CI": "PENDING_AFTER_PUSH",
+    "Dev_integration": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "mission_complete": false
+  },
+  "new_generation_calls": 0,
+  "new_artwork_roles": 0,
+  "new_implementation_artifacts": 0,
+  "reviewed_at_utc": "2026-10-18T02:15:36.575188+00:00"
+}

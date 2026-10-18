@@ -1,0 +1,89 @@
+from pathlib import Path
+import subprocess, os, re, json
+root = Path(__file__).resolve().parents[1]
+review = root/'tmp/godot-ai-playtest-20261017-101103/runtime'
+assert review.is_relative_to(root/'tmp') and (review/'addons/godot_ai/plugin.cfg').is_file()
+plugin = review/'addons/owner_opera_review_start'
+plugin.mkdir(parents=True, exist_ok=True)
+(plugin/'plugin.cfg').write_text('[plugin]\nname="Owner Opera review launch"\ndescription="Temporary one-shot owner-requested review launcher"\nauthor="Local review"\nversion="1.0"\nscript="start.gd"\n')
+(plugin/'start.gd').write_text('''@tool
+extends EditorPlugin
+
+func _enter_tree() -> void:
+	call_deferred("_launch_review")
+
+func _launch_review() -> void:
+	await get_tree().create_timer(3.0).timeout
+	var bridge: Object = null
+	for plugin_node: Node in get_tree().root.find_children("*", "EditorPlugin", true, false):
+		var source: Script = plugin_node.get_script() as Script
+		if source != null and source.resource_path == "res://addons/godot_ai/plugin.gd":
+			bridge = plugin_node.get("_debugger_plugin") as Object
+			break
+	if bridge != null:
+		bridge.call("begin_game_run", 0, true)
+	EditorInterface.play_main_scene()
+	for i in range(180):
+		await get_tree().create_timer(1.0).timeout
+		if FileAccess.file_exists("res://tmp/remove_opera_ai_display.json"):
+			if bridge != null:
+				var file := FileAccess.open("res://tmp/remove_opera_ai_bridge.json", FileAccess.WRITE)
+				file.store_string(JSON.stringify(bridge.call("get_game_status"), "\\t"))
+				file.close()
+			remove_autoload_singleton("OwnerOperaReviewBoot")
+			print("OPERA_REVIEW_EDITOR|GAME_READY|temporary bootstrap removed")
+			EditorInterface.set_plugin_enabled("owner_opera_review_start", false)
+			return
+	push_warning("Opera review launch did not supply its readiness receipt")
+''')
+bootstrap = '''extends Node
+
+func _ready() -> void:
+	var tree := get_tree()
+	while not tree.current_scene is ReefMain:
+		await tree.process_frame
+	var main := tree.current_scene as ReefMain
+	for i in range(3):
+		await tree.process_frame
+	main.day_one_active = false
+	main.chapter2_active = false
+	main.start_menu_active = false
+	if main.start_menu_layer != null:
+		main.start_menu_layer.hide()
+	main._skip_intro()
+	main.game = "level2"
+	main.g["t"] = 0.0
+	main._enter_castle_interior_now(false)
+	for i in range(30):
+		await tree.process_frame
+	main._castle_rooms_ref().show_room("opera_hall", false)
+	await tree.create_timer(8.0).timeout
+	var venue: OperaHouseVenue2D = main._castle_career_routes_ref().opera_venue
+	if main.fade_rect != null:
+		main.fade_rect.modulate.a = 0.0
+	await RenderingServer.frame_post_draw
+	tree.root.get_texture().get_image().save_png("res://tmp/remove_opera_ai_main_foyer.png")
+	var receipt := {"debugger_active": EngineDebugger.is_active(), "venue_open": venue != null and venue.is_open(), "room_id": main.castle_room_id, "navigation": main._navigation_ref().top_id(), "renderer": RenderingServer.get_current_rendering_method(), "engine": Engine.get_version_info(), "save_profile": ProjectSettings.get_setting("application/config/custom_user_dir_name"), "screenshot_sha256": FileAccess.get_sha256("res://tmp/remove_opera_ai_main_foyer.png")}
+	var file := FileAccess.open("res://tmp/remove_opera_ai_display.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(receipt, "\\t"))
+	file.close()
+	print("OPERA_REVIEW_AI|MAIN_FOYER_READY|", JSON.stringify(receipt))
+'''
+(review/'tmp/remove_opera_ai_boot.gd').write_text(bootstrap)
+cfg_path = review/'project.godot'
+cfg = cfg_path.read_text(encoding='utf-8')
+for name in ['remove_opera_ai_display.json', 'remove_opera_ai_bridge.json']:
+    (review/'tmp'/name).unlink(missing_ok=True)
+(review/'tmp/project_before_review_restart.godot.txt').write_text(cfg)
+cfg = cfg.replace('[autoload]\n', '[autoload]\n\nOwnerOperaReviewBoot="*res://tmp/remove_opera_ai_boot.gd"\n', 1)
+cfg = cfg.replace('enabled=PackedStringArray("res://addons/godot_ai/plugin.cfg")','enabled=PackedStringArray("res://addons/godot_ai/plugin.cfg", "res://addons/owner_opera_review_start/plugin.cfg")')
+cfg_path.write_text(cfg, encoding='utf-8')
+# Process management is bounded to the review editor already identified and
+# our own standalone preview; no project source or real save is modified.
+ps = "Get-CimInstance Win32_Process | Where-Object { $_.Name -like '*godot*.exe' -and $_.CommandLine -like '*godot-ai-playtest-20261017-101103*runtime*' } | ForEach-Object { Stop-Process -Id $_.ProcessId -ErrorAction SilentlyContinue }"
+subprocess.run(['powershell','-NoProfile','-Command',ps],check=True)
+engine = subprocess.check_output([os.sys.executable,'-B','tools/resolve_godot.py'],cwd=root,text=True).strip()
+args = [engine,'--editor','--path',str(review),'res://scenes/main.tscn','--log-file',str(review/'tmp/opera_editor_restart.log')]
+process = subprocess.Popen(args,cwd=root)
+(review/'tmp/opera_editor_restart.json').write_text(json.dumps({'command':args,'pid':process.pid,'scope':'Temporary isolated owner review project; one-shot native EditorInterface launch. Main repository and full CI source remain unchanged.'},indent=2)+'\n')
+print(json.dumps({'editor_launcher_pid':process.pid,'review':str(review)}))

@@ -198,6 +198,37 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/validation_reconciled/probe_verbs/engine.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/validation_reconciled/probe_voice/engine.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/verify_runtime_remote.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/FRAME_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/INITIAL_CONSOLE_EXIT.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/INITIAL_CONSOLE_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/MERGED_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/MERGE_START.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/NATIVE_CONTEXT_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/NATIVE_RESUME_LAUNCH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/NATIVE_RESUME_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/ORIGINAL_SOURCE_CI_GREEN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/RUNTIME_SOURCE_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/TRUSTED_PROBES.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1280/01_pan_start.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1280/02_pan_partial.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1280/03_pan_near_complete.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1280/04_pan_complete.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1280/LAUNCH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1280/RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1280/engine.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1600/01_pan_start.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1600/02_pan_partial.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1600/03_pan_near_complete.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1600/04_pan_complete.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1600/LAUNCH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1600/RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/native/1600/engine.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/run_native_context.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/run_native_resume.py",
     "scripts/opera_geology_surface.gd"
   ],
   "validation": [
@@ -225,6 +256,16 @@
       "command": "Final authority/development gates and immutable anonymous actual-source delivery",
       "result": "PASS",
       "evidence": "Actual manifest assembled after all82passed; required authority/development gates PASS. Anonymous exact bytes verified after push; exact-head remoteCI/Dev and physical acceptance remain separate."
+    },
+    {
+      "command": "GitHub exact-source Probe suite (graphics fork), run39079175770",
+      "result": "PASS",
+      "evidence": "Both probes and area-music-provenance jobs success at ce05d4d38636fefc82af1172153c7f4d6119b562; completed2026-10-18T00:12:26Z. New incomingDev reconciliation validation remains separate."
+    },
+    {
+      "command": "CurrentDev a9875690 reconciliation: unchanged runtime source, retained two healthy checks, exact-native third-probe diagnostic and remaining trusted probes, plus two-aspect current native context",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/NATIVE_RESUME_RESULT.json;82unique trusted checks. Initial -1/no-verdict failure preserved; unknown cause. docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/NATIVE_CONTEXT_RESULT.json; partial agent view only, formal/device/child/owner remain open."
     }
   ],
   "acceptance_gaps": "Candidate source art is not accepted for this new use. FormalQA11, phone performance/touch, child/owner and all other job art/callers/unknown whole-game coverage remain pending.",
@@ -235,5 +276,14 @@
       "write_back": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/OWNER_PRIORITY.json;existing flat-vector-art-tally heartbeat"
     }
   ],
-  "reconciled_baseline": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8"
+  "reconciled_baseline": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+  "integration_reconciliation_20261018": {
+    "published_source": "ce05d4d38636fefc82af1172153c7f4d6119b562",
+    "incoming_dev": "a9875690ceff436e9ce012a675db09a236aef0f5",
+    "scope": "Preserve painted pan; reconcile current Opera entry/Back update. Both sides of append-only gitattributes/changelog conflicts preserved. Current merged source/progression/native and all trusted probes required before integration.",
+    "new_artwork": 0,
+    "new_generation_calls": 0,
+    "accepted_removed": 0,
+    "stage": "LOCAL_VALIDATED_PENDING_EXACT_HEAD_CI_AND_DEV"
+  }
 }
