@@ -175,6 +175,26 @@ profile scene/contact/identity audit and human/device/child/owner gates.
 Generator readiness and machine success grant no later status. Historical
 reference/rejected outputs retain their recorded scope.
 
+## Art quality and ImageGen (owner decision 2026-10-17)
+
+Owner decision: 2026-10-17. The former 2026-07-28 art-reuse and
+generation-saving restriction is removed. Choose the workflow for polished
+painted 2D storybook quality, identity, readability and runtime suitability.
+
+- Use ImageGen when it is the appropriate tool for the requested artwork;
+  reducing generation calls is not an art-quality objective or a reason to
+  choose an inferior substitute.
+- Do not replace authored storybook artwork with low-quality flat-color
+  vertex, polygon, procedural or code-drawn artwork to avoid ImageGen.
+- Existing approved art remains useful as identity/style reference or for
+  direct reuse when it meets the brief. Reuse is an option, not a prerequisite
+  for generating suitable new art; no proof that reuse failed is required.
+- Preserve established character identity, canon, protected originals,
+  source attribution and derivative provenance. New assets still need the
+  existing licensing, technical, runtime-context and acceptance checks.
+- The scoped picture-book source-preservation and selected Day One clip
+  restrictions remain binding, as do separately funded animation-task caps.
+
 ## Day One story clips between scenes (owner decision 2026-09-23)
 
 Day One plays story clips spliced from the owner-selected 2026-09-20 cut
@@ -345,9 +365,8 @@ redesign approved art to imitate a mesh. Touch-the-world is primary and the
 analog stick is an accessibility/desktop fallback.
 
 Gabby is REMOVED (IP hold — assets preserved in `attic/gabby/`; do not
-reintroduce without an owner-approved redesign). Reuse approved art first and
-replace named live CC0 defects individually; do not start a speculative mass
-redesign. The world remains a pastel toy playset: rounded forms, broad painted
+reintroduce without an owner-approved redesign). Choose reuse or ImageGen for the requested art quality; generation-saving
+is not a reason to draw inferior substitutes. Preserve the requested scope. The world remains a pastel toy playset: rounded forms, broad painted
 value bands, navy/purple outlines, aqua/lavender shadows, graphic water and
 oversized child-readable props. Wind Waker is a rendering reference only — no
 Zelda assets, symbols, UI, music or character designs.

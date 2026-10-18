@@ -123,7 +123,7 @@
         "Inspect live registries before editing: scripts/opera_house.gd ACTS/LIVE_ACT_INDICES/ACTIVE_STAR_MASK/ACTIVE_ACT_COUNT; opera_competition.gd CAREERS; opera_career_world_2d.gd PHASES/FINALE_START/PHASE_STATIONS/GOAL_PROPS; opera_mastery.gd CAREERS/RULES; opera_performance_overlay.gd CAREER_COLORS; opera_hotspot_catalog.gd EXPECTED_PHASES/SPECS/ASSET_META. Compute phase, finale, station, voice, hotspot, probe and checkpoint counts from the approved card and the live extension contract; Teach / Play / Twist / Bow groups beats and does not fix the phase count.",
         "Allocate the next save bit from the live namespace, including retired (tombstone) bits; the planner's save_allocation section derives the next bit, both masks, the retired bits and every clamp site at the current head. Add new keys with defaults and keep every existing reef_save.json key.",
         "Update every opera_stars clamp the planner lists (load, write and the shared normaliser), the range and both mask/count authorities, the per-job normaliser and checkpoint cleanup. Test the new bit's round trip, external merge through the shared normaliser, tombstones and reward persistence. Re-read the sites at implementation head.",
-        "Inventory reuse first: the chosen room's approved backgrounds and props, related careers' props, and the approved Roshan identity. For Roshan the identity anchor is `roshan_base.png` or a base-world atlas; career art is a costume or pose reference only and `roshan_sprite.png` is never bound (it is retired, ODR-ROSHAN-Q16). The tail is iridescent; name the light state of the exemplar (ODR-ROSHAN-IRIDESCENT, ODR-ROSHAN-Q12). Name each missing piece of art; Codex builds only those, with provenance, licence, atlas-gate and typography entries. Check native resolution at shipping scale before any replacement; no redraw for novelty and no 3D.",
+        "Use the chosen room's approved backgrounds and props, related careers' props, and the approved Roshan identity as references or suitable reusable art. Choose ImageGen when appropriate for the requested painted storybook quality; do not substitute inferior flat-color vertex/code art to save generation calls. For Roshan the identity anchor is `roshan_base.png` or a base-world atlas; career art is a costume or pose reference only and `roshan_sprite.png` is never bound (it is retired, ODR-ROSHAN-Q16). The tail is iridescent; name the light state of the exemplar (ODR-ROSHAN-IRIDESCENT, ODR-ROSHAN-Q12). Name each requested piece of art; Codex builds it with provenance, licence, atlas-gate and typography entries. Check native resolution at shipping scale before any replacement; preserve established identity/style and no 3D.",
         "Voice: bind the exact line, speaker and key to each objective. New provisional lines use the Parler candidate, selector and master pipeline in assets/audio/voices/VOICE_MANIFEST.md; the legacy Kokoro path is not used for new lines. Route the folder and prefix in audio_director.gd and the audio quality category; never imitate or alter family recordings. Music: propose the job's score in assets_src/audio/music/area_music_scores.json and tools/build_area_music.py EXPECTED_IDS with the scripts/probe_audio.gd REQUIRED_AREA_MUSIC entry, or a justified byte-identical reuse.",
         "Plan reachability and lifecycle: castle_career_routes.gd ROOM_ACT_INDICES and probe EXPECTED_ROOM_ACTS; opera_stage_paths.gd PATHS/STATION_NAV; stage_inventory.json; living_world_catalog.gd row/EXPECTED_STAGE_COUNT; backdrop PALETTES or compliant screen tiles. Keep Day One and the locked Chapter Two roster separate unless commissioned.",
         "Extend trusted probe coverage and pin counts: probe_opera, probe_opera_2d, probe_opera_nursery, probe_living_world, probe_audio and gesture quality. Cover correct/wrong/passive/random/repeat/save/re-entry/back/focus loss, Roshan travel/contact and the contest rematch. Use existing rosters unless explicitly authorized to add high-risk CI entries.",
@@ -163,7 +163,8 @@
       "revision_history": [
         "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
         "2026-10-03: Cold-start review exposed missing child-controlled baking/retrieval, inherited phase counts, enlarged-background readiness and imprecise clamp labels. Added the ordered candidate chain, computed counts, source-bound gap and exact shared-normaliser descriptions.",
-        "2026-10-03: Review fixes (Claude): removed the stored bakery answer and baseline numbers; the planner derives save facts and gives a job card to design; reserved decisions wait for the owner; imp contest stated as DL-INT-14 says; Parler named for new voice lines."
+        "2026-10-03: Review fixes (Claude): removed the stored bakery answer and baseline numbers; the planner derives save facts and gives a job card to design; reserved decisions wait for the owner; imp contest stated as DL-INT-14 says; Parler named for new voice lines.",
+        "2026-10-17: Owner removes generation-saving/mandatory-reuse restrictions; use ImageGen as appropriate for painted storybook quality, never inferior flat-color vertex/code substitutes."
       ],
       "revision": 2
     },
@@ -434,7 +435,7 @@
         "id": "REC-ART",
         "path": "design/reference/recipes/art.md"
       },
-      "defaults": "Reuse approved art first; source-bound named missing gap only.",
+      "defaults": "Choose suitable approved art or ImageGen for polished painted storybook quality; do not use inferior flat-color vertex/code art to save generation calls.",
       "read_first": [
         "AGENTS.md",
         "audit/MASTER_AUDIT_2026-08-09.md",
@@ -480,7 +481,8 @@
       "served_prompts": [],
       "revision_history": [
         "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
-        "2026-10-03: Review fixes (Claude): Codex builds the art; Roshan identity anchor named; the touchpoint is a question."
+        "2026-10-03: Review fixes (Claude): Codex builds the art; Roshan identity anchor named; the touchpoint is a question.",
+        "2026-10-17: Owner removes generation-saving/mandatory-reuse restrictions; use ImageGen as appropriate for painted storybook quality, never inferior flat-color vertex/code substitutes."
       ],
       "revision": 2
     },
@@ -771,7 +773,7 @@
         "id": "REC-POLISH",
         "path": "design/reference/recipes/polish.md"
       },
-      "defaults": "One scoped area study and source-bound before/after board; reuse accepted art and repair only named quality gaps.",
+      "defaults": "One scoped area study and source-bound before/after board; choose suitable accepted art or ImageGen to meet the requested painted storybook quality.",
       "read_first": [
         "AGENTS.md",
         "audit/MASTER_AUDIT_2026-08-09.md",
@@ -790,8 +792,8 @@
       ],
       "expand": [
         "Study the area from Codex's captures at two aspects; identify exact weakness candidates and current strengths with source hashes.",
-        "Choose one bounded repair or lawful derived variant; record why reuse does or does not satisfy it.",
-        "Preserve identity, picture-first cues, Mobile draw order/overdraw and no reading dependence; generate only named gaps with current authority.",
+        "Choose one bounded repair, lawful derived variant or ImageGen asset for the requested quality; reuse is optional.",
+        "Preserve identity, picture-first cues, Mobile draw order/overdraw and no reading dependence; use ImageGen when appropriate and never inferior flat-color vertex/code art to avoid generation.",
         "Codex builds the before-and-after boards; run the relevant art, runtime and static gates and compare them. Device, child and owner results remain pending until supplied."
       ],
       "variety_rules": [
@@ -820,7 +822,8 @@
       "served_prompts": [],
       "revision_history": [
         "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
-        "2026-10-03: Review fixes (Claude): Codex builds the captures and boards."
+        "2026-10-03: Review fixes (Claude): Codex builds the captures and boards.",
+        "2026-10-17: Owner removes generation-saving/mandatory-reuse restrictions; use ImageGen as appropriate for painted storybook quality, never inferior flat-color vertex/code substitutes."
       ],
       "revision": 2
     },

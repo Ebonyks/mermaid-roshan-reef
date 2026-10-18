@@ -4,7 +4,7 @@ Status: `SUPPORTING_CURRENT` planning recipe. It routes current authority; it gr
 
 Intent: `INT-ART`. Example: make a new prop for the kitchen. Minimum input: the object and where it goes.
 
-Default: Reuse approved art first; source-bound named missing gap only.
+Default: Choose suitable approved art or ImageGen for polished painted storybook quality; do not use inferior flat-color vertex/code art to save generation calls.
 
 ## Read first
 
@@ -58,4 +58,5 @@ Claude writes specifications, audits and study reports; Codex builds code and ev
 
 - 2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.
 - 2026-10-03: Review fixes (Claude): Codex builds the art; Roshan identity anchor named; the touchpoint is a question.
+- 2026-10-17: Owner removes generation-saving/mandatory-reuse restrictions; use ImageGen as appropriate for painted storybook quality, never inferior flat-color vertex/code substitutes.
 - No completed served prompt or runtime/owner acceptance is claimed.

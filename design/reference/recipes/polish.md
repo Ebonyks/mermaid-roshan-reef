@@ -4,7 +4,7 @@ Status: `SUPPORTING_CURRENT` planning recipe. It routes current authority; it gr
 
 Intent: `INT-POLISH`. Example: make the movie lounge nicer. Minimum input: the area.
 
-Default: One scoped area study and source-bound before/after board; reuse accepted art and repair only named quality gaps.
+Default: One scoped area study and source-bound before/after board; choose suitable accepted art or ImageGen to meet the requested painted storybook quality.
 
 ## Read first
 
@@ -27,8 +27,8 @@ Pattern references are the hash-bound seed entries in the strengths register and
 ## Expand
 
 1. Study the area from Codex's captures at two aspects; identify exact weakness candidates and current strengths with source hashes.
-2. Choose one bounded repair or lawful derived variant; record why reuse does or does not satisfy it.
-3. Preserve identity, picture-first cues, Mobile draw order/overdraw and no reading dependence; generate only named gaps with current authority.
+2. Choose one bounded repair, lawful derived variant or ImageGen asset for the requested quality; reuse is optional.
+3. Preserve identity, picture-first cues, Mobile draw order/overdraw and no reading dependence; use ImageGen when appropriate and never inferior flat-color vertex/code art to avoid generation.
 4. Codex builds the before-and-after boards; run the relevant art, runtime and static gates and compare them. Device, child and owner results remain pending until supplied.
 
 ## Variety
@@ -60,4 +60,5 @@ Claude writes specifications, audits and study reports; Codex builds code and ev
 
 - 2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.
 - 2026-10-03: Review fixes (Claude): Codex builds the captures and boards.
+- 2026-10-17: Owner removes generation-saving/mandatory-reuse restrictions; use ImageGen as appropriate for painted storybook quality, never inferior flat-color vertex/code substitutes.
 - No completed served prompt or runtime/owner acceptance is claimed.
