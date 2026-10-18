@@ -3,7 +3,7 @@
  "handoff_id": "codex_job_art_imagegen_2026-10-17",
  "repository": "Ebonyks/mermaid-roshan-reef",
  "branch": "claude/job-art-imagegen-audit-20261017",
- "current_revision": 1,
+ "current_revision": 2,
  "revisions": [
   {
    "revision": 1,
@@ -29,6 +29,69 @@
      "http_status": 200,
      "bytes": 43297,
      "sha256": "fc5fe8dd03f52bde75446ff6ec0273f171792c35b65296cfe269c6a502210b56",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/BRIEFS.md",
+     "http_status": 200,
+     "bytes": 32340,
+     "sha256": "b1ef06e4547323d64b7133931de294094043799b5d17c8348583ac632e881b5c",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/.gdignore",
+     "http_status": 200,
+     "bytes": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/job_art_register.json",
+     "http_status": 200,
+     "bytes": 88744,
+     "sha256": "586a5bbbc09299bdf36cf456c4e85b55e9263dd344ed4748ee841dd214d50bce",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/measure_baseline.json",
+     "http_status": 200,
+     "bytes": 314090,
+     "sha256": "842051729d0e29bb8eaff5834dd2bf2a74d47111a67c7e38bf649d15b599b592",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/tools/measure_job_art.py",
+     "http_status": 200,
+     "bytes": 21507,
+     "sha256": "90d18a956ec3ece37cd46c3b573fa3224a4e926b8569c85c12ecf05d00c4bcae",
+     "matches": true
+    }
+   ]
+  },
+  {
+   "revision": 2,
+   "verified_commit": "4da0a78ad65c0955d11e33bef7b345e8b3e2c4c2",
+   "access_mode": "anonymous HTTPS GET from raw.githubusercontent.com (no credentials, no cookies)",
+   "checked_utc": "2026-10-18T09:19:15+00:00",
+   "entry_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/4da0a78ad65c0955d11e33bef7b345e8b3e2c4c2/docs/handoffs/codex_job_art_imagegen_2026-10-17",
+   "manifest_link": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4da0a78ad65c0955d11e33bef7b345e8b3e2c4c2/docs/handoffs/codex_job_art_imagegen_2026-10-17/MANIFEST.json",
+   "manifest_http_status": 200,
+   "manifest_sha256": "da37951018b289794fca91e27aa5eefaca637bbed07864e0c71808b1725453ac",
+   "files_checked": 7,
+   "all_match": true,
+   "results": [
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md",
+     "http_status": 200,
+     "bytes": 14136,
+     "sha256": "b0b3306afe9d541cfc53203a211be2f6f847353beb5cf4c62fea797566071cd9",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/AUDIT.md",
+     "http_status": 200,
+     "bytes": 43744,
+     "sha256": "f43f915ccb49c7d15cb02f8e5ea6c1a67577ee7f6648b6807d4175cf82577cb0",
      "matches": true
     },
     {

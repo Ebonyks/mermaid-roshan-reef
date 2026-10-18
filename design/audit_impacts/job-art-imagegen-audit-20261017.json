@@ -103,8 +103,8 @@
   },
   {
    "command": "Anonymous HTTPS GET of every MANIFEST.json file from raw.githubusercontent.com at the pushed commit (revision 2)",
-   "result": "PENDING",
-   "evidence": "Recorded in REMOTE_VERIFICATION.json in the follow-up receipt commit."
+   "result": "PASS",
+   "evidence": "Revision 2 at 4da0a78ad65c0955d11e33bef7b345e8b3e2c4c2, checked 2026-10-18T09:19:15+00:00: manifest HTTP 200, sha256 da37951018b289794fca91e27aa5eefaca637bbed07864e0c71808b1725453ac; 7 of 7 listed files match bytes and SHA-256. Receipt: docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json."
   },
   {
    "command": "git grep of codex/flat-vector-r6-20261012 docs/handoffs/codex_flat_vector_art_2026-10-07 for the stranded file names and branches",
