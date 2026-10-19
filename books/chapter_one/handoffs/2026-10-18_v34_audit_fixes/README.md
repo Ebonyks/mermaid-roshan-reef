@@ -35,8 +35,8 @@ for Q1-Q14 and write the Codex revision handoff for the picture book."
 - Q6 (Roshan's ear shape) had no default answer, so it stays an owner hold.
   Make no ear edit.
 - W3b, one new story 9 pose, is the only item outside DL-ASSET-08's ordinary
-  permission. It stays `AWAITING_OWNER_OK` until the owner approves it in
-  words. Do not generate it before then.
+  permission. The owner approved it in words on 2026-10-19; build it as the
+  decision record's "Page 9 drawing (W3b)" section describes.
 - Nothing here authorizes a full-scene redraw, a game or runtime change, or
   any release step.
 
@@ -126,7 +126,7 @@ Each item names its sources by `references.json` work-item key.
   about 75% of its V33 size, low and left; keep story 9's tub group at V33
   size or larger, right of center. Do not mirror Roshan (her rainbow lock
   would switch sides) and do not crop to hands (BK-PG-09).
-- **W3b, `AWAITING_OWNER_OK`:** one new action cutout for story 9. Roshan, in
+- **W3b, approved by the owner on 2026-10-19:** one new action cutout for story 9. Roshan, in
   the same identity, is behind the far rim of the same scallop tub, turned
   three-quarters toward the reader. One hand scrubs the inner wall with the
   rainbow scrub brush; the other lifts the plug chain while the last murky

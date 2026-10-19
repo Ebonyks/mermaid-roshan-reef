@@ -20,8 +20,9 @@ Asked the same day how this meets Codex's V34 (commit
   proposals, not the washing scene. This replaces Q8's default and W14.
 
 Still in force: BK-BG-11 (only little puffs in the banks), the 14 × 10 in
-review format, upsampling only after the illustration fixes, the Q6 ear
-hold, and the W3b approval gate. Codex's V35 caption and apology proposals
+review format, upsampling only after the illustration fixes, and the Q6 ear
+hold. W3b was approved the same day (see "Page 9 drawing (W3b)" below).
+Codex's V35 caption and apology proposals
 stay proposals; any the owner accepts later replace the lines below on
 their pages.
 
@@ -35,8 +36,8 @@ the right-hand column says keep.
 | Q1, W1 | Help request moved to page 23; pages 5–23 shifted back one | Restore the handoff pagination: the hall on 4, the door page on 5, the route-light hall back on 23. Story numbering 6–32 returns to V33's. For page 5, reuse V34's door page (the corrected `v34_closed_door` cutout and its listening little-puff bank). |
 | Q3 | A soft voice asks "Can you help me?" | A sniffle on 5 and a sneeze on 23, per W2. |
 | W2 | Captions rewritten on most pages | Use the final manuscript below. |
-| W3a | Distinct scales and placements | Keep V34's placements; stories 8 and 9 face each other again. |
-| W3b | Held | Still awaiting the owner's OK. |
+| W3a | Distinct scales and placements | Keep V34's placement for story 8. Story 9 gets the new W3b cutout, right of centre at about its V33 size; stories 8 and 9 face each other again. |
+| W3b | Held | Approved 2026-10-19: build the new story 9 cutout (see "Page 9 drawing (W3b)" below). |
 | W4, W5, W7, W10, W11 | Done | Keep. |
 | W9 | Alert face done | Keep the face; text per W2. |
 | W6 | Zero FAIL on the composed art | Re-run on the new text and layout. Keep zero FAIL, with heavier outlines on every OUTLINE_REQUIRED line. |
@@ -118,6 +119,50 @@ the full-art pages when the print step runs.
 Candidate B (the story 2 plane and dock, "A big castle. / Where will Roshan
 begin?") is not used. Show no washing scene, rainbow Puff, transformation or
 nap on the rear. The washing scene stays inside the book on story 26.
+
+## Page 9 drawing (W3b)
+
+**Approved 2026-10-19.** The owner wrote: "Approve W3b: commission one new
+page 9 cutout of Roshan scrubbing from behind the tub while lifting the plug
+chain."
+
+This permits exactly one new piece of art: a Roshan-and-tub action cutout
+for story 9. It is a scoped exception to the source-only rule (BK-PG-05 and
+DL-ASSET-08) for that cutout alone; no other new pose or scene is
+authorized. It replaces the V33/V34 story 9 cutout, so story 8's sink lean
+and story 9 no longer show the same pose across the spread.
+
+What the child sees: the same shell-shaped tub from the dirty bath, now
+nearly empty. Roshan is behind its far rim, turned three-quarters toward the
+reader, so only her body above the rim shows. One hand scrubs the inside
+wall with her small rainbow scrub brush. The other lifts the plug chain, and
+the last murky water swirls down the drain. A few green streaks are left on
+the tub. Her face is calm and busy, as on story 8.
+
+| Reference | Role | SHA-256 |
+| --- | --- | --- |
+| `assets/characters/roshan_25d/roshan_base.png` | Roshan identity anchor | `69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab` |
+| `books/chapter_one/archive/rough_v5/art/bath_drained_local.png` | V33 story 9 cutout: tub shape, brush and current pose to move away from | `b33c3d90158d0618680803b1c9a3c9b2f61fee1bfd7db55fc57c138c14316dc3` |
+| `books/chapter_one/previews/2026-09-30/art/sink_action.png` | Story 8 sink lean that story 9 must not repeat | `873d1cd6ecd508564404e77d25c0f33e6630b4446fd5bad422c2d50a2b778b52` |
+
+- Make it big enough for the final print: at least 1,800 px tall for the
+  Roshan-and-tub group, so it needs no upscaling at 14 × 11 in.
+- Start with two takes. If neither passes, find out why before trying
+  again. Record every take, selected and rejected, with its prompt and
+  references.
+- Add an `ASSET_LICENSES.md` line and derivative provenance for the selected
+  cutout.
+- **Accept when:**
+  - Identity matches the anchor: round face, large brown eyes, brown wavy
+    hair with the rainbow lock, the tiara with its blue gem, and the pink
+    ruffled top with lilac sleeves.
+  - There are exactly two arms and two hands: one hand holds the brush
+    against the tub wall, the other holds the chain attached to the plug.
+  - The drain swirl and the green streaks read at the printed size.
+  - The cutout is one complete Roshan-and-tub contour, with no halo, no
+    rectangular backing and no mirrored rainbow lock.
+  - On the open spread, story 9 clearly reads as a different pose from
+    story 8.
 
 ## Print edition (replaces W16)
 
