@@ -1,0 +1,57 @@
+{
+  "schema": "claude_handoff_manifest/1",
+  "packet": "docs/handoffs/codex_rumi_book_revision_2026-10-17",
+  "revision": 1,
+  "prepared_by": "Claude (written handoff; no images)",
+  "recipient": "Codex",
+  "baseline_dev": "7a65b9f0abacddeee70230f220955f4d18d551b5",
+  "book_source_commit": "c3e0da5107b9f3d18be4a07ffa3183196ddeb574",
+  "status": {
+    "ARCHIVE_COMPLETE": "after remote verification",
+    "GENERATION_READY": "not applicable",
+    "DELIVERY_ACCEPTED": false
+  },
+  "hash_basis": "SHA-256 of git blob bytes",
+  "files": [
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md",
+      "bytes": 13260,
+      "sha256": "5d9746f3a9a08dda4dac698c960262ac9cce3ee1aa38fd5c4881b397f26c3037"
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/ANALYSIS.md",
+      "bytes": 18925,
+      "sha256": "ed93d919140fa98b11c3179fe18b02185c3c37ce32c407642f9e3e2df444444e"
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/WORLD_BIBLE.md",
+      "bytes": 21532,
+      "sha256": "c734205c2a3df535968964e29fc38cf1a393beb5bb3ef17f4b4c982f3c896ca3"
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/STORY_REVISION.md",
+      "bytes": 40357,
+      "sha256": "16fcea4cf59b110957019c95bfff8e6f28125c19cd5134266785f290bc74395d"
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/GAME_INTEGRATION.md",
+      "bytes": 17521,
+      "sha256": "bb16b5d7242d0368ecf550b0c27cf11acbf859af8a8b3a9b066a0a48b3949094"
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/data/page_plan.json",
+      "bytes": 63584,
+      "sha256": "83d7b93d2d3b361a9821a99e4952c58b924d49e2c9738e944f311c226b298e94"
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/data/current_book_metrics.json",
+      "bytes": 39732,
+      "sha256": "da355bcea3151a4f0d634b8fdf3f34b0c54e94cbabdd34c8e5b948385bf2a20b"
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/tools/measure_book_pacing.py",
+      "bytes": 8820,
+      "sha256": "c0db804824f5351f456a809dd9670677ce8ff05a94fc84611fee5da194a43eaa"
+    }
+  ]
+}

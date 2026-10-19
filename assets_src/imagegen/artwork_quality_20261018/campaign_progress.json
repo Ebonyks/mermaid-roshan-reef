@@ -1,6 +1,6 @@
 {
   "schema": "reef.art_quality_campaign/1",
-  "updated_utc": "2026-10-19T09:17:05.082280+00:00",
+  "updated_utc": "2026-10-19T13:36:42.126497+00:00",
   "baseline": "e31864fb904b0e1192b90a2b577516864497bb10",
   "source_register": "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/job_art_register.json",
   "source_register_sha256": "bd57add7b550857ffed184dab0e97a3e764cca7365c1b3f0dbaf0204ce5e6d96",
@@ -10,7 +10,7 @@
   "final_campaign_audit": "PENDING; no whole-game/master satisfaction or owner/device acceptance.",
   "garden_extra": {
     "objects": 8,
-    "status": "LOCAL82PASS_REMOTE_STATIC_COVERAGE_FAILED_MISSING_IMPACT_RECORD_REPAIR_IN_PROGRESS",
+    "status": "COMBINED_LOCAL06_PASS82_NO_DRIFT_EXACT_MERGE_HEAD_REMOTE_PENDING",
     "evidence": "review/art_review.json",
     "failed_remote_ci": 39229555208
   },
@@ -1260,9 +1260,16 @@
     "integration": "Dev fast-forwarded to exact green e90c0daa83cf05644f0e9942e85c1198ed7901f7 on2026-10-19"
   },
   "astronaut_publication": {
-    "commit": "90508b85f2278ec27d4bdad24fac4ba747d28e2f",
-    "local_full_ci": "PASS82of82",
-    "remote_ci": "PENDING39227500753",
-    "integration": "PENDING; Teacher reconciliation required"
+    "commit": "58339deb6cb25d5793c3623981e66fad5be0858a",
+    "remote_ci": "PASS39241651019",
+    "integration": "Verified fast-forwarddev58339deb2026-10-19",
+    "local_full_ci": "PASS82parent03andcombined04,no_source_drift",
+    "limits": "LocalAIappearance4.5floor scope only; final/time/global/device/child/owner separate."
+  },
+  "chef_publication": {
+    "commit": "c1429b109c5c5b3902e067d24c0928b3098f0dd8",
+    "remote_ci": "PASS39242387632",
+    "local_full_ci": "PASS82source02",
+    "integration": "PENDING reconciliation with currentdev583"
   }
 }

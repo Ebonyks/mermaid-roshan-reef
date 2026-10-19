@@ -257,7 +257,7 @@ func _init() -> void:
 			var costume := String(card.get_meta("career_costume", ""))
 			var crest_path := crest.texture.resource_path \
 				if crest != null and crest.texture != null else ""
-			var crest_is_exact := crest_path.ends_with("/actors/roshan_teacher.png") \
+			var crest_is_exact := crest_path.ends_with("/ui/crests/opera_crest_teacher.png") \
 				if costume == "teacher" else crest_path.contains("/ui/crests/")
 			room_art_ok = room_art_ok and card.text.is_empty() \
 				and card.visible and not card.disabled and not card.clip_contents \
