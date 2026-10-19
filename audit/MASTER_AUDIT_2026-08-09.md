@@ -123,6 +123,10 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 [Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)
 Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md), [protocol](../design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md), and [impact](../design/audit_impacts/grok-handoff-2-20260909.json). External motion-reference repairs do not close live visual findings or delivery gates.
 
+Astronaut P3 artwork candidate (2026-10-19): [impact](../design/audit_impacts/job-art-astronaut-20261018.json), [static review](../assets_src/imagegen/job_art_astronaut_20261018/review/art_review.json), and [launch derivation](../assets_src/imagegen/job_art_astronaut_20261018/launch_effect_job.json). Twenty-seven primary painted runtime pictures plus one dependent painted fallback mark replace flat pipes, plates, tank/intakes, sleeping imps, patches and launch effects; the existing painted valve wheel loses its code backing disc. Sixty-six configured Mobile/HUD GUI captures pass at two widths. Static local AI review uses the owner4.5/5 floor in every scored dimension. Exact full CI/integration, shared P8 layers, natural-route/canonicalQA11, human motion, device, child and owner acceptance remain separate and open; no MA-VIS-010 or global satisfaction change.
+
+Astronaut P3 local verification update2026-10-19: complete current suite passes82/82zero exits at exact script/art/tool pins ([receipt](../assets_src/imagegen/job_art_astronaut_20261018/verification/full_ci_03.json)); original strict-recipe rejection and invalid stdout runs retained. Exact-head remoteCI/integration and all shared/global/formal/device/child/owner acceptance remain open.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 ## Sealed audit snapshot and subsequent round metadata

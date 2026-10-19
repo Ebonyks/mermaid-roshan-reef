@@ -356,6 +356,8 @@ var racer_wheel_texture: Texture2D = null
 var racer_kart_texture: Texture2D = null
 var doctor_patient_texture: Texture2D = null
 var charge_astronaut_texture: Texture2D = null
+var launch_flame_textures: Array[Texture2D] = []
+var launch_cloud_texture: Texture2D = null
 var charge_popstar_texture: Texture2D = null
 ## Focused probes read the route last exercised by CanvasItem._draw(). Keeping
 ## this tiny diagnostic also makes accidental fallback to the copied generic
@@ -370,6 +372,12 @@ var armed_only := false
 ## Pipe-dream tile art (ledger P1). Code-drawn until these land; the draw
 ## path prefers the texture whenever the face has one.
 var pipe_tiles: Dictionary = {}
+var pipe_fueled_tiles: Dictionary = {}
+var pipe_plate_texture: Texture2D = null
+var pipe_selected_plate_texture: Texture2D = null
+var pipe_napping_texture: Texture2D = null
+var pipe_intake_fueled_texture: Texture2D = null
+var pipe_guide_hand_texture: Texture2D = null
 var pipe_tank_texture: Texture2D = null
 var pipe_intake_texture: Texture2D = null
 ## Echo Song star pads (ledger P2), tinted per star at runtime.
@@ -455,6 +463,13 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	if visual_context == "charge_astronaut":
 		charge_astronaut_texture = _load_widget_texture(
 			"res://assets/opera/worlds/props/goal_astronaut.png")
+		if launch_flame_textures.is_empty():
+			for flame_index: int in range(4):
+				var flame: Texture2D = _load_widget_texture(
+					"res://assets/opera/worlds/widgets/widget_launch_flame_%d.png" % flame_index)
+				assert(flame != null)
+				launch_flame_textures.append(flame)
+		launch_cloud_texture = _load_widget_texture("res://assets/opera/worlds/widgets/widget_launch_cloud.png")
 	elif visual_context == "charge_popstar":
 		charge_popstar_texture = _load_widget_texture(
 			"res://assets/opera/worlds/props/goal_popstar.png")
@@ -716,10 +731,23 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 			for face: String in faces.keys():
 				var tile := _load_widget_texture(
 					"res://assets/opera/worlds/widgets/widget_pipe_%s.png" % faces[face])
-				if tile != null:
-					pipe_tiles[face] = tile
+				assert(tile != null)
+				pipe_tiles[face] = tile
+				var filled: Texture2D = _load_widget_texture(
+					"res://assets/opera/worlds/widgets/widget_pipe_%s_fueled.png" % faces[face])
+				assert(filled != null)
+				pipe_fueled_tiles[face] = filled
 			pipe_tank_texture = _load_widget_texture("res://assets/opera/worlds/widgets/widget_pipe_tank.png")
 			pipe_intake_texture = _load_widget_texture("res://assets/opera/worlds/widgets/widget_pipe_intake.png")
+			pipe_intake_fueled_texture = _load_widget_texture("res://assets/opera/worlds/widgets/widget_pipe_intake_fueled.png")
+			pipe_plate_texture = _load_widget_texture("res://assets/opera/worlds/widgets/widget_pipe_plate.png")
+			pipe_selected_plate_texture = _load_widget_texture("res://assets/opera/worlds/widgets/widget_pipe_plate_selected.png")
+			pipe_napping_texture = _load_widget_texture("res://assets/opera/worlds/widgets/widget_pipe_napping_imp.png")
+			pipe_guide_hand_texture = _load_widget_texture("res://assets/opera/worlds/widgets/widget_pipe_guide_hand.png")
+			assert(pipe_tank_texture != null and pipe_intake_texture != null)
+			assert(pipe_intake_fueled_texture != null and pipe_plate_texture != null)
+			assert(pipe_selected_plate_texture != null and pipe_napping_texture != null)
+			assert(pipe_guide_hand_texture != null)
 	if next_mode == "echo" and echo_unlit_texture == null:
 		echo_unlit_texture = _load_widget_texture("res://assets/opera/worlds/widgets/popstar_star_note_unlit.png")
 		echo_lit_texture = _load_widget_texture("res://assets/opera/worlds/widgets/popstar_star_note_lit.png")
@@ -2462,9 +2490,8 @@ func _draw_astronaut_crank(progress: float) -> void:
 	var rect := _crank_action_rect()
 	var center := rect.get_center()
 	var side := minf(rect.size.x, rect.size.y) * 0.62
-	# Occlude the painted valve first, then rotate only the isolated wheel at
-	# the same hub—never a second wheel at card center.
-	draw_circle(center, side * 0.56, Color("#263a60"))
+	# The isolated painted wheel turns around its unchanged hub.
+	# The existing isolated painted wheel owns its contour; no backing disc.
 	draw_set_transform(center, crank_rotation, Vector2.ONE)
 	if widget_mover != null:
 		draw_texture_rect(widget_mover,
@@ -2593,20 +2620,6 @@ func _draw_ballerina_blossom(progress: float) -> void:
 
 
 func _draw_astronaut_launch(progress: float) -> void:
-	var action := _charge_action_rect()
-	# A transparent launch pool and star halo sit directly over the painted room;
-	# the retired static-rocket card is never drawn, so no opaque mask is needed.
-	draw_set_transform(Vector2(action.get_center().x, action.end.y - action.size.y * 0.08),
-		0.0, Vector2(1.7, 0.42))
-	draw_circle(Vector2.ZERO, action.size.x * 0.28, Color(0.30, 0.55, 0.72, 0.28))
-	draw_arc(Vector2.ZERO, action.size.x * 0.28, 0.0, TAU, 36,
-		Color(0.57, 0.84, 0.91, 0.66), 5.0)
-	draw_set_transform(Vector2.ZERO)
-	for star_index in range(5):
-		var star := action.position + Vector2(
-			action.size.x * (0.12 + float(star_index) * 0.19),
-			action.size.y * (0.14 + float(star_index % 2) * 0.16))
-		draw_circle(star, 2.5 + float(star_index % 2), Color("#fff1a6"))
 	var center := _charge_rocket_center(progress)
 	var shake := sin(progress * 48.0) * 3.0 \
 		* (1.0 - clampf((progress - 0.75) * 4.0, 0.0, 1.0))
@@ -2614,31 +2627,26 @@ func _draw_astronaut_launch(progress: float) -> void:
 	var body_height := minf(size.x, size.y) * 0.27
 	var body_width := body_height * 0.40
 	var exhaust := minf(size.x, size.y) * (0.08 + progress * 0.24)
-	draw_colored_polygon(PackedVector2Array([
-		center + Vector2(-body_width * 0.28, body_height * 0.48),
-		center + Vector2(0.0, body_height * 0.48 + exhaust),
-		center + Vector2(body_width * 0.28, body_height * 0.48),
-	]), Color(1.0, 0.71, 0.25, 0.45 + progress * 0.55))
-	for bubble_index in range(4):
-		var bubble := center + Vector2(
-			(float(bubble_index % 2) - 0.5) * body_width * 0.75,
-			body_height * 0.62 + exhaust * (0.25 + float(bubble_index) * 0.20))
-		draw_circle(bubble, 4.0 + float(bubble_index),
-			Color(0.54, 0.92, 1.0, 0.45 + progress * 0.45))
-	if charge_astronaut_texture != null:
-		var rocket_side := minf(size.x, size.y) * 0.36
-		draw_texture_rect(charge_astronaut_texture,
-			Rect2(center - Vector2.ONE * rocket_side * 0.5, Vector2.ONE * rocket_side), false)
-	else:
-		draw_colored_polygon(PackedVector2Array([
-			center + Vector2(0.0, -body_height * 0.62),
-			center + Vector2(body_width * 0.55, -body_height * 0.12),
-			center + Vector2(body_width * 0.48, body_height * 0.50),
-			center + Vector2(-body_width * 0.48, body_height * 0.50),
-			center + Vector2(-body_width * 0.55, -body_height * 0.12),
-		]), Color("#e8eef7"))
-		draw_circle(center - Vector2(0.0, body_height * 0.15), body_width * 0.24,
-			Color("#6fd5de"))
+	assert(launch_flame_textures.size() == 4 and launch_cloud_texture != null)
+	var state := clampi(int(progress * 4.0), 0, 3)
+	var flame_size := Vector2(exhaust * 0.5, exhaust)
+	var nozzle := center + Vector2(0, body_height * 0.48)
+	# All four derivatives grow uniformly from one declared painted source.
+	# Rendering behind the unchanged rocket preserves the nozzle attachment.
+	draw_texture_rect(launch_flame_textures[state],
+		Rect2(nozzle - Vector2(flame_size.x * 0.5, 4), flame_size), false)
+	for cloud_index in range(4):
+		var at := center + Vector2(
+			(float(cloud_index % 2) - 0.5) * body_width * 0.75,
+			body_height * 0.62 + exhaust * (0.25 + float(cloud_index) * 0.20))
+		var side := 12.0 + float(cloud_index) * 4.0
+		draw_texture_rect(launch_cloud_texture,
+			Rect2(at - Vector2.ONE * side * 0.5, Vector2.ONE * side), false,
+			Color(1, 1, 1, 0.45 + progress * 0.45))
+	assert(charge_astronaut_texture != null)
+	var rocket_side := minf(size.x, size.y) * 0.36
+	draw_texture_rect(charge_astronaut_texture,
+		Rect2(center - Vector2.ONE * rocket_side * 0.5, Vector2.ONE * rocket_side), false)
 
 
 func _draw_popstar_soundcheck(progress: float) -> void:
@@ -4278,6 +4286,9 @@ func _draw_demo_finger() -> void:
 	var pose := _demo_finger_pose()
 	var at: Vector2 = pose.get("at", size * 0.5)
 	var pressing := bool(pose.get("pressing", false))
+	if mode == "pipe" and pipe_guide_hand_texture != null:
+		_draw_pipe_guide(at)
+		return
 	if _is_candymaker_pour() and pour_demo_hand_texture != null:
 		# A literal hand is clearer than the generic concentric-dot hint against the
 		# detailed workbench, and avoids reintroducing unexplained rings behind it.
@@ -5814,90 +5825,48 @@ func _pipe_demo_tray_slot(target_cell: int) -> int:
 
 
 func _draw_pipe_tile(rect: Rect2, tile: String, fueled: bool) -> void:
-	if pipe_tiles.has(tile):
-		# authored tile: the art owns the look; fuel is a teal wash inside it
-		draw_texture_rect(pipe_tiles[tile] as Texture2D, rect.grow(-6.0), false)
-		if fueled:
-			draw_texture_rect(pipe_tiles[tile] as Texture2D, rect.grow(-6.0), false,
-				Color(0.37, 0.85, 0.81, 0.55))
-		return
-	var body := rect.grow(-10.0)
-	draw_rect(body, Color("#caa269") if not fueled else Color("#d8b87e"), true)
-	draw_rect(body, Color("#7a5a34"), false, 4.0)
-	var center := rect.get_center()
-	var bore := 26.0
-	var fuel := Color("#5fd8cf")
-	var glass := Color("#2e4a52")
-	for mouth: Vector2i in (PIPE_MOUTHS.get(tile, []) as Array):
-		var arm_end := center + Vector2(float(mouth.x), float(mouth.y)) * (rect.size.x * 0.5 - 8.0)
-		draw_line(center, arm_end, glass, bore)
-		if fueled:
-			draw_line(center, arm_end, fuel, bore - 10.0)
-		# open dark mouths: wordless orientation cues
-		draw_circle(arm_end, bore * 0.42, Color(0.12, 0.10, 0.10, 0.95))
-	draw_circle(center, bore * 0.62, glass)
-	if fueled:
-		draw_circle(center, bore * 0.40, fuel)
+	var sources: Dictionary = pipe_fueled_tiles if fueled else pipe_tiles
+	assert(sources.has(tile))
+	# Registered ports use whole pictures; no tint wash or runtime rotation.
+	draw_texture_rect(sources[tile] as Texture2D, rect.grow(6.0), false)
+
+
+func _draw_pipe_guide(tip: Vector2) -> void:
+	var side := 48.0
+	var uv := Vector2(0.4365234375, 0.986328125)
+	draw_texture_rect(pipe_guide_hand_texture,
+		Rect2(tip - uv * side, Vector2.ONE * side), false)
 
 
 func _draw_pipe() -> void:
 	var round_data: Dictionary = PIPE_ROUNDS[clampi(pipe_round, 0, PIPE_ROUNDS.size() - 1)]
 	var flow_cells := _pipe_flow_cells()
 	var hint := _pipe_hint_cell()
-	# grid plates
 	for cell in range(PIPE_COLS * PIPE_ROWS):
 		var rect := _pipe_cell_rect(cell)
-		draw_rect(rect.grow(-4.0), Color(0.16, 0.22, 0.34, 0.55), true)
-		draw_rect(rect.grow(-4.0), Color(0.55, 0.66, 0.86, 0.5), false, 2.0)
+		draw_texture_rect(pipe_plate_texture, rect.grow(-4.0), false)
 		var tile := String(pipe_grid[cell])
 		if tile == "IMP":
-			# a napping mischief imp: he giggles if tapped, but stays
-			var imp_center := rect.get_center()
-			draw_circle(imp_center + Vector2(0, 12.0), 30.0, Color("#8d6bc8"))
-			draw_circle(imp_center + Vector2(0, -16.0), 20.0, Color("#a186d6"))
-			for z in range(2):
-				draw_circle(imp_center + Vector2(26.0 + float(z) * 14.0, -30.0 - float(z) * 12.0), 4.0 + float(z) * 2.0, Color(1, 1, 1, 0.7))
+			draw_texture_rect(pipe_napping_texture, rect.grow(-9.0), false)
 		elif PIPE_MOUTHS.has(tile):
 			_draw_pipe_tile(rect, tile, cell in flow_cells)
 		if cell == hint:
-			# Mewsha's stand-in twinkle: the kind nudge, never a demand
-			var pulse := 0.5 + 0.4 * sin(pipe_wait_t * 5.0)
-			draw_arc(rect.get_center(), 44.0, 0.0, TAU, 32, Color(1.0, 0.85, 0.35, pulse), 6.0)
-	# fuel bulge where the flow waits
-	if pipe_wait_t > 0.5 and not pipe_flow.is_empty():
-		var head_rect := _pipe_cell_rect(int((pipe_flow[pipe_flow.size() - 1] as Array)[0]))
-		var bulge := 6.0 + 3.0 * sin(pipe_wait_t * 6.0)
-		draw_circle(head_rect.get_center(), 18.0 + bulge, Color(0.37, 0.85, 0.81, 0.55))
-	# tank (entry) and rocket (exit) stubs outside the grid
+			_draw_pipe_guide(rect.get_center())
 	var tank_rect := _pipe_tank_rect(round_data)
-	var tank_center := tank_rect.get_center()
-	if pipe_tank_texture != null:
-		draw_texture_rect(pipe_tank_texture, tank_rect, false)
-	else:
-		draw_circle(tank_center, 46.0, Color("#3f6f8a"))
-		draw_circle(tank_center, 34.0, Color("#5fd8cf"))
-	draw_rect(Rect2(tank_center.x + 34.0, tank_center.y - 13.0, PIPE_ORIGIN.x - tank_center.x - 34.0 + 6.0, 26.0), Color("#7a5a34"), true)
+	# The native tank outlet is registered directly to the left-entry lane.
+	draw_texture_rect(pipe_tank_texture, tank_rect.grow(8.0), false)
 	var intake_rect := _pipe_intake_rect(round_data)
-	var rocket_center := intake_rect.get_center()
-	if pipe_intake_texture != null:
-		draw_texture_rect(pipe_intake_texture, intake_rect, false)
-	else:
-		draw_circle(rocket_center, 44.0, Color("#c8cede"))
-		draw_circle(rocket_center, 30.0, Color("#8090b0"))
 	var round_done := pipe_round >= PIPE_ROUNDS.size() or pipe_pause > 0.0
-	if round_done:
-		draw_circle(rocket_center, 20.0, Color("#5fd8cf"))
-		for ring in range(3):
-			draw_arc(rocket_center, 52.0 + float(ring) * 16.0, 0.0, TAU, 32, Color(1.0, 0.9, 0.5, 0.5 - float(ring) * 0.13), 5.0)
-	# the tray
+	var intake: Texture2D = pipe_intake_fueled_texture if round_done else pipe_intake_texture
+	draw_texture_rect(intake, intake_rect.grow(6.0), false)
 	for slot in range(pipe_tray.size()):
 		var tray_rect := _pipe_tray_rect(slot)
-		draw_rect(tray_rect, Color(0.92, 0.95, 1.0, 0.9), true)
-		draw_rect(tray_rect, Color("#7a5a34") if slot != pipe_tray_sel else Color("#ffcf4d"), false, 4.0 if slot != pipe_tray_sel else 6.0)
+		var plate: Texture2D = pipe_selected_plate_texture if slot == pipe_tray_sel else pipe_plate_texture
+		draw_texture_rect(plate, tray_rect, false)
 		_draw_pipe_tile(tray_rect, String(pipe_tray[slot]), false)
-	# the tile riding the finger
 	if pipe_drag_tile != "":
-		_draw_pipe_tile(Rect2(pointer_pos - Vector2(PIPE_CELL, PIPE_CELL) * 0.5, Vector2(PIPE_CELL, PIPE_CELL)), pipe_drag_tile, false)
+		_draw_pipe_tile(Rect2(pointer_pos - Vector2(PIPE_CELL, PIPE_CELL) * 0.5,
+			Vector2(PIPE_CELL, PIPE_CELL)), pipe_drag_tile, false)
 
 
 func _echo_star_center(star: int) -> Vector2:
