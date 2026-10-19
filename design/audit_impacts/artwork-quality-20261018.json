@@ -1,0 +1,252 @@
+{
+  "id": "artwork-quality-20261018",
+  "scope": "Owner-requested game object artwork repair using available built-in ImageGen, with minimum 4.5/5 per applicable art dimension and state-local comparison to neighboring scene items. Inventory the master-audit job register and existing minigame ledger, replace observed poor objects, and retain unassessed and acceptance gaps explicitly. Also refresh six inherited audio-report filename reference counts reproduced at the untouched baseline; all857audio hashes, measurements and listening states remain unchanged.",
+  "baseline": "e31864fb904b0e1192b90a2b577516864497bb10",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-VIS-09",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-010"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/mg/painted_quality_20261018/flower.png",
+    "assets/mg/painted_quality_20261018/flower.png.import",
+    "assets/mg/painted_quality_20261018/flower2.png",
+    "assets/mg/painted_quality_20261018/flower2.png.import",
+    "assets/mg/painted_quality_20261018/flower3.png",
+    "assets/mg/painted_quality_20261018/flower3.png.import",
+    "assets/mg/painted_quality_20261018/k_flower1.png",
+    "assets/mg/painted_quality_20261018/k_flower1.png.import",
+    "assets/mg/painted_quality_20261018/k_flower2.png",
+    "assets/mg/painted_quality_20261018/k_flower2.png.import",
+    "assets/mg/painted_quality_20261018/k_sprout.png",
+    "assets/mg/painted_quality_20261018/k_sprout.png.import",
+    "assets/mg/painted_quality_20261018/pot.png",
+    "assets/mg/painted_quality_20261018/pot.png.import",
+    "assets/mg/painted_quality_20261018/wateringcan.png",
+    "assets/mg/painted_quality_20261018/wateringcan.png.import",
+    "assets_src/imagegen/artwork_quality_20261018/.gdignore",
+    "assets_src/imagegen/artwork_quality_20261018/campaign_progress.json",
+    "assets_src/imagegen/artwork_quality_20261018/capture_garden.gd",
+    "assets_src/imagegen/artwork_quality_20261018/flower2_native.png",
+    "assets_src/imagegen/artwork_quality_20261018/flower3_native.png",
+    "assets_src/imagegen/artwork_quality_20261018/flower_native.png",
+    "assets_src/imagegen/artwork_quality_20261018/k_flower1_native.png",
+    "assets_src/imagegen/artwork_quality_20261018/k_flower2_native.png",
+    "assets_src/imagegen/artwork_quality_20261018/k_sprout_native.png",
+    "assets_src/imagegen/artwork_quality_20261018/pot_attempt01_rejected.png",
+    "assets_src/imagegen/artwork_quality_20261018/pot_native.png",
+    "assets_src/imagegen/artwork_quality_20261018/pot_prompts.json",
+    "assets_src/imagegen/artwork_quality_20261018/prepare_garden.py",
+    "assets_src/imagegen/artwork_quality_20261018/prompts.json",
+    "assets_src/imagegen/artwork_quality_20261018/provenance.json",
+    "assets_src/imagegen/artwork_quality_20261018/review/art_review.json",
+    "assets_src/imagegen/artwork_quality_20261018/review/capture.json",
+    "assets_src/imagegen/artwork_quality_20261018/review/garden-complete-1280.png",
+    "assets_src/imagegen/artwork_quality_20261018/review/garden-complete-1600.png",
+    "assets_src/imagegen/artwork_quality_20261018/review/garden-four-flowers-1280.png",
+    "assets_src/imagegen/artwork_quality_20261018/review/garden-four-flowers-1600.png",
+    "assets_src/imagegen/artwork_quality_20261018/review/garden-seeds-1280.png",
+    "assets_src/imagegen/artwork_quality_20261018/review/garden-seeds-1600.png",
+    "assets_src/imagegen/artwork_quality_20261018/review/garden-sprouts-1280.png",
+    "assets_src/imagegen/artwork_quality_20261018/review/garden-sprouts-1600.png",
+    "assets_src/imagegen/artwork_quality_20261018/verification/audio_ledger_reconciliation.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/baseline_native_control.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/baseline_touch_adversary_1.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/baseline_touch_adversary_2.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/baseline_touch_adversary_3.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/capture_contact.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/direct_engine_melody.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/direct_engine_melody.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/first_failed_full_ci.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/first_failed_full_ci.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_direct_04.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_direct_04.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_direct_04_interrupted.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_03.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_03.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_capture_05.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_capture_05.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher_01_coverage_rejected.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher_01_coverage_rejected.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher_02.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher_02.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/import_pot.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/import_registration.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/import_retry.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/legacy_ledger_after.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/legacy_ledger_before.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/native_capture_05_events.jsonl",
+    "assets_src/imagegen/artwork_quality_20261018/verification/native_capture_partner_control.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/native_capture_transport_control.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/native_launcher_03_events.jsonl",
+    "assets_src/imagegen/artwork_quality_20261018/verification/native_launcher_04_events.jsonl",
+    "assets_src/imagegen/artwork_quality_20261018/verification/native_probe_retries.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/probe_dust_boss_balance_native_retry.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/probe_partner_native_retry.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/probe_props_native_retry.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/probe_touch_adversary_native_retry.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/recheck_failed_probes.py",
+    "assets_src/imagegen/artwork_quality_20261018/verification/remote_ci_39229555208_failed.log",
+    "assets_src/imagegen/artwork_quality_20261018/verification/remote_ci_39229555208_failure.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/run_ci_direct_04.sh",
+    "assets_src/imagegen/artwork_quality_20261018/verification/run_ci_native_03.sh",
+    "assets_src/imagegen/artwork_quality_20261018/verification/run_ci_native_capture_05.sh",
+    "assets_src/imagegen/artwork_quality_20261018/verification/run_full_ci_direct_04.py",
+    "assets_src/imagegen/artwork_quality_20261018/verification/run_full_ci_native.sh",
+    "assets_src/imagegen/artwork_quality_20261018/verification/run_full_ci_native_03.py",
+    "assets_src/imagegen/artwork_quality_20261018/verification/run_full_ci_native_capture_05.py",
+    "assets_src/imagegen/artwork_quality_20261018/verification/teacher_remote_integration.json",
+    "assets_src/imagegen/artwork_quality_20261018/verification/windows_native_capture_05.py",
+    "assets_src/imagegen/artwork_quality_20261018/verification/windows_timeout.py",
+    "assets_src/imagegen/artwork_quality_20261018/verification/windows_timeout_direct_04.py",
+    "assets_src/imagegen/artwork_quality_20261018/verification/windows_timeout_retry_03.py",
+    "assets_src/imagegen/artwork_quality_20261018/wateringcan_native.png",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/minigame_art_quality_2026-09-05/registry.json",
+    "design/audit_impacts/artwork-quality-20261018.json",
+    "scripts/games/picture_games.gd"
+  ],
+  "validation": [
+    {
+      "command": "Source review of master planning entry/task index, design language, active findings, document ledger, and job-art handoff",
+      "result": "PASS",
+      "evidence": "Read at baseline e31864fb904b0e1192b90a2b577516864497bb10; pre-existing checkout preserved without content edits on rescue/peter-20261018-artwork-start at d46fae2700ff9f5ee0e32ae8325e81a74957d1aa."
+    },
+    {
+      "command": "ImageGen object replacement and scene-by-scene 4.5 review",
+      "result": "PENDING",
+      "evidence": "User approved available ImageGen with unexposed model revision; no 2.5 model claim. Each applicable dimension must reach 4.5 with current Mobile/HUD evidence; isolated source scores do not grant runtime acceptance."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PENDING",
+      "evidence": "Required before commit/push."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PENDING",
+      "evidence": "Required before commit/push; exact paths will be extended before dependent edits."
+    },
+    {
+      "command": "Exact Godot4.7.2 import plus capture_garden.gd Mobile1280x720/1600x720",
+      "result": "PASS",
+      "evidence": "assets_src\\imagegen\\artwork_quality_20261018\\verification\\capture_contact.log and review/art_review.json bind eight current frames and20 GUI taps; earlier invalid attempt excluded."
+    },
+    {
+      "command": "Local AI source and scene object comparison against4.5/5 minimum",
+      "result": "PASS",
+      "evidence": "assets_src\\imagegen\\artwork_quality_20261018\\review\\art_review.json; eight static-object candidates minimum4.5; first pot rejected; canonicalQA11/external acceptance separate."
+    },
+    {
+      "command": "python -B tools/audit_minigame_art_quality.py --validate-only",
+      "result": "PASS",
+      "evidence": "assets_src\\imagegen\\artwork_quality_20261018\\verification\\legacy_ledger_after.log; stale source inventory refreshed with previous hashes retained. Global art quality remains UNSATISFIED; null reviews and external gaps are unchanged."
+    },
+    {
+      "command": "Initial scripts/ci.sh plus audio-ledger drift reproduction at untouched baseline",
+      "result": "FAIL",
+      "evidence": "assets_src\\imagegen\\artwork_quality_20261018\\verification\\first_failed_full_ci.json; stopped at inherited six stale audio reference counts before82probes. Exact metrics/hash comparison and baseline grep proof in audio_ledger_reconciliation.json."
+    },
+    {
+      "command": "Generated audio report reconciliation; all857rows compared",
+      "result": "PASS",
+      "evidence": "assets_src\\imagegen\\artwork_quality_20261018\\verification\\audio_ledger_reconciliation.json; exactly six reference-count increments and the summary CSV hash changed. No audio or voice source edits."
+    },
+    {
+      "command": "scripts/ci.sh original Git Bash timeout launcher",
+      "result": "FAIL",
+      "evidence": "verification/full_ci.json:82probes completed,79zero,3exit127 with no source drift. Original transcript preserved."
+    },
+    {
+      "command": "Direct native Windows retry of the same three probes and exact4.7.2 source",
+      "result": "PASS",
+      "evidence": "verification/native_probe_retries.json:partner,dust_boss_balance,props all exit0 with ALL OK. Full-suite rerun still separately required."
+    },
+    {
+      "command": "scripts/ci.sh with native Windows deadline adapter preserving all commands, durations and failure classifiers",
+      "result": "PENDING",
+      "evidence": "verification/full_ci_native_launcher_02.json/log. First adapter attempt correctly stopped on newly generated evidence paths missing impact coverage; its failure is preserved. No CI/probe source was weakened."
+    },
+    {
+      "command": "Full native launcher02 and unchanged touch-adversary retry",
+      "result": "FAIL",
+      "evidence": "full_ci_native_launcher_02.json:81zero, touch_adversary127, source_drift[]. The unchanged direct native retry subsequently exits0 with all25scenarios clear. Original failure retained; no whole-suite pass claimed."
+    },
+    {
+      "command": "Full scripts/ci.sh native launcher03 with raw process event recording",
+      "result": "PENDING",
+      "evidence": "full_ci_native_03.json/log and native_launcher_03_events.jsonl. Same commands/source/classifiers/deadlines; one recorded retry only for native Windows exception code3221225477 or signed equivalent, never for assertion/status1. Original total deadline retained. Control baseline remains separately inspectable."
+    },
+    {
+      "command": "Full native launcher03",
+      "result": "FAIL",
+      "evidence": "verification/full_ci_native_03.json/log:82completed,78zero; Melody/Crown/touch adversary/dungeon127; raw native console-wrapper exit4294967295; source_drift[]. Failure not waived."
+    },
+    {
+      "command": "Direct exact4.7.2 engine Melody control",
+      "result": "PASS",
+      "evidence": "verification/direct_engine_melody.json/log:actual180MBengine ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424 exits0 and ALL OK with unchanged original args/source."
+    },
+    {
+      "command": "Complete scripts/ci.sh direct engine04",
+      "result": "PENDING",
+      "evidence": "verification/full_ci_direct_04.json/log; same approved engine build,82ordered probes, deadlines/classifiers intact; bypasses separate198KBWindowsconsolewrapper only. No ordinary failure retry."
+    },
+    {
+      "command": "Direct engine04 under inherited MSYS stdout",
+      "result": "FAIL",
+      "evidence": "verification/full_ci_direct_04_interrupted.json/log. Silent zero-exit probes rejected by unchanged positive floor; owned run stopped. Not accepted as real verification."
+    },
+    {
+      "command": "Explicit native output handle transport controls",
+      "result": "PASS",
+      "evidence": "verification/native_capture_transport_control.json:real approved-engine partner exit0+ALL OK through MSYS tee; syntheticexit7 andmarker both preserved. Complete native bytes forwarded; no failed command retry."
+    },
+    {
+      "command": "Complete scripts/ci.sh native output capture05",
+      "result": "PASS",
+      "evidence": "verification/full_ci_native_capture_05.json/log:all82original probes in order,zero exits,process0,source_drift[]; log SHA256 b4d832a19d67193efdcaac18cb035e0fa7c928eb5c8125d36357fe84a13d031b. Original deadlines/classifiers preserved; no retries."
+    },
+    {
+      "command": "Exact-head remoteCI39229555208 on91b3c005",
+      "result": "FAIL",
+      "evidence": "verification/remote_ci_39229555208_failure.json/log: impact JSON omitted from staging; remote authority/coverage rejected missing record before probes. Add missing record and rerun exact-head CI; no source/probe waiver."
+    }
+  ],
+  "acceptance_gaps": "Implementation and full inventory review in progress. No game-wide, source, runtime, device, child or owner acceptance is claimed. Protected originals, picture-book scene sources and selected Day One clips are outside replacement scope.",
+  "owner_corrections": [
+    {
+      "decision_id": "artwork-quality-20261018",
+      "evidence": "Current user request: use ImageGen for poor objects, audit all at the end and regenerate poor items; 4.5/5 minimum. User explicitly approved available ImageGen with unexposed model revision.",
+      "write_back": "Task audit and final review records; existing 5/5 owner acceptance rule remains unchanged."
+    }
+  ]
+}
