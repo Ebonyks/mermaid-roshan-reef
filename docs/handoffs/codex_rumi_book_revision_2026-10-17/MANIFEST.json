@@ -1,7 +1,7 @@
 {
   "schema": "claude_handoff_manifest/1",
   "packet": "docs/handoffs/codex_rumi_book_revision_2026-10-17",
-  "revision": 1,
+  "revision": 2,
   "prepared_by": "Claude (written handoff; no images)",
   "recipient": "Codex",
   "baseline_dev": "7a65b9f0abacddeee70230f220955f4d18d551b5",
@@ -15,8 +15,8 @@
   "files": [
     {
       "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md",
-      "bytes": 13260,
-      "sha256": "5d9746f3a9a08dda4dac698c960262ac9cce3ee1aa38fd5c4881b397f26c3037"
+      "bytes": 13776,
+      "sha256": "b3becbd9c003e503de1cbc8d77a3ba3385355d464389852f25f989deb372bfa1"
     },
     {
       "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/ANALYSIS.md",
@@ -35,8 +35,8 @@
     },
     {
       "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/GAME_INTEGRATION.md",
-      "bytes": 17521,
-      "sha256": "bb16b5d7242d0368ecf550b0c27cf11acbf859af8a8b3a9b066a0a48b3949094"
+      "bytes": 19099,
+      "sha256": "04cd9d73294306cac9226b3ae5bc8439559a85bc826b3b18f6502d125a165518"
     },
     {
       "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/data/page_plan.json",
@@ -53,5 +53,6 @@
       "bytes": 8820,
       "sha256": "c0db804824f5351f456a809dd9670677ce8ff05a94fc84611fee5da194a43eaa"
     }
-  ]
+  ],
+  "revision_note": "Revision 2 (2026-10-18): GAME_INTEGRATION and README align with the owner's Pop Star rebuild decision (MA-OPERA-014). Revision 1 merged into dev at 6fb96aeb."
 }
