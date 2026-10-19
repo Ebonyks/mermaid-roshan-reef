@@ -1,0 +1,14 @@
+{
+  "id": "arrival_header_repair",
+  "attempt": 1,
+  "method": "built-in image_gen",
+  "transparent_background": false,
+  "references": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/header_join_reference.png",
+      "sha256": "3f77176d46bcef4ccaf5276eff0aaa2cd3471ae3045441be462e503fd2d48f33",
+      "role": "edit_target"
+    }
+  ],
+  "prompt": "Use case: precise-object-edit. IMAGE_1 is an already composed page with original art translated down slightly. A BAD HORIZONTAL JOIN is visible in the TOP24PIXELS, where a narrow added strip of aircraft wall does not match the original painting below it. Repair ONLY that narrow TOP24PIXEL STRIP so the teal aircraft metal wall, subtle texture and any continuing frame lines flow seamlessly into the original wall at row24. Keep every pixel BELOW row24 exactly fixed; do not move, reframe, redraw, shift or resize anything. Her crown is below this repair area and must not be touched. No new rivets or decorations. Return the complete unchanged1484x1060 canvas with this narrow seam healed. Only that top strip will be used, laid above the preserved original source painting. Painted2D, no lettering, no watermark."
+}

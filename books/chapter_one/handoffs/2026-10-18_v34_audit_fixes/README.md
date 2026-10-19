@@ -1,8 +1,7 @@
 # Codex handoff: picture book V34 audit fixes
 
 Status: `SUPPORTING_CURRENT` work order, published for Codex on 2026-10-18.
-V34 is not started. Claude wrote this packet and made no images; Codex
-implements it and builds every image it needs.
+The [V34 implementation review](../../landscape/revisions/v34_editorial_polish/README.md) now evaluates and implements this packet, with explicit adaptations for later owner format/little-puff directions and source/readability evidence. Claude wrote this packet and made no images; Codex built the derivatives. The original work-order requirements below remain preserved as request history.
 
 - **Recipient:** Codex.
 - **Baseline:** V33, commit `a14a26ee356296c84b7251ce8222f371740ed2cb`,

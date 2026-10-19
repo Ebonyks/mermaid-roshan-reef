@@ -1,9 +1,7 @@
-# Mermaid Roshan — Chapter One picture book
+# Mermaid Roshan and the Hidden Rainbow
 
-Current edition: **V33 — covers match the cleaning story**.34 pages including both covers;32 interiors;7 ×5 inches landscape;Sniglet.
+Status: `SUPPORTING_CURRENT`; V34 editorial review.34 total pages,32 interiors,Sniglet,14x10-inch landscape review.
 
-[Before/after](landscape/revisions/v33_story_covers/AUDIT_REVIEW.html) · [Reader](landscape/revisions/v33_story_covers/complete/READ_BOOK.html) · [Email PDF under25MB](landscape/revisions/v33_story_covers/complete/Mermaid_Roshan_Book_V33_Email.pdf) · [Lossless master](landscape/revisions/v33_story_covers/complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf) · [Versioned package](landscape/revisions/v33_story_covers/README.md)
+[Read V34](landscape/revisions/v34_editorial_polish/complete/READ_BOOK.html) · [Before/after and audit](landscape/revisions/v34_editorial_polish/AUDIT_REVIEW.html) · [All decisions and holds](landscape/revisions/v34_editorial_polish/AUDIT_EVALUATION.md) · [Page plan](landscape/PAGE_PLAN.md) · [Design language](DESIGN_LANGUAGE.md) · [Manifest](landscape/revisions/v34_editorial_polish/manifest.json).
 
-The front removes the obsolete paint spill/drawing paper and gives Puff a worried expression. The rear uses the book's actual cooperative washing scene, with a tiny hidden Lamma. All32 interiors remain byte-identical to V32. Original art/font files remain unchanged. [Design language](DESIGN_LANGUAGE.md), [page plan](landscape/PAGE_PLAN.md), [review](landscape/REVIEW.md), [story audit](landscape/STORY_COMPREHENSION_AUDIT.md), [current cover audit](landscape/revisions/v33_story_covers/visual_review.json) and [manifest](landscape/revisions/v33_story_covers/manifest.json) record scope.
-
-The previously rejected interior4 and its proposed quiet-request replacement remain open; this commission repairs covers only. Owner/child/physical-print and professional SLP acceptance remain separate. Earlier dated editions preserve their original evidence. No game/runtime, protected-original or release change; Resolve/handoff searching remains stopped.
+Final upsampling, exact production trim/bleed, owner/child reading, professional speech-language review and physical print remain separate. The older V33 covers and32 interiors are preserved as the exact comparison baseline.

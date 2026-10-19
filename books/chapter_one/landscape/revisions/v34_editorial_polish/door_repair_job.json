@@ -1,0 +1,17 @@
+{
+  "id": "door_cutout_repair",
+  "attempt": 1,
+  "method": "built-in image_gen",
+  "transparent_background": true,
+  "references": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/door_cutout_attempt1.png",
+      "role": "edit_target"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_23_art.png",
+      "role": "actual_castle_door_identity_and_hardware"
+    }
+  ],
+  "prompt": "Use case: precise-object-edit / background-extraction correction. IMAGE_1 is the complete isolated source-derived door to repair; preserve its true transparency. IMAGE_2 is the actual story door at the FAR RIGHT, reference only for its hardware and violet wood. In IMAGE_1, repair ONLY the purple inner shell-shaped wooden door: REMOVE the extra LEFT round gold doorknob, restoring its local fan-panel wood beneath. On the RIGHT edge, replace the ball knob with the single horizontal curved brass lever/latch found on the right side of the actual door in IMAGE_2. It is one door with ONE right-hand handle, never two knobs. Darken just the purple wooden shell door panels to a deep, quiet violet matching the mysterious source door; no luminous seam, no rainbow glow. Do not change the integral gold arch, red stairs, rails, outer silhouette or proportions. No surrounding wall or floor, no rectangle or backdrop, no new motifs, no added fixtures. Entire physical object stays intact on truly transparent RGBA. Crisp painted2D storybook, not photorealistic. This is bounded object hardware/color repair, not a new scene."
+}

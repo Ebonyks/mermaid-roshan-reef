@@ -44,7 +44,7 @@ unclassified until this ledger gains one new scoped row for it.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V33 cover continuity repair and current34-page reader/email/master navigation; all32 V32 interiors preserved, owner-rejected4 remains open. |
+| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V34 current reader, evaluation and14x10 review navigation; final-resolution/print/owner/child/SLP evidence separate. |
 | `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; static-book source/identity/layout rules and scoped owner exceptions. Finished kindness plot remains; latest owner commission adds all-object polish, substantial gap-repair iteration including50+ generations, varied small banks, two unprompted Lamma appearances and explicit bubble/export audit. Internal4.9 craft, SLP and actual owner/child/print acceptance stay separate; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
@@ -816,14 +816,14 @@ Kept as-is; noted so a future edit updates every copy.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V33 cover treatments and unchanged V32 exact32-page interior table/reveals; rejected interior4 remains open. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V33 source-faithful cover repairs,32 byte-identical interior proofs, exact masks/source/master and email checks; owner/child/print/SLP acceptance and rejected4 remain open. |
+| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V34 exact32-page text, source mapping, treatments and low-bank plan; quiet plea23 and preserved27→28 reveal. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V34 evaluated audit,25 candidates/11 selected, source/pixel/contrast/email checks and explicit acceptance gaps. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
 | `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performances and v17 repository-detail score; frightened lower-right stages supersede the quiet reveal; owner acceptance remains open. |
 
-| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V33 cover promises match actual cleaning; V32 interior descriptions retained with owner rejection of4 and unimplemented replacement explicit; no clinical/child acceptance. |
+| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V34 literal actions, room bridges, immediate help request and cooperative-cleaning arc. |
 
 | `books/chapter_one/reviews/2026-09-30/REVIEW.md` | ⚪ | `HISTORICAL_EVIDENCE`; unchanged-V27 comprehensive comparison and recommendations. V28 implements selected corrections; unresolved source/print questions remain current through landscape/REVIEW.md. |
 
@@ -834,6 +834,8 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v30_identity/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; published V30 local identity/attention/costume and sponge polish with exact proof/audit hashes; V31 retains29 identical page PNGs and supersedes current story/mood review facts. Original proof and generation evidence are unchanged. |
 | `books/chapter_one/landscape/revisions/v31_story_clarity/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; published V31 mystery-door/rear-cameo and ending evidence. V32 restores rainbow water and consolidates the ending; original art/proofs/audits preserved. |
 | `books/chapter_one/landscape/revisions/v32_rainbow_story/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; original V32 magical rainbow story/pagination/proof and audits; V33 repairs covers and retains32 exact interiors. Rejected insert4 remains open. |
-| `books/chapter_one/landscape/revisions/v33_story_covers/README.md` | 🔵 | `SUPPORTING_CURRENT`; V33 removes obsolete front painting cues/mischievous Puff and replaces rear craft gathering with actual scene26 washing; bounded native art, unchanged32 interiors, email/master proofs and source/remote evidence; owner/child/print/SLP and rejected4 remain open. |
+| `books/chapter_one/landscape/revisions/v33_story_covers/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; sealed V33 cover repair and32 interior baseline; V34 supersedes current editorial facts, preserving original evidence. |
+| `books/chapter_one/landscape/revisions/v34_editorial_polish/README.md` | 🔵 | `SUPPORTING_CURRENT`; V34 audit evaluation, larger review format, little-puff-only banks, exact source/contrast/master/email proofs and all actual generation evidence. Owner/child/SLP, final resolution/trim/bleed and print approval remain open. |
+| `books/chapter_one/landscape/revisions/v34_editorial_polish/AUDIT_EVALUATION.md` | 🔵 | `SUPPORTING_CURRENT`; explicit evaluation/adaptation of14 decisions and work items,25 candidates/11 selected, source/art language limits and production holds. |
 | `books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/README.md` | 🔵 | `SUPPORTING_CURRENT`; owner-approved V34 work order for Codex (2026-10-18, every Q1-Q14 audit default accepted): door page replacing rejected 4, one-Puff spread 24-25, caption system with a numbers-only contrast gate, cup/room/text continuity and a bleed edition. Written by Claude without images. Ear shape (Q6) held and the new page-9 pose awaits owner OK; no art, print, child or SLP acceptance. |
 | `books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; Claude page-by-page audit of V33 (11 strong, 18 polish, 5 fix) with measured caption contrast and the accepted Q1-Q14 defaults; evidence for the V34 work order, not owner, child, SLP or print acceptance. |

@@ -23,7 +23,7 @@ The Gemini prompt governs the blank stationery BACKGROUND and integrated border 
 
 - **BK-PG-01 — Rhythm:** blue vignette pages alternate purposefully with border-free full art. Adjacent setup pages are allowed; a run must serve the story, not a repeated template.
 - **BK-PG-02 — Cuts:** isolate whole action groups and meaningful objects along authored contours. Preserve contact, faces, hands, tails, location and object identity. Do not use rounded screenshot rectangles as a substitute.
-- **BK-PG-03 — Spreads:** the current book uses 7 x 5 inch landscape single pages, 32 story pages plus covers. Wide reveals occupy a single page. No image is split or independently recropped across a gutter. The former 40-page portrait spread assignments are superseded.
+- **BK-PG-03 — Spreads:** the current review uses 14 x 10 inch landscape single pages, 32 story pages plus covers. Wide reveals occupy a single page. No image is split or independently recropped across a gutter. The former 40-page portrait spread assignments are superseded.
 - **BK-PG-04 — Text:** Sniglet; short navy text in quiet image space. No opaque full-width caption strips. Background decorations remain small; foreground story artwork remains large.
 - **BK-PG-05 — Source-only narrative:** existing Grok and storyboard/handoff art; no whole-scene redraws. Targeted isolation/inpainting/outpainting remains allowed within owner limits. Missing action art is a gap, never permission to invent a scene.
 - **BK-PG-06 — Story:** waterfall clears and turns rainbow. Two dust bunnies hold Baby Eagle. Preserve four-helper soap concealment, rainbow jump, collapse and landing order. No changed landing or omitted-action restoration.
@@ -138,3 +138,11 @@ Continue full-art/true contour alternation, blue stationery, clear upper85%, emp
 ## V33 owner correction: cover story truth (2026-10-17)
 
 The owner rejects cover elements representing events absent from the current story. Remove the front's paint-making spill and drawing paper through bounded floor repair; give Puff his unwell, care-seeking expression. Retire rear H's obsolete craft gathering. Reuse the exact existing story26 cooperative washing scene for the rear, omitting its caption and retaining one tiny canonical shelf Lamma through a local patch. Preserve original source artwork, identity, contact, fixtures, all32 interiors, title/font/trim and both reveal turns. No full-scene redraw is authorized or needed. V33 owns current cover facts; earlier cover approvals are superseded only for these named deficiencies. The rejected interior4 remains a separate open editorial item. Publication and machine checks do not establish owner/child, professional SLP or physical-print approval.
+
+## V34 owner directions and evaluated audit (2026-10-18)
+
+Owner: “Audit, evaluate, and execute as deemed appropriate.” Later clarification: at least8x11 inches, possibly11x14; upsample after illustration tweaks. The current14x10 review keeps source proportions; final trim/reflow, resolution and printer bleed follow later. The supplied audit/work-order recommendations are evaluated in [V34](landscape/revisions/v34_editorial_polish/AUDIT_EVALUATION.md), including its deliberate placement and wording adaptations.
+
+**BK-BG-11 — Little puffs only:** the owner rejects Grand Puff in a background. Only canonical LITTLE curl-ear puffs may perform marginal cameos: no Grand Puff star/diamond, tall stacked crest or boss silhouette. Grand Puff belongs in main story art and full-art covers. Reject mistaken identity bindings; preserve the rejected studies as evidence. Tiny tissue/water preparation and cloth folding replace battle reactions. Full integrated stationery variants are permitted; no pasted seam panels.
+
+All body captions use20pt logical Sniglet; quiet positions come from composed-art luminance sampling plus native inspection. Fine contrasting contours support midtone art; speech capsules retain the smaller established size. Whole source action groups, exact finale staging and binary image treatment remain binding. No professional SLP or blanket4.9/5 acceptance is implied.

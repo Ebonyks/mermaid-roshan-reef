@@ -1,6 +1,8 @@
 # V33 — covers match the cleaning story
 
-Status: `SUPPORTING_CURRENT`; requested cover correction review complete, owner/child/physical-print acceptance open.34 total pages,32 interiors,7 ×5 inches landscape,Sniglet. Exact V32 baseline: `2719d2fcf66afe4cb73b8445087e09dd52319849`.
+[V34 now owns the current editorial review](../v34_editorial_polish/README.md). V33 proofs and claims below remain version-specific.
+
+Status: `HISTORICAL_EVIDENCE`; requested cover correction review complete, owner/child/physical-print acceptance open.34 total pages,32 interiors,7 ×5 inches landscape,Sniglet. Exact V32 baseline: `2719d2fcf66afe4cb73b8445087e09dd52319849`.
 
 [Before/after](AUDIT_REVIEW.html) · [Reader](complete/READ_BOOK.html) · [Email PDF under25MB](complete/Mermaid_Roshan_Book_V33_Email.pdf) · [Lossless master](complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf) · [Spread dummy](PRINT_DUMMY.html) · [Manifest](manifest.json)
 

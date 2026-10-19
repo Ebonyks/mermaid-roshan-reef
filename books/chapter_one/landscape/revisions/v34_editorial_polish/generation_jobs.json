@@ -1,0 +1,235 @@
+[
+  {
+    "id": "arrival_border",
+    "prompt": "Use case: precise-object-edit / outpainting. IMAGE_1 is the exact existing illustration. Add ONLY42pixels on each left/right edge and30pixels on each top/bottom edge, extending metal aircraft wall and existing colors. Output1568x1120, with the original1484x1060 image unchanged in the centered rectangle x42..1526,y30..1090. Preserve her entire tiara, face, hand, body and porthole exactly. No new objects. Only the new perimeter will be delivered; the original scene will be laid over it unchanged. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+    "prompt_sha256": "cda13ae27500380a992cd1a3cf0225f30bdfdcffccb9ab386daf8ab69bd9ff50",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_01_art.png",
+        "sha256": "bc4a93a7087b3bbe825aa11166ca15466d03d16e62f64d8e97c13d2f9b607859",
+        "role": "edit_target"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 1,
+    "status": "PLANNED"
+  },
+  {
+    "id": "entry_dust",
+    "prompt": "Use case: precise-object-edit. Remove ONLY the brown angular rock/boulder piles visible inside the open doorway at right, replacing their local footprints with dim dusty castle floor and shadow continuous with the existing threshold. It is a neglected castle, not a cave. Preserve the entire Daddy and Roshan, open door, door seam, walls, fixtures and lighting. Return the same1484x1060 canvas. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+    "prompt_sha256": "5d4aa53bb5fac87529a3a1f3cd6b8c76fbf109254fbf253c77e15c639cf08683",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_03_art.png",
+        "sha256": "03367f249b262479f90c79e03808545216ef8704cacd68b4873538babe5caa42",
+        "role": "edit_target"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 1,
+    "status": "PLANNED"
+  },
+  {
+    "id": "pink_cup",
+    "prompt": "Use case: precise-object-edit. Recolor ONLY the small metal cup wedged in the seahorse fountain mouth at the upper right to the soft rosy pink cup held in IMAGE_2. Keep its exact size, angle, cylindrical rim, stuck position, algae and fountain contact; change no other object or character. Return same1484x1060 canvas. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+    "prompt_sha256": "c9d2778ab1bfcb8e84b1b64f6929e7701e5082092b5fc9f7f5faf295c43b5a54",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_11_art.png",
+        "sha256": "0717f2ff843be399dbf00c031f96336ec14cdb952d68ec95054473ffe65fa2e7",
+        "role": "edit_target"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png",
+        "sha256": "3031917eb02f4a606b57e08fe7a5924abe08020c11efd3faba8cf27343cdec62",
+        "role": "identity_or_style_reference"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 1,
+    "status": "PLANNED"
+  },
+  {
+    "id": "listening_face",
+    "prompt": "Use case: precise-object-edit. Change ONLY Roshan's tiny facial expression: alert, gently concerned, mouth slightly parted as she hears a chirp. Preserve eyes' amber color and shape, age, head outline, hair, crown, ear, hands cupped to listen, entire body and room. Do not make her frightened or crying. Return same1484x1060 canvas. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+    "prompt_sha256": "da43e19f23cc0729f8ec4de920370726a0309521c09671895bf91b82a97e218e",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_18_art.png",
+        "sha256": "2c6d0a151ffcecb029e876f19cf702d904931bf4907836f2f951376db882ecad",
+        "role": "edit_target"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 1,
+    "status": "PLANNED"
+  },
+  {
+    "id": "mysterious_door",
+    "prompt": "Use case: precise-object-edit. Dim ONLY the rightmost closed purple shell door's luminous seam and door surface. Deep quiet violet shadow, a barely visible muted seam, curious and a little mysterious rather than an inviting rainbow portal. Keep the exact physical door, arch, stairs, brass handles, Roshan, other completed open doors and colored light trails unchanged. No monster, no new fixtures. Return same1484x1060 canvas. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+    "prompt_sha256": "3cc51ff1189e3eddd17df5b4e600c5c3af11a2f57d2b92814278fd7895242019",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_23_art.png",
+        "sha256": "f8fe93f2e30536edc253a7ed2a5605acdf388c70de66d52cf2ff561ae928f90e",
+        "role": "edit_target"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 1,
+    "status": "PLANNED"
+  },
+  {
+    "id": "rubbish_bank",
+    "prompt": "Use case: precise-object-edit. Change only the tiny right-bank dented green metal can to a discarded crumpled blue snack bag with a small tear, naturally nestled in the same blue sand. Keep the blue bottle cap and left star wrapper, all clean blue stationery wash, dotted border, bubbles and mounds exactly. No can/cup/net duplicated. All props stay below85percent canvas height, individually under12percent width/height, central gap empty. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+    "prompt_sha256": "6cc8cd072779485a5a9ecfcf37aa2de2cb5c888b5173afa38361712636a2e698",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles11.png",
+        "sha256": "2ecc03a12ded1f66ed4fe58daa5bbbc216cf73f3e3e0e7e73e5f82369f8cdeec",
+        "role": "edit_target"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 1,
+    "status": "PLANNED"
+  },
+  {
+    "id": "tidy_art_bank",
+    "prompt": "Use case: precise-object-edit. Replace ONLY the tiny messy props on both lower blue banks. Left: one small canonical lavender dust bunny carefully rolling a scrap of used drawing paper into a tidy roll. Right: a neatly folded paint-stained cloth resting beside a small tied paper bundle. No paints, bottles, brushes, sponges or liquid spills, because those are already in the foreground. Match bunny identity in IMAGE_2: lavender cloud body, two spiral/curl ears, pearl nubs, simple dark eyes, no rabbit ears or limbs. All new assets entirely below85percent canvas height, each under12percent width/height, blue mounds grounded with subtle contact, center gap empty. Preserve the complete stationery otherwise. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene. OWNER CORRECTION: These are ONLY the LITTLE puffs from IMAGE_2. NO Grand Puff, NO star/diamond on the forehead, NO tall flame-like stacked cloud crest, NO heavy droopy brow. Simple low rounded cloud body, a single soft forehead curl, two narrow upright curled ears, four pearl nubs. Bunny height only75-90px on1060px canvas, below y910. No anatomical hands or fingers: use soft edge puffs to nudge/hold a prop. Little puffs are cheerful/concentrating or gently concerned, not sick. Keep their established tiny border scale.",
+    "prompt_sha256": "4eb87d6808345664e3c84b9559f5d92343308e94e1421b10909fa8f623819b60",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles21.png",
+        "sha256": "cc2323bbb54e9dde9848f2e2463d3643f2891e348827f95f61c1425376714b94",
+        "role": "edit_target"
+      },
+      {
+        "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+        "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+        "role": "canonical_little_puff_identity_not_Grand_Puff"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 2,
+    "status": "PLANNED"
+  },
+  {
+    "id": "care_bank24",
+    "prompt": "Use case: precise-object-edit. Replace ONLY the right lower-bank scared bunnies and hiding shell with two tiny kind canonical lavender curl-ear dust bunnies preparing to help. One holds up a soft tissue, the other gently steadies a little closed water flask. Expressions concerned and caring, no panic, no fear lines, no popcorn. Keep left tiny attic chest/books, blue mounds and stationery exactly. Bunny identity from IMAGE_2: cloud silhouette, spiral ears and pearl nubs, no rabbit limbs. All assets below85percent height, each under12percent dimensions, tucked naturally into mound sand, central gap empty. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene. OWNER CORRECTION: These are ONLY the LITTLE puffs from IMAGE_2. NO Grand Puff, NO star/diamond on the forehead, NO tall flame-like stacked cloud crest, NO heavy droopy brow. Simple low rounded cloud body, a single soft forehead curl, two narrow upright curled ears, four pearl nubs. Bunny height only75-90px on1060px canvas, below y910. No anatomical hands or fingers: use soft edge puffs to nudge/hold a prop. Little puffs are cheerful/concentrating or gently concerned, not sick. Keep their established tiny border scale.",
+    "prompt_sha256": "60b08d16c18e496c4de3ea7bc5418febdf8021dbee1588265642c6c4fd340e89",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank24_final.png",
+        "sha256": "f8285cad166d0947f9d3667a9eaa92b52eface00b2c7c67ba1c7efbe82916f3f",
+        "role": "edit_target"
+      },
+      {
+        "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+        "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+        "role": "canonical_little_puff_identity_not_Grand_Puff"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 2,
+    "status": "PLANNED"
+  },
+  {
+    "id": "care_bank25",
+    "prompt": "Use case: precise-object-edit. Replace ONLY the tiny right-bank couch spectators and popcorn with a helpful little scene: keep the small game cloud couch, one canonical lavender spiral-ear bunny on it folding a clean washcloth; one bunny on the sand beside it gently nudges a small water pail toward the story. Kind intent, no cheering, no popcorn, no show-watching. Keep left attic jar/books and complete blue stationery. Identity IMAGE_2: cloud puffs, curl ears, pearl nubs, no rabbit anatomy. Below85percent height, each asset under12percent dimensions, no floating props, sand contact and a quiet center gap. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene. OWNER CORRECTION: These are ONLY the LITTLE puffs from IMAGE_2. NO Grand Puff, NO star/diamond on the forehead, NO tall flame-like stacked cloud crest, NO heavy droopy brow. Simple low rounded cloud body, a single soft forehead curl, two narrow upright curled ears, four pearl nubs. Bunny height only75-90px on1060px canvas, below y910. No anatomical hands or fingers: use soft edge puffs to nudge/hold a prop. Little puffs are cheerful/concentrating or gently concerned, not sick. Keep their established tiny border scale.",
+    "prompt_sha256": "2096c162d439900ef047c665c64d1f860be6ef122ab99d63ba436b941319ec37",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank25_tiny.png",
+        "sha256": "dcbcc1303a57d327eedc7871ea5266a6a5afda158bdf2076d349da75124636f2",
+        "role": "edit_target"
+      },
+      {
+        "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+        "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+        "role": "canonical_little_puff_identity_not_Grand_Puff"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 1,
+    "status": "PLANNED"
+  },
+  {
+    "id": "foam_glints",
+    "prompt": "Use case: precise-object-edit. Add ONLY three or four extremely faint little rainbow glints inside existing small gaps between the central white soap bubbles concealing Grand Puff. Tiny pink, gold, aqua hints of his own hidden color, not a full rainbow body and not rainbow stripes over all foam. Preserve complete concealment, original bubble contours, hands, sponges, helper faces/anatomy, room, staging and ceiling exactly. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+    "prompt_sha256": "4505ab4f163ddf349783777876dfb5177e436ba0a3277c65111e78dc154f531a",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_27_art.png",
+        "sha256": "0372d8f3a090b108e3458a8a689c2daddc76321235f9852702deb817817d0044",
+        "role": "edit_target"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 1,
+    "status": "PLANNED"
+  },
+  {
+    "id": "door_cutout",
+    "prompt": "Use case: background-extraction. Extract ONLY the complete rightmost closed purple shell door, its integral gold arch frame and short red stair/rail base, as one whole physical architectural object. Match the supplied specific castle door exactly, not an opera-house door; keep its design, silhouette, proportions and dim violet color. Enlarge/restoring crisp source details is allowed. No surrounding walls, columns, floor rectangle, Roshan, stars or path lights. Center the complete object on a truly transparent canvas, no shadows outside its contour, no white sticker edge; no cropped arch/steps. Return a high-resolution RGBA cutout. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+    "prompt_sha256": "fd0904997bb6e1a00960c2841a0e6638f1e65dd965ddfbc05650b1c86f9756d4",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_23_art.png",
+        "sha256": "f8fe93f2e30536edc253a7ed2a5605acdf388c70de66d52cf2ff561ae928f90e",
+        "role": "edit_target"
+      }
+    ],
+    "transparent_background": true,
+    "method": "built-in image_gen",
+    "attempt": 1,
+    "status": "PLANNED"
+  },
+  {
+    "id": "inviting_cutout",
+    "prompt": "Use case: background-extraction / identity-preserve. IMAGE_1 is a Roshan gesture atlas. Extract and restore ONLY the complete welcoming Roshan at the upper-right of this atlas (source alpha box x797,y17 to x990,y253). Preserve that exact existing open-handed inviting gesture, rainbow hair lock on its original side, crown, pink blouse, pastel scaly tail and rainbow fins. Do not take the thinking, pointing or waving poses; do not invent a gesture. Scale the same whole figure clearly onto a high-resolution truly transparent RGBA canvas, with clean authored contours and all fingers/tail tips intact. No background haze, no sticker rim. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+    "prompt_sha256": "cb47ca3369f61dc2f68b2e1864cb21c6d580f0e4ac14ed13a71cde86abbe8573",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/art/repo_details_v17/roshan_gestures.png",
+        "sha256": "d7d7d78d68311e5d4285aada7a306c555dba985a06145dea2bcb611ea4e2409e",
+        "role": "edit_target"
+      }
+    ],
+    "transparent_background": true,
+    "method": "built-in image_gen",
+    "attempt": 1,
+    "status": "PLANNED"
+  },
+  {
+    "id": "quiet_bank",
+    "prompt": "Use case: precise-object-edit. Replace the bottom decorations with a quiet listening border. Left bank: one tiny canonical lavender cloud dust bunny leaning its head to listen, one spiral ear tilted gently; right bank: just two old closed attic books stacked neatly, with a small shell resting on them. No door, no fear, no hiding, no cleaning tools. Use IMAGE_2 for curl-ear/pearl-nub cloud anatomy, not rabbit ears or limbs. All subjects below85percent height, individually under12percent dimensions, subtle natural ground contact, blue sand, dotted border and simple blue wash otherwise untouched; central gap empty. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene. OWNER CORRECTION: These are ONLY the LITTLE puffs from IMAGE_2. NO Grand Puff, NO star/diamond on the forehead, NO tall flame-like stacked cloud crest, NO heavy droopy brow. Simple low rounded cloud body, a single soft forehead curl, two narrow upright curled ears, four pearl nubs. Bunny height only75-90px on1060px canvas, below y910. No anatomical hands or fingers: use soft edge puffs to nudge/hold a prop. Little puffs are cheerful/concentrating or gently concerned, not sick. Keep their established tiny border scale.",
+    "prompt_sha256": "ed4cdf81de601772d7417b81c00f91fdcb8198d0800fccece65146574a29f86c",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank24_final.png",
+        "sha256": "f8285cad166d0947f9d3667a9eaa92b52eface00b2c7c67ba1c7efbe82916f3f",
+        "role": "edit_target"
+      },
+      {
+        "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+        "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+        "role": "canonical_little_puff_identity_not_Grand_Puff"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 1,
+    "status": "PLANNED"
+  }
+]

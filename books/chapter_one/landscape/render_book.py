@@ -1,4 +1,4 @@
-"""Render the source-preserving 7 x 5 inch landscape review book."""
+"""Render the source-preserving landscape review book at declared physical scale."""
 from pathlib import Path
 import argparse,json,html,hashlib,math
 from PIL import Image,ImageDraw
@@ -14,7 +14,10 @@ ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,default=Path.c
 pdfmetrics.registerFont(TTFont('Sniglet',str(ROOT/B['font'])))
 W,H=504,360
 rl_config.useA85=0  # Preserve lossless image streams without ASCII85 overhead.
-PDF=O/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf';c=canvas.Canvas(str(PDF),pagesize=(W,H));c.setTitle(B['title']);c.setAuthor('Mermaid Roshan picture-book project')
+S=float(B.get('physical_review_scale',1))
+PDF=O/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf';c=canvas.Canvas(str(PDF),pagesize=(W*S,H*S));c.setTitle(B['title']);c.setAuthor('Mermaid Roshan picture-book project');c.scale(S,S)
+def finish_page():
+ c.showPage()
 def path(k):return ROOT/B['sources'][k]['file']
 PAGE='front_cover'
 LAYERS=[]
@@ -99,7 +102,7 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,o
    c.setFillColorRGB(.04,.09,.18);c.drawString(xx+.6,y-.6,line)
   c.setFillColorRGB(*((1,1,.98) if color=='white' else (.06,.16,.29)))
   if halo:
-   c.setStrokeColorRGB(*((.06,.12,.25) if color=='white' else (1,1,.98)));c.setLineWidth(.85)
+   c.setStrokeColorRGB(*((.06,.12,.25) if color=='white' else (1,1,.98)));c.setLineWidth(max(.85,outline))
    obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(1);obj.textOut(line);obj.setTextRenderMode(0);c.drawText(obj)
    obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(0);obj.textOut(line);c.drawText(obj)
   elif outline:
@@ -108,7 +111,7 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,o
   else:c.drawString(xx,y,line)
   c.restoreState()
   line_width=pdfmetrics.stringWidth(line,'Sniglet',size)
-  TEXT_LINES.append({'page':PAGE,'text':line,'box':[xx,y+pdfmetrics.getDescent('Sniglet')*size/1000,line_width,(pdfmetrics.getAscent('Sniglet')-pdfmetrics.getDescent('Sniglet'))*size/1000],'font_size':size,'color':color})
+  TEXT_LINES.append({'page':PAGE,'text':line,'box':[xx,y+pdfmetrics.getDescent('Sniglet')*size/1000,line_width,(pdfmetrics.getAscent('Sniglet')-pdfmetrics.getDescent('Sniglet'))*size/1000],'font_size':size,'physical_font_size':size*S,'color':color,'outline':outline,'halo':halo})
   y-=size*1.3
  return y
 def speech(q):
@@ -156,9 +159,11 @@ full('cover_rendered')
 for patch in B.get('cover',{}).get('local_patches',[]):local_patch({'local_patch':patch})
 text('Mermaid Roshan',142,312,338,30,True)
 text('and the Hidden Rainbow',142,282,338,22,True)
-text('A Pearl Castle friendship story',24,28,456,13,True)
-c.showPage()
+subtitle=B.get('cover',{}).get('subtitle',dict(text='A Pearl Castle friendship story',x=24,y=28,width=456,size=13))
+if subtitle['text']:text(subtitle['text'],subtitle['x'],subtitle['y'],subtitle['width'],subtitle['size'],True)
+finish_page()
 for p in B['pages']:
+ c.scale(S,S)
  PAGE=p['page'];a=p['art'];layout=p['layout']
  if p['mode']=='F':
   if p.get('page_extension'):page_extension(p)
@@ -186,8 +191,12 @@ for p in B['pages']:
  for patch in p.get('local_patches',[]):local_patch({'local_patch':patch})
  q=p['caption'];text(p['text'],q['x'],q['y'],q['width'],q['size'],q['align']=='center',color=q['color'],shadow=q['shadow'],halo=q.get('halo',False),outline=q.get('outline',0))
  for balloon in p.get('speech_bubbles',[]):speech(balloon)
- c.showPage()
+ finish_page()
 PAGE='back_cover'
+c.scale(S,S)
+back_transform=B['back_cover'].get('view_transform')
+if back_transform:
+ c.saveState();cliprect(0,0,W,H);c.translate(*back_transform['translate']);c.scale(back_transform['scale'],back_transform['scale'])
 if B['back_cover'].get('story_scene_page'):
  # Reuse the exact authored full-art scene and extensions, omitting its caption.
  source_page=B['pages'][B['back_cover']['story_scene_page']-1]
@@ -199,12 +208,15 @@ if B['back_cover'].get('story_scene_page'):
  else:full(source_page['art'][0],0 if source_page['layout']=='full_left' else .5)
 else:full(B['back_cover']['art'])
 for patch in B['back_cover'].get('local_patches',[]):local_patch({'local_patch':patch})
-c.showPage();c.save()
+if back_transform:c.restoreState()
+if B['back_cover'].get('caption'):
+ q=B['back_cover']['caption'];text(q['text'],q['x'],q['y'],q['width'],q['size'],True,color=q['color'],outline=q.get('outline',0))
+finish_page();c.save()
 font_path=ROOT/B['font']
-(O/'page_provenance.json').write_text(json.dumps({'page_size_points':[W,H],'coordinate_system':'source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page','font':{'file':B['font'],'sha256':hashlib.sha256(font_path.read_bytes()).hexdigest()},'layers':LAYERS,'text_lines':TEXT_LINES,'note':'Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance.'},indent=2),encoding='utf8',newline='\n')
+(O/'page_provenance.json').write_text(json.dumps({'page_size_points':[W*S,H*S],'logical_layout_points':[W,H],'logical_to_physical_scale':S,'rear_view_transform':back_transform,'coordinate_system':'source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page','font':{'file':B['font'],'sha256':hashlib.sha256(font_path.read_bytes()).hexdigest()},'layers':LAYERS,'text_lines':TEXT_LINES,'note':'Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance.'},indent=2),encoding='utf8',newline='\n')
 doc=pdfium.PdfDocument(str(PDF));thumbs=[]
 for i,page in enumerate(doc):
- im=page.render(scale=3).to_pil().convert('RGB');im.save(O/f'page_{i:02}.png')
+ im=page.render(scale=3/S).to_pil().convert('RGB');im.save(O/f'page_{i:02}.png')
  if not B.get('revision'):im.save(O/f'page_{i:02}.jpg',quality=98,subsampling=0)
  im.thumbnail((336,240));thumbs.append(im.copy())
 for start in range(0,len(thumbs),8):
@@ -213,11 +225,11 @@ for start in range(0,len(thumbs),8):
   x=j%4*336;y=j//4*262;sheet.paste(im,(x,y));idx=start+j;d.text((x+5,y+243),'Cover' if idx==0 else 'Back cover' if idx==33 else f'Page {idx}',fill='black')
  sheet.save(O/f'contact_{start//8+1}.jpg',quality=94)
 body=''.join(f'<figure><figcaption>{"Cover" if i==0 else "Back cover" if i==33 else "Page "+str(i)}</figcaption><img loading="lazy" src="page_{i:02}.png" alt="{html.escape("Cover" if i==0 else "Back cover" if i==33 else B["pages"][i-1]["text"])}"></figure>' for i in range(34))
-(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape book</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>7 × 5 inches · 32 story pages + covers · '+html.escape(B.get('revision','Review proof'))+'</p><p><a href="Mermaid_Roshan_LANDSCAPE_ROUGH.pdf">Download PDF</a> · <a href="'+html.escape(B.get('review_href','../REVISION_REVIEW.html'))+'">Revision audit and before/after views</a></p><p>34 pages including covers. Owner, child and final print acceptance remain open.</p></header><main>'+body+'</main>',encoding='utf8',newline='\n')
+(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape book</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>'+str(7*S)+' × '+str(5*S)+' inches · 32 story pages + covers · '+html.escape(B.get('revision','Review proof'))+'</p><p><a href="Mermaid_Roshan_LANDSCAPE_ROUGH.pdf">Download PDF</a> · <a href="'+html.escape(B.get('review_href','../REVISION_REVIEW.html'))+'">Revision audit and before/after views</a></p><p>34 pages including covers. Owner, child and final print acceptance remain open.</p></header><main>'+body+'</main>',encoding='utf8',newline='\n')
 # A portable rebuild provides the written review even without the earlier v7 images.
 if not B.get('revision') and not (O/'STRESS_TEST.html').exists() and (ROOT/'stress_review.json').exists():
  review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'))
  entries=''.join('<h2>Page '+str(row['page'])+'</h2><p><b>Baseline:</b> '+html.escape(row['baseline_issue'])+'</p><p><b>Revision:</b> '+html.escape(row['revision'])+'</p><p>'+html.escape(row['identity_review'])+'</p>' for row in review['pages'])
  (O/'STRESS_TEST.html').write_text('<!doctype html><meta charset="utf-8"><title>Book stress review</title><style>body{max-width:850px;margin:40px auto;padding:20px;font:18px/1.5 system-ui;color:#153047;background:#e5f2f8}</style><h1>Book stress review</h1><p>Revised rough; final owner acceptance remains open. This portable report contains the written review. The full before/after report additionally requires the v7 baseline proof.</p><a href="READ_BOOK.html">Read book</a>'+entries,encoding='utf8',newline='\n')
-(O/'verification.json').write_text(json.dumps({'pages':len(doc),'story_pages':len(B['pages']),'full_art':sum(p['mode']=='F' for p in B['pages']),'cutout':sum(p['mode']=='C' for p in B['pages']),'points':[W,H],'pdf_sha256':hashlib.sha256(PDF.read_bytes()).hexdigest(),'status':'rough; visual acceptance pending'},indent=2),encoding='utf8',newline='\n')
+(O/'verification.json').write_text(json.dumps({'pages':len(doc),'story_pages':len(B['pages']),'full_art':sum(p['mode']=='F' for p in B['pages']),'cutout':sum(p['mode']=='C' for p in B['pages']),'points':[W*S,H*S],'logical_layout_points':[W,H],'pdf_sha256':hashlib.sha256(PDF.read_bytes()).hexdigest(),'status':'rough; visual acceptance pending'},indent=2),encoding='utf8',newline='\n')
 print(PDF)
