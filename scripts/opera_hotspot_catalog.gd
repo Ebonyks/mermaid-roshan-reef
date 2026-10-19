@@ -15,7 +15,7 @@ const MAX_VISUAL_OFFSET := 140.0
 
 const VALID_MOTIONS: Array[String] = [
 	"breathe", "spin", "rock", "tilt", "pour",
-	"bounce", "shake", "slide", "pulse",
+	"bounce", "shake", "slide", "pulse", "painted_still",
 ]
 const VALID_PRESENTATIONS: Array[String] = ["overlay", "effect", "painted"]
 
@@ -45,10 +45,10 @@ const EXPECTED_PHASES: Dictionary = {
 ## such as the magician rope.
 const SPECS: Dictionary = {
 	"teacher": {
-		"PATTERN": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.svg", "motion": "pulse", "size": Vector2(190,190), "presentation": "overlay"},
-		"COUNT": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.svg", "motion": "pulse", "size": Vector2(190,190), "presentation": "overlay"},
-		"ADD": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.svg", "motion": "pulse", "size": Vector2(190,190), "presentation": "overlay"},
-		"MATCH": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.svg", "motion": "pulse", "size": Vector2(190,190), "presentation": "overlay"},
+		"PATTERN": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.png", "motion": "painted_still", "size": Vector2(190,190), "presentation": "overlay"},
+		"COUNT": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.png", "motion": "painted_still", "size": Vector2(190,190), "presentation": "overlay"},
+		"ADD": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.png", "motion": "painted_still", "size": Vector2(190,190), "presentation": "overlay"},
+		"MATCH": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.png", "motion": "painted_still", "size": Vector2(190,190), "presentation": "overlay"},
 	},
 	"chef": {
 		"MIX": {"path": "res://assets/opera/worlds/widgets/widget_pour_chef_mover.png", "motion": "pour", "size": Vector2(126, 126), "presentation": "painted"},
@@ -144,7 +144,7 @@ const SPECS: Dictionary = {
 ## isolated objects, small object groups, or transparent local effects; a
 ## card/tableau role is not valid in this catalog.
 const ASSET_META: Dictionary = {
-	"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg": {"dimensions": Vector2i(256,256), "role": "object"},
+	"res://assets/opera/worlds/hotspots/teacher_lesson_board.png": {"dimensions": Vector2i(512,512), "role": "object"},
 	"res://assets/opera/worlds/widgets/widget_pour_chef_mover.png": {"dimensions": Vector2i(256, 256), "role": "object"},
 	"res://assets/opera/worlds/widgets/widget_crank_chef_mover.png": {"dimensions": Vector2i(256, 256), "role": "object"},
 	"res://assets/opera/worlds/props/goal_chef.png": {"dimensions": Vector2i(512, 512), "role": "object"},

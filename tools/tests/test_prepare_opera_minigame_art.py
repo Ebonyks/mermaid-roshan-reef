@@ -20,6 +20,17 @@ class OperaMinigameArtCheckTests(unittest.TestCase):
 			with self.assertRaisesRegex(ValueError, "native hash mismatch"):
 				gate._chef_chocolate()
 
+	def test_painted_astronaut_sources_reject_hash_drift(self) -> None:
+		with patch.object(gate, "_sha256_file", return_value="0" * 64):
+			with self.assertRaisesRegex(ValueError, "native source hash mismatch"):
+				gate._astronaut_patch(0)
+
+	def test_painted_astronaut_sources_reject_unknown_index(self) -> None:
+		for index in (-1, 3):
+			with self.subTest(index=index):
+				with self.assertRaisesRegex(ValueError, "patch index"):
+					gate._astronaut_patch(index)
+
 	def test_declared_text_source_hash_is_checkout_newline_stable(self) -> None:
 		lf = b'{\n  "schema": 1\n}\n'
 		crlf = lf.replace(b"\n", b"\r\n")

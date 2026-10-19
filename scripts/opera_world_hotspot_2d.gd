@@ -23,6 +23,7 @@ var source_path := ""
 var motion := "breathe"
 var presentation := "overlay"
 var object_texture: Texture2D = null
+var painted_invitation_texture: Texture2D = null
 var object_size := Vector2(124.0, 124.0)
 var visual_offset := Vector2.ZERO
 var hit_size := MIN_TOUCH
@@ -47,6 +48,8 @@ func setup(index: int, id: String, stage_object_pos: Vector2,
 	station_id = id
 	source_path = texture_path
 	motion = animation_kind if not animation_kind.is_empty() else "breathe"
+	if motion == "painted_still":
+		painted_invitation_texture = load("res://assets/opera/worlds/teacher/invitation_ring.png") as Texture2D
 	presentation = _valid_presentation(presentation_kind)
 	object_size = visual_size
 	visual_offset = display_offset
@@ -102,6 +105,8 @@ func configure_object(texture_path: String, animation_kind: String,
 		display_offset := Vector2.ZERO) -> void:
 	source_path = texture_path
 	motion = animation_kind if not animation_kind.is_empty() else "breathe"
+	if motion == "painted_still":
+		painted_invitation_texture = load("res://assets/opera/worlds/teacher/invitation_ring.png") as Texture2D
 	presentation = _valid_presentation(presentation_kind)
 	object_size = visual_size
 	visual_offset = display_offset
@@ -205,6 +210,9 @@ func _draw() -> void:
 		# A small local cue leaves the actual bowl/cake/oven silhouette intact.
 		var at := object_center + Vector2(0.0, object_size.y * 0.44)
 		draw_circle(at, 5.0 + sin(elapsed * 3.0) * 1.5, Color("#ffe8a6"))
+		return
+	if motion == "painted_still":
+		_draw_whole_painted_invitation()
 		return
 	var opening_amount := clampf(opening_t / OPENING_SECONDS, 0.0, 1.0)
 	var focus_amount := 1.0 if focused or opening else 0.0
@@ -430,3 +438,17 @@ func animation_state() -> Dictionary:
 		"object_rect": stage_object_rect(),
 		"glow_rect": stage_glow_rect(),
 	}
+
+
+func _draw_whole_painted_invitation() -> void:
+	assert(object_texture != null and painted_invitation_texture != null)
+	var speed := Affordance.pulse_speed(Affordance.INTERACTION, focused or opening)
+	var amount := clampf(opening_t / OPENING_SECONDS, 0.0, 1.0)
+	var opacity := (0.80 + sin(elapsed * speed) * 0.12) * (1.0 - amount * 0.5)
+	var ring_size := painted_invitation_texture.get_size() * (object_size.x * 1.16 / 256.0)
+	var ground := object_center + Vector2(0, object_size.y * 0.35)
+	# One whole painted ground cue sits behind the opaque stationary object.
+	# Only its existing invitation clock changes opacity; no relighting or deformation.
+	draw_texture_rect(painted_invitation_texture,
+		Rect2(ground - ring_size * 0.5, ring_size), false, Color(1, 1, 1, opacity))
+	draw_texture_rect(object_texture, Rect2(object_center - object_size * 0.5, object_size), false)

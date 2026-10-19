@@ -1,0 +1,32 @@
+{
+  "method": "Unchanged strict comparator, updated native-source derivation; only stale expected outputs written. Full check-only must pass afterward.",
+  "files": [
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_mark.png",
+      "sha256": "2ee840a5a0da0ac414dbcb8f2e990f168bc12bc97ee65a649cd08f359b4e1e56"
+    },
+    {
+      "path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/OPERA_MINIGAME_ART_CONTACT_SHEET_2026-08-09.png",
+      "sha256": "fb4bfce932c937641b056ebc6d6a74764bf573c14bf66d72e7b4860eb994d604"
+    },
+    {
+      "path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/PROVENANCE.json",
+      "sha256": "909a60878a2981de27968891f2dc955ada2ecc338d004a6eea23ba381c6d359e"
+    },
+    {
+      "path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md",
+      "sha256": "6b82607192f3e192e344563c39ad863bc8356670d05007b1be3cce48968833e8"
+    }
+  ],
+  "source_note_followup": [
+    {
+      "path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/PROVENANCE.json",
+      "sha256": "16575447992b5fda7e67ac53a4510ccd8c78bd7b797e036d1fcdda5cd5c946eb"
+    },
+    {
+      "path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md",
+      "sha256": "a48657b8d30401e801ef29ddf84923034c781f4b1435ed2868939fb39e8c73af"
+    }
+  ],
+  "verification": "Strict check-only42files and12unit tests pass; hash-drift/invalid-index negatives added, no comparator/floors removed."
+}
