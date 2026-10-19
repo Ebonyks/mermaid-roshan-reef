@@ -1,0 +1,393 @@
+{
+ "packet": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes",
+ "baseline": {
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/mermaid-roshan-picture-book",
+  "commit": "a14a26ee356296c84b7251ce8222f371740ed2cb"
+ },
+ "identity_anchor": {
+  "path": "assets/characters/roshan_25d/roshan_base.png",
+  "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+  "role": "Roshan identity anchor (approved base-world atlas)"
+ },
+ "controls": [
+  {
+   "path": "books/chapter_one/landscape/book.json",
+   "sha256": "7611f1338d90ff8f59a595cb7dc0bd5414325254b3531f876426f2a1673c8b76",
+   "role": "page assignments, captions, patches"
+  },
+  {
+   "path": "books/chapter_one/landscape/render_book.py",
+   "sha256": "f491da3d6573e1acc281a50c17bf0c0e7573a6c24c3584f10e238c4f2b7ab57a",
+   "role": "renderer"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_provenance.json",
+   "sha256": "471a1490c75444b670473194f1c228d8b49c1c2432a84e84c856f4f97985450a",
+   "role": "V33 layers, transforms and text boxes"
+  },
+  {
+   "path": "books/chapter_one/landscape/PAGE_PLAN.md",
+   "sha256": "e4f546ad50d926be875180dc796bfb35cb33f77c40b60be6323a66af3134a60b",
+   "role": "V33 page plan and exact captions"
+  },
+  {
+   "path": "books/chapter_one/DESIGN_LANGUAGE.md",
+   "sha256": "e03560976fcff7e59646cf6e9544d2e1d27e8f0c0b532ee4d0e5ead448ba6656",
+   "role": "binding book rules (BK-*)"
+  }
+ ],
+ "v33_proofs": [
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_00.png",
+   "sha256": "6c188c9813f2313197c00e1a1a50813536970d970edf7c9ee4ab33f4aaea601a",
+   "role": "front cover"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_01.png",
+   "sha256": "00f232e661553f613eefb4419bf8ad60b71571616e92995edad2720162a13d82",
+   "role": "story 1"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_02.png",
+   "sha256": "58e7e348fcffaa17b119de207bbd02be6406e00093f4af817211a41f608be428",
+   "role": "story 2"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_03.png",
+   "sha256": "4829f7c05c29f3da15ba63513c93a597d6873e700f5df29cb71af916f47f75e2",
+   "role": "story 3"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_04.png",
+   "sha256": "3c54d38f2d445ce14d60c126177eca279d44e4d9747f66e6f6ab2b0ba85bd884",
+   "role": "story 4"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_05.png",
+   "sha256": "565f3f5db1d0d481dfa481f2303b4b07caa15d1e832ed82d5c7d6fcf6ba2d1d6",
+   "role": "story 5"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_06.png",
+   "sha256": "9bdd345b5c48591d91a6da2a9ece1a9f7240d8851e31d0a3ee8b62ad83efd406",
+   "role": "story 6"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_07.png",
+   "sha256": "f20e6c719137455c287f03df2747b44b71de18bc1732d8cfa0404934b7576b8b",
+   "role": "story 7"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_08.png",
+   "sha256": "44ce7bcc8d1b93bcd8e7cc49a0fc80e3109a85bc90a3084b09509623b48b4dbb",
+   "role": "story 8"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_09.png",
+   "sha256": "e6584998fdd2123e541b17633ee60ae85b2625ad3b2c736bb0250d4215018adb",
+   "role": "story 9"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_10.png",
+   "sha256": "cece45ce1404fa7823953b42eef13b00ee498a2afa9144c50e0726dabbf1aa5b",
+   "role": "story 10"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_11.png",
+   "sha256": "d77d6c5dc0af639032a2fd1d86669eef096afdb9bbf5ac7538d7327089c12719",
+   "role": "story 11"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_12.png",
+   "sha256": "4c219bfb4b7dfa0c4125e1828805a026613c015a62153e80e259b476b29a8f95",
+   "role": "story 12"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_13.png",
+   "sha256": "fa0e0a9e0a370fa4bc264da4da754c4bebc0524eaad8e371fd0003c0f9335bb9",
+   "role": "story 13"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_14.png",
+   "sha256": "a0b31a732cfa1013e73d40fe3d585899f5dfa7c0abcbfe161f86e47df705d0e2",
+   "role": "story 14"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_15.png",
+   "sha256": "312285940ccae62f0ba8f0bcfcc60eb5b477099f7f6b7bfebf3f11df503d79c5",
+   "role": "story 15"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_16.png",
+   "sha256": "96b66c55278a52f393540193c20ab0697298bc64602d16c5c960404c18f36c09",
+   "role": "story 16"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_17.png",
+   "sha256": "d8673bac60338cf8a3a574f4822a257f1c4bd2b0a415fe9489bc3027442a9486",
+   "role": "story 17"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_18.png",
+   "sha256": "e04d084fdd3a01fdedeb3febb29966075a9678bc1e0924a4731440918ece7965",
+   "role": "story 18"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_19.png",
+   "sha256": "c8657641c9970754c1244819fdc523eefa899bb0321b7ff81ed92fcb470dc41f",
+   "role": "story 19"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_20.png",
+   "sha256": "32f0a4397ba510dfd48e3469b1a03c4bb22880835dd41dfc50b3750445a71fcf",
+   "role": "story 20"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_21.png",
+   "sha256": "d0ce8e3f961ffa430dbb6a7b5f13be5b6a94e8f4465d33119c225be9b2a1126d",
+   "role": "story 21"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_22.png",
+   "sha256": "c1631e6f447e013cd78c4ea5066228f34daa949bd6ca1e3950927debf19316c9",
+   "role": "story 22"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_23.png",
+   "sha256": "5a1df98a55c3141b988d141711f275992152db7789fb867502aefe0c575f4e44",
+   "role": "story 23"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_24.png",
+   "sha256": "7b6bdd46b7331746ac2801f1772d4106a1f51665f80f56a0832b64db8e4ab333",
+   "role": "story 24"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_25.png",
+   "sha256": "4f2add55bf16b499b723f36f431af4ce9a9146c15921ddd21f4c54687e7aac21",
+   "role": "story 25"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_26.png",
+   "sha256": "2d0d404247c232034019f3d0a47c75c2dcca4d05ad93aab2e0fb90ac8d39d14a",
+   "role": "story 26"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_27.png",
+   "sha256": "a3f1b5a2365d93c16ea21688ca9b6bb1c951a211c245746eff2863424bcb1b80",
+   "role": "story 27"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_28.png",
+   "sha256": "47a8df8099fc08865b517bbc8d074f0281c2cf3b1570b11b92135e8f9ec2fa17",
+   "role": "story 28"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_29.png",
+   "sha256": "9110574d452daffacf1c9bd126e3a5d5c632449a65d0c4506287c4f3efff5ca0",
+   "role": "story 29"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_30.png",
+   "sha256": "95645bb4b07bd48253a4fb2f1b76a0ff1898e11fcb413d19d39e3637daf83fd3",
+   "role": "story 30"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_31.png",
+   "sha256": "a3481c5afe8bd88c9508805efd342b764d29e78c82569b3a44f5cab3bb4bde33",
+   "role": "story 31"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_32.png",
+   "sha256": "a8d3d463843d93286116985e1e0f80fe22e74b3fbc1183c54ee54bd894ef17ea",
+   "role": "story 32"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_33.png",
+   "sha256": "bc5b63a53c9bedc3e40c92609429cd6a469b68faa6423fe62319f48e71758605",
+   "role": "rear cover"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf",
+   "sha256": "61287c507bb1a7cb131a96d26950b228094efb5b9ddf7b283e4cb76126640bd5",
+   "role": "V33 lossless master PDF"
+  },
+  {
+   "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/Mermaid_Roshan_Book_V33_Email.pdf",
+   "sha256": "2079518cbd86d7e1aab3d83d8d442aafc09c48d2db338412c225d6012a284f21",
+   "role": "V33 email PDF"
+  }
+ ],
+ "work_item_sources": {
+  "W1": [
+   {
+    "path": "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+    "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17",
+    "role": "dusty hall art, moves from story 5 to story 4 (book.json source 'v23_castle_repair')"
+   },
+   {
+    "path": "books/chapter_one/landscape/art/door_expression_v27/door.png",
+    "sha256": "e4312cfe20029842ca02cd53916910ca004960e4e96d0c412a715bc742da6394",
+    "role": "isolate the shut shell door from this art (after W11 dimming) (book.json source 'v27_door')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank30_tiny.png",
+    "sha256": "f3c8843f2acf8a8e6304d6b9014fec5c95ef26434c8675ca3cd64adc453cc39e",
+    "role": "V33 story-4 stationery bank to reuse behind the new door page (book.json source 'v29_bank30_tiny')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v32_rainbow_story/art/shell_cobweb.png",
+    "sha256": "e0fa7955a0ee6a580f917ae88fcaf05771b61d7cb473e44b1674c4dfbc726c31",
+    "role": "retire from the book; keep file (book.json source 'v32_shell_cobweb')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v32_rainbow_story/art/dusty_chest_attempt1.png",
+    "sha256": "2f8e7bb41ba7f16d30d9f1948031f15e70f9f15267425676f3c9a498ce9cfaf1",
+    "role": "retire from the book; keep file (book.json source 'v32_dusty_chest')"
+   }
+  ],
+  "W3": [
+   {
+    "path": "books/chapter_one/previews/2026-09-30/art/sink_action.png",
+    "sha256": "873d1cd6ecd508564404e77d25c0f33e6630b4446fd5bad422c2d50a2b778b52",
+    "role": "story 8 sink action cutout (book.json source 'approved_sink_action')"
+   },
+   {
+    "path": "books/chapter_one/archive/rough_v5/art/bath_drained_local.png",
+    "sha256": "b33c3d90158d0618680803b1c9a3c9b2f61fee1bfd7db55fc57c138c14316dc3",
+    "role": "story 9 tub action cutout; identity/tub reference for W3b (book.json source 'bath_drained_local')"
+   }
+  ],
+  "W4": [
+   {
+    "path": "books/chapter_one/landscape/revisions/v29_polish/art/sponge25.png",
+    "sha256": "751dfca8d119dd8af374b59daec483293c6f0d3b1678b1025f3651e7e0ff6a58",
+    "role": "story 25 cutout pair: keep Roshan, remove Puff (book.json source 'v29_sponge25')"
+   },
+   {
+    "path": "books/chapter_one/landscape/art/language_v26/puff_unwell.png",
+    "sha256": "ac6ecf90d5a024f7bd343a26c7e3cd1600cb906aff3a5749ab89600dae23bb38",
+    "role": "story 24 Puff cutout, unchanged (book.json source 'v26_puff_unwell')"
+   }
+  ],
+  "W5": [
+   {
+    "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank24_final.png",
+    "sha256": "f8285cad166d0947f9d3667a9eaa92b52eface00b2c7c67ba1c7efbe82916f3f",
+    "role": "story 24 banks: replace right-bank cowering bunnies (book.json source 'v29_bank24_final')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank25_tiny.png",
+    "sha256": "dcbcc1303a57d327eedc7871ea5266a6a5afda158bdf2076d349da75124636f2",
+    "role": "story 25 banks: replace popcorn spectators (book.json source 'v29_bank25_tiny')"
+   }
+  ],
+  "W7": [
+   {
+    "path": "books/chapter_one/landscape/art/language_v26/rumi_trapped.png",
+    "sha256": "dd7f716c7f470cef0361e339e281fc662558f88915448c42a25bcdaeb509d2d0",
+    "role": "story 11 art: recolor the stuck cup (book.json source 'v26_rumi_trapped')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png",
+    "sha256": "3031917eb02f4a606b57e08fe7a5924abe08020c11efd3faba8cf27343cdec62",
+    "role": "story 15 art: the pink cup to match (book.json source 'v29_fountain14')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles11.png",
+    "sha256": "2ecc03a12ded1f66ed4fe58daa5bbbc216cf73f3e3e0e7e73e5f82369f8cdeec",
+    "role": "story 12 banks: replace the dented can (book.json source 'v29_bubbles11')"
+   }
+  ],
+  "W8": [
+   {
+    "path": "books/chapter_one/landscape/art/quality_v22/art_sorting.png",
+    "sha256": "e37b46fb56aadf3c66c6f2b6584c8fd145001376a24e9c20420a6292e6eeec66",
+    "role": "story 22 sorting cutout (book.json source 'v22_art_sorting')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v30_identity/art/yellow_sponge.png",
+    "sha256": "369966050378a1d4889e59c156268e9c80f53abc43e34bda31af977462ab4f98",
+    "role": "existing yellow sponge cutout to rest on the table (book.json source 'v30_yellow_sponge')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles21.png",
+    "sha256": "cc2323bbb54e9dde9848f2e2463d3643f2891e348827f95f61c1425376714b94",
+    "role": "story 22 banks: replace spill and paint paper (book.json source 'v29_bubbles21')"
+   }
+  ],
+  "W9": [
+   {
+    "path": "books/chapter_one/landscape/art/quality_v22/scene_16.png",
+    "sha256": "de334d67ba6a345cc46b9e0cab3488fbc6dd8596a66d88b9dce01f2d1ae2c3fc",
+    "role": "story 18 art: local face edit (book.json source 'v22_scene_16')"
+   }
+  ],
+  "W10": [
+   {
+    "path": "books/chapter_one/plan/source_art/R09_suds.png",
+    "sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b",
+    "role": "story 27 art: rainbow glints in foam gaps (book.json source 'R09_suds')"
+   }
+  ],
+  "W11": [
+   {
+    "path": "books/chapter_one/landscape/art/door_expression_v27/door.png",
+    "sha256": "e4312cfe20029842ca02cd53916910ca004960e4e96d0c412a715bc742da6394",
+    "role": "story 23 art: dim the door seam (book.json source 'v27_door')"
+   }
+  ],
+  "W14": [
+   {
+    "path": "books/chapter_one/landscape/art/door_expression_v27/scrub.png",
+    "sha256": "dfa3717a4df2197b82c9730044284899ab0eee9aa86c37ff7c53dd8cddfe1e86",
+    "role": "story 26 scene reused on the rear (book.json source 'v27_scrub')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v33_story_covers/art/rear_lamma.png",
+    "sha256": "a70e038302ece95cb2f1ad1d699f9eed6cf987a567c83c0f6c5c5cc9cc9ab3e6",
+    "role": "V33 rear Lamma patch (book.json source 'v33_rear_lamma')"
+   }
+  ],
+  "W15": [
+   {
+    "path": "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+    "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2",
+    "role": "front cover base art (book.json source 'cover_rendered')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v30_identity/art/front_identity.png",
+    "sha256": "0df6e530f56ae8520f2e337ec2210d585c21720eeecd4a84c43b739cff287108",
+    "role": "front identity patch source (book.json source 'v30_front_identity')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v33_story_covers/art/front_cleanup.png",
+    "sha256": "15f0b7292f63732e8afe67270bff02c36d777803eabc5444052b024681cebfe6",
+    "role": "front cleanup patch source (book.json source 'v33_front_cleanup')"
+   }
+  ],
+  "W17": [
+   {
+    "path": "books/chapter_one/landscape/revisions/v29_polish/art/castle03.png",
+    "sha256": "4fc329bf1ec83d2269fb6670eb08da8c25fb89ea1e709d9b66aa6c07089893c6",
+    "role": "story 3 art: rock piles to dusty shadow (book.json source 'v29_castle03')"
+   },
+   {
+    "path": "books/chapter_one/landscape/art/identity_v21/roshan_reflect_large.png",
+    "sha256": "f8b13e20e329c1f07fc284a980c53af512e8596c28a945c2e4976d5eb52c64fb",
+    "role": "story 31 Roshan cutout being replaced (book.json source 'roshan_reflect_large')"
+   },
+   {
+    "path": "books/chapter_one/previews/2026-09-30/art/rainbow_puff_cutout.png",
+    "sha256": "c0d15aa35ab2056566a64c72d2ccfd690e65e8c5fa809c12e66b20ed87353135",
+    "role": "story 31 rainbow Puff, unchanged (book.json source 'approved_rainbow_puff_cutout')"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank31_final.png",
+    "sha256": "18e1a0c3db666500863503af71800bd2b5aa748af44b64f3e5cb22f96676c545",
+    "role": "story 31 banks, unchanged (book.json source 'v29_bank31_final')"
+   }
+  ]
+ }
+}
