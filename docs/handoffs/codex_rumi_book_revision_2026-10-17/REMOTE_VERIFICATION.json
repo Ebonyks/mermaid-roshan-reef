@@ -1,29 +1,36 @@
 {
   "schema": "claude_remote_verification/1",
   "packet": "docs/handoffs/codex_rumi_book_revision_2026-10-17",
-  "revision": 1,
+  "revision": 2,
   "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
   "branch": "claude/rumi-book-revision-20261017",
-  "commit": "e70e865c589af7c6fc55acb7647faee6dce2f7d8",
-  "entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/e70e865c589af7c6fc55acb7647faee6dce2f7d8/docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md",
-  "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/e70e865c589af7c6fc55acb7647faee6dce2f7d8/docs/handoffs/codex_rumi_book_revision_2026-10-17",
-  "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/e70e865c589af7c6fc55acb7647faee6dce2f7d8/docs/handoffs/codex_rumi_book_revision_2026-10-17/MANIFEST.json",
+  "commit": "d81ac6d6879028b9f1d8a76be1aa6ed285ca9f04",
+  "entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d81ac6d6879028b9f1d8a76be1aa6ed285ca9f04/docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md",
+  "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/d81ac6d6879028b9f1d8a76be1aa6ed285ca9f04/docs/handoffs/codex_rumi_book_revision_2026-10-17",
+  "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d81ac6d6879028b9f1d8a76be1aa6ed285ca9f04/docs/handoffs/codex_rumi_book_revision_2026-10-17/MANIFEST.json",
   "access_mode": "anonymous HTTPS GET to raw.githubusercontent.com, no credentials",
-  "checked_at_utc": "2026-10-18T09:12:07+00:00",
+  "checked_at_utc": "2026-10-19T04:03:02+00:00",
   "result": "PASS",
   "files_checked": 9,
+  "previous_revision": {
+    "revision": 1,
+    "commit": "e70e865c589af7c6fc55acb7647faee6dce2f7d8",
+    "result": "PASS",
+    "files_checked": 9,
+    "checked_at_utc": "2026-10-18T09:12:07+00:00"
+  },
   "files": [
     {
       "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/MANIFEST.json",
       "http": 200,
-      "sha256": "2701177421e851d2170e26b8dcd7dc66322069cb659eace3f029c776749c0f30",
+      "sha256": "19c144510c09bbbb94907fdabf1dcf98d7cea4b19da2dd3a95a00819005567a1",
       "match": true
     },
     {
       "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md",
       "http": 200,
-      "bytes": 13260,
-      "sha256": "5d9746f3a9a08dda4dac698c960262ac9cce3ee1aa38fd5c4881b397f26c3037",
+      "bytes": 13776,
+      "sha256": "b3becbd9c003e503de1cbc8d77a3ba3385355d464389852f25f989deb372bfa1",
       "match": true
     },
     {
@@ -50,8 +57,8 @@
     {
       "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/GAME_INTEGRATION.md",
       "http": 200,
-      "bytes": 17521,
-      "sha256": "bb16b5d7242d0368ecf550b0c27cf11acbf859af8a8b3a9b066a0a48b3949094",
+      "bytes": 19099,
+      "sha256": "04cd9d73294306cac9226b3ae5bc8439559a85bc826b3b18f6502d125a165518",
       "match": true
     },
     {

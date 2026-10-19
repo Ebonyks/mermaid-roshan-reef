@@ -35,12 +35,13 @@
   ],
   "findings": [
     "MA-OPERA-002",
+    "MA-OPERA-014",
     "MA-ROSHAN-005",
     "MA-PLAY-005",
     "MA-ACCESS-001",
     "MA-CHILD-001"
   ],
-  "finding_scope": "Constraints and dependencies only: missing objects stay out of search pictures (MA-OPERA-002), Pop Star ribbons stay fabric (MA-ROSHAN-005), the chapter entry depends on Chapter 2 reachability (MA-PLAY-005), new objectives need exact voice cues (MA-ACCESS-001) and child evidence is absent (MA-CHILD-001). No finding is repaired, closed or changed.",
+  "finding_scope": "Constraints and dependencies only: missing objects stay out of search pictures (MA-OPERA-002), the call-and-answer activities wait on the owner-approved Pop Star rebuild (MA-OPERA-014, revision 2), Pop Star ribbons stay fabric (MA-ROSHAN-005), the chapter entry depends on Chapter 2 reachability (MA-PLAY-005), new objectives need exact voice cues (MA-ACCESS-001) and child evidence is absent (MA-CHILD-001). No finding is repaired, closed or changed.",
   "files": [
     "audit/cycles/rumi-revision-20261017/owner_answers.json",
     "design/05_DOC_LEDGER.md",
@@ -101,12 +102,22 @@
     {
       "command": "Anonymous fetch of every MANIFEST.json file at the pushed commit with SHA-256 comparison",
       "result": "PASS",
-      "evidence": "REMOTE_VERIFICATION.json: commit e70e865c589af7c6fc55acb7647faee6dce2f7d8, anonymous HTTPS to raw.githubusercontent.com, 9 of 9 files (manifest plus 8 packet files) HTTP 200 with matching SHA-256 and size, checked 2026-10-18T09:12:07+00:00."
+      "evidence": "REMOTE_VERIFICATION.json: revision 2 at commit d81ac6d6879028b9f1d8a76be1aa6ed285ca9f04, anonymous HTTPS to raw.githubusercontent.com, 9 of 9 files HTTP 200 with matching SHA-256 and size, checked 2026-10-19T04:03:02+00:00; revision 1 at e70e865c589af7c6fc55acb7647faee6dce2f7d8 also passed 9 of 9 at 2026-10-18T09:12:07+00:00."
     },
     {
-      "command": "Branch Probe Suite CI on the pushed head",
+      "command": "Branch Probe Suite CI on the revision 1 head",
+      "result": "PASS",
+      "evidence": "Run 39114484565 succeeded on 80a8258a5061aa29c193ce0bb3fd508ba7cef061 (jobs probes and area-music-provenance). Merged into dev at 6fb96aeb441952c1053cc5ce18435fc57fc1d1ab with register and ledger conflicts resolved; local gates passed on the merged tree; dev run 39196985660 was in progress at merge time."
+    },
+    {
+      "command": "Revision 2 recheck against dev 6fb96aeb: owner decisions ODR-MINIGAME-REBUILD-20261017 and ODR-POPSTAR-CORE-20261018, finding MA-OPERA-014 and docs/handoffs/codex_minigame_rebuilds_2026-10-17/POP_STAR.md",
+      "result": "PASS",
+      "evidence": "GAME_INTEGRATION now builds the Echo Dome and finale on the rebuilt call and answer and takes the quiet hold from the shared hold gesture (mode 'hold' in scripts/opera_gesture_surface.gd); README, ledger notes and manifest updated. Story, world and analysis unchanged."
+    },
+    {
+      "command": "Branch Probe Suite CI on the revision 2 head",
       "result": "PENDING",
-      "evidence": "Docs-only change; tracked on the branch's workflow run."
+      "evidence": "Docs-only revision; merge into dev only after it passes."
     }
   ],
   "acceptance_gaps": "Owner answers Q1-Q6; the owner's read-aloud approval of the revised story before any art; reference boards, page art, lettering, PDF and any child read-aloud observation; a chapter commission, runtime implementation and device, child and owner play acceptance. All outstanding. No game file, image or protected asset changed; game-wide audit remains UNSATISFIED.",
@@ -134,6 +145,10 @@
     {
       "path": "design/reference/GOLD_STAR.md",
       "purpose": "Activity quality ranking; the Mermaid Pool as the reference model"
+    },
+    {
+      "path": "docs/handoffs/codex_minigame_rebuilds_2026-10-17/POP_STAR.md",
+      "purpose": "Owner-approved call-and-answer engine for the Echo Dome and finale (revision 2)"
     }
   ],
   "lessons": [
