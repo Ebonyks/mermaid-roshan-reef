@@ -189,8 +189,8 @@
     },
     {
       "command": "Anonymous fetch of every MANIFEST.json file at the pushed commit with SHA-256 comparison (revision 2)",
-      "result": "PENDING",
-      "evidence": "Recorded in REMOTE_VERIFICATION.json after the revision 2 push."
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json (revision 2): commit 9c59fef9adf4a80207aff9738f00b59ce3c05e45, anonymous HTTPS to raw.githubusercontent.com, 12 of 12 files (manifest, six packet files and five records) HTTP 200 with matching SHA-256 and size, checked 2026-10-19T13:50:21+00:00."
     },
     {
       "command": "Branch Probe Suite CI on the pushed head",
