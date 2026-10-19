@@ -3631,7 +3631,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		phase_progress = goal
 	elif mode == "swipe" and _kind == "swipe" and surface._uses_authored_trace_context() \
 			and (surface.trace_journey >= 1.0 \
-			or (career_id == "chef" and surface.trace_journey >= 0.999)):
+			or (career_id in ["chef", "doctor"] and surface.trace_journey >= 0.999)):
 		# Canvas touch transforms can return the final authored point as
 		# 0.99999994. Match the surface's existing finished-prefix threshold;
 		# otherwise its own input guard stops before this world earns the goal.
@@ -3707,7 +3707,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 func _uses_authored_completion_picture(mode: String) -> bool:
 	if surface is OperaChefSurface:
 		return true
-	if career_id in ["teacher", "geologist", "chef", "nursery"] \
+	if career_id in ["teacher", "geologist", "chef", "nursery", "doctor", "farmer", "magician", "painter"] \
 			or (career_id == "racer" and mode == "kart_race"):
 		return true
 	return career_id == "candymaker" and mode == "pourt" \

@@ -1,0 +1,5 @@
+{
+  "status": "FAILED_PADDING_ASSERT",
+  "cause": "Alpha>0 low-alpha source border makes creamhat full crop taller than wide; width-only fit exceeded bottom-padded canvas by5px.",
+  "repair": "Keep originalnative unchanged; use uniform fit to BOTH axes. Preserve first partial derivative under review/retired_hat_derivatives01. No alpha removal/paint."
+}

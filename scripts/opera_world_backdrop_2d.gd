@@ -298,14 +298,14 @@ func _draw() -> void:
 		_draw_tile_set(active_tiles)
 		# The saved clean kitchen owns its painted light. Stage beams would add
 		# two broad alpha passes over the room and the persistent cake.
-		if career_id not in ["chef", "nursery", "boxer"] and (stage_mode or not _is_chapter2_clean_kitchen()):
+		if career_id not in ["chef", "nursery", "boxer", "doctor", "farmer", "magician", "painter"] and (stage_mode or not _is_chapter2_clean_kitchen()):
 			_draw_spotlights(accent)
 		return
 	if painting != null:
 		draw_texture_rect(painting, Rect2(Vector2.ZERO, size), false)
 		# spotlights are stage lighting — over a painted district they fight
 		# the art's own light sources
-		if stage_mode and career_id not in ["nursery", "boxer"]:
+		if stage_mode and career_id not in ["nursery", "boxer", "doctor", "farmer", "magician", "painter"]:
 			_draw_spotlights(accent)
 		if stage_mode:
 			_draw_stage_frame(accent)

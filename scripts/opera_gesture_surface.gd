@@ -12,6 +12,9 @@ signal gesture(kind: String, amount: float, quality: float)
 ## The room and career-world focus supply the visual ground. This surface owns
 ## only themed play objects/effects; it must never recreate the retired pale
 ## clipboard/easel card underneath them.
+const SupportArt := preload("res://scripts/support_career_painted_art.gd")
+var support_painted_art: SupportCareerPaintedArt
+
 const ChefArt := preload("res://scripts/chef_painted_art.gd")
 var chef_painted_art: ChefPaintedArt
 
@@ -637,12 +640,8 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 			"res://assets/opera/worlds/widgets/widget_magic_vanish_hat.png")
 		magic_vanish_wand_texture = _load_widget_texture(
 			"res://assets/opera/worlds/widgets/widget_magic_vanish_wand.png")
-		# Reuse Lamb-a's approved Seek identity, preserving the atlas pixels.
-		var lamba_atlas := AtlasTexture.new()
-		lamba_atlas.atlas = _load_widget_texture(
-			"res://assets/minigames/seek/lamma_animation.png")
-		lamba_atlas.region = Rect2(0, 0, 256, 256)
-		magic_vanish_lamba_texture = lamba_atlas
+		# Same source-bound Lamb-a identity, with the commissioned painted finish.
+		magic_vanish_lamba_texture = _support_art_ref().art("widget_lamba_magician")
 		# The old success plate makes Lamba pop back out, contradicting VANISH.
 		# Keep its provenance but never load or draw those reversed-result pixels.
 		retired_magic_vanish_reveal_path = \
@@ -664,8 +663,7 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	if next_mode == "magic_cabinet":
 		magic_cabinet_closed_texture = _load_widget_texture(
 			"res://assets/opera/worlds/widgets/widget_magic_cabinet_closed.png")
-		magic_cabinet_reveal_texture = _load_widget_texture(
-			"res://assets/opera/worlds/widgets/widget_magic_cabinet_reveal.png")
+		magic_cabinet_reveal_texture = _support_art_ref().art("widget_cabinet_magician_reveal")
 	portal_mover_texture = null
 	portal_ring_texture = null
 	portal_overlay_texture = null
@@ -839,6 +837,8 @@ func _load_widget_set() -> void:
 		"target":
 			widget_mover = _load_widget_texture("%s_mover.png" % prefix)
 			widget_stamp = _load_widget_texture("%s_mark.png" % prefix)
+			if visual_context == "target_painter":
+				widget_stamp = _support_art_ref().art("widget_stamp_painter")
 			widget_overlay = _load_widget_texture("%s_success.png" % prefix)
 		"lanes":
 			widget_mover = _load_widget_texture("%s_lit.png" % prefix)
@@ -1324,6 +1324,15 @@ func _draw() -> void:
 	# object over the career-world theatre-light focus.
 	last_widget_ground_route = ""
 	var center := size * 0.5
+	if visual_context == "basin_doctor" or visual_context in ["lanes_magician", "lanes_painter", "lanes_doctor"]:
+		if visual_context == "basin_doctor":
+			_support_art_ref().basin()
+		else:
+			_support_art_ref().lanes()
+		last_widget_ground_route = widget_template
+		if demo_active:
+			_draw_demo_finger()
+		return
 	if mode == "pipe":
 		_draw_pipe()
 		if demo_active:
@@ -1523,6 +1532,10 @@ func _contain_rect(texture: Texture2D, bounds: Rect2) -> Rect2:
 
 
 func _draw_progress_overlay(texture: Texture2D, progress: float, horizontal: bool) -> void:
+	if texture.resource_path.ends_with("castle_banner_rainbow.png"):
+		var bounds := _contain_rect(texture, Rect2(Vector2.ZERO, size))
+		draw_texture_rect(texture, bounds, false, Color(1.0, 1.0, 1.0, clampf(progress, 0.0, 1.0)))
+		return
 	var amount := clampf(progress, 0.0, 1.0)
 	if amount <= 0.0:
 		return
@@ -1639,6 +1652,9 @@ func _draw_farmer_pig_group(progress: float) -> void:
 
 
 func _draw_long_push() -> void:
+	if visual_context == "push_farmer":
+		_support_art_ref().herd()
+		return
 	if visual_context == "chapter2_basket_delivery":
 		_draw_chapter2_basket_delivery()
 		return
@@ -1755,11 +1771,9 @@ func _trace_demo_point(progress: float) -> Vector2:
 			return Vector2(size.x * lerpf(0.12, 0.88, amount),
 				size.y * (0.50 + sin(amount * TAU) * 0.18))
 		"trace_doctor":
-			return Vector2(size.x * lerpf(0.18, 0.82, amount),
-				size.y * (0.28 + amount * 0.45 + sin(amount * TAU) * 0.07))
+			return _support_art_ref().doctor_trace_point(amount)
 		"trace_magician":
-			return Vector2(size.x * lerpf(0.16, 0.84, amount),
-				size.y * (0.27 + (1.0 - pow(2.0 * amount - 1.0, 2.0)) * 0.42))
+			return _support_art_ref().rope_point(amount)
 	return size * 0.5
 
 
@@ -1781,9 +1795,9 @@ func _trace_progress_for_point(point: Vector2) -> float:
 		"trace_ballerina":
 			return clampf(inverse_lerp(size.x * 0.12, size.x * 0.88, point.x), 0.0, 1.0)
 		"trace_doctor":
-			return clampf(inverse_lerp(size.x * 0.18, size.x * 0.82, point.x), 0.0, 1.0)
+			return clampf(inverse_lerp(_trace_demo_point(0.0).x, _trace_demo_point(1.0).x, point.x), 0.0, 1.0)
 		"trace_magician":
-			return clampf(inverse_lerp(size.x * 0.16, size.x * 0.84, point.x), 0.0, 1.0)
+			return clampf(inverse_lerp(_trace_demo_point(0.0).x, _trace_demo_point(1.0).x, point.x), 0.0, 1.0)
 	return trace_journey
 
 
@@ -1825,7 +1839,10 @@ func _authored_trace_drag(at: Vector2) -> void:
 	demo_active = false
 	if trace_points.is_empty():
 		trace_points.append(previous_pos)
-	if at.distance_to(trace_points[trace_points.size() - 1]) > 10.0:
+	# The close-up arm guide needs finer drawing-history samples; this does not
+	# change corridor/ordering/earned progress or gesture signals.
+	var history_gap := 2.0 if visual_context == "trace_doctor" else 10.0
+	if at.distance_to(trace_points[trace_points.size() - 1]) > history_gap:
 		trace_points.append(at)
 	trace_journey = minf(1.0, candidate)
 	widget_fill = trace_journey
@@ -1846,17 +1863,15 @@ func _trace_corridor_contains(point: Vector2) -> bool:
 			var expected_y := size.y * (0.50 + sin(amount * TAU) * 0.18)
 			return absf(point.y - expected_y) <= size.y * 0.14
 		"trace_doctor":
-			var amount := inverse_lerp(size.x * 0.18, size.x * 0.82, point.x)
+			var amount := inverse_lerp(_trace_demo_point(0.0).x, _trace_demo_point(1.0).x, point.x)
 			if amount < 0.0 or amount > 1.0:
 				return false
-			var expected_y := size.y * (0.28 + amount * 0.45 + sin(amount * TAU) * 0.07)
-			return absf(point.y - expected_y) <= size.y * 0.14
+			return absf(point.y - _trace_demo_point(amount).y) <= size.y * 0.14
 		"trace_magician":
-			var amount := inverse_lerp(size.x * 0.16, size.x * 0.84, point.x)
+			var amount := inverse_lerp(_trace_demo_point(0.0).x, _trace_demo_point(1.0).x, point.x)
 			if amount < 0.0 or amount > 1.0:
 				return false
-			var expected_y := size.y * (0.27 + (1.0 - pow(2.0 * amount - 1.0, 2.0)) * 0.42)
-			return absf(point.y - expected_y) <= size.y * 0.14
+			return absf(point.y - _trace_demo_point(amount).y) <= size.y * 0.14
 	return true
 
 
@@ -1872,6 +1887,10 @@ func _trace_segment_on_corridor(from: Vector2, to: Vector2) -> bool:
 
 
 func _draw_authored_trace_corridor() -> void:
+	if visual_context in ["trace_doctor", "trace_magician"]:
+		_draw_authored_trace_subject()
+		last_trace_subject_route = visual_context
+		return
 	if visual_context == "trace_chef":
 		_chef_art_ref().draw_frost()
 		last_trace_subject_route = visual_context
@@ -1984,35 +2003,11 @@ func _draw_trace_ballerina_subject() -> void:
 
 
 func _draw_trace_doctor_subject() -> void:
-	var plush := Vector2(size.x * 0.50, size.y * 0.56)
-	var body := Vector2(size.x * 0.38, size.y * 0.46)
-	draw_set_transform(plush, -0.08, Vector2(1.0, 0.78))
-	draw_circle(Vector2.ZERO, body.y * 0.50, Color("#d59a70"))
-	draw_circle(Vector2(0.0, -body.y * 0.37), body.y * 0.27, Color("#efb88a"))
-	draw_circle(Vector2(-body.y * 0.09, -body.y * 0.41), 5.0, Color("#47354d"))
-	draw_circle(Vector2(body.y * 0.09, -body.y * 0.41), 5.0, Color("#47354d"))
-	draw_set_transform(Vector2.ZERO)
-	draw_line(plush - Vector2(body.x * 0.56, 0.0),
-		plush + Vector2(body.x * 0.56, 0.0), Color(0.60, 0.45, 0.38, 0.38), 5.0, true)
-	var roll := _trace_demo_point(0.0)
-	draw_circle(roll, 25.0, Color("#f7ead4"))
-	draw_circle(roll, 10.0, Color("#9d7b74"))
-	draw_arc(roll, 25.0, 0.0, TAU, 28, Color("#6f5369"), 4.0)
+	_support_art_ref().patient(true, trace_journey)
 
 
 func _draw_trace_magician_subject() -> void:
-	var start := _trace_demo_point(0.0)
-	var finish := _trace_demo_point(1.0)
-	for knot: Vector2 in [start, finish]:
-		draw_circle(knot, 18.0, Color("#77518c"))
-		draw_circle(knot, 10.0, Color("#f0c873"))
-		draw_arc(knot, 23.0, 0.0, TAU, 28, Color(0.77, 0.53, 0.93, 0.58), 5.0)
-	for mote_index in range(5):
-		var amount := float(mote_index + 1) / 6.0
-		var mote := _trace_demo_point(amount) + Vector2(0.0,
-			sin(demo_t * 2.4 + float(mote_index)) * 8.0)
-		draw_circle(mote, 3.5 + float(mote_index % 2) * 2.0,
-			Color(1.0, 0.88, 0.38, 0.62))
+	_support_art_ref().rope()
 
 
 func _is_magician_portal_context() -> bool:
@@ -2063,69 +2058,7 @@ func _portal_doorway_rotation() -> float:
 
 
 func _draw_magician_portal() -> void:
-	last_contextual_draw_route = "portal:%s" % visual_context
-	last_portal_layer_order = ""
-	# The legacy base is a complete Lamba/hat/platform tableau. Mask its entire
-	# subject bbox first so only the portal ring—not detached tableau fragments—
-	# survives inside the framed card.
-	_draw_clean_widget_playfield(Color("#322654"), Color("#4e3a72"))
-	var center := _portal_center()
-	var radius := _portal_radius()
-	var progress := clampf(widget_fill, 0.0, 1.0)
-	if portal_overlay_texture != null:
-		draw_texture_rect(portal_overlay_texture, Rect2(Vector2.ZERO, size), false,
-			Color(1.0, 1.0, 1.0, 0.18 + progress * 0.82))
-	# The delivered doorway may ease/fade into view, but its columns, curtains,
-	# and threshold never rotate with the child's circular gesture.
-	var doorway_scale := 0.88 + progress * 0.12
-	draw_set_transform(center, _portal_doorway_rotation(), Vector2.ONE * doorway_scale)
-	var doorway_side := radius * 2.28
-	if portal_mover_texture != null:
-		draw_texture_rect(portal_mover_texture,
-			Rect2(Vector2.ONE * -doorway_side * 0.5, Vector2.ONE * doorway_side), false,
-			Color(1.0, 1.0, 1.0, 0.52 + progress * 0.48))
-	else:
-		var frame_color := Color("#e7bd78")
-		for side_sign: float in [-1.0, 1.0]:
-			var post_x := side_sign * radius * 0.68
-			draw_line(Vector2(post_x, -radius * 0.18),
-				Vector2(post_x, radius * 0.74), frame_color, 12.0, true)
-		draw_arc(Vector2(0.0, radius * 0.06), radius * 0.69,
-			PI, TAU, 32, frame_color, 12.0)
-		draw_line(Vector2(-radius * 0.80, radius * 0.76),
-			Vector2(radius * 0.80, radius * 0.76), frame_color, 12.0, true)
-	draw_set_transform(Vector2.ZERO)
-	last_portal_layer_order = "doorway"
-	var rotating := _portal_rotating_texture()
-	var portal_scale := Vector2.ONE * (0.78 + progress * 0.22)
-	draw_set_transform(center, crank_rotation, portal_scale)
-	if rotating != null:
-		var ring_side := radius * 1.22
-		draw_texture_rect(rotating,
-			Rect2(Vector2.ONE * -ring_side * 0.5, Vector2.ONE * ring_side), false)
-	else:
-		# Portal-only field: broken rings and star motes stay within the doorway's
-		# aperture while the architectural columns remain physically stationary.
-		for ring_index in range(3):
-			var ring_radius := radius * (0.24 + float(ring_index) * 0.15)
-			var gap := 0.42 - progress * 0.34
-			var start_angle := float(ring_index) * 0.72
-			draw_arc(Vector2.ZERO, ring_radius, start_angle + gap,
-				start_angle + TAU - gap, 48,
-				Color(1.0, 0.78 + float(ring_index) * 0.06, 0.25,
-					0.55 + progress * 0.35), 8.0 - float(ring_index))
-		for mote_index in range(6):
-			var angle := float(mote_index) / 6.0 * TAU + progress * 1.4
-			draw_circle(Vector2.from_angle(angle) * radius * 0.40,
-				3.5 + float(mote_index % 2) * 2.0,
-				Color(0.80, 0.96, 1.0, 0.52 + progress * 0.38))
-	draw_set_transform(Vector2.ZERO)
-	last_portal_layer_order += ">aperture"
-	if completion_accepted or progress >= 0.999:
-		draw_circle(center, radius * 0.38, Color(0.52, 0.32, 0.84, 0.42))
-		draw_arc(center, radius * 0.82, 0.0, TAU, 48,
-			Color(1.0, 0.88, 0.34, 0.82), 8.0)
-		last_portal_layer_order += ">glow"
+	_support_art_ref().portal()
 
 
 func _is_racer_tune_context() -> bool:
@@ -2392,68 +2325,7 @@ func _draw_candymaker_crank(progress: float) -> void:
 
 
 func _draw_doctor_crank(progress: float) -> void:
-	_draw_clean_widget_playfield(Color("#ebfaf6"), Color("#bcded9"))
-	var rect := _crank_action_rect()
-	var center := rect.get_center()
-	# A clamshell examination berth grounds the patient directly in the room;
-	# it deliberately avoids the square exam-card silhouette used by the old UI.
-	var berth_center := center + Vector2(0.0, rect.size.y * 0.20)
-	for petal_index in range(7):
-		var petal_angle := lerpf(PI * 1.08, PI * 1.92, float(petal_index) / 6.0)
-		var petal_center := berth_center + Vector2.from_angle(petal_angle) \
-			* rect.size.y * 0.30
-		draw_set_transform(petal_center, petal_angle + PI * 0.5, Vector2(0.72, 1.28))
-		draw_circle(Vector2.ZERO, rect.size.y * 0.16, Color("#b9e2dc"))
-		draw_set_transform(Vector2.ZERO)
-	draw_set_transform(berth_center + Vector2(0.0, rect.size.y * 0.19),
-		0.0, Vector2(1.75, 0.45))
-	draw_circle(Vector2.ZERO, rect.size.y * 0.27, Color("#7f6aa0"))
-	draw_circle(Vector2(0.0, -4.0), rect.size.y * 0.22, Color("#d9cef0"))
-	draw_set_transform(Vector2.ZERO)
-	var plush := center + Vector2(0.0, rect.size.y * 0.05)
-	if doctor_patient_texture != null:
-		var patient_side := rect.size.y * 0.91
-		draw_texture_rect(doctor_patient_texture,
-			Rect2(plush - Vector2.ONE * patient_side * 0.5,
-				Vector2.ONE * patient_side), false)
-		last_specialist_subject_route = "doctor_starfish_patient"
-	else:
-		# Five soft arms retain a readable starfish fallback if an export ever
-		# loses the reviewed sprite.
-		for arm_index in range(5):
-			var arm_angle := -PI * 0.5 + float(arm_index) / 5.0 * TAU
-			var arm := plush + Vector2.from_angle(arm_angle) * rect.size.y * 0.20
-			draw_set_transform(arm, arm_angle, Vector2(1.35, 0.68))
-			draw_circle(Vector2.ZERO, rect.size.y * 0.13, Color("#e87f72"))
-			draw_set_transform(Vector2.ZERO)
-		draw_circle(plush, rect.size.y * 0.18, Color("#e87f72"))
-	# Wrap the lower-left arm/body while keeping the patient's eyes and smile
-	# visible. The real roll rides the growing edge so rotation causes the result.
-	var wrap_left := plush.x - rect.size.x * 0.34
-	var wrap_width := rect.size.x * 0.42 * progress
-	var wrap_top := plush.y + rect.size.y * 0.10
-	for strip_index in range(3):
-		var strip_y := wrap_top + float(strip_index) * rect.size.y * 0.10
-		draw_line(Vector2(wrap_left, strip_y), Vector2(wrap_left + wrap_width, strip_y),
-			Color("#fff4dc"), 12.0, true)
-		if progress > 0.06:
-				draw_line(Vector2(wrap_left, strip_y - 3.0),
-				Vector2(wrap_left + wrap_width, strip_y - 3.0),
-				Color(0.75, 0.60, 0.52, 0.32), 2.0, true)
-	if widget_mover != null and progress > 0.02:
-		var roll_center := Vector2(wrap_left + wrap_width,
-			wrap_top + rect.size.y * 0.10)
-		var roll_side := minf(rect.size.x, rect.size.y) * 0.34
-		draw_set_transform(roll_center, crank_rotation, Vector2.ONE)
-		draw_texture_rect(widget_mover,
-			Rect2(Vector2.ONE * -roll_side * 0.5, Vector2.ONE * roll_side), false)
-		draw_set_transform(Vector2.ZERO)
-	if progress >= 0.95:
-		var badge := plush + Vector2(-rect.size.x * 0.18, rect.size.y * 0.23)
-		draw_line(badge - Vector2(10.0, 0.0), badge + Vector2(10.0, 0.0),
-			Color("#e16e78"), 5.0, true)
-		draw_line(badge - Vector2(0.0, 10.0), badge + Vector2(0.0, 10.0),
-			Color("#e16e78"), 5.0, true)
+	_support_art_ref().patient(false, progress)
 
 
 func _draw_astronaut_crank(progress: float) -> void:
@@ -2747,33 +2619,7 @@ func _draw_widget_family_ground(center: Vector2) -> void:
 
 
 func _draw_doctor_basin_subject() -> void:
-	# A literal shell sink and faucet replace the retired card's abstract meter.
-	# Hands sit in the water so the sustained hold has an obvious causal object.
-	var basin_center := Vector2(size.x * 0.50, size.y * 0.67)
-	var basin_radius := minf(size.x * 0.30, size.y * 0.29)
-	draw_set_transform(basin_center, 0.0, Vector2(1.36, 0.66))
-	draw_circle(Vector2.ZERO, basin_radius, Color("#7ad4dd"))
-	draw_circle(Vector2.ZERO, basin_radius * 0.72, Color(0.78, 0.96, 1.0, 0.82))
-	draw_arc(Vector2.ZERO, basin_radius, 0.0, TAU, 40, Color("#744f75"), 6.0)
-	draw_set_transform(Vector2.ZERO)
-	var faucet_top := Vector2(basin_center.x, size.y * 0.27)
-	draw_line(Vector2(faucet_top.x - 44.0, basin_center.y - 18.0),
-		Vector2(faucet_top.x - 44.0, faucet_top.y), Color("#e4c17a"), 14.0, true)
-	draw_arc(faucet_top, 44.0, PI, TAU, 24, Color("#e4c17a"), 14.0)
-	draw_line(Vector2(faucet_top.x + 44.0, faucet_top.y),
-		Vector2(faucet_top.x + 44.0, faucet_top.y + 30.0), Color("#e4c17a"), 14.0, true)
-	draw_circle(Vector2(faucet_top.x - 72.0, faucet_top.y + 12.0), 16.0, Color("#f1a5ad"))
-	draw_circle(Vector2(faucet_top.x + 72.0, faucet_top.y + 12.0), 16.0, Color("#88c8d0"))
-	var water_alpha := 0.34 + widget_fill * 0.50
-	draw_line(Vector2(faucet_top.x + 44.0, faucet_top.y + 30.0),
-		Vector2(faucet_top.x + 44.0, basin_center.y - 16.0),
-		Color(0.70, 0.96, 1.0, water_alpha), 7.0, true)
-	for hand_sign: float in [-1.0, 1.0]:
-		var hand := basin_center + Vector2(hand_sign * 34.0, -8.0)
-		draw_circle(hand, 18.0, Color("#ffd4b8"))
-		draw_line(hand + Vector2(hand_sign * 5.0, 12.0),
-			hand + Vector2(hand_sign * 18.0, 30.0), Color("#ffd4b8"), 15.0, true)
-	last_specialist_subject_route = "doctor_basin"
+	_support_art_ref().basin()
 
 
 func _draw_widget_layers(center: Vector2) -> void:
@@ -3027,7 +2873,7 @@ func _draw_target_subject() -> void:
 	var pose := _target_subject_pose()
 	var centre: Vector2 = pose.get("centre", size * 0.5)
 	var extent := float(pose.get("extent", minf(size.x, size.y) * 0.88))
-	if visual_context == "chapter2_basket_fill":
+	if visual_context == "chapter2_basket_fill" or widget_mover.resource_path.ends_with("castle_banner_rainbow.png"):
 		var bounds := Rect2(centre - Vector2.ONE * extent * 0.5, Vector2.ONE * extent)
 		draw_texture_rect(widget_mover, _contain_rect(widget_mover, bounds), false)
 	else:
@@ -3036,6 +2882,9 @@ func _draw_target_subject() -> void:
 
 
 func _draw_anchored_targets() -> void:
+	if visual_context == "target_farmer":
+		_support_art_ref().picnic_targets()
+		return
 	if visual_context == "target_chef":
 		_chef_art_ref().draw_targets()
 		last_target_subject_route = visual_context
@@ -3353,7 +3202,6 @@ func _magic_vanish_lamba_alpha(progress: float) -> float:
 
 
 func _draw_magic_vanish_scene(center: Vector2) -> void:
-	_draw_causal_backdrop(Color("#20183f"), Color("#3b2557"))
 	var progress := clampf(widget_fill, 0.0, 1.0)
 	var success_amount := _magic_vanish_success_amount(progress)
 	var hat_center := _magic_vanish_hat_position(progress)
@@ -3395,20 +3243,12 @@ func _draw_magic_vanish_scene(center: Vector2) -> void:
 		draw_circle(Vector2(wand_side * 0.30, wand_side * -0.30), 9.0,
 			Color("#ffe56f"))
 	draw_set_transform(Vector2.ZERO)
-	var magic_alpha := clampf((progress - 0.18) / 0.82, 0.0, 1.0)
-	for sparkle_index in range(8):
-		var angle := float(sparkle_index) / 8.0 * TAU + progress * 2.4
-		var sparkle := Vector2(size.x * 0.50, size.y * 0.45) \
-			+ Vector2.from_angle(angle) * (20.0 + 44.0 * magic_alpha)
-		draw_circle(sparkle, 3.0 + float(sparkle_index % 3),
-			Color(1.0, 0.86, 0.34, magic_alpha))
 	if success_amount > 0.0:
-		draw_arc(hat_center, hat_side * (0.42 + success_amount * 0.09),
-			0.0, TAU, 36, Color(1.0, 0.91, 0.48, success_amount), 6.0)
-	if completion_accepted or progress >= 0.999:
-		draw_arc(Vector2(size.x * 0.50, size.y * 0.45),
-			minf(size.x, size.y) * 0.30, 0.0, TAU, 40,
-			Color(1.0, 0.86, 0.34, 0.64), 7.0)
+		var painted := _support_art_ref()
+		painted.feedback.invitation(self, hat_center, hat_side * 1.15,
+			mini(3, int(success_amount * 4.0)))
+		painted.picture("widget_portal_magician_overlay", hat_center,
+			hat_side * 0.80, success_amount)
 
 
 func _clue_home_point() -> Vector2:
@@ -3747,38 +3587,7 @@ func _garden_tick(delta: float) -> void:
 
 
 func _draw_garden_plant() -> void:
-	_draw_causal_backdrop(Color("#dff3d5"), Color("#89ba70"))
-	draw_rect(Rect2(size.x * 0.12, size.y * 0.18, size.x * 0.76, size.y * 0.65),
-		Color("#8c6541"), true)
-	draw_rect(Rect2(size.x * 0.12, size.y * 0.18, size.x * 0.76, size.y * 0.65),
-		Color("#5c463b"), false, 5.0)
-	for index in range(GARDEN_HOLES.size()):
-		var hole := _garden_hole_point(index)
-		var growth := garden_growth[index]
-		draw_circle(hole, minf(size.x, size.y) * 0.065, Color("#4e392f"))
-		if index == garden_planted and garden_planted < GARDEN_HOLES.size():
-			var pulse := 0.48 + 0.18 * sin(demo_t * 4.5)
-			draw_arc(hole, minf(size.x, size.y) * 0.105, 0.0, TAU, 32,
-				Color(1.0, 0.88, 0.34, pulse), 7.0)
-		if growth > 0.0:
-			var stem_top := hole - Vector2(0.0, size.y * 0.20 * growth)
-			draw_line(hole, stem_top, Color("#397b48"), 8.0, true)
-			draw_circle(stem_top + Vector2(-10.0, 7.0), 10.0 * growth,
-				Color("#62a85b"))
-			draw_circle(stem_top + Vector2(10.0, -2.0), 10.0 * growth,
-				Color("#78bd68"))
-			if growth >= 0.88:
-				draw_circle(stem_top, 8.0, Color("#f4cf62"))
-	if garden_planted < GARDEN_HOLES.size():
-		var seed_side := maxf(50.0, minf(size.x, size.y) * 0.22)
-		if garden_seed_texture != null:
-			draw_texture_rect(garden_seed_texture,
-				Rect2(garden_seed_pos - Vector2.ONE * seed_side * 0.5,
-					Vector2.ONE * seed_side), false)
-		else:
-			draw_set_transform(garden_seed_pos, -0.45)
-			draw_circle(Vector2.ZERO, seed_side * 0.19, Color("#e8b367"))
-			draw_set_transform(Vector2.ZERO)
+	_support_art_ref().garden()
 
 
 func _cabinet_prop_bounds() -> Rect2:
@@ -3852,73 +3661,13 @@ func _cabinet_tick(delta: float) -> void:
 
 
 func _draw_magic_cabinet() -> void:
-	_draw_causal_backdrop(Color("#221943"), Color("#4b2a62"))
-	var prop_bounds := _cabinet_prop_bounds()
-	if magic_cabinet_closed_texture != null:
-		draw_texture_rect(magic_cabinet_closed_texture,
-			_contain_rect(magic_cabinet_closed_texture, prop_bounds), false,
-			Color(1.0, 1.0, 1.0, 1.0 - cabinet_open_t * 0.92))
-	if magic_cabinet_reveal_texture != null and cabinet_complete:
-		var reveal_alpha := clampf((cabinet_open_t - 0.55) / 0.45, 0.0, 1.0)
-		draw_texture_rect(magic_cabinet_reveal_texture,
-			_contain_rect(magic_cabinet_reveal_texture, prop_bounds), false,
-			Color(1.0, 1.0, 1.0, reveal_alpha))
-	if magic_cabinet_closed_texture == null or magic_cabinet_reveal_texture == null:
-		var body := Rect2(size.x * 0.22, size.y * 0.08, size.x * 0.56, size.y * 0.80)
-		draw_rect(body, Color("#3a2455"), true)
-		draw_rect(body, Color("#d6a34e"), false, 7.0)
-		var inner := body.grow(-18.0)
-		draw_rect(inner, Color(0.08, 0.05, 0.16, 0.95), true)
-		# The revealed pearl rises before the doors finish opening.
-		var reveal_center := Vector2(body.get_center().x,
-			lerpf(body.end.y - size.y * 0.14, body.get_center().y, cabinet_open_t))
-		if cabinet_complete:
-			var fallback_reveal_alpha := clampf(
-				(cabinet_open_t - 0.55) / 0.45, 0.0, 1.0)
-			# Lamba's bunny-fish silhouette: ears above a pearl body, little
-			# fins/tail below. This is the clear code fallback until the approved
-			# separate reveal overlay is imported.
-			draw_circle(reveal_center, minf(size.x, size.y) * 0.11,
-				Color(0.78, 0.98, 1.0, fallback_reveal_alpha))
-			for ear_sign: float in [-1.0, 1.0]:
-				draw_colored_polygon(PackedVector2Array([
-					reveal_center + Vector2(ear_sign * 8.0, -16.0),
-					reveal_center + Vector2(ear_sign * 15.0, -42.0),
-					reveal_center + Vector2(ear_sign * 23.0, -12.0),
-				]), Color(0.88, 0.99, 1.0, fallback_reveal_alpha))
-			draw_colored_polygon(PackedVector2Array([
-				reveal_center + Vector2(-8.0, 18.0),
-				reveal_center + Vector2(-34.0, 36.0),
-				reveal_center + Vector2(-30.0, 8.0),
-			]), Color(0.68, 0.91, 0.96, fallback_reveal_alpha))
-			draw_circle(reveal_center - Vector2(9.0, 9.0), 5.0,
-				Color(0.20, 0.18, 0.35, fallback_reveal_alpha))
-		var half := inner.size.x * 0.5
-		var door_offset := cabinet_open_t * size.x * 0.16
-		var left := Rect2(inner.position - Vector2(door_offset, 0.0),
-			Vector2(half, inner.size.y))
-		var right := Rect2(Vector2(inner.position.x + half + door_offset, inner.position.y),
-			Vector2(half, inner.size.y))
-		draw_rect(left, Color("#704085"), true)
-		draw_rect(right, Color("#704085"), true)
-		draw_rect(left, Color("#d6a34e"), false, 4.0)
-		draw_rect(right, Color("#d6a34e"), false, 4.0)
-	if not cabinet_complete:
-		var base_handle := _cabinet_handle_rect()
-		var handle := Rect2(base_handle.position + Vector2.DOWN * cabinet_travel,
-			base_handle.size)
-		draw_rect(handle, Color("#f0c75a"), true)
-		draw_rect(handle, Color("#4b2b56"), false, 4.0)
-		draw_line(handle.get_center(),
-			handle.get_center() + Vector2.DOWN * maxf(34.0, size.y * 0.13),
-			Color(1.0, 0.86, 0.34, 0.58), 7.0, true)
-	else:
-		for sparkle_index in range(8):
-			var angle := float(sparkle_index) / 8.0 * TAU + cabinet_open_t
-			var sparkle := size * 0.5 + Vector2.from_angle(angle) \
-				* minf(size.x, size.y) * (0.15 + cabinet_open_t * 0.08)
-			draw_circle(sparkle, 4.0 + float(sparkle_index % 3),
-				Color(1.0, 0.87, 0.34, cabinet_open_t))
+	assert(magic_cabinet_closed_texture != null and magic_cabinet_reveal_texture != null)
+	var bounds := _cabinet_prop_bounds()
+	# Whole registered states: no overlapping, ghosted copies of the cabinet.
+	var picture := magic_cabinet_reveal_texture if cabinet_complete and cabinet_open_t >= 0.55 \
+		else magic_cabinet_closed_texture
+	draw_texture_rect(picture, _contain_rect(picture, bounds), false)
+	set_meta("support_painted_route", "magician_cabinet")
 
 
 func _draw_nursery_baby(texture_index: int, center: Vector2, extent: float) -> void:
@@ -4171,6 +3920,10 @@ func _draw_demo_finger() -> void:
 	var pose := _demo_finger_pose()
 	var at: Vector2 = pose.get("at", size * 0.5)
 	var pressing := bool(pose.get("pressing", false))
+	if mode in ["garden_plant", "magic_cabinet", "paint_reveal"] or visual_context == "magic_vanish" \
+			or visual_context.get_slice("_", visual_context.get_slice_count("_") - 1) in ["doctor", "farmer", "magician", "painter"]:
+		_support_art_ref().guide(at, pressing)
+		return
 	if visual_context.ends_with("_chef"):
 		_chef_art_ref().draw_hand(at)
 		return
@@ -4273,42 +4026,20 @@ func _xray_tick(delta: float) -> void:
 
 
 func _draw_xray_scan() -> void:
-	# The isolated X-ray machine and plush patient remain visible beneath the
-	# moving scanner; the retired pale card supplied no runtime pixels.
 	_draw_target_subject()
 	last_specialist_subject_route = "xray_device"
 	var scan_at := xray_scanner_pos
 	if demo_active and not xray_complete:
 		scan_at = _demo_finger_pose().get("at", scan_at) as Vector2
-	var radius := _xray_scanner_radius()
+	var feedback := _support_art_ref().feedback
 	for index in range(XRAY_SPOTS.size()):
 		var target := _xray_target_center(index)
 		if xray_found[index]:
-			draw_circle(target, 13.0, Color(1.0, 0.91, 0.46, 0.88))
-			draw_arc(target, 21.0, 0.0, TAU, 28, Color("#382485"), 4.0)
+			feedback.pearl(self, target, "full", 28.0)
 		elif index == xray_found_count:
-			var nearness := clampf(1.0 - scan_at.distance_to(target) / (radius * 1.45), 0.0, 1.0)
-			if nearness > 0.0:
-				draw_circle(target, 7.0 + nearness * 10.0,
-					Color(1.0, 0.91, 0.46, 0.20 + nearness * 0.58))
-				draw_arc(target, 18.0 + nearness * 8.0, 0.0, TAU, 28,
-					Color(0.40, 0.94, 0.95, 0.28 + nearness * 0.62), 4.0)
-	# A square scan plate and moving beam distinguish this control from the
-	# detective's round handled magnifying glass.
-	var scan_rect := Rect2(scan_at - Vector2.ONE * radius, Vector2.ONE * radius * 2.0)
-	draw_rect(scan_rect, Color(0.30, 0.90, 0.93, 0.14), true)
-	draw_rect(scan_rect, Color(0.24, 0.76, 0.82, 0.90), false, 5.0)
-	var beam_y := lerpf(scan_rect.position.y + 7.0, scan_rect.end.y - 7.0,
-		0.5 + 0.5 * sin(demo_t * 4.2 + xray_glow * 8.0))
-	draw_line(Vector2(scan_rect.position.x + 7.0, beam_y),
-		Vector2(scan_rect.end.x - 7.0, beam_y), Color(0.84, 1.0, 1.0, 0.88), 4.0)
-	for found_index in range(XRAY_SPOTS.size()):
-		var dot := Vector2(size.x * 0.5 + (float(found_index) - 0.5) * 30.0, size.y * 0.075)
-		draw_circle(dot, 7.0, Color("#ffd75e") if xray_found[found_index]
-			else Color(0.30, 0.26, 0.42, 0.30))
-	if xray_complete:
-		draw_rect(Rect2(Vector2(8.0, 8.0), size - Vector2(16.0, 16.0)),
-			Color(1.0, 0.86, 0.32, 0.72), false, 8.0)
+			feedback.invitation(self, target, 54.0, int(demo_t * 4.0) % 4)
+	_support_art_ref().scanner(scan_at, _xray_scanner_radius(), xray_glow > 0.0)
+	_support_art_ref().pearls(XRAY_SPOTS.size(), xray_found_count)
 
 
 func _dance_restart_show(delay: float = 0.32, preserve_prefix := false) -> void:
@@ -4655,8 +4386,7 @@ func _draw_candy_sort() -> void:
 
 
 func _paint_canvas_rect() -> Rect2:
-	var side := minf(size.x * 0.46, size.y * 0.72)
-	return Rect2(size * 0.5 - Vector2.ONE * side * 0.5, Vector2.ONE * side)
+	return _support_art_ref().paint_window()
 
 
 func _paint_required_cells() -> int:
@@ -4732,41 +4462,7 @@ func _paint_release() -> void:
 
 
 func _draw_paint_reveal() -> void:
-	var canvas := _paint_canvas_rect()
-	draw_rect(canvas.grow(7.0), Color("#8b633d"), true)
-	if paint_reveal_texture != null:
-		draw_texture_rect(paint_reveal_texture, canvas, false)
-	elif widget_overlay != null:
-		draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
-	else:
-		draw_rect(canvas, Color("#f3d5a0"), true)
-	var cell_size := Vector2(
-		canvas.size.x / float(PAINT_GRID_COLS),
-		canvas.size.y / float(PAINT_GRID_ROWS))
-	if not paint_complete:
-		for row in range(PAINT_GRID_ROWS):
-			for col in range(PAINT_GRID_COLS):
-				var cell := row * PAINT_GRID_COLS + col
-				if paint_cells[cell]:
-					continue
-				var veil := Rect2(canvas.position + Vector2(float(col), float(row)) * cell_size,
-					cell_size).grow(0.35)
-				draw_rect(veil, Color("#eee7dc"), true)
-	draw_rect(canvas.grow(7.0), Color("#382485") if not paint_complete else Color("#ffd75e"),
-		false, 5.0 if not paint_complete else 8.0)
-	for marker in range(8):
-		var marker_center := Vector2(
-			size.x * 0.5 + (float(marker) - 3.5) * maxf(13.0, size.x * 0.028),
-			size.y * 0.93)
-		var marker_filled := paint_covered >= ceili(
-			float(marker + 1) / 8.0 * float(_paint_required_cells()))
-		draw_circle(marker_center, 5.5,
-			Color("#ffd75e") if marker_filled else Color(0.30, 0.26, 0.42, 0.30))
-	if paint_complete:
-		for sparkle in range(6):
-			var angle := TAU * float(sparkle) / 6.0
-			var sparkle_at := canvas.get_center() + Vector2.from_angle(angle) * canvas.size.x * 0.62
-			draw_circle(sparkle_at, 7.0, Color(1.0, 0.88, 0.35, 0.72))
+	_support_art_ref().paint()
 
 
 func _farm_anchor_point() -> Vector2:
@@ -4921,82 +4617,15 @@ func _draw_farm_vegetable() -> void:
 
 
 func _draw_farm_munch_reaction() -> void:
-	if farm_munch_t <= 0.0:
-		return
-	var amount := clampf(1.0 - farm_munch_t / 0.58, 0.0, 1.0)
-	var squash := sin(amount * PI * 2.0) * 0.08
-	var target := _farm_target_center()
-	var face_side := _farm_target_radius() * 1.18
-	draw_set_transform(target, 0.0, Vector2(1.0 + squash, 1.0 - squash))
-	draw_circle(Vector2.ZERO, face_side * 0.36, Color("#efa89c"))
-	draw_circle(Vector2(-face_side * 0.13, -face_side * 0.08),
-		face_side * 0.035, Color("#50344f"))
-	draw_circle(Vector2(face_side * 0.13, -face_side * 0.08),
-		face_side * 0.035, Color("#50344f"))
-	draw_set_transform(Vector2.ZERO)
-	var chew_open := 0.5 + 0.5 * sin(amount * TAU * 2.0)
-	draw_set_transform(target + Vector2(0.0, face_side * 0.10), 0.0,
-		Vector2(1.0, 0.45 + chew_open * 0.55))
-	draw_circle(Vector2.ZERO, face_side * 0.12, Color("#714257"))
-	draw_circle(Vector2.ZERO, face_side * 0.065, Color("#f4c0b2"))
-	draw_set_transform(Vector2.ZERO)
-	for crumb_index in range(3):
-		var crumb_angle := -1.1 + float(crumb_index) * 0.42
-		draw_circle(target + Vector2.from_angle(crumb_angle) \
-			* face_side * (0.34 + amount * 0.14), 3.0 + float(crumb_index),
-			Color("#f3c25f"))
+	# Authored whole-group catch/chew/happy keys are selected by picnic().
+	pass
 
 
 func _draw_farm_lob() -> void:
-	# Keep the approved piggy picnic tableau visible before the first success;
-	# the short code face below is now a reaction layer, never the first reveal.
-	_draw_target_subject()
-	last_specialist_subject_route = "farm_pig_target"
-	var anchor := _farm_anchor_point()
-	var target := _farm_target_center()
-	var target_radius := _farm_target_radius()
-	var target_pulse := 1.0 + (0.08 * sin(farm_land_glow * 30.0) if farm_land_glow > 0.0 else 0.0)
-	draw_circle(target, target_radius * target_pulse, Color(1.0, 0.88, 0.45, 0.18))
-	draw_arc(target, target_radius * target_pulse, 0.0, TAU, 40,
-		Color("#ffd75e") if farm_land_glow > 0.0 else Color("#6e4c78"),
-		8.0 if farm_land_glow > 0.0 else 5.0)
-	# Basket anchor and backward-pull cue, drawn as a grounded woven target now
-	# that the retired framed backdrop is intentionally absent.
-	draw_set_transform(anchor, 0.0, Vector2(1.0, 0.62))
-	draw_circle(Vector2.ZERO, _farm_piece_radius() * 1.08, Color("#bd7d48"))
-	draw_arc(Vector2.ZERO, _farm_piece_radius() * 0.92,
-		0.0, TAU, 28, Color("#f0c77a"), 5.0)
-	draw_set_transform(Vector2.ZERO)
-	draw_circle(anchor, _farm_piece_radius() * 1.34, Color(0.35, 0.24, 0.24, 0.16))
-	draw_arc(anchor, _farm_piece_radius() * 1.34, 0.0, TAU, 30,
-		Color("#8b633d"), 4.0)
-	if farm_dragging:
-		draw_line(anchor, farm_piece_position, Color(0.25, 0.18, 0.36, 0.50), 5.0)
-		var launch := anchor - farm_piece_position
-		var target_direction := (target - anchor).normalized()
-		var valid := launch.length() >= minf(size.x, size.y) * 0.11 \
-			and launch.normalized().dot(target_direction) >= 0.55
-		_draw_farm_arc_guide(farm_piece_position, target if valid else anchor,
-			minf(size.x, size.y) * (0.28 if valid else 0.16),
-			Color(1.0, 0.83, 0.32, 0.78) if valid else Color(0.55, 0.45, 0.65, 0.42))
-	elif not farm_flying and farm_pause <= 0.0 and not farm_complete:
-		var pull := _farm_demo_pull_point()
-		draw_line(anchor, pull, Color(0.32, 0.24, 0.45, 0.28), 4.0)
-		var direction := (pull - anchor).normalized()
-		var side := direction.orthogonal()
-		draw_colored_polygon(PackedVector2Array([
-			pull + side * 10.0, pull + direction * 15.0, pull - side * 10.0,
-		]), Color(0.32, 0.24, 0.45, 0.42))
-	_draw_farm_vegetable()
-	_draw_farm_munch_reaction()
-	for landing in range(FARM_LOB_GOAL):
-		var dot := Vector2(size.x * 0.5 + (float(landing) - 1.5) * maxf(18.0, size.x * 0.05),
-			size.y * 0.075)
-		draw_circle(dot, 7.0,
-			Color("#ffd75e") if landing < farm_landed else Color(0.30, 0.26, 0.42, 0.30))
-	if farm_complete:
-		draw_arc(target, target_radius * 1.26, 0.0, TAU, 44,
-			Color(1.0, 0.88, 0.35, 0.65), 8.0)
+	_support_art_ref().picnic()
+	# A landed snack is consumed; never leave its final projectile over a face.
+	if not farm_complete and not completion_accepted and farm_pause <= 0.0:
+		_draw_farm_vegetable()
 
 
 func _boxer_mitt_rect(side: int) -> Rect2:
@@ -6104,3 +5733,10 @@ func _chef_art_ref() -> ChefPaintedArt:
 		chef_painted_art = ChefArt.new()
 		chef_painted_art.bind(self)
 	return chef_painted_art
+
+
+func _support_art_ref() -> SupportCareerPaintedArt:
+	if support_painted_art == null:
+		support_painted_art = SupportArt.new()
+		support_painted_art.bind(self)
+	return support_painted_art

@@ -309,6 +309,9 @@ func _draw_object(wave: float, opening_amount: float) -> void:
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	draw_set_transform(object_center + object_offset,
 		object_rotation, Vector2.ONE)
+	if object_texture != null and source_path.ends_with("castle_banner_rainbow.png"):
+		var factor := minf(draw_size.x / object_texture.get_width(), draw_size.y / object_texture.get_height())
+		draw_size = object_texture.get_size() * factor
 	var local_rect := Rect2(-draw_size * 0.5, draw_size)
 	if object_texture != null:
 		draw_texture_rect(object_texture, local_rect, false,
