@@ -20,8 +20,9 @@ Asked the same day how this meets Codex's V34 (commit
   proposals, not the washing scene. This replaces Q8's default and W14.
 
 Still in force: BK-BG-11 (only little puffs in the banks), the 14 × 10 in
-review format, upsampling only after the illustration fixes, and the Q6 ear
-hold. W3b was approved the same day (see "Page 9 drawing (W3b)" below).
+review format, and upsampling only after the illustration fixes. The same
+day the owner approved W3b (see "Page 9 drawing (W3b)") and answered Q6:
+Roshan's ears are rounded (see "Roshan's ears (Q6)").
 Codex's V35 caption and apology proposals
 stay proposals; any the owner accepts later replace the lines below on
 their pages.
@@ -38,6 +39,7 @@ the right-hand column says keep.
 | W2 | Captions rewritten on most pages | Use the final manuscript below. |
 | W3a | Distinct scales and placements | Keep V34's placement for story 8. Story 9 gets the new W3b cutout, right of centre at about its V33 size; stories 8 and 9 face each other again. |
 | W3b | Held | Approved 2026-10-19: build the new story 9 cutout (see "Page 9 drawing (W3b)" below). |
+| Q6 | Held; no ear edit | Answered 2026-10-19: rounded. Fix story 3 and the rear cover (see "Roshan's ears (Q6)" below). |
 | W4, W5, W7, W10, W11 | Done | Keep. |
 | W9 | Alert face done | Keep the face; text per W2. |
 | W6 | Zero FAIL on the composed art | Re-run on the new text and layout. Keep zero FAIL, with heavier outlines on every OUTLINE_REQUIRED line. |
@@ -104,7 +106,8 @@ Apply V35 candidate A exactly as proposed. Its base is the story 3 castle
 threshold, where Roshan opens the door while Daddy watches. Its copy is
 "Pearl Castle needs help. / Where will Roshan begin?" in Sniglet at the
 logical 20 pt size. It keeps the tiny Lamma cameo in the doorway, as the
-proposal places it. Make no other change to the art. Run the contrast gate on
+proposal places it. The rear reuses story 3's art, so it takes the Q6 ear fix
+(see "Roshan's ears (Q6)"); make no other change to the art. Run the contrast gate on
 both lines, and give the rear the same height extension, bleed and upscale as
 the full-art pages when the print step runs.
 
@@ -163,6 +166,35 @@ the tub. Her face is calm and busy, as on story 8.
     rectangular backing and no mirrored rainbow lock.
   - On the open spread, story 9 clearly reads as a different pose from
     story 8.
+  - Wherever her ear shows, it is rounded (see "Roshan's ears (Q6)").
+
+## Roshan's ears (Q6)
+
+**Answered 2026-10-19.** The owner wrote: "Roshan's ears are rounded. Record
+it in the decision record so Codex matches page 3 to page 1 with a local
+edit."
+
+- Story 1 is the reference: the ear that shows there is rounded.
+- Story 3 shows a pointed ear. Make one bounded local edit to the story 3
+  art that gives Roshan a rounded ear like story 1's. Keep the same skin
+  tone, line weight and shading. Leave her hair, tiara, face and everything
+  outside the ear polygon unchanged.
+- Rear cover A uses the same story 3 art, so build the corrected art once
+  and use that single derivative for both story 3 and the rear.
+- Check both covers and every other story page for a visible pointed ear on
+  Roshan, and fix any the same way. Daddy's and Rumi's pointed ears stay as
+  they are.
+- Record each edit's polygon, source hash and output hash, and add an
+  `ASSET_LICENSES.md` line.
+
+| Reference | Role | SHA-256 |
+| --- | --- | --- |
+| `books/chapter_one/landscape/art/quality_v22/scene_01.png` | Story 1: the rounded ear to match | `e0a084746a0ef0bd935b7689df778c76d2f3489afd63279280ef19d180a3265b` |
+| `books/chapter_one/landscape/revisions/v29_polish/art/castle03.png` | Story 3 and rear cover A base: the ear to fix | `4fc329bf1ec83d2269fb6670eb08da8c25fb89ea1e709d9b66aa6c07089893c6` |
+
+**Accept when:** the ear on story 3 and on the rear reads as rounded at both
+7 × 5 in and the 14 × 10 in review size; the edit shows no patch edge at 100%;
+and pixels outside the polygon are unchanged.
 
 ## Print edition (replaces W16)
 

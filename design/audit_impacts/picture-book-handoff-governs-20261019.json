@@ -34,6 +34,11 @@
       "evidence": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md#page-9-drawing-w3b (written brief, references pinned by SHA-256)"
     },
     {
+      "command": "Owner answer in the Claude session on 2026-10-19: Roshan's ears are rounded; match the story 3 ear to story 1 with a local edit",
+      "result": "PASS",
+      "evidence": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md#roshans-ears-q6 (story 1 and story 3 sources pinned by SHA-256)"
+    },
+    {
       "command": "Page-by-page comparison of V34 book.json captions (commit 137a1b28) against the handoff W2 table, with the seam repair on story 21",
       "result": "PASS",
       "evidence": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md#final-manuscript"
@@ -49,5 +54,5 @@
       "evidence": "Documentation only; no runtime, scene, script, save, asset, protected original, device or release change."
     }
   ],
-  "acceptance_gaps": "The next revision (V36) is not implemented. The owner chose rear candidate A; the final trim is still to pick; the ear-shape hold (Q6) remains open; the single new page-9 cutout (W3b) is approved but not yet generated or reviewed. Owner acceptance of delivered pages, a child reading, professional speech-language review and a physical test print remain open. Anonymous remote verification follows the push."
+  "acceptance_gaps": "The next revision (V36) is not implemented. The owner chose rear candidate A; the final trim is still to pick; the rounded-ear edit (Q6) is specified but not yet made; the single new page-9 cutout (W3b) is approved but not yet generated or reviewed. Owner acceptance of delivered pages, a child reading, professional speech-language review and a physical test print remain open. Anonymous remote verification follows the push."
 }

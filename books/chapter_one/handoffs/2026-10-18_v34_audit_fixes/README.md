@@ -32,8 +32,8 @@ for Q1-Q14 and write the Codex revision handoff for the picture book."
 - This accepts the default for each open question Q1–Q14 in
   [AUDIT.md](AUDIT.md#open-questions-and-accepted-defaults) and commissions
   this V34 work order.
-- Q6 (Roshan's ear shape) had no default answer, so it stays an owner hold.
-  Make no ear edit.
+- Q6 (Roshan's ear shape) had no default answer at first. The owner answered
+  it on 2026-10-19: her ears are rounded. See the decision record.
 - W3b, one new story 9 pose, is the only item outside DL-ASSET-08's ordinary
   permission. The owner approved it in words on 2026-10-19; build it as the
   decision record's "Page 9 drawing (W3b)" section describes.
@@ -310,8 +310,8 @@ The original 7 × 5 in request follows as history.
 
 ## Holds and deliberate no-change items
 
-- **Q6 ear shape, owner hold:** inspect stories 1 and 3 at native resolution,
-  report the ear shapes in the V34 evidence, and edit nothing.
+- **Q6 ear shape, answered 2026-10-19:** rounded. Make the ear fix that the
+  decision record describes.
 - **Q7:** the front cover keeps its rainbow waterfall.
 - **Q14:** the hall doors (masks, book, teapot) stay.
 - **Story 13:** the clearing action stays a recorded source gap (BK-PG-07);
