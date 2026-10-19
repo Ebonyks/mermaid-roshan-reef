@@ -8,6 +8,14 @@ Until then Codex may prepare the brief and the book, not runtime work.
 Facts about existing code were checked at the dev commit above; scores come
 from `python -B tools/gold_star.py --rank` on that tree.
 
+**Revision 2 (2026-10-18).** After this packet was written, the owner ordered
+the Pop Star rebuilt from the ground up (`ODR-MINIGAME-REBUILD-20261017`,
+`ODR-POPSTAR-CORE-20261018`, finding `MA-OPERA-014`): its note-memory echo
+becomes a music-timed call and answer in the
+[Rainbow Band handoff](../codex_minigame_rebuilds_2026-10-17/POP_STAR.md).
+The call-and-response activities below now take that engine, and the quiet
+hold takes the shared hold gesture rather than the old Pop Star phase list.
+
 ## 1. Options and the recommended method
 
 | Option | What it is | For | Against |
@@ -36,7 +44,8 @@ requires (build one activity early and fix its pattern before repeating it).
 | Mermaid Pool room (Rumi's pool) | Room built in code in `scripts/arena/castle_rooms_25d.gd`; Day One jobs in `scripts/games/day_one_pool_cleanup.gd`, `pool_skimmer_activity.gd`, `pool_waterfall_activity.gd`, `pool_seahorse_rescue_activity.gd` | Drag a net, stroke clogged lanes, tug trash free | 3/5, 21/24 — rank 1 and the reference model ([GOLD_STAR](../../../design/reference/GOLD_STAR.md)) | Entry (the glint door) and return; follow its patterns |
 | Bathroom cleanup (Day One) | `scripts/games/day_one_bathroom_cleanup.gd`, `day_one_bathroom_cleaning.gd`, `day_one_bathroom_toilet.gd`; tools in `assets/castle/dirty_cleanup_2d/` | Scrub in circles with a star sponge, drain, brush | 3/5, 15/24 | Cleaning Station scrub of Duri's shell |
 | Detective career | `detective` phases in `scripts/opera_career_world_2d.gd` | "Sweep the magnifying glass ... glitter footprints!" (`lens` mode) | Not reachable in normal play | Magnifier clues (pages 3, 13, 15) |
-| Pop Star career | `popstar` phases in `scripts/opera_career_world_2d.gd`; modes in `scripts/opera_gesture_surface.gd` | Bop the imps; **hold** the microphone; choose the dance arrow; bop the band; **echo**: "Listen to the stars sing — then tap their song back, as slow as you like!"; draw an encore circle | 1/5, 13/24 — not reachable in normal play (`MA-PLAY-005`) | Echo Dome, the quiet hold, the answer-song finale. Reuse the gesture modes, not the career route |
+| Pop Star career | `popstar` phases in `scripts/opera_career_world_2d.gd`; modes in `scripts/opera_gesture_surface.gd` | Bop the imps; **hold** the microphone; choose the dance arrow; bop the band; **echo**: "Listen to the stars sing — then tap their song back, as slow as you like!"; draw an encore circle | 1/5, 13/24 — not reachable in normal play (`MA-PLAY-005`); being rebuilt (`MA-OPERA-014`) | Prototype stand-in only. The rebuild's call and answer replaces this echo for the Echo Dome and the finale; the hold gesture lives in the shared gesture surface |
+| Pop Star rebuild, "Roshan's Rainbow Band" (owner-approved design, not yet built) | [POP_STAR.md](../codex_minigame_rebuilds_2026-10-17/POP_STAR.md) in the career-rebuild handoff | The band plays a one-bar call and the child answers it on drums in the next bar; ribbons demonstrate; a crowd break where her lead makes the crowd answer | — | **The call-and-answer engine for Pearl Hollow:** its help levels, its "the band waits" mercy floor and its anti-mash damper suit a four-year-old, and its crowd break is the Lantern Night circle |
 | Wardrobe and Fashion Designer | `scripts/fashion_designer.gd`; the pre-party dress gate in `scripts/chapter_two_director.gd` ([brief](../../../design/FASHION_DESIGNER_ROSHAN_2026-10-06.md)) | Dress up; a required outfit before an event | Wardrobe 3/5, 18/24 | Detective hat, bathhouse robe, show outfit |
 | Comfy castle games | `scripts/comfy_games.gd` | Find hidden friends (Rumi already hides in the pool room), cook and serve dinner, bedtime | 3/5, 17/24 | Finding lanterns; serving the feast |
 | Discovery and return | `scripts/arena/fairy_conservatory_door_2d.gd`, `fairy_conservatory_handoff_2d.gd`, `scripts/probe_fairy_conservatory_route.gd` | Touch a landmark, travel, come back to the exact room | — | The glint door route ([Fairy route](../../../design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md)) |
@@ -60,20 +69,22 @@ guide's causal sentence: by doing X, Roshan changes Y, so Z becomes possible.
 | 12–13 | `collect_lantern_shells` | Find and drag lanterns into Duri's satchel (comfy find plus `lens` for hidden ones) | By finding the scattered lanterns, Roshan refills the satchel, so every home will have one | Lantern count; Pip appears |
 | 14 | `bathhouse_robe_dressup` | Dress: robe, sheep towel on the hat | Arrival ritual; no prize | Outfit worn in the bathhouse |
 | 15 | `cleaning_station_scrub` | Scrub circles with a sponge (Day One bathroom engine) | By scrubbing Duri's shell clean, Roshan uncovers the imps' glitter logo, so she knows who is booming | Clue found |
-| 16 | `echo_dome_call` | Echo: Grandma whistles a short call, the child taps it back at any speed | By answering in the Echo Dome, Roshan proves the BOOM swallows small voices | Test done |
+| 16 | `echo_dome_call` | Call and answer (Rainbow Band engine): Grandma whistles a two-note call, the child answers on glowing shells in the next bar, with the band-waits mercy | By answering in the Echo Dome, Roshan proves the BOOM swallows small voices | Test done |
 | 18 | `lounge_feast` | Serve: drag dishes to each friend (comfy dinner) | A quiet reward and a natural stopping point before the dark-out | Feast eaten |
 | 21 | `show_costume_change` | Dress gate, like the party dress | By choosing a show outfit, Roshan is ready for the stage | Show outfit worn |
 | 22–23 | `bubble_maze_swim` | Swim through soft bouncing bubbles | By swimming the maze, Roshan reaches the Boom Shell | — |
-| 25–27 | `boom_shell_quiet_hold` | **Hold** (Pop Star sound-check mode): a calm, steady hold whistles; fast tapping only makes the shell rumble louder (feedback, never failure) | By holding a calm whistle instead of tapping, Roshan starves the shell, so every lost voice comes back | The Boom Shell turned upward |
-| 29–31 | `lantern_answer_song` | **Echo**: the child calls "Here I am!" with a tap (or, optionally, her voice); each answer lights a ring of lanterns | By calling first, Roshan wakes every lantern, so Lantern Night happens | Lanterns float in Rumi's pool |
+| 25–27 | `boom_shell_quiet_hold` | **Hold** (the shared hold gesture in `scripts/opera_gesture_surface.gd`): a calm, steady hold whistles; fast tapping only makes the shell rumble louder (feedback, never failure) | By holding a calm whistle instead of tapping, Roshan starves the shell, so every lost voice comes back | The Boom Shell turned upward |
+| 29–31 | `lantern_answer_song` | **Crowd lead** (Rainbow Band crowd break): the child calls "Here I am!" with a tap (or, optionally, her voice) and the circle answers "Here you are!" on the next beat; each answer lights a ring of lanterns | By calling first, Roshan wakes every lantern, so Lantern Night happens | Lanterns float in Rumi's pool |
 | 32 | `pool_room_return` | Return to the exact pool-room context | The pool glows with lanterns; Roshan asks to look for the candle | Pool-room dressing changed |
 
 The quiet hold is the activity where the story's rule and the game's rule are
 the same: mindless tapping is never the best strategy (`DL-AGE-04`,
 `DL-AGE-05`), and here it visibly feeds the BOOM, while intentional calm play
-wins. Check the known Echo Song leak first: the 2026-08-05 playability audit
-found that stray taps earned progress in that mode (`OPERA_QUALITY_PLAYABILITY_AUDIT_2026-08-05.md`,
-item A2). Confirm it is fixed before reusing the mode.
+wins. Build the call-and-answer activities on the Rainbow Band engine once it
+lands, keeping its anti-mash damper. If a prototype uses today's untimed echo
+mode as a stand-in, remember the 2026-08-05 playability audit found that stray
+taps earned progress there (`OPERA_QUALITY_PLAYABILITY_AUDIT_2026-08-05.md`,
+item A2).
 
 **Recommended representative activity:** `cleaning_station_scrub`. It reuses
 the game's core verb and an existing engine, it is short, it has a visible
@@ -156,7 +167,7 @@ Roshan or Rumi line is the owner's choice (Q5).
 | Item | Effect | Next step |
 |---|---|---|
 | `MA-PLAY-005` (Chapter 2 careers cannot complete on a fresh save) | The entry condition cannot be met in normal play | Track it; decide the gate in the brief |
-| Echo-mode tap leak (2026-08-05 audit, A2) | Mashing could win the answer-song | Verify fixed before reuse |
+| Pop Star rebuild (`MA-OPERA-014`) | The Echo Dome and finale need the Rainbow Band call and answer, which is designed but not built | Build those two activities after it lands; a stand-in on the old echo mode must not reward mashing (2026-08-05 audit, A2) |
 | Microphone permission | Voice input needs owner sign-off; the tap must always work alone | Q5 |
 | Turtle art authority | Duri has no approved, licensed source | Provenance row and approval |
 | Rendering style | Book art cannot double as game art unless the style matches | Q4 |

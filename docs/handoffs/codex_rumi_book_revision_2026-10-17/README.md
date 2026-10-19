@@ -4,11 +4,19 @@
 image made or edited). **To:** Codex (every image, board, page, PDF, code and
 probe). **Owner:** answers section 5 and accepts story, art and play.
 
-**Status:** `PROPOSED / CANDIDATE`, revision 1. Baseline: `dev`
-`7a65b9f0abacddeee70230f220955f4d18d551b5`. Book sources: rescue snapshot
+**Status:** `PROPOSED / CANDIDATE`, revision 2. Baseline: `dev`
+`7a65b9f0abacddeee70230f220955f4d18d551b5`; revision 1 was merged into `dev`
+at `6fb96aeb441952c1053cc5ce18435fc57fc1d1ab` after branch CI run 39114484565
+passed. Book sources: rescue snapshot
 `c3e0da5107b9f3d18be4a07ffa3183196ddeb574`. No finding is repaired or closed;
-related findings are `MA-OPERA-002`, `MA-ROSHAN-005`, `MA-PLAY-005`,
-`MA-ACCESS-001` and `MA-CHILD-001`. This packet requests no generation and binds
+related findings are `MA-OPERA-002`, `MA-OPERA-014`, `MA-ROSHAN-005`,
+`MA-PLAY-005`, `MA-ACCESS-001` and `MA-CHILD-001`.
+
+**Revision 2 (2026-10-18)** follows the owner's newer decision to rebuild the
+Pop Star around a music-timed call and answer (`ODR-POPSTAR-CORE-20261018`,
+`MA-OPERA-014`): [GAME_INTEGRATION](GAME_INTEGRATION.md) now builds the Echo
+Dome and the Lantern Night finale on that engine and takes the quiet hold from
+the shared hold gesture. The story, world and analysis are unchanged. This packet requests no generation and binds
 no image: `ARCHIVE_COMPLETE` only after remote verification,
 `GENERATION_READY` not applicable, `DELIVERY_ACCEPTED` false.
 
