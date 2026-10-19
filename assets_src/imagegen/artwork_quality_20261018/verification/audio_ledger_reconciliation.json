@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "scope": "Inherited generated audio-ledger reference-count maintenance only",
+  "baseline": "e31864fb904b0e1192b90a2b577516864497bb10",
+  "rows": 857,
+  "changes": [
+    {
+      "path": "assets/audio/ambience_lagoon.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "2",
+          "3"
+        ]
+      },
+      "untouched_baseline_reference_count": 3
+    },
+    {
+      "path": "assets/audio/castle/bubble_water.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "9",
+          "10"
+        ]
+      },
+      "untouched_baseline_reference_count": 10
+    },
+    {
+      "path": "assets/audio/castle/curtain_swish.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "12",
+          "13"
+        ]
+      },
+      "untouched_baseline_reference_count": 13
+    },
+    {
+      "path": "assets/audio/chime.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "11",
+          "12"
+        ]
+      },
+      "untouched_baseline_reference_count": 12
+    },
+    {
+      "path": "assets/audio/hop_boing.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "9",
+          "10"
+        ]
+      },
+      "untouched_baseline_reference_count": 10
+    },
+    {
+      "path": "assets/audio/ui_tap.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "13",
+          "14"
+        ]
+      },
+      "untouched_baseline_reference_count": 14
+    }
+  ],
+  "audio_file_hashes_and_metrics": "All857unchanged",
+  "human_review_state": "Unchanged OPEN_DEVICE_LISTENING"
+}

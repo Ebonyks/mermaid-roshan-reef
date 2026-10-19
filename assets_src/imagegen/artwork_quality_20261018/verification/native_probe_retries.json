@@ -1,0 +1,74 @@
+[
+  {
+    "probe": "probe_partner",
+    "command": [
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+      "-s",
+      "scripts/probe_partner.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "elapsed_seconds": 7.981979099975433,
+    "log_sha256": "975f35172cb1329e2eb83c9d772ba96fdaf1c79126ba32f7b9a97a6e5a72ba5c",
+    "last_lines": [
+      "PARTNER|the splash starts Daddy's rest: OK",
+      "PARTNER|playroom rescue pins spawn: OK",
+      "PARTNER|splash never pops the rescue pins: OK",
+      "PARTNER|closing the castle stows the assist state: OK",
+      "PARTNER|result: ALL OK"
+    ]
+  },
+  {
+    "probe": "probe_dust_boss_balance",
+    "command": [
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+      "-s",
+      "scripts/probe_dust_boss_balance.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "elapsed_seconds": 229.59164070000406,
+    "log_sha256": "3460ad3f441267f52ff3648498e7a19c1200b4dc73e3c2c84a2e055a7cba769d",
+    "last_lines": [
+      "DUSTBAL|idle,60.02,0,0,0,0,0,OK",
+      "DUSTBAL|stationary_masher,60.00,0,0,0,0,395,OK",
+      "DUSTBAL|held_action,60.02,0,0,0,0,0,OK",
+      "DUSTBAL|movement_only,60.01,0,0,1,2,0,OK",
+      "DUSTBAL|result: ALL OK"
+    ]
+  },
+  {
+    "probe": "probe_props",
+    "command": [
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+      "-s",
+      "scripts/probe_props.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "elapsed_seconds": 11.552957400039304,
+    "log_sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+    "last_lines": [
+      "PROPS|a prop crossing the waterline procs a splash: OK",
+      "PROPS|fleet cap holds at PROPS_MAX: OK",
+      "PROPS|teardown reclaims every body: OK",
+      "PROPS|no orphan spawns after teardown: OK",
+      "PROPS|result: ALL OK"
+    ]
+  }
+]
