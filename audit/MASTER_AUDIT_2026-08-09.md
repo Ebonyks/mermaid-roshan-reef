@@ -86,6 +86,10 @@ Owner-requested Luna gameplay repairs are applied on the isolated topic from `83
 
 Owner-authorized [CI job-budget repair](../design/audit_impacts/ci-probe-job-budget-20261017.json) (2026-10-17) raises only the probes job timeout from55 to90 minutes after baseline run39080803885 passed trusted probes but exhausted55 minutes during later review captures. Checks, pins, permissions, triggers and assertions are unchanged. [Authorization and exact patch evidence](area_music/opera_melody_20261017/ci_budget_authorization.json) retains the baseline failure; published-head CI is required before integration. This supports `MA-CI-008` without changing its `IN_PROGRESS` lifecycle or accepting unsupported/capped measurements.
 
+Combined art reconciliation2026-10-19: Teacher e90c0daa passed exact remoteCI39217603860 and was fast-forward integrated into dev; Astronaut90508b85 passed exact remoteCI39227500753. Their topic merge preserves both license/index/history tails, all Astronaut widget bytes and its exact rendering file; no production-code conflict. New combined full82local and exact-head remoteCI remain required before Astronaut integration. Shared P8/formal/human motion/device/child/owner acceptance and master UNSATISFIED remain unchanged.
+
+CHG-105 combined local verification2026-10-19: Teacher e90 plus Astronaut905 complete unchanged82-probe suite04 passes with zero exits and no source drift (logSHA256da63222b2b73d600fd8890f68a97aececae549d7684dfe19e469eba99c882d22). Exact new combined-head remoteCI remains required beforedev integration. Per-package source/context reviews and human/device/owner limits retain their scopes.
+
 ### Development task index
 
 Read the row for the task and all affected shared systems before editing. Revisit
@@ -122,6 +126,11 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 
 [Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)
 Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md), [protocol](../design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md), and [impact](../design/audit_impacts/grok-handoff-2-20260909.json). External motion-reference repairs do not close live visual findings or delivery gates.
+
+
+Teacher object-art candidate (2026-10-18): [P2 impact](../design/audit_impacts/job-art-teacher-20261018.json) records24 painted ImageGen runtime objects, source rejects, two-aspect lesson/shape/crest/invitation context, actual GUI activation and the4.5/5 local AI floor. Full machine/remote integration and physical-device/child/owner/canonicalQA11 acceptance remain separately recorded; shared P8 scene work and MA-VIS-010 remain open.
+
+Teacher P2 local verification update2026-10-19: complete post-gutter full suite passes82/82zero exits at exact current pins ([receipt](../assets_src/imagegen/job_art_teacher_20261018/verification/full_ci_02.json)); original catalog failure retained. RemoteCI/integration, shared P8 and formal/device/child/owner acceptance remain open.
 
 Astronaut P3 artwork candidate (2026-10-19): [impact](../design/audit_impacts/job-art-astronaut-20261018.json), [static review](../assets_src/imagegen/job_art_astronaut_20261018/review/art_review.json), and [launch derivation](../assets_src/imagegen/job_art_astronaut_20261018/launch_effect_job.json). Twenty-seven primary painted runtime pictures plus one dependent painted fallback mark replace flat pipes, plates, tank/intakes, sleeping imps, patches and launch effects; the existing painted valve wheel loses its code backing disc. Sixty-six configured Mobile/HUD GUI captures pass at two widths. Static local AI review uses the owner4.5/5 floor in every scored dimension. Exact full CI/integration, shared P8 layers, natural-route/canonicalQA11, human motion, device, child and owner acceptance remain separate and open; no MA-VIS-010 or global satisfaction change.
 

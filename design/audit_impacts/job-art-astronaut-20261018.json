@@ -1,6 +1,6 @@
 {
   "id": "job-art-astronaut-20261018",
-  "scope": "P3 Astronaut object repair guided by JA-AST-01..06. Generate coherent painted pipe orientations/rest-fueled states, tank/intake, napping imp, patch pieces and appropriate named flame keys; preserve current puzzle/input/save logic and inspect full current Mobile context at minimum4.5/5 in every applicable dimension. Replace only the measured poor object presentation; protected originals remain unchanged. Updates the deterministic art builder to reproduce these three commissioned painted patches from retained native ImageGen sources, replacing its old code-drawn patch recipe. The strict pixel/provenance gate remains intact; generated dependent marks/previews/records are refreshed.",
+  "scope": "P3 Astronaut object repair guided by JA-AST-01..06. Generate coherent painted pipe orientations/rest-fueled states, tank/intake, napping imp, patch pieces and appropriate named flame keys; preserve current puzzle/input/save logic and inspect full current Mobile context at minimum4.5/5 in every applicable dimension. Replace only the measured poor object presentation; protected originals remain unchanged. Updates the deterministic art builder to reproduce these three commissioned painted patches from retained native ImageGen sources, replacing its old code-drawn patch recipe. The strict pixel/provenance gate remains intact; generated dependent marks/previews/records are refreshed. Reconcile the exact green Teacher dev e90c0daa into green Astronaut90508b85 before integration. Preserve all license/history/index tails and own-state art; no production code conflicts or Astronaut rendering/widget changes. Re-run complete82local and exact-head remoteCI for combined source; original per-package passes retain their own scopes.",
   "baseline": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
   "rules": [
     "DL-AUTH-05",
@@ -124,6 +124,7 @@
     "assets_src/imagegen/job_art_astronaut_20261018/position_guide_provenance.json",
     "assets_src/imagegen/job_art_astronaut_20261018/prepare_astronaut_assets.py",
     "assets_src/imagegen/job_art_astronaut_20261018/prepare_pipe_family.py",
+    "assets_src/imagegen/job_art_astronaut_20261018/prepare_teacher_reconciliation.py",
     "assets_src/imagegen/job_art_astronaut_20261018/prompts.json",
     "assets_src/imagegen/job_art_astronaut_20261018/provenance.json",
     "assets_src/imagegen/job_art_astronaut_20261018/review/art_review.json",
@@ -299,16 +300,24 @@
     "assets_src/imagegen/job_art_astronaut_20261018/verification/full_ci_02_interrupted.json",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/full_ci_03.json",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/full_ci_03.log",
+    "assets_src/imagegen/job_art_astronaut_20261018/verification/full_ci_04.json",
+    "assets_src/imagegen/job_art_astronaut_20261018/verification/full_ci_04.log",
+    "assets_src/imagegen/job_art_astronaut_20261018/verification/native_capture_04_events.jsonl",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/native_capture_05_events.jsonl",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/native_capture_partner_control.log",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/native_capture_transport_control.json",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/native_launcher_03_events.jsonl",
+    "assets_src/imagegen/job_art_astronaut_20261018/verification/remote_ci_and_merge_20261019.json",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/run_ci_direct_02.sh",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/run_ci_native.sh",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/run_ci_native_capture_03.sh",
+    "assets_src/imagegen/job_art_astronaut_20261018/verification/run_ci_native_capture_04.sh",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/run_full_ci.py",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/run_full_ci_02.py",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/run_full_ci_03.py",
+    "assets_src/imagegen/job_art_astronaut_20261018/verification/run_full_ci_04.py",
+    "assets_src/imagegen/job_art_astronaut_20261018/verification/teacher_reconciliation.json",
+    "assets_src/imagegen/job_art_astronaut_20261018/verification/windows_native_capture_04.py",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/windows_native_capture_05.py",
     "assets_src/imagegen/job_art_astronaut_20261018/verification/windows_timeout_retry_03.py",
     "assets_src/imagegen/opera_minigame_quality_2026-08-09/OPERA_MINIGAME_ART_CONTACT_SHEET_2026-08-09.png",
@@ -320,6 +329,7 @@
     "audit/audio_quality_summary_2026-08-24.json",
     "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
     "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/job-art-astronaut-20261018.json",
     "scripts/opera_gesture_surface.gd",
     "tools/prepare_opera_minigame_art.py",
     "tools/tests/test_prepare_opera_minigame_art.py"
@@ -384,7 +394,17 @@
       "command": "Complete unchanged scripts/ci.sh with explicit native output capture03",
       "result": "PASS",
       "evidence": "verification/full_ci_03.json/log:82ordered probes all exit0; fullcommandexit0;2587.5seconds;source_drift[]; logSHA256 fffe713a5e2709b06a597e121d48feefb4121efe90d220d7210351f925ef611a. First art-recipe failure and invalid inherited-output runs retained; native transport controls preserve an actual positive probe and syntheticnonzero, no retries."
+    },
+    {
+      "command": "Exact-head remoteCI39227500753 on90508b85",
+      "result": "PASS",
+      "evidence": "verification/remote_ci_and_merge_20261019.json; both probes and area-music jobs success."
+    },
+    {
+      "command": "Combined Teacher/Astronaut complete82 local suite04",
+      "result": "PASS",
+      "evidence": "verification/full_ci_04.json/log:82ordered zero exits; process0, source_drift[],2550.968seconds; logSHA256da63222b2b73d600fd8890f68a97aececae549d7684dfe19e469eba99c882d22. Original full03 and both parent remote passes retain their own scopes."
     }
   ],
-  "acceptance_gaps": "Local full82 passes at exact recorded runtime/script/tool hashes. Remote exact-head CI/integration, shared P8, final all-item/census/global-ledger reconciliation, canonicalQA11, exact human motion/contact, physical-device, child and owner acceptance remain open. Local static>=4.5 does not close any finding."
+  "acceptance_gaps": "Combined Teacher/Astronaut full82local04 passes with no source drift. Parent Astronaut905 and Teacher e90 exact remote CI both pass; exact new combined-head remote CI and Astronaut dev integration remain pending. Final all-applicable-time, sharedP8/global/formal/human motion/device/child/owner acceptance remain open; master UNSATISFIED."
 }
