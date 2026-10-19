@@ -5,10 +5,11 @@ image, no voice generation). **To:** Codex (every code change, image, voice
 line, PDF and probe). **Owner:** chose the scope on 2026-10-18 and
 2026-10-19 (section 1) and approves art, voice and wording.
 
-**Status:** `PROPOSED / CANDIDATE`, revision 1. Baseline: `dev`
+**Status:** `PROPOSED / CANDIDATE`, revision 2 (the card now follows the
+owner's 2026-10-19 book decision). Baseline: `dev`
 `e1dc3e21f67afeacf48a3609ac520468d6fecc28`. Book sources: branch
 `codex/mermaid-roshan-picture-book` at
-`137a1b2864d7b63b34149bd5bb238ea522eb5b33`. Encounter source: local branch
+`d75164b2c7e5f432a510c13a50b5feb5a3781784`. Encounter source: local branch
 `codex/grand-puff-care-20261017` at
 `e0abe9c9643e44a85c262683c75b6ac1fb04b5e3`, not on GitHub (see FP0). Review:
 [Mermaid Roshan: Learning Value Beyond the Fantasy](https://claude.ai/artifact/JE6GvfXSBgBccHuwpDiLGc).
@@ -162,11 +163,15 @@ the features under existing rules (`DL-AUTH-05`).
 
 ## 5. Current state and dependencies (checked 2026-10-19)
 
-- **Book:** V34 editorial polish (`4f65c502`) is the reading baseline and
-  renumbered the old pages 4 to 23. V35 (`137a1b28`) proposes caption
-  changes and "a separate grown-up card", pending the owner's theme answer.
-  The V34 audit-fix work order (`cc603da5`, W1 to W17) is separate. The card
-  binds by caption anchors and is rebound when words move (QC4).
+- **Book:** on 2026-10-19 the owner decided that the V34 audit-fix work
+  order (`cc603da5`) governs the next revision, V36, built on Codex's V34
+  (`4f65c502`): its 14 changed captions win, V34 wording stays elsewhere, and
+  V33's story numbering returns for pages 6 to 32 (record
+  `OWNER_DECISION_2026-10-19.md`, commit `d75164b2`). The card is written for
+  that V36 manuscript. `PAGE_PLAN.md` on the branch still shows V34, so the
+  card also carries a V34 map. V35's caption proposals (`137a1b28`) stay
+  proposals; V35 also proposed "a separate grown-up card", which this card
+  fulfils. Anchors are rebound whenever words move (QC4).
 - **Grand Puff care recast:** only on a local branch in a Codex worktree,
   three commits ahead of `dev`, with no remote copy. Landing it is FP0.
 - **Voice:** the Guide speaker is the local Kokoro `af_heart` voice: two

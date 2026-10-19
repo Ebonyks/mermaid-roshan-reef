@@ -1,6 +1,6 @@
 {
   "id": "learning-sessions-handoff-20261018",
-  "scope": "Owner-requested written Codex work order for two ideas from the 2026-10-18 learning-value review (https://claude.ai/artifact/JE6GvfXSBgBccHuwpDiLGc): a printed question card for the chapter-one picture book, and feelings beats in the Grand Puff care encounter, plus the owner-approved quieter medals and one new narrator voice for every Guide line. Records the owner's three answers in the decision register, points MEDALS.md and its ledger row at the new display decision, and adds a task-index route. Benefit: the child gets talk-based bedtime reading, feeling words tied to a story she plays, and rewards that praise what she did instead of grading speed. Written by Claude; no game file, image, voice generation, book change or acceptance.",
+  "scope": "Owner-requested written Codex work order for two ideas from the 2026-10-18 learning-value review (https://claude.ai/artifact/JE6GvfXSBgBccHuwpDiLGc): a printed question card for the chapter-one picture book, and feelings beats in the Grand Puff care encounter, plus the owner-approved quieter medals and one new narrator voice for every Guide line. Records the owner's three answers in the decision register, points MEDALS.md and its ledger row at the new display decision, and adds a task-index route. Benefit: the child gets talk-based bedtime reading, feeling words tied to a story she plays, and rewards that praise what she did instead of grading speed. Revision 2 (2026-10-19) rewrites the card for the V36 manuscript the owner approved that day on the book branch, keeping a map for the current V34 page plan. Written by Claude; no game file, image, voice generation, book change or acceptance.",
   "baseline": "e1dc3e21f67afeacf48a3609ac520468d6fecc28",
   "rules": [
     "DL-AUTH-05",
@@ -93,10 +93,17 @@
   "branch_sources": [
     {
       "branch": "codex/mermaid-roshan-picture-book",
+      "commit": "d75164b2c7e5f432a510c13a50b5feb5a3781784",
+      "path": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md",
+      "sha256": "144778567471745e072b0c8b642d85a387e22f141042158e38be6e76895ff47c",
+      "use": "Owner decision 2026-10-19 and the V36 final manuscript the card text is written for"
+    },
+    {
+      "branch": "codex/mermaid-roshan-picture-book",
       "commit": "4f65c502beabb38bb3365920005e2e6f90ea13f0",
       "path": "books/chapter_one/landscape/PAGE_PLAN.md",
       "sha256": "897f53825c45c1344c08f643f8ad7d57370b32e90705826e52bccac0d3fe54de",
-      "use": "V34 reading baseline the card text is bound to (unchanged at branch tip 137a1b2864d7b63b34149bd5bb238ea522eb5b33)"
+      "use": "Current V34 page plan (unchanged at book tip d75164b2c7e5f432a510c13a50b5feb5a3781784); the card's V34 map is checked against it"
     },
     {
       "branch": "codex/mermaid-roshan-picture-book",
@@ -151,9 +158,9 @@
       "evidence": "DECISIONS|COUNT|62 then 63, RESULT ALL OK each time; ODR-LEARNING-SCOPE-20261018, ODR-MEDALS-QUIET-20261018 and ODR-GUIDE-VOICE-20261019 appended; verbatim answers in audit/cycles/learning-sessions-20261018/owner_replies.json."
     },
     {
-      "command": "Packet consistency script (session scratch, not committed): every cited commit SHA resolves, every cited SHA-256 equals the git blob, every DL and MA ID is defined, the FP and QM key tables hold 21 and 15 unique keys, the card has openings A to Q, and every card anchor matches the V34 page-plan caption",
+      "command": "Packet consistency script (session scratch, not committed): every cited commit SHA resolves, every cited SHA-256 equals the git blob, every DL and MA ID is defined, the FP and QM key tables hold 21 and 15 unique keys, the card has openings A to Q, every card anchor matches the V36 manuscript in OWNER_DECISION_2026-10-19.md, and every V34-map anchor matches the V34 page plan",
       "result": "PASS",
-      "evidence": "No problems except a script false positive on MA-OPERA-014, which the master audit indexes as a linked row; the authority and development gates confirm it is indexed."
+      "evidence": "Revision 2: 17 openings and 10 V34-map rows checked against 32 V36 and 32 V34 captions; no problems except a script false positive on MA-OPERA-014, which the master audit indexes as a linked row (the authority and development gates confirm it)."
     },
     {
       "command": "python -B tools/audit_document_authority.py",
@@ -176,9 +183,14 @@
       "evidence": "NO_REGRESSION (exact shrinking baseline; migration debt remains UNSATISFIED). No new JSON reads as game data."
     },
     {
-      "command": "Anonymous fetch of every MANIFEST.json file at the pushed commit with SHA-256 comparison",
+      "command": "Anonymous fetch of every MANIFEST.json file at the pushed commit with SHA-256 comparison (revision 1)",
       "result": "PASS",
-      "evidence": "REMOTE_VERIFICATION.json: commit 10c2b0fd79b8f5bee5af86530dbb5a69fe0575c8, anonymous HTTPS to raw.githubusercontent.com, 12 of 12 files (manifest, six packet files and five records) HTTP 200 with matching SHA-256 and size, checked 2026-10-19T13:42:01+00:00."
+      "evidence": "REMOTE_VERIFICATION.json: commit 10c2b0fd79b8f5bee5af86530dbb5a69fe0575c8, anonymous HTTPS to raw.githubusercontent.com, 12 of 12 files (manifest, six packet files and five records) HTTP 200 with matching SHA-256 and size, checked 2026-10-19T13:42:01+00:00. Receipt committed in a214a3f600a12a2b21223f2c5e4c7bfb4abfa11e; revision 2 replaces it."
+    },
+    {
+      "command": "Anonymous fetch of every MANIFEST.json file at the pushed commit with SHA-256 comparison (revision 2)",
+      "result": "PENDING",
+      "evidence": "Recorded in REMOTE_VERIFICATION.json after the revision 2 push."
     },
     {
       "command": "Branch Probe Suite CI on the pushed head",
@@ -235,7 +247,7 @@
       "write_back": "docs/handoffs/codex_learning_sessions_2026-10-18/FEELINGS_WITH_PUFF.md#2-before-you-start-fp0"
     },
     {
-      "lesson": "The picture-book branch moved twice during this task (V34 renumbered pages 4 to 23; V35 proposed new captions). Prompts bound only to page numbers go stale, so each opening carries a caption anchor and a rebind step.",
+      "lesson": "The picture-book branch moved three times during this task: V34 renumbered pages 4 to 23, V35 proposed new captions, and the owner's 2026-10-19 decision made V36 restore V33 numbering with the work order's captions. Bind prompts to the owner-governed manuscript, give each opening a caption anchor, keep a map for the edition on the branch, and re-check the book branch just before publishing.",
       "write_back": "docs/handoffs/codex_learning_sessions_2026-10-18/QUESTION_CARD.md#2-source-binding"
     },
     {
