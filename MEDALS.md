@@ -1,5 +1,15 @@
 # MEDALS.md — bronze / silver / gold rankings
 
+> **Owner decision 2026-10-18 (`ODR-MEDALS-QUIET-20261018`):** the
+> child-facing display described below is being replaced. Tiers will be
+> hidden from her, a surprise keepsake will appear only on a game's first
+> completion instead of a banner on every finish, and a narrator line will
+> praise what she did. Tier maths, upgrade-only saving, win-path-only awards
+> and the passive no-award rule do not change. Until Codex ships
+> [package QM](docs/handoffs/codex_learning_sessions_2026-10-18/QUIET_MEDALS.md),
+> the code still shows the old display; add no new uses of the banner, the
+> HUD tally or the tier glyphs.
+
 Owner decision 2026-07-18: every game ranks each completed run
 bronze / silver / gold. The game is growing with its player — bronze keeps
 the no-fail promise for the 4-year-old of today, gold is a genuine

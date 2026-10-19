@@ -1,0 +1,60 @@
+{
+  "schema": "claude_handoff_manifest/1",
+  "packet": "docs/handoffs/codex_learning_sessions_2026-10-18",
+  "revision": 1,
+  "prepared_by": "Claude (written work order; no images, no voice generation, no game change)",
+  "recipient": "Codex",
+  "baseline_dev": "e1dc3e21f67afeacf48a3609ac520468d6fecc28",
+  "book_source_commit": "137a1b2864d7b63b34149bd5bb238ea522eb5b33",
+  "care_branch_tip_local_only": "e0abe9c9643e44a85c262683c75b6ac1fb04b5e3",
+  "owner_decisions": [
+    "ODR-LEARNING-SCOPE-20261018",
+    "ODR-MEDALS-QUIET-20261018",
+    "ODR-GUIDE-VOICE-20261019"
+  ],
+  "review": "https://claude.ai/artifact/JE6GvfXSBgBccHuwpDiLGc",
+  "status": {
+    "ARCHIVE_COMPLETE": "after remote verification",
+    "GENERATION_READY": "not applicable",
+    "DELIVERY_ACCEPTED": false
+  },
+  "hash_basis": "SHA-256 of git blob bytes",
+  "files": [
+    {
+      "path": "docs/handoffs/codex_learning_sessions_2026-10-18/README.md",
+      "role": "Work order entry point: owner decisions, evidence, rules and findings, voice package VG, order, acceptance",
+      "bytes": 22148,
+      "sha256": "82a257d539d4c10022ca9998cf4b292ea2adb2c832e54fca1725edf0ab43cee5"
+    },
+    {
+      "path": "docs/handoffs/codex_learning_sessions_2026-10-18/QUESTION_CARD.md",
+      "role": "Package QC: full card text for the 17 openings, binding, typesetting and checks",
+      "bytes": 12376,
+      "sha256": "57933ea7961defc592d5827d0f0551ca61fccf8f58f4ef431db9b4e8d85f2078"
+    },
+    {
+      "path": "docs/handoffs/codex_learning_sessions_2026-10-18/FEELINGS_WITH_PUFF.md",
+      "role": "Package FP: feelings beats in the Grand Puff care encounter",
+      "bytes": 20726,
+      "sha256": "2a25a472d8c8df755daf011b79b070be3a8a0e7b7f2e8ea18984a30c3ab8d7df"
+    },
+    {
+      "path": "docs/handoffs/codex_learning_sessions_2026-10-18/QUIET_MEDALS.md",
+      "role": "Package QM: hidden tiers, first-finish surprise keepsake, praise lines",
+      "bytes": 13327,
+      "sha256": "640565716c544126b2c17c5247ebb86380c48d22a5f695e776f59b1def4880db"
+    },
+    {
+      "path": "docs/handoffs/codex_learning_sessions_2026-10-18/PARENT_LOG.md",
+      "role": "Two-week check sheet for the grown-up",
+      "bytes": 3027,
+      "sha256": "4d671feeb3bbfdcbbb2bd51f5f5355115a17cada081af54ff63415dc6d10aae2"
+    },
+    {
+      "path": "docs/handoffs/codex_learning_sessions_2026-10-18/.gdignore",
+      "role": "Keeps Godot from importing the packet folder",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

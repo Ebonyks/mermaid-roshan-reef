@@ -1,0 +1,262 @@
+{
+  "id": "learning-sessions-handoff-20261018",
+  "scope": "Owner-requested written Codex work order for two ideas from the 2026-10-18 learning-value review (https://claude.ai/artifact/JE6GvfXSBgBccHuwpDiLGc): a printed question card for the chapter-one picture book, and feelings beats in the Grand Puff care encounter, plus the owner-approved quieter medals and one new narrator voice for every Guide line. Records the owner's three answers in the decision register, points MEDALS.md and its ledger row at the new display decision, and adds a task-index route. Benefit: the child gets talk-based bedtime reading, feeling words tied to a story she plays, and rewards that praise what she did instead of grading speed. Written by Claude; no game file, image, voice generation, book change or acceptance.",
+  "baseline": "e1dc3e21f67afeacf48a3609ac520468d6fecc28",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-AGE-08",
+    "DL-READ-04",
+    "DL-READ-05",
+    "DL-READ-06",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-05",
+    "DL-INT-06",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-UI-07",
+    "DL-MOT-04",
+    "DL-MOT-05",
+    "DL-VIS-04",
+    "DL-SND-01",
+    "DL-SND-02",
+    "DL-SND-03",
+    "DL-SND-04",
+    "DL-SND-05",
+    "DL-SND-10",
+    "DL-SND-11",
+    "DL-SND-12",
+    "DL-SND-13",
+    "DL-SND-14",
+    "DL-SND-15",
+    "DL-SND-16",
+    "DL-SND-17",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-CODE-03",
+    "DL-CODE-05",
+    "DL-CODE-10",
+    "DL-QA-02",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-TYPE-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-08",
+    "DL-CIN-16",
+    "DL-PLAN-04",
+    "DL-PLAN-05"
+  ],
+  "findings": [
+    "MA-ACCESS-001",
+    "MA-TYPE-004",
+    "MA-TYPE-003",
+    "MA-CI-005",
+    "MA-CODE-003",
+    "MA-CODE-001",
+    "MA-AUDIO-001",
+    "MA-PLAY-001",
+    "MA-CHILD-001",
+    "MA-OPERA-014"
+  ],
+  "finding_scope": "Constraints and dependencies only: exact spoken cues for the new objectives (MA-ACCESS-001); medal emoji replaced on the child's screen by an authored keepsake (MA-TYPE-004); text-free cards and keepsake (MA-TYPE-003); zero-input coverage of medals and the new save key (MA-CI-005); the shared pointer, no new clone (MA-CODE-003); new logic outside main.gd (MA-CODE-001); 43 new or regenerated voice files join the audio review backlog (MA-AUDIO-001); unchanged Day One reachability (MA-PLAY-001); the two-week family log is private observation (MA-CHILD-001); rebuilt Pop Star, Ballerina and Racer verbs update their praise categories (MA-OPERA-014). No finding is repaired, closed or changed, and no new finding is opened because the learning gaps break no current rule.",
+  "files": [
+    "MEDALS.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/learning-sessions-20261018/owner_answers.json",
+    "audit/cycles/learning-sessions-20261018/owner_replies.json",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json",
+    "docs/handoffs/codex_learning_sessions_2026-10-18/.gdignore",
+    "docs/handoffs/codex_learning_sessions_2026-10-18/FEELINGS_WITH_PUFF.md",
+    "docs/handoffs/codex_learning_sessions_2026-10-18/MANIFEST.json",
+    "docs/handoffs/codex_learning_sessions_2026-10-18/PARENT_LOG.md",
+    "docs/handoffs/codex_learning_sessions_2026-10-18/QUESTION_CARD.md",
+    "docs/handoffs/codex_learning_sessions_2026-10-18/QUIET_MEDALS.md",
+    "docs/handoffs/codex_learning_sessions_2026-10-18/README.md"
+  ],
+  "branch_sources": [
+    {
+      "branch": "codex/mermaid-roshan-picture-book",
+      "commit": "4f65c502beabb38bb3365920005e2e6f90ea13f0",
+      "path": "books/chapter_one/landscape/PAGE_PLAN.md",
+      "sha256": "897f53825c45c1344c08f643f8ad7d57370b32e90705826e52bccac0d3fe54de",
+      "use": "V34 reading baseline the card text is bound to (unchanged at branch tip 137a1b2864d7b63b34149bd5bb238ea522eb5b33)"
+    },
+    {
+      "branch": "codex/mermaid-roshan-picture-book",
+      "commit": "137a1b2864d7b63b34149bd5bb238ea522eb5b33",
+      "path": "books/chapter_one/landscape/revisions/v35_story_value/story_review.json",
+      "sha256": "4c06e505a24dd96b4d719b0356698080a85ed031e78a9fa0ee9a70d85adfc9e2",
+      "use": "V35 proposals: the separate grown-up card and its five invitations, kept word for word"
+    },
+    {
+      "branch": "codex/mermaid-roshan-picture-book",
+      "commit": "137a1b2864d7b63b34149bd5bb238ea522eb5b33",
+      "path": "books/chapter_one/DESIGN_LANGUAGE.md",
+      "sha256": "536016f3137ec6a7630a655edc973c02e35b853ba899b27e5455683daabd24d1",
+      "use": "Book rules, including no search cue for hidden cameos"
+    },
+    {
+      "branch": "codex/grand-puff-care-20261017 (local only, not on origin on 2026-10-19)",
+      "commit": "e0abe9c9643e44a85c262683c75b6ac1fb04b5e3",
+      "path": "design/GRAND_PUFF_CARE_2026-10-17.md",
+      "sha256": "1bf9d6bbfa39f3b15628f4b431e42380e51a878165520d2783f70a9ca6ffc8a1",
+      "use": "Care encounter contract the feelings beats build on"
+    },
+    {
+      "branch": "codex/grand-puff-care-20261017 (local only)",
+      "commit": "e0abe9c9643e44a85c262683c75b6ac1fb04b5e3",
+      "path": "scripts/games/dust_boss.gd",
+      "sha256": "226016e382a8956fcf5ca9a4eddfc4e591be8d4c446d9bb0d2e644558d9f706c",
+      "use": "State machine seams for the beats and the tier-named victory captions"
+    },
+    {
+      "branch": "codex/grand-puff-care-20261017 (local only)",
+      "commit": "e0abe9c9643e44a85c262683c75b6ac1fb04b5e3",
+      "path": "assets/sprites/dust_bunnies/boss/grand_puff_cold_keys_v1.png",
+      "sha256": "6fef220e68dbc2cb4c4cbc0d8cc158c2be601a0209a171c6038b98a745ba527c",
+      "use": "Existing Puff poses (sniffly, breath-in, achoo, grateful); viewed, not changed"
+    }
+  ],
+  "validation": [
+    {
+      "command": "Mandatory review: master-audit planning entry and task index, design rules (sections 1, 2, 4, 5, 7, 8, 9, 10, 11, 13, 14, 16, 18, 19, 20), the findings named above, the document ledger, the development contract, and the publish-handoff and voice-line recipes",
+      "result": "PASS",
+      "evidence": "Read at dev e1dc3e21f67afeacf48a3609ac520468d6fecc28 after re-checking that the cited code files were unchanged since 6fb96aeb441952c1053cc5ce18435fc57fc1d1ab. Design review only."
+    },
+    {
+      "command": "Source binding: git cat-file blob <commit>:<path> | sha256sum for every source named in the packet; git ls-remote origin and git branch -r --contains ee5a9cec for the care branch",
+      "result": "PASS",
+      "evidence": "Hashes recorded in branch_sources and in the packet files. The care branch tip e0abe9c9643e44a85c262683c75b6ac1fb04b5e3 exists only in a local Codex worktree; no remote branch contains ee5a9cecd78c27e9897f7c5e2eeb62385506a572 (checked 2026-10-19)."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --answers <answers> --cycle learning-sessions-20261018 --answered-on 2026-10-18, then again for 2026-10-19, then --check --base origin/dev",
+      "result": "PASS",
+      "evidence": "DECISIONS|COUNT|62 then 63, RESULT ALL OK each time; ODR-LEARNING-SCOPE-20261018, ODR-MEDALS-QUIET-20261018 and ODR-GUIDE-VOICE-20261019 appended; verbatim answers in audit/cycles/learning-sessions-20261018/owner_replies.json."
+    },
+    {
+      "command": "Packet consistency script (session scratch, not committed): every cited commit SHA resolves, every cited SHA-256 equals the git blob, every DL and MA ID is defined, the FP and QM key tables hold 21 and 15 unique keys, the card has openings A to Q, and every card anchor matches the V34 page-plan caption",
+      "result": "PASS",
+      "evidence": "No problems except a script false positive on MA-OPERA-014, which the master audit indexes as a linked row; the authority and development gates confirm it is indexed."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH INVENTORY=727 LEDGER=727 ACTIVE=71 RECORDS=74, RESULT ALL OK with the packet, ledger rows and register staged."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV BASE e1dc3e21f67afeacf48a3609ac520468d6fecc28, RESULT ALL OK with every changed path covered by this record."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Ran 54 tests, OK; DOCAUTH STRESS 6/6."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "NO_REGRESSION (exact shrinking baseline; migration debt remains UNSATISFIED). No new JSON reads as game data."
+    },
+    {
+      "command": "Anonymous fetch of every MANIFEST.json file at the pushed commit with SHA-256 comparison",
+      "result": "PENDING",
+      "evidence": "Recorded in REMOTE_VERIFICATION.json after the push."
+    },
+    {
+      "command": "Branch Probe Suite CI on the pushed head",
+      "result": "PENDING",
+      "evidence": "Documentation-only change; tracked on the branch's workflow run. Required before any merge into dev."
+    }
+  ],
+  "acceptance_gaps": "Codex implementation of packages QC, VG, FP and QM; landing the local Grand Puff care branch first (FP0); the owner's pick of the narrator voice (VG1) and approval of the face cards, keepsake, card wording and lines; human listening at 4/5 or better and device timing for 43 voice files; Mobile and device captures; the family's two-week observations; owner answers to OQ1 to OQ3 (defaults apply meanwhile). No game file, image, voice, book page or protected asset changed; the game-wide audit remains UNSATISFIED.",
+  "references_used": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "purpose": "Planning entry and task index"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "purpose": "Child, interaction, sound, save, code, type and asset rules"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "purpose": "Related findings and their states"
+    },
+    {
+      "path": "design/reference/recipes/voice_lines.md",
+      "purpose": "Parler pipeline default for new provisional lines"
+    },
+    {
+      "path": "assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json",
+      "purpose": "Current Guide speaker, keys and line texts"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "purpose": "Level 0 to 2 ladder, three clean wins to step up, fixed choice rotation"
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "purpose": "Current per-finish ceremony, HUD tally and tier maths"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "purpose": "Opera career tiers and encore token values"
+    },
+    {
+      "path": "MEDALS.md",
+      "purpose": "The 2026-07-18 medal decision the owner amended"
+    },
+    {
+      "path": "assets/sprites/dust_bunnies/dust_bunny_idle.png",
+      "purpose": "Identity reference for the four feeling faces"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "The feature this order builds on, the Grand Puff cold recast, existed only on a local branch in a Codex worktree, three commits ahead of dev with no remote copy. A handoff that depends on unpushed work must name its exact tip and make landing it the first step.",
+      "write_back": "docs/handoffs/codex_learning_sessions_2026-10-18/FEELINGS_WITH_PUFF.md#2-before-you-start-fp0"
+    },
+    {
+      "lesson": "The picture-book branch moved twice during this task (V34 renumbered pages 4 to 23; V35 proposed new captions). Prompts bound only to page numbers go stale, so each opening carries a caption anchor and a rebind step.",
+      "write_back": "docs/handoffs/codex_learning_sessions_2026-10-18/QUESTION_CARD.md#2-source-binding"
+    },
+    {
+      "lesson": "A free-text owner answer superseded part of an earlier bounded decision (the Guide voice in ODR-LUNA-OBJECTIVE-GUIDES-20261014). Record the supersession and Claude's reading of the words in the register entry, so the owner can correct the reading.",
+      "write_back": "design/reference/OWNER_DECISIONS.md"
+    }
+  ],
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-LEARNING-SCOPE-20261018",
+      "evidence": "Owner 2026-10-18 chose 'Book question card,Feelings with Puff'; 'Count and Clean' was offered and not chosen.",
+      "write_back": "design/reference/OWNER_DECISIONS.md"
+    },
+    {
+      "decision_id": "ODR-MEDALS-QUIET-20261018",
+      "evidence": "Owner 2026-10-18 answered 'Yes, all three' to softening the medals, amending the 2026-07-18 display decision.",
+      "write_back": "MEDALS.md"
+    },
+    {
+      "decision_id": "ODR-GUIDE-VOICE-20261019",
+      "evidence": "Owner 2026-10-19: 'Regenerate all lines in new voice, this is not preserved asset.'",
+      "write_back": "design/reference/OWNER_DECISIONS.md"
+    }
+  ]
+}

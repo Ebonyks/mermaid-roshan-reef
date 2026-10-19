@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ODR-LEARNING-SCOPE-20261018",
+    "date": "2026-10-18",
+    "authority": "recorded_owner",
+    "subject": "Learning work order scope after the 2026-10-18 learning-value review",
+    "question": "Which learning ideas should the Codex work order cover? The doc ranks them 1, 2, 3; pick any. (Book question card; Feelings with Puff; Count and Clean)",
+    "decision": "Owner selected 'Book question card' and 'Feelings with Puff'. 'Count and Clean' (Day One castle cleaning with the Teacher's counting levels) was offered and not selected, so this work order does not commission it. Commissions a written Codex work order only; no implementation, art, voice or acceptance.",
+    "source": "audit/cycles/learning-sessions-20261018/owner_replies.json",
+    "checks": [],
+    "checkable": false,
+    "cycle": "learning-sessions-20261018"
+  },
+  {
+    "id": "ODR-MEDALS-QUIET-20261018",
+    "date": "2026-10-18",
+    "authority": "recorded_owner",
+    "subject": "Child-facing medal display (amends the 2026-07-18 medal decision in MEDALS.md)",
+    "question": "Should the work order also soften the medals? That changes your 2026-07-18 medal decision, so it needs your explicit yes.",
+    "decision": "Owner answered 'Yes, all three', approving the option shown as: surprise medals instead of a banner on every finish, speed tiers hidden from her, and new synthetic lines praising what she did ('You kept trying!'); tiers are still computed and saved, upgrade-only. This amends only the display and celebration clauses of the 2026-07-18 decision; bronze-as-completion, upgrade-only saving, win-path-only awards and the passive no-award rule stay. Implementation is pending in docs/handoffs/codex_learning_sessions_2026-10-18/QUIET_MEDALS.md.",
+    "source": "audit/cycles/learning-sessions-20261018/owner_replies.json",
+    "checks": [],
+    "checkable": false,
+    "cycle": "learning-sessions-20261018"
+  },
+  {
+    "id": "ODR-GUIDE-VOICE-20261019",
+    "date": "2026-10-19",
+    "authority": "recorded_owner",
+    "subject": "Synthetic voice for the Guide narrator lines",
+    "question": "Which synthetic voice should speak the new Feelings with Puff lines and the new praise lines? (Existing Guide voice, local Kokoro af_heart; or a new Parler narrator)",
+    "decision": "Owner (free text): 'Regenerate all lines in new voice, this is not preserved asset.' Use one new synthetic narrator voice from the main Parler pipeline for the Guide role, and regenerate every existing Guide line in it (the two 2026-10-14 objective guides and Grand Puff's five cold lines) together with the new Feelings and praise lines. The Kokoro Guide files are not protected family recordings. Supersedes only the voice choice in ODR-LUNA-OBJECTIVE-GUIDES-20261014; its line texts and protected-recording limits stay. Claude reads 'all lines' as every line the Guide narrator speaks, not the character voices.",
+    "source": "audit/cycles/learning-sessions-20261018/owner_replies.json",
+    "checks": [],
+    "checkable": false,
+    "cycle": "learning-sessions-20261018"
+  }
+]

@@ -1,0 +1,81 @@
+{
+  "cycle": "learning-sessions-20261018",
+  "channel": "Question dialogs in a Claude Code desktop session (Code tab) started from the session that wrote the 2026-10-18 learning-value review",
+  "review": "https://claude.ai/artifact/JE6GvfXSBgBccHuwpDiLGc",
+  "work_order": "docs/handoffs/codex_learning_sessions_2026-10-18/README.md",
+  "rounds": [
+    {
+      "answered_utc": "2026-10-19T05:17:50Z",
+      "owner_local_date": "2026-10-18",
+      "questions": [
+        {
+          "id": "Q1",
+          "header": "Ideas",
+          "question": "Which learning ideas should the Codex work order cover? The doc ranks them 1, 2, 3; pick any.",
+          "multi_select": true,
+          "options": [
+            {
+              "label": "Book question card",
+              "description": "Doc's #1. A printed card of talk prompts for each spread of the chapter-one picture book. No game code; Codex lays out the card."
+            },
+            {
+              "label": "Feelings with Puff",
+              "description": "Doc's #2. In the Grand Puff care encounter (Puff has a cold) she picks the face that matches how a friend feels; a voice names it and asks what would help. Builds on the cold recast ee5a9cec, which is still only on a local branch."
+            },
+            {
+              "label": "Count and Clean",
+              "description": "Doc's #3. Day One castle cleaning reuses the Teacher's counting levels: tap each dust bunny once, then \"How many?\". Steps up after 3 clean wins, down after repeated help."
+            }
+          ],
+          "answer_verbatim": "Book question card,Feelings with Puff"
+        },
+        {
+          "id": "Q2",
+          "header": "Medals",
+          "question": "Should the work order also soften the medals? That changes your 2026-07-18 medal decision, so it needs your explicit yes.",
+          "multi_select": false,
+          "options": [
+            {
+              "label": "Yes, all three",
+              "description": "Surprise medals instead of a banner on every finish, speed tiers hidden from her, and new synthetic lines praising what she did (\"You kept trying!\"). Tiers are still computed and saved, upgrade-only."
+            },
+            {
+              "label": "Praise lines only",
+              "description": "Medals stay as MEDALS.md says; only add new synthetic process-praise lines after a finish."
+            },
+            {
+              "label": "No, keep medals",
+              "description": "MEDALS.md stays exactly as decided; the packet records softening as declined."
+            }
+          ],
+          "answer_verbatim": "Yes, all three"
+        }
+      ]
+    },
+    {
+      "answered_utc": "2026-10-19T13:08:55Z",
+      "owner_local_date": "2026-10-19",
+      "questions": [
+        {
+          "id": "Q3",
+          "header": "New voice",
+          "question": "Which synthetic voice should speak the new Feelings with Puff lines and the new praise lines?",
+          "multi_select": false,
+          "options": [
+            {
+              "label": "Existing Guide voice (Recommended)",
+              "description": "The neutral adult Guide that already speaks Grand Puff's cold lines and two other cues (local Kokoro af_heart). One narrator voice everywhere. This extends your 2026-10-14 two-line approval to these new lines only."
+            },
+            {
+              "label": "New Parler narrator",
+              "description": "A new neutral preset from the main synthetic pipeline. Grand Puff's encounter would then mix two narrator voices unless his five cold lines are re-recorded in the new voice too."
+            }
+          ],
+          "answer_kind": "free text in place of an offered option",
+          "answer_verbatim": "Regenerate all lines in new voice, this is not preserved asset."
+        }
+      ]
+    }
+  ],
+  "acceptance_granted": "Scope and direction for a written Codex work order only. No implementation, art, voice, device, child or owner acceptance of built work."
+}
