@@ -446,7 +446,7 @@ const HOTSPOT_PHASE_ALIASES := {
 ## codex flat-package cards matted by tools/prepare_opera_2d_props.py; a
 ## missing file simply hides the prop.
 const GOAL_PROPS := {
-	"teacher": "../hotspots/teacher_lesson_board.svg",
+	"teacher": "../hotspots/teacher_lesson_board.png",
 	"chef": "goal_chef",
 	"detective": "goal_detective",
 	"ballerina": "goal_ballerina",

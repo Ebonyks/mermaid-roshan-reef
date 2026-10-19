@@ -46,7 +46,7 @@ const CAREER_CREST_FILES := {
 	"popstar": "opera_crest_singer.png",
 	"nursery": "goal_nursery.png",
 	"geologist": "opera_crest_geologist.svg",
-	"teacher": "res://assets/opera/worlds/actors/roshan_teacher.png",
+	"teacher": "res://assets/opera/worlds/ui/crests/opera_crest_teacher.png",
 }
 
 var m: ReefMain

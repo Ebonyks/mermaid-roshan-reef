@@ -123,6 +123,11 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 [Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)
 Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md), [protocol](../design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md), and [impact](../design/audit_impacts/grok-handoff-2-20260909.json). External motion-reference repairs do not close live visual findings or delivery gates.
 
+
+Teacher object-art candidate (2026-10-18): [P2 impact](../design/audit_impacts/job-art-teacher-20261018.json) records24 painted ImageGen runtime objects, source rejects, two-aspect lesson/shape/crest/invitation context, actual GUI activation and the4.5/5 local AI floor. Full machine/remote integration and physical-device/child/owner/canonicalQA11 acceptance remain separately recorded; shared P8 scene work and MA-VIS-010 remain open.
+
+Teacher P2 local verification update2026-10-19: complete post-gutter full suite passes82/82zero exits at exact current pins ([receipt](../assets_src/imagegen/job_art_teacher_20261018/verification/full_ci_02.json)); original catalog failure retained. RemoteCI/integration, shared P8 and formal/device/child/owner acceptance remain open.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 ## Sealed audit snapshot and subsequent round metadata
