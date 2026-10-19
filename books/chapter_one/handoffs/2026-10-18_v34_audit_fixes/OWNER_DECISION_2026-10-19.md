@@ -95,16 +95,29 @@ both 14 and 15.
 
 ## Rear cover
 
-The owner picks V35 candidate A or B, then Codex applies it with that
-candidate's own two-line copy. Codex recommends A.
+**Chosen 2026-10-19: candidate A.** The owner wrote: "Use rear cover A:
+Roshan and Daddy at the castle doorway, with 'Pearl Castle needs help. /
+Where will Roshan begin?'"
 
-- **A:** the story 3 castle threshold with Roshan and Daddy. "Pearl Castle
-  needs help. / Where will Roshan begin?" Includes a tiny Lamma cameo.
-- **B:** the story 2 plane and dock. "A big castle. / Where will Roshan
-  begin?"
+Apply V35 candidate A exactly as proposed. Its base is the story 3 castle
+threshold, where Roshan opens the door while Daddy watches. Its copy is
+"Pearl Castle needs help. / Where will Roshan begin?" in Sniglet at the
+logical 20 pt size. It keeps the tiny Lamma cameo in the doorway, as the
+proposal places it. Make no other change to the art. Run the contrast gate on
+both lines, and give the rear the same height extension, bleed and upscale as
+the full-art pages when the print step runs.
 
-Show no washing scene, rainbow Puff, transformation or nap. The washing scene
-stays inside the book on story 26.
+| Proposal file | SHA-256 at d75164b2 |
+| --- | --- |
+| `books/chapter_one/landscape/revisions/v35_story_value/cover_proposal.json` | `b55816c33daa57ffd0618e385af47d4cb4565e77ebb0e545ed7638c0faad12c0` |
+| `books/chapter_one/landscape/revisions/v35_story_value/REAR_A.html` | `472902300bf90b2093aa986d7356b05d823a9665b1b0093156332cf7e148c060` |
+| `books/chapter_one/landscape/revisions/v35_story_value/proofs/rear_A.png` | `4835ca42b1fa853b3bfaa06bdf0a16fac4355da862065fb1cb8faecc9901ee77` |
+| `books/chapter_one/landscape/revisions/v29_polish/art/castle03.png` (base) | `4fc329bf1ec83d2269fb6670eb08da8c25fb89ea1e709d9b66aa6c07089893c6` |
+| `books/chapter_one/landscape/revisions/v35_story_value/art/lamma_head_attempt1.png` (cameo source) | `dfeb318df2a9e69f0cc4559e98983bcfa5054e7433db1a3a03d629f97baca9a0` |
+
+Candidate B (the story 2 plane and dock, "A big castle. / Where will Roshan
+begin?") is not used. Show no washing scene, rainbow Puff, transformation or
+nap on the rear. The washing scene stays inside the book on story 26.
 
 ## Print edition (replaces W16)
 
