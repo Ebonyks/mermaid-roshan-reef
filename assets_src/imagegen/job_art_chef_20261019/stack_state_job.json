@@ -1,0 +1,22 @@
+{
+  "id": "chef-partial-stack-20261019",
+  "baseline": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
+  "output_lane": "Two named gameplay static states, no per-frame/cinematic generation",
+  "action": "Existing three tray taps earn bottom2, then bottom4, then all6painted cake rounds. Replace stretched source caps with whole authored partial-stack pictures.",
+  "source": "assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png",
+  "source_sha256": "b3741c02402693637dfd6367e98f41ce6380d2641ffe04b061f00bade1050a37",
+  "fixed": "Original bottom tiers, gold/pink plate, pedestal, source camera, colors, contour widths, exact source-canvas positions and support point; no source/protected-original overwrite",
+  "keys": [
+    "Blue/violet bottom pair with a newly visible complete blue top ellipse; upper four tiers absent/transparent",
+    "Yellow/green/blue/violet bottom four with a newly visible complete yellow top ellipse; upper two tiers absent/transparent"
+  ],
+  "method": "ImageGen local removal/hidden-top completion on original full cake; retain original full six-tier asset. Whole-canvas uniform normalization and source-preserving registration only, no stretched top cap or reconstructed polygons.",
+  "limits": "2named-key calls for first candidate set, at most2sets/4aggregate calls including rejects; stop/diagnose at limit. Local cleanup/evidence window30minutes; no CLI/API spend authorized.",
+  "registration_tolerance": "Retained pedestal/bottom-tier features and support within4runtime pixels at existing0.20scale; no cropped contour or floating/missing top. Exact current Chapter Two GUI transition review required.",
+  "gameplay": "All tray order, three inputs, source regions for loose tiers, persistent mask bits, completed six-tier asset and save/reward/route ownership remain unchanged.",
+  "reviews": {
+    "static_context": "Local AI source/current still review PASS4.5floor per scored appearance dimension; review/art_review.json. Final all-applicable-time audit remains null.",
+    "machine": "Complete unchanged scripts/ci.sh native capture02 PASS82ordered zero exits/no source drift; full_ci_native_capture_02.json/log. Earlier failed/interrupted runs retained.",
+    "human_motion_device_child_owner": "PENDING"
+  }
+}

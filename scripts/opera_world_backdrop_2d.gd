@@ -170,7 +170,8 @@ func _load_tile_set(kind: String) -> Array[Texture2D]:
 	for row in range(2):
 		for column in range(2):
 			var path: String
-			if kind == "world" and scene_variant in ["chapter2_chef_cake", "strawberry_cake_workshop"]:
+			if kind == "world" and ((career_id == "chef" and scene_variant.is_empty()) \
+					or scene_variant in ["chapter2_chef_cake", "strawberry_cake_workshop"]):
 				path = "res://assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c%dr%d.png" % [column, row]
 			elif career_id == "ballerina" and kind == "stage":
 				path = "res://assets/opera/worlds/stage/finale_stage_c%dr%d.png" % [column, row]
@@ -255,11 +256,15 @@ func _draw() -> void:
 	var mid := Color(palette[1])
 	var accent := Color(palette[2])
 	var active_tiles: Array[Texture2D] = stage_tiles if stage_mode and stage_tiles.size() == 4 else world_tiles
+	if career_id == "chef" and scene_variant.is_empty():
+		# Reuse the existing painted empty stations: one visible bowl/cake owner.
+		# This is reuse of a resolution-debt source, not a native-detail upgrade.
+		active_tiles = world_tiles
 	if active_tiles.size() == 4:
 		_draw_tile_set(active_tiles)
 		# The saved clean kitchen owns its painted light. Stage beams would add
 		# two broad alpha passes over the room and the persistent cake.
-		if stage_mode or not _is_chapter2_clean_kitchen():
+		if (stage_mode or not _is_chapter2_clean_kitchen()) and career_id != "chef":
 			_draw_spotlights(accent)
 		return
 	if painting != null:

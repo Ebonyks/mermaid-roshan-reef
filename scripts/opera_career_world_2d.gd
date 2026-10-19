@@ -2097,7 +2097,7 @@ func _on_hotspot_opening_finished(station_index: int) -> void:
 
 
 func _draw_activity_focus() -> void:
-	if career_id in ["teacher", "geologist"] or _racer_is_driving():
+	if career_id in ["teacher", "geologist", "chef"] or _racer_is_driving():
 		return
 	# Local objects and their own cues provide focus; no room-sized alpha lens.
 	if surface is OperaChefSurface:
@@ -2393,7 +2393,7 @@ func _play_roshan_animation(animation: String) -> void:
 
 
 func _play_roshan_task_pose(phase: Dictionary) -> void:
-	if surface is OperaChefSurface and is_instance_valid(player_animator):
+	if career_id == "chef" and is_instance_valid(player_animator):
 		# The generic work strip already holds a second mixing bowl. The
 		# approved empty-hand presenting pose keeps one room-owned work object.
 		player_animator.show_pose("idle", 0)
@@ -2770,7 +2770,7 @@ func _open_task() -> void:
 			nursery_catch.stop()
 	_bind_widget(phase, mode_name, accent)
 	if surface is OperaChefSurface:
-		var work_feet := Vector2(995, 405)
+		var work_feet := Vector2(875, 405)
 		if mode_name in ["pourt", "circle"]:
 			work_feet = Vector2(550, 430)
 		elif mode_name == "oven":
@@ -3606,7 +3606,11 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	if mode == "pourt" and _kind == "pourt" and surface.pour_level >= 1.0:
 		phase_progress = goal
 	elif mode == "swipe" and _kind == "swipe" and surface._uses_authored_trace_context() \
-			and surface.trace_journey >= 1.0:
+			and (surface.trace_journey >= 1.0 \
+			or (career_id == "chef" and surface.trace_journey >= 0.999)):
+		# Canvas touch transforms can return the final authored point as
+		# 0.99999994. Match the surface's existing finished-prefix threshold;
+		# otherwise its own input guard stops before this world earns the goal.
 		phase_progress = goal
 	elif mode == "swipe" and _kind == "swipe" and using_chapter_two_phases \
 			and amount > 0.0 and quality >= 0.9 and surface.held and surface.long_push_engaged \
@@ -3679,7 +3683,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 func _uses_authored_completion_picture(mode: String) -> bool:
 	if surface is OperaChefSurface:
 		return true
-	if career_id in ["teacher", "geologist"] \
+	if career_id in ["teacher", "geologist", "chef"] \
 			or (career_id == "racer" and mode == "kart_race"):
 		return true
 	return career_id == "candymaker" and mode == "pourt" \

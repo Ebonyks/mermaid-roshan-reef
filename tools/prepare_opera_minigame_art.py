@@ -46,6 +46,8 @@ CANDY_LADLE_EMPTY_CHROMA = CANDY_SOURCE_DIR / "candymaker_syrup_ladle_empty_chro
 CANDY_LADLE_EMPTY_ALPHA = CANDY_SOURCE_DIR / "candymaker_syrup_ladle_empty_alpha_native.png"
 CANDY_CAVITY_MASK = CANDY_SOURCE_DIR / "candymaker_syrup_cavity_mask.png"
 CANDY_GENERATION = CANDY_SOURCE_DIR / "GENERATION.json"
+CHEF_CHOCOLATE_NATIVE = ROOT / "assets_src/imagegen/job_art_chef_20261019/chocolate_strawberry_retry_native.png"
+CHEF_CHOCOLATE_SHA256 = "987131d7692f73e23735a893f01fd1a888bc6b7f7404bea613cb60f579417286"
 GENERATED_TEXT_ARTIFACTS = frozenset({
     SOURCE_DIR / "PROVENANCE.json",
     SOURCE_DIR / "REVIEW.md",
@@ -360,6 +362,24 @@ def _source(
     if crop is not None:
         image = image.crop(crop)
     return _remove_edge_field(image, component_count=components, min_component_area=min_area)
+
+
+def _chef_chocolate() -> Image.Image:
+    """Hash-bound painted replacement; retain the source's complete silhouette."""
+    if _sha256_file(CHEF_CHOCOLATE_NATIVE) != CHEF_CHOCOLATE_SHA256:
+        raise ValueError("Chef chocolate ImageGen native hash mismatch")
+    image = Image.open(CHEF_CHOCOLATE_NATIVE).convert("RGBA")
+    box = image.getchannel("A").point(lambda alpha: 255 if alpha >= 16 else 0).getbbox()
+    if box is None:
+        raise ValueError("Chef chocolate source is empty")
+    crop = (max(0, box[0] - 4), max(0, box[1] - 4),
+            min(image.width, box[2] + 4), min(image.height, box[3] + 4))
+    cut = image.crop(crop)
+    factor = min(240 / cut.width, 240 / cut.height)
+    small = cut.resize((round(cut.width * factor), round(cut.height * factor)), Image.Resampling.LANCZOS)
+    result = Image.new("RGBA", (256, 256))
+    result.alpha_composite(small, ((256 - small.width) // 2, (256 - small.height) // 2))
+    return result
 
 
 def _chef_topping_only(filename: str, kind: str) -> Image.Image:
@@ -787,20 +807,11 @@ def build() -> tuple[dict[Path, Image.Image], dict[str, dict[str, Any]], list[st
                 )
                 artifact_qa = "one child-readable complete target prop; no frame bleed, crop, or detached part"
             piece = _fit(subject, (256, 256), (222, 222))
-            if career == "chef" and topping_kind == "chocolate":
-                # Two tiny gold/mauve curls from the source presentation plate
-                # survive the colour matte at the lower corners.  They are
-                # spatially detached from the topping after the 256px fit;
-                # clear only those reviewed corner ROIs, leaving the authored
-                # curved lower chocolate outline untouched.
-                piece_draw = ImageDraw.Draw(piece)
-                piece_draw.rectangle((0, 182, 26, 255), fill=(0, 0, 0, 0))
-                piece_draw.rectangle((231, 185, 255, 185), fill=(0, 0, 0, 0))
-                piece_draw.rectangle((226, 186, 255, 255), fill=(0, 0, 0, 0))
-                operation += (
-                    "; clear reviewed detached plate-remnant corner ROIs "
-                    "x=0..26/y=182..255 and x=226..255/y=186..255"
-                )
+            if career == "chef" and index == 2:
+                piece = _chef_chocolate()
+                source = CHEF_CHOCOLATE_NATIVE
+                operation = "2026-10-19 painted ImageGen revision: verify native SHA256; alpha16 bounds plus4px; uniform240px fit and transparent padding on256x256. Original source retained."
+                artifact_qa = "complete chocolate-dipped strawberry; broad painted food material, no serving stand or swirl ambiguity; current source/context/owner acceptance separate"
             built_pieces[career].append(piece)
             add(f"widget_target_{career}_piece_{index}.png", piece, [source],
                 operation, artifact_qa)
@@ -882,7 +893,7 @@ def build() -> tuple[dict[Path, Image.Image], dict[str, dict[str, Any]], list[st
 
     notes.extend([
         "Source export labels were audited visually. Candy and Farmer source names are shifted; mappings above follow visible art.",
-        "Chef pieces retain only each topping's approved visible silhouette/lower outline; every serving pedestal/plate/base pixel is excluded.",
+        "Chef cherry/cream retain the historical authored silhouettes. The chocolate slot was revised2026-10-19 to a hash-bound ImageGen chocolate-dipped strawberry; historical sources remain preserved, and current context/device/owner acceptance stays separate.",
         "Magician cabinet reveal continues VANISH by placing the approved Lamba reveal inside a cabinet shell derived only from approved crops.",
         "Detective board slots are authored left-to-right; runtime hit targets must use the same horizontal order.",
         "Candymaker SYRUP uses a scoped generated replacement because the binding art ledger marks all three prior layers REPLACE and no registered empty-mold/fill set exists.",

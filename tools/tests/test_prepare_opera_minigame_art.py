@@ -15,6 +15,11 @@ from tools import prepare_opera_minigame_art as gate
 
 
 class OperaMinigameArtCheckTests(unittest.TestCase):
+	def test_chef_rejects_changed_native_before_derivation(self) -> None:
+		with patch.object(gate, "_sha256_file", return_value="0" * 64):
+			with self.assertRaisesRegex(ValueError, "native hash mismatch"):
+				gate._chef_chocolate()
+
 	def test_declared_text_source_hash_is_checkout_newline_stable(self) -> None:
 		lf = b'{\n  "schema": 1\n}\n'
 		crlf = lf.replace(b"\n", b"\r\n")

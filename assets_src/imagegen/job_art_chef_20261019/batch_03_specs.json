@@ -1,0 +1,107 @@
+[
+  {
+    "id": "pitcher_empty",
+    "prompt": "Use case: precise local object edit. This exact small painted batter pitcher is the target. Preserve its whole identity and outline: left-facing pouring spout, curved right coral handle and clear handle hole, cream fluted rim, coral band, centered cream shell crest, little gold foot, exact view and source framing. Change ONLY the visible BATTER inside the top opening: remove that yellow liquid and show the EMPTY cream ceramic interior/bottom of the SAME cup. No liquid, bubbles, foam or dripping batter remains. Do not shrink or redesign the vessel, tilt it, mirror it or change any hardware or contour. Same soft hand-painted2D storybook style and upper-left light. Keep a clean square canvas with real RGBA transparency outside and through the handle. No scene, floor, cast shadow, labels, glow, extra prop or character. The empty state will register exactly over the original full state.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_pour_chef_mover.png"
+    ],
+    "native_file": "pitcher_empty_first_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 36614,
+    "disposition": "CANDIDATE_PENDING_SOURCE_CONTEXT_TECHNICAL_REVIEW"
+  },
+  {
+    "id": "thermometer_empty",
+    "prompt": "Use case: isolated painted game UI object. One slender VERTICAL storybook baking thermometer, matching the supplied terracotta/cream/gold oven MATERIALS only; do not depict an oven. Soft cream enamel frame, warm gold raised rim, confident deep-plum contour, a small round bulb at BOTTOM and one straight empty glass channel above it. Frame proportions about1wide to5tall, whole instrument centered and visible with generous RGBA transparent gutter. Inside channel is quiet pale cream EMPTY background, no mercury/fill yet. Add just TWO broad tiny gold edge notches at45percent and80percent of the channel height from bottom, marking the ready range without any text or numeral. Broad soft painted highlights, restrained brush texture, no tiny hatching, realistic glass glare or shiny3D. No words, letters, numbers, arrows, icon, gauge needle, face, flame, extra tool, background, halo, shadow or frame card. Must read as one clean friendly thermometer at26px wide.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_cool_native.png"
+    ],
+    "native_file": "thermometer_empty_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 65225,
+    "disposition": "CANDIDATE_PENDING_SOURCE_CONTEXT_TECHNICAL_REVIEW"
+  },
+  {
+    "id": "pitcher_empty_retry",
+    "prompt": "Precise local edit of IMAGE1, the approved pitcher. Change ONLY yellow batter INSIDE its mouth into the empty cream ceramic interior. Preserve exact source proportions, outline, rim, coral handle/hole, shell crest, gold foot, camera, source framing and transparent square canvas. The vessel's ink bounding box is SLIGHTLY TALLER THAN WIDE, not a broad squat bowl. IMAGE2 is POSITION_GUIDE_ONLY: neutral gray box maps the whole ink footprint at x88..940,y56..948 in1024square; four black coordinate crosses locate left spout(92,320), outer handle(932,464), bottom foot(512,912), mouth center(504,232). Match those positions and aspect exactly while taking ALL appearance only from IMAGE1. No guide pixel, gray background, rectangle or cross enters delivery. Do not widen or shorten the cup, redesign hardware, move the shell, tilt/mirror it or invent a new view. Empty cream cavity replaces batter alone. Preserve complete tall pitcher and clean real RGBA outer transparency including the handle hole. No liquid/bubbles, background, floor, shadow, text, halo or extra item. Same broad painted storybook finish as source.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_pour_chef_mover.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/artwork-quality-20261018/chef_pitcher_position_only.png"
+    ],
+    "native_file": "pitcher_empty_retry_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 37378,
+    "disposition": "NOT_SELECTED: unnecessary retry after incorrect manual footprint assumption; first candidate registers better"
+  },
+  {
+    "id": "thermometer_full",
+    "prompt": "Exact source thermometer target. Preserve every exterior painted contour, frame, shell crest, gold notches, bulb, proportions, perspective, dimensions, position and RGBA transparency. Change ONLY the empty inner glass channel and bulb into the FILLED baking-heat state. The circular bottom bulb fills pale warm honey gold. The vertical liquid column above it reaches nearly the top: lower45percent pale cream-gold, middle45to80percent clear golden honey, upper20percent cozy warm amber-orange. Simple broad painted value bands INSIDE the original channel, not tinted hardware or outside glow. Keep original glass highlight subtle. No red alarm, flame, labels, words, numbers, extra tick, character, vessel, background or extra prop. Full and empty images must register exactly so a bottom-to-top source reveal works without a changing outer silhouette. Same soft high-quality painted2D storybook material. Preserve true RGBA transparency outside.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/thermometer_empty_native.png"
+    ],
+    "native_file": "thermometer_full_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 58404,
+    "disposition": "CANDIDATE_PENDING_SOURCE_CONTEXT_TECHNICAL_REVIEW"
+  },
+  {
+    "id": "piping_bag",
+    "prompt": "Precise object isolation/local repair of the supplied game card. Extract ONLY its existing cream cloth PIPING BAG with purple ribbon tie and small gold nozzle, keeping the exact diagonal pose with nozzle toward LOWER LEFT, same material, proportions and softly painted storybook identity. Remove the surrounding card, frosting, navy zigzag, borders, text and every other object. Where the navy zigzag crosses the nozzle/bag, locally restore the missing cream cloth/gold contour, without redesigning the bag. Complete tied cloth top, whole ribbon, full bag and nozzle tip must be visible. Source appearance preserved, broad soft painted highlights with plum-brown contour, no new gloss/3D realism. One isolated whole prop on a square canvas with real RGBA transparency, generous gutter and no floor, shadow, halo, hand or extra object.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_trace_chef.png"
+    ],
+    "native_file": "piping_bag_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 24374,
+    "disposition": "CANDIDATE_PENDING_SOURCE_CONTEXT_TECHNICAL_REVIEW"
+  },
+  {
+    "id": "oven_cake_raw",
+    "prompt": "One isolated RAW cake-in-baking-tin cutout for a preschool painted2D storybook oven. Reference supplies broad softly painted cake/metal MATERIAL STYLE only; do NOT reproduce its finished tiered cake. Render one squat ROUND TERRACOTTA baking tin seen slightly from above, with a soft cream rim and little warm-gold base. Its top ellipse holds smooth pale vanilla-gold RAW BATTER just below the rim, with two tiny contained batter bubbles, no risen sponge above rim. Front-facing symmetric object, width about twice height, broad painted value bands, restrained brush texture, confident plum-brown contour, soft upper-left light. Whole one tin visible and centered with generous transparent gutter on a clean square canvas, real RGBA transparency outside. This is the raw state of one cake, not a stack. No frosting, cherries, strawberry, decoration, shell topper, flame, steam, hands, spoon, plate, oven, scene, floor, cast shadow, letters, numbers or glow.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_gauge_chef_success.png"
+    ],
+    "native_file": "oven_cake_raw_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 63548,
+    "disposition": "CANDIDATE_PENDING_SOURCE_CONTEXT_TECHNICAL_REVIEW"
+  },
+  {
+    "id": "oven_cake_risen",
+    "prompt": "Exact raw cake tin in reference is target. Preserve the ENTIRE terracotta tin, cream rim, gold foot, perspective, contour, horizontal centering, size, source canvas and RGBA transparency. Change ONLY the raw batter to the BAKED/risen state: one softly domed golden-yellow bare sponge rises a little ABOVE the cream rim. Broad warm gold/cream painted value bands, a few large soft crumb marks, no fine noisy pores. One coherent round cake supported IN that same tin. The tin remains fixed and registers exactly with source; do not enlarge or stretch the cake pan. No frosting, fruit, icing, plate, decoration, steam, flame, shadow, background, halo, lettering or extra object. Same polished painted2D storybook finish. This is one baked cake, not a stack or whole finished birthday cake.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_cake_raw_native.png"
+    ],
+    "native_file": "oven_cake_risen_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 40614,
+    "disposition": "CANDIDATE_PENDING_SOURCE_CONTEXT_TECHNICAL_REVIEW"
+  },
+  {
+    "id": "batter_drop",
+    "prompt": "One small isolated teardrop of pale VANILLA-GOLD cake batter, in the exact broad painted2D storybook material/color of the reference flowing batter. Reference is color/material only, do not draw a long strip. Single falling drop with rounded plump lower belly and a short fine tapered trailing tip pointing UP; soft cream broad highlight toward upper-left, warm honey shadow below, restrained plum-brown contour. Simple friendly rounded silhouette, no fine noisy texture or realistic gloss. Complete drop centered in generous square RGBA transparent gutter. No eyes, smile, face, stem, cup, food, bead chain, splash, ground, shadow, glow, lettering, backdrop or extra drop. Must remain readable as a little liquid bead at10to14px.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/batter_stream_native.png"
+    ],
+    "native_file": "batter_drop_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 74422,
+    "disposition": "CANDIDATE_PENDING_SOURCE_CONTEXT_TECHNICAL_REVIEW"
+  }
+]
