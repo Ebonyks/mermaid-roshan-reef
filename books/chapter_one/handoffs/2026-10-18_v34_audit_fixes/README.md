@@ -1,7 +1,14 @@
 # Codex handoff: picture book V34 audit fixes
 
-Status: `SUPPORTING_CURRENT` work order, published for Codex on 2026-10-18.
-The [V34 implementation review](../../landscape/revisions/v34_editorial_polish/README.md) now evaluates and implements this packet, with explicit adaptations for later owner format/little-puff directions and source/readability evidence. Claude wrote this packet and made no images; Codex built the derivatives. The original work-order requirements below remain preserved as request history.
+Status: `SUPPORTING_CURRENT` governing work order, published for Codex on
+2026-10-18. On 2026-10-19 the owner directed that this handoff governs the
+next revision, with the accepted Q1–Q14 defaults.
+[OWNER_DECISION_2026-10-19.md](OWNER_DECISION_2026-10-19.md) reconciles it
+with Codex's
+[V34 implementation review](../../landscape/revisions/v34_editorial_polish/README.md),
+sets the final manuscript, and replaces W14 (rear cover) and W16 (print
+edition). Read that record first. Claude wrote this packet and made no
+images; Codex builds the derivatives.
 
 - **Recipient:** Codex.
 - **Baseline:** V33, commit `a14a26ee356296c84b7251ce8222f371740ed2cb`,
@@ -233,6 +240,10 @@ Each item names its sources by `references.json` work-item key.
 
 ### W14: rear cover (Q8)
 
+**Replaced on 2026-10-19:** the owner chose a spoiler-free rear instead; see
+[the decision record](OWNER_DECISION_2026-10-19.md#rear-cover). The original
+request follows as history.
+
 - Re-frame the story 26 scene, with the V33 rear Lamma patch, tighter around
   Puff's smiling face. Keep Roshan (lower left) and Baby Eagle (lower right)
   whole. Daddy and Rumi may be cut at the frame edges, never through their
@@ -259,6 +270,11 @@ Each item names its sources by `references.json` work-item key.
   pixels outside the doorway polygon are unchanged.
 
 ### W16: print bleed edition (Q13)
+
+**Replaced on 2026-10-19** for the owner's larger print size (at least
+8 × 11 in, possibly 11 × 14 in); see
+[the decision record](OWNER_DECISION_2026-10-19.md#print-edition-replaces-w16).
+The original 7 × 5 in request follows as history.
 
 - Keep the V34 trim PDF (7 × 5 in) for home printing.
 - Add a print-service edition: MediaBox 522 × 378 pt (7.25 × 5.25 in),
