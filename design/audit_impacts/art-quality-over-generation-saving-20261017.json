@@ -1,0 +1,79 @@
+{
+  "id": "art-quality-over-generation-saving-20261017",
+  "scope": "Owner-requested removal of the art-reuse/generation-saving restriction that encouraged low-quality flat-color vertex artwork. Synchronize operational instructions, canonical art rules, art direction, ledger, master navigation, generated planning recipes and owner decision register. Documentation only; no asset or runtime edits.",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-06",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-ASSET-08"
+  ],
+  "findings": [
+    "MA-VIS-008"
+  ],
+  "finding_scope": {
+    "MA-VIS-008": "Related code-drawn substitute-art failure only. This policy correction does not repair artwork or alter finding lifecycle/history or acceptance."
+  },
+  "files": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "design/02_ART_DIRECTION.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/prompt_intents.json",
+    "design/reference/recipes/art.md",
+    "design/reference/recipes/add_job.md",
+    "design/reference/recipes/polish.md"
+  ],
+  "validation": [
+    {
+      "command": "Read applicable planning entry/task index, DL rules, current art direction, ledger and active findings",
+      "result": "PASS",
+      "evidence": "Read in this task at baseline; policy target is the 2026-07-28 art-reuse and generation-budget section and DL-ASSET-01/02."
+    },
+    {
+      "command": "Node workspace read-back: policy consistency, generated-view equality, append-only decisions and unchanged mandatory audit contracts",
+      "result": "PASS",
+      "evidence": "All 12 intended existing paths read back; old generation-saving clauses removed from changed active rules; INT-ART, INT-ADD-JOB and INT-POLISH match a source-equivalent rendering of tools/plan_prompt.py; OWNER_DECISIONS.md matches tools/record_owner_decision.py format; original owner rows preserved; mandatory root audit contract unchanged. These checks do not replace the pending Python/Git gates."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PENDING",
+      "evidence": "Shell unavailable: default backend reports managed networking requires elevated Windows sandbox; elevated automatic approval timed out twice. Node child-process spawn returns EPERM."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PENDING",
+      "evidence": "Same execution blocker; Git fetch/status/branch/commit/push unavailable. Existing topic retained, selected policy files match index before edits."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development tools.tests.test_record_owner_decision tools.tests.test_plan_prompt",
+      "result": "PENDING",
+      "evidence": "Same execution blocker. No machine-gate pass claimed."
+    },
+    {
+      "command": "GDScript parser/inference, Godot import and runtime visual checks",
+      "result": "NOT_APPLICABLE",
+      "evidence": "No GDScript, runtime configuration or art assets changed. Repository-required full suite before commit remains unrun; no commit or push attempted."
+    }
+  ],
+  "acceptance_gaps": "Documentation policy change only; no generated or runtime artwork is accepted or repaired. Future artwork still needs exact visual/device/child/owner evidence. Existing protected sources, identity/canon, book/selected-cut restrictions and separately funded animation-task controls remain. Fresh-fetch branch setup, required Python/full gates and commit/push/integration remain blocked by execution access.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-ART-QUALITY-20261017",
+      "evidence": "Owner chat 2026-10-17: There's a project rule that is causing problems. Becuase the game doesn't want to use image-gen excessively, it is generating low quality vertex artwork with flat colors instead. Remove this project rule to fix this error.",
+      "write_back": "AGENTS.md; CLAUDE.md; DL-ASSET-01/02/06; art direction; art/job/polish planning recipes"
+    }
+  ]
+}

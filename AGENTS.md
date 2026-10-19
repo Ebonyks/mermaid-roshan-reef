@@ -122,25 +122,25 @@ files and 70 production 3D files. See
 `audit/MASTER_AUDIT_2026-08-09.md` for the rule IDs, full inventory and
 individual repair protocol.
 
-## ART REUSE AND GENERATION BUDGET (owner decision 2026-07-28)
-The project is in art finalization, not open-ended redesign. Conserve the
-generation budget by reusing approved art that already exists whenever it
-can meet the need efficiently.
+## ART QUALITY AND IMAGEGEN (owner decision 2026-10-17)
 
-- Before generating or commissioning new art, inventory the relevant
-  existing assets and source masters in this repository.
-- Prefer direct reuse, shared components, or non-destructive derived
-  variants when existing art already meets the gameplay, storybook-style,
-  child-readability, licensing, technical, and performance requirements.
-- Do not regenerate or redesign approved art merely for novelty, preference,
-  or stylistic exploration. Keep established character and environment
-  designs stable while the artistic design is being finalized.
-- Generate new art only when no suitable reusable asset exists, or when
-  reuse would materially fail the intended purpose or quality bar. Record
-  the specific gap in the task or commit and limit generation to that gap.
-- Reuse never permits destructive edits to protected originals, license or
-  provenance violations, or bypassing the project's asset constraints.
-  Store derived variants at new paths and preserve their source attribution.
+Owner decision: 2026-10-17. The former 2026-07-28 art-reuse and
+generation-saving restriction is removed. Choose the workflow for polished
+painted 2D storybook quality, identity, readability and runtime suitability.
+
+- Use ImageGen when it is the appropriate tool for the requested artwork;
+  reducing generation calls is not an art-quality objective or a reason to
+  choose an inferior substitute.
+- Do not replace authored storybook artwork with low-quality flat-color
+  vertex, polygon, procedural or code-drawn artwork to avoid ImageGen.
+- Existing approved art remains useful as identity/style reference or for
+  direct reuse when it meets the brief. Reuse is an option, not a prerequisite
+  for generating suitable new art; no proof that reuse failed is required.
+- Preserve established character identity, canon, protected originals,
+  source attribution and derivative provenance. New assets still need the
+  existing licensing, technical, runtime-context and acceptance checks.
+- The scoped picture-book source-preservation and selected Day One clip
+  restrictions remain binding, as do separately funded animation-task caps.
 
 ## ABSOLUTE CINEMATIC RULE (owner decision 2026-07-29): FULL-FRAME IMAGE REGENERATION
 

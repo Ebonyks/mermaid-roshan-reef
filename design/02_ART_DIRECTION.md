@@ -257,20 +257,25 @@ used a 4.9 ceiling with a 4.5 release floor; the castle item pass uses a 4.5
 eligibility gate. Those are per-pass tightenings of the same scale, not new
 scales.
 
-### Art reuse and generation budget (owner decision 2026-07-28)
+### Art quality and ImageGen (owner decision 2026-10-17)
 
-**The project is in art finalization, not open-ended redesign.**
+Owner decision: 2026-10-17. The former 2026-07-28 art-reuse and
+generation-saving restriction is removed. Choose the workflow for polished
+painted 2D storybook quality, identity, readability and runtime suitability.
 
-- Inventory existing assets and source masters before generating anything.
-- Prefer direct reuse, shared components, or non-destructive derived variants.
-- **Do not regenerate or redesign approved art for novelty, preference or
-  stylistic exploration.** Keep established character and environment designs
-  stable while the artistic design is being finalized.
-- Generate only when no reusable asset exists or reuse would materially fail
-  the purpose. Record the specific gap in the commit and limit generation to it.
-- Reuse never permits destructive edits to protected originals, licence
-  violations, or bypassing asset constraints. Derived variants live at new
-  paths with source attribution preserved.
+- Use ImageGen when it is the appropriate tool for the requested artwork;
+  reducing generation calls is not an art-quality objective or a reason to
+  choose an inferior substitute.
+- Do not replace authored storybook artwork with low-quality flat-color
+  vertex, polygon, procedural or code-drawn artwork to avoid ImageGen.
+- Existing approved art remains useful as identity/style reference or for
+  direct reuse when it meets the brief. Reuse is an option, not a prerequisite
+  for generating suitable new art; no proof that reuse failed is required.
+- Preserve established character identity, canon, protected originals,
+  source attribution and derivative provenance. New assets still need the
+  existing licensing, technical, runtime-context and acceptance checks.
+- The scoped picture-book source-preservation and selected Day One clip
+  restrictions remain binding, as do separately funded animation-task caps.
 
 ---
 

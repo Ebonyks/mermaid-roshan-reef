@@ -1153,13 +1153,16 @@ NOT lose, invent, or misattribute career progress.
 
 ## 14. Art sourcing, reuse, and provenance
 
-`DL-ASSET-01` — Inventory approved repository art and source masters before
-generating or commissioning anything. Reuse, shared components, and
-non-destructive derivatives are preferred when they meet identity, readability,
-licensing, performance, and purpose.
+`DL-ASSET-01` — Choose art workflows for polished painted 2D storybook quality,
+identity, readability and runtime suitability. Use ImageGen when appropriate.
+Approved sources guide identity/style and may be reused when suitable; reuse
+is not a prerequisite to generation. Do not substitute low-quality flat-color
+vertex, polygon, procedural or code-drawn artwork to save generation calls.
+Owner decision 2026-10-17 removes the former generation-saving restriction.
 
-`DL-ASSET-02` — Generate new art only for a named gap. Record why reuse failed,
-the exact prompt/reference/provenance, accepted/rejected candidates, hashes,
+`DL-ASSET-02` — Generate new art as appropriate to the requested brief and
+quality bar; no proof that reuse failed is required. Record the intended art
+role, exact prompt/reference/provenance, accepted/rejected candidates, hashes,
 and modifications.
 
 `DL-ASSET-03` — Never modify, destructively recompress, or substitute files in
@@ -1173,9 +1176,11 @@ pixels leave the active tree.
 `DL-ASSET-05` — Rejected generations and source-review material stay outside
 runtime `assets/` and cannot be counted as shipped art.
 
-`DL-ASSET-06` — Approved art is not regenerated for novelty, stylistic
-exploration, or preference. Identity stability outranks variety during
-finalization.
+`DL-ASSET-06` — New art and derivatives preserve established character
+identity, canon and the approved polished 2D storybook style. The former
+finalization/no-regeneration restriction is removed by owner decision
+2026-10-17. Protected originals and the scoped DL-ASSET-08 picture-book
+and DL-CIN-16 selected-cut restrictions retain their separate authority.
 
 `DL-ASSET-07` — Moving retired 3D resources out of the active project preserves
 the exact archived bytes, paths, hashes, license/provenance history, and archive
