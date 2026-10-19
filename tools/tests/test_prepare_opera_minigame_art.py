@@ -15,6 +15,11 @@ from tools import prepare_opera_minigame_art as gate
 
 
 class OperaMinigameArtCheckTests(unittest.TestCase):
+	def test_chef_rejects_changed_native_before_derivation(self) -> None:
+		with patch.object(gate, "_sha256_file", return_value="0" * 64):
+			with self.assertRaisesRegex(ValueError, "native hash mismatch"):
+				gate._chef_chocolate()
+
 	def test_painted_astronaut_sources_reject_hash_drift(self) -> None:
 		with patch.object(gate, "_sha256_file", return_value="0" * 64):
 			with self.assertRaisesRegex(ValueError, "native source hash mismatch"):

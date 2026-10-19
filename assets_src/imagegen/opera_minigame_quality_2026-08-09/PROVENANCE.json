@@ -970,30 +970,30 @@
     },
     "widget_target_chef_piece_2.png": {
       "alpha_bbox": [
-        21,
-        31,
-        231,
-        224
+        29,
+        9,
+        226,
+        248
       ],
-      "artifact_qa": "one complete topping-only token; no serving stand, plate, pedestal, flat cut, frame bleed, or detached part",
+      "artifact_qa": "complete chocolate-dipped strawberry; broad painted food material, no serving stand or swirl ambiguity; current source/context/owner acceptance separate",
       "dimensions": [
         256,
         256
       ],
       "margins": [
-        21,
-        31,
-        25,
-        32
+        29,
+        9,
+        30,
+        8
       ],
-      "operation": "_remove_edge_field, isolate the approved visible topping by colour and connected alpha, retain its authored lower outline while excluding every pedestal/plate/base pixel, fit on 256x256; clear reviewed detached plate-remnant corner ROIs x=0..26/y=182..255 and x=226..255/y=186..255",
+      "operation": "2026-10-19 painted ImageGen revision: verify native SHA256; alpha16 bounds plus4px; uniform240px fit and transparent padding on256x256. Original source retained.",
       "runtime_path": "assets/opera/worlds/widgets/widget_target_chef_piece_2.png",
-      "runtime_sha256": "956cd6df923115f830099d65cdb8526fa5482cbb46e387d8e599721a81440c61",
+      "runtime_sha256": "4124b0240f7b87ef4dc7d0d5546c7fc3c7850655def271d3003bae86eb57d40f",
       "source_sha256": {
-        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_stage_states_placement_glows.png": "a43d77ba3dffb3bd000a53bec942c91a5886991a3ee713cdf8e03cc4ed24b2ff"
+        "assets_src/imagegen/job_art_chef_20261019/chocolate_strawberry_retry_native.png": "987131d7692f73e23735a893f01fd1a888bc6b7f7404bea613cb60f579417286"
       },
       "sources": [
-        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_stage_states_placement_glows.png"
+        "assets_src/imagegen/job_art_chef_20261019/chocolate_strawberry_retry_native.png"
       ]
     },
     "widget_target_farmer_mark.png": {
@@ -1244,7 +1244,7 @@
   },
   "contact_sheet": {
     "path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/OPERA_MINIGAME_ART_CONTACT_SHEET_2026-08-09.png",
-    "sha256": "fb4bfce932c937641b056ebc6d6a74764bf573c14bf66d72e7b4860eb994d604"
+    "sha256": "2462147d295f381922fc8e31ddc8ca426fe6709a711a856eab347d19fe211971"
   },
   "derivation_tool": "tools/prepare_opera_minigame_art.py",
   "determinism_gate": "python tools/prepare_opera_minigame_art.py --check-only",
@@ -1284,7 +1284,7 @@
   "source_role_notes": [
     "2026-10-19 Astronaut revision replaces only the historical code-drawn patches and dependent mark with hash-bound native ImageGen coral square/lavender circle/teal star. Source/derivation in job_art_astronaut_20261018; local static4.5floor only, full/human motion/QA11/device/child/owner gates remain separate.",
     "Source export labels were audited visually. Candy and Farmer source names are shifted; mappings above follow visible art.",
-    "Chef pieces retain only each topping's approved visible silhouette/lower outline; every serving pedestal/plate/base pixel is excluded.",
+    "Chef cherry/cream retain the historical authored silhouettes. The chocolate slot was revised2026-10-19 to a hash-bound ImageGen chocolate-dipped strawberry; historical sources remain preserved, and current context/device/owner acceptance stays separate.",
     "Magician cabinet reveal continues VANISH by placing the approved Lamba reveal inside a cabinet shell derived only from approved crops.",
     "Detective board slots are authored left-to-right; runtime hit targets must use the same horizontal order.",
     "Candymaker SYRUP uses a scoped generated replacement because the binding art ledger marks all three prior layers REPLACE and no registered empty-mold/fill set exists.",

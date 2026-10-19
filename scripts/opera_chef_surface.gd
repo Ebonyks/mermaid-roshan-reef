@@ -79,13 +79,8 @@ func _draw() -> void:
 	match mode:
 		"pourt":
 			_draw_batter_transition(EMPTY_BOWL, Cake.BATTER_UNSTIRRED_TEXTURE, pour_level)
-			var pitcher := _pour_pitcher_rect()
-			draw_set_transform(pitcher.get_center(), _pour_pitcher_rotation())
-			if widget_mover != null:
-				draw_texture_rect(widget_mover, Rect2(-pitcher.size * 0.5, pitcher.size), false)
-			draw_set_transform(Vector2.ZERO)
-			if _pour_stream_active() and pour_level < 1.0:
-				draw_line(_pour_spout_point(), _pour_landing_point(), Color("#f5cf85"), 6.0, true)
+			_chef_art_ref().draw_pour_stream()
+			_chef_art_ref().draw_pitcher()
 			last_specialist_subject_route = "chef_platform_pour"
 		"circle":
 			# Continuous feedback comes from the whisk at the finger's angle.
@@ -108,14 +103,11 @@ func _draw() -> void:
 		"tap":
 			_draw_stack()
 		"swipe":
-			_draw_transition(Cake.STACKED_UNFROSTED_TEXTURE, Cake.FROSTED_RAINBOW_TEXTURE,
-				trace_journey, 1013.0, CAKE_SCALE)
-			var guide := _trace_path_points(1.0)
-			draw_polyline(guide, Color(1.0, 0.92, 0.76, 0.48), 4.0, true)
-			if held and trace_engaged:
-				# Feedback follows this event's finger immediately; earned frosting
-				# remains ordered and bounded by actual travel along the cake.
-				draw_circle(pointer_pos, 5.0, Color("#fff1bd"))
+			# Keep one coherent six-round picture; the earned piping shows live
+			# progress, then the complete authored icing replaces it at the goal.
+			_draw_stage(Cake.FROSTED_RAINBOW_TEXTURE if completion_accepted
+				else Cake.STACKED_UNFROSTED_TEXTURE, 1013.0, CAKE_SCALE)
+			_chef_art_ref().draw_frost_path()
 			last_trace_subject_route = "trace_chef"
 	if demo_active:
 		_draw_demo_finger()
@@ -138,17 +130,11 @@ func _draw_stack() -> void:
 				Rect2(contact - Vector2(512.0, bottom - source.position.y) * 0.14,
 					source.size * 0.14), source)
 	if placed > 0:
-		var texture := _art(Cake.STACKED_UNFROSTED_TEXTURE)
-		var destination := _stage_rect(1013.0, CAKE_SCALE)
-		# Source rows alone would slice through the next tier. Reuse the complete
-		# blue/yellow top from the same baked rounds to cap each earned pair.
-		var top: float = [657.0, 415.0, 0.0][clampi(placed - 1, 0, 2)]
-		var source := Rect2(0, top, 1024, 1024.0 - top)
+		var texture := _art(Cake.STACKED_UNFROSTED_TEXTURE) if placed >= 3 else \
+			_chef_art_ref().art("stack_two" if placed == 1 else "stack_four")
 		if texture != null:
-			draw_texture_rect_region(texture, Rect2(destination.position
-				+ Vector2(0, top * CAKE_SCALE), source.size * CAKE_SCALE), source)
-		if placed < 3 and trays != null:
-			_draw_stack_cap(trays, destination, placed)
+			draw_texture_rect(texture, _stage_rect(1013.0, CAKE_SCALE), false)
+
 
 
 func _draw_baked_rows() -> void:
@@ -163,18 +149,7 @@ func _draw_baked_rows() -> void:
 				source.size * 0.14), source)
 
 
-func _draw_stack_cap(texture: Texture2D, destination: Rect2, placed: int) -> void:
-	var source_center := Vector2(315, 695) if placed == 1 else Vector2(309, 426)
-	var source_radius := Vector2(123, 51) if placed == 1 else Vector2(94, 43)
-	var target_center := Vector2(512, 657) if placed == 1 else Vector2(512, 415)
-	var target_radius := Vector2(279, 54) if placed == 1 else Vector2(230, 49)
-	var vertices := PackedVector2Array()
-	var uvs := PackedVector2Array()
-	for sample in range(48):
-		var circle := Vector2.from_angle(float(sample) * TAU / 48.0)
-		vertices.append(destination.position + (target_center + circle * target_radius) * CAKE_SCALE)
-		uvs.append((source_center + circle * source_radius) / 1024.0)
-	draw_polygon(vertices, PackedColorArray([Color.WHITE]), uvs, texture)
+
 
 
 func _uses_anchored_targets() -> bool:
@@ -235,7 +210,7 @@ func _pour_x_bounds() -> Vector2:
 
 
 func _pour_pitcher_rect() -> Rect2:
-	return Rect2(pour_x - 60.0, 180.0, 120.0, 110.0)
+	return Rect2(pour_x - 60.0, 175.0, 120.0, 120.0)
 
 
 func _pour_pitcher_hit_rect() -> Rect2:
@@ -266,23 +241,18 @@ func _oven_handle_rect() -> Rect2:
 
 
 func _oven_meter_rect() -> Rect2:
-	return Rect2(592, 391, 98, 8)
+	return Rect2(535, 263, 30, 120)
 
 
 func _draw_oven(_center: Vector2) -> void:
-	# The actual painted hearth remains the sole oven. A small warm gauge and
-	# door-local glow tell the child when to tap it, without a second oven card.
-	var meter := _oven_meter_rect()
-	draw_line(meter.position, meter.position + Vector2(meter.size.x, 0), Color("#59415f"), 8.0, true)
-	draw_line(meter.position, meter.position + Vector2(meter.size.x * clampf(oven_t, 0, 1), 0), Color("#ffd77c"), 5.0, true)
-	if oven_t >= 0.45:
-		draw_arc(_oven_handle_rect().get_center(), 24.0, 0, TAU, 32, Color(1.0, 0.87, 0.56, 0.65), 3.0, true)
+	# Keep this room's authored hearth as its sole oven.
+	_chef_art_ref().draw_meter(clampf(oven_t, 0.0, 1.0))
 	last_specialist_subject_route = "chef_room_hearth"
 
 
 func _trace_demo_point(progress: float) -> Vector2:
 	var amount := clampf(progress, 0.0, 1.0)
-	return Vector2(1068.0 + sin(amount * TAU * 1.5 - PI * 0.5) * 45.0,
+	return Vector2(1068.0 + sin(amount * TAU * 1.5 - PI * 0.5) * lerpf(18.0, 45.0, amount),
 		lerpf(181.0, 296.0, amount))
 
 

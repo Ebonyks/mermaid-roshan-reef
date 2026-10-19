@@ -16,7 +16,7 @@ All approved source and native generated inputs are preserved; runtime transform
 
 - 2026-10-19 Astronaut revision replaces only the historical code-drawn patches and dependent mark with hash-bound native ImageGen coral square/lavender circle/teal star. Source/derivation in job_art_astronaut_20261018; local static4.5floor only, full/human motion/QA11/device/child/owner gates remain separate.
 - Source export labels were audited visually. Candy and Farmer source names are shifted; mappings above follow visible art.
-- Chef pieces retain only each topping's approved visible silhouette/lower outline; every serving pedestal/plate/base pixel is excluded.
+- Chef cherry/cream retain the historical authored silhouettes. The chocolate slot was revised2026-10-19 to a hash-bound ImageGen chocolate-dipped strawberry; historical sources remain preserved, and current context/device/owner acceptance stays separate.
 - Magician cabinet reveal continues VANISH by placing the approved Lamba reveal inside a cabinet shell derived only from approved crops.
 - Detective board slots are authored left-to-right; runtime hit targets must use the same horizontal order.
 - Candymaker SYRUP uses a scoped generated replacement because the binding art ledger marks all three prior layers REPLACE and no registered empty-mold/fill set exists.
@@ -58,7 +58,7 @@ All approved source and native generated inputs are preserved; runtime transform
 - `widget_target_chef_mark.png` — 128x128; alpha bbox `[9, 15, 120, 114]`; thematic filled stamp remains distinct from hollow invitation ring.
 - `widget_target_chef_piece_0.png` — 256x256; alpha bbox `[20, 23, 236, 233]`; one complete topping-only token; no serving stand, plate, pedestal, flat cut, frame bleed, or detached part.
 - `widget_target_chef_piece_1.png` — 256x256; alpha bbox `[20, 31, 236, 226]`; one complete topping-only token; no serving stand, plate, pedestal, flat cut, frame bleed, or detached part.
-- `widget_target_chef_piece_2.png` — 256x256; alpha bbox `[21, 31, 231, 224]`; one complete topping-only token; no serving stand, plate, pedestal, flat cut, frame bleed, or detached part.
+- `widget_target_chef_piece_2.png` — 256x256; alpha bbox `[29, 9, 226, 248]`; complete chocolate-dipped strawberry; broad painted food material, no serving stand or swirl ambiguity; current source/context/owner acceptance separate.
 - `widget_target_farmer_mark.png` — 128x128; alpha bbox `[15, 9, 113, 119]`; thematic filled stamp remains distinct from hollow invitation ring.
 - `widget_target_farmer_piece_0.png` — 256x256; alpha bbox `[29, 17, 227, 239]`; one child-readable complete target prop; no frame bleed, crop, or detached part.
 - `widget_target_farmer_piece_1.png` — 256x256; alpha bbox `[24, 17, 233, 239]`; one child-readable complete target prop; no frame bleed, crop, or detached part.

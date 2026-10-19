@@ -529,7 +529,7 @@ const BLEED: Dictionary = {
 	"astronaut": [0.0913, 0.9028],
 	"racer": [0.0947, 0.9038],
 	"popstar": [0.0957, 0.9023],
-	"nursery": [0.0947, 0.9077],
+	"nursery": [0.0, 1.0], # Same sharp painting now fills the whole canvas.
 }
 
 

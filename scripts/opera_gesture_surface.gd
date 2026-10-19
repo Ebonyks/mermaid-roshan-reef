@@ -12,6 +12,9 @@ signal gesture(kind: String, amount: float, quality: float)
 ## The room and career-world focus supply the visual ground. This surface owns
 ## only themed play objects/effects; it must never recreate the retired pale
 ## clipboard/easel card underneath them.
+const ChefArt := preload("res://scripts/chef_painted_art.gd")
+var chef_painted_art: ChefPaintedArt
+
 const DRAWS_CARD_BACKING := false
 const DRAWS_FRAMED_WIDGET_BACKDROPS := false
 const DRAWS_CAUSAL_RECTANGLE_BACKDROPS := false
@@ -287,8 +290,8 @@ var magic_cabinet_reveal_texture: Texture2D = null
 const TARGET_ANCHORS := {
 	"chapter2_basket_fill": [Vector2(0.30, 0.42), Vector2(0.50, 0.38), Vector2(0.70, 0.42),
 		Vector2(0.40, 0.62), Vector2(0.60, 0.62)],
-	"target_chef": [Vector2(0.31, 0.40), Vector2(0.50, 0.34), Vector2(0.69, 0.40),
-		Vector2(0.36, 0.58), Vector2(0.50, 0.54), Vector2(0.64, 0.58), Vector2(0.50, 0.70)],
+	"target_chef": [Vector2(0.47, 0.22), Vector2(0.53, 0.22), Vector2(0.42, 0.38),
+		Vector2(0.58, 0.38), Vector2(0.38, 0.56), Vector2(0.62, 0.56), Vector2(0.50, 0.75)],
 	"target_candymaker": [Vector2(0.22, 0.34), Vector2(0.50, 0.31), Vector2(0.78, 0.34),
 		Vector2(0.27, 0.66), Vector2(0.50, 0.70), Vector2(0.73, 0.66)],
 	"target_farmer": [
@@ -307,6 +310,7 @@ var target_piece_textures: Array[Texture2D] = []
 ## changing the one-finger contract.
 const NURSERY_BOTTLE_PATH := \
 	"res://assets/opera/worlds/widgets/widget_pour_nursery_mover.png"
+var nursery_painted_art: NurseryPaintedArt = null
 var nursery_bottle_texture: Texture2D = null
 var nursery_bottle_art_valid := false
 var nursery_burp_pat_t := 0.0
@@ -1745,9 +1749,8 @@ func _trace_demo_point(progress: float) -> Vector2:
 	var amount := clampf(progress, 0.0, 1.0)
 	match visual_context:
 		"trace_chef":
-			var angle := -PI * 0.75 + amount * TAU
-			return Vector2(size.x * 0.50, size.y * 0.54) \
-				+ Vector2(cos(angle) * size.x * 0.30, sin(angle) * size.y * 0.27)
+			return Vector2(size.x * 0.50 + sin(amount * TAU * 1.5 - PI * 0.5)
+				* lerpf(12.0, 40.0, amount), lerpf(size.y * 0.18, size.y * 0.82, amount))
 		"trace_ballerina":
 			return Vector2(size.x * lerpf(0.12, 0.88, amount),
 				size.y * (0.50 + sin(amount * TAU) * 0.18))
@@ -1773,17 +1776,7 @@ func _trace_goal_units() -> float:
 
 func _trace_progress_for_point(point: Vector2) -> float:
 	if visual_context == "trace_chef":
-		var normalized := (point - Vector2(size.x * 0.50, size.y * 0.54)) \
-			/ Vector2(size.x * 0.30, size.y * 0.27)
-		if normalized.length_squared() <= 0.001:
-			return trace_journey
-		var start_angle := -PI * 0.75
-		var amount := fposmod(normalized.angle() - start_angle, TAU) / TAU
-		# The frosting ring closes on its start point. Once most of the ring is
-		# complete, the wrapped angle is the finish, not a reset back to zero.
-		if trace_journey > 0.72 and amount < 0.24:
-			amount += 1.0
-		return clampf(amount, 0.0, 1.0)
+		return clampf(inverse_lerp(size.y * 0.18, size.y * 0.82, point.y), 0.0, 1.0)
 	match visual_context:
 		"trace_ballerina":
 			return clampf(inverse_lerp(size.x * 0.12, size.x * 0.88, point.x), 0.0, 1.0)
@@ -1843,9 +1836,9 @@ func _authored_trace_drag(at: Vector2) -> void:
 func _trace_corridor_contains(point: Vector2) -> bool:
 	match visual_context:
 		"trace_chef":
-			var normalized := (point - Vector2(size.x * 0.50, size.y * 0.54)) \
-				/ Vector2(size.x * 0.30, size.y * 0.27)
-			return absf(normalized.length() - 1.0) <= 0.38
+			var amount := _trace_progress_for_point(point)
+			return point.y >= size.y * 0.15 and point.y <= size.y * 0.85 \
+				and absf(point.x - _trace_demo_point(amount).x) <= maxf(28.0, size.x * 0.08)
 		"trace_ballerina":
 			var amount := inverse_lerp(size.x * 0.12, size.x * 0.88, point.x)
 			if amount < 0.0 or amount > 1.0:
@@ -1879,6 +1872,10 @@ func _trace_segment_on_corridor(from: Vector2, to: Vector2) -> bool:
 
 
 func _draw_authored_trace_corridor() -> void:
+	if visual_context == "trace_chef":
+		_chef_art_ref().draw_frost()
+		last_trace_subject_route = visual_context
+		return
 	_draw_authored_trace_subject()
 	var whole_path := _trace_path_points(1.0)
 	if whole_path.size() >= 2:
@@ -2331,34 +2328,8 @@ func _crank_legacy_subject_rect() -> Rect2:
 	return Rect2()
 
 
-func _draw_chef_crank(progress: float) -> void:
-	_draw_clean_widget_playfield(Color("#fff4df"), Color("#e7cfa7"))
-	var rect := _crank_action_rect()
-	var center := rect.get_center() + Vector2(0.0, rect.size.y * 0.05)
-	var bowl_radius := minf(rect.size.x, rect.size.y) * 0.43
-	# Fresh batter covers the whisk already painted into the old base. The
-	# isolated whisk is now the only moving tool and stays inside the bowl.
-	draw_set_transform(center, 0.0, Vector2(1.35, 0.62))
-	draw_circle(Vector2.ZERO, bowl_radius, Color("#f2cf91"))
-	draw_arc(Vector2.ZERO, bowl_radius, 0.0, TAU, 40, Color("#835071"), 5.0)
-	draw_set_transform(Vector2.ZERO)
-	var whisk_side := minf(rect.size.x, rect.size.y) * 0.66
-	draw_set_transform(center, crank_rotation, Vector2.ONE)
-	if widget_mover != null:
-		draw_texture_rect(widget_mover,
-			Rect2(Vector2.ONE * -whisk_side * 0.5, Vector2.ONE * whisk_side), false)
-	else:
-		draw_line(Vector2(0.0, -whisk_side * 0.45), Vector2(0.0, whisk_side * 0.10),
-			Color("#94683f"), 8.0, true)
-		for wire_offset: float in [-0.16, 0.0, 0.16]:
-			draw_arc(Vector2(wire_offset * whisk_side, whisk_side * 0.18),
-				whisk_side * 0.19, -1.85, 1.85, 16, Color("#f8f0df"), 3.0)
-	draw_set_transform(Vector2.ZERO)
-	for swirl_index in range(3):
-		draw_arc(center, bowl_radius * (0.28 + float(swirl_index) * 0.20),
-			crank_rotation + float(swirl_index) * 0.7,
-			crank_rotation + PI * (0.72 + progress * 0.55), 24,
-			Color(1.0, 0.95, 0.72, 0.36 + progress * 0.30), 3.0)
+func _draw_chef_crank(_progress: float) -> void:
+	_chef_art_ref().draw_stir()
 
 
 func _draw_ballerina_crank(progress: float) -> void:
@@ -2981,6 +2952,8 @@ func _target_piece_texture(index: int) -> Texture2D:
 
 
 func _target_piece_rect(index: int) -> Rect2:
+	if visual_context == "target_chef":
+		return Rect2(_target_anchor_point(index) - Vector2.ONE * 20.0, Vector2.ONE * 40.0)
 	var side := maxf(62.0, minf(size.x, size.y) * 0.25)
 	return Rect2(_target_anchor_point(index) - Vector2.ONE * side * 0.5,
 		Vector2.ONE * side)
@@ -3063,6 +3036,10 @@ func _draw_target_subject() -> void:
 
 
 func _draw_anchored_targets() -> void:
+	if visual_context == "target_chef":
+		_chef_art_ref().draw_targets()
+		last_target_subject_route = visual_context
+		return
 	var next_index := _target_next_unplaced()
 	var base_side := _target_piece_rect(0).size.x
 	_draw_target_subject()
@@ -3121,6 +3098,9 @@ func _is_magic_vanish_context() -> bool:
 
 
 func _draw_causal_context(center: Vector2) -> bool:
+	if visual_context == "nursery_wash":
+		_nursery_art().draw_wash()
+		return true
 	if _is_nursery_feed_context():
 		_draw_nursery_feed_scene(center)
 		return true
@@ -3161,6 +3141,14 @@ func _nursery_baby_center(index: int) -> Vector2:
 	return Vector2(size.x * (0.23 + 0.27 * float(index)), size.y * 0.62)
 
 
+func _nursery_baby_mouth(index: int) -> Vector2:
+	# Measured from each unchanged320-square painted baby, not its head box.
+	var points := [Vector2(164, 132), Vector2(156, 134), Vector2(161, 133)]
+	var side := minf(size.x, size.y) * 0.29
+	return _nursery_baby_center(index) + (points[clampi(index, 0, 2)] / 320.0
+		- Vector2.ONE * 0.5) * side
+
+
 func _nursery_feed_bottle_pose(active: bool) -> Dictionary:
 	var fill := clampf(widget_fill, 0.0, 1.0)
 	var scaled := minf(fill * 3.0, 2.999)
@@ -3171,22 +3159,25 @@ func _nursery_feed_bottle_pose(active: bool) -> Dictionary:
 		baby_index = 2
 		approach = 1.0
 	var home := Vector2(size.x * 0.83, size.y * 0.27)
-	var mouth := _nursery_baby_center(baby_index) + Vector2(size.x * 0.025, -size.y * 0.055)
+	var mouth := _nursery_baby_mouth(baby_index)
 	var position := home.lerp(mouth, approach)
 	var rotation := lerpf(-0.10, -0.72, approach)
 	return {
 		"position": position,
 		"rotation": rotation,
 		"remaining": 1.0 - fill,
+		"approach": approach,
 		"baby": baby_index,
 	}
 
 
 func _nursery_feed_bottle_rect(active: bool) -> Rect2:
 	var pose := _nursery_feed_bottle_pose(active)
-	var position: Vector2 = pose["position"]
+	var tip: Vector2 = pose["position"]
 	var side := minf(size.x, size.y) * 0.34
-	return Rect2(position - Vector2.ONE * side * 0.5, Vector2.ONE * side)
+	var center := tip + ((Vector2.ONE * 0.5 - NurseryPaintedArt.BOTTLE_NIPPLE_UV)
+		* side).rotated(float(pose["rotation"]))
+	return Rect2(center - Vector2.ONE * side * 0.5, Vector2.ONE * side)
 
 
 func _nursery_bottle_art_ready() -> bool:
@@ -3197,42 +3188,7 @@ func _nursery_bottle_art_ready() -> bool:
 
 
 func _draw_nursery_feed_scene(_center: Vector2) -> void:
-	_draw_causal_backdrop(Color("#e7f8f2"), Color("#c4e8df"))
-	for index in range(3):
-		var baby_center := _nursery_baby_center(index)
-		draw_rect(Rect2(baby_center - Vector2(size.x * 0.105, size.y * 0.08),
-			Vector2(size.x * 0.21, size.y * 0.19)), Color("#f4d8c8"), true)
-		_draw_nursery_baby(index, baby_center, minf(size.x, size.y) * 0.29)
-	var pose := _nursery_feed_bottle_pose(held or completion_accepted)
-	var bottle_position: Vector2 = pose["position"]
-	var bottle_rotation := float(pose["rotation"])
-	var remaining := float(pose["remaining"])
-	var bottle_side := minf(size.x, size.y) * 0.34
-	draw_set_transform(bottle_position, bottle_rotation)
-	if _nursery_bottle_art_ready():
-		draw_texture_rect(nursery_bottle_texture,
-			Rect2(Vector2(-bottle_side * 0.5, -bottle_side * 0.58),
-				Vector2(bottle_side, bottle_side)), false)
-	else:
-		var bottle_rect := Rect2(-bottle_side * 0.17, -bottle_side * 0.36,
-			bottle_side * 0.34, bottle_side * 0.62)
-		draw_rect(bottle_rect, Color("#f7fff8"), true)
-		draw_rect(Rect2(bottle_rect.position.x + 4.0,
-			lerpf(bottle_rect.end.y - 4.0, bottle_rect.position.y + 4.0, remaining),
-			bottle_rect.size.x - 8.0, bottle_rect.size.y * remaining - 8.0).abs(),
-			Color("#ffe1a1"), true)
-		draw_circle(Vector2(0.0, -bottle_side * 0.41), bottle_side * 0.075,
-			Color("#efb0a8"))
-		draw_rect(bottle_rect, Color("#6b5a75"), false, 3.0)
-	draw_set_transform(Vector2.ZERO)
-	# A separate drain pip stays readable even when the optional bottle art is
-	# opaque or very small in the phone build.
-	var drain := Rect2(size.x * 0.82, size.y * 0.08, size.x * 0.10, size.y * 0.30)
-	draw_rect(drain, Color(1.0, 1.0, 1.0, 0.70), true)
-	var drain_height := drain.size.y * remaining
-	draw_rect(Rect2(drain.position.x, drain.end.y - drain_height,
-		drain.size.x, drain_height), Color("#ffe1a1"), true)
-	draw_rect(drain, Color("#6b5a75"), false, 3.0)
+	_nursery_art().draw_feed()
 
 
 func _nursery_blanket_top(index: int) -> float:
@@ -3340,56 +3296,18 @@ func _nursery_bedtime_release() -> void:
 
 
 func _draw_nursery_bedtime_scene(_center: Vector2) -> void:
-	_draw_causal_backdrop(Color("#30375f"), Color("#4e5278"))
-	for index in range(3):
-		var crib_center := _nursery_baby_center(index)
-		var crib := _nursery_bedtime_crib_rect(index)
-		draw_rect(crib, Color("#e8c7b9"), true)
-		_draw_nursery_baby(index, crib_center - Vector2(0.0, size.y * 0.04),
-			minf(size.x, size.y) * 0.27)
-		var blanket_top := _nursery_blanket_top(index)
-		var blanket_bottom := _nursery_blanket_bottom(index)
-		if blanket_bottom > blanket_top:
-			var blanket := Rect2(crib.position.x + 5.0, blanket_top,
-				crib.size.x - 10.0, blanket_bottom - blanket_top)
-			draw_rect(blanket, Color("#72bfc2"), true)
-			draw_arc(Vector2(blanket.get_center().x, blanket.position.y),
-				blanket.size.x * 0.48, PI, TAU, 24, Color("#d7f4ee"), 5.0)
-		draw_rect(crib, Color("#7a5965"), false, 4.0)
-	var all_tucked := _nursery_bedtime_next_blanket() < 0
-	if completion_accepted or all_tucked:
-		for star_index in range(5):
-			draw_circle(Vector2(size.x * (0.18 + 0.16 * float(star_index)),
-				size.y * (0.16 + 0.04 * float(star_index % 2))), 6.0,
-				Color("#ffe783"))
+	_nursery_art().draw_bedtime()
 
 
 func _nursery_burp_hand_point(progress: float) -> Vector2:
-	var baby := _nursery_baby_center(1) - Vector2(0.0, size.y * 0.07)
+	var baby := _nursery_baby_center(1) + Vector2(0.0, size.y * 0.10)
 	var rest := baby + Vector2(size.x * 0.25, -size.y * 0.10)
 	var contact := baby + Vector2(size.x * 0.07, 0.0)
 	return rest.lerp(contact, clampf(progress, 0.0, 1.0))
 
 
 func _draw_nursery_burp_scene(_center: Vector2) -> void:
-	_draw_causal_backdrop(Color("#f4ecfb"), Color("#d8c7e9"))
-	var pat_phase := 0.0
-	if nursery_burp_pat_t > 0.0:
-		pat_phase = sin(clampf(1.0 - nursery_burp_pat_t / 0.42, 0.0, 1.0) * PI)
-	var baby_center := _nursery_baby_center(1) + Vector2(0.0, pat_phase * 5.0)
-	draw_set_transform(baby_center, sin(pat_phase * PI) * -0.035,
-		Vector2(1.0 + pat_phase * 0.06, 1.0 - pat_phase * 0.04))
-	_draw_nursery_baby(1, Vector2.ZERO, minf(size.x, size.y) * 0.52)
-	draw_set_transform(Vector2.ZERO)
-	var hand := _nursery_burp_hand_point(pat_phase)
-	draw_circle(hand, minf(size.x, size.y) * 0.09, Color("#ffd5bc"))
-	draw_arc(hand, minf(size.x, size.y) * 0.14, -1.25, 1.25, 24, accent, 6.0)
-	if pat_phase > 0.45:
-		for reaction_index in range(3):
-			var reaction := baby_center + Vector2(size.x * (0.08 + 0.04 * float(reaction_index)),
-				-size.y * (0.18 + 0.055 * float(reaction_index)))
-			draw_circle(reaction, 4.0 + float(reaction_index) * 2.0,
-				Color(1.0, 1.0, 1.0, 0.78))
+	_nursery_art().draw_burp()
 
 
 func _magic_vanish_hat_position(progress: float) -> Vector2:
@@ -4011,53 +3929,17 @@ func _draw_nursery_baby(texture_index: int, center: Vector2, extent: float) -> v
 	draw_texture_rect(texture, Rect2(center - Vector2.ONE * extent * 0.5, Vector2.ONE * extent), false)
 
 
-func _draw_nursery_context(center: Vector2) -> void:
-	match visual_context:
-		"nursery_wash":
-			var basin := Rect2(center.x - 92.0, center.y - 12.0, 184.0, 82.0)
-			draw_rect(basin, Color("#78cfd0"), true)
-			draw_arc(Vector2(center.x, basin.position.y), 92.0, 0.0, PI, 32, Color("#ecfbf4"), 10.0)
-			for index in range(7):
-				var bubble := center + Vector2(-70.0 + float(index) * 23.0, -48.0 - float(index % 3) * 17.0)
-				draw_circle(bubble, 9.0 + float(index % 2) * 4.0, Color(0.82, 0.97, 1.0, 0.62))
-			draw_circle(center, 25.0 if held else 17.0, Color.WHITE)
-			draw_arc(center, 58.0, 0.0, TAU, 40, accent, 9.0)
-		"nursery_feed":
-			for index in range(3):
-				_draw_nursery_baby(index, Vector2(86.0 + float(index) * 100.0, center.y + 48.0), 88.0)
-			var bottle_center := Vector2(center.x, center.y - 58.0)
-			draw_rect(Rect2(bottle_center - Vector2(23, 38), Vector2(46, 76)), Color("#edf9ee"), true)
-			draw_rect(Rect2(bottle_center - Vector2(17, 31), Vector2(34, 51)), Color("#ffe7ac"), true)
-			draw_circle(bottle_center + Vector2(0, -44), 12.0, Color("#f1b1a1"))
-			draw_arc(bottle_center, 61.0, 0.0, TAU, 40, accent, 9.0)
-			draw_circle(bottle_center, 22.0 if held else 15.0, Color.WHITE)
-		"nursery_burp":
-			_draw_nursery_baby(1, Vector2(center.x, 70.0), 105.0)
-			var hand := Vector2(center.x + 92.0, 78.0)
-			draw_circle(hand, 28.0, Color("#ffd8bd"))
-			draw_arc(hand, 45.0, -1.2, 1.2, 24, accent, 8.0)
-			var bar := Rect2(size.x * 0.12, size.y - 82.0, size.x * 0.76, 42.0)
-			draw_rect(bar, Color(0.20, 0.23, 0.38), true)
-			var good := Rect2(
-				lerpf(bar.position.x, bar.end.x, timing_zone.x), bar.position.y,
-				bar.size.x * (timing_zone.y - timing_zone.x), bar.size.y
-			)
-			draw_rect(good, Color(0.46, 0.94, 0.62), true)
-			var marker_x := lerpf(bar.position.x, bar.end.x, timing_position)
-			draw_line(Vector2(marker_x, bar.position.y - 22.0), Vector2(marker_x, bar.end.y + 22.0), Color.WHITE, 11.0)
-		"nursery_bedtime":
-			for index in range(3):
-				var crib_center := Vector2(72.0 + float(index) * 114.0, center.y + 20.0)
-				draw_rect(Rect2(crib_center - Vector2(48, 30), Vector2(96, 78)), Color("#f1d2c2"), true)
-				_draw_nursery_baby(index, crib_center - Vector2(0, 10), 74.0)
-				draw_rect(Rect2(crib_center.x - 43.0, crib_center.y + 7.0, 86.0, 37.0), Color(0.52, 0.81, 0.77, 0.94), true)
-			for star in [Vector2(55, 44), Vector2(145, 30), Vector2(235, 50)]:
-				draw_circle(star, 7.0, Color("#ffe483"))
-			var arrow_x := size.x - 24.0
-			draw_line(Vector2(arrow_x, 54.0), Vector2(arrow_x, size.y - 42.0), accent, 13.0, true)
-			draw_colored_polygon(PackedVector2Array([
-				Vector2(arrow_x - 28.0, size.y - 68.0), Vector2(arrow_x + 28.0, size.y - 68.0), Vector2(arrow_x, size.y - 28.0),
-			]), accent)
+func _draw_nursery_context(_center: Vector2) -> void:
+	if visual_context == "nursery_wash":
+		_nursery_art().draw_wash()
+
+
+func _nursery_art() -> NurseryPaintedArt:
+	if nursery_painted_art == null:
+		nursery_painted_art = NurseryPaintedArt.new()
+		nursery_painted_art.bind(self)
+	return nursery_painted_art
+
 
 func _demo_finger_pose() -> Dictionary:
 	var center := size * 0.5
@@ -4074,7 +3956,7 @@ func _demo_finger_pose() -> Dictionary:
 					pressing = cycle >= 1.0
 			elif _is_nursery_burp_context():
 				var pat_target := _nursery_burp_hand_point(1.0)
-				at = center.lerp(pat_target, clampf(cycle / 0.9, 0.0, 1.0))
+				at = _nursery_burp_hand_point(0.0).lerp(pat_target, clampf(cycle / 0.9, 0.0, 1.0))
 				pressing = cycle >= 0.9
 		"swipe":
 			if _is_nursery_bedtime_context():
@@ -4125,9 +4007,12 @@ func _demo_finger_pose() -> Dictionary:
 					at = center.lerp(pos, clampf(cycle / 1.1, 0.0, 1.0))
 					break
 		"hold":
-			if _is_nursery_feed_context():
-				var feed_pose := _nursery_feed_bottle_pose(true)
-				at = feed_pose.get("position", center) as Vector2
+			if visual_context == "nursery_wash":
+				var wash := _nursery_art().wash_rect()
+				at = wash.position + wash.size * Vector2(0.73, 0.58)
+				pressing = true
+			elif _is_nursery_feed_context():
+				at = _nursery_feed_bottle_rect(true).get_center()
 				pressing = true
 			elif _is_magic_vanish_context():
 				var wand_target := _magic_vanish_wand_hit_rect().get_center()
@@ -4286,8 +4171,14 @@ func _draw_demo_finger() -> void:
 	var pose := _demo_finger_pose()
 	var at: Vector2 = pose.get("at", size * 0.5)
 	var pressing := bool(pose.get("pressing", false))
+	if visual_context.ends_with("_chef"):
+		_chef_art_ref().draw_hand(at)
+		return
 	if mode == "pipe" and pipe_guide_hand_texture != null:
 		_draw_pipe_guide(at)
+		return
+	if visual_context.begins_with("nursery_") or visual_context in ["pour_nursery", "push_nursery"]:
+		_nursery_art().draw_guide(at, pressing)
 		return
 	if _is_candymaker_pour() and pour_demo_hand_texture != null:
 		# A literal hand is clearer than the generic concentric-dot hint against the
@@ -5352,7 +5243,8 @@ func _draw_trace_patches(texture: Texture2D) -> void:
 
 
 func _oven_meter_rect() -> Rect2:
-	return Rect2(size.x * 0.84, size.y * 0.12, 26.0, size.y * 0.64)
+	var height := size.y * 0.64
+	return Rect2(size.x * 0.84 - 5.0, size.y * 0.12, height * 0.25, height)
 
 
 func _oven_handle_rect() -> Rect2:
@@ -5367,74 +5259,7 @@ func _oven_handle_hit_rect() -> Rect2:
 
 
 func _draw_oven(_center: Vector2) -> void:
-	# authored oven backdrop when present (gauge_chef ledger redirect);
-	# a warm code-drawn oven face otherwise. NO green anywhere — the green
-	# lock belongs to the retired ping-pong zones.
-	draw_rect(Rect2(size.x * 0.08, size.y * 0.08, size.x * 0.68, size.y * 0.84), Color("#8a5a4a"), true)
-	draw_rect(Rect2(size.x * 0.08, size.y * 0.08, size.x * 0.68, size.y * 0.84), Color("#5c3a30"), false, 6.0)
-	# the window, and the cake tinting with the heat
-	var window := Rect2(size.x * 0.16, size.y * 0.16, size.x * 0.52, size.y * 0.44)
-	draw_rect(window, Color(0.23, 0.13, 0.10, 0.90), true)
-	var heat := clampf(oven_t, 0.0, 1.0)
-	var cake_color := Color("#f7ecd2").lerp(Color("#eab54e"), clampf(heat / 0.62, 0.0, 1.0))
-	if heat > 0.80:
-		cake_color = cake_color.lerp(Color("#9c6a30"), (heat - 0.80) * 5.0)
-	var rise := 0.55 + 0.30 * heat
-	var cake_base := Vector2(window.get_center().x, window.end.y - 10.0)
-	var cake_width := window.size.x * 0.56
-	var cake_height := window.size.y * 0.52 * rise
-	var jiggle := 0.0
-	if oven_peek > 0.0:
-		jiggle = sin(oven_peek * 26.0) * 5.0
-	if completion_accepted:
-		jiggle = 0.0
-	draw_rect(Rect2(cake_base.x - cake_width * 0.5 + jiggle, cake_base.y - cake_height, cake_width, cake_height), cake_color, true)
-	draw_circle(Vector2(cake_base.x + jiggle, cake_base.y - cake_height), cake_width * 0.5, cake_color)
-	# golden shimmer in the window during the ready band
-	if heat >= 0.45 and heat <= 0.80:
-		var shimmer := 0.30 + 0.20 * sin(heat * 90.0)
-		draw_circle(Vector2(cake_base.x, cake_base.y - cake_height * 0.9), 10.0, Color(1.0, 0.92, 0.55, shimmer))
-	# toasty steam curls — cozy, not alarming
-	if heat > 0.80:
-		for i in range(3):
-			var sx := window.position.x + window.size.x * (0.28 + 0.22 * float(i))
-			var sy := window.position.y + 14.0 - fmod(heat * 260.0 + float(i) * 23.0, 34.0)
-			draw_arc(Vector2(sx, sy), 9.0, PI * 0.2, PI * 1.3, 12, Color(0.98, 0.92, 0.80, 0.5), 4.0)
-	# the thermometer: rises bottom-to-top at the static rate, band-colored
-	var slot := _oven_meter_rect()
-	draw_rect(slot, Color(0.98, 0.97, 0.93, 0.9), true)
-	draw_rect(slot, Color("#5c3a30"), false, 4.0)
-	var fill_height := slot.size.y * heat
-	var band_color := Color("#f3dfa8") if heat < 0.45 else (Color("#ffc94d") if heat <= 0.80 else Color("#d9813c"))
-	draw_rect(Rect2(slot.position.x, slot.end.y - fill_height, slot.size.x, fill_height), band_color, true)
-	for band: float in [0.45, 0.80]:
-		var tick_y: float = slot.end.y - slot.size.y * band
-		draw_line(Vector2(slot.position.x - 6.0, tick_y), Vector2(slot.end.x + 6.0, tick_y), Color("#5c3a30"), 3.0)
-	# the mitt handle — the ONE verb. It glows gold through the ready band.
-	var handle := _oven_handle_rect()
-	var handle_center := handle.get_center()
-	if oven_peek > 0.0:
-		# the door swings open for the peek
-		draw_rect(Rect2(handle.position.x, handle.position.y + 10.0, handle.size.x, handle.size.y), Color("#6e4638"), true)
-	else:
-		draw_rect(handle, Color("#6e4638"), true)
-	draw_rect(handle, Color("#4a2c22"), false, 4.0)
-	draw_circle(handle_center, 20.0, Color("#e8b24a"))
-	if heat >= 0.45 and not oven_done:
-		var pulse := 0.35 + 0.25 * (0.5 + 0.5 * sin(heat * 70.0))
-		draw_arc(handle_center, 34.0 + 8.0 * pulse, 0.0, TAU, 40, Color(1.0, 0.83, 0.35, pulse), 7.0)
-	if oven_done or completion_accepted:
-		# Hold on the causal result: open door, finished cake and a warm crown of
-		# sparkles. Never replace the baked scene with the generic gauge success.
-		draw_rect(Rect2(handle.position + Vector2(0.0, 14.0), handle.size),
-			Color("#6e4638"), true)
-		draw_arc(window.get_center(), minf(window.size.x, window.size.y) * 0.44,
-			0.0, TAU, 40, Color(1.0, 0.84, 0.30, 0.78), 7.0)
-		for sparkle_index in range(5):
-			var sparkle_angle := -PI * 0.9 + float(sparkle_index) * PI * 0.45
-			var sparkle_pos := window.get_center() + Vector2.from_angle(sparkle_angle) * 78.0
-			draw_circle(sparkle_pos, 5.0 + float(sparkle_index % 2) * 2.0,
-				Color(1.0, 0.93, 0.60, 0.88))
+	_chef_art_ref().draw_oven()
 
 
 func _pipe_setup_round() -> void:
@@ -5977,6 +5802,9 @@ func _is_candymaker_pour() -> bool:
 
 
 func _pour_bowl_rect() -> Rect2:
+	if visual_context in ["pour_chef", "crank_chef"]:
+		# Mouth registration keeps the natural shell bowl on the cake platform.
+		return Rect2(size.x * 0.5 - 76.0, size.y * 0.49, 152.0, 52.0)
 	if _is_candymaker_pour():
 		# Register input and stream geometry to the reviewed cavity-only alpha
 		# bounds in the authored 1024x576 full-bleed backdrop.
@@ -6034,6 +5862,8 @@ func _pour_x_bounds() -> Vector2:
 
 
 func _pour_pitcher_rect() -> Rect2:
+	if visual_context == "pour_chef":
+		return Rect2(pour_x - 70.0, size.y * 0.10 - 10.0, 140.0, 140.0)
 	if _is_candymaker_pour():
 		var width := minf(188.0, size.x * 0.48)
 		var height := width * 0.5
@@ -6192,6 +6022,10 @@ func _draw_candymaker_pour_stream() -> void:
 
 
 func _draw_pour_scene(_center: Vector2) -> void:
+	if visual_context == "pour_chef":
+		_chef_art_ref().draw_pour()
+		last_specialist_subject_route = "chef_mixing_bowl"
+		return
 	var bowl := _pour_bowl_rect()
 	if _is_candymaker_pour():
 		# SYRUP owns a coherent full-bleed workshop scene rather than a framed
@@ -6263,3 +6097,10 @@ func _draw_pour_scene(_center: Vector2) -> void:
 		if pour_reserve < 0.18 and _pour_stream_active():
 			draw_circle(_pour_spout_point() + Vector2(0.0, 14.0),
 				6.0, Color("#f2c66d"))
+
+
+func _chef_art_ref() -> ChefPaintedArt:
+	if chef_painted_art == null:
+		chef_painted_art = ChefArt.new()
+		chef_painted_art.bind(self)
+	return chef_painted_art

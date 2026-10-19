@@ -1,0 +1,92 @@
+{
+  "checked_utc": "2026-10-19T15:03:50.774140+00:00",
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/nursery_painted_art.gd",
+        "scripts/painted_feedback_art.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_nursery_catch.gd",
+        "scripts/opera_boxing_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_roshan_actor.gd",
+        "scripts/opera_world_backdrop_2d.gd",
+        "scripts/opera_stage_paths.gd"
+      ],
+      "exit": 0,
+      "log": "assets_src/imagegen/job_art_nursery_20261019/verification/publication02_gate_0.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/nursery_painted_art.gd",
+        "scripts/painted_feedback_art.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_nursery_catch.gd",
+        "scripts/opera_boxing_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_roshan_actor.gd",
+        "scripts/opera_world_backdrop_2d.gd",
+        "scripts/opera_stage_paths.gd"
+      ],
+      "exit": 0,
+      "log": "assets_src/imagegen/job_art_nursery_20261019/verification/publication02_gate_1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_prepare_opera_minigame_art"
+      ],
+      "exit": 0,
+      "log": "assets_src/imagegen/job_art_nursery_20261019/verification/publication02_gate_2.log",
+      "sha256": "6141e14ec4116b4354d9b8fc128cd8f3842eb3f6409c8d14ac0d609056bd0e9b"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/prepare_opera_minigame_art.py",
+        "--check-only"
+      ],
+      "exit": 0,
+      "log": "assets_src/imagegen/job_art_nursery_20261019/verification/publication02_gate_3.log",
+      "sha256": "97ed21bfe49d8e2146c3e7ce788db79d674c2210e247ed0c411ffad4951447b7"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit": 0,
+      "log": "assets_src/imagegen/job_art_nursery_20261019/verification/publication02_gate_4.log",
+      "sha256": "03642b04f6dd63b44829d298d5f4eded9b05dc434625881fdaaff7ebdd534cd8"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit": 0,
+      "log": "assets_src/imagegen/job_art_nursery_20261019/verification/publication02_gate_5.log",
+      "sha256": "9460a46faf418bd84357e4da16788f15f8fffd2c1b95b53240fa450ef0c4160d"
+    }
+  ],
+  "source_pin_drift": [],
+  "limits": "Machine verification only. No human/device/owner/release acceptance."
+}

@@ -1,0 +1,42 @@
+{
+  "source": "Garden91b3c005/source-bound baseline reproduction; same six filename-reference counts as Teacher e90c0daa",
+  "differences": [
+    {
+      "path": "assets/audio/ambience_lagoon.ogg",
+      "column": "runtime_reference_count",
+      "before": "2",
+      "after": "3"
+    },
+    {
+      "path": "assets/audio/castle/bubble_water.ogg",
+      "column": "runtime_reference_count",
+      "before": "9",
+      "after": "10"
+    },
+    {
+      "path": "assets/audio/castle/curtain_swish.ogg",
+      "column": "runtime_reference_count",
+      "before": "12",
+      "after": "13"
+    },
+    {
+      "path": "assets/audio/chime.ogg",
+      "column": "runtime_reference_count",
+      "before": "11",
+      "after": "12"
+    },
+    {
+      "path": "assets/audio/hop_boing.ogg",
+      "column": "runtime_reference_count",
+      "before": "9",
+      "after": "10"
+    },
+    {
+      "path": "assets/audio/ui_tap.ogg",
+      "column": "runtime_reference_count",
+      "before": "13",
+      "after": "14"
+    }
+  ],
+  "audio_bytes_measurements_listening_states": "All857unchanged; no audio or family voice edited."
+}

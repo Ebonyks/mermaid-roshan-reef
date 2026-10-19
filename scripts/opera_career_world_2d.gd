@@ -466,6 +466,7 @@ var m: ReefMain
 var config: Dictionary = {}
 var competition: OperaCompetition
 var win_callback: Callable
+var painted_feedback_art: PaintedFeedbackArt = null
 var career_id := ""
 var phases: Array = []
 var phase_index := 0
@@ -2097,7 +2098,7 @@ func _on_hotspot_opening_finished(station_index: int) -> void:
 
 
 func _draw_activity_focus() -> void:
-	if career_id in ["teacher", "geologist"] or _racer_is_driving():
+	if career_id in ["teacher", "geologist", "chef"] or _racer_is_driving():
 		return
 	# Local objects and their own cues provide focus; no room-sized alpha lens.
 	if surface is OperaChefSurface:
@@ -2118,6 +2119,13 @@ func _draw_activity_focus() -> void:
 	for index in range(pearl_count):
 		var at := Vector2(start_x + span * float(index) / float(pearl_count - 1), y)
 		var filled := progress + 0.001 >= float(index + 1) / float(pearl_count)
+		if career_id == "nursery":
+			if painted_feedback_art == null:
+				painted_feedback_art = PaintedFeedbackArt.new()
+			var partial := progress * float(pearl_count) - float(index)
+			var state := "full" if filled else ("filling" if partial > 0.0 else "empty")
+			painted_feedback_art.pearl(action_panel, at, state)
+			continue
 		var colour := Color("#fff1b2") if filled else Color(0.34, 0.55, 0.86, 0.42)
 		action_panel.draw_circle(at, 8.5 if filled else 6.5, colour)
 		if filled:
@@ -2393,7 +2401,10 @@ func _play_roshan_animation(animation: String) -> void:
 
 
 func _play_roshan_task_pose(phase: Dictionary) -> void:
-	if surface is OperaChefSurface and is_instance_valid(player_animator):
+	if career_id == "nursery" and String(phase.get("name", "")) in ["CATCH BABIES", "FEED", "BURP", "BEDTIME"]:
+		_update_nursery_care_pose(phase)
+		return
+	if career_id == "chef" and is_instance_valid(player_animator):
 		# The generic work strip already holds a second mixing bowl. The
 		# approved empty-hand presenting pose keeps one room-owned work object.
 		player_animator.show_pose("idle", 0)
@@ -2412,6 +2423,15 @@ func _play_roshan_task_pose(phase: Dictionary) -> void:
 		player_animator.show_pose("work", int(reviewed[phase_name]))
 		return
 	_play_roshan_animation("work")
+
+
+func _update_nursery_care_pose(phase: Dictionary) -> void:
+	if not is_instance_valid(player_animator) or surface == null:
+		return
+	var amount := phase_progress / maxf(0.1, float(phase.get("goal", 1.0)))
+	var frame := clampi(floori(amount * 8.0), 0, 7)
+	var texture := surface._nursery_art().art("care_%02d" % frame)
+	player_animator.show_authored_nursery_pose(texture, frame)
 
 
 func _widget_template(phase: Dictionary) -> String:
@@ -2541,7 +2561,7 @@ func _arm_phase() -> void:
 	_set_finale_visible(false)
 	# Boxing switches to first-person gloves only after the invitation opens;
 	# Roshan must remain visible while she walks to the physical training prop.
-	if career_id == "boxer" and player_actor != null:
+	if career_id in ["boxer", "nursery"] and player_actor != null:
 		player_actor.visible = true
 	if backdrop_node != null:
 		# The navigable room owns every interaction. Stage masters use different
@@ -2717,6 +2737,10 @@ func _open_task() -> void:
 		# The walk-in is third person; the opened lesson is the specialist's
 		# first-person two-glove view.
 		player_actor.visible = false
+	if career_id == "nursery" and String(phase.get("visual_context", "")) == "nursery_wash" 			and player_actor != null:
+		# The approved connected wash picture already includes Roshan and basin.
+		# Draw her exactly once, restoring the stage actor when the next phase arms.
+		player_actor.visible = false
 	if phase_index >= _finale_start() or competition.is_cooperative():
 		_stage_room_finale_partner()
 	_adapter_hook("phase_opened", scene_snapshot())
@@ -2770,7 +2794,7 @@ func _open_task() -> void:
 			nursery_catch.stop()
 	_bind_widget(phase, mode_name, accent)
 	if surface is OperaChefSurface:
-		var work_feet := Vector2(995, 405)
+		var work_feet := Vector2(875, 405)
 		if mode_name in ["pourt", "circle"]:
 			work_feet = Vector2(550, 430)
 		elif mode_name == "oven":
@@ -3606,7 +3630,11 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	if mode == "pourt" and _kind == "pourt" and surface.pour_level >= 1.0:
 		phase_progress = goal
 	elif mode == "swipe" and _kind == "swipe" and surface._uses_authored_trace_context() \
-			and surface.trace_journey >= 1.0:
+			and (surface.trace_journey >= 1.0 \
+			or (career_id == "chef" and surface.trace_journey >= 0.999)):
+		# Canvas touch transforms can return the final authored point as
+		# 0.99999994. Match the surface's existing finished-prefix threshold;
+		# otherwise its own input guard stops before this world earns the goal.
 		phase_progress = goal
 	elif mode == "swipe" and _kind == "swipe" and using_chapter_two_phases \
 			and amount > 0.0 and quality >= 0.9 and surface.held and surface.long_push_engaged \
@@ -3679,7 +3707,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 func _uses_authored_completion_picture(mode: String) -> bool:
 	if surface is OperaChefSurface:
 		return true
-	if career_id in ["teacher", "geologist"] \
+	if career_id in ["teacher", "geologist", "chef", "nursery"] \
 			or (career_id == "racer" and mode == "kart_race"):
 		return true
 	return career_id == "candymaker" and mode == "pourt" \
@@ -4677,6 +4705,10 @@ func _draw_lens_layer() -> void:
 
 func _process(delta: float) -> void:
 	_performance_tick(delta)
+	if career_id == "nursery" and task_open and phase_index < phases.size():
+		var nursery_phase := phases[phase_index] as Dictionary
+		if String(nursery_phase.get("name", "")) in ["CATCH BABIES", "FEED", "BURP", "BEDTIME"]:
+			_update_nursery_care_pose(nursery_phase)
 	_tick_teacher_voice()
 	teacher_save_cool = maxf(0.0, teacher_save_cool - delta)
 	if teacher_save_pending and teacher_save_cool <= 0.0:
