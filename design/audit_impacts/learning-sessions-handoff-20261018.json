@@ -87,7 +87,8 @@
     "docs/handoffs/codex_learning_sessions_2026-10-18/PARENT_LOG.md",
     "docs/handoffs/codex_learning_sessions_2026-10-18/QUESTION_CARD.md",
     "docs/handoffs/codex_learning_sessions_2026-10-18/QUIET_MEDALS.md",
-    "docs/handoffs/codex_learning_sessions_2026-10-18/README.md"
+    "docs/handoffs/codex_learning_sessions_2026-10-18/README.md",
+    "docs/handoffs/codex_learning_sessions_2026-10-18/REMOTE_VERIFICATION.json"
   ],
   "branch_sources": [
     {
@@ -176,8 +177,8 @@
     },
     {
       "command": "Anonymous fetch of every MANIFEST.json file at the pushed commit with SHA-256 comparison",
-      "result": "PENDING",
-      "evidence": "Recorded in REMOTE_VERIFICATION.json after the push."
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json: commit 10c2b0fd79b8f5bee5af86530dbb5a69fe0575c8, anonymous HTTPS to raw.githubusercontent.com, 12 of 12 files (manifest, six packet files and five records) HTTP 200 with matching SHA-256 and size, checked 2026-10-19T13:42:01+00:00."
     },
     {
       "command": "Branch Probe Suite CI on the pushed head",
