@@ -44,8 +44,8 @@ unclassified until this ledger gains one new scoped row for it.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V34 current reader, evaluation and14x10 review navigation; final-resolution/print/owner/child/SLP evidence separate. |
-| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; static-book source/identity/layout rules and scoped owner exceptions. Finished kindness plot remains; latest owner commission adds all-object polish, substantial gap-repair iteration including50+ generations, varied small banks, two unprompted Lamma appearances and explicit bubble/export audit. Internal4.9 craft, SLP and actual owner/child/print acceptance stay separate; no game/cinematic authority. |
+| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; unchanged V34 reading baseline plus V35 story-value and spoiler-free rear-cover proposals. Current washing rear rejected as a spoiler; theme, wording and new cover selection pending owner discussion. |
+| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; static-book source/identity/layout rules and scoped owner exceptions. Latest owner request rejects the washing rear as a spoiler and reopens educational/emotional-value review with workflow questions. V35 is proposed, V34 manuscript remains sealed; owner/child/SLP/print evidence separate; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |

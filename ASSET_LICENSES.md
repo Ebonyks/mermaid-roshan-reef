@@ -5740,3 +5740,18 @@ Existing owner project-art licenses and source acceptance scopes remain controll
 - `books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_27_art.png`: Owner source-derived reference/proof/export; preserves existing art attribution. Review PNG/master lossless; contact JPEG/email compression declared. Not an independently licensed scene replacement.
 - `books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_33_art.png`: Owner source-derived reference/proof/export; preserves existing art attribution. Review PNG/master lossless; contact JPEG/email compression declared. Not an independently licensed scene replacement.
 <!-- END CHAPTER_ONE_V34 -->
+
+<!-- BEGIN CHAPTER_ONE_V35_REVIEW -->
+## Chapter One V35 story-value / spoiler-free rear review (2026-10-18 owner request)
+
+Two built-in OpenAI ImageGen calls. The first full native candidate is excluded; one isolated head derivative from the second is used in candidate A with its exterior haze excluded and an original door foreground occluding it. Existing owner art, identity reference and font are unchanged. Prompts, exact sources, hashes, native outputs, contour/placement and acceptance limits are in `books/chapter_one/landscape/revisions/v35_story_value/generation_evidence.json` and `cover_proposal.json`. Source URL: https://github.com/Ebonyks/mermaid-roshan-reef/tree/codex/mermaid-roshan-picture-book/books/chapter_one/landscape/revisions/v35_story_value
+
+- `books/chapter_one/landscape/revisions/v35_story_value/art/entrance_cameo_attempt1.png`: OpenAI ImageGen source-bound native candidate; exact prompt/input SHA-256 and selection scope recorded. No new whole-scene delivery.
+- `books/chapter_one/landscape/revisions/v35_story_value/art/lamma_head_attempt1.png`: OpenAI ImageGen source-bound native candidate; exact prompt/input SHA-256 and selection scope recorded. No new whole-scene delivery.
+- `books/chapter_one/landscape/revisions/v35_story_value/proofs/cameo_zoom.png`: Browser-rendered owner-art document-layout proof; source image pixels preserved outside the declared cameo, with editable Sniglet copy. Retains existing source attribution; review only.
+- `books/chapter_one/landscape/revisions/v35_story_value/proofs/rear_A.png`: Browser-rendered owner-art document-layout proof; source image pixels preserved outside the declared cameo, with editable Sniglet copy. Retains existing source attribution; review only.
+- `books/chapter_one/landscape/revisions/v35_story_value/proofs/rear_A_art.png`: Browser-rendered owner-art document-layout proof; source image pixels preserved outside the declared cameo, with editable Sniglet copy. Retains existing source attribution; review only.
+- `books/chapter_one/landscape/revisions/v35_story_value/proofs/rear_B.png`: Browser-rendered owner-art document-layout proof; source image pixels preserved outside the declared cameo, with editable Sniglet copy. Retains existing source attribution; review only.
+- `books/chapter_one/landscape/revisions/v35_story_value/proofs/rear_B_art.png`: Browser-rendered owner-art document-layout proof; source image pixels preserved outside the declared cameo, with editable Sniglet copy. Retains existing source attribution; review only.
+- `books/chapter_one/landscape/revisions/v35_story_value/proofs/review_top.png`: Browser-rendered owner-art document-layout proof; source image pixels preserved outside the declared cameo, with editable Sniglet copy. Retains existing source attribution; review only.
+<!-- END CHAPTER_ONE_V35_REVIEW -->
