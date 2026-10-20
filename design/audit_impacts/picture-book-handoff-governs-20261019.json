@@ -1,7 +1,7 @@
 {
   "id": "picture-book-handoff-governs-20261019",
   "baseline": "137a1b2864d7b63b34149bd5bb238ea522eb5b33",
-  "scope": "Record the owner's 2026-10-19 decision that the published V34 audit handoff (cc603da5) governs the next picture-book revision with the accepted Q1-Q14 defaults: its 14 changed captions win, Codex's V34 wording stays elsewhere, the rear becomes V35 spoiler-free candidate A (owner choice later the same day), and the print step is rewritten for the larger 11 x 8 or 14 x 11 in edition. Adds a decision record with a V34 reconciliation table and the final 32-page manuscript, points the handoff README to it, appends the decision to the book design language and updates ledger rows. Documentation only; no art, proof, manuscript data, renderer, game or runtime change; Claude made no images.",
+  "scope": "Record the owner's 2026-10-19 decision that the published V34 audit handoff (cc603da5) governs the next picture-book revision with the accepted Q1-Q14 defaults: its 14 changed captions win, Codex's V34 wording stays elsewhere, the rear becomes V35 spoiler-free candidate A (owner choice later the same day), and the print step is rewritten for the larger 11 x 8 or 14 x 11 in edition. Adds a decision record with a V34 reconciliation table and the final 32-page manuscript, points the handoff README to it, appends the decision to the book design language and updates ledger rows. Documentation only; no art, proof, manuscript data, renderer, game or runtime change; Claude made no images. Later the same day it adds a character-consistency audit of the V34 art with per-character standards and fixes C1-C14, under the owner's choices of one standard rainbow lock and character-only edits on locked art.",
   "rules": [
     "DL-AUTH-05",
     "DL-AUTH-06",
@@ -12,6 +12,7 @@
   "no_findings_reason": "Static picture-book governance record for an owner decision; no game/runtime defect or canonical master finding is repaired or closed.",
   "files": [
     "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/CHARACTER_CONSISTENCY_2026-10-19.md",
     "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md",
     "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/README.md",
     "design/05_DOC_LEDGER.md",
@@ -39,6 +40,11 @@
       "evidence": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md#roshans-ears-q6 (story 1 and story 3 sources pinned by SHA-256)"
     },
     {
+      "command": "Direct native review of every V34 page and the V35 rear A proof against the approved reference art for Roshan, Daddy, Rumi, Baby Eagle, Grand Puff, the little puffs and Lamma; owner answers on 2026-10-19 (same rainbow lock; character-only edits on locked art)",
+      "result": "PASS",
+      "evidence": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/CHARACTER_CONSISTENCY_2026-10-19.md (references and V34 page sources pinned by SHA-256)"
+    },
+    {
       "command": "Page-by-page comparison of V34 book.json captions (commit 137a1b28) against the handoff W2 table, with the seam repair on story 21",
       "result": "PASS",
       "evidence": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md#final-manuscript"
@@ -54,5 +60,5 @@
       "evidence": "Documentation only; no runtime, scene, script, save, asset, protected original, device or release change."
     }
   ],
-  "acceptance_gaps": "The next revision (V36) is not implemented. The owner chose rear candidate A; the final trim is still to pick; the rounded-ear edit (Q6) is specified but not yet made; the single new page-9 cutout (W3b) is approved but not yet generated or reviewed. Owner acceptance of delivered pages, a child reading, professional speech-language review and a physical test print remain open. Anonymous remote verification follows the push."
+  "acceptance_gaps": "The next revision (V36) is not implemented. The owner chose rear candidate A; the final trim is still to pick; the rounded-ear edit (Q6) is specified but not yet made; the single new page-9 cutout (W3b) is approved but not yet generated or reviewed. Character fixes C1-C14 are specified but not yet made. Owner acceptance of delivered pages, a child reading, professional speech-language review and a physical test print remain open. Anonymous remote verification follows the push."
 }

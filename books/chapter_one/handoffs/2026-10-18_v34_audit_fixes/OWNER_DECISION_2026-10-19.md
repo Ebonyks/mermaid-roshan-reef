@@ -196,6 +196,25 @@ edit."
 7 × 5 in and the 14 × 10 in review size; the edit shows no patch edge at 100%;
 and pixels outside the polygon are unchanged.
 
+## Character consistency (2026-10-19)
+
+The owner asked for a comprehensive audit of hair and other character
+consistency, to be corrected in the next draft. Asked how to standardize, the
+owner chose:
+
+- **"Same rainbow lock."** One pastel rainbow ponytail on her left side,
+  about a quarter of her hair; brown soft waves and a gold tiara throughout;
+  length from shoulder to mid-back, with waist-length hair trimmed only where
+  it can be repainted cleanly.
+- **"Yes, character-only edits"** on locked art: the front cover and stories
+  28–29 may get small character edits, with their staging, action and
+  composition unchanged.
+
+The full audit, the standard for each character and fixes C1–C14 are in
+[CHARACTER_CONSISTENCY_2026-10-19.md](CHARACTER_CONSISTENCY_2026-10-19.md).
+They are part of V36: do them after the text and layout work and before the
+print upscale.
+
 ## Print edition (replaces W16)
 
 Owner direction: the final book is at least 8 × 11 in, possibly 11 × 14 in,

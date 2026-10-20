@@ -7,8 +7,10 @@ next revision, with the accepted Q1–Q14 defaults.
 with Codex's
 [V34 implementation review](../../landscape/revisions/v34_editorial_polish/README.md),
 sets the final manuscript, and replaces W14 (rear cover) and W16 (print
-edition). Read that record first. Claude wrote this packet and made no
-images; Codex builds the derivatives.
+edition). Read that record first. Character fixes C1–C14 for the same
+revision are in
+[CHARACTER_CONSISTENCY_2026-10-19.md](CHARACTER_CONSISTENCY_2026-10-19.md).
+Claude wrote this packet and made no images; Codex builds the derivatives.
 
 - **Recipient:** Codex.
 - **Baseline:** V33, commit `a14a26ee356296c84b7251ce8222f371740ed2cb`,
@@ -368,3 +370,7 @@ Follow the V33 package pattern on the same branch:
 - `caption_contrast.py`: the numbers-only contrast gate; it writes no
   images.
 - `caption_contrast_v33.tsv`: the V33 baseline, 77 caption lines.
+- `OWNER_DECISION_2026-10-19.md`: the owner's 2026-10-19 decisions, the V34
+  reconciliation and the final manuscript.
+- `CHARACTER_CONSISTENCY_2026-10-19.md`: the character standards, the
+  consistency audit and fixes C1–C14.
