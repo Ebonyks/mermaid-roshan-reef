@@ -10,7 +10,7 @@ Status: `SUPPORTING_CURRENT`; review candidate with explicitly held art items. �
 - **Step 6 — done**: Rear A from same corrected story3 character masks; tiny Lamma and spoiler-free copy. [complete/page_33.png](complete/page_33.png).
 - **Step 7 — done**: Composed contrast zero FAIL, 4 outlined, 81 PASS; 20-point story type. [composed_caption_contrast.json](composed_caption_contrast.json).
 - **Step 8 — done**: 34 native proofs inspected; lossless 95.38MB master and 23.55MB email PDF; spread/before-after views. [AUDIT_REVIEW.html](AUDIT_REVIEW.html).
-- **Step 9 — pending**: Publish exact package and anonymous byte verification. [remote_verification.json](remote_verification.json).
+- **Step 9 — done**: Published on the authorized branch; manifest and all432 exact-revision files verified over anonymous HTTPS. [remote_verification.json](remote_verification.json).
 - **Step 10 — held**: Owner illustration review and trim choice 11x8, 11x8.5 or 14x11 required before upscale. [README.md](README.md).
 - **Step 11 — held**: Separate later print edition, bleed and physical test print. [print_pagination.json](print_pagination.json).
 - **W1 — done**: Dusty hall4, shut door5 and route hall23 restored. [BOOK_CURRENT.json](BOOK_CURRENT.json).

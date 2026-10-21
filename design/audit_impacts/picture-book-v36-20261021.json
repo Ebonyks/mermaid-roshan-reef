@@ -166,6 +166,11 @@
       "command": "python -X utf8 -B tools/audit_document_authority.py",
       "result": "PASS",
       "evidence": "DOCAUTH ALL OK; inventory596/ledger596; 2026-10-21"
+    },
+    {
+      "command": "V36 verify_remote.py exact published package commit",
+      "result": "PASS",
+      "evidence": "remote_verification.json; initial package2c4b02ae5c3e52d0e35c60c534243cb9a62f5f23,432/432 hashes verified anonymously at2026-10-21T19:54:25Z; administrative report update is reverified before delivery."
     }
   ],
   "acceptance_gaps": "Review candidate with art holds itemized in V36 BUILD_REPORT.md/visual_review.json; W3b height1332<1800, failed joins excluded; owner/child/SLP/trim/print open. No game finding closure or runtime change."
