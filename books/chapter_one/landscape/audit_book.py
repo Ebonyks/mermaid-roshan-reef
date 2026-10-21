@@ -12,6 +12,19 @@ def overlap(a,b):
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--proof',required=True,type=Path);ap.add_argument('--baseline',required=True,type=Path);args=ap.parse_args()
  b=json.loads((ROOT/'book.json').read_text(encoding='utf8'));p=json.loads((args.proof/'page_provenance.json').read_text(encoding='utf8'));issues=[];pages={row['page']:row for row in b['pages']}
+ if b.get('revision','').startswith('V36'):
+  # V36 deliberately changes pagination, wording and physical review trim.
+  # Its strict snapshot gate retains source, contour, geometry and canon checks
+  # and measures contrast in the actual composition, including local repairs.
+  import subprocess,sys
+  expected=ROOT/'revisions/v36_next_draft'
+  assert args.proof.resolve()==(expected/'complete').resolve()
+  assert args.baseline.resolve()==(ROOT/'revisions/v34_editorial_polish/complete').resolve()
+  result=subprocess.run([sys.executable,'-X','utf8','-B',str(expected/'verify_revision.py')])
+  if result.returncode:raise SystemExit(result.returncode)
+  verified=json.loads((args.proof/'verification.json').read_text('utf8'))
+  (args.proof/'stress_results.json').write_text(json.dumps({'mechanical_status':'PASS','gate':'V36 exact-source/geometry/canon/composed-contrast snapshot','verification_sha256':hashlib.sha256((args.proof/'verification.json').read_bytes()).hexdigest(),'issues':verified['issues'],'human_acceptance':'Owner/child/SLP/final-resolution/print remain separate'},indent=2)+'\n',encoding='utf8',newline='\n')
+  return
  if b.get('revision','').startswith('V34'):
   # V34 deliberately changes pagination, wording and physical review trim.
   # Its strict snapshot gate retains source, contour, geometry and canon checks

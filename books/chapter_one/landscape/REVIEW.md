@@ -1,5 +1,5 @@
-# Current V34 review
+# V36 review
 
-Status: `SUPPORTING_CURRENT`. [Audit evaluation and all decisions](revisions/v34_editorial_polish/AUDIT_EVALUATION.md), [before/after](revisions/v34_editorial_polish/AUDIT_REVIEW.html), [reader](revisions/v34_editorial_polish/complete/READ_BOOK.html), [verification](revisions/v34_editorial_polish/complete/verification.json).
+Status: `SUPPORTING_CURRENT`. [Build report](revisions/v36_next_draft/BUILD_REPORT.md), [native review](revisions/v36_next_draft/visual_review.json), [before/after](revisions/v36_next_draft/AUDIT_REVIEW.html).
 
-25 candidates,11 selected derivatives. Only little puffs appear in marginal banks. No full narrative-scene redraw, game change or protected-original edit. Source/action gaps, final resolution/trim, clinical SLP, owner/child and physical-print acceptance remain explicit in the evaluation. Older V33 results are historical version-specific evidence.
+31 native calls,18 selected local candidates. Failed joins excluded. Composed contrast0FAIL/4outlined/81PASS; source-only diagnostic retains4FAIL and its limitations.34exact PDF proofs,243original source/font files sealed against V34. Review implementation is not final art acceptance.

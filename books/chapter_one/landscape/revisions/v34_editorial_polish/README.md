@@ -1,6 +1,6 @@
 # V34 — editorial polish and little-puff care
 
-Status: `SUPPORTING_CURRENT`; review implementation complete, final owner/child/SLP/resolution/print acceptance open. Exact art baseline `a14a26ee356296c84b7251ce8222f371740ed2cb`; concurrent audit handoff reviewed at `cc603da5cca7310a2897bd9b85dfe74b805f075b`.34 total pages,32 interiors,14x10 landscape review.
+Status: `HISTORICAL_EVIDENCE`; V36 supersedes current reading controls; this exact V34 package remains baseline evidence. review implementation complete, final owner/child/SLP/resolution/print acceptance open. Exact art baseline `a14a26ee356296c84b7251ce8222f371740ed2cb`; concurrent audit handoff reviewed at `cc603da5cca7310a2897bd9b85dfe74b805f075b`.34 total pages,32 interiors,14x10 landscape review.
 
 [Before/after](AUDIT_REVIEW.html) · [Read book](complete/READ_BOOK.html) · [Lossless review master](complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf) · [Email PDF under25MB](complete/Mermaid_Roshan_Book_V34_Email.pdf) · [Spread dummy](PRINT_DUMMY.html) · [Evaluation/work items](AUDIT_EVALUATION.md) · [Page audit](page_audit.json) · [Source/contrast verification](complete/verification.json) · [Native prompts and provenance](generation_evidence.json) · [Manifest](manifest.json).
 

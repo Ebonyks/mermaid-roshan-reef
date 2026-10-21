@@ -41,7 +41,9 @@ def full(k,anchor=.5):
 def local_patch(p):
  # The original full-art frame remains the base. Only this irregular lane is exposed.
  q=p['local_patch'];k=q['source'];rw,rh=q['reference_size']
- if q.get('placement'):
+ if q.get('canvas_transform_points'):
+  ox,oy,s=q['canvas_transform_points']
+ elif q.get('placement'):
   # A local expression repair may follow an existing true-alpha cutout placement.
   pk=q['placement']['source'];x,y,w,h=q['placement']['box'];base_im=Image.open(path(pk))
   l,t,r,b=B['sources'][pk].get('alpha_box') or base_im.getchannel('A').getbbox()
@@ -86,7 +88,7 @@ def cut(k,x,y,w,h):
  if contour:
   LAYERS[-1]['contour_polygon_source_pixels']=contour;c.restoreState()
  return target
-def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,outline=0):
+def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,outline=0,line_colors=None,leading=None,line_baselines=None):
  lines=[]
  for para in s.split('\n'):
   line=''
@@ -95,7 +97,9 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,o
    if pdfmetrics.stringWidth(trial,'Sniglet',size)>width and line:lines.append(line);line=word
    else:line=trial
   lines.append(line)
- for line in lines:
+ for line_index,line in enumerate(lines):
+  if line_baselines:y=line_baselines[line_index]
+  if line_colors:color=line_colors[line_index]
   xx=x+(width-pdfmetrics.stringWidth(line,'Sniglet',size))/2 if center else x
   c.saveState();c.setFont('Sniglet',size)
   if shadow:
@@ -112,7 +116,7 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,o
   c.restoreState()
   line_width=pdfmetrics.stringWidth(line,'Sniglet',size)
   TEXT_LINES.append({'page':PAGE,'text':line,'box':[xx,y+pdfmetrics.getDescent('Sniglet')*size/1000,line_width,(pdfmetrics.getAscent('Sniglet')-pdfmetrics.getDescent('Sniglet'))*size/1000],'font_size':size,'physical_font_size':size*S,'color':color,'outline':outline,'halo':halo})
-  y-=size*1.3
+  y-=leading or size*1.3
  return y
 def speech(q):
  x,y,w,h=q['box'];tx,ty=q['tail'];c.saveState()
@@ -189,7 +193,7 @@ for p in B['pages']:
   else:cut(a[0],*p.get('foreground_zone',[30,53,444,211]))
  if 'local_patch' in p:local_patch(p)
  for patch in p.get('local_patches',[]):local_patch({'local_patch':patch})
- q=p['caption'];text(p['text'],q['x'],q['y'],q['width'],q['size'],q['align']=='center',color=q['color'],shadow=q['shadow'],halo=q.get('halo',False),outline=q.get('outline',0))
+ q=p['caption'];text(p['text'],q['x'],q['y'],q['width'],q['size'],q['align']=='center',color=q['color'],shadow=q['shadow'],halo=q.get('halo',False),outline=q.get('outline',0),line_colors=q.get('line_colors'),leading=q.get('leading'),line_baselines=q.get('line_baselines'))
  for balloon in p.get('speech_bubbles',[]):speech(balloon)
  finish_page()
 PAGE='back_cover'
@@ -208,6 +212,23 @@ if B['back_cover'].get('story_scene_page'):
  else:full(source_page['art'][0],0 if source_page['layout']=='full_left' else .5)
 else:full(B['back_cover']['art'])
 for patch in B['back_cover'].get('local_patches',[]):local_patch({'local_patch':patch})
+if B['back_cover'].get('cameo'):
+ # Reuse the owner's selected rear-A contour and original doorway occlusion.
+ import re
+ q=B['back_cover']['cameo'];k=q['source'];rw,rh=q['reference_size'];s=max(W/rw,H/rh)
+ ox=(W-rw*s)/2;oy=(H-rh*s)/2;tx,ty,cs=q['transform']
+ tokens=re.findall(r'[MCZ]|-?\d+(?:\.\d+)?',q['clip_path']);i=0;shape=c.beginPath()
+ def point(px,py):return ox+(tx+px*cs)*s,oy+(rh-ty-py*cs)*s
+ while i<len(tokens):
+  op=tokens[i];i+=1
+  if op=='M':shape.moveTo(*point(float(tokens[i]),float(tokens[i+1])));i+=2
+  elif op=='C':
+   nums=list(map(float,tokens[i:i+6]));shape.curveTo(*(point(*nums[0:2])+point(*nums[2:4])+point(*nums[4:6])));i+=6
+  else:shape.close()
+ c.saveState();c.clipPath(shape,stroke=0,fill=0);iw,ih=Image.open(path(k)).size
+ target=(ox+tx*s,oy+(rh-ty-ih*cs)*s,iw*cs*s,ih*cs*s)
+ c.drawImage(str(path(k)),*target,mask='auto');record(k,[0,0,iw,ih],target,'selected_rear_A_contour_cameo');c.restoreState()
+ l,t,r,b=q['foreground_box'];region(q['foreground_source'],[l,t,r,b],(ox+l*s,oy+(rh-b)*s,(r-l)*s,(b-t)*s))
 if back_transform:c.restoreState()
 if B['back_cover'].get('caption'):
  q=B['back_cover']['caption'];text(q['text'],q['x'],q['y'],q['width'],q['size'],True,color=q['color'],outline=q.get('outline',0))

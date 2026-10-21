@@ -1,0 +1,2941 @@
+{
+  "calls": 31,
+  "method": "Native ImageGen local edit candidates; only declared polygons composited over original scenes. W3b is the sole new-cutout exception. Originals unmodified.",
+  "wall_and_cleanup_time": "Not instrumented; no invented timings.",
+  "native_sources_retained": true,
+  "missing_prompt_records": 4,
+  "selected_derivatives": 18,
+  "records": [
+    {
+      "id": "c_cover",
+      "source": "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+      "fix": "C4: Change ONLY Roshan's pink top and lilac sleeves (torso roughly x600..830 y495..710). Replace smocked/ruffle peplum/shell brooch with fitted plain pink top ending in a point above lavender waistband, lilac flutter sleeves as identity anchor. Keep her exact silhouette, arms/hands, sponge, face, hair, pose, staging and all else.",
+      "prompt": "Precise bounded identity-preserving edits to IMAGE1 existing scene, NOT a redraw. C4: Change ONLY Roshan's pink top and lilac sleeves (torso roughly x600..830 y495..710). Replace smocked/ruffle peplum/shell brooch with fitted plain pink top ending in a point above lavender waistband, lilac flutter sleeves as identity anchor. Keep her exact silhouette, arms/hands, sponge, face, hair, pose, staging and all else. IMAGE2 is identity anchor only; IMAGE3 shows directional ponytail, IMAGE4 shows in-book tied lock. Return same full canvas, preserve all pixels outside requested regions, no text, no new poses or characters. Match source painterly texture and sharpness seamlessly.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-17e02a83-e116-4848-be8b-ba2b84c2c2f2.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c_cover_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "bbe516539034950076ed993b9169cb57547e51056dec76b4d690d63d313630ab",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": "cover",
+          "patch": {
+            "source": "v36_c_cover",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                595,
+                490
+              ],
+              [
+                645,
+                485
+              ],
+              [
+                686,
+                510
+              ],
+              [
+                704,
+                532
+              ],
+              [
+                740,
+                542
+              ],
+              [
+                790,
+                503
+              ],
+              [
+                829,
+                509
+              ],
+              [
+                841,
+                552
+              ],
+              [
+                818,
+                580
+              ],
+              [
+                807,
+                624
+              ],
+              [
+                795,
+                675
+              ],
+              [
+                769,
+                714
+              ],
+              [
+                712,
+                723
+              ],
+              [
+                670,
+                696
+              ],
+              [
+                606,
+                670
+              ],
+              [
+                598,
+                641
+              ],
+              [
+                632,
+                625
+              ],
+              [
+                637,
+                579
+              ],
+              [
+                607,
+                558
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+          "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "8b3ecea23d5734b37cb4e8f749b6669534a09293461745ce9e39054b6669069d"
+    },
+    {
+      "id": "c01",
+      "source": "books/chapter_one/landscape/art/quality_v22/scene_01.png",
+      "fix": "C2/C9: only Roshan's tiara and face profile: replace oversized many-gem crown with SMALL gold tiara ONE blue gem; face younger 4-year-old with fuller cheek, smaller nose. Preserve delighted open mouth, gaze, hand on window, exact head placement, hair, clothing, window and whole scene.",
+      "prompt": "Precise bounded identity-preserving edits to IMAGE1 existing scene, NOT a redraw. C2/C9: only Roshan's tiara and face profile: replace oversized many-gem crown with SMALL gold tiara ONE blue gem; face younger 4-year-old with fuller cheek, smaller nose. Preserve delighted open mouth, gaze, hand on window, exact head placement, hair, clothing, window and whole scene. IMAGE2 is identity anchor only; IMAGE3 shows directional ponytail, IMAGE4 shows in-book tied lock. Return same full canvas, preserve all pixels outside requested regions, no text, no new poses or characters. Match source painterly texture and sharpness seamlessly.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-7f783828-dbd8-47f8-92eb-0a7fec7c898e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c01_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/quality_v22/scene_01.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "ff9e65ed61a815029d784f2907c53bb57d5381046def606e5d08de9a5e5d3275",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_01.png",
+          "sha256": "e0a084746a0ef0bd935b7689df778c76d2f3489afd63279280ef19d180a3265b",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "fe1506ea5fd287972552e16914a0b8dea3dc827d64dc3483e03ac502f4dee3c0"
+    },
+    {
+      "id": "c03",
+      "source": "books/chapter_one/landscape/revisions/v29_polish/art/castle03.png",
+      "fix": "C1/C2/C3/C7/C14 local character edits only: Roshan chestnut soft waves with ONE pastel rainbow ponytail gathered on HER LEFT behind head, about a quarter of hair, shorten lower hair to mid-back. Small gold tiara with one blue gem. Make Roshan's pointed ear ROUNDED; keep her exact pose, face expression, both hands, tail, costume, size and contact. Daddy hair brown at crown transitioning green ends; his pointed ears stay. No other change.",
+      "prompt": "Precise bounded identity-preserving edits to IMAGE1 existing scene, NOT a redraw. C1/C2/C3/C7/C14 local character edits only: Roshan chestnut soft waves with ONE pastel rainbow ponytail gathered on HER LEFT behind head, about a quarter of hair, shorten lower hair to mid-back. Small gold tiara with one blue gem. Make Roshan's pointed ear ROUNDED; keep her exact pose, face expression, both hands, tail, costume, size and contact. Daddy hair brown at crown transitioning green ends; his pointed ears stay. No other change. IMAGE2 is identity anchor only; IMAGE3 shows directional ponytail, IMAGE4 shows in-book tied lock. Return same full canvas, preserve all pixels outside requested regions, no text, no new poses or characters. Match source painterly texture and sharpness seamlessly.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-f2f5b77b-460c-4440-b614-791085856a7a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c03_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v29_polish/art/castle03.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "71b91f01e2dcc70fd09db495c94ffe9101fe38460656ea79d728a0afa23958a9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 3,
+          "patch": {
+            "source": "v36_c03",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                517,
+                307
+              ],
+              [
+                775,
+                307
+              ],
+              [
+                793,
+                381
+              ],
+              [
+                783,
+                423
+              ],
+              [
+                741,
+                425
+              ],
+              [
+                728,
+                472
+              ],
+              [
+                739,
+                495
+              ],
+              [
+                754,
+                508
+              ],
+              [
+                744,
+                527
+              ],
+              [
+                716,
+                533
+              ],
+              [
+                706,
+                579
+              ],
+              [
+                680,
+                619
+              ],
+              [
+                631,
+                623
+              ],
+              [
+                584,
+                619
+              ],
+              [
+                522,
+                562
+              ],
+              [
+                511,
+                451
+              ]
+            ]
+          }
+        },
+        {
+          "page": 3,
+          "patch": {
+            "source": "v36_c03",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                96,
+                398
+              ],
+              [
+                103,
+                331
+              ],
+              [
+                161,
+                264
+              ],
+              [
+                200,
+                212
+              ],
+              [
+                211,
+                177
+              ],
+              [
+                348,
+                177
+              ],
+              [
+                347,
+                207
+              ],
+              [
+                263,
+                220
+              ],
+              [
+                245,
+                255
+              ],
+              [
+                215,
+                287
+              ],
+              [
+                181,
+                334
+              ],
+              [
+                128,
+                415
+              ],
+              [
+                96,
+                440
+              ]
+            ]
+          }
+        },
+        {
+          "page": "cover",
+          "patch": {
+            "source": "v36_c03",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                517,
+                307
+              ],
+              [
+                775,
+                307
+              ],
+              [
+                793,
+                381
+              ],
+              [
+                783,
+                423
+              ],
+              [
+                741,
+                425
+              ],
+              [
+                728,
+                472
+              ],
+              [
+                739,
+                495
+              ],
+              [
+                754,
+                508
+              ],
+              [
+                744,
+                527
+              ],
+              [
+                716,
+                533
+              ],
+              [
+                706,
+                579
+              ],
+              [
+                680,
+                619
+              ],
+              [
+                631,
+                623
+              ],
+              [
+                584,
+                619
+              ],
+              [
+                522,
+                562
+              ],
+              [
+                511,
+                451
+              ]
+            ]
+          }
+        },
+        {
+          "page": "cover",
+          "patch": {
+            "source": "v36_c03",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                96,
+                398
+              ],
+              [
+                103,
+                331
+              ],
+              [
+                161,
+                264
+              ],
+              [
+                200,
+                212
+              ],
+              [
+                211,
+                177
+              ],
+              [
+                348,
+                177
+              ],
+              [
+                347,
+                207
+              ],
+              [
+                263,
+                220
+              ],
+              [
+                245,
+                255
+              ],
+              [
+                215,
+                287
+              ],
+              [
+                181,
+                334
+              ],
+              [
+                128,
+                415
+              ],
+              [
+                96,
+                440
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/castle03.png",
+          "sha256": "4fc329bf1ec83d2269fb6670eb08da8c25fb89ea1e709d9b66aa6c07089893c6",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "77c9f975ee1816699f3a0231f8cb0b217fad6b3ace56610eb954d173e9efb2fe"
+    },
+    {
+      "id": "c04",
+      "source": "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+      "fix": "Roshan small at LEFT: only her hair, make the existing left-side rainbow lock clearly legible as ONE pastel ponytail about quarter of her hair, rest chestnut soft waves. Keep face, pose, tiara and all other art.",
+      "prompt": "Precise local edit of IMAGE1 only; no scene redraw or pose change. Roshan small at LEFT: only her hair, make the existing left-side rainbow lock clearly legible as ONE pastel ponytail about quarter of her hair, rest chestnut soft waves. Keep face, pose, tiara and all other art. IMAGE2 Roshan identity anchor, IMAGE3 directional ponytail, IMAGE4 in-book lock example. Preserve source dimensions and all unmentioned pixels, seamless matching painted texture. No text or invented props.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-d5f59dfc-c2ab-4dcb-b15e-c9661d728bff.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c04_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "9490b8994464d546ea8a8d9445f0ca2b7ea7eda06ecb607790329a4425510b7d",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 4,
+          "patch": {
+            "source": "v36_c04",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                112,
+                485
+              ],
+              [
+                133,
+                470
+              ],
+              [
+                202,
+                477
+              ],
+              [
+                224,
+                501
+              ],
+              [
+                234,
+                544
+              ],
+              [
+                220,
+                568
+              ],
+              [
+                195,
+                576
+              ],
+              [
+                195,
+                546
+              ],
+              [
+                200,
+                515
+              ],
+              [
+                186,
+                496
+              ],
+              [
+                150,
+                493
+              ],
+              [
+                126,
+                515
+              ],
+              [
+                117,
+                557
+              ],
+              [
+                108,
+                557
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+          "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "caa12b623a814838b1a68f0ca07754c2d0f8cc9006d38c0eb47edb1fea79631c"
+    },
+    {
+      "id": "c07",
+      "source": "books/chapter_one/landscape/art/quality_v22/scene_05.png",
+      "fix": "Only recolor the bath bunny's bright violet body/ears to PALE lavender like its clean-bath identity. Keep eyes brown, pink blush, pearl hands/studs, identical anatomy, splashing pose, all tub and water.",
+      "prompt": "Precise local edit of IMAGE1 only; no scene redraw or pose change. Only recolor the bath bunny's bright violet body/ears to PALE lavender like its clean-bath identity. Keep eyes brown, pink blush, pearl hands/studs, identical anatomy, splashing pose, all tub and water. IMAGE2 Roshan identity anchor, IMAGE3 directional ponytail, IMAGE4 in-book lock example. Preserve source dimensions and all unmentioned pixels, seamless matching painted texture. No text or invented props.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-a7029ff3-46de-4618-a564-0886f408e88f.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c07_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/quality_v22/scene_05.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "72886f0785cb3911439f076ebf8eedc913b0fc3f690012391b931d798f3430f9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 7,
+          "patch": {
+            "source": "v36_c07",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                271,
+                251
+              ],
+              [
+                284,
+                214
+              ],
+              [
+                347,
+                195
+              ],
+              [
+                390,
+                204
+              ],
+              [
+                386,
+                173
+              ],
+              [
+                395,
+                140
+              ],
+              [
+                444,
+                118
+              ],
+              [
+                501,
+                128
+              ],
+              [
+                536,
+                162
+              ],
+              [
+                539,
+                194
+              ],
+              [
+                514,
+                223
+              ],
+              [
+                482,
+                238
+              ],
+              [
+                493,
+                244
+              ],
+              [
+                544,
+                257
+              ],
+              [
+                574,
+                289
+              ],
+              [
+                610,
+                332
+              ],
+              [
+                629,
+                363
+              ],
+              [
+                658,
+                376
+              ],
+              [
+                658,
+                406
+              ],
+              [
+                629,
+                425
+              ],
+              [
+                609,
+                459
+              ],
+              [
+                574,
+                484
+              ],
+              [
+                524,
+                510
+              ],
+              [
+                446,
+                520
+              ],
+              [
+                364,
+                518
+              ],
+              [
+                297,
+                506
+              ],
+              [
+                268,
+                482
+              ],
+              [
+                278,
+                447
+              ],
+              [
+                302,
+                423
+              ],
+              [
+                312,
+                381
+              ],
+              [
+                336,
+                342
+              ],
+              [
+                373,
+                312
+              ],
+              [
+                337,
+                310
+              ],
+              [
+                295,
+                304
+              ],
+              [
+                274,
+                279
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_05.png",
+          "sha256": "0fe4964494794d1112d9829feadd96d418c712f5215b8201abe2270875ccfd96",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "e3d303e7296dbea66228c8442c7bd53a24331968177d9ce4d2bdf2a2b0c07e21"
+    },
+    {
+      "id": "c08",
+      "source": "books/chapter_one/previews/2026-09-30/art/sink_action.png",
+      "alpha": true,
+      "fix": "Only soften Roshan's tight ringlets into gentle soft waves. Preserve exact cutout outline, head position, face, tiara, rainbow lock, sink, both hand contacts, sponge, tail, complete alpha contour.",
+      "prompt": "Precise local edit of IMAGE1 only; no scene redraw or pose change. Only soften Roshan's tight ringlets into gentle soft waves. Preserve exact cutout outline, head position, face, tiara, rainbow lock, sink, both hand contacts, sponge, tail, complete alpha contour. IMAGE2 Roshan identity anchor, IMAGE3 directional ponytail, IMAGE4 in-book lock example. Preserve source dimensions and all unmentioned pixels, seamless matching painted texture. No text or invented props.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-3532ebcb-b672-449d-8f57-7e99751132df.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c08_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/previews/2026-09-30/art/sink_action.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "58c4291680e7fb57c7acb1625471d7751993e501fd66b404017185fee9e7ade4",
+      "native_size": [
+        1589,
+        990
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 8,
+          "patch": {
+            "source": "v36_c08",
+            "reference_size": [
+              1589,
+              990
+            ],
+            "polygon": [
+              [
+                797,
+                356
+              ],
+              [
+                783,
+                314
+              ],
+              [
+                799,
+                261
+              ],
+              [
+                813,
+                230
+              ],
+              [
+                824,
+                280
+              ],
+              [
+                820,
+                334
+              ],
+              [
+                834,
+                369
+              ],
+              [
+                829,
+                389
+              ]
+            ],
+            "placement": {
+              "source": "approved_sink_action",
+              "box": [
+                91,
+                62,
+                380,
+                218
+              ]
+            }
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/previews/2026-09-30/art/sink_action.png",
+          "sha256": "873d1cd6ecd508564404e77d25c0f33e6630b4446fd5bad422c2d50a2b778b52",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "12c67199a5932ef65530db6a53530db2dff9fea84c23c2d3961fa2717dcffc49"
+    },
+    {
+      "id": "c11",
+      "source": "books/chapter_one/landscape/art/language_v26/rumi_trapped.png",
+      "fix": "Only Roshan's hair on far LEFT: chestnut soft waves ending mid-back with ONE gathered pastel rainbow ponytail on her anatomical left side behind head, about quarter of hair, not broad rainbow underneath. Preserve face/pose/tiara/net/hand contact; nothing else.",
+      "prompt": "Precise local edit of IMAGE1 only; no scene redraw or pose change. Only Roshan's hair on far LEFT: chestnut soft waves ending mid-back with ONE gathered pastel rainbow ponytail on her anatomical left side behind head, about quarter of hair, not broad rainbow underneath. Preserve face/pose/tiara/net/hand contact; nothing else. IMAGE2 Roshan identity anchor, IMAGE3 directional ponytail, IMAGE4 in-book lock example. Preserve source dimensions and all unmentioned pixels, seamless matching painted texture. No text or invented props.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-935e5d47-d8ad-43c7-8870-94835ec3c318.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c11_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/language_v26/rumi_trapped.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "4af2e3ed528911750aa38c6f2e9dfc9978207a04ddeef16d9dd0687fb08ceaf5",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 11,
+          "patch": {
+            "source": "v36_c11",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                0,
+                352
+              ],
+              [
+                182,
+                350
+              ],
+              [
+                225,
+                419
+              ],
+              [
+                225,
+                479
+              ],
+              [
+                209,
+                533
+              ],
+              [
+                180,
+                539
+              ],
+              [
+                174,
+                609
+              ],
+              [
+                163,
+                663
+              ],
+              [
+                116,
+                684
+              ],
+              [
+                47,
+                688
+              ],
+              [
+                0,
+                632
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_trapped.png",
+          "sha256": "dd7f716c7f470cef0361e339e281fc662558f88915448c42a25bcdaeb509d2d0",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "d2e01d725ff1b268c79079abbbafa9f940b057a5d71cbc77a7a8ce70ab9afeb4"
+    },
+    {
+      "id": "c15",
+      "source": "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png",
+      "fix": "Only Roshan's HAIR: change copper-auburn to chestnut brown soft waves; shorten to mid-back where clean; one gathered pastel rainbow ponytail on her LEFT behind head about quarter of hair. Preserve face, pose, tiara, cup, hands, fountain water and all other pixels.",
+      "prompt": "Precise local edit of IMAGE1 only; no scene redraw or pose change. Only Roshan's HAIR: change copper-auburn to chestnut brown soft waves; shorten to mid-back where clean; one gathered pastel rainbow ponytail on her LEFT behind head about quarter of hair. Preserve face, pose, tiara, cup, hands, fountain water and all other pixels. IMAGE2 Roshan identity anchor, IMAGE3 directional ponytail, IMAGE4 in-book lock example. Preserve source dimensions and all unmentioned pixels, seamless matching painted texture. No text or invented props.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-5c87a664-b5d6-4e41-b415-53927af085fa.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c15_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "7049342e0abfc1ae3c3d7eb6e733289f50602861b1edad20acbb8fa5064773ab",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png",
+          "sha256": "3031917eb02f4a606b57e08fe7a5924abe08020c11efd3faba8cf27343cdec62",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "a8052225ccfd78f0f62906e48bc19a6c25c1826c9f73b47cad33c27dcd249444"
+    },
+    {
+      "id": "c17",
+      "source": "books/chapter_one/landscape/revisions/v29_polish/art/hug16.png",
+      "alpha": true,
+      "fix": "Only soften Roshan's tight ringlets into gentle waves without changing outline/contact, and change Rumi's jacket fabric to lavender-purple while preserving navy collar, badge, gold trim and wave-pattern sleeves. Same exact hug and faces, hands, arms, tails and complete alpha contour.",
+      "prompt": "Precise local edit of IMAGE1 only; no scene redraw or pose change. Only soften Roshan's tight ringlets into gentle waves without changing outline/contact, and change Rumi's jacket fabric to lavender-purple while preserving navy collar, badge, gold trim and wave-pattern sleeves. Same exact hug and faces, hands, arms, tails and complete alpha contour. IMAGE2 Roshan identity anchor, IMAGE3 directional ponytail, IMAGE4 in-book lock example. Preserve source dimensions and all unmentioned pixels, seamless matching painted texture. No text or invented props.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-440bd1dc-ce81-4bfe-bd10-923c202004f5.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c17_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v29_polish/art/hug16.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "0dfcc271c6c137991193250df93e39750ee9740d9958407e2722af637b037c14",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 17,
+          "patch": {
+            "source": "v36_c17",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                628,
+                297
+              ],
+              [
+                670,
+                285
+              ],
+              [
+                710,
+                301
+              ],
+              [
+                752,
+                341
+              ],
+              [
+                751,
+                388
+              ],
+              [
+                707,
+                413
+              ],
+              [
+                664,
+                411
+              ],
+              [
+                646,
+                380
+              ],
+              [
+                623,
+                371
+              ],
+              [
+                613,
+                334
+              ]
+            ],
+            "placement": {
+              "source": "v29_hug16",
+              "box": [
+                202,
+                66,
+                276,
+                242
+              ]
+            }
+          }
+        },
+        {
+          "page": 17,
+          "patch": {
+            "source": "v36_c17",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                702,
+                481
+              ],
+              [
+                752,
+                479
+              ],
+              [
+                808,
+                476
+              ],
+              [
+                838,
+                485
+              ],
+              [
+                855,
+                522
+              ],
+              [
+                845,
+                567
+              ],
+              [
+                803,
+                579
+              ],
+              [
+                760,
+                567
+              ],
+              [
+                728,
+                543
+              ]
+            ],
+            "placement": {
+              "source": "v29_hug16",
+              "box": [
+                202,
+                66,
+                276,
+                242
+              ]
+            }
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/hug16.png",
+          "sha256": "8b88962e02af2cc9974491a860bc583f2167991699ab434554ac4782ac061f92",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "ab95ea82bd0fc0cc3d2887b4dde7bc2c9a39b02ede66865d8af3ef32acb8096f"
+    },
+    {
+      "id": "c18",
+      "source": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/listening_face_attempt1.png",
+      "fix": "Change ONLY both Roshan iris colors from amber orange to chestnut brown. Keep all eye shape, highlights, expression and pixels identical.",
+      "prompt": "Bounded local inpainting ONLY on IMAGE1, do not redraw scene. Change ONLY both Roshan iris colors from amber orange to chestnut brown. Keep all eye shape, highlights, expression and pixels identical. IMAGE2 Roshan exact identity, IMAGE3 directional ponytail, IMAGE4 in-book tied-lock reference. Same full canvas and placement; no text, no mirroring, no new characters. Preserve source texture and all outside edited regions.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-21be3005-d002-40e8-94d3-e4c58af68a60.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c18_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/listening_face_attempt1.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "a003cbce2c01074db53daa7551e741555dc9ce7c5e498bf17c03d66ead7db3b8",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 18,
+          "patch": {
+            "source": "v36_c18",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                736,
+                267
+              ],
+              [
+                750,
+                267
+              ],
+              [
+                754,
+                287
+              ],
+              [
+                738,
+                290
+              ]
+            ]
+          }
+        },
+        {
+          "page": 18,
+          "patch": {
+            "source": "v36_c18",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                788,
+                254
+              ],
+              [
+                800,
+                254
+              ],
+              [
+                802,
+                278
+              ],
+              [
+                788,
+                278
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/listening_face_attempt1.png",
+          "sha256": "b46e0d50275b99f6fdb3d7264ab76b34c9148bef8946b8d1767ed9d777ea4825",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "0c326b8a0371d13b0c530462149cf9f481726160ebcdf667f74ac605e4b422d5"
+    },
+    {
+      "id": "c19",
+      "source": "books/chapter_one/landscape/revisions/v29_polish/art/rescue18.png",
+      "fix": "Roshan hair ONLY: chestnut soft waves shoulder to mid-back, one pastel rainbow ponytail gathered HER LEFT behind head, about quarter hair; remove lower rainbow bands. Keep exact pose face hands contact Baby Eagle bunnies scene unchanged.",
+      "prompt": "Bounded local inpainting ONLY on IMAGE1, do not redraw scene. Roshan hair ONLY: chestnut soft waves shoulder to mid-back, one pastel rainbow ponytail gathered HER LEFT behind head, about quarter hair; remove lower rainbow bands. Keep exact pose face hands contact Baby Eagle bunnies scene unchanged. IMAGE2 Roshan exact identity, IMAGE3 directional ponytail, IMAGE4 in-book tied-lock reference. Same full canvas and placement; no text, no mirroring, no new characters. Preserve source texture and all outside edited regions.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-452452cb-71aa-4ecf-baed-f7528c8c5adc.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c19_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v29_polish/art/rescue18.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "8fcf244f92f19b0fe7af15035444d4c8579ff71f69352bbc52a67b03772b56a5",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 19,
+          "patch": {
+            "source": "v36_c19",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                280,
+                195
+              ],
+              [
+                430,
+                183
+              ],
+              [
+                573,
+                190
+              ],
+              [
+                620,
+                232
+              ],
+              [
+                627,
+                291
+              ],
+              [
+                608,
+                320
+              ],
+              [
+                580,
+                305
+              ],
+              [
+                560,
+                284
+              ],
+              [
+                530,
+                278
+              ],
+              [
+                493,
+                290
+              ],
+              [
+                473,
+                306
+              ],
+              [
+                455,
+                335
+              ],
+              [
+                433,
+                350
+              ],
+              [
+                426,
+                377
+              ],
+              [
+                397,
+                388
+              ],
+              [
+                386,
+                416
+              ],
+              [
+                385,
+                460
+              ],
+              [
+                355,
+                482
+              ],
+              [
+                308,
+                470
+              ],
+              [
+                278,
+                430
+              ],
+              [
+                267,
+                351
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/rescue18.png",
+          "sha256": "e4fbfc0fe05cf4eaa76d6216baa413e02faeedfe1c1af680e4f006d86cf02fcd",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "b3c9dd013d394bef0c29ec53fc4cfbd951797768e27dee622322f618bfc17acf"
+    },
+    {
+      "id": "c20",
+      "source": "books/chapter_one/landscape/revisions/v29_polish/art/rescue19.png",
+      "fix": "Roshan hair ONLY: chestnut soft waves shoulder to mid-back, one pastel rainbow ponytail gathered HER LEFT behind head, about quarter hair; remove lower rainbow bands. Also restore EACH of two little puffs' TWO tall lavender spiral ears with pearl studs, tilted with motion. Keep all poses hands brush contact Baby Eagle and whole scene unchanged.",
+      "prompt": "Bounded local inpainting ONLY on IMAGE1, do not redraw scene. Roshan hair ONLY: chestnut soft waves shoulder to mid-back, one pastel rainbow ponytail gathered HER LEFT behind head, about quarter hair; remove lower rainbow bands. Also restore EACH of two little puffs' TWO tall lavender spiral ears with pearl studs, tilted with motion. Keep all poses hands brush contact Baby Eagle and whole scene unchanged. IMAGE2 Roshan exact identity, IMAGE3 directional ponytail, IMAGE4 in-book tied-lock reference. Same full canvas and placement; no text, no mirroring, no new characters. Preserve source texture and all outside edited regions.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-85a7c5ef-e2b0-4bec-a3f1-905395638c94.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c20_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v29_polish/art/rescue19.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "024fe42234c872109e6d96afa370a4f138052dcd2b3185c9f9408a4169525434",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 20,
+          "patch": {
+            "source": "v36_c20",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                280,
+                195
+              ],
+              [
+                430,
+                183
+              ],
+              [
+                573,
+                190
+              ],
+              [
+                620,
+                232
+              ],
+              [
+                627,
+                291
+              ],
+              [
+                608,
+                320
+              ],
+              [
+                580,
+                305
+              ],
+              [
+                560,
+                284
+              ],
+              [
+                530,
+                278
+              ],
+              [
+                493,
+                290
+              ],
+              [
+                473,
+                306
+              ],
+              [
+                455,
+                335
+              ],
+              [
+                433,
+                350
+              ],
+              [
+                426,
+                377
+              ],
+              [
+                397,
+                388
+              ],
+              [
+                386,
+                416
+              ],
+              [
+                385,
+                460
+              ],
+              [
+                355,
+                482
+              ],
+              [
+                308,
+                470
+              ],
+              [
+                278,
+                430
+              ],
+              [
+                267,
+                351
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/rescue19.png",
+          "sha256": "73c0c8169b8a66cea719e1bea163e78d02c573cc9eecd7f1bb39cae00c5be562",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "d7dc6aab90d89891fbb83d677f4ebd84ea27d561585742c5a8c4fb4ec6c059ec"
+    },
+    {
+      "id": "c23",
+      "source": "books/chapter_one/landscape/art/door_expression_v27/door.png",
+      "fix": "ONLY Roshan hair and tiara: chestnut soft waves, one visible pastel rainbow ponytail gathered on HER LEFT behind head about quarter hair, small GOLD tiara ONE blue gem; remove white round hairclip. Keep her exact face, listening pose, hands and every other scene detail.",
+      "prompt": "Bounded local inpainting ONLY on IMAGE1, do not redraw scene. ONLY Roshan hair and tiara: chestnut soft waves, one visible pastel rainbow ponytail gathered on HER LEFT behind head about quarter hair, small GOLD tiara ONE blue gem; remove white round hairclip. Keep her exact face, listening pose, hands and every other scene detail. IMAGE2 Roshan exact identity, IMAGE3 directional ponytail, IMAGE4 in-book tied-lock reference. Same full canvas and placement; no text, no mirroring, no new characters. Preserve source texture and all outside edited regions.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-6a91802d-5e30-4ae8-9815-4b6c410621e3.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c23_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/door_expression_v27/door.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "cc5dcb4405ef6c3d9aa963ea39702cb11b4ad259338543a43f163347899c3c16",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 23,
+          "patch": {
+            "source": "v36_c23",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                824,
+                514
+              ],
+              [
+                910,
+                509
+              ],
+              [
+                957,
+                522
+              ],
+              [
+                973,
+                547
+              ],
+              [
+                953,
+                552
+              ],
+              [
+                928,
+                548
+              ],
+              [
+                916,
+                565
+              ],
+              [
+                903,
+                589
+              ],
+              [
+                899,
+                615
+              ],
+              [
+                868,
+                641
+              ],
+              [
+                826,
+                648
+              ],
+              [
+                813,
+                618
+              ],
+              [
+                816,
+                576
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/door_expression_v27/door.png",
+          "sha256": "e4312cfe20029842ca02cd53916910ca004960e4e96d0c412a715bc742da6394",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "df5db83c0e2b75bc0f124b7a1d57d90b80f9eb4fc80b8aa63fcea2033387417f"
+    },
+    {
+      "id": "c25",
+      "source": "books/chapter_one/landscape/revisions/v29_polish/art/sponge25.png",
+      "alpha": true,
+      "fix": "ONLY Roshan on RIGHT hair and irises: chestnut soft waves, one gathered pastel rainbow ponytail HER LEFT at side/back of head about quarter hair, NOT from parting. Chestnut-brown eyes. Preserve both original isolated figures and all other pixels, Roshan contour pose hands sponge tail and alpha.",
+      "prompt": "Bounded local inpainting ONLY on IMAGE1, do not redraw scene. ONLY Roshan on RIGHT hair and irises: chestnut soft waves, one gathered pastel rainbow ponytail HER LEFT at side/back of head about quarter hair, NOT from parting. Chestnut-brown eyes. Preserve both original isolated figures and all other pixels, Roshan contour pose hands sponge tail and alpha. IMAGE2 Roshan exact identity, IMAGE3 directional ponytail, IMAGE4 in-book tied-lock reference. Same full canvas and placement; no text, no mirroring, no new characters. Preserve source texture and all outside edited regions.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-7a58758b-6ec6-4206-80b4-bc1ec05ecfdf.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c25_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v29_polish/art/sponge25.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "94baf8d1cb6d0b1d4f46b745c0773c851d459fdb3e29c730d0c7a69e82ab80f0",
+      "native_size": [
+        1774,
+        887
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/sponge25.png",
+          "sha256": "751dfca8d119dd8af374b59daec483293c6f0d3b1678b1025f3651e7e0ff6a58",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "94f34a81ef2fbce9514ce72ce6c613e96bec89c7e8ef2c61327f8191f4f567af"
+    },
+    {
+      "id": "c26",
+      "source": "books/chapter_one/landscape/art/door_expression_v27/scrub.png",
+      "fix": "Change ONLY little Roshan's tiara to SMALL gold tiara with ONE blue gem.",
+      "prompt": "Precise local inpainting of IMAGE1 only, no redraw. Change ONLY little Roshan's tiara to SMALL gold tiara with ONE blue gem. IMAGE2 Roshan identity, IMAGE3 Rumi adult identity. Preserve every pose, contact, hands, body, size, background and all other details. Same full canvas and matching painted texture, no text.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-3d1c0930-c299-47ce-a719-6f2b4d504b6f.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c26_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/door_expression_v27/scrub.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      ],
+      "sha256": "dce0c9be25f4960ff178b4ed2a12018f19d3f811a2c13ffa1fafaa9ea0c8b237",
+      "native_size": [
+        1672,
+        941
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 26,
+          "patch": {
+            "source": "v36_c26",
+            "reference_size": [
+              1672,
+              941
+            ],
+            "polygon": [
+              [
+                396,
+                448
+              ],
+              [
+                448,
+                443
+              ],
+              [
+                471,
+                472
+              ],
+              [
+                448,
+                484
+              ],
+              [
+                402,
+                497
+              ]
+            ],
+            "canvas_transform_points": [
+              0,
+              0,
+              0.3014354066985646
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/door_expression_v27/scrub.png",
+          "sha256": "dfa3717a4df2197b82c9730044284899ab0eee9aa86c37ff7c53dd8cddfe1e86",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "9581b5e7e58084392add62080d001dbfb248e47b2fdf783a870693399e8f3695"
+    },
+    {
+      "id": "c27",
+      "source": "books/chapter_one/plan/source_art/R09_suds.png",
+      "fix": "Change ONLY little Roshan's tiara to SMALL gold tiara with ONE blue gem.",
+      "prompt": "Precise local inpainting of IMAGE1 only, no redraw. Change ONLY little Roshan's tiara to SMALL gold tiara with ONE blue gem. IMAGE2 Roshan identity, IMAGE3 Rumi adult identity. Preserve every pose, contact, hands, body, size, background and all other details. Same full canvas and matching painted texture, no text.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-d6aa41ec-466d-4fb6-97e6-f25396d04e47.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c27_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/plan/source_art/R09_suds.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      ],
+      "sha256": "8c8353f15ace5ac5c587f93fc2f3273e785755f6dc15a58b373cb51f3e62c5f2",
+      "native_size": [
+        1672,
+        941
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 27,
+          "patch": {
+            "source": "v36_c27",
+            "reference_size": [
+              1672,
+              941
+            ],
+            "polygon": [
+              [
+                396,
+                448
+              ],
+              [
+                448,
+                443
+              ],
+              [
+                471,
+                472
+              ],
+              [
+                448,
+                484
+              ],
+              [
+                402,
+                497
+              ]
+            ],
+            "canvas_transform_points": [
+              0,
+              0,
+              0.3014354066985646
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/plan/source_art/R09_suds.png",
+          "sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "9581b5e7e58084392add62080d001dbfb248e47b2fdf783a870693399e8f3695"
+    },
+    {
+      "id": "c28",
+      "source": "books/chapter_one/plan/source_art/R10_jump.png",
+      "fix": "Change ONLY little Roshan's tiara to SMALL gold tiara with ONE blue gem, and Rumi's face on RIGHT to an ADULT face with almond eyes defined brows, keeping exact open joyful smile, head placement and hair/ear silhouette.",
+      "prompt": "Precise local inpainting of IMAGE1 only, no redraw. Change ONLY little Roshan's tiara to SMALL gold tiara with ONE blue gem, and Rumi's face on RIGHT to an ADULT face with almond eyes defined brows, keeping exact open joyful smile, head placement and hair/ear silhouette. IMAGE2 Roshan identity, IMAGE3 Rumi adult identity. Preserve every pose, contact, hands, body, size, background and all other details. Same full canvas and matching painted texture, no text.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-4c772d27-a37b-4f2a-a535-858e4b39a143.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c28_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/plan/source_art/R10_jump.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      ],
+      "sha256": "bb759a506cf72189bd6889ed045faa1aed661c737b4cd23e39856c7a7a68bac5",
+      "native_size": [
+        1672,
+        941
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 28,
+          "patch": {
+            "source": "v36_c28",
+            "reference_size": [
+              1672,
+              941
+            ],
+            "polygon": [
+              [
+                365,
+                438
+              ],
+              [
+                416,
+                434
+              ],
+              [
+                440,
+                458
+              ],
+              [
+                414,
+                474
+              ],
+              [
+                371,
+                488
+              ]
+            ],
+            "canvas_transform_points": [
+              0,
+              0,
+              0.3014354066985646
+            ]
+          }
+        },
+        {
+          "page": 28,
+          "patch": {
+            "source": "v36_c28",
+            "reference_size": [
+              1672,
+              941
+            ],
+            "canvas_transform_points": [
+              0,
+              0,
+              0.3014354066985646
+            ],
+            "polygon": [
+              [
+                1231,
+                277
+              ],
+              [
+                1269,
+                272
+              ],
+              [
+                1298,
+                285
+              ],
+              [
+                1301,
+                312
+              ],
+              [
+                1288,
+                340
+              ],
+              [
+                1258,
+                348
+              ],
+              [
+                1233,
+                336
+              ],
+              [
+                1227,
+                307
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/plan/source_art/R10_jump.png",
+          "sha256": "13ff639019cccadd0675aea4ed9550505c57a84ae666d647df6097bb18793889",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "d12b0cc4f7179c1e506ce397764885ba87a35c4bbe01073d97f0aaf6b45e56f5"
+    },
+    {
+      "id": "c29",
+      "source": "books/chapter_one/plan/source_art/R11_land.png",
+      "fix": "Change ONLY little Roshan's tiara to SMALL gold tiara with ONE blue gem, and Rumi's face on RIGHT to an ADULT face with almond eyes defined brows, keeping exact open joyful smile, head placement and hair/ear silhouette.",
+      "prompt": "Precise local inpainting of IMAGE1 only, no redraw. Change ONLY little Roshan's tiara to SMALL gold tiara with ONE blue gem, and Rumi's face on RIGHT to an ADULT face with almond eyes defined brows, keeping exact open joyful smile, head placement and hair/ear silhouette. IMAGE2 Roshan identity, IMAGE3 Rumi adult identity. Preserve every pose, contact, hands, body, size, background and all other details. Same full canvas and matching painted texture, no text.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-63149c4f-c6a3-460f-a112-007ff143a00e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c29_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/plan/source_art/R11_land.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      ],
+      "sha256": "5bd7b86ca1fde7b57337faf1e44e4bf894b5e043af768fbf959749a5825ce555",
+      "native_size": [
+        1672,
+        941
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 29,
+          "patch": {
+            "source": "v36_c29",
+            "reference_size": [
+              1672,
+              941
+            ],
+            "polygon": [
+              [
+                395,
+                438
+              ],
+              [
+                445,
+                438
+              ],
+              [
+                469,
+                463
+              ],
+              [
+                451,
+                482
+              ],
+              [
+                399,
+                494
+              ]
+            ],
+            "canvas_transform_points": [
+              0,
+              0,
+              0.3014354066985646
+            ]
+          }
+        },
+        {
+          "page": 29,
+          "patch": {
+            "source": "v36_c29",
+            "reference_size": [
+              1672,
+              941
+            ],
+            "canvas_transform_points": [
+              0,
+              0,
+              0.3014354066985646
+            ],
+            "polygon": [
+              [
+                1193,
+                257
+              ],
+              [
+                1223,
+                247
+              ],
+              [
+                1255,
+                253
+              ],
+              [
+                1268,
+                277
+              ],
+              [
+                1266,
+                307
+              ],
+              [
+                1243,
+                327
+              ],
+              [
+                1213,
+                330
+              ],
+              [
+                1194,
+                314
+              ],
+              [
+                1190,
+                284
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/plan/source_art/R11_land.png",
+          "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "d12b0cc4f7179c1e506ce397764885ba87a35c4bbe01073d97f0aaf6b45e56f5"
+    },
+    {
+      "id": "c31",
+      "source": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+      "alpha": true,
+      "fix": "Change ONLY both Roshan irises from amber orange to CHESTNUT BROWN, same highlights and identical eyes/face shape. All other pixels and alpha unchanged.",
+      "prompt": "Precise local inpainting of IMAGE1 only, no redraw. Change ONLY both Roshan irises from amber orange to CHESTNUT BROWN, same highlights and identical eyes/face shape. All other pixels and alpha unchanged. IMAGE2 Roshan identity, IMAGE3 Rumi adult identity. Preserve every pose, contact, hands, body, size, background and all other details. Same full canvas and matching painted texture, no text.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-9fbfa90f-de1e-4db9-9707-3c7cb4b47fd7.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 1,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c31_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      ],
+      "sha256": "a1ff496bd29e5b7d721bcb5d924fc3076cd178976ff61ca5dc3a96b5d78152da",
+      "native_size": [
+        1230,
+        1278
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 31,
+          "patch": {
+            "source": "v36_c31",
+            "reference_size": [
+              1230,
+              1278
+            ],
+            "polygon": [
+              [
+                506,
+                273
+              ],
+              [
+                540,
+                272
+              ],
+              [
+                542,
+                319
+              ],
+              [
+                509,
+                322
+              ]
+            ],
+            "placement": {
+              "source": "v34_inviting_cutout",
+              "box": [
+                248,
+                61,
+                220,
+                185
+              ]
+            }
+          }
+        },
+        {
+          "page": 31,
+          "patch": {
+            "source": "v36_c31",
+            "reference_size": [
+              1230,
+              1278
+            ],
+            "polygon": [
+              [
+                603,
+                304
+              ],
+              [
+                640,
+                304
+              ],
+              [
+                643,
+                346
+              ],
+              [
+                604,
+                348
+              ]
+            ],
+            "placement": {
+              "source": "v34_inviting_cutout",
+              "box": [
+                248,
+                61,
+                220,
+                185
+              ]
+            }
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "fd7217b6130d0747fdd116585e14c388b0abbabed852b1e9412521d407d07051"
+    },
+    {
+      "id": "c20ears2",
+      "source": "books/chapter_one/landscape/revisions/v29_polish/art/rescue19.png",
+      "fix": "Only edit the TWO little dust bunnies' ears. Each needs TWO noticeably TALL elongated spiral ears with pearl studs, shaped like IMAGE2, at least 1.5 times its existing ear height. Keep ear tilt to match brushing motion. Do not change heads/body size, brush, Roshan, Baby Eagle, wings, floor or background. No scene redraw.",
+      "refs": [
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ],
+      "prompt": "Only edit the TWO little dust bunnies' ears. Each needs TWO noticeably TALL elongated spiral ears with pearl studs, shaped like IMAGE2, at least 1.5 times its existing ear height. Keep ear tilt to match brushing motion. Do not change heads/body size, brush, Roshan, Baby Eagle, wings, floor or background. No scene redraw. Return same full canvas and same painted texture. No text.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-a5af1998-9d36-4e7a-8191-6a81feeeb6a3.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 2,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c20ears2_attempt2.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v29_polish/art/rescue19.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ],
+      "sha256": "4f1d273ea15ce4a16e42d9de9aaf643ee97979a2b044ffe1223af6ef47d45814",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/rescue19.png",
+          "sha256": "73c0c8169b8a66cea719e1bea163e78d02c573cc9eecd7f1bb39cae00c5be562",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "7f2407130b88541cbcdd39f0791205870846ad0b8bf73124bc50faf902b16484"
+    },
+    {
+      "id": "doorlight2",
+      "source": "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+      "fix": "Only a subtle local doorway lighting repair in FAR RIGHT doorway around Grand Puff: lighten the empty dark background immediately above and beside him to soft lavender dusk, preserve his body/face and original door, trim and architecture exactly. Transition lighting softly to unchanged doorway edges with no rectangular boundary. All rest of image pixel-identical; no overall relight.",
+      "refs": [],
+      "prompt": "Only a subtle local doorway lighting repair in FAR RIGHT doorway around Grand Puff: lighten the empty dark background immediately above and beside him to soft lavender dusk, preserve his body/face and original door, trim and architecture exactly. Transition lighting softly to unchanged doorway edges with no rectangular boundary. All rest of image pixel-identical; no overall relight. Return same full canvas and same painted texture. No text.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-d04a789a-730d-4a1c-b7ac-b85a01635944.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 2,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/doorlight2_attempt2.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/personality_v20/cover_rendered.png"
+      ],
+      "sha256": "7adf5fceb4342b9a4a288c05318527dd486035bfc388d956b19871cae5674b36",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+          "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2",
+          "role": "target/source"
+        }
+      ],
+      "prompt_sha256": "70e54fbb03bd062f67d97145458f49a6671e517b8c930880871aa2b5b0ba6dc2"
+    },
+    {
+      "id": "dust4b",
+      "source": "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+      "fix": "Only add SOFT PALE DUST to the floor of this existing hall, lower right open floor x600..1400 y850..1000. A few subtle irregular dusty swirls and light dust accumulation, blended at edges into EXACT unchanged floor texture. No rectangle, no change in light/color/architecture, no debris heaps. Keep characters and every other pixel unchanged.",
+      "refs": [],
+      "prompt": "Only add SOFT PALE DUST to the floor of this existing hall, lower right open floor x600..1400 y850..1000. A few subtle irregular dusty swirls and light dust accumulation, blended at edges into EXACT unchanged floor texture. No rectangle, no change in light/color/architecture, no debris heaps. Keep characters and every other pixel unchanged. Return same full canvas and same painted texture. No text.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-ae8d83df-7887-4c18-ad78-afd49255d644.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 2,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/dust4b_attempt2.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png"
+      ],
+      "sha256": "faab51a49dad65ec192ebcf9ec6940da8adb045db9dfa52f0f232a687ac35fa2",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+          "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17",
+          "role": "target/source"
+        }
+      ],
+      "prompt_sha256": "476b2f59660126d135522b89cb830b53d74761d5c7beb78093ed9d02dd1a881b"
+    },
+    {
+      "id": "c01b",
+      "source": "books/chapter_one/landscape/art/quality_v22/scene_01.png",
+      "fix": "Only replace Roshan tiara with small gold one-blue-gem tiara and round her profile cheek/nose to age4. Preserve every strand of hair color/texture and exact silhouette, face size, eye position, hand, body, window and all rest. Do not change saturation or shading elsewhere.",
+      "prompt": "Targeted local character edit, NOT scene redraw. Only replace Roshan tiara with small gold one-blue-gem tiara and round her profile cheek/nose to age4. Preserve every strand of hair color/texture and exact silhouette, face size, eye position, hand, body, window and all rest. Do not change saturation or shading elsewhere. IMAGE2 identity anchor. Same native dimensions. No text.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-ef39d375-b79a-4ba4-9800-5304f411afa5.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 2,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c01b_attempt2.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/quality_v22/scene_01.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "c192e8c0bb35bbd38641d336b82acb11dace64ed021b193ed358f1cd640aaa57",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 1,
+          "patch": {
+            "source": "v36_c01b",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                150,
+                0
+              ],
+              [
+                610,
+                0
+              ],
+              [
+                615,
+                297
+              ],
+              [
+                574,
+                389
+              ],
+              [
+                571,
+                480
+              ],
+              [
+                551,
+                563
+              ],
+              [
+                493,
+                579
+              ],
+              [
+                417,
+                575
+              ],
+              [
+                363,
+                553
+              ],
+              [
+                336,
+                518
+              ],
+              [
+                335,
+                455
+              ],
+              [
+                319,
+                438
+              ],
+              [
+                306,
+                403
+              ],
+              [
+                313,
+                375
+              ],
+              [
+                342,
+                339
+              ],
+              [
+                351,
+                287
+              ],
+              [
+                326,
+                253
+              ],
+              [
+                263,
+                239
+              ],
+              [
+                191,
+                253
+              ],
+              [
+                135,
+                289
+              ],
+              [
+                119,
+                220
+              ],
+              [
+                121,
+                151
+              ]
+            ]
+          }
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_01.png",
+          "sha256": "e0a084746a0ef0bd935b7689df778c76d2f3489afd63279280ef19d180a3265b",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "5debb124a2258e8bb7def478cf4f0a5a451776da8ddc08649d8077c1628909c2"
+    },
+    {
+      "id": "c15b",
+      "source": "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png",
+      "fix": "Only Roshan hair color and rainbow lock. Keep exact strand geometry/silhouette and original face/fringe boundary; recolor brown hair CHESTNUT instead of copper, rainbow is ONE pastel gathered lock behind HER LEFT. Do not change face, head size, placement, hands, cup, body or any scene pixel. Do not shorten if it forces geometry change.",
+      "prompt": "Targeted local character edit, NOT scene redraw. Only Roshan hair color and rainbow lock. Keep exact strand geometry/silhouette and original face/fringe boundary; recolor brown hair CHESTNUT instead of copper, rainbow is ONE pastel gathered lock behind HER LEFT. Do not change face, head size, placement, hands, cup, body or any scene pixel. Do not shorten if it forces geometry change. IMAGE2 identity anchor. Same native dimensions. No text.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-93e105da-a165-4e1a-8515-247ccb33ccfc.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 2,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c15b_attempt2.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "05c08853d528676b92d244cbb0b388606e87056434508b9cb7a834ab7a6703a0",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png",
+          "sha256": "3031917eb02f4a606b57e08fe7a5924abe08020c11efd3faba8cf27343cdec62",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "1686bba28659160c0d81d5a47f138fc2fc0d809199c9112b2a611e9acdd891ff"
+    },
+    {
+      "id": "c25b",
+      "source": "books/chapter_one/landscape/revisions/v29_polish/art/sponge25.png",
+      "alpha": true,
+      "fix": "Only Roshan hair (right figure) and iris color. Preserve exact face geometry, hairline, ears, neck, head position, pose, hands, contour, sponge. Chestnut soft waves with one gathered pastel rainbow ponytail left behindhead quarterhair; irises chestnutbrown. Do NOT resize/repositionhead. Originaltwofigures and fulltransparentcanvas remain.",
+      "prompt": "Targeted local character edit, NOT scene redraw. Only Roshan hair (right figure) and iris color. Preserve exact face geometry, hairline, ears, neck, head position, pose, hands, contour, sponge. Chestnut soft waves with one gathered pastel rainbow ponytail left behindhead quarterhair; irises chestnutbrown. Do NOT resize/repositionhead. Originaltwofigures and fulltransparentcanvas remain. IMAGE2 identity anchor. Same native dimensions. No text.",
+      "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-6196b47e-3cc1-4ced-b02f-b751aaca960c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "attempt": 2,
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/c25b_attempt2.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v29_polish/art/sponge25.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png"
+      ],
+      "sha256": "f7fa293c8ee82293da871a918d55d50ca82a2d9b54c242bcbd4078f8bc51694d",
+      "native_size": [
+        1774,
+        887
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/sponge25.png",
+          "sha256": "751dfca8d119dd8af374b59daec483293c6f0d3b1678b1025f3651e7e0ff6a58",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "c384c949395e9a20c20a5e002a22162b176b3008a6a401df6dc7544ca5de3b17"
+    },
+    {
+      "id": "w3b",
+      "attempt": 1,
+      "prompt": "Create the one authorized new Roshan-and-shell-tub action cutout for a polished 2D picture book. Image 1 is Roshan's exact identity; image 2 is the existing shell-shaped bath and rainbow scrub brush, NOT a pose to repeat; image 3 is the sink lean to AVOID repeating. Transparent RGBA background, no backing/ground/scene/text. At least 1800 native pixels TALL for the complete group, preferably 2048px tall. Roshan is BEHIND the far rim of the same nearly empty cream shell tub, three-quarters facing the reader; only upper body visible above rim. Exactly two arms/two hands: one scrubs inner tub wall with the small rainbow brush in contact, the other lifts a thin gold plug chain attached to the visible raised plug. Last murky water visibly spirals into drain; a few green streaks remain. Calm busy 4-year-old round face, brown eyes, rounded ears, chestnut soft waves shoulder to mid-back, ONE pastel rainbow ponytail gathered on HER LEFT (viewer right) about quarter of hair, small gold tiara ONE blue gem, fitted pink pointed top with lilac flutter sleeves. Whole complete contour with comfortable transparent margin, crisp painted antialiasing, no cropping, no extra limbs, no mirrored rainbow lock. Distinct frontal-behind-tub pose, not side lean.",
+      "refs": [
+        "assets/characters/roshan_25d/roshan_base.png",
+        "books/chapter_one/archive/rough_v5/art/bath_drained_local.png",
+        "books/chapter_one/previews/2026-09-30/art/sink_action.png"
+      ],
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/w3b_attempt1.png",
+      "bound_references": [
+        "assets/characters/roshan_25d/roshan_base.png",
+        "books/chapter_one/archive/rough_v5/art/bath_drained_local.png",
+        "books/chapter_one/previews/2026-09-30/art/sink_action.png"
+      ],
+      "sha256": "9e3f1c372e7c81042ab69d256f238623120697866ddb085ddb3564945b1ec434",
+      "native_size": [
+        1181,
+        1332
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "target/source"
+        },
+        {
+          "path": "books/chapter_one/archive/rough_v5/art/bath_drained_local.png",
+          "sha256": "b33c3d90158d0618680803b1c9a3c9b2f61fee1bfd7db55fc57c138c14316dc3",
+          "role": "identity/action reference"
+        },
+        {
+          "path": "books/chapter_one/previews/2026-09-30/art/sink_action.png",
+          "sha256": "873d1cd6ecd508564404e77d25c0f33e6630b4446fd5bad422c2d50a2b778b52",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "55f549cc3a47c8dd020123b570cafd6d33e8850b0b167a499e061bb76e1ac1d6"
+    },
+    {
+      "id": "w3b",
+      "attempt": 2,
+      "prompt": "Repair this authorized new book cutout, keeping its exact shell-tub composition, two hands, scrub-brush contact, chain attached raised plug, and draining murky-water action. Native portrait canvas 2048 pixels TALL minimum (not a print upscale). Whole group with transparent margin. Replace huge crown with a SMALL SIMPLE gold tiara ONE blue gem. Top is pink with lilac flutter sleeves. Roshan age4 soft chestnut waves; ponytail should be pastel and gathered on HER LEFT behind head, at most quarter hair. Brown eyes rounded ears. Few green streaks, nearly empty tub. Preserve polished painted 2D edges and transparent background. Image1 target cutout; image2 identity. Do not add any other scene, limbs, props or text.",
+      "refs": [
+        "books/chapter_one/landscape/revisions/v36_next_draft/art/w3b_attempt1.png",
+        "assets/characters/roshan_25d/roshan_base.png"
+      ],
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/w3b_attempt2.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v36_next_draft/art/w3b_attempt1.png",
+        "assets/characters/roshan_25d/roshan_base.png"
+      ],
+      "sha256": "c0845463d033c6d660b4019451947942e0614d8fa442dbb616e75a27cc24b9e3",
+      "native_size": [
+        1181,
+        1332
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [
+        {
+          "page": 9,
+          "placement": [
+            137,
+            58,
+            270,
+            219
+          ],
+          "role": "review candidate below native height requirement"
+        }
+      ],
+      "selection": "REVIEW_CANDIDATE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v36_next_draft/art/w3b_attempt1.png",
+          "sha256": "9e3f1c372e7c81042ab69d256f238623120697866ddb085ddb3564945b1ec434",
+          "role": "target/source"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "role": "identity/action reference"
+        }
+      ],
+      "prompt_sha256": "d55530cf413128d1a74666310b186a0d4a687cc52c793b1d432805f7a5cc9d5b"
+    },
+    {
+      "id": "dust3_attempt1",
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/dust3_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v29_polish/art/castle03.png"
+      ],
+      "prompt": null,
+      "prompt_gap": "Exact initial prompt text was not persisted; do not reconstruct it as an exact record. Native take preserved; rejected from delivery.",
+      "sha256": "77a1913dd88d192bf50f6211a48b78e2fa8efa22265b16a4271d1c0d312d0dc8",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/castle03.png",
+          "sha256": "4fc329bf1ec83d2269fb6670eb08da8c25fb89ea1e709d9b66aa6c07089893c6",
+          "role": "target/source"
+        }
+      ],
+      "prompt_sha256": null
+    },
+    {
+      "id": "dust3_attempt2",
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/dust3_attempt2.png",
+      "bound_references": [
+        "books/chapter_one/landscape/revisions/v29_polish/art/castle03.png"
+      ],
+      "prompt": null,
+      "prompt_gap": "Exact initial prompt text was not persisted; do not reconstruct it as an exact record. Native take preserved; rejected from delivery.",
+      "sha256": "d5481efa5ce68568c46a80bef756eb2ead0d5aa0e29fdb4244a94494960edd4f",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/castle03.png",
+          "sha256": "4fc329bf1ec83d2269fb6670eb08da8c25fb89ea1e709d9b66aa6c07089893c6",
+          "role": "target/source"
+        }
+      ],
+      "prompt_sha256": null
+    },
+    {
+      "id": "dust4_attempt1",
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/dust4_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png"
+      ],
+      "prompt": null,
+      "prompt_gap": "Exact initial prompt text was not persisted; do not reconstruct it as an exact record. Native take preserved; rejected from delivery.",
+      "sha256": "6c48c2ba7f37eab448d28af98f1c932b8ea4b827cde875a49fc3aa099d6f875b",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+          "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17",
+          "role": "target/source"
+        }
+      ],
+      "prompt_sha256": null
+    },
+    {
+      "id": "doorlight_attempt1",
+      "output": "books/chapter_one/landscape/revisions/v36_next_draft/art/doorlight_attempt1.png",
+      "bound_references": [
+        "books/chapter_one/landscape/art/personality_v20/cover_rendered.png"
+      ],
+      "prompt": null,
+      "prompt_gap": "Exact initial prompt text was not persisted; do not reconstruct it as an exact record. Native take preserved; rejected from delivery.",
+      "sha256": "9c632e1ca37ec55a5c391e92776cbf528f97b221fd9dd007843d3a5e5916a93d",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "provider": "OpenAI image_gen tool",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "cost": "not exposed",
+      "local_edits": [],
+      "selection": "REJECTED_OR_UNUSED_NATIVE_TAKE",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+          "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2",
+          "role": "target/source"
+        }
+      ],
+      "prompt_sha256": null
+    }
+  ]
+}
