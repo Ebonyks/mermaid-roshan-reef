@@ -1,0 +1,43 @@
+{
+  "id": "picture-book-v36-handoff-entry-20261021",
+  "baseline": "289ed8ef8dffbd038de75da83d90b269a41a5754",
+  "scope": "Owner, 2026-10-21: upload the full handoff to GitHub with a link Codex can use for the next draft. Adds START_HERE.md, the single entry point for the V36 picture-book draft (baseline V34 at 4f65c502, reading order, owner decisions in force, build order with acceptance, delivery and report-back steps), and MANIFEST.json, which lists every file the handoff needs with role, size and SHA-256 of the committed bytes. Points the handoff README to the entry point and adds its ledger row. Documentation only; no art, proof, manuscript, renderer, game or runtime change; Claude made no images.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static picture-book handoff packaging for Codex; no game/runtime defect or canonical master finding is repaired or closed.",
+  "files": [
+    "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/MANIFEST.json",
+    "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/README.md",
+    "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/START_HERE.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/picture-book-v36-handoff-entry-20261021.json"
+  ],
+  "validation": [
+    {
+      "command": "Manifest hashes computed from the staged git blobs (core.autocrlf normalized) for 151 files",
+      "result": "PASS",
+      "evidence": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/MANIFEST.json"
+    },
+    {
+      "command": "git diff 4f65c502 HEAD for book.json, render_book.py, PAGE_PLAN.md and the V34 package: no changes, so V34 at 4f65c502 is the exact V36 baseline",
+      "result": "PASS",
+      "evidence": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/START_HERE.md"
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_document_authority.py; python -X utf8 -B tools/audit_development.py --base auto; python -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Run before commit; output reported in the publishing session."
+    },
+    {
+      "command": "Godot/import/runtime/GDScript/device gates",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Documentation only; no runtime, scene, script, save, asset, protected original, device or release change."
+    }
+  ],
+  "acceptance_gaps": "V36 is not started. Anonymous remote verification of every manifest file follows the push. The final trim is still to pick, and owner acceptance of delivered pages, a child reading, professional speech-language review and a physical test print remain open."
+}

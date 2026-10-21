@@ -1,5 +1,8 @@
 # Codex handoff: picture book V34 audit fixes
 
+**Codex: start with [START_HERE.md](START_HERE.md).** It gives the V36
+build order, the reading order and the full file manifest.
+
 Status: `SUPPORTING_CURRENT` governing work order, published for Codex on
 2026-10-18. On 2026-10-19 the owner directed that this handoff governs the
 next revision, with the accepted Q1–Q14 defaults.
@@ -363,6 +366,8 @@ Follow the V33 package pattern on the same branch:
 
 ## Files in this packet
 
+- `START_HERE.md`: the V36 entry point, build order and reading order.
+- `MANIFEST.json`: every file the handoff needs, with SHA-256.
 - `README.md`: this work order.
 - `AUDIT.md`: the page-by-page audit and the accepted defaults.
 - `references.json`: repository paths and SHA-256 for every named source,
