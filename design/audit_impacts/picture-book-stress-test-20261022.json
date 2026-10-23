@@ -372,6 +372,11 @@
       "command": "V37 strict gate, adaptive email fidelity, exact master reassembly, Python syntax, document authority/change coverage and52unit tests",
       "result": "PASS",
       "evidence": "V37 validation_results.json; complete/verification.json (274source seals,34proofs,0contrast failures), complete/email_verification.json (24.17MB,40.204dBmin,75exact alpha masks). All local applicable gates pass; remote receipt is separate."
+    },
+    {
+      "command": "Exact Git-index HTML link audit for active and archived V37 proof pages",
+      "result": "PASS",
+      "evidence": "Archived R1\u2013R3 download links target the published current review PDF; raw intermediate PDFs remain excluded staging. No illustration or page proof changed."
     }
   ],
   "acceptance_gaps": "No remaining identified character/composition defect in final scoped AI review. Bath1332px<1800target, print/PPI/final trim, owner illustration approval, child read-aloud and SLP review remain open. No game or release acceptance."
