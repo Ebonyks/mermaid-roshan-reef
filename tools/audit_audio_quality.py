@@ -1185,6 +1185,8 @@ def category(rel: str) -> str:
             or rel.startswith("assets/audio/arborist_tree_book/") \
             or rel == "assets/audio/voice_yay.mp3":
         return "voice"
+    if rel.startswith("assets/audio/music/popstar_concert/") and Path(rel).stem in {"tom", "bass", "cymbal", "stick"}:
+        return "sfx"
     if rel.startswith("assets/audio/music/"):
         return "music"
     if rel.startswith("assets/audio/castle/"):
@@ -1199,6 +1201,14 @@ def category(rel: str) -> str:
 
 
 def grade(rel: str, meta: dict[str, object], peak: float | None) -> tuple[str, int, str, str]:
+    # New concert material has no listening/owner grade. Keep technical
+    # corruption/clipping checks while refusing an inferred human score.
+    if rel.startswith("assets/audio/music/popstar_concert/"):
+        if not meta.get("decode_ok") or float(meta.get("duration_seconds", 0) or 0) <= 0:
+            return "F", "", "P0", "REPLACE_CORRUPT"
+        if peak is not None and peak > 0.0:
+            return "F", "", "P1", "REPLACE_CLIPPING"
+        return "A", "", "P1", "REVIEW_POPSTAR_CANDIDATE"
     if not meta.get("decode_ok") or float(meta.get("duration_seconds", 0) or 0) <= 0:
         return "F", 1, "P0", "REPLACE_CORRUPT"
     if peak is not None and peak > 0.0:

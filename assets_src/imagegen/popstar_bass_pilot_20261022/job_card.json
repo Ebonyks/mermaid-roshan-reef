@@ -1,0 +1,126 @@
+{
+  "id": "popstar-bass-strike-pilot-20261022",
+  "revision": 1,
+  "source_commit": "9c78f6aa9981cad8caae576c4f1c541c32f247e4",
+  "lane": "gameplay sprite pilot candidate, not runtime accepted",
+  "intention": "Roshan listens, anticipates the boom, strikes the central lavender drum with her hand-held mallet and rebounds to a settled ready pose. The drum skin visibly responds.",
+  "required_action": "Six coherent whole-frame drawings: ready, anticipation, downswing, genuine mallet-head contact/compression, rebound, settle. Body, shoulders, hair and tail counterbalance together.",
+  "fixed": "Orthographic 3/4 front camera; constant kit fixtures and seat; mermaid has no legs or feet; same head/hand/arm sizes. Teal tom left, lavender playable central bass angled up toward mallet, star cymbal right. Seated tail has visible support.",
+  "entry_exit": "Ready mallets held above kit, tail supported by low pearl seat. Settled exit returns ready without invented limb pieces.",
+  "reuse_gap": "Inventoried existing drummer static reference and current atlas. Neither supplies a supported complete central drum strike. Reuse reference identity/kit; new full-frame keys fill only this named action.",
+  "method": "Builtin ImageGen whole-frame key-sheet pilot, then local Aseprite timing/registration/export. Local sources cannot supply the missing seated strike/contact drawings; no paid API, separate limbs, deformation or still-frame campaign.",
+  "runtime": "6 equal 768px or larger cells in a 3x2 transparent native sheet; whole-frame master Aseprite RGBA; runtime each frame <=1024, original contours preserved; target actor ~440px tall.",
+  "tolerances": {
+    "head_width_change_percent": 3,
+    "hand_length_change_percent": 5,
+    "kit_landmark_displacement_px_at_768": 3,
+    "contact_tip_to_skin_px": 3,
+    "seat_root_drift_px": 3,
+    "timing_ms": [
+      120,
+      90,
+      60,
+      70,
+      90,
+      170
+    ],
+    "loop": "ready and settle silhouette/support compatible; no crossfade or hidden smear"
+  },
+  "limits": {
+    "generated_takes_total": 2,
+    "wall_seconds": 1800,
+    "cleanup_seconds": 600,
+    "paid_external_dollars": 0,
+    "authorization": "Direct owner Oct22 rebuild plus Oct18 pilot-first brief; built-in tool only. Separate new bass pilot, no reopening prior closed left-tom campaigns.",
+    "started_unix": 1792728914.798709
+  },
+  "stop": "After two nonviable takes or cap, retain both and diagnose. No automatic generation retries or full set before owner look.",
+  "inputs": [
+    {
+      "path": "assets_src/imagegen/popstar_bass_pilot_20261022/roshan_drums.png",
+      "original": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\bands\\validation\\assets\\prototypes\\bands\\roshan_drums.png",
+      "sha256": "8c053d0cff47f04f3297ca6c48016fb74f24bfcb862f8c2cedeb3fd980f1e709",
+      "role": "existing published drummer identity, costume and kit reference; static design only",
+      "modifications": "byte-preserving copy",
+      "acceptance": "Reference only; no action acceptance inferred",
+      "license": "Project-owned game artwork; corresponding existing asset license applies",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "published_source_commit": "bfe766ffe168aea8d99e9ee8207aff57f857db70"
+    },
+    {
+      "path": "assets_src/imagegen/popstar_bass_pilot_20261022/roshan_base.png",
+      "original": "assets\\characters\\roshan_25d\\roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "approved identity anatomy and tail reference",
+      "modifications": "byte-preserving copy",
+      "acceptance": "Reference only; no action acceptance inferred",
+      "license": "Project-owned game artwork; corresponding existing asset license applies",
+      "dimensions": [
+        256,
+        256
+      ],
+      "published_source_commit": "9c78f6aa9981cad8caae576c4f1c541c32f247e4"
+    }
+  ],
+  "attempts": [
+    {
+      "take": 1,
+      "path": "assets_src/imagegen/popstar_bass_pilot_20261022/take01.png",
+      "sha256": "6d5824d2462d8f709cb6b0305da290f4463ef438794be383dff05e4cbd6772ce",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "builtin_calls": 1,
+      "request_id": "exec-8b5f5395-4b54-4d58-928b-be6d118f0027",
+      "disposition": "REJECTED: translucent brown background field despite transparent flag; native512px cells below prescribed768; fixture drift and anticipation uses opposite hand from subsequent contact. No runtime integration.",
+      "native_output_preserved": true,
+      "elapsed_tool_seconds": 34.6,
+      "prompt_path": "assets_src/imagegen/popstar_bass_pilot_20261022/prompts.json",
+      "hosted_revision": "Not exposed by builtin tool"
+    },
+    {
+      "take": 2,
+      "path": "assets_src/imagegen/popstar_bass_pilot_20261022/take02.png",
+      "sha256": "27084cabe8509ccb5e29f6ef7623c96b53054c078aeae9482b809091bf346f70",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "builtin_calls": 1,
+      "request_id": "exec-7692a957-706f-407a-980b-c14a68ac28f2",
+      "disposition": "REJECTED: native627px cells below prescribed768; kit adds second tom and front head does not show physical depression/contact; fixture/figure scale drift; no matched settle. Transparent field improved. No runtime integration.",
+      "elapsed_tool_seconds": 42.0,
+      "prompt_path": "assets_src/imagegen/popstar_bass_pilot_20261022/prompts.json",
+      "hosted_revision": "Not exposed by builtin tool"
+    }
+  ],
+  "reviews": {
+    "identity": "PENDING",
+    "contact_motion": "PENDING",
+    "machine": "PENDING",
+    "owner_look": "PENDING; mandatory before full action set",
+    "device": "PENDING",
+    "child": "PENDING"
+  },
+  "archive_complete": false,
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "closed_reason": "Two generated takes exhausted. Retain outputs and diagnose whole-frame registration and contact. Full set is blocked; do not request owner acceptance of failed motion. Core logic/audio work continues independently.",
+  "budget_extension": "Pending direct owner answer to bounded four-total-take / additional30minute proposal. No dependent work authorized by elapsed time.",
+  "proposed_extension": {
+    "status": "PENDING_OWNER_ANSWER; no further bass generation",
+    "aggregate_generated_take_cap_if_authorized": 4,
+    "additional_wall_seconds_max": 1800,
+    "previous_wall_allowance_charged_seconds": 1800,
+    "aggregate_wall_allowance_if_authorized": 3600,
+    "paid_external_dollars": 0,
+    "diagnosis": "Generating a complete figure plus kit in every cell changed the fixed fixtures and did not maintain anatomy/contact. Do not repeat the same multicell-kit brief.",
+    "revised_method": "Use approved drummer identity and separately fixed kit/seat cards; every character key remains one complete whole-figure drawing, with no limb layers. Bind a neutral position-only layout guide and fixed head/hand/root measurements. Single full-frame edits supply the missing figure/contact keys; Aseprite registers entire frames and verifies landmarks, without local limb warps.",
+    "required_before_full_set": "A complete readable bass-strike action with actual mallet/skin contact, supported tail/seat, constant head/hand size, fixed kit and settled return; full-speed and step review, then owner look. Any failed dimension remains blocking; no lowering tolerances or relabeling old rejects.",
+    "permission_source": "Async extension question in this Pop Star chat on Oct22; pending answer is not consent."
+  }
+}

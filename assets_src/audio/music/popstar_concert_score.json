@@ -1,0 +1,248 @@
+{
+  "schema": "reef.popstar-score.v1",
+  "id": "opera_popstar_concert",
+  "title": "Starlight Singalong \u2014 Rainbow Band concert",
+  "source_cue": "opera_popstar",
+  "bpm": 118,
+  "meter": [
+    4,
+    4
+  ],
+  "grid_beats": 0.5,
+  "lead_beats": 8,
+  "child_backing_percussion": false,
+  "sections": [
+    {
+      "id": "rehearsal",
+      "kind": "rehearsal",
+      "bars": 8,
+      "patterns": [
+        [
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2
+        ]
+      ],
+      "child_beats": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22
+      ],
+      "echo": [
+        0,
+        2
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "verse_1",
+      "kind": "echo",
+      "bars": 6,
+      "patterns": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "chorus_1",
+      "kind": "play",
+      "bars": 6,
+      "targets": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        2
+      ],
+      "child_beats": [
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "verse_2",
+      "kind": "echo",
+      "bars": 6,
+      "patterns": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "crowd",
+      "kind": "lead",
+      "bars": 4,
+      "targets": [
+        3,
+        3
+      ],
+      "child_beats": [
+        8,
+        10
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "chorus_2",
+      "kind": "play",
+      "bars": 6,
+      "targets": [
+        1,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "child_beats": [
+        8,
+        10,
+        15,
+        18,
+        20,
+        23
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "finish",
+      "kind": "finish",
+      "bars": 4,
+      "targets": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "child_beats": [
+        8,
+        10,
+        12,
+        14
+      ],
+      "required_final": true,
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "drumoff",
+      "kind": "contest",
+      "bars": 6,
+      "patterns": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "encore",
+      "kind": "finish",
+      "bars": 4,
+      "targets": [
+        2
+      ],
+      "child_beats": [
+        14
+      ],
+      "required_final": true,
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "license": "Project-owned original composition and deterministic synthesis; no external sample or recording",
+  "count_in_beats": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

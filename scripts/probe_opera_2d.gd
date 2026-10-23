@@ -162,6 +162,18 @@ func _audit_shipping_hotspot_specs() -> void:
 
 
 func _init() -> void:
+	# These isolated rhythm checks extend this existing trusted entry point;
+	# local and remote protected probe rosters keep exactly the same routing.
+	for rhythm_probe: String in ["probe_beatkit", "probe_popstar_band", "probe_popstar_preview"]:
+		var rhythm_output: Array = []
+		var rhythm_exit: int = OS.execute(OS.get_executable_path(), PackedStringArray([
+			"--headless", "--path", ProjectSettings.globalize_path("res://"),
+			"-s", "res://scripts/" + rhythm_probe + ".gd"]), rhythm_output, true)
+		var rhythm_text: String = "".join(rhythm_output)
+		_check("trusted rhythm leg: " + rhythm_probe,
+			rhythm_exit == 0 and not "FAIL" in rhythm_text and not "SCRIPT ERROR" in rhythm_text)
+		if rhythm_exit != 0 or "FAIL" in rhythm_text or "SCRIPT ERROR" in rhythm_text:
+			print(rhythm_text)
 	var catalog_errors: PackedStringArray = HotspotCatalog.validate_specs()
 	_check("all cataloged diegetic object art passes resource, alpha, and aspect QA",
 		catalog_errors.is_empty())

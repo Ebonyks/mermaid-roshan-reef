@@ -1,0 +1,1400 @@
+{
+  "source_hash_normalization": "UTF-8 LF bytes; CRLF normalized; BOM preserved",
+  "schema": "reef.popstar-chart.v1",
+  "song_id": "opera_popstar_concert",
+  "bpm": 118,
+  "meter": [
+    4,
+    4
+  ],
+  "score_path": "assets_src/audio/music/popstar_concert_score.json",
+  "score_sha256": "db11e0d574b4dbd6c9891980e7925dab38af31613375d5e6fbd1185869f7deb1",
+  "builder_sha256": "2e2f2cf80efa40e51cc8e2fcac1313d1428c5d16de351cc6685c5e8c9eecb35c",
+  "original_score_sha256": "3e733a0f79f1cea031667bc67417292b7ffe898e897d525d71972a2b67651870",
+  "audio_sha256": {
+    "assets/audio/music/popstar_concert/rehearsal.ogg": "0fbf7700b23f714f6e87fdb5fe48571a3745a9c6e4f29570ab3a1c8fc1ac87eb",
+    "assets/audio/music/popstar_concert/verse_1.ogg": "7bd6d6b3c609d8e047f9f2be66514b6bc0a3b10e246edcc17416d16702882e34",
+    "assets/audio/music/popstar_concert/chorus_1.ogg": "b291dcfd2ce4a098e3f1c2bc411067f438784cde87ef88d5feab9797b7c761ee",
+    "assets/audio/music/popstar_concert/verse_2.ogg": "6697a42a96d486e63a4e9989ae37c58433631874d57a47b900df7eec1b3df9d8",
+    "assets/audio/music/popstar_concert/crowd.ogg": "6a5969f27805858bcba1191d7b0b6112af274d7670c7ba9c43d227aa4e42312f",
+    "assets/audio/music/popstar_concert/chorus_2.ogg": "73cd8578378ce6fbde18f973b7b3b3593d4b54945ea0cbdf2870a4ff564afe62",
+    "assets/audio/music/popstar_concert/finish.ogg": "ed55e3f9d56693acaa5514892149c0ecd7d130af33d39938bacc70ab87fadb69",
+    "assets/audio/music/popstar_concert/drumoff.ogg": "47ec641b203bb3e5f1788eb5527a9898da5ef733d7572ce4f762455356cb4a19",
+    "assets/audio/music/popstar_concert/encore.ogg": "a2890ad935c10797d1edc4cb711ee3f6372d97e2e9bc237ce1137b098f7bd17e",
+    "assets/audio/music/popstar_concert/tom.ogg": "699e27316ade660959ca86b7c9ba1e15cc1d8df3d040b3f2b146b14c36707ffd",
+    "assets/audio/music/popstar_concert/bass.ogg": "3d63eb5fbe6b75d1efb1cd8db163b60f4fab3c74a669e4a090088a7744485974",
+    "assets/audio/music/popstar_concert/cymbal.ogg": "580e7e0e0de970a1aaceb719516900169f715f5bf1b7a41cb7fdd6a0507016d2",
+    "assets/audio/music/popstar_concert/stick.ogg": "133435418e912ed397a18facb1b795357b751e108657c4d6a626e7ea0cb35d05"
+  },
+  "sections": [
+    {
+      "id": "rehearsal",
+      "kind": "rehearsal",
+      "bars": 8,
+      "patterns": [
+        [
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2
+        ]
+      ],
+      "child_beats": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22
+      ],
+      "echo": [
+        0,
+        2
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cues": [
+        {
+          "id": "rehearsal_00",
+          "section": "rehearsal",
+          "beat": 6,
+          "target": 0,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "rehearsal_01",
+          "section": "rehearsal",
+          "beat": 8,
+          "target": 1,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "rehearsal_02",
+          "section": "rehearsal",
+          "beat": 10,
+          "target": 2,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "rehearsal_03",
+          "section": "rehearsal",
+          "beat": 12,
+          "target": 0,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "rehearsal_04",
+          "section": "rehearsal",
+          "beat": 14,
+          "target": 1,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "rehearsal_05",
+          "section": "rehearsal",
+          "beat": 16,
+          "target": 2,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "rehearsal_06",
+          "section": "rehearsal",
+          "beat": 18,
+          "target": 0,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "rehearsal_07",
+          "section": "rehearsal",
+          "beat": 20,
+          "target": 1,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "rehearsal_08",
+          "section": "rehearsal",
+          "beat": 22,
+          "target": 2,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "rehearsal_09",
+          "section": "rehearsal",
+          "beat": 24,
+          "target": 0,
+          "role": "call",
+          "phrase": "rehearsal"
+        },
+        {
+          "id": "rehearsal_10",
+          "section": "rehearsal",
+          "beat": 26,
+          "target": 2,
+          "role": "call",
+          "phrase": "rehearsal"
+        },
+        {
+          "id": "rehearsal_11",
+          "section": "rehearsal",
+          "beat": 28,
+          "target": 0,
+          "role": "answer",
+          "phrase": "rehearsal"
+        },
+        {
+          "id": "rehearsal_12",
+          "section": "rehearsal",
+          "beat": 30,
+          "target": 2,
+          "role": "answer",
+          "phrase": "rehearsal"
+        }
+      ],
+      "audio": "res://assets/audio/music/popstar_concert/rehearsal.ogg",
+      "sample_count": 781017,
+      "loopable": true
+    },
+    {
+      "id": "verse_1",
+      "kind": "echo",
+      "bars": 6,
+      "patterns": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cues": [
+        {
+          "id": "verse_1_00",
+          "section": "verse_1",
+          "beat": 8,
+          "target": 0,
+          "role": "call",
+          "phrase": "0"
+        },
+        {
+          "id": "verse_1_01",
+          "section": "verse_1",
+          "beat": 10,
+          "target": 2,
+          "role": "call",
+          "phrase": "0"
+        },
+        {
+          "id": "verse_1_02",
+          "section": "verse_1",
+          "beat": 12,
+          "target": 0,
+          "role": "answer",
+          "phrase": "0"
+        },
+        {
+          "id": "verse_1_03",
+          "section": "verse_1",
+          "beat": 14,
+          "target": 2,
+          "role": "answer",
+          "phrase": "0"
+        },
+        {
+          "id": "verse_1_04",
+          "section": "verse_1",
+          "beat": 16,
+          "target": 2,
+          "role": "call",
+          "phrase": "1"
+        },
+        {
+          "id": "verse_1_05",
+          "section": "verse_1",
+          "beat": 18,
+          "target": 0,
+          "role": "call",
+          "phrase": "1"
+        },
+        {
+          "id": "verse_1_06",
+          "section": "verse_1",
+          "beat": 20,
+          "target": 2,
+          "role": "answer",
+          "phrase": "1"
+        },
+        {
+          "id": "verse_1_07",
+          "section": "verse_1",
+          "beat": 22,
+          "target": 0,
+          "role": "answer",
+          "phrase": "1"
+        }
+      ],
+      "audio": "res://assets/audio/music/popstar_concert/verse_1.ogg",
+      "sample_count": 585763,
+      "loopable": true
+    },
+    {
+      "id": "chorus_1",
+      "kind": "play",
+      "bars": 6,
+      "targets": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        2
+      ],
+      "child_beats": [
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cues": [
+        {
+          "id": "chorus_1_00",
+          "section": "chorus_1",
+          "beat": 8,
+          "target": 1,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_1_01",
+          "section": "chorus_1",
+          "beat": 10,
+          "target": 0,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_1_02",
+          "section": "chorus_1",
+          "beat": 12,
+          "target": 1,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_1_03",
+          "section": "chorus_1",
+          "beat": 14,
+          "target": 0,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_1_04",
+          "section": "chorus_1",
+          "beat": 16,
+          "target": 1,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_1_05",
+          "section": "chorus_1",
+          "beat": 18,
+          "target": 0,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_1_06",
+          "section": "chorus_1",
+          "beat": 20,
+          "target": 1,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_1_07",
+          "section": "chorus_1",
+          "beat": 22,
+          "target": 2,
+          "role": "play",
+          "phrase": ""
+        }
+      ],
+      "audio": "res://assets/audio/music/popstar_concert/chorus_1.ogg",
+      "sample_count": 585763,
+      "loopable": true
+    },
+    {
+      "id": "verse_2",
+      "kind": "echo",
+      "bars": 6,
+      "patterns": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cues": [
+        {
+          "id": "verse_2_00",
+          "section": "verse_2",
+          "beat": 8,
+          "target": 0,
+          "role": "call",
+          "phrase": "0"
+        },
+        {
+          "id": "verse_2_01",
+          "section": "verse_2",
+          "beat": 9.5,
+          "target": 1,
+          "role": "call",
+          "phrase": "0"
+        },
+        {
+          "id": "verse_2_02",
+          "section": "verse_2",
+          "beat": 11,
+          "target": 2,
+          "role": "call",
+          "phrase": "0"
+        },
+        {
+          "id": "verse_2_03",
+          "section": "verse_2",
+          "beat": 12,
+          "target": 0,
+          "role": "answer",
+          "phrase": "0"
+        },
+        {
+          "id": "verse_2_04",
+          "section": "verse_2",
+          "beat": 13.5,
+          "target": 1,
+          "role": "answer",
+          "phrase": "0"
+        },
+        {
+          "id": "verse_2_05",
+          "section": "verse_2",
+          "beat": 15,
+          "target": 2,
+          "role": "answer",
+          "phrase": "0"
+        },
+        {
+          "id": "verse_2_06",
+          "section": "verse_2",
+          "beat": 16,
+          "target": 2,
+          "role": "call",
+          "phrase": "1"
+        },
+        {
+          "id": "verse_2_07",
+          "section": "verse_2",
+          "beat": 17.5,
+          "target": 1,
+          "role": "call",
+          "phrase": "1"
+        },
+        {
+          "id": "verse_2_08",
+          "section": "verse_2",
+          "beat": 19,
+          "target": 0,
+          "role": "call",
+          "phrase": "1"
+        },
+        {
+          "id": "verse_2_09",
+          "section": "verse_2",
+          "beat": 20,
+          "target": 2,
+          "role": "answer",
+          "phrase": "1"
+        },
+        {
+          "id": "verse_2_10",
+          "section": "verse_2",
+          "beat": 21.5,
+          "target": 1,
+          "role": "answer",
+          "phrase": "1"
+        },
+        {
+          "id": "verse_2_11",
+          "section": "verse_2",
+          "beat": 23,
+          "target": 0,
+          "role": "answer",
+          "phrase": "1"
+        }
+      ],
+      "audio": "res://assets/audio/music/popstar_concert/verse_2.ogg",
+      "sample_count": 585763,
+      "loopable": true
+    },
+    {
+      "id": "crowd",
+      "kind": "lead",
+      "bars": 4,
+      "targets": [
+        3,
+        3
+      ],
+      "child_beats": [
+        8,
+        10
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cues": [
+        {
+          "id": "crowd_00",
+          "section": "crowd",
+          "beat": 8,
+          "target": 3,
+          "role": "lead",
+          "phrase": ""
+        },
+        {
+          "id": "crowd_01",
+          "section": "crowd",
+          "beat": 10,
+          "target": 3,
+          "role": "lead",
+          "phrase": ""
+        }
+      ],
+      "audio": "res://assets/audio/music/popstar_concert/crowd.ogg",
+      "sample_count": 390508,
+      "loopable": true
+    },
+    {
+      "id": "chorus_2",
+      "kind": "play",
+      "bars": 6,
+      "targets": [
+        1,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "child_beats": [
+        8,
+        10,
+        15,
+        18,
+        20,
+        23
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cues": [
+        {
+          "id": "chorus_2_00",
+          "section": "chorus_2",
+          "beat": 8,
+          "target": 1,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_2_01",
+          "section": "chorus_2",
+          "beat": 10,
+          "target": 0,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_2_02",
+          "section": "chorus_2",
+          "beat": 15,
+          "target": 2,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_2_03",
+          "section": "chorus_2",
+          "beat": 18,
+          "target": 0,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_2_04",
+          "section": "chorus_2",
+          "beat": 20,
+          "target": 1,
+          "role": "play",
+          "phrase": ""
+        },
+        {
+          "id": "chorus_2_05",
+          "section": "chorus_2",
+          "beat": 23,
+          "target": 2,
+          "role": "play",
+          "phrase": ""
+        }
+      ],
+      "audio": "res://assets/audio/music/popstar_concert/chorus_2.ogg",
+      "sample_count": 585763,
+      "loopable": true
+    },
+    {
+      "id": "finish",
+      "kind": "finish",
+      "bars": 4,
+      "targets": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "child_beats": [
+        8,
+        10,
+        12,
+        14
+      ],
+      "required_final": true,
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cues": [
+        {
+          "id": "finish_00",
+          "section": "finish",
+          "beat": 8,
+          "target": 0,
+          "role": "finish",
+          "phrase": ""
+        },
+        {
+          "id": "finish_01",
+          "section": "finish",
+          "beat": 10,
+          "target": 1,
+          "role": "finish",
+          "phrase": ""
+        },
+        {
+          "id": "finish_02",
+          "section": "finish",
+          "beat": 12,
+          "target": 0,
+          "role": "finish",
+          "phrase": ""
+        },
+        {
+          "id": "finish_03",
+          "section": "finish",
+          "beat": 14,
+          "target": 2,
+          "role": "finish",
+          "phrase": ""
+        }
+      ],
+      "audio": "res://assets/audio/music/popstar_concert/finish.ogg",
+      "sample_count": 390508,
+      "loopable": true
+    },
+    {
+      "id": "drumoff",
+      "kind": "contest",
+      "bars": 6,
+      "patterns": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cues": [
+        {
+          "id": "drumoff_00",
+          "section": "drumoff",
+          "beat": 8,
+          "target": 0,
+          "role": "call",
+          "phrase": "0"
+        },
+        {
+          "id": "drumoff_01",
+          "section": "drumoff",
+          "beat": 9.5,
+          "target": 1,
+          "role": "call",
+          "phrase": "0"
+        },
+        {
+          "id": "drumoff_02",
+          "section": "drumoff",
+          "beat": 11,
+          "target": 2,
+          "role": "call",
+          "phrase": "0"
+        },
+        {
+          "id": "drumoff_03",
+          "section": "drumoff",
+          "beat": 12,
+          "target": 0,
+          "role": "answer",
+          "phrase": "0"
+        },
+        {
+          "id": "drumoff_04",
+          "section": "drumoff",
+          "beat": 13.5,
+          "target": 1,
+          "role": "answer",
+          "phrase": "0"
+        },
+        {
+          "id": "drumoff_05",
+          "section": "drumoff",
+          "beat": 15,
+          "target": 2,
+          "role": "answer",
+          "phrase": "0"
+        },
+        {
+          "id": "drumoff_06",
+          "section": "drumoff",
+          "beat": 16,
+          "target": 2,
+          "role": "call",
+          "phrase": "1"
+        },
+        {
+          "id": "drumoff_07",
+          "section": "drumoff",
+          "beat": 17.5,
+          "target": 1,
+          "role": "call",
+          "phrase": "1"
+        },
+        {
+          "id": "drumoff_08",
+          "section": "drumoff",
+          "beat": 19,
+          "target": 0,
+          "role": "call",
+          "phrase": "1"
+        },
+        {
+          "id": "drumoff_09",
+          "section": "drumoff",
+          "beat": 20,
+          "target": 2,
+          "role": "answer",
+          "phrase": "1"
+        },
+        {
+          "id": "drumoff_10",
+          "section": "drumoff",
+          "beat": 21.5,
+          "target": 1,
+          "role": "answer",
+          "phrase": "1"
+        },
+        {
+          "id": "drumoff_11",
+          "section": "drumoff",
+          "beat": 23,
+          "target": 0,
+          "role": "answer",
+          "phrase": "1"
+        }
+      ],
+      "audio": "res://assets/audio/music/popstar_concert/drumoff.ogg",
+      "sample_count": 585763,
+      "loopable": true
+    },
+    {
+      "id": "encore",
+      "kind": "finish",
+      "bars": 4,
+      "targets": [
+        2
+      ],
+      "child_beats": [
+        14
+      ],
+      "required_final": true,
+      "count_in_beats": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cues": [
+        {
+          "id": "encore_00",
+          "section": "encore",
+          "beat": 14,
+          "target": 2,
+          "role": "finish",
+          "phrase": ""
+        }
+      ],
+      "audio": "res://assets/audio/music/popstar_concert/encore.ogg",
+      "sample_count": 390508,
+      "loopable": true
+    }
+  ],
+  "metrics": {
+    "rehearsal": {
+      "source": {
+        "sample_count": 781017,
+        "duration_seconds": 16.271187,
+        "samples_per_beat": 24406.78125,
+        "raw_seam": {
+          "boundary_jump": 0.00027283,
+          "adjacent_p999": 0.07881359,
+          "jump_ratio": 0.00346
+        },
+        "development": {
+          "midpoint_bar": 4,
+          "changes": [
+            "progression_order",
+            "alternating_inversion",
+            "melody_rotation",
+            "answer_note_lifts",
+            "motif_instrument_and_register"
+          ]
+        },
+        "final_score_seam": {
+          "boundary_jump": 0.00027283,
+          "adjacent_p999": 0.08047395,
+          "jump_ratio": 0.00339
+        },
+        "mastering": {
+          "normalization_gain_db": -1.2,
+          "peak_limited": false,
+          "pcm_peak": 16207,
+          "pcm_peak_dbfs": -6.1147,
+          "pcm_rms_dbfs": -20.9449,
+          "pcm_loudness": {
+            "integrated_lufs": -18.0,
+            "true_peak_dbtp": -6.1,
+            "loudness_range_lu": 3.1,
+            "threshold_lufs": -28.0
+          }
+        }
+      },
+      "encoded": {
+        "codec": "vorbis",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 16.271188,
+        "file_bytes": 201562,
+        "average_bitrate_bps": 99101,
+        "tags": {
+          "ENCODER": "Lavc libvorbis",
+          "TITLE": "Starlight Singalong \u2014 Rainbow Band concert / rehearsal",
+          "ARTIST": "Mermaid Roshan",
+          "ALBUM": "Reef of Light Area Music",
+          "CUE_ID": "popstar_rehearsal",
+          "BPM": "118",
+          "BPM_UNIT": "notated_denominator",
+          "METER": "4/4",
+          "LOOPSTART": "0",
+          "LOOPEND": "781017",
+          "LOOPLENGTH": "781017",
+          "LICENSE": "Project-owned original composition and synthesis",
+          "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+        }
+      }
+    },
+    "verse_1": {
+      "source": {
+        "sample_count": 585763,
+        "duration_seconds": 12.203396,
+        "samples_per_beat": 24406.79166667,
+        "raw_seam": {
+          "boundary_jump": 0.00064713,
+          "adjacent_p999": 0.08197649,
+          "jump_ratio": 0.00789
+        },
+        "development": {
+          "midpoint_bar": 3,
+          "changes": [
+            "progression_order",
+            "alternating_inversion",
+            "melody_rotation",
+            "answer_note_lifts",
+            "motif_instrument_and_register"
+          ]
+        },
+        "final_score_seam": {
+          "boundary_jump": 0.00064713,
+          "adjacent_p999": 0.0833606,
+          "jump_ratio": 0.00776
+        },
+        "mastering": {
+          "normalization_gain_db": -2.07,
+          "peak_limited": false,
+          "pcm_peak": 16024,
+          "pcm_peak_dbfs": -6.2133,
+          "pcm_rms_dbfs": -21.2773,
+          "pcm_loudness": {
+            "integrated_lufs": -18.0,
+            "true_peak_dbtp": -6.21,
+            "loudness_range_lu": 1.0,
+            "threshold_lufs": -28.0
+          }
+        }
+      },
+      "encoded": {
+        "codec": "vorbis",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 12.203396,
+        "file_bytes": 149797,
+        "average_bitrate_bps": 98200,
+        "tags": {
+          "ENCODER": "Lavc libvorbis",
+          "TITLE": "Starlight Singalong \u2014 Rainbow Band concert / verse_1",
+          "ARTIST": "Mermaid Roshan",
+          "ALBUM": "Reef of Light Area Music",
+          "CUE_ID": "popstar_verse_1",
+          "BPM": "118",
+          "BPM_UNIT": "notated_denominator",
+          "METER": "4/4",
+          "LOOPSTART": "0",
+          "LOOPEND": "585763",
+          "LOOPLENGTH": "585763",
+          "LICENSE": "Project-owned original composition and synthesis",
+          "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+        }
+      }
+    },
+    "chorus_1": {
+      "source": {
+        "sample_count": 585763,
+        "duration_seconds": 12.203396,
+        "samples_per_beat": 24406.79166667,
+        "raw_seam": {
+          "boundary_jump": 0.00071786,
+          "adjacent_p999": 0.08154259,
+          "jump_ratio": 0.0088
+        },
+        "development": {
+          "midpoint_bar": 3,
+          "changes": [
+            "progression_order",
+            "alternating_inversion",
+            "melody_rotation",
+            "answer_note_lifts",
+            "motif_instrument_and_register"
+          ]
+        },
+        "final_score_seam": {
+          "boundary_jump": 0.00071786,
+          "adjacent_p999": 0.08158844,
+          "jump_ratio": 0.0088
+        },
+        "mastering": {
+          "normalization_gain_db": -1.96,
+          "peak_limited": false,
+          "pcm_peak": 14542,
+          "pcm_peak_dbfs": -7.0563,
+          "pcm_rms_dbfs": -21.2996,
+          "pcm_loudness": {
+            "integrated_lufs": -18.0,
+            "true_peak_dbtp": -7.05,
+            "loudness_range_lu": 1.0,
+            "threshold_lufs": -28.0
+          }
+        }
+      },
+      "encoded": {
+        "codec": "vorbis",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 12.203396,
+        "file_bytes": 149631,
+        "average_bitrate_bps": 98091,
+        "tags": {
+          "ENCODER": "Lavc libvorbis",
+          "TITLE": "Starlight Singalong \u2014 Rainbow Band concert / chorus_1",
+          "ARTIST": "Mermaid Roshan",
+          "ALBUM": "Reef of Light Area Music",
+          "CUE_ID": "popstar_chorus_1",
+          "BPM": "118",
+          "BPM_UNIT": "notated_denominator",
+          "METER": "4/4",
+          "LOOPSTART": "0",
+          "LOOPEND": "585763",
+          "LOOPLENGTH": "585763",
+          "LICENSE": "Project-owned original composition and synthesis",
+          "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+        }
+      }
+    },
+    "verse_2": {
+      "source": {
+        "sample_count": 585763,
+        "duration_seconds": 12.203396,
+        "samples_per_beat": 24406.79166667,
+        "raw_seam": {
+          "boundary_jump": 0.00067639,
+          "adjacent_p999": 0.08183488,
+          "jump_ratio": 0.00827
+        },
+        "development": {
+          "midpoint_bar": 3,
+          "changes": [
+            "progression_order",
+            "alternating_inversion",
+            "melody_rotation",
+            "answer_note_lifts",
+            "motif_instrument_and_register"
+          ]
+        },
+        "final_score_seam": {
+          "boundary_jump": 0.00067639,
+          "adjacent_p999": 0.08321896,
+          "jump_ratio": 0.00813
+        },
+        "mastering": {
+          "normalization_gain_db": -2.08,
+          "peak_limited": false,
+          "pcm_peak": 15998,
+          "pcm_peak_dbfs": -6.2274,
+          "pcm_rms_dbfs": -21.2653,
+          "pcm_loudness": {
+            "integrated_lufs": -17.99,
+            "true_peak_dbtp": -6.22,
+            "loudness_range_lu": 0.9,
+            "threshold_lufs": -27.99
+          }
+        }
+      },
+      "encoded": {
+        "codec": "vorbis",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 12.203396,
+        "file_bytes": 149880,
+        "average_bitrate_bps": 98254,
+        "tags": {
+          "ENCODER": "Lavc libvorbis",
+          "TITLE": "Starlight Singalong \u2014 Rainbow Band concert / verse_2",
+          "ARTIST": "Mermaid Roshan",
+          "ALBUM": "Reef of Light Area Music",
+          "CUE_ID": "popstar_verse_2",
+          "BPM": "118",
+          "BPM_UNIT": "notated_denominator",
+          "METER": "4/4",
+          "LOOPSTART": "0",
+          "LOOPEND": "585763",
+          "LOOPLENGTH": "585763",
+          "LICENSE": "Project-owned original composition and synthesis",
+          "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+        }
+      }
+    },
+    "crowd": {
+      "source": {
+        "sample_count": 390508,
+        "duration_seconds": 8.135583,
+        "samples_per_beat": 24406.75,
+        "raw_seam": {
+          "boundary_jump": 0.00026124,
+          "adjacent_p999": 0.08226573,
+          "jump_ratio": 0.00318
+        },
+        "development": {
+          "midpoint_bar": 2,
+          "changes": [
+            "progression_order",
+            "alternating_inversion",
+            "melody_rotation",
+            "answer_note_lifts",
+            "motif_instrument_and_register"
+          ]
+        },
+        "final_score_seam": {
+          "boundary_jump": 0.00026124,
+          "adjacent_p999": 0.08222709,
+          "jump_ratio": 0.00318
+        },
+        "mastering": {
+          "normalization_gain_db": -1.11,
+          "peak_limited": false,
+          "pcm_peak": 15624,
+          "pcm_peak_dbfs": -6.4329,
+          "pcm_rms_dbfs": -20.7584,
+          "pcm_loudness": {
+            "integrated_lufs": -18.0,
+            "true_peak_dbtp": -6.43,
+            "loudness_range_lu": 3.0,
+            "threshold_lufs": -28.0
+          }
+        }
+      },
+      "encoded": {
+        "codec": "vorbis",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 8.135583,
+        "file_bytes": 103750,
+        "average_bitrate_bps": 102020,
+        "tags": {
+          "ENCODER": "Lavc libvorbis",
+          "TITLE": "Starlight Singalong \u2014 Rainbow Band concert / crowd",
+          "ARTIST": "Mermaid Roshan",
+          "ALBUM": "Reef of Light Area Music",
+          "CUE_ID": "popstar_crowd",
+          "BPM": "118",
+          "BPM_UNIT": "notated_denominator",
+          "METER": "4/4",
+          "LOOPSTART": "0",
+          "LOOPEND": "390508",
+          "LOOPLENGTH": "390508",
+          "LICENSE": "Project-owned original composition and synthesis",
+          "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+        }
+      }
+    },
+    "chorus_2": {
+      "source": {
+        "sample_count": 585763,
+        "duration_seconds": 12.203396,
+        "samples_per_beat": 24406.79166667,
+        "raw_seam": {
+          "boundary_jump": 0.00104772,
+          "adjacent_p999": 0.08152501,
+          "jump_ratio": 0.01285
+        },
+        "development": {
+          "midpoint_bar": 3,
+          "changes": [
+            "progression_order",
+            "alternating_inversion",
+            "melody_rotation",
+            "answer_note_lifts",
+            "motif_instrument_and_register"
+          ]
+        },
+        "final_score_seam": {
+          "boundary_jump": 0.00104772,
+          "adjacent_p999": 0.08154894,
+          "jump_ratio": 0.01285
+        },
+        "mastering": {
+          "normalization_gain_db": -1.92,
+          "peak_limited": false,
+          "pcm_peak": 14635,
+          "pcm_peak_dbfs": -7.0009,
+          "pcm_rms_dbfs": -21.3065,
+          "pcm_loudness": {
+            "integrated_lufs": -18.01,
+            "true_peak_dbtp": -7.0,
+            "loudness_range_lu": 1.0,
+            "threshold_lufs": -28.01
+          }
+        }
+      },
+      "encoded": {
+        "codec": "vorbis",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 12.203396,
+        "file_bytes": 149794,
+        "average_bitrate_bps": 98198,
+        "tags": {
+          "ENCODER": "Lavc libvorbis",
+          "TITLE": "Starlight Singalong \u2014 Rainbow Band concert / chorus_2",
+          "ARTIST": "Mermaid Roshan",
+          "ALBUM": "Reef of Light Area Music",
+          "CUE_ID": "popstar_chorus_2",
+          "BPM": "118",
+          "BPM_UNIT": "notated_denominator",
+          "METER": "4/4",
+          "LOOPSTART": "0",
+          "LOOPEND": "585763",
+          "LOOPLENGTH": "585763",
+          "LICENSE": "Project-owned original composition and synthesis",
+          "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+        }
+      }
+    },
+    "finish": {
+      "source": {
+        "sample_count": 390508,
+        "duration_seconds": 8.135583,
+        "samples_per_beat": 24406.75,
+        "raw_seam": {
+          "boundary_jump": 0.00026134,
+          "adjacent_p999": 0.08246256,
+          "jump_ratio": 0.00317
+        },
+        "development": {
+          "midpoint_bar": 2,
+          "changes": [
+            "progression_order",
+            "alternating_inversion",
+            "melody_rotation",
+            "answer_note_lifts",
+            "motif_instrument_and_register"
+          ]
+        },
+        "final_score_seam": {
+          "boundary_jump": 0.00026134,
+          "adjacent_p999": 0.08243548,
+          "jump_ratio": 0.00317
+        },
+        "mastering": {
+          "normalization_gain_db": -1.11,
+          "peak_limited": false,
+          "pcm_peak": 15629,
+          "pcm_peak_dbfs": -6.4301,
+          "pcm_rms_dbfs": -20.7597,
+          "pcm_loudness": {
+            "integrated_lufs": -18.0,
+            "true_peak_dbtp": -6.43,
+            "loudness_range_lu": 3.0,
+            "threshold_lufs": -28.0
+          }
+        }
+      },
+      "encoded": {
+        "codec": "vorbis",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 8.135583,
+        "file_bytes": 103694,
+        "average_bitrate_bps": 101965,
+        "tags": {
+          "ENCODER": "Lavc libvorbis",
+          "TITLE": "Starlight Singalong \u2014 Rainbow Band concert / finish",
+          "ARTIST": "Mermaid Roshan",
+          "ALBUM": "Reef of Light Area Music",
+          "CUE_ID": "popstar_finish",
+          "BPM": "118",
+          "BPM_UNIT": "notated_denominator",
+          "METER": "4/4",
+          "LOOPSTART": "0",
+          "LOOPEND": "390508",
+          "LOOPLENGTH": "390508",
+          "LICENSE": "Project-owned original composition and synthesis",
+          "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+        }
+      }
+    },
+    "drumoff": {
+      "source": {
+        "sample_count": 585763,
+        "duration_seconds": 12.203396,
+        "samples_per_beat": 24406.79166667,
+        "raw_seam": {
+          "boundary_jump": 0.00129038,
+          "adjacent_p999": 0.08083135,
+          "jump_ratio": 0.01596
+        },
+        "development": {
+          "midpoint_bar": 3,
+          "changes": [
+            "progression_order",
+            "alternating_inversion",
+            "melody_rotation",
+            "answer_note_lifts",
+            "motif_instrument_and_register"
+          ]
+        },
+        "final_score_seam": {
+          "boundary_jump": 0.00129038,
+          "adjacent_p999": 0.08208897,
+          "jump_ratio": 0.01572
+        },
+        "mastering": {
+          "normalization_gain_db": -2.01,
+          "peak_limited": false,
+          "pcm_peak": 15914,
+          "pcm_peak_dbfs": -6.2731,
+          "pcm_rms_dbfs": -21.2676,
+          "pcm_loudness": {
+            "integrated_lufs": -18.0,
+            "true_peak_dbtp": -6.26,
+            "loudness_range_lu": 0.9,
+            "threshold_lufs": -28.0
+          }
+        }
+      },
+      "encoded": {
+        "codec": "vorbis",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 12.203396,
+        "file_bytes": 149883,
+        "average_bitrate_bps": 98256,
+        "tags": {
+          "ENCODER": "Lavc libvorbis",
+          "TITLE": "Starlight Singalong \u2014 Rainbow Band concert / drumoff",
+          "ARTIST": "Mermaid Roshan",
+          "ALBUM": "Reef of Light Area Music",
+          "CUE_ID": "popstar_drumoff",
+          "BPM": "118",
+          "BPM_UNIT": "notated_denominator",
+          "METER": "4/4",
+          "LOOPSTART": "0",
+          "LOOPEND": "585763",
+          "LOOPLENGTH": "585763",
+          "LICENSE": "Project-owned original composition and synthesis",
+          "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+        }
+      }
+    },
+    "encore": {
+      "source": {
+        "sample_count": 390508,
+        "duration_seconds": 8.135583,
+        "samples_per_beat": 24406.75,
+        "raw_seam": {
+          "boundary_jump": 0.00026078,
+          "adjacent_p999": 0.08227454,
+          "jump_ratio": 0.00317
+        },
+        "development": {
+          "midpoint_bar": 2,
+          "changes": [
+            "progression_order",
+            "alternating_inversion",
+            "melody_rotation",
+            "answer_note_lifts",
+            "motif_instrument_and_register"
+          ]
+        },
+        "final_score_seam": {
+          "boundary_jump": 0.00026078,
+          "adjacent_p999": 0.08219747,
+          "jump_ratio": 0.00317
+        },
+        "mastering": {
+          "normalization_gain_db": -1.11,
+          "peak_limited": false,
+          "pcm_peak": 15603,
+          "pcm_peak_dbfs": -6.4446,
+          "pcm_rms_dbfs": -20.7719,
+          "pcm_loudness": {
+            "integrated_lufs": -18.01,
+            "true_peak_dbtp": -6.44,
+            "loudness_range_lu": 3.0,
+            "threshold_lufs": -28.01
+          }
+        }
+      },
+      "encoded": {
+        "codec": "vorbis",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 8.135583,
+        "file_bytes": 103687,
+        "average_bitrate_bps": 101959,
+        "tags": {
+          "ENCODER": "Lavc libvorbis",
+          "TITLE": "Starlight Singalong \u2014 Rainbow Band concert / encore",
+          "ARTIST": "Mermaid Roshan",
+          "ALBUM": "Reef of Light Area Music",
+          "CUE_ID": "popstar_encore",
+          "BPM": "118",
+          "BPM_UNIT": "notated_denominator",
+          "METER": "4/4",
+          "LOOPSTART": "0",
+          "LOOPEND": "390508",
+          "LOOPLENGTH": "390508",
+          "LICENSE": "Project-owned original composition and synthesis",
+          "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+        }
+      }
+    }
+  },
+  "clock_choice": "one Ogg per section; exact4.7.2 Mobile spike proves Interactive position stays zero while Ogg advances. See assets_src/prototypes/popstar_concert_20261022/audio_clock.json. Target-device proof pending",
+  "acceptance": "CANDIDATE; synthesized arrangement needs listening, gameplay/device/child/owner acceptance separately"
+}

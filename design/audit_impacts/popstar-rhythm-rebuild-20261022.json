@@ -1,0 +1,259 @@
+{
+  "id": "popstar-rhythm-rebuild-20261022",
+  "scope": "Owner-authorized Pop Star rebuild: original Starlight concert, audio-clock cues, timed echo and play-along, forgiving engaged-child mercy, genuine band/drum acting and isolated final drum-off. Bass-strike pilot is reviewed before expanding art. Other careers and Day Two Iko recording/rights are outside this change. Extend the existing generated audio inventory for added candidate clips; withhold human scores for the unreviewed Pop Star cohort and keep legacy grading unchanged. Preserve literal native evidence bytes in Git and normalize source-only checksums across Windows/Linux checkouts. Extend the existing audio CI unit entry point with the concert chart/hash cases.",
+  "baseline": "9c78f6aa9981cad8caae576c4f1c541c32f247e4",
+  "rules": [
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-ASSET-03",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CODE-10",
+    "DL-INT-02",
+    "DL-INT-07",
+    "DL-INT-14",
+    "DL-LAY-03",
+    "DL-LAY-08",
+    "DL-MOT-12",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-PERF-03",
+    "DL-QA-03",
+    "DL-READ-02",
+    "DL-READ-05",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-06",
+    "DL-SND-01",
+    "DL-SND-05",
+    "DL-SND-07",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05"
+  ],
+  "findings": [
+    "MA-OPERA-014",
+    "MA-PLAY-004",
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "assets/audio/music/popstar_concert/bass.ogg",
+    "assets/audio/music/popstar_concert/bass.ogg.import",
+    "assets/audio/music/popstar_concert/chart.json",
+    "assets/audio/music/popstar_concert/chorus_1.ogg",
+    "assets/audio/music/popstar_concert/chorus_1.ogg.import",
+    "assets/audio/music/popstar_concert/chorus_2.ogg",
+    "assets/audio/music/popstar_concert/chorus_2.ogg.import",
+    "assets/audio/music/popstar_concert/crowd.ogg",
+    "assets/audio/music/popstar_concert/crowd.ogg.import",
+    "assets/audio/music/popstar_concert/cymbal.ogg",
+    "assets/audio/music/popstar_concert/cymbal.ogg.import",
+    "assets/audio/music/popstar_concert/drumoff.ogg",
+    "assets/audio/music/popstar_concert/drumoff.ogg.import",
+    "assets/audio/music/popstar_concert/encore.ogg",
+    "assets/audio/music/popstar_concert/encore.ogg.import",
+    "assets/audio/music/popstar_concert/finish.ogg",
+    "assets/audio/music/popstar_concert/finish.ogg.import",
+    "assets/audio/music/popstar_concert/rehearsal.ogg",
+    "assets/audio/music/popstar_concert/rehearsal.ogg.import",
+    "assets/audio/music/popstar_concert/stick.ogg",
+    "assets/audio/music/popstar_concert/stick.ogg.import",
+    "assets/audio/music/popstar_concert/tom.ogg",
+    "assets/audio/music/popstar_concert/tom.ogg.import",
+    "assets/audio/music/popstar_concert/verse_1.ogg",
+    "assets/audio/music/popstar_concert/verse_1.ogg.import",
+    "assets/audio/music/popstar_concert/verse_2.ogg",
+    "assets/audio/music/popstar_concert/verse_2.ogg.import",
+    "assets/prototypes/popstar_concert/cues/ghost.png",
+    "assets/prototypes/popstar_concert/cues/ghost.png.import",
+    "assets/prototypes/popstar_concert/cues/gold.png",
+    "assets/prototypes/popstar_concert/cues/gold.png.import",
+    "assets/prototypes/popstar_concert/cues/lavender.png",
+    "assets/prototypes/popstar_concert/cues/lavender.png.import",
+    "assets/prototypes/popstar_concert/cues/teal.png",
+    "assets/prototypes/popstar_concert/cues/teal.png.import",
+    "assets/prototypes/popstar_concert/daddy_ukulele.png",
+    "assets/prototypes/popstar_concert/daddy_ukulele.png.import",
+    "assets/prototypes/popstar_concert/eagle_bass.png",
+    "assets/prototypes/popstar_concert/eagle_bass.png.import",
+    "assets/prototypes/popstar_concert/provenance.json",
+    "assets/prototypes/popstar_concert/roshan_drums.png",
+    "assets/prototypes/popstar_concert/roshan_drums.png.import",
+    "assets/prototypes/popstar_concert/voices/echo.ogg",
+    "assets/prototypes/popstar_concert/voices/echo.ogg.import",
+    "assets/prototypes/popstar_concert/voices/finish.ogg",
+    "assets/prototypes/popstar_concert/voices/finish.ogg.import",
+    "assets/prototypes/popstar_concert/voices/hey.ogg",
+    "assets/prototypes/popstar_concert/voices/hey.ogg.import",
+    "assets/prototypes/popstar_concert/voices/lead.ogg",
+    "assets/prototypes/popstar_concert/voices/lead.ogg.import",
+    "assets/prototypes/popstar_concert/voices/manifest.json",
+    "assets/prototypes/popstar_concert/voices/play.ogg",
+    "assets/prototypes/popstar_concert/voices/play.ogg.import",
+    "assets/prototypes/popstar_concert/voices/rehearsal.ogg",
+    "assets/prototypes/popstar_concert/voices/rehearsal.ogg.import",
+    "assets_src/audio/music/popstar_concert_score.json",
+    "assets_src/imagegen/popstar_bass_pilot_20261022/.gdignore",
+    "assets_src/imagegen/popstar_bass_pilot_20261022/job_card.json",
+    "assets_src/imagegen/popstar_bass_pilot_20261022/prompts.json",
+    "assets_src/imagegen/popstar_bass_pilot_20261022/roshan_base.png",
+    "assets_src/imagegen/popstar_bass_pilot_20261022/roshan_drums.png",
+    "assets_src/imagegen/popstar_bass_pilot_20261022/take01.png",
+    "assets_src/imagegen/popstar_bass_pilot_20261022/take02.png",
+    "assets_src/imagegen/popstar_rhythm_ui_20261022/.gdignore",
+    "assets_src/imagegen/popstar_rhythm_ui_20261022/cues.aseprite",
+    "assets_src/imagegen/popstar_rhythm_ui_20261022/failed_crop01/ghost.png",
+    "assets_src/imagegen/popstar_rhythm_ui_20261022/failed_crop01/gold.png",
+    "assets_src/imagegen/popstar_rhythm_ui_20261022/failed_crop01/lavender.png",
+    "assets_src/imagegen/popstar_rhythm_ui_20261022/failed_crop01/teal.png",
+    "assets_src/imagegen/popstar_rhythm_ui_20261022/job_card.json",
+    "assets_src/imagegen/popstar_rhythm_ui_20261022/prompt.json",
+    "assets_src/imagegen/popstar_rhythm_ui_20261022/take01.png",
+    "assets_src/prototypes/popstar_concert_20261022/.gdignore",
+    "assets_src/prototypes/popstar_concert_20261022/audio-and-score-tests.log",
+    "assets_src/prototypes/popstar_concert_20261022/audio-ledger-update.log",
+    "assets_src/prototypes/popstar_concert_20261022/audio-policy-tests.log",
+    "assets_src/prototypes/popstar_concert_20261022/audio_clock.json",
+    "assets_src/prototypes/popstar_concert_20261022/audio_ledger_diff.json",
+    "assets_src/prototypes/popstar_concert_20261022/band-ready.log",
+    "assets_src/prototypes/popstar_concert_20261022/candidate_receipt.json",
+    "assets_src/prototypes/popstar_concert_20261022/chorus-preview.png",
+    "assets_src/prototypes/popstar_concert_20261022/chorus_loudness_before_mastering.json",
+    "assets_src/prototypes/popstar_concert_20261022/controller-reviewed.log",
+    "assets_src/prototypes/popstar_concert_20261022/forced-mercy.log",
+    "assets_src/prototypes/popstar_concert_20261022/forced_mercy_probe.gd",
+    "assets_src/prototypes/popstar_concert_20261022/full-ci-ledger-drift.log",
+    "assets_src/prototypes/popstar_concert_20261022/full-local-ci.log",
+    "assets_src/prototypes/popstar_concert_20261022/preview-final.log",
+    "assets_src/prototypes/popstar_concert_20261022/score-tests-final.log",
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "scripts/beat_kit.gd",
+    "scripts/beat_kit.gd.uid",
+    "scripts/popstar_band_state.gd",
+    "scripts/popstar_band_state.gd.uid",
+    "scripts/popstar_concert_preview.gd",
+    "scripts/popstar_concert_preview.gd.uid",
+    "scripts/probe_beatkit.gd",
+    "scripts/probe_beatkit.gd.uid",
+    "scripts/probe_beatkit_audio.gd",
+    "scripts/probe_opera_2d.gd",
+    "scripts/probe_popstar_band.gd",
+    "scripts/probe_popstar_band.gd.uid",
+    "scripts/probe_popstar_preview.gd",
+    "tools/audit_audio_quality.py",
+    "tools/build_popstar_concert.py",
+    "tools/build_popstar_voices.py",
+    "tools/tests/test_audit_audio_quality.py",
+    "tools/tests/test_popstar_concert.py"
+  ],
+  "validation": [
+    {
+      "command": "Godot4.7.2 --headless -s scripts/probe_beatkit.gd",
+      "result": "PASS",
+      "evidence": "Timing windows, epochs, bounce, damper, waiting mercy, clear-play/idle discrimination and pitch-adjusted clock fixtures. Re-run in existing trusted probe_opera_2d entry point during full suite."
+    },
+    {
+      "command": "Godot4.7.2 --headless -s scripts/probe_popstar_band.gd",
+      "result": "PASS",
+      "evidence": "assets_src/prototypes/popstar_concert_20261022/band-ready.log: every generated section, late-child mercy,120s idle/5Hz negatives, contact-only credit, per-skill scaffolds, retained waiting-loop contacts, one-finish-per-epoch, unknown checkpoint keys and contest policy. Contacts are explicitly simulated, not physical acting acceptance."
+    },
+    {
+      "command": "Godot4.7.2 --rendering-method mobile -s scripts/probe_popstar_preview.gd -- --capture=<owned build path>",
+      "result": "PASS",
+      "evidence": "assets_src/prototypes/popstar_concert_20261022/preview-final.log: native Mobile GUI routing, held/foreign input, face bounds, pause/teardown, retained waiting loop, real finished-signal controller route, whole concert and120s idle. Positive contact markers explicitly simulated; no physical acting/reward acceptance."
+    },
+    {
+      "command": "Godot4.7.2 --rendering-method mobile -s scripts/probe_beatkit_audio.gd",
+      "result": "PASS",
+      "evidence": "assets_src/prototypes/popstar_concert_20261022/audio_clock.json; WASAPI Ogg advances, Interactive position0; half-pitch source-position ratio measured. Target device remains unknown."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_popstar_concert; python -B tools/build_popstar_concert.py --check",
+      "result": "PASS",
+      "evidence": "6 independent score mutation/hash/media tests; current chart bound to score, generator and every audio output. 48k stereo integer bars, loop tags and >=64kbps verified."
+    },
+    {
+      "command": "Aseprite1.3.18.4 static cue extraction and decoded RGBA comparison",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/popstar_rhythm_ui_20261022/job_card.json; full native sheet/master retained; crop export pixel equality, no resampling or painting."
+    },
+    {
+      "command": "scripts/ci.sh complete current-source local suite",
+      "result": "FAIL",
+      "evidence": "build/popstar-rebuild-20261022/full-ci-verified.log: AUDIO_QUALITY check870/870 STALE; expected generated-ledger update for added audio. Native/full probes were not reached. Preserve this failure; rerun after scoped ledger correction."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Both passed on candidate; repeat after final evidence metadata is staged."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_audio_quality; python -B tools/audit_audio_quality.py",
+      "result": "PASS",
+      "evidence": "36tests and870file generated-ledger update; audio_ledger_diff.json proves13additions, no removed/changed legacy rows, no new human scores. Original full-suite failure retained."
+    },
+    {
+      "command": "scripts/ci.sh complete reviewed local suite",
+      "result": "PASS",
+      "evidence": "assets_src/prototypes/popstar_concert_20261022/full-local-ci.log: exit0,82/82trusted top-level probes, all3nested rhythm legs,43audio/score unit cases, import/analyzer/static gates; source hash drift0. Does not grant physical/visual/device/child/owner acceptance."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_audio_quality",
+      "result": "PASS",
+      "evidence": "audio-and-score-tests.log:43cases, including7concert cases now imported by existing protected CI entry point. Source-normalization rebuild preserved all13audio hashes; existing870file ledger still matches."
+    },
+    {
+      "command": "Godot4.7.2 --headless -s assets_src/prototypes/popstar_concert_20261022/forced_mercy_probe.gd",
+      "result": "PASS",
+      "evidence": "forced-mercy.log: real GUI routing with explicit simulated contact fixtures; forced waiting mode advances a5Hz three-target cycle at86.8s, compared with one12.203s intentional bar pass from the full-controller test. No physical acting or human acceptance inferred."
+    },
+    {
+      "command": "Exact-head remote CI and normal career integration",
+      "result": "PENDING",
+      "evidence": "Topic checkpoint only. No normal career route, dev merge, APK or release requested/eligible before accepted action/integration."
+    }
+  ],
+  "acceptance_gaps": "Both generated bass-strike takes rejected at declared two-take limit. Whole-frame contact/fixture/size continuity remains blocking. No accepted pilot exists, so full action-set production and normal career integration remain dependent. Independent audio, timing, concert policy and isolated nonrewarding layout preview proceed. Phone/device/child/owner and full source machine gates remain separate.",
+  "references_used": [
+    {
+      "path": "docs/handoffs/codex_minigame_rebuilds_2026-10-17/POP_STAR.md",
+      "purpose": "Owner-selected Oct18 design; direct Oct22 rebuild instruction activates implementation"
+    },
+    {
+      "path": "docs/handoffs/codex_minigame_rebuilds_2026-10-17/SHARED_SYSTEMS.md",
+      "purpose": "Audio clock, generated score chart, judging and lifecycle"
+    }
+  ],
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-POPSTAR-CORE-20261018",
+      "evidence": "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json; Oct22 direct human: Rebuild with these goals, sounds like a good plan",
+      "write_back": "MA-OPERA-014; focused current-source probes and pilot review"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "A passing cue judge does not prove section/audio lifecycle. Complete a GUI-driven concert, ended-clip restart and waiting-loop review before the expensive full suite.",
+      "write_back": "scripts/probe_popstar_preview.gd"
+    },
+    {
+      "lesson": "Normalize source-only checksums to LF and preserve literal native evidence in Git; do not normalize binary audio or image bytes.",
+      "write_back": "tools/build_popstar_concert.py and .gitattributes"
+    },
+    {
+      "lesson": "New unreviewed audio needs a generated inventory entry with a blank human score, gated through the existing protected audio test entry point.",
+      "write_back": "tools/audit_audio_quality.py and tools/tests/test_audit_audio_quality.py"
+    }
+  ]
+}

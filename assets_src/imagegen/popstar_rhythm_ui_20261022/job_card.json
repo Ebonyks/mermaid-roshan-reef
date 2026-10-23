@@ -1,0 +1,104 @@
+{
+  "id": "popstar-three-colour-cues-20261022",
+  "lane": "static gameplay UI artwork plus declared Canvas translation; no character action generation",
+  "reuse_inventory": [
+    "assets/kart/boost_ribbon.png",
+    "assets/opera/worlds/props/fx_invite_ring_0.png",
+    "assets/opera/worlds/widgets/widget_lanes_popstar.png"
+  ],
+  "gap": "Existing boost ribbon is horizontal and multicoloured; it cannot clearly identify teal tom, lavender bass and gold cymbal as distinct falling cues. Existing untimed echo lanes are retired. Retain painted rings; generate only three clear coloured ribbons and their ghost cue.",
+  "approved_direction": "POP_STAR section8: three solid painted streamers in drum colours and one ghost; no scene/identity redesign.",
+  "method": "One builtin ImageGen static UI sheet; Aseprite lossless cell extraction/native preservation; existing code translates these cues around the face. Independent static UI item, not a restart or bypass of the exhausted bass animation job.",
+  "limits": {
+    "calls": 2,
+    "wall_seconds": 600,
+    "cleanup_seconds": 300,
+    "paid_external_dollars": 0,
+    "started_unix": 1792730723.6923385
+  },
+  "delivery_accepted": false,
+  "attempts": [
+    {
+      "take": 1,
+      "tool": "builtin ImageGen",
+      "native_sha256": "147edd8de97fd70755ad2f94f0ac7760391f3c0e9db31127d6c0a1fd5222dbcf",
+      "request_id": "exec-44af92b7-943e-4719-800c-73679f6daaa4",
+      "seconds": 35.1,
+      "disposition": "Static UI candidate; no final acceptance"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "assets/prototypes/popstar_concert/cues/teal.png",
+      "sha256": "e9b714c5f1a9cd23d0391d20f617daacbf68385817f7f8cb95913f0ce0504756",
+      "source_rect": [
+        269,
+        3,
+        253,
+        619
+      ],
+      "derivation": "Aseprite1.3.18.4 exact native crop around painted silhouette plus8px padding; no resize, repaint, warp or alpha threshold edit. Exterior low-alpha field omitted by crop; original native retained. Visible RGBA crop equality proven."
+    },
+    {
+      "path": "assets/prototypes/popstar_concert/cues/lavender.png",
+      "sha256": "b6881436e1d45d52ebb925f5353c146336f18d07fd648581b09bd7c9bceb17ab",
+      "source_rect": [
+        739,
+        5,
+        253,
+        617
+      ],
+      "derivation": "Aseprite1.3.18.4 exact native crop around painted silhouette plus8px padding; no resize, repaint, warp or alpha threshold edit. Exterior low-alpha field omitted by crop; original native retained. Visible RGBA crop equality proven."
+    },
+    {
+      "path": "assets/prototypes/popstar_concert/cues/gold.png",
+      "sha256": "d8ea108cdbc21b5b964ad8835f5d2bb2b65427b278e7b71728354bdfe08779e7",
+      "source_rect": [
+        253,
+        628,
+        287,
+        601
+      ],
+      "derivation": "Aseprite1.3.18.4 exact native crop around painted silhouette plus8px padding; no resize, repaint, warp or alpha threshold edit. Exterior low-alpha field omitted by crop; original native retained. Visible RGBA crop equality proven."
+    },
+    {
+      "path": "assets/prototypes/popstar_concert/cues/ghost.png",
+      "sha256": "1cd11a01b79dba126ad5a050fa3fbcaa8494268050e4c9b2dab5c69dbaa33771",
+      "source_rect": [
+        738,
+        630,
+        259,
+        614
+      ],
+      "derivation": "Aseprite1.3.18.4 exact native crop around painted silhouette plus8px padding; no resize, repaint, warp or alpha threshold edit. Exterior low-alpha field omitted by crop; original native retained. Visible RGBA crop equality proven."
+    }
+  ],
+  "native_master": {
+    "path": "assets_src/imagegen/popstar_rhythm_ui_20261022/cues.aseprite",
+    "sha256": "a1a67ea4c330c31303fc00daccefdf44b7a03b7b907e72c1af01528eddca2fbe",
+    "version": "Aseprite1.3.18.4",
+    "layers": "one complete sheet layer; no limb/articulation work"
+  },
+  "failed_export": "Initial640cell assumption failed actual1254native inspection; four bad exports retained in failed_crop01. Corrected627cell exports measured against decoded native source.",
+  "machine_roundtrip": {
+    "result": "PASS",
+    "master_sha256": "a1a67ea4c330c31303fc00daccefdf44b7a03b7b907e72c1af01528eddca2fbe",
+    "decoded_visible_rgba_equal_to_native": true,
+    "scope": "Format/provenance verification only; no new image production or repair; no final visual/device/owner acceptance"
+  },
+  "bound_inputs": [
+    {
+      "path": "assets_src/imagegen/popstar_bass_pilot_20261022/roshan_drums.png",
+      "sha256": "8c053d0cff47f04f3297ca6c48016fb74f24bfcb862f8c2cedeb3fd980f1e709",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Image1 approved static drummer material/kit style reference; separate appearance input, no position guide",
+      "source_commit": "bfe766ffe168aea8d99e9ee8207aff57f857db70",
+      "license": "Existing project artwork terms retained",
+      "acceptance": "Static reference only; generated symbols remain candidates"
+    }
+  ],
+  "prompt_path": "assets_src/imagegen/popstar_rhythm_ui_20261022/prompt.json"
+}

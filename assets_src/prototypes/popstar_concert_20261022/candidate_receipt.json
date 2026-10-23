@@ -1,0 +1,88 @@
+{
+  "baseline": "9c78f6aa9981cad8caae576c4f1c541c32f247e4",
+  "branch": "codex/popstar-rhythm-rebuild-20261022",
+  "scope": "Isolated nonrewarding candidate. Normal Opera/Chapter2 routing and saves unchanged. No accepted animation, stars, medal, runtime integration or final clearance.",
+  "source_hashes": {
+    "scripts/beat_kit.gd": "0175270fe686a268cb4c72719648895d6cab395c62301698a6f3dbcfcd4f7b2b",
+    "scripts/popstar_band_state.gd": "6f1482c89b031e8223d3c16f3df5e7eae0df3a1d629cbd8dd425e06cf6caf5c9",
+    "scripts/popstar_concert_preview.gd": "ab1f197a36082d5075e86db0d3bfa0bfc239b4d19268388c4af11519c497b68d",
+    "scripts/probe_beatkit.gd": "7c1845d5d517e3422966b1ce5b5ced5f05aefd5611a5bec756f3870fb39d14c8",
+    "scripts/probe_popstar_band.gd": "b9323cea3ee975007b4dbf0e0049689ded9dc8b0582c6b27779bf4109fe03b5e",
+    "scripts/probe_popstar_preview.gd": "9f541b4baca7202b2780558566e9559480f334a5a99bde739436652f995cf34a",
+    "scripts/probe_beatkit_audio.gd": "94c8a8a90ecd092edc517e7dc7d21f86df00d84b1317406806464c9bfb306d44",
+    "scripts/probe_opera_2d.gd": "95f5dc2522918493247202d123457fb0a3a3b67f6dfe2c3d523cc7f75809336c",
+    "tools/build_popstar_concert.py": "2e2f2cf80efa40e51cc8e2fcac1313d1428c5d16de351cc6685c5e8c9eecb35c",
+    "tools/build_popstar_voices.py": "2537795fceeca87e33537db17f8e21ee99d9534c8f912679423a36fe32a04e2d",
+    "tools/tests/test_popstar_concert.py": "9175775bd148cc0c079ff50e85124ef393fbe96afacc7ff685f5f273bd992cfe",
+    "assets_src/audio/music/popstar_concert_score.json": "db11e0d574b4dbd6c9891980e7925dab38af31613375d5e6fbd1185869f7deb1",
+    "assets/audio/music/popstar_concert/chart.json": "62a48017b6de4f9d86f91062c08585705857cbe87d1f43bc1f913e32ba648a41",
+    "tools/audit_audio_quality.py": "7d121774d01fa00a51ea680e695b921548ab2125a54d4fd037b9cd4463997027",
+    "tools/tests/test_audit_audio_quality.py": "d6ae1920d606e9f54c36fa229549a315797267f9711575cc36f7e3e25090b256",
+    "audit/audio_quality_ledger_2026-08-24.csv": "a20b1adc0e9563b0224cb2bf5a55509fc7420b14954b411b44d48b52e89b7ef1",
+    "audit/audio_quality_summary_2026-08-24.json": "b44fcfc02127f5ae839d0a225c017aa8eebfd226be3068ee3de136c88d5f3ad9",
+    "tools/build_area_music.py": "ba094ea2cc149dd7de0655a60c680443020d6d603142798b511e8d6fd10367fb"
+  },
+  "preview_sha256": "ea7af7d8badbf7715a2daaa253e42bd2006f05c0b9ca86ef7a3be1ed0028d216",
+  "art_pause": "Two bass takes rejected. Owner extension question pending. UI static cue uses1separate builtin call; not an animation cap reset.",
+  "gaps": [
+    "accepted bass pilot then owner look before full action set",
+    "other drum strikes, listen/groove/mic/roll/bow and band/rival acting",
+    "normal career/contact/reward/save integration",
+    "drum-off native acting",
+    "actual device latency/performance, child and owner acceptance",
+    "full exact-source CI and remote green before any integration",
+    "Correct-target feedback, microphone/crowd response, visible imp/kit and mastery/voice routing still need final world/art integration.",
+    "Normal Pop Star and Chapter2 routes are unchanged; this is a nonrewarding preview and tested foundation, not an installed/released rebuild."
+  ],
+  "first_full_ci": "Stopped during static checks after review found source corrections; retained incomplete log. Never claimed PASS.",
+  "review_corrections": [
+    "Connected rehearsal learned offset to serialized checkpoint state",
+    "Scored each drum-off phrase and prevented repeat scoring of one epoch",
+    "Normalized slowed playback position to actual elapsed audio time using measured0.5pitch ratio",
+    "Replaced preliminary wood/jingle hit timbres with project-owned soft tom, bass and short crash synthesis",
+    "Echo2/echo3 per-skill levels advance only on clean answer phrases, never choruses",
+    "Waiting-loop epochs retain verified contacts and clear stale pending actions",
+    "One epoch cannot complete two sections",
+    "Checkpoint preserves unknown future keys",
+    "End-of-clip interludes advance wall time after audio drains, then return immediately after restarting the section",
+    "Whole GUI concert completes in10section passes including2contest rounds;120s GUI idle earns nothing",
+    "Portable source-only checksum normalization and protected audio CI import of7concert mutation/hash cases"
+  ],
+  "second_full_ci": "Stopped during static gates for isolated hit-timbre improvement; ci-second-incomplete.log retained, never a full pass.",
+  "third_full_ci": "Stopped during static checks for per-skill scaffold and waiting-loop corrections; ci-third-incomplete.log retained, not a full pass.",
+  "full_ci_failure": {
+    "command": "scripts/ci.sh",
+    "result": "FAIL",
+    "reason": "Audio quality inventory stale after13added clips",
+    "evidence": "assets_src/prototypes/popstar_concert_20261022/full-ci-ledger-drift.log",
+    "repair": "Generated current870file inventory; new Pop Star cohort has blank human grades;36audio-policy tests pass; previous857rows/source hashes unchanged"
+  },
+  "audio_recipe_runtime": {
+    "ffmpeg_version": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffmpeg_sha256": "1326dde4c84ff1f96fe6b8916c5bed29e163e9b5dccf995f6f3db069d143ec5e",
+    "numpy_version": "2.5.1",
+    "scipy_version": "1.18.0",
+    "sample_rate_hz": 48000,
+    "channels": 2,
+    "derivation": "Original Starlight score, existing area renderer plus dedicated chart/concert/hit generator. No protected recording or external sample read."
+  },
+  "source_hash_normalization": "UTF-8 LF bytes; CRLF normalized; BOM preserved",
+  "fifth_full_ci": "Stopped after successful870file audio inventory check during remaining static checks: controller review exposed ended-clip restart stall. Retained incomplete log; never PASS.",
+  "pending_ci": "Exact-head remote CI after checkpoint push",
+  "local_ci": {
+    "result": "PASS",
+    "exit_code": 0,
+    "trusted_top_level_probes": 82,
+    "nonzero_probe_exits": [],
+    "nested_rhythm_probes": [
+      "probe_beatkit",
+      "probe_popstar_band",
+      "probe_popstar_preview"
+    ],
+    "audio_score_unit_cases": 43,
+    "log_path": "assets_src/prototypes/popstar_concert_20261022/full-local-ci.log",
+    "log_sha256": "a4fec4b1da4d0d7515ace6d600f827ac30b0984aeceb5603f62d30cc07741de7",
+    "runtime_source_drift": [],
+    "scope": "Machine verification only; actual strike acting, caller/save integration, phone performance, child/owner acceptance remain open."
+  }
+}

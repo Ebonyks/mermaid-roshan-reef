@@ -9,6 +9,8 @@ from pathlib import Path
 
 # Keep authored-score regression cases in the existing local/CI audio gate.
 from tools.tests.test_authored_area_music import AuthoredAreaMusicTests
+# The existing protected audio CI entry point also owns concert/chart hashes.
+from tools.tests.test_popstar_concert import ScoreTests
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -20,6 +22,21 @@ SPEC.loader.exec_module(MODULE)
 
 
 class AudioQualityPolicyTests(unittest.TestCase):
+
+    def test_popstar_candidates_never_infer_a_human_listening_score(self):
+        path = "assets/audio/music/popstar_concert/verse_1.ogg"
+        good = {"decode_ok": True, "duration_seconds": 12.2}
+        self.assertEqual(MODULE.grade(path, good, -6.0),
+                         ("A", "", "P1", "REVIEW_POPSTAR_CANDIDATE"))
+        self.assertEqual(MODULE.grade(path, good, 0.2),
+                         ("F", "", "P1", "REPLACE_CLIPPING"))
+        self.assertEqual(MODULE.grade(path, {"decode_ok": False}, None),
+                         ("F", "", "P0", "REPLACE_CORRUPT"))
+
+    def test_popstar_one_shots_are_not_ambient_music_loops(self):
+        for name in ("tom", "bass", "cymbal", "stick"):
+            self.assertEqual(MODULE.category("assets/audio/music/popstar_concert/" + name + ".ogg"), "sfx")
+        self.assertEqual(MODULE.category("assets/audio/music/popstar_concert/chorus_1.ogg"), "music")
 
     def test_neutral_objective_guides_are_separate_voice_assets(self):
         path = "assets/audio/objective_guides/guide_dolls_catch_three.ogg"

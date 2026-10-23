@@ -73,3 +73,8 @@ audit/remove_opera_anteroom_20261017/*.log -text -diff
 # Preserve exact native Opera icon-placement verification logs.
 audit/opera_door_icons_20261017/*.log -text -diff
 audit/opera_door_icons_20261017/*.txt -text -diff
+
+# Pop Star native evidence and ImageGen masters bind literal archive bytes.
+assets_src/prototypes/popstar_concert_20261022/** -text whitespace=cr-at-eol
+assets_src/imagegen/popstar_bass_pilot_20261022/** -text whitespace=cr-at-eol
+assets_src/imagegen/popstar_rhythm_ui_20261022/** -text whitespace=cr-at-eol
