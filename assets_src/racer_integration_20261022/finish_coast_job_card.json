@@ -1,0 +1,57 @@
+{
+  "job_id": "racer-seated-finish-coast-20261022",
+  "status": "RUNTIME_CANDIDATE_NOT_OWNER_ACCEPTED_ACTING",
+  "verb": "Kart coasts to a stop after the finish; Roshan stays seated until the separate existing curtain call.",
+  "sources": [
+    {
+      "path": "assets/kart/chase/kart_straight.png",
+      "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee",
+      "acceptance_scope": "existing authored source identity, not new acting acceptance"
+    },
+    {
+      "path": "assets/kart/chase/kart_left.png",
+      "sha256": "733fd9c4e1fe1aef84bbf57161e0c225d3a5d4f3f6ebdc71af5e9f49a8df9ffc",
+      "acceptance_scope": "existing authored source identity, not new acting acceptance"
+    },
+    {
+      "path": "assets/kart/chase/kart_right.png",
+      "sha256": "66fabc27fd8bda5d775d787a84b866d40dc1d9b9a9d121cb25e38eb66fd688e2",
+      "acceptance_scope": "existing authored source identity, not new acting acceptance"
+    }
+  ],
+  "fixed_parts": [
+    "Whole authored Roshan/kart relationship, anatomy, seat and sprite pivots."
+  ],
+  "moving_parts": [
+    "2D kart path distance, scalar speed, whole-card projection and existing camera follow."
+  ],
+  "geometry": {
+    "speed": "initial_speed*(remaining/0.9)^2",
+    "visual_distance": "start+initial_speed*0.9/3*(1-(remaining/0.9)^3)",
+    "earned_distance": "fixed1600; visual coast never earns progress",
+    "duration_seconds": 0.9
+  },
+  "entry": "Actual external engine finish after2laps; cancel live touch and drift.",
+  "exit": "Stationary seated pose; World owns its existing later phase hold/curtain.",
+  "method": "Existing authored source sprites plus declared local2D physics translation/projection. No generated keyframes, deformation, mesh, rig or new character acting.",
+  "attempts": {
+    "generated_takes": 0,
+    "generation_calls": 0,
+    "paid_spend": 0,
+    "art_campaign_reopened": false,
+    "task_cap_reset": false
+  },
+  "limits": "Integration-only reuse; no new art-generation authorization, funded budget or prior cap reset.",
+  "provenance": "provenance.json and native_demo.json exact hashes; no original asset changed.",
+  "evidence": {
+    "full_speed": "GodotAI Mobile/Speedy native actual-input finish",
+    "samples": "native_speedy/finish-crossing.png,finish-coast.png,finish-seated-settle.png,finish-curtain.png",
+    "frame_step": "PENDING complete transition/frame-step acceptance",
+    "owner_finish_acting": "UNANSWERED; this mechanical candidate does not answer the older artistic question",
+    "device_child_owner": "PENDING"
+  },
+  "tolerances": [
+    "Earned distance stays1600 throughout coast; no standing actor drawn during the seated stop.",
+    "World alone owns reward/save and later ceremony; no engine payout or duplicate completion."
+  ]
+}

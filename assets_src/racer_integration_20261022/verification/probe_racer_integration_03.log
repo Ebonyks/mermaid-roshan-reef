@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+RACER_INTEGRATION|PASS|full engine has eight racers and one owned presenter
+RACER_INTEGRATION|PASS|only the owning surface clocks the simulation
+RACER_INTEGRATION|PASS|sixty seconds unattended earns no distance, pearl or finish
+RACER_INTEGRATION|PASS|foreign finger cannot steer
+RACER_INTEGRATION|PASS|optional turbo finger preserves steering owner
+RACER_INTEGRATION|PASS|turbo is live during actual driving
+RACER_INTEGRATION|PASS|cancel immediately freezes earned distance and pearls
+RACER_INTEGRATION|PASS|collected pearls survive cancellation
+RACER_INTEGRATION|PASS|collected pearls survive cancellation
+RACER_INTEGRATION|MEASURE|pearl_rows|[{ "arrived": true, "claims": 4 }, { "arrived": true, "claims": 0 }]
+RACER_INTEGRATION|PASS|genuine steering hits versus misses actual pearl footprints
+RACER_INTEGRATION|PASS|furniture contact keeps positive progress and no economy payout
+RACER_INTEGRATION|PASS|furniture contact keeps positive progress and no economy payout
+RACER_INTEGRATION|PASS|whole couch is a real avoidable road obstacle
+RACER_INTEGRATION|MEASURE|lap_seconds|33.5666666666667|pearls|27
+RACER_INTEGRATION|PASS|genuine input completes two laps within seventy seconds
+RACER_INTEGRATION|PASS|natural complete laps traverse all five castle visits
+RACER_INTEGRATION|PASS|career engine cannot issue its own reward or completion
+RACER_INTEGRATION|PASS|seated stop settles without manufactured earned distance
+RACER_INTEGRATION|PASS|leaving race actually frees the old engine
+RACER_INTEGRATION|PASS|teardown actually frees fresh engine and presenter
+RACER_INTEGRATION|DONE|failures=0

@@ -785,6 +785,7 @@ Kept as-is; noted so a future edit updates every copy.
 | Document | State | Scope |
 | --- | --- | --- |
 | `design/GEOLOGIST_REBUILD_2026-09-05.md` | 🔵 | `SUPPORTING_CURRENT`; scoped Geologist research, mechanics implementation and diagnostic evidence; not release, final-art, device or child acceptance. |
+| `design/RACER_CASTLE_INTEGRATION_2026-10-22.json` | 🟠 | `SUPPORTING_CURRENT`; owner-directed existing full Canvas Racer recovery and Castle-room route, current integration ownership and separate machine/native/art/device/child/owner evidence. No acceptance or closure. |
 | `design/OPERA_RACER_ENGINE_INTEGRATION_2026-09-05.md` | 🔵 | `SUPPORTING_CURRENT`; local Racer engine integration, diagnostic validation and visual evidence; not merged, released, device accepted, or master-audit closure. |
 
 ## Opera two-part performances — 2026-09-05

@@ -1,0 +1,297 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "Mobile / Vulkan desktop RTX3060Ti, Speedy profile",
+  "scope": "Actual Mermaid Roshan main scene, isolated developer playtest save, production Canvas career and full Racer. AI dispatches actual touch/drag prep and two complete laps through all five room visits. No manual assignment of race progress, pickups or completion. Desktop diagnostic only.",
+  "native_events": [
+    {
+      "detail": {
+        "reward_policy": "existing dev_playtest; owner save isolated"
+      },
+      "event": "real_career_started",
+      "milliseconds": 45879
+    },
+    {
+      "detail": {
+        "phase": 0
+      },
+      "event": "prep_completed",
+      "milliseconds": 55584
+    },
+    {
+      "detail": {
+        "phase": 1
+      },
+      "event": "prep_completed",
+      "milliseconds": 62940
+    },
+    {
+      "detail": {
+        "label": "00-race-ready"
+      },
+      "event": "capture",
+      "milliseconds": 68215
+    },
+    {
+      "detail": {
+        "label": "room-0"
+      },
+      "event": "capture",
+      "milliseconds": 70567
+    },
+    {
+      "detail": {
+        "label": "room-1"
+      },
+      "event": "capture",
+      "milliseconds": 73409
+    },
+    {
+      "detail": {
+        "label": "room-2"
+      },
+      "event": "capture",
+      "milliseconds": 75859
+    },
+    {
+      "detail": {
+        "label": "room-3"
+      },
+      "event": "capture",
+      "milliseconds": 80243
+    },
+    {
+      "detail": {
+        "label": "room-4"
+      },
+      "event": "capture",
+      "milliseconds": 83108
+    },
+    {
+      "detail": {
+        "distance": 921.003926357245,
+        "manual_race_state_written": false,
+        "pearls": 28,
+        "touch_released": true,
+        "visits": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "event": "interactive_race_ready",
+      "milliseconds": 88113
+    },
+    {
+      "detail": {
+        "label": "interactive-race-ready"
+      },
+      "event": "capture",
+      "milliseconds": 91768
+    },
+    {
+      "detail": {},
+      "event": "demo_complete_take_over_with_one_finger",
+      "milliseconds": 91769
+    }
+  ],
+  "captures": [
+    {
+      "path": "audit/evidence/racer-castle-integration-20261022/native_speedy/00-race-ready.png",
+      "sha256": "6a52c00ed53d45395f56574418cf892503e36d2b2ed4e9a3bc5e70ff43eaf1c7",
+      "bytes": 448301
+    },
+    {
+      "path": "audit/evidence/racer-castle-integration-20261022/native_speedy/finish-coast.png",
+      "sha256": "e34ebe29dc9869705c7861f88d5f747bbcbd2f928363283ea3cda916c7d2c452",
+      "bytes": 427853
+    },
+    {
+      "path": "audit/evidence/racer-castle-integration-20261022/native_speedy/finish-crossing.png",
+      "sha256": "969b35422d59bffd37cac4de54ce10a4b5b48ff3b8a13eeabda66117a67816a8",
+      "bytes": 451646
+    },
+    {
+      "path": "audit/evidence/racer-castle-integration-20261022/native_speedy/finish-curtain.png",
+      "sha256": "22f51027cf6cc93b6372c16214b7279e8f68378ffa739eab3ed6be93be507675",
+      "bytes": 1412912
+    },
+    {
+      "path": "audit/evidence/racer-castle-integration-20261022/native_speedy/finish-seated-settle.png",
+      "sha256": "1d9eb6a5b590440baf9891510691d65315d7c03953eac4bb70523262d8785f9e",
+      "bytes": 424934
+    },
+    {
+      "path": "audit/evidence/racer-castle-integration-20261022/native_speedy/interactive-race-ready.png",
+      "sha256": "09ee0ead570bdee0db8b88c1124f6f557822282ae20f254f780452ebeecf35a0",
+      "bytes": 196189
+    },
+    {
+      "path": "audit/evidence/racer-castle-integration-20261022/native_speedy/room-0.png",
+      "sha256": "f72ec96ff55b7f9deccbc51e10594e24c6afc3fc6de564bacbd0285b5034c46e",
+      "bytes": 407233
+    },
+    {
+      "path": "audit/evidence/racer-castle-integration-20261022/native_speedy/room-1.png",
+      "sha256": "6db210aaec08936b81c1f85fe6f5d2f95b52c6710888c15f1c7e12e3b6fd9c4e",
+      "bytes": 216871
+    },
+    {
+      "path": "audit/evidence/racer-castle-integration-20261022/native_speedy/room-2.png",
+      "sha256": "78bc36b7d004a218381401b57b3c0180c17e597b5dcef121ea3e747eec360050",
+      "bytes": 401213
+    },
+    {
+      "path": "audit/evidence/racer-castle-integration-20261022/native_speedy/room-3.png",
+      "sha256": "3275f3e2b194303d01edfc0f80b65ca309766d240815d947a923a66200e85251",
+      "bytes": 224830
+    },
+    {
+      "path": "audit/evidence/racer-castle-integration-20261022/native_speedy/room-4.png",
+      "sha256": "b8a75ad387623514be67f9e8f944607b01e4d2ea0a86ab208d5d216219ffb44c",
+      "bytes": 490410
+    }
+  ],
+  "visual_review": {
+    "status": "NOT_ACCEPTED_FINAL_ART",
+    "reviewed": [
+      "room-0.png",
+      "room-2.png",
+      "interactive-race-ready.png",
+      "finish-seated-settle.png"
+    ],
+    "findings": [
+      "Recovered painted kart identity and seated finish retained.",
+      "Flat room shells, oversized empty framing and untextured polygon road remain below owner ImageGen/reference standard.",
+      "Source room tiles are reused diagnostic staging, not accepted race-perspective room artwork.",
+      "Room-space co-development, final race-facing architecture, surfaces, couch facing, TV content and bunny acting remain named art gaps."
+    ],
+    "clearance_score": null
+  },
+  "source_files": [
+    {
+      "path": "scripts/racer_game_2d.gd",
+      "sha256": "e72edf2613856f0e6fc565ab6e9f3baaef7b80c997c81b4d273a3e81ad9a60ac",
+      "bytes": 74224
+    },
+    {
+      "path": "scripts/kart_canvas_2d.gd",
+      "sha256": "c24e1bbb099104df0e6f6d0f20d241426850b9ddd982d4faa71283e28d552a8a",
+      "bytes": 30532
+    },
+    {
+      "path": "scripts/kart_course_worlds.gd",
+      "sha256": "490a279df76c1a01e358992e8c3b4aa8e072a45ce9e21c788a4aad5f8d09eac6",
+      "bytes": 2684
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "sha256": "d84da947490b4a0d4907fbf5316b201001bbd8347790c204a60200909412d53f",
+      "bytes": 13303
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "b4c74ef1bb21d1a773dc1d0aa11b4396fcc89b334c018222ba9c5239e51fb1c3",
+      "bytes": 243022
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "sha256": "b3ee4e91597e368da13124f5c71110ef71760540715bfa557510948d76629cd2",
+      "bytes": 152691
+    },
+    {
+      "path": "scripts/probe_racer_integration.gd",
+      "sha256": "e658631c4140bdf2bc6fd922f28ee852666f4a353affa8d41ae171638def69fe",
+      "bytes": 6235
+    }
+  ],
+  "captures_preserved_in_repository": true,
+  "recovery_limit": "No additional race-perspective room raster masters were found in the current or preserved Racer tree or the original local prototype staging folders. Existing generated room tiles are used; final painted course floor/architecture remains a gap.",
+  "native_finish_events": [
+    {
+      "detail": {
+        "distance": 1005.68910150507
+      },
+      "event": "resume_actual_input",
+      "milliseconds": 297687
+    },
+    {
+      "detail": {
+        "distance": 1600.0,
+        "held": false,
+        "manual_race_state_written": false,
+        "pearls": 28,
+        "phase": 2,
+        "standing_actor_visible": false
+      },
+      "event": "two_laps_finished",
+      "milliseconds": 309174
+    },
+    {
+      "detail": {
+        "label": "finish-crossing"
+      },
+      "event": "capture",
+      "milliseconds": 309334
+    },
+    {
+      "detail": {
+        "distance": 1600.0,
+        "standing_actor_visible": false,
+        "stop_t": 0.431782106782107
+      },
+      "event": "seated_coast",
+      "milliseconds": 309677
+    },
+    {
+      "detail": {
+        "label": "finish-coast"
+      },
+      "event": "capture",
+      "milliseconds": 309826
+    },
+    {
+      "detail": {
+        "distance": 1600.0,
+        "standing_actor_visible": false,
+        "stop_t": 0.0
+      },
+      "event": "seated_settle",
+      "milliseconds": 310272
+    },
+    {
+      "detail": {
+        "label": "finish-seated-settle"
+      },
+      "event": "capture",
+      "milliseconds": 310408
+    },
+    {
+      "detail": {
+        "label": "finish-curtain"
+      },
+      "event": "capture",
+      "milliseconds": 313688
+    },
+    {
+      "detail": {},
+      "event": "complete",
+      "milliseconds": 313690
+    }
+  ],
+  "demo_helper_sources": [
+    {
+      "path": "assets_src/racer_integration_20261022/racer_demo_driver.gd.txt",
+      "sha256": "eb7e807107a65aceb4f44ed411d08fc65b82983b18999818386f9694edfd78a7",
+      "runtime_authority": false,
+      "replay": "Copy to the isolated diagnostic project only; actual shipping Main/career/engine remain the implementation."
+    },
+    {
+      "path": "assets_src/racer_integration_20261022/racer_demo_finish.gd.txt",
+      "sha256": "7ffe0c88804cddf2a60d7964bee0c7f57e4b1ac80e75ed55a6011119d84bbeae",
+      "runtime_authority": false,
+      "replay": "Copy to the isolated diagnostic project only; actual shipping Main/career/engine remain the implementation."
+    }
+  ]
+}

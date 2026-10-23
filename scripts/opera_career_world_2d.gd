@@ -3529,7 +3529,7 @@ func _on_race_event(kind: String, value: float) -> void:
 	idle_t = 0.0
 	if kind == "start":
 		phase_gap = 0.0
-	if m != null and m.chime != null and kind in ["lap", "pearl", "turbo", "countdown"]:
+	if m != null and m.chime != null and kind in ["lap", "countdown"]:
 		m.chime.pitch_scale = 1.5 if kind == "lap" else 1.15 + fmod(value, 3.0) * 0.10
 		m.chime.play()
 
@@ -3596,7 +3596,8 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		return
 	if mode == "kart_race" and _kind not in ["kart_race", "probe"]:
 		return
-	_play_roshan_task_pose(phase)
+	if mode != "kart_race":
+		_play_roshan_task_pose(phase)
 	if mode == "catch" and amount < 5.0:
 		return
 	idle_t = 0.0
@@ -3688,7 +3689,8 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		# used to exist for ~0.18s before the next phase wiped it, so the
 		# child never saw the thing she had just made
 		surface.accept_completion()
-		_play_roshan_animation("cheer")
+		if mode != "kart_race":
+			_play_roshan_animation("cheer")
 		# The authored syrup-at-the-brim picture is already the reward. The
 		# shared boxer impact puff covered its mold with an unrelated abstract
 		# blob, so this one picture holds cleanly while Roshan still cheers.
@@ -4704,6 +4706,8 @@ func _draw_lens_layer() -> void:
 
 
 func _process(delta: float) -> void:
+	if surface is OperaRacerSurface:
+		(surface as OperaRacerSurface).set_career_active(active and task_open and reveal_t <= 0.0)
 	_performance_tick(delta)
 	if career_id == "nursery" and task_open and phase_index < phases.size():
 		var nursery_phase := phases[phase_index] as Dictionary
