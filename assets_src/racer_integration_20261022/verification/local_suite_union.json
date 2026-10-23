@@ -1,9 +1,9 @@
 {
   "status": "ALL_OK_SCOPE_BELOW",
   "engine": "4.7.2.stable.official.ed1daf0bf",
-  "trusted_probe_count": 82,
+  "trusted_probe_count": 81,
   "all_trusted_probes_pass": true,
-  "method": "Union of full82 local suite and exact final-source affected/interrupted re-runs. NOT a single frozen full-ci wrapper success. Full-ci-02 exit1 and all intermediate failures preserved.",
+  "method": "81 assertive trusted headless probes PASS by union of full local suite and exact final-source affected/interrupted reruns. One additional display-only diagnostic returned HEADLESS SKIP, not a validation pass. NOT a single frozen full-ci wrapper success. Failed/intermediate attempts preserved.",
   "source_identity": "Final seven gameplay/test source hashes equal first native/source snapshot before the withdrawn voice experiment. Every probe started during that experiment was re-run on final source.",
   "extra_focused_probe": "probe_racer_integration PASS",
   "probes": {
@@ -128,9 +128,10 @@
       "original_exit": 0
     },
     "probe_human_art_audit": {
-      "pass": true,
+      "pass": null,
       "source": "full-ci-02.log",
-      "original_exit": 0
+      "original_exit": 0,
+      "status": "HEADLESS_SKIP_DISPLAY_DIAGNOSTIC_NOT_ASSERTIVE"
     },
     "probe_train": {
       "pass": true,
@@ -466,5 +467,9 @@
   "export_pack": "pack_inspection_isolated.json:PASS",
   "native_gameplay": "native_demo.json:actual touch/drag all5visits,2laps,28pearls, seated0.9s coast, curtain; Mobile/Speedy desktop",
   "visual": "NOT_ACCEPTED_FINAL_ART",
-  "frame_step_device_child_owner": "PENDING"
+  "frame_step_device_child_owner": "PENDING",
+  "local_probe_process_count": 82,
+  "skipped_display_diagnostics": [
+    "probe_human_art_audit"
+  ]
 }

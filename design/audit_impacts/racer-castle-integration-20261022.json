@@ -150,13 +150,14 @@
     "assets_src/racer_integration_20261022/verification/final_2d_regression.log",
     "assets_src/racer_integration_20261022/verification/final_parser.log",
     "assets_src/racer_integration_20261022/verification/final_lint.log",
-    "assets_src/racer_integration_20261022/.gitattributes"
+    "assets_src/racer_integration_20261022/.gitattributes",
+    "assets_src/racer_integration_20261022/verification_scope_correction.json"
   ],
   "validation": [
     {
       "command": "Final local trusted probe suite via complete documented union",
       "result": "PASS",
-      "evidence": "assets_src/racer_integration_20261022/verification/local_suite_union.json;82/82 trusted probes plus focused integration. Original wrapper exit1 preserved; final affected/interrupted reruns allgreen. Exact source hashes, native Mobile/Speedy2lap demo and isolated export PCK pass. Art/frame-step/phone/child/owner acceptance remains open."
+      "evidence": "assets_src/racer_integration_20261022/verification/local_suite_union.json:81 assertive trusted headless probes plus focused racer PASS; one separate display diagnostic HEADLESS_SKIP, not visual acceptance. Original failed wrapper preserved; final affected/interrupted reruns allgreen. Exact source/native2lapMobileSpeedy/exportPack evidence retained; visual/device/child/owner/frame-step gates open."
     },
     {
       "command": "Godot4.7.2 original probe_opera_2d before test-interface migration",
@@ -212,6 +213,11 @@
       "command": "Final parser/inference/document authority/development coverage/2D regression gates",
       "result": "PASS",
       "evidence": "assets_src/racer_integration_20261022/verification/final_gates.json; all five exit0.2D gate reports NO_REGRESSION, not global zero-debt acceptance."
+    },
+    {
+      "command": "Review of display-only diagnostic classification",
+      "result": "FAIL",
+      "evidence": "Original aggregate incorrectly labeled probe_human_art_audit HEADLESS_SKIP as an assertive pass. Corrected in verification_scope_correction.json; original transcript remains intact. No visual score or acceptance follows a skipped probe."
     }
   ],
   "acceptance_gaps": "Final artwork/native coverage/motion, physical-device, child and owner acceptance remain separate; no closure or score claimed.",
@@ -244,7 +250,7 @@
       "probe_northern",
       "probe_human_art_audit"
     ],
-    "verification_plan": "COMPLETED:82/82 trusted probes via preserved full-suite/final-source rerun union, one extra integration probe, native actual-input2lap Mobile/Speedy demo and isolated export pack. Exact-head remote CI pending. No single frozen local wrapper success or final-art acceptance claim.",
+    "verification_plan": "COMPLETED local:81/81 assertive trusted probes via preserved full-suite/final-source rerun union; one display-only HEADLESS_SKIP, one extra integration probe PASS; actual-input native2lap Mobile/Speedy demo and isolated export pack. Exact-head remote CI restarts for this scope correction. No frozen local wrapper success or final-art acceptance claim.",
     "pre_final_fix_probes": [
       "probe_reef_districts",
       "probe_ocean_kingdoms",
