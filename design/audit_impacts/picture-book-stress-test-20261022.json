@@ -377,6 +377,11 @@
       "command": "Exact Git-index HTML link audit for active and archived V37 proof pages",
       "result": "PASS",
       "evidence": "Archived R1\u2013R3 download links target the published current review PDF; raw intermediate PDFs remain excluded staging. No illustration or page proof changed."
+    },
+    {
+      "command": "Anonymous HTTPS exact-revision manifest and769required-file SHA256 verification",
+      "result": "PASS",
+      "evidence": "Published payload 7277f8893dd54b2f48f2b238bec4aac2d4b8a5bd; checked 2026-10-23T06:29:46.463097+00:00;1423880144bytes; payloadSHA256 d7b46f8ed9d5f35a92f290c696f864c6ba1b2397e891b1ab188cdebf20b62aa9. Exact immutable receipt: books/chapter_one/landscape/revisions/v37_consistency_20261022/remote_verification.json. Receipt/impact update is publication metadata; book/native art/proofs remain identical to the verified payload."
     }
   ],
   "acceptance_gaps": "No remaining identified character/composition defect in final scoped AI review. Bath1332px<1800target, print/PPI/final trim, owner illustration approval, child read-aloud and SLP review remain open. No game or release acceptance."
