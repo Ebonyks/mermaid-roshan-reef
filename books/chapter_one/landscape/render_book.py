@@ -1,7 +1,7 @@
 """Render the source-preserving landscape review book at declared physical scale."""
 from pathlib import Path
 import argparse,json,html,hashlib,math
-from PIL import Image,ImageDraw
+from PIL import Image,ImageDraw,ImageFilter,ImageChops
 from reportlab.pdfgen import canvas
 from reportlab import rl_config
 from reportlab.pdfbase import pdfmetrics
@@ -9,8 +9,8 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.utils import ImageReader
 import pypdfium2 as pdfium
 ROOT=Path(__file__).resolve().parent
-B=json.loads((ROOT/'book.json').read_text(encoding='utf8'))
-ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,default=Path.cwd()/'output/pdf/landscape');args=ap.parse_args();O=args.output;O.mkdir(parents=True,exist_ok=True)
+ap=argparse.ArgumentParser();ap.add_argument('--book',type=Path,default=ROOT/'book.json');ap.add_argument('--output',type=Path,default=Path.cwd()/'output/pdf/landscape');args=ap.parse_args();O=args.output;O.mkdir(parents=True,exist_ok=True)
+B=json.loads(args.book.read_text(encoding='utf8'))
 pdfmetrics.registerFont(TTFont('Sniglet',str(ROOT/B['font'])))
 W,H=504,360
 rl_config.useA85=0  # Preserve lossless image streams without ASCII85 overhead.
@@ -65,10 +65,28 @@ def local_patch(p):
  assert cw>0 and ch>0 and min(xs)>=cl and max(xs)<=cr and min(ys)>=ct and max(ys)<=cb
  l=max(0,math.floor((min(xs)-cl)*iw/cw));t=max(0,math.floor((min(ys)-ct)*ih/ch));r=min(iw,math.ceil((max(xs)-cl)*iw/cw));b=min(ih,math.ceil((max(ys)-ct)*ih/ch))
  target=(ox+(cl+l*cw/iw)*s,oy+(rh-ct-b*ch/ih)*s,(r-l)*cw/iw*s,(b-t)*ch/ih*s)
- c.drawImage(ImageReader(im.crop((l,t,r,b))),*target,mask='auto')
+ resource=im.crop((l,t,r,b))
+ feather=float(q.get('edge_feather_reference_pixels',0))
+ if feather:
+  # Layout-only soft clipping. The native generated file is preserved unchanged.
+  resource=resource.convert('RGBA');matte=Image.new('L',resource.size,0)
+  ImageDraw.Draw(matte).polygon([((px-cl)*iw/cw-l,(py-ct)*ih/ch-t) for px,py in q['polygon']],fill=255)
+  matte=matte.filter(ImageFilter.GaussianBlur(feather*iw/cw))
+  # Fade at the embedded resource boundary as well as polygon edges. A filled
+  # rectangular matte alone has no zero pixels for GaussianBlur to blend into.
+  import numpy as np
+  mw,mh=resource.size;radius=max(1.,feather*iw/cw*3)
+  dx=np.minimum(np.arange(mw)+.5,mw-.5-np.arange(mw))
+  dy=np.minimum(np.arange(mh)+.5,mh-.5-np.arange(mh))
+  edge=np.clip(np.minimum(dy[:,None],dx[None,:])/radius,0,1)
+  edge=edge*edge*(3-2*edge)
+  matte=ImageChops.multiply(matte,Image.fromarray(np.uint8(edge*255),'L'))
+  resource.putalpha(ImageChops.multiply(resource.getchannel('A'),matte))
+ c.drawImage(ImageReader(resource),*target,mask='auto')
  record(k,(l,t,r,b),target,'bounded_inpaint_polygon_visible_pdf_resource')
  LAYERS[-1]['clip_reference_size']=q['reference_size'];LAYERS[-1]['clip_polygon_source_pixels']=q['polygon'];LAYERS[-1]['source_canvas_box']=q.get('source_canvas_box',[0,0,rw,rh])
  LAYERS[-1]['clip_canvas_transform_points']=[ox,oy,s]
+ if feather:LAYERS[-1]['edge_feather_reference_pixels']=feather
  c.restoreState()
 
 def cut(k,x,y,w,h):
@@ -231,7 +249,7 @@ if B['back_cover'].get('cameo'):
  l,t,r,b=q['foreground_box'];region(q['foreground_source'],[l,t,r,b],(ox+l*s,oy+(rh-b)*s,(r-l)*s,(b-t)*s))
 if back_transform:c.restoreState()
 if B['back_cover'].get('caption'):
- q=B['back_cover']['caption'];text(q['text'],q['x'],q['y'],q['width'],q['size'],True,color=q['color'],outline=q.get('outline',0))
+ q=B['back_cover']['caption'];text(q['text'],q['x'],q['y'],q['width'],q['size'],True,halo=q.get('halo',False),color=q['color'],outline=q.get('outline',0))
 finish_page();c.save()
 font_path=ROOT/B['font']
 (O/'page_provenance.json').write_text(json.dumps({'page_size_points':[W*S,H*S],'logical_layout_points':[W,H],'logical_to_physical_scale':S,'rear_view_transform':back_transform,'coordinate_system':'source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page','font':{'file':B['font'],'sha256':hashlib.sha256(font_path.read_bytes()).hexdigest()},'layers':LAYERS,'text_lines':TEXT_LINES,'note':'Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance.'},indent=2),encoding='utf8',newline='\n')
@@ -246,7 +264,7 @@ for start in range(0,len(thumbs),8):
   x=j%4*336;y=j//4*262;sheet.paste(im,(x,y));idx=start+j;d.text((x+5,y+243),'Cover' if idx==0 else 'Back cover' if idx==33 else f'Page {idx}',fill='black')
  sheet.save(O/f'contact_{start//8+1}.jpg',quality=94)
 body=''.join(f'<figure><figcaption>{"Cover" if i==0 else "Back cover" if i==33 else "Page "+str(i)}</figcaption><img loading="lazy" src="page_{i:02}.png" alt="{html.escape("Cover" if i==0 else "Back cover" if i==33 else B["pages"][i-1]["text"])}"></figure>' for i in range(34))
-(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape book</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>'+str(7*S)+' × '+str(5*S)+' inches · 32 story pages + covers · '+html.escape(B.get('revision','Review proof'))+'</p><p><a href="Mermaid_Roshan_LANDSCAPE_ROUGH.pdf">Download PDF</a> · <a href="'+html.escape(B.get('review_href','../REVISION_REVIEW.html'))+'">Revision audit and before/after views</a></p><p>34 pages including covers. Owner, child and final print acceptance remain open.</p></header><main>'+body+'</main>',encoding='utf8',newline='\n')
+(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape book</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>'+str(7*S)+' × '+str(5*S)+' inches · 32 story pages + covers · '+html.escape(B.get('revision','Review proof'))+'</p><p><a href="'+html.escape(B.get('download_pdf_href','Mermaid_Roshan_LANDSCAPE_ROUGH.pdf'))+'">Download PDF</a> · <a href="'+html.escape(B.get('review_href','../REVISION_REVIEW.html'))+'">Revision audit and before/after views</a></p><p>34 pages including covers. Owner, child and final print acceptance remain open.</p></header><main>'+body+'</main>',encoding='utf8',newline='\n')
 # A portable rebuild provides the written review even without the earlier v7 images.
 if not B.get('revision') and not (O/'STRESS_TEST.html').exists() and (ROOT/'stress_review.json').exists():
  review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'))

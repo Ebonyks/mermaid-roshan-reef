@@ -1,0 +1,26 @@
+{
+  "attempts": [
+    {
+      "quality": 91,
+      "bytes": 29258288,
+      "rejected": "Over25MB"
+    },
+    {
+      "quality": 89,
+      "bytes": 26180892,
+      "rejected": "Over25MB"
+    },
+    {
+      "quality": 87,
+      "bytes": 24111474,
+      "status": "Re-evaluated adaptively"
+    },
+    {
+      "quality": 85,
+      "bytes": 22500426,
+      "rejected": "Page16PSNR38.724883<40dB"
+    }
+  ],
+  "failed_85_output_sha256": "b750579c8658b8bf4f3c48c9d827195f3688b9fdbe1f1478ec4303b23229610f",
+  "reason_for_method_change": "Use87default and increase quality only for page images that fail exact rendered fidelity check; preserve allnative sizes/vector contents/alpha masks."
+}

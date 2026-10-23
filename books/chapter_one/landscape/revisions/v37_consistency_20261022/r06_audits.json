@@ -1,0 +1,41 @@
+{
+  "revision": "R6",
+  "pdf_sha256": "2b0e9ffb04e41083b888442d195a4d2260c1653a9eb7a704fa6f32965dcb6e85",
+  "passes": [
+    {
+      "run": 1,
+      "focus": "Identity/accessories and original comparison",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 2,
+      "focus": "Composition/type hierarchy and caption contrast",
+      "result": "FAIL",
+      "remaining": [
+        "Rear renderer ignores halo field, producing heavier navy stroke instead of thin white halo. Fix renderer to respect declared cover caption style."
+      ]
+    },
+    {
+      "run": 3,
+      "focus": "Native repair boundaries and texture",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 4,
+      "focus": "Physical contacts/action/story continuity",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 5,
+      "focus": "Adversarial visual/machine agreement",
+      "result": "FAIL",
+      "remaining": [
+        "Run2 renderer/style mismatch remains; no clean visual claim."
+      ]
+    }
+  ],
+  "status": "FAILED_VISUAL_REVIEW"
+}

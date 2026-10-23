@@ -1,0 +1,45 @@
+{
+  "revision": "R2",
+  "pdf_sha256": "45c60a70c11206e6f3285c6af09c164117adf3adb418a7de5c55fdaf49670e59",
+  "scope": "One reviewer, five focused passes, full34-page overview plus native repair details; not independent reviewers.",
+  "passes": [
+    {
+      "run": 1,
+      "focus": "Identity/accessories: full revision then native crown/finale comparisons",
+      "result": "FAIL",
+      "remaining": [
+        "Blue stone repairs work, but whole-crop mattes change background paint.",
+        "Newly detected purple earring28 and necklace29; remove as uncommissioned accessories."
+      ]
+    },
+    {
+      "run": 2,
+      "focus": "Composition: all34page proofs at overview plus full14/20/27/8",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 3,
+      "focus": "Native joins and pixel boundaries",
+      "result": "FAIL",
+      "remaining": [
+        "Tiara repair crop edges detectable; restrict to individual ornaments. Head/sink patch8 still deserves tighter subject mask."
+      ]
+    },
+    {
+      "run": 4,
+      "focus": "Contacts/anatomy/story continuity",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 5,
+      "focus": "Adversarial cross-comparison of all remaining defects",
+      "result": "FAIL",
+      "remaining": [
+        "Union of1/3 remains; no clean visual acceptance."
+      ]
+    }
+  ],
+  "status": "FAILED_VISUAL_REVIEW"
+}

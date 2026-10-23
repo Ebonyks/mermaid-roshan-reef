@@ -1,0 +1,999 @@
+{
+  "baseline": "b5288f2ca2bab1e36d51fd9a00616de0dc30c2c0",
+  "review_date": "2026-10-22",
+  "scope": "Published V36 book plus new rear candidate; no art or manuscript edits.",
+  "strict_regression": "PASS",
+  "email": {
+    "pages": 34,
+    "bytes": 23551844,
+    "under_25_decimal_MB": true,
+    "vector_text_content_trim_exact": true,
+    "native_image_placements": 109,
+    "decoded_alpha_masks_exact": 22,
+    "minimum_psnr_db": 43.11494348373735,
+    "all_psnr_over_40": true
+  },
+  "pdf": {
+    "pages": 34,
+    "story_pages": 32,
+    "dimensions_points": [
+      0,
+      0,
+      1008,
+      720
+    ],
+    "lossless_bytes": 95383278,
+    "rendered_all_pages": true,
+    "render_and_email_comparison_seconds": 9.58,
+    "encrypted": false
+  },
+  "text": {
+    "total_story_words": 387,
+    "longest_pages": [
+      {
+        "page": 16,
+        "words": 21,
+        "text": "The gunk was gone. Up came Rumi!\nShe had lived in Pearl Castle for hundreds of years.\nNow she was free!"
+      },
+      {
+        "page": 19,
+        "words": 19,
+        "text": "Two dust bunnies sat on Baby Eagle.\nThey wanted to play, but he was stuck.\n“I’ll help!” said Roshan."
+      },
+      {
+        "page": 31,
+        "words": 19,
+        "text": "“We helped your rainbow shine!” said Roshan.\n“Thank you!” said Grand Puff.\nRoshan smiled. “Come and rest with us!”"
+      },
+      {
+        "page": 22,
+        "words": 18,
+        "text": "In the art room, Roshan put the paints in their places.\nThen she scrubbed the table. Scrub, scrub!"
+      },
+      {
+        "page": 6,
+        "words": 16,
+        "text": "Daddy gave her a brush and some sponges.\n“One little job at a time,” said Daddy."
+      },
+      {
+        "page": 30,
+        "words": 16,
+        "text": "The art room was tidy.\nOne little job at a time,\nPearl Castle was clean again."
+      },
+      {
+        "page": 14,
+        "words": 15,
+        "text": "Whoosh! The waterfall turned rainbow!\nThe swimming pool was magic!\nIt made the water rainbow-colored."
+      },
+      {
+        "page": 7,
+        "words": 14,
+        "text": "A dust bunny splashed in the dirty bath.\nIt loved to play. Splash, splash!"
+      }
+    ],
+    "line_count": 85,
+    "logical_and_physical_font_counts": [
+      {
+        "logical_pt": 11,
+        "physical_review_pt": 22.0,
+        "lines": 1
+      },
+      {
+        "logical_pt": 18,
+        "physical_review_pt": 36.0,
+        "lines": 3
+      },
+      {
+        "logical_pt": 20,
+        "physical_review_pt": 40.0,
+        "lines": 79
+      },
+      {
+        "logical_pt": 22,
+        "physical_review_pt": 44.0,
+        "lines": 1
+      },
+      {
+        "logical_pt": 30,
+        "physical_review_pt": 60.0,
+        "lines": 1
+      }
+    ],
+    "editorial_limit": "Word counts are descriptive; no clinical reading-level or SLP claim."
+  },
+  "resolution": {
+    "placements": [
+      {
+        "page": "front_cover",
+        "source": "cover_rendered",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": "front_cover",
+        "source": "v30_front_identity",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": "front_cover",
+        "source": "v30_front_identity",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": "front_cover",
+        "source": "v33_front_cleanup",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": "front_cover",
+        "source": "v33_front_cleanup",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": "front_cover",
+        "source": "v36_c_cover",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 1,
+        "source": "v22_scene_01",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 1,
+        "source": "v36_c01b",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 1,
+        "source": "v22_scene_01",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 2,
+        "source": "v22_scene_02",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 3,
+        "source": "v29_castle03",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 3,
+        "source": "v36_c03",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 3,
+        "source": "v36_c03",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 4,
+        "source": "v23_castle_repair",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 4,
+        "source": "v30_castle_attention",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 4,
+        "source": "v30_castle_attention",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 4,
+        "source": "v36_c04",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 5,
+        "source": "v34_closed_door",
+        "role": "story_art",
+        "native_size": [
+          1100,
+          1429
+        ],
+        "effective_ppi_at_14x10": 242.7
+      },
+      {
+        "page": 6,
+        "source": "brush",
+        "role": "story_art",
+        "native_size": [
+          936,
+          1024
+        ],
+        "effective_ppi_at_14x10": 178.1
+      },
+      {
+        "page": 6,
+        "source": "sponge",
+        "role": "story_art",
+        "native_size": [
+          512,
+          512
+        ],
+        "effective_ppi_at_14x10": 150.4
+      },
+      {
+        "page": 6,
+        "source": "v30_yellow_sponge",
+        "role": "story_art",
+        "native_size": [
+          1391,
+          1131
+        ],
+        "effective_ppi_at_14x10": 385.1
+      },
+      {
+        "page": 7,
+        "source": "v22_scene_05",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 7,
+        "source": "v29_floor06_final",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 7,
+        "source": "v36_c07",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 8,
+        "source": "approved_sink_action",
+        "role": "story_art",
+        "native_size": [
+          1589,
+          990
+        ],
+        "effective_ppi_at_14x10": 160.3
+      },
+      {
+        "page": 8,
+        "source": "v36_c08",
+        "role": "story_art",
+        "native_size": [
+          1589,
+          990
+        ],
+        "effective_ppi_at_14x10": 160.3
+      },
+      {
+        "page": 9,
+        "source": "v36_bath_candidate",
+        "role": "story_art",
+        "native_size": [
+          1181,
+          1332
+        ],
+        "effective_ppi_at_14x10": 216.3
+      },
+      {
+        "page": 10,
+        "source": "v22_scene_08",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 10,
+        "source": "v29_lamma09",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 11,
+        "source": "v26_rumi_trapped",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 11,
+        "source": "v30_rumi_face_crop",
+        "role": "story_art",
+        "native_size": [
+          1278,
+          1230
+        ],
+        "effective_ppi_at_14x10": 852.0
+      },
+      {
+        "page": 11,
+        "source": "v34_pink_cup",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 11,
+        "source": "v36_c11",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 12,
+        "source": "net_cut",
+        "role": "story_art",
+        "native_size": [
+          1706,
+          922
+        ],
+        "effective_ppi_at_14x10": 160.6
+      },
+      {
+        "page": 13,
+        "source": "v22_scene_11",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 14,
+        "source": "v22_scene_12_fit",
+        "role": "story_art",
+        "native_size": [
+          1486,
+          1059
+        ],
+        "effective_ppi_at_14x10": 105.9
+      },
+      {
+        "page": 14,
+        "source": "v29_caption13",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 15,
+        "source": "v29_fountain14",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 16,
+        "source": "v26_rumi_free",
+        "role": "story_art",
+        "native_size": [
+          1483,
+          1061
+        ],
+        "effective_ppi_at_14x10": 105.9
+      },
+      {
+        "page": 17,
+        "source": "v29_hug16",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 188.0
+      },
+      {
+        "page": 17,
+        "source": "v36_c17",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 188.0
+      },
+      {
+        "page": 17,
+        "source": "v36_c17",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 188.0
+      },
+      {
+        "page": 18,
+        "source": "v22_scene_16",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 18,
+        "source": "v29_listen17",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 18,
+        "source": "v34_listening_face",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 18,
+        "source": "v36_c18",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 18,
+        "source": "v36_c18",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 19,
+        "source": "v29_rescue18",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 19,
+        "source": "v36_c19",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 20,
+        "source": "v29_rescue19",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 20,
+        "source": "v29_neck19_final",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 20,
+        "source": "v36_c20",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 21,
+        "source": "eagle_original_isolated",
+        "role": "story_art",
+        "native_size": [
+          944,
+          1666
+        ],
+        "effective_ppi_at_14x10": 351.9
+      },
+      {
+        "page": 22,
+        "source": "v22_art_sorting",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 191.8
+      },
+      {
+        "page": 22,
+        "source": "v30_yellow_sponge",
+        "role": "story_art",
+        "native_size": [
+          1391,
+          1131
+        ],
+        "effective_ppi_at_14x10": 2787.0
+      },
+      {
+        "page": 23,
+        "source": "v27_door",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 23,
+        "source": "v31_door_mystery",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 23,
+        "source": "v31_door_mystery",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 23,
+        "source": "v34_mysterious_door",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 23,
+        "source": "v36_c23",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 24,
+        "source": "v26_puff_unwell",
+        "role": "story_art",
+        "native_size": [
+          1254,
+          1254
+        ],
+        "effective_ppi_at_14x10": 210.3
+      },
+      {
+        "page": 25,
+        "source": "v34_roshan_sponge_only",
+        "role": "story_art",
+        "native_size": [
+          1774,
+          887
+        ],
+        "effective_ppi_at_14x10": 134.1
+      },
+      {
+        "page": 26,
+        "source": "v36_c26",
+        "role": "story_art",
+        "native_size": [
+          1672,
+          941
+        ],
+        "effective_ppi_at_14x10": 119.4
+      },
+      {
+        "page": 27,
+        "source": "v34_foam_glints",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 27,
+        "source": "v34_foam_glints",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 27,
+        "source": "v34_foam_glints",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 27,
+        "source": "v36_c27",
+        "role": "story_art",
+        "native_size": [
+          1672,
+          941
+        ],
+        "effective_ppi_at_14x10": 119.4
+      },
+      {
+        "page": 28,
+        "source": "v36_c28",
+        "role": "story_art",
+        "native_size": [
+          1672,
+          941
+        ],
+        "effective_ppi_at_14x10": 119.4
+      },
+      {
+        "page": 28,
+        "source": "v36_c28",
+        "role": "story_art",
+        "native_size": [
+          1672,
+          941
+        ],
+        "effective_ppi_at_14x10": 119.4
+      },
+      {
+        "page": 29,
+        "source": "v36_c29",
+        "role": "story_art",
+        "native_size": [
+          1672,
+          941
+        ],
+        "effective_ppi_at_14x10": 119.4
+      },
+      {
+        "page": 29,
+        "source": "v36_c29",
+        "role": "story_art",
+        "native_size": [
+          1672,
+          941
+        ],
+        "effective_ppi_at_14x10": 119.4
+      },
+      {
+        "page": 30,
+        "source": "v22_scene_22_fit",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 30,
+        "source": "v29_table22",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 30,
+        "source": "v32_clean_room30",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 31,
+        "source": "v34_inviting_cutout",
+        "role": "story_art",
+        "native_size": [
+          1230,
+          1278
+        ],
+        "effective_ppi_at_14x10": 240.7
+      },
+      {
+        "page": 31,
+        "source": "approved_rainbow_puff_cutout",
+        "role": "story_art",
+        "native_size": [
+          1346,
+          1169
+        ],
+        "effective_ppi_at_14x10": 316.4
+      },
+      {
+        "page": 31,
+        "source": "v31_puff_gratitude",
+        "role": "story_art",
+        "native_size": [
+          1346,
+          1168
+        ],
+        "effective_ppi_at_14x10": 316.1
+      },
+      {
+        "page": 31,
+        "source": "v36_c31",
+        "role": "story_art",
+        "native_size": [
+          1230,
+          1278
+        ],
+        "effective_ppi_at_14x10": 240.7
+      },
+      {
+        "page": 31,
+        "source": "v36_c31",
+        "role": "story_art",
+        "native_size": [
+          1230,
+          1278
+        ],
+        "effective_ppi_at_14x10": 240.7
+      },
+      {
+        "page": 32,
+        "source": "bubble_nap",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 32,
+        "source": "v29_nap32",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": 32,
+        "source": "v29_nap32",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": "back_cover",
+        "source": "v29_castle03",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": "back_cover",
+        "source": "v36_c03",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": "back_cover",
+        "source": "v36_c03",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      },
+      {
+        "page": "back_cover",
+        "source": "v36_rear_lamma",
+        "role": "story_art",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "effective_ppi_at_14x10": 4818.2
+      },
+      {
+        "page": "back_cover",
+        "source": "v29_castle03",
+        "role": "story_art",
+        "native_size": [
+          1484,
+          1060
+        ],
+        "effective_ppi_at_14x10": 106.0
+      }
+    ],
+    "below_1800_bath_native_height": true,
+    "bath_native_size": [
+      1181,
+      1332
+    ],
+    "print_limit": "Current review size only; final trim not chosen; no universal PPI acceptance asserted."
+  },
+  "rear": {
+    "candidate_in_actual_book": false,
+    "existing_rear_reuses_story": 3,
+    "candidate_sha256": "cd1a5a40d51560170713169b3b3187828a07463610fa929275eaa8dbc604b0d7",
+    "candidate_native_size": [
+      1484,
+      1060
+    ],
+    "latest_direction": "New scene requested 2026-10-21; source reuse at story3 remains in current V36 PDF."
+  },
+  "source_documents_unchanged": {
+    "books/chapter_one/landscape/book.json": "20fca4895eeec4e3e3dc802b8aa6c60e0fb0b9077efbc236db2d449d5f72716c",
+    "books/chapter_one/landscape/revisions/v36_next_draft/complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf": "1c7089ae1bd2e9d9ee46095b0d6eb6866f7b9246000e0f18d98bc71a31e288a0",
+    "books/chapter_one/landscape/revisions/v36_next_draft/complete/Mermaid_Roshan_Book_V36_Email.pdf": "7cf7316356a19f3a9533b3e4c45d0de3934c4af7ada0eaf99e5a00dd328141f4"
+  }
+}

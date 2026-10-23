@@ -1,0 +1,42 @@
+{
+  "revision": "R3",
+  "pdf_sha256": "acc4e2ec7817927539c5c75cf23d9b3eb74616fbea88265a5d8b38e5024ec7d6",
+  "passes": [
+    {
+      "run": 1,
+      "focus": "Identity/accessories across book and native detail boards",
+      "result": "FAIL",
+      "remaining": [
+        "I03 residual side blue stones19/20 and tip fleck15 outside the tiny matte.",
+        "I14 landing necklace partly outside matte; generated replacement itself is clean."
+      ]
+    },
+    {
+      "run": 2,
+      "focus": "Composition:34page overview, changed pages full view and paired reveals",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 3,
+      "focus": "Native repair edges: crop/alpha/background joins",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 4,
+      "focus": "Physical contacts, anatomy, tails/brush/cup/sponge/rescue/wash/nap",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 5,
+      "focus": "Adversarial cross-pass comparison",
+      "result": "FAIL",
+      "remaining": [
+        "Union of run1 remains. No clean visual acceptance."
+      ]
+    }
+  ],
+  "status": "FAILED_VISUAL_REVIEW"
+}

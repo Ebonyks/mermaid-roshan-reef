@@ -1,0 +1,42 @@
+[
+  {
+    "id": "jump_earring",
+    "page": 28,
+    "source_box": [
+      320,
+      685,
+      435,
+      800
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "prompt": "Remove ONLY the small lavender/pink round earring in the brown hair just below her visible ear. Restore the underlying brown hair curl. Keep pink shirt ruffle separate and unchanged. Bounded accessory-only repair to existing painted illustration. No new jewelry. All other pixels, pose, silhouette, face, ear, anatomy, lighting, palette, background and framing remain unchanged. Return same crop. Do not redraw the scene. No lettering.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/jump_earring.png"
+    ],
+    "source_sha256": "7155988233e2595bda5ee9e895c7e4747667c2223fed7bd11bb434b233cfaaa4",
+    "attempt_limit": 2
+  },
+  {
+    "id": "land_necklace",
+    "page": 29,
+    "source_box": [
+      325,
+      725,
+      465,
+      870
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "prompt": "Remove ONLY the pale pearl/bead necklace and pendant from her neck/upper pink shirt. Restore plain skin and plain shirt below. Keep the existing neckline, hair curls and ruffled sleeves. Bounded accessory-only repair to existing painted illustration. No new jewelry. All other pixels, pose, silhouette, face, ear, anatomy, lighting, palette, background and framing remain unchanged. Return same crop. Do not redraw the scene. No lettering.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/land_necklace.png"
+    ],
+    "source_sha256": "090380ef9ba64347242580cd5b5a151e0173385b7ba01223a56026bb516dcacc",
+    "attempt_limit": 2
+  }
+]

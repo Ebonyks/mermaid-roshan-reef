@@ -1,0 +1,458 @@
+[
+  {
+    "id": "cover_waist",
+    "page": 0,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/cover_waist.png",
+    "source_box": [
+      570,
+      600,
+      845,
+      750
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Remove ONLY the two stray lilac ruffle/peplum fragments LEFT of Roshan lavender waistband, around leftmost edge near image x35 y50. Continue the existing marble floor behind those fragments. Preserve fitted pink pointed top, waistband, tail, arm, hair and all other pixels. No new ornament or seam.",
+    "attempt_limit": 2,
+    "source_sha256": "5965cd1b30035d0f7e93ac1a2b85b719ffbce2a89f0882718fe43769b98f3c1f",
+    "prompt": "Precise bounded inpainting of this existing art crop. Remove ONLY the two stray lilac ruffle/peplum fragments LEFT of Roshan lavender waistband, around leftmost edge near image x35 y50. Continue the existing marble floor behind those fragments. Preserve fitted pink pointed top, waistband, tail, arm, hair and all other pixels. No new ornament or seam. Same crop coordinate layout and polished2D painted texture; preserve all unrequested pixels. No text, watermark, new scene or characters.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/cover_waist.png"
+    ]
+  },
+  {
+    "id": "window_hair",
+    "page": 1,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/window_hair.png",
+    "source_box": [
+      0,
+      35,
+      625,
+      850
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Fix ONLY Roshan hair: chestnut soft waves, ONE clearly tied small pastel rainbow ponytail behind her head, NOT rainbow bands along all lower hair. Remove isolated gold fleck above back hair at image x290 y50. Hair ends shoulder to midback, not waist. Keep small gold tiara one blue gem, round young profile, open-mouth delight, exact face/eye geometry and pose, window and hand unchanged. No earrings or necklaces.",
+    "attempt_limit": 2,
+    "source_sha256": "264e48285dc3b55112222d165c3e8bbffa9118ba5b6d17f1aa899a6f2f56c93d",
+    "prompt": "Precise local repair of IMAGE1. Fix ONLY Roshan hair: chestnut soft waves, ONE clearly tied small pastel rainbow ponytail behind her head, NOT rainbow bands along all lower hair. Remove isolated gold fleck above back hair at image x290 y50. Hair ends shoulder to midback, not waist. Keep small gold tiara one blue gem, round young profile, open-mouth delight, exact face/eye geometry and pose, window and hand unchanged. No earrings or necklaces. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/window_hair.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "threshold_hair",
+    "page": 3,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/threshold_hair.png",
+    "source_box": [
+      495,
+      290,
+      815,
+      660
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Trim ONLY brown hair ends to mid-back (stop about image y260, not current bottom y350), soften waves, preserve ONE small tied pastel ponytail behind her head, small gold tiara and rounded ear. Heal revealed small area with exact same red door/pink sleeve background. Freeze face, hands, pose and door geometry. No extra jewelry.",
+    "attempt_limit": 2,
+    "source_sha256": "262059bc6c9318ddf57b0da5000438baad75198d130871b580fc0967e428e244",
+    "prompt": "Precise local repair of IMAGE1. Trim ONLY brown hair ends to mid-back (stop about image y260, not current bottom y350), soften waves, preserve ONE small tied pastel ponytail behind her head, small gold tiara and rounded ear. Heal revealed small area with exact same red door/pink sleeve background. Freeze face, hands, pose and door geometry. No extra jewelry. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/threshold_hair.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "hall_head",
+    "page": 4,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/hall_head.png",
+    "source_box": [
+      85,
+      460,
+      260,
+      690
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Restore only same little Roshan face/head detail from current softly rendered target: age4 round cheeks, chestnut soft waves, one tied pastel rainbow ponytail behind her head, small gold tiara one blue gem, round ears/brown eyes. Preserve the exact surprised delighted expression, head size, position, gesture and pink top/lilac sleeves. Same painting texture; no enlarged head, no new pose.",
+    "attempt_limit": 2,
+    "source_sha256": "f5f34d155607206ac1fcf911b35b8bb24a5bb599d96757d9db476a5853816897",
+    "prompt": "Precise local repair of IMAGE1. Restore only same little Roshan face/head detail from current softly rendered target: age4 round cheeks, chestnut soft waves, one tied pastel rainbow ponytail behind her head, small gold tiara one blue gem, round ears/brown eyes. Preserve the exact surprised delighted expression, head size, position, gesture and pink top/lilac sleeves. Same painting texture; no enlarged head, no new pose. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/hall_head.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "sink_waves",
+    "page": 8,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/sink_waves.png",
+    "source_box": [
+      790,
+      240,
+      1210,
+      620
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Soften ONLY the tight ringlets around Roshan cheek/shoulder into broad chestnut waves; keep exact outer head silhouette, face, brown eyes, tiara, ONE small gathered pastel ponytail behind head, hands, sink and all contacts unchanged. No new jewelry.",
+    "attempt_limit": 2,
+    "source_sha256": "388b27f2d59c984e63de2136ac968b0a619697c658bd3a1620a20c7b0e05769f",
+    "prompt": "Precise local repair of IMAGE1. Soften ONLY the tight ringlets around Roshan cheek/shoulder into broad chestnut waves; keep exact outer head silhouette, face, brown eyes, tiara, ONE small gathered pastel ponytail behind head, hands, sink and all contacts unchanged. No new jewelry. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/sink_waves.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "pool_back_hair",
+    "page": 11,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/pool_back_hair.png",
+    "source_box": [
+      0,
+      330,
+      250,
+      660
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Trim ONLY lower brown hair ends to mid-back about image y230 instead of near y310 and replace tight ringlets by soft chestnut waves. One small pastel tied ponytail on her left behind head. Keep original back-view head, gold tiara one blue gem, exact shoulder, arms/net and room geometry. Heal small exposed strip with same original pink shoulder/green pool, no new object.",
+    "attempt_limit": 2,
+    "source_sha256": "abd630a5d7f32d1d421813770f1a72b2e592757af547b5f1827ca72ced6230af",
+    "prompt": "Precise local repair of IMAGE1. Trim ONLY lower brown hair ends to mid-back about image y230 instead of near y310 and replace tight ringlets by soft chestnut waves. One small pastel tied ponytail on her left behind head. Keep original back-view head, gold tiara one blue gem, exact shoulder, arms/net and room geometry. Heal small exposed strip with same original pink shoulder/green pool, no new object. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/pool_back_hair.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "fountain_hair",
+    "page": 15,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/fountain_hair.png",
+    "source_box": [
+      685,
+      165,
+      1215,
+      660
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Change ONLY Roshan hair to CHESTNUT BROWN soft waves ending at mid-back, not copper/orange waist hair; ONE small PASTEL rainbow ponytail tied BEHIND her head, roughly quarter of hair, not rainbow flowing from crown/parting. End lower hair near image y360, preserve face geometry/young age/brown eyes/open delighted smile, small gold tiara ONE blue gem. Keep EXACT hands and SINGLE pink cup, clothing, water and all contact geometry. No jewelry beyond tiara; seamless existing painting.",
+    "attempt_limit": 2,
+    "source_sha256": "f418676c583a629430eab597d87bfd924efde14c16e03b2f5238dfd45c97720c",
+    "prompt": "Precise local repair of IMAGE1. Change ONLY Roshan hair to CHESTNUT BROWN soft waves ending at mid-back, not copper/orange waist hair; ONE small PASTEL rainbow ponytail tied BEHIND her head, roughly quarter of hair, not rainbow flowing from crown/parting. End lower hair near image y360, preserve face geometry/young age/brown eyes/open delighted smile, small gold tiara ONE blue gem. Keep EXACT hands and SINGLE pink cup, clothing, water and all contact geometry. No jewelry beyond tiara; seamless existing painting. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/fountain_hair.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "hug_waves",
+    "page": 17,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/hug_waves.png",
+    "source_box": [
+      1040,
+      320,
+      1330,
+      640
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Only Roshan hair: chestnut-brown SOFT WAVES, ONE small tied pastel rainbow ponytail gathered BEHIND head, not a saturated rainbow stripe from top of head. Preserve her closed-eye smile and ALL hug-contact hands/arms, Rumi face/star earring/lavender jacket, head sizes and poses exactly. Keep transparent-cutout/blue scene boundary as source, no new scene.",
+    "attempt_limit": 2,
+    "source_sha256": "4462ab21ef8f94d77a7779ff85b130df473d8c67273971f71badbe200c463fc9",
+    "prompt": "Precise local repair of IMAGE1. Only Roshan hair: chestnut-brown SOFT WAVES, ONE small tied pastel rainbow ponytail gathered BEHIND head, not a saturated rainbow stripe from top of head. Preserve her closed-eye smile and ALL hug-contact hands/arms, Rumi face/star earring/lavender jacket, head sizes and poses exactly. Keep transparent-cutout/blue scene boundary as source, no new scene. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/hug_waves.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "listening_iris",
+    "page": 18,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/listening_iris.png",
+    "source_box": [
+      700,
+      205,
+      855,
+      345
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Change ONLY both visible iris colors to chestnut BROWN with small warm brown highlights, no bright amber/orange field. Preserve exact black pupils, catchlights, eyelashes, eye shapes, startled-listening face, skin, hair and tiny head position. No other edits.",
+    "attempt_limit": 2,
+    "source_sha256": "fca3066b896de7ae26155a14b7a4670f96ebd49f077bf21ae5f7b4794357cf06",
+    "prompt": "Precise local repair of IMAGE1. Change ONLY both visible iris colors to chestnut BROWN with small warm brown highlights, no bright amber/orange field. Preserve exact black pupils, catchlights, eyelashes, eye shapes, startled-listening face, skin, hair and tiny head position. No other edits. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/listening_iris.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "sponge_contact",
+    "page": 22,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/sponge_contact.png",
+    "source_box": [
+      715,
+      590,
+      895,
+      720
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Fix ONLY the little yellow sponge at lower center: it must rest FLAT on the actual tabletop just behind its front rim, foreshortened with a tiny contact shadow; not stand upright or overlap/front-hang over the table lip. Keep same yellow sponge design. Keep paint spills, cups, pencils, table ellipse/rim and every other object unchanged. Do not add hands or duplicate sponge.",
+    "attempt_limit": 2,
+    "source_sha256": "ee82445fefe99e1ede2933eae78855a5eb9b94fe5f06e9723d6009e289445aec",
+    "prompt": "Precise bounded inpainting of this existing art crop. Fix ONLY the little yellow sponge at lower center: it must rest FLAT on the actual tabletop just behind its front rim, foreshortened with a tiny contact shadow; not stand upright or overlap/front-hang over the table lip. Keep same yellow sponge design. Keep paint spills, cups, pencils, table ellipse/rim and every other object unchanged. Do not add hands or duplicate sponge. Same crop coordinate layout and polished2D painted texture; preserve all unrequested pixels. No text, watermark, new scene or characters.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/sponge_contact.png"
+    ]
+  },
+  {
+    "id": "route_head",
+    "page": 23,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/route_head.png",
+    "source_box": [
+      825,
+      480,
+      1040,
+      715
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Sharpen and unify only Roshan head to the same established polished storybook face: preschool age4, round cheeks, chestnut soft waves, brown eyes, small gold tiara ONE blue gem, ONE small tied pastel rainbow ponytail behind head. Preserve head size, exact threequarter gaze, swim pose, pink top/lilac sleeves, room geometry; do not enlarge character or add jewelry.",
+    "attempt_limit": 2,
+    "source_sha256": "9876434e7421c63a681cd4f34124e594621e4bc160027096b0fac937c958975f",
+    "prompt": "Precise local repair of IMAGE1. Sharpen and unify only Roshan head to the same established polished storybook face: preschool age4, round cheeks, chestnut soft waves, brown eyes, small gold tiara ONE blue gem, ONE small tied pastel rainbow ponytail behind head. Preserve head size, exact threequarter gaze, swim pose, pink top/lilac sleeves, room geometry; do not enlarge character or add jewelry. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/route_head.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "earring",
+    "page": 26,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/earring.png",
+    "source_box": [
+      280,
+      615,
+      535,
+      840
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Remove ONLY round pink earring beside Roshan neck (NO jewelry except tiara), fill underlying chestnut hair/skin seamlessly. Also make tiara GOLD with exactly ONE blue stone at center; convert all small blue/teal side stones to gold filigree. Freeze face, smile, ear shape, pupils/catchlights, hair/ponytail silhouette, all hands, sponge, pose and background. No replacement earring, necklace, extra gems or new ornament.",
+    "attempt_limit": 2,
+    "source_sha256": "0a416c6d5ddd331a019b646a3edb0c6db519014e02061952711b968e8ac950db",
+    "prompt": "Precise bounded inpaint of IMAGE1. Remove ONLY round pink earring beside Roshan neck (NO jewelry except tiara), fill underlying chestnut hair/skin seamlessly. Also make tiara GOLD with exactly ONE blue stone at center; convert all small blue/teal side stones to gold filigree. Freeze face, smile, ear shape, pupils/catchlights, hair/ponytail silhouette, all hands, sponge, pose and background. No replacement earring, necklace, extra gems or new ornament. IMAGE2 identity only; keep IMAGE1 crop coordinate geometry and polished2D painting. No text.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/earring.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "jump_tiara",
+    "page": 28,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/jump_tiara.png",
+    "source_box": [
+      315,
+      620,
+      465,
+      715
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Repair ONLY Roshan tiara: SMALL GOLD band with exactly ONE BLUE GEM at center. All tiny side stones become plain gold filigree; no silver/teal/blue side accents. Preserve exact head/forehead, delighted expression, hair, Daddy cape, bubbles and scene position. No new jewelry.",
+    "attempt_limit": 2,
+    "source_sha256": "2e05c9b9adc11d223c29fa256581fac5b69c67808983ffbb57c9daff757e1c40",
+    "prompt": "Precise local repair of IMAGE1. Repair ONLY Roshan tiara: SMALL GOLD band with exactly ONE BLUE GEM at center. All tiny side stones become plain gold filigree; no silver/teal/blue side accents. Preserve exact head/forehead, delighted expression, hair, Daddy cape, bubbles and scene position. No new jewelry. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/jump_tiara.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "sleep_tiara",
+    "page": 32,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/sleep_tiara.png",
+    "source_box": [
+      590,
+      460,
+      815,
+      580
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Repair ONLY Roshan tiara to small GOLD with exactly ONE central BLUE GEM; all multiple little turquoise/blue side stones become plain gold filigree. Keep Daddy hand and every finger exactly as original OVER the tiara/head. Freeze closed eyes, face, hair, contact and bubbles; no added jewelry or fingers.",
+    "attempt_limit": 2,
+    "source_sha256": "1966895867d07415f55dc0ecfb294d724847534a3c0c927ce6dd35fb7c77887f",
+    "prompt": "Precise local repair of IMAGE1. Repair ONLY Roshan tiara to small GOLD with exactly ONE central BLUE GEM; all multiple little turquoise/blue side stones become plain gold filigree. Keep Daddy hand and every finger exactly as original OVER the tiara/head. Freeze closed eyes, face, hair, contact and bubbles; no added jewelry or fingers. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/sleep_tiara.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "water_caption",
+    "page": 14,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/water_caption.png",
+    "source_box": [
+      0,
+      700,
+      1512,
+      1080
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Local water-lighting repair only: preserve water surface, rainbow reflections, debris and all ripples. Make the LOWER TWO THIRDS of this crop slightly deeper teal/darker (about10percent luminance), smoothly blend to EXACT original colors in the TOP100pixels and side edges. No flat panel or horizontal boundary; organic same painted water, no added objects/text. This prepares white caption contrast, but DO NOT draw text or blur texture. Keep every existing object and reflection position.",
+    "attempt_limit": 2,
+    "source_sha256": "d30e66454aadf25753925e650a7f70fba9ba8922f10e86aca72fb9f1922bef96",
+    "prompt": "Precise bounded inpainting of this existing art crop. Local water-lighting repair only: preserve water surface, rainbow reflections, debris and all ripples. Make the LOWER TWO THIRDS of this crop slightly deeper teal/darker (about10percent luminance), smoothly blend to EXACT original colors in the TOP100pixels and side edges. No flat panel or horizontal boundary; organic same painted water, no added objects/text. This prepares white caption contrast, but DO NOT draw text or blur texture. Keep every existing object and reflection position. Same crop coordinate layout and polished2D painted texture; preserve all unrequested pixels. No text, watermark, new scene or characters.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/water_caption.png"
+    ]
+  },
+  {
+    "id": "threshold_dust",
+    "page": 3,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/threshold_dust.png",
+    "source_box": [
+      730,
+      360,
+      1110,
+      910
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Replace ONLY the angular dark ROCK piles inside the doorway with soft small painted grey-lavender DUST drifts and subtle shadow on the same floor. Preserve original vertical door/wall geometry, exact reaching forearm/hand/fingers and pink sleeve, all actor silhouettes. No rectangular patch boundaries, no new piles outside doorway. Same grain, lighting, brushwork and original staging, no whole-scene redesign.",
+    "attempt_limit": 2,
+    "source_sha256": "5af49138db26d47a62205d81ee64b5778aad5e241e12d016bdeaeab105f34258",
+    "prompt": "Precise bounded inpainting of this existing art crop. Replace ONLY the angular dark ROCK piles inside the doorway with soft small painted grey-lavender DUST drifts and subtle shadow on the same floor. Preserve original vertical door/wall geometry, exact reaching forearm/hand/fingers and pink sleeve, all actor silhouettes. No rectangular patch boundaries, no new piles outside doorway. Same grain, lighting, brushwork and original staging, no whole-scene redesign. Same crop coordinate layout and polished2D painted texture; preserve all unrequested pixels. No text, watermark, new scene or characters.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/threshold_dust.png"
+    ]
+  },
+  {
+    "id": "hall_dust",
+    "page": 4,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/hall_dust.png",
+    "source_box": [
+      480,
+      705,
+      1512,
+      1080
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Strengthen ONLY existing floor dust into small soft painted dust tufts and footprints/smears on the same dusty marble, enough to read as dusty floor. Keep red runner, floor pattern/perspective and architecture exactly. No rocks, rubbish, fog, new props or large bunnies. Preserve exact colors in outer40pixels with soft inward transitions so crop boundary invisible. Not a rectangle of new floor.",
+    "attempt_limit": 2,
+    "source_sha256": "0157a7e60e9426e99dfe98c8a864a69d20838b265832c132074138575167b1d0",
+    "prompt": "Precise bounded inpainting of this existing art crop. Strengthen ONLY existing floor dust into small soft painted dust tufts and footprints/smears on the same dusty marble, enough to read as dusty floor. Keep red runner, floor pattern/perspective and architecture exactly. No rocks, rubbish, fog, new props or large bunnies. Preserve exact colors in outer40pixels with soft inward transitions so crop boundary invisible. Not a rectangle of new floor. Same crop coordinate layout and polished2D painted texture; preserve all unrequested pixels. No text, watermark, new scene or characters.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/hall_dust.png"
+    ]
+  },
+  {
+    "id": "sponge_pose",
+    "page": 25,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/sponge_pose.png",
+    "source_box": [
+      880,
+      0,
+      1774,
+      887
+    ],
+    "reference_size": [
+      1774,
+      887
+    ],
+    "fix": "Only correct the isolated Roshan identity. Small gold tiara exactly ONE blue gem, remove the second blue stone above central gem; chestnut soft-wave hair, ONE small pastel tied ponytail behind her head, roughly quarter of hair. Brown irises instead of amber-orange. Preserve exact delighted expression, body pose, two hands, held sponge, all limbs and transparent silhouette. No GrandPuff, no scene, no new props. True RGBA transparency.",
+    "attempt_limit": 2,
+    "source_sha256": "dbfadbce4152c7b1aada5e01b94592e1bdcd937c805c14c7c1200b1f5ee9187d",
+    "transparent": true,
+    "prompt": "Precise local repair of IMAGE1. Only correct the isolated Roshan identity. Small gold tiara exactly ONE blue gem, remove the second blue stone above central gem; chestnut soft-wave hair, ONE small pastel tied ponytail behind her head, roughly quarter of hair. Brown irises instead of amber-orange. Preserve exact delighted expression, body pose, two hands, held sponge, all limbs and transparent silhouette. No GrandPuff, no scene, no new props. True RGBA transparency. IMAGE2 is canonical Roshan identity/directional reference only; do not copy its pose. Keep source crop coordinate layout and painting style. Return same crop/canvas, no text or watermark.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/sponge_pose.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "cover_hair",
+    "page": 0,
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/cover_hair.png",
+    "source_box": [
+      520,
+      230,
+      1085,
+      650
+    ],
+    "reference_size": [
+      1512,
+      1080
+    ],
+    "fix": "Change ONLY rainbow hair into ONE compact softly PASTEL side ponytail gathered behind her head, about ONE QUARTER of total hair; remaining hair chestnut brown soft waves, shoulder to midback. Do not recolor brown hair or face. Preserve face/eyes, head size, gold tiara one blue gem, exact expression, clothing, pose and background. No new jewelry.",
+    "attempt_limit": 2,
+    "source_sha256": "a68df5cb7f0d9a54f0df0ee88d68012ff35dc81e75cabeaf4014da84fae0bf79",
+    "prompt": "Precise local inpaint of IMAGE1. Change ONLY rainbow hair into ONE compact softly PASTEL side ponytail gathered behind her head, about ONE QUARTER of total hair; remaining hair chestnut brown soft waves, shoulder to midback. Do not recolor brown hair or face. Preserve face/eyes, head size, gold tiara one blue gem, exact expression, clothing, pose and background. No new jewelry. IMAGE2 canonical identity/directional reference only, preserve IMAGE1 pose/crop. Same coordinate layout, no text.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/cover_hair.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  },
+  {
+    "id": "rear_hair",
+    "page": "rear",
+    "source": "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/rear_hair.png",
+    "source_box": [
+      820,
+      200,
+      1400,
+      620
+    ],
+    "reference_size": [
+      1484,
+      1060
+    ],
+    "fix": "Change ONLY rainbow hair into ONE compact softly PASTEL side ponytail gathered behind her head, about ONE QUARTER of total hair; remaining hair chestnut brown soft waves, shoulder to midback. Do not recolor brown hair or face. Preserve face/eyes, head size, gold tiara one blue gem, exact expression, clothing, pose and background. No new jewelry.",
+    "attempt_limit": 2,
+    "source_sha256": "69312a5dd35b66963678aabaa972340b48f1dddb6568e3640fa22e3c565f10f1",
+    "prompt": "Precise local inpaint of IMAGE1. Change ONLY rainbow hair into ONE compact softly PASTEL side ponytail gathered behind her head, about ONE QUARTER of total hair; remaining hair chestnut brown soft waves, shoulder to midback. Do not recolor brown hair or face. Preserve face/eyes, head size, gold tiara one blue gem, exact expression, clothing, pose and background. No new jewelry. IMAGE2 canonical identity/directional reference only, preserve IMAGE1 pose/crop. Same coordinate layout, no text.",
+    "references": [
+      "books/chapter_one/landscape/revisions/v37_consistency_20261022/inputs/rear_hair.png",
+      "assets/characters/roshan_25d/roshan_directional.png"
+    ]
+  }
+]

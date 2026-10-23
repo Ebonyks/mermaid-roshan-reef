@@ -12,6 +12,18 @@ def overlap(a,b):
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--proof',required=True,type=Path);ap.add_argument('--baseline',required=True,type=Path);args=ap.parse_args()
  b=json.loads((ROOT/'book.json').read_text(encoding='utf8'));p=json.loads((args.proof/'page_provenance.json').read_text(encoding='utf8'));issues=[];pages={row['page']:row for row in b['pages']}
+ if b.get('revision','').startswith('V37'):
+  # V37 preserves V36 pagination/manuscript, adding bounded character repairs
+  # and the separately commissioned rear composition. Historical gates stay intact.
+  import subprocess,sys
+  expected=ROOT/'revisions/v37_consistency_20261022'
+  assert args.proof.resolve()==(expected/'complete').resolve()
+  assert args.baseline.resolve()==(ROOT/'revisions/v36_next_draft/complete').resolve()
+  result=subprocess.run([sys.executable,'-X','utf8','-B',str(expected/'verify_revision.py')])
+  if result.returncode:raise SystemExit(result.returncode)
+  verified=json.loads((args.proof/'verification.json').read_text('utf8'))
+  (args.proof/'stress_results.json').write_text(json.dumps({'mechanical_status':'PASS','gate':'V37 V36-source seal/manuscript/geometry/composed-contrast snapshot','verification_sha256':hashlib.sha256((args.proof/'verification.json').read_bytes()).hexdigest(),'issues':verified['issues'],'human_acceptance':'Repeated visual review is scoped evidence; owner/child/SLP/final-resolution/print acceptance remains separate'},indent=2)+'\n',encoding='utf8',newline='\n')
+  return
  if b.get('revision','').startswith('V36'):
   # V36 deliberately changes pagination, wording and physical review trim.
   # Its strict snapshot gate retains source, contour, geometry and canon checks

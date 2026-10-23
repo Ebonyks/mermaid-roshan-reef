@@ -816,14 +816,14 @@ Kept as-is; noted so a future edit updates every copy.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V36 exact32-page manuscript and V34 source mapping. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V36 machine checks and native review with held art repairs. |
+| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V37 exact32-page owner manuscript and preserved V34 source mapping. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V37 seven-cycle consistency repair, final scoped five-pass visual review and separate print/owner gaps. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
 | `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performances and v17 repository-detail score; frightened lower-right stages supersede the quiet reveal; owner acceptance remains open. |
 
-| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V36 editorial comprehension analysis; child and SLP evidence open. |
+| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V37 editorial comprehension/continuity analysis; child and SLP evidence open. |
 
 | `books/chapter_one/reviews/2026-09-30/REVIEW.md` | ⚪ | `HISTORICAL_EVIDENCE`; unchanged-V27 comprehensive comparison and recommendations. V28 implements selected corrections; unresolved source/print questions remain current through landscape/REVIEW.md. |
 
@@ -835,13 +835,16 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v31_story_clarity/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; published V31 mystery-door/rear-cameo and ending evidence. V32 restores rainbow water and consolidates the ending; original art/proofs/audits preserved. |
 | `books/chapter_one/landscape/revisions/v32_rainbow_story/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; original V32 magical rainbow story/pagination/proof and audits; V33 repairs covers and retains32 exact interiors. Rejected insert4 remains open. |
 | `books/chapter_one/landscape/revisions/v33_story_covers/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; sealed V33 cover repair and32 interior baseline; V34 supersedes current editorial facts, preserving original evidence. |
-| `books/chapter_one/landscape/revisions/v34_editorial_polish/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; exact V34 baseline preserved; V36 is current review candidate, with art/owner/child/SLP/print gaps open. |
+| `books/chapter_one/landscape/revisions/v34_editorial_polish/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; exact V34 baseline preserved; V37 is current review candidate; final-resolution/owner/child/SLP/print gaps remain open. |
 | `books/chapter_one/landscape/revisions/v34_editorial_polish/AUDIT_EVALUATION.md` | 🟠 | `PARTIALLY SUPERSEDED`; V34's actual results and evidence remain current. Its Q1, Q3, Q8, W8, W14, W15, W16 and stories-3/4 adaptations are `SUPERSEDED` by the owner's 2026-10-19 decision record in the audit handoff. |
 | `books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/README.md` | 🔵 | `SUPPORTING_CURRENT`; governing V34 audit work order for Codex (owner 2026-10-18 accepted the Q1-Q14 defaults; owner 2026-10-19 made it govern the next revision). W14 and W16 are replaced by the 2026-10-19 decision record. Written by Claude without images; Roshan's rounded ears (Q6) and the single new page-9 pose (W3b) were settled 2026-10-19; no art, print, child or SLP acceptance. |
 | `books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; Claude page-by-page audit of V33 (11 strong, 18 polish, 5 fix) with measured caption contrast and the accepted Q1-Q14 defaults; evidence for the V34 work order, not owner, child, SLP or print acceptance. |
 | `books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md` | 🔵 | `SUPPORTING_CURRENT`; owner decision record: the audit handoff governs the next revision, reconciled item by item with Codex's V34, with the final 32-page manuscript, a spoiler-free rear choice and the larger-print edition steps. Written by Claude without images; no art, print, child or SLP acceptance. |
 | `books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/CHARACTER_CONSISTENCY_2026-10-19.md` | 🔵 | `SUPPORTING_CURRENT`; character-consistency audit of the V34 art with written standards per character and fixes C1-C14 for the next revision, under the owner's 2026-10-19 choices (same rainbow lock; character-only edits on locked art). Written by Claude without images; no art, print, child or SLP acceptance. |
 | `books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/START_HERE.md` | 🔵 | `SUPPORTING_CURRENT`; Codex entry point for the next picture-book revision (V36): baseline V34 at 4f65c502, reading order, owner decisions in force, an 11-step build order with acceptance, delivery and report-back steps, and a hashed manifest of every needed file. Written by Claude without images; V36 review candidate now built; see V36 report for incomplete items; no art, print, child or SLP acceptance. |
-| `books/chapter_one/landscape/revisions/v36_next_draft/README.md` | 🔵 | `SUPPORTING_CURRENT`; V36 review entry, PDFs, source baseline and explicit art holds. |
-| `books/chapter_one/landscape/revisions/v36_next_draft/BUILD_REPORT.md` | 🔵 | `SUPPORTING_CURRENT`; Step1–11, W1–17 and C1–14 status/evidence; caption comparison, remote receipt and all acceptance gaps. |
-| `books/chapter_one/landscape/revisions/v36_rear_composition_20261021/README.md` | 🔵 | `SUPPORTING_CURRENT`; owner-commissioned distinct rear-cover composition from existing Day One designs; scoped book exception, native candidate and provenance, not owner/print acceptance. |
+| `books/chapter_one/landscape/revisions/v36_next_draft/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; sealed V36 review, PDFs and art holds; V37 owns current consistency review. Original evidence unchanged. |
+| `books/chapter_one/landscape/revisions/v36_next_draft/BUILD_REPORT.md` | ⚪ | `HISTORICAL_EVIDENCE`; original Step1–11/W/C evidence and held repairs preserved. V37 supersedes scoped current art facts; print/owner/child/SLP gaps remain open. |
+| `books/chapter_one/landscape/revisions/v36_rear_composition_20261021/README.md` | 🔵 | `SUPPORTING_CURRENT`; owner-commissioned distinct rear composition; native source/provenance retained and integrated in V37 with bounded hair repair; no owner/print acceptance. |
+
+| `books/chapter_one/landscape/revisions/v37_consistency_20261022/README.md` | 🔵 | `SUPPORTING_CURRENT`; V37 book, exact sources/native repairs, final five visual audits and machine/print/owner claim boundaries. |
+| `books/chapter_one/landscape/revisions/v37_consistency_20261022/STRESS_REPORT.md` | 🔵 | `SUPPORTING_CURRENT`; twenty initial run summaries, compared issue catalog and five-audit results for all seven revisions. One AI reviewer; no independent or final-publication acceptance. |

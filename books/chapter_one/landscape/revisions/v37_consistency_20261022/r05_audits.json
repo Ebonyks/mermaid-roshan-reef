@@ -1,0 +1,43 @@
+{
+  "revision": "R5",
+  "pdf_sha256": "8c961faee91de653b7e895bf922c599299fe4265444b0ef1036282c5ce9cf432",
+  "scope": "One reviewer,5focused passes. All34current pages viewed at overview, native micro details inspected.",
+  "passes": [
+    {
+      "run": 1,
+      "focus": "Identity/accessories at native repair detail",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 2,
+      "focus": "Composition/type/safe trim plus whole34page view",
+      "result": "FAIL",
+      "remaining": [
+        "Machine check found story23 top line5.12designpoints beyond24pt inset.",
+        "Rear text contrast falls below3:1 on dark banner; shift into quiet wall and add fine light halo."
+      ]
+    },
+    {
+      "run": 3,
+      "focus": "Native seams/alpha",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 4,
+      "focus": "Contacts/action and story continuity",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 5,
+      "focus": "Adversarial cross-comparison and machine agreement",
+      "result": "FAIL",
+      "remaining": [
+        "Layout findings in run2 remain. No clean pass claimed."
+      ]
+    }
+  ],
+  "status": "FAILED_VISUAL_REVIEW"
+}

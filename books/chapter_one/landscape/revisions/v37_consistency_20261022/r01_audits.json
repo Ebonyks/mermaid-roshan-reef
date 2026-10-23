@@ -1,0 +1,64 @@
+{
+  "revision": "R1",
+  "pdf_sha256": "99d242d04e56859ae154297be94b86b9d7cdd6babe1ed02aaae49b4724563a12",
+  "passes": [
+    {
+      "run": 1,
+      "focus": "Identity across full revision and native head details",
+      "result": "FAIL",
+      "remaining": [
+        "I03: additional solid blue top stones remain on multiple tiaras; unrelated gold holes reflecting sky are not counted as gems."
+      ],
+      "improved": [
+        "One tied lock rather than lower bands on1; brown hair/compact ponytail15/17/25; stray gold speck removed."
+      ]
+    },
+    {
+      "run": 2,
+      "focus": "Composition and page/spread staging",
+      "result": "FAIL",
+      "remaining": [
+        "Page23 second line sits close to gold cornice; raise6design points.",
+        "I09 new water patch shows white top seam from generated letterbox padding."
+      ],
+      "improved": [
+        "I11 new rear integrated and spoiler-free; I07 sponge lies flat; caption14unified."
+      ]
+    },
+    {
+      "run": 3,
+      "focus": "Native joins/halos and source/pixel boundaries",
+      "result": "FAIL",
+      "remaining": [
+        "Small rectangular crop transitions visible on1/3/4/8/15. Resource-edge alpha fade needs actual zero-edge ramp.",
+        "26patch copied to27 also copies purple Puff into bubble field; restrict mask to Roshan only."
+      ],
+      "improved": [
+        "No original source changed; full-pose cutout25 has no clipped ponytail edge."
+      ]
+    },
+    {
+      "run": 4,
+      "focus": "Anatomy, accessories and physical contacts",
+      "result": "FAIL",
+      "remaining": [
+        "I06 old short-ear/stud fragments persist outside irregular masks20; expand union to whole old/new bunny."
+      ],
+      "improved": [
+        "I04 earrings26/27 removed; two hands/contact, brush, cup, hug and nap kept; Rumi/Daddy/Eagle identity unchanged."
+      ]
+    },
+    {
+      "run": 5,
+      "focus": "Adversarial cover-to-cover consistency and cross-pass comparison",
+      "result": "FAIL",
+      "remaining": [
+        "Union of runs1–4 remains actionable; do not call revision visually accepted."
+      ],
+      "improved": [
+        "Main13issue groups substantially reduced; print-resolution limitation remains outside scoped visual pass."
+      ]
+    }
+  ],
+  "status": "FAILED_VISUAL_REVIEW"
+}

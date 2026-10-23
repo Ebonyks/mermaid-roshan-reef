@@ -1,6 +1,6 @@
-# V36 page plan
+# V37 page plan
 
-Status: `SUPPORTING_CURRENT`. Exact owner manuscript; [pagination](revisions/v36_next_draft/print_pagination.json) and [controls](book.json).
+Status: `SUPPORTING_CURRENT`. Exact owner manuscript; [preserved pagination](revisions/v36_next_draft/print_pagination.json) and [controls](book.json).
 
 | Story | V34 source story | Caption |
 | --- | --- | --- |
