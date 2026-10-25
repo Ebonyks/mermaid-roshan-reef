@@ -1,0 +1,48 @@
+{
+  "id": "picture-book-v38-audit-handoff-20261025",
+  "baseline": "eb405fe45edbcc37b59bebebba475de445cffb58",
+  "scope": "Publish Claude's page-by-page audit of the V37 chapter-one picture book and the owner-approved V38 work order for Codex (owner, 2026-10-25: use the suggested defaults for Q1-Q6 and leave Q7, the final trim, open). Ten items: hand-broken captions on stories 18 and 22, a one-colour caption on 16, a two-line cover subtitle, page 9's bank prop and print-size drawing, the rear-cover Lamma, dust and cobweb, page 5 dust motes, and V37's composed caption gate. Documentation and a hashed manifest only; the ledger marks the 2026-10-18 work order, its start page and the V33 audit as historical. No book art, proof, manuscript word, renderer, game, runtime or protected-original change; Claude made no images.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static picture-book editorial audit and Codex work order; no game or runtime defect or canonical master finding is repaired or closed.",
+  "files": [
+    "books/chapter_one/handoffs/2026-10-25_v38_audit_fixes/AUDIT.md",
+    "books/chapter_one/handoffs/2026-10-25_v38_audit_fixes/MANIFEST.json",
+    "books/chapter_one/handoffs/2026-10-25_v38_audit_fixes/README.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/picture-book-v38-audit-handoff-20261025.json"
+  ],
+  "validation": [
+    {
+      "command": "Direct review of all 34 V37 page proofs and spreads from the V37 print pagination; the V37 master PDF SHA-256 matches its verification record",
+      "result": "PASS",
+      "evidence": "books/chapter_one/handoffs/2026-10-25_v38_audit_fixes/AUDIT.md"
+    },
+    {
+      "command": "Numbers-only layout measurements: Sniglet line widths for stories 18 and 22, story 16 caption contrast on its source art, cover subtitle contrast and clearance from the ponytail by colour hue, story 23 chain and word positions",
+      "result": "PASS",
+      "evidence": "books/chapter_one/handoffs/2026-10-25_v38_audit_fixes/README.md (measured values under A1-A4)"
+    },
+    {
+      "command": "SHA-256 of every referenced governing document, control, source and V37 proof from the committed bytes at the baseline commit",
+      "result": "PASS",
+      "evidence": "books/chapter_one/handoffs/2026-10-25_v38_audit_fixes/MANIFEST.json (67 files)"
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_document_authority.py; python -X utf8 -B tools/audit_development.py --base auto; python -X utf8 -B tools/audit_development.py --base eb405fe45edbcc37b59bebebba475de445cffb58; python -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Run before commit; output reported in the publishing session."
+    },
+    {
+      "command": "Godot import, runtime, script and device gates",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Documentation and a hashed manifest only; no runtime, scene, script, save, asset, protected original, device or release change."
+    }
+  ],
+  "acceptance_gaps": "V38 is not implemented. Owner acceptance of the illustrations, a child reading, a professional speech-language review, the final trim (Q7) and a physical test print remain open. Anonymous remote verification follows the push."
+}
