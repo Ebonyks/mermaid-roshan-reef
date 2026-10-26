@@ -82,12 +82,17 @@ for p in P.values():
   for k in p['art']:
    im=Image.open(L/b['sources'][k]['file']);assert im.mode=='RGBA' and im.getextrema()[3][0]==0,k
   assert p.get('marginal_bunny_count',0)<=3
-generation=read(V/'generation_evidence.json');assert generation['calls']==7 and len(generation['records'])==7
+generation=read(V/'generation_evidence.json');assert generation['calls']==9 and len(generation['records'])==9
 for q in generation['records']:
  assert sha(R/q['output'])==q['output_sha256']
  for ref in q['bound_reference_records']:assert sha(R/ref['path'])==ref['sha256']
 assert sum(q['item']=='A9' for q in generation['records'])==2
 assert all(not q['selected'] and q['native_size'][1]<1800 for q in generation['records'] if q['item']=='A9')
+assert b['sources']['v38_door_dust']['file'].endswith('door_dust_attempt4_rgba.png')
+assert len([q for q in P[5]['local_patches'] if q['source']=='v38_door_dust'])==4
+assert [q['call'] for q in generation['records'] if q['item']=='A8' and q['selected']]==[9]
+assert all(q['opacity']==.7 for q in P[5]['local_patches'] if q['source']=='v38_door_dust')
+assert Image.open(L/b['sources']['v38_door_dust']['file']).mode=='RGBA'
 for q in read(V/'input_crops.json'):
  assert sha(R/q['source'])==q['source_sha256'] and sha(R/q['path'])==q['sha256']
  a=Image.open(R/q['source']).crop(q['crop']);z=Image.open(R/q['path'])
@@ -101,6 +106,12 @@ for n in range(34):
 assert len(list(C.glob('page_[0-9][0-9].png')))==34
 unchanged=read(V/'revision_scope.json')['unchanged_pdf_pages']
 for n in unchanged:assert sha(C/f'page_{n:02}.png')==sha(OLD/'complete'/f'page_{n:02}.png'),('Unchanged exact proof',n)
+peer_unchanged=[]
+for n in range(34):
+ if n==5:continue
+ p=C/f'page_{n:02}.png';data=subprocess.check_output(['git','show','03d35a93b6e4b814f8026d0a5c6d44932ec33ec6:'+p.relative_to(R).as_posix()],cwd=R)
+ assert hashlib.sha256(data).hexdigest()==sha(p),('Unexpected peer-revision page change',n)
+ peer_unchanged.append(n)
 scratch=R/'tmp/pdfs/v38';scratch.mkdir(parents=True,exist_ok=True)
 def no_text(source,dest):
  w=PdfWriter();r=PdfReader(source)
@@ -145,7 +156,9 @@ if '--preflight' not in sys.argv:
  visual=read(V/'visual_audits.json');assert len(visual['passes'])==5 and all(q['result']=='PASS_WITH_DECLARED_A9_HOLD' and not q['remaining_in_scope_defects'] for q in visual['passes'])
  assert visual['pdf_sha256']==sha(C/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf')
 out=dict(status='FAIL' if issues else 'PREFLIGHT_PASS' if '--preflight' in sys.argv else 'PASS_WITH_DECLARED_A9_HOLD',baseline=BASE,pages=34,story_pages=32,page_size_points=[1008,720],source_seal=sealed,source_seal_count=len(sealed),exact_pdf_proofs=34,unchanged_byte_exact_proofs=unchanged,all34_outside_mask_checks=pixels,contrast_counts=dict(Counter(q['verdict'] for q in contrast)),issues=issues,held=['A9: two native takes below1800px with minor contour drift; exact V37 retained'],acceptance='Machine evidence; AI visual review separately recorded. Owner/child/SLP/trim/physical print remain open; no print edition or runtime claim.')
-out.update(pdf_sha256=sha(C/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf'),book_sha256=sha(L/'book.json'),provenance_sha256=sha(C/'page_provenance.json'),actual_glyph_focal_checks=focal_ink_checks)
+out.update(pdf_sha256=sha(C/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf'),book_sha256=sha(L/'book.json'),book_canonical_sha256=hashlib.sha256(json.dumps(b,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest(),provenance_sha256=sha(C/'page_provenance.json'),actual_glyph_focal_checks=focal_ink_checks)
 out['contrast_counts']=counts
+out['peer_review_baseline']='03d35a93b6e4b814f8026d0a5c6d44932ec33ec6'
+out['unchanged_proofs_vs_initial_v38']=peer_unchanged
 save(C/'verification.json',out);print(json.dumps({k:v for k,v in out.items() if k not in ['source_seal','all34_outside_mask_checks','unchanged_byte_exact_proofs','actual_glyph_focal_checks']},ensure_ascii=False,indent=2))
 if issues:raise SystemExit(1)

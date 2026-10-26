@@ -1,0 +1,181 @@
+{
+  "review_id": "V38-PEER-R01",
+  "reviewer": "Second Codex AI reviewer /root/v38_peer_critic, separate agent from implementer",
+  "reviewed_revision": "03d35a93b6e4b814f8026d0a5c6d44932ec33ec6",
+  "scope": "Independent A1-A10 work-order/art/evidence/rebuild critique of published V38; no game, runtime, release or print-edition acceptance.",
+  "verdict": "NOT_SATISFIED",
+  "master_pdf_sha256": "d8125dde586bcfb2fd775cd6c034f4b27a73428b760663d30d9d684eae64c037",
+  "proof_hashes": {
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_00.png": "38ad500c0bebb4ca0cf63181191bea427a99318ac51e82d5434130e54c5ddbbb",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_05.png": "e4448068d275c462fc914b16b799acf116a44461e1eb05bec42b88e3914c06a9",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_09.png": "0eaffc362e484c2adc04c72c4d1bf30767fdb4d729491f2bee6eb13a5a4e1389",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_16.png": "91056d37e98f13b744ebb5da264891ed6acf69b0529411d69e81850d7c163bf3",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_18.png": "efc9290c601561f6e95c1900d9699e3596885527571806d7b178c5baeb6da3ee",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_22.png": "9452a6cc0ace54a2c13b5c06cc0a88ad4f9b764ca93db74bf1499aa83e286a5a",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_33.png": "a3d91bdd255152df45b57ece3c8edf6f311c4dbf4f8de9de9b775e6bfccf1e50"
+  },
+  "governing_sources": [
+    "AGENTS.md",
+    "audit/MASTER_AUDIT_2026-08-09.md#0-planning-entry",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:DL-AUTH-05/06/07,DL-ASSET-08",
+    "design/05_DOC_LEDGER.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/handoffs/2026-10-25_v38_audit_fixes/README.md",
+    "books/chapter_one/handoffs/2026-10-25_v38_audit_fixes/AUDIT.md",
+    "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md",
+    "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/CHARACTER_CONSISTENCY_2026-10-19.md"
+  ],
+  "findings": [
+    {
+      "id": "V38-PEER-01",
+      "priority": "P2",
+      "blocking_completion": true,
+      "item": "A8",
+      "title": "Door dust is smaller than the required handle scale and barely reads on the page",
+      "paths": [
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_05.png",
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/details/door_dust.png",
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt2.png",
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/BOOK_CURRENT.json"
+      ],
+      "criterion": "A8: 3-5 faint lavender-grey motes, each between the door gold handle's size and twice it; dust must read as coming from behind the door at7x5in.",
+      "observed": "Four plain wisps are present, with no forbidden curls/face, but appear as tiny low smudges. Approximate visual bounds mapped from the1668x943native crop to the620x350source window are30-55source px wide and10-20high per wisp, versus roughly70x35for the original gold handle. The full-page proof does not supply a sufficiently readable non-reader clue.",
+      "measurement_limit": "Approximate visually located bounds, not a claimed automated segmentation. The size shortfall is large enough to see directly at native and whole-page scale.",
+      "required_correction": "Enlarge the individual dust footprints to1-2times the handle's source size, keeping faint irregular plain dust, gaps, closed-door staging, no spiral/face, complete contour and no patch seam. Record actual source bounds and inspect both100%and7x5-equivalent views. Rebuild/rerun caption, scope and export gates; replace A8DONE claim only after review."
+    },
+    {
+      "id": "V38-PEER-02",
+      "priority": "P2",
+      "blocking_completion": true,
+      "item": "evidence",
+      "title": "Rebuild helper can manufacture fresh visual acceptance for an unreviewed PDF",
+      "paths": [
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/record_review.py:16",
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/README.md",
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/visual_audits.json"
+      ],
+      "criterion": "DL-AUTH-06/07: exact validation evidence and visual acceptance must remain distinct from mechanical regeneration; README says a changed PDF requires fresh visual review.",
+      "observed": "At the reviewed revision record_review.py computes the current PDF/email hashes then unconditionally writes five hard-coded PASS_WITH_DECLARED_A9_HOLD observations, with zero remaining defects. It can stamp old observations onto any replaced or uninspected PDF, defeating the verifier's hash binding.",
+      "required_correction": "Make existing visual reviews immutable evidence. A helper may validate the reviewed target hashes and fail on mismatch; it must not auto-approve or rebind old observations. New candidate hashes require new actually performed visual passes, recorded separately and reviewed."
+    },
+    {
+      "id": "V38-PEER-03",
+      "priority": "P2",
+      "blocking_completion": true,
+      "item": "evidence/rebuild",
+      "title": "Local validation reports tests that it does not run and can overwrite the impact's historical evidence",
+      "paths": [
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/local_validation.py:22",
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/local_validation.py:28",
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/validation_results.json"
+      ],
+      "criterion": "DL-AUTH-06 requires actual command results and exact changed-path evidence; failed or pending checks cannot become an aggregate pass.",
+      "observed": "The baseline helper hard-codes '52 passed' without running unittest, sets top-level PASS regardless of the copied book_gate status, and rewrites the impact record using only current dirty paths with hard-coded prior passes. Re-running it from a clean published checkout can erase historical coverage and misstate checks.",
+      "required_correction": "Execute requested gates and capture command/return code/output; derive aggregate status from actual current checks and propagate failure. Without rerunning, label those checks not executed and preserve sealed prior receipts. Do not rewrite published impact history merely from current working-tree dirt."
+    },
+    {
+      "id": "V38-PEER-04",
+      "priority": "P3",
+      "blocking_completion": false,
+      "item": "review presentation",
+      "title": "Reveal diagnostic is a sparse facing-spread board rather than a clearly labelled turn comparison",
+      "paths": [
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/build_review.py:26",
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/reveals.jpg"
+      ],
+      "criterion": "Delivery should make the actual binding/reveal order inspectable; do not misrepresent facing pages as a turn.",
+      "observed": "The board includes8-9,10-11,12-13,14-15,22-23,24-25,26-27,28-29, with252x180thumbnails inside widely spaced672pxcolumns. It indirectly provides before/after spreads but does not explicitly label13→14/23→24/27→28as turns. print_pagination.json itself records the correct sequence; this is not a book-pagination defect.",
+      "required_correction": "Improve diagnostic labels/layout to show the actual before-turn and after-turn spreads or clearly marked non-facing turn comparisons, while leaving book pagination unchanged."
+    }
+  ],
+  "criteria": [
+    {
+      "item": "A1",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_22.png",
+      "notes": "Three exact requested lines, unchanged words/size/box/color."
+    },
+    {
+      "item": "A2",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_16.png",
+      "notes": "One navy block, requested baselines110/84/58, halo/outline. Actual glyph+stroke top125.88clears unchanged focal boundary128by2.12logical points; visible splash/fin clear. Refining unused font-ascent height to actual glyph ink is legitimate, not an ignored collision."
+    },
+    {
+      "item": "A3",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_18.png",
+      "notes": "Requested three lines and needs help together; same white/outline."
+    },
+    {
+      "item": "A4",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_00.png",
+      "notes": "13ptnavy, right edge428.2and requested baselines; inset and cast/hair clearance hold."
+    },
+    {
+      "item": "A5",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/revisions/v38_audit_fixes/details/pail_join.png",
+      "notes": "Pale-aqua shell pail, narrow contact shadow, no bank plug/chain. Towel/shells/left figures remain. Declared pre-occlusion footprint has normalized top >=0.85, width and height <=0.12, and leaves the central gap empty. No visible rectangular patch."
+    },
+    {
+      "item": "A6",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/revisions/v38_audit_fixes/details/lamma.png",
+      "notes": "Tiny white plush head with pale face/lashes/pink cheeks peeks around far left curtain, quiet secondary detail. Page10cameo also viewed; two silent sightings."
+    },
+    {
+      "item": "A7",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_33.png",
+      "notes": "Thin pale web clears lamp/banner, four extra soft drifts on lower carpet; hall inviting, copy clear. Existing shells and tufts remain."
+    },
+    {
+      "item": "A8",
+      "result": "FAIL",
+      "finding": "V38-PEER-01"
+    },
+    {
+      "item": "A9",
+      "result": "AUTHORIZED_HOLD",
+      "evidence": "books/chapter_one/landscape/revisions/v38_audit_fixes/generation_evidence.json",
+      "notes": "Both trial images viewed beside original at native size. Trial1alters ponytail silhouette; trial2alters brush/fixture/detail contours; both native groups below1800(1288and1320px). Keeping exact V37drawing under the handoff stop clause is defensible; do not claim print-size completion. Original alpha-bounded group is1316px within1332pxcanvas."
+    },
+    {
+      "item": "A10",
+      "result": "PASS_METHOD_REVIEW",
+      "evidence": "books/chapter_one/landscape/revisions/v38_audit_fixes/verify_revision.py",
+      "notes": "Actual caption-free final-PDF composition with local repairs and stroke removed; fill/median/worst-decile thresholds match V37. Reported79PASS/7OUTLINE_REQUIRED/0FAILof86lines agrees with requested method; all required supports present. Evidence helper defects remain separate."
+    }
+  ],
+  "independent_checks": {
+    "unchanged_proofs_byte_exact": 27,
+    "original_source_font_git_blob_seals": 307,
+    "exact_final_pdf_proof_renders": 34,
+    "lossless_master_parts_reconstruct_exact": true,
+    "master_sha256": "d8125dde586bcfb2fd775cd6c034f4b27a73428b760663d30d9d684eae64c037",
+    "bath_native_canvas_heights": [
+      1330,
+      1330
+    ],
+    "bath_native_alpha_group_heights": [
+      1288,
+      1320
+    ],
+    "preserved_original_bath_alpha_height": 1316,
+    "email_bytes": 24324210
+  },
+  "publication_review": {
+    "observed": "Existing receipt names4eae764467172311dc0e2762f88b2e5dc41e8fe1, anonymous497-file verification, and pinned manifest hash. This critique independently inspected local exact artifacts; it does not falsely claim a second full remote download.",
+    "required_after_correction": "Publish corrected candidate and all material review records, rebuild exact manifest, verify remote required files at the new pinned revision, and return them for second-AI handback."
+  },
+  "required_handback": [
+    "Corrected A8whole-page/native/7x5-equivalent views with measured handle/dust bounds",
+    "Evidence helpers that fail closed on target changes and run/capture real gates",
+    "Updated hashes/proofs/exports with unchanged-page/source preservation and composed contrast/export results",
+    "Actual fresh visual review of changed final target and versioned responses to each finding",
+    "New published manifest/remote receipt before final completion claim"
+  ],
+  "acceptance_limits": "This is a second AI's independent critique, not owner acceptance, child-reading evidence, clinical SLP review, final trim/PPI or physical print. No game master finding is closed."
+}

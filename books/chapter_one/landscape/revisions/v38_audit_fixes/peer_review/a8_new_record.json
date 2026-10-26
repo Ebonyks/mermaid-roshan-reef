@@ -1,0 +1,17 @@
+{
+  "call": 8,
+  "item": "A8",
+  "overall_attempt": 3,
+  "prompt": "Edit only IMAGE_1, the exact 620x350 crop of an existing purple closed door and red carpet steps. IMAGE_2 is the complete SAME door, provided ONLY to judge the scale of its small gold door handle (about69x34 original pixels); do not change or redraw the door. Add FOUR faint but readily visible ordinary lavender-grey household dust wisps drifting out from UNDER the closed door onto its top red step. Each wisp must be about95–110 original crop pixels wide and45–60 pixels tall: roughly1.4–1.6 times the handle width and1.3–1.8 times handle height. They must NOT be tiny smudges. Place four irregular softly edged powder clouds around crop centers (145,117),(265,119),(385,115),(505,118), with distinct small gaps. Their bottom edge spills gently onto the top red tread; each upper half veils the very bottom of the purple door. They are translucent-looking muted grey with a faint lavender tint, soft gathered dust with subtle grain, clearly readable against both red and purple. No internal drawn line, no coiling, no spirals, no smoke curls, no eyes, face, pearl, star, sparkle, creature or solid purple blob. Preserve exact door geometry, shut seam, gold hardware, step edges, red carpet pattern and lighting everywhere else. Nothing on lower steps. Keep exact620:350 crop framing and existing polished 2D storybook style. No caption, halo, rectangular patch or new scene.",
+  "references": [
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/inputs/door_threshold.png",
+    "books/chapter_one/landscape/revisions/v34_editorial_polish/art/door_cutout_repair_attempt1.png"
+  ],
+  "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-42a47619-d96b-4195-bb3f-71281d27ae22.png",
+  "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt3.png",
+  "selected": true,
+  "review": "Peer-review correction of undersized attempt2 after explicit diagnosis. Full original door added as handle scale reference. Four larger faint plain irregular wisps; final composed size/readability awaiting independent handback.",
+  "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+  "transparent_background": false,
+  "date": "2026-10-25"
+}

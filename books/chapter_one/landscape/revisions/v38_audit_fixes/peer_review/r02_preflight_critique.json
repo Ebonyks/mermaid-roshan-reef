@@ -1,0 +1,334 @@
+{
+  "review_id": "V38-PEER-R02-PREFLIGHT",
+  "reviewer": "Second Codex AI reviewer /root/v38_peer_critic",
+  "reviewed_state": "Intermediate uncommitted A8 correction attempt3 and its fresh composed page05; not final handback",
+  "verdict": "NOT_SATISFIED",
+  "artifact_hashes": {
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt3.png": "a8937ab4acb25a01f5bc54611dc974fb8bbbaff7d56679907269cafe03d7afad",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_05.png": "9aa131b2f866277f646ca880029bdc7caf3049fc0f03b379c5627428d25a7077",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/details/door_dust.png": "0afdca17cacc9c453452519c98883d3296e95dfede345c14dbeb5e742dfa4925"
+  },
+  "page05_controls": {
+    "page": 5,
+    "mode": "C",
+    "art": [
+      "v34_closed_door"
+    ],
+    "layout": "wide_cut",
+    "text": "Sniff, sniff!\nSomeone was sniffling behind a big shell door.\n“Hello?” said Roshan.",
+    "caption": {
+      "x": 42,
+      "y": 270,
+      "width": 220,
+      "size": 20,
+      "align": "left",
+      "color": "navy",
+      "shadow": false,
+      "halo": false,
+      "outline": 0
+    },
+    "foreground_zone": [
+      279,
+      62,
+      163,
+      225
+    ],
+    "border_assets": [],
+    "border_placements": [],
+    "integrated_background": "v34_quiet_bank",
+    "integrated_motifs": [
+      "little_puff_listening",
+      "closed_attic_books",
+      "shell_on_books"
+    ],
+    "integrated_prop_bounds": [
+      [
+        0.112,
+        0.867,
+        0.055,
+        0.065
+      ],
+      [
+        0.817,
+        0.892,
+        0.067,
+        0.05
+      ],
+      [
+        0.837,
+        0.869,
+        0.028,
+        0.038
+      ]
+    ],
+    "marginal_bunny_count": 1,
+    "background_theme": "One tiny listening little puff echoes the quiet plea; closed books suggest the dusty attic. No Grand Puff in the banks.",
+    "beat": "quiet_plea_before_reveal",
+    "original_page": null,
+    "v34_page": 23,
+    "local_patches": [
+      {
+        "source": "v38_door_dust",
+        "reference_size": [
+          1100,
+          1429
+        ],
+        "source_canvas_box": [
+          240,
+          740,
+          860,
+          1090
+        ],
+        "polygon": [
+          [
+            324,
+            842
+          ],
+          [
+            343,
+            820
+          ],
+          [
+            429,
+            821
+          ],
+          [
+            448,
+            844
+          ],
+          [
+            442,
+            891
+          ],
+          [
+            421,
+            900
+          ],
+          [
+            347,
+            898
+          ],
+          [
+            324,
+            881
+          ]
+        ],
+        "edge_feather_reference_pixels": 2,
+        "placement": {
+          "source": "v34_closed_door",
+          "box": [
+            279,
+            62,
+            163,
+            225
+          ]
+        }
+      },
+      {
+        "source": "v38_door_dust",
+        "reference_size": [
+          1100,
+          1429
+        ],
+        "source_canvas_box": [
+          240,
+          740,
+          860,
+          1090
+        ],
+        "polygon": [
+          [
+            449,
+            842
+          ],
+          [
+            468,
+            820
+          ],
+          [
+            529,
+            821
+          ],
+          [
+            548,
+            844
+          ],
+          [
+            542,
+            890
+          ],
+          [
+            521,
+            899
+          ],
+          [
+            472,
+            897
+          ],
+          [
+            449,
+            880
+          ]
+        ],
+        "edge_feather_reference_pixels": 2,
+        "placement": {
+          "source": "v34_closed_door",
+          "box": [
+            279,
+            62,
+            163,
+            225
+          ]
+        }
+      },
+      {
+        "source": "v38_door_dust",
+        "reference_size": [
+          1100,
+          1429
+        ],
+        "source_canvas_box": [
+          240,
+          740,
+          860,
+          1090
+        ],
+        "polygon": [
+          [
+            549,
+            840
+          ],
+          [
+            568,
+            818
+          ],
+          [
+            634,
+            819
+          ],
+          [
+            653,
+            842
+          ],
+          [
+            647,
+            892
+          ],
+          [
+            626,
+            901
+          ],
+          [
+            572,
+            899
+          ],
+          [
+            549,
+            882
+          ]
+        ],
+        "edge_feather_reference_pixels": 2,
+        "placement": {
+          "source": "v34_closed_door",
+          "box": [
+            279,
+            62,
+            163,
+            225
+          ]
+        }
+      },
+      {
+        "source": "v38_door_dust",
+        "reference_size": [
+          1100,
+          1429
+        ],
+        "source_canvas_box": [
+          240,
+          740,
+          860,
+          1090
+        ],
+        "polygon": [
+          [
+            654,
+            842
+          ],
+          [
+            673,
+            820
+          ],
+          [
+            760,
+            821
+          ],
+          [
+            779,
+            844
+          ],
+          [
+            773,
+            892
+          ],
+          [
+            752,
+            901
+          ],
+          [
+            677,
+            899
+          ],
+          [
+            654,
+            882
+          ]
+        ],
+        "edge_feather_reference_pixels": 2,
+        "placement": {
+          "source": "v34_closed_door",
+          "box": [
+            279,
+            62,
+            163,
+            225
+          ]
+        }
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "V38-PEER-05",
+      "priority": "P2",
+      "blocking_completion": true,
+      "item": "A8 local geometry/joins",
+      "criterion": "A8 and source-preserving rules: exact door geometry/staging retained; no visible patch join.",
+      "observed": "The pale horizontal moulding/threshold line develops small steps and a wavy doubled segment around dust windows, especially around the first/second wisps and just right of the centre stile. Exposed generated door pixels drift from the original straight feature. The larger plain wisps themselves now read much better; the defect is architectural pixels around them.",
+      "evidence": [
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/details/door_dust.png",
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_05.png",
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt3.png"
+      ],
+      "required_correction": "Use true RGBA dust-only pixels (no generated door/step/background) over the exact original closed-door cutout, with source-provenance and size bounds. Preserve straight door geometry; permit only natural translucent dust occlusion. Review native alpha and composed100percent/7x5 views, then rerun scope/contrast/export evidence."
+    }
+  ],
+  "prior_findings_progress": [
+    {
+      "id": "V38-PEER-01",
+      "state": "PARTLY_RESOLVED",
+      "notes": "Motes are now substantially clearer and appropriately larger; final acceptance still requires footprint measurements and seam-free composition."
+    },
+    {
+      "id": "V38-PEER-02",
+      "state": "CODE_DESIGN_RESOLVED_FINAL_EVIDENCE_PENDING",
+      "notes": "Current record_review.py is read-only and fails on changed PDF/email hashes; negative-case receipt inspected."
+    },
+    {
+      "id": "V38-PEER-03",
+      "state": "CODE_DESIGN_RESOLVED_FINAL_EVIDENCE_PENDING",
+      "notes": "Current local_validation.py executes requested contract gates, captures results, rejects failed/stale bound book evidence and no longer rewrites impacts; negative failure receipt inspected."
+    }
+  ],
+  "acceptance_limits": "Intermediate second-AI preflight, not final published handoff acceptance. A9/owner/child/SLP/trim/physical print remain separate."
+}

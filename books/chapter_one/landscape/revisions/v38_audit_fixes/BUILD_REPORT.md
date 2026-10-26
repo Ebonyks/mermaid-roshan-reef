@@ -11,7 +11,7 @@ Status: `SUPPORTING_CURRENT`; static-book evidence. [Accepted work order](../../
 | A5 | DONE — clean-water shell pail replaces all bank plug/chain; foreground plug stays. | [Proof9](complete/page_09.png), [join](details/pail_join.png), [bounds/mask](BOOK_CURRENT.json). |
 | A6 | DONE — tiny white plush head around far left curtain; silent sightings 10/rear. | [Rear](complete/page_33.png), [Lamma](details/lamma.png), [references](generation_evidence.json). |
 | A7 | DONE — one thin corner web, four extra grey dust drifts, original shells/tufts preserved. | [Web](details/cobweb.png), [carpet](details/carpet.png), [outside-mask checks](complete/verification.json). |
-| A8 | DONE — four faint plain lavender-grey wisps at closed threshold; no curl/face/reveal. | [Door](complete/page_05.png), [detail](details/door_dust.png), [rejected and selected takes](generation_evidence.json). |
+| A8 | DONE — four plain lavender-grey wisps at closed threshold, visible cores86–89×43–45source pixels against an approximately69×34handle; true RGBA over original straight moulding at document opacity0.7; no curl/face/reveal. | [Door](complete/page_05.png), [detail](details/door_dust.png), [rejected and selected takes](generation_evidence.json). |
 | A9 | HELD — both native groups below 1800 px, slight contour drift. Exact V37 cutout/placement retained; print-edition upscale deferred. | [Two trials](generation_evidence.json), [hold](revision_scope.json), [unchanged bath](complete/page_09.png). |
 | A10 | DONE — composed caption-free PDF method including actual local repairs, stroke excluded. | [86 lines/counts](composed_caption_contrast.json), [TSV](composed_caption_contrast.tsv), [strict gate](complete/verification.json). |
 
@@ -22,10 +22,12 @@ Status: `SUPPORTING_CURRENT`; static-book evidence. [Accepted work order](../../
 | FAIL | 0 | 0 |
 | Lines | 85 | 86 |
 
-Seven ImageGen calls; all native bytes, prompts, references/hashes, crop windows, masks and rejections retained. A5 one viable take; A6/A7shared local-edit reference plus focused carpet correction; A8 spiral take rejected, plain take selected; A9 two undersized trials then stop. Provider revision, seed and monetary usage are not exposed. No animation claim.
+Nine ImageGen calls; all native bytes, prompts, references/hashes, crop windows, masks and rejections retained. A5 one viable take; A6/A7shared local-edit reference plus focused carpet correction; A8 spiral and undersized takes retired, RGB correction rejected for wavy moulding, final dust-only RGBA selected at document opacity0.7; A9 two undersized trials then stop. Provider revision, seed and monetary usage are not exposed. No animation claim.
 
 The [input remote receipt](handoff_remote_verification.json) verifies all 67supplied files anonymously at declared commits, alongside the [Git-byte receipt](handoff_local_verification.json). [Before/after](REVISION_REVIEW.html), [five passes](visual_audits.json), [email gate](complete/email_verification.json), [pagination](complete/print_pagination.json), [render provenance](complete/page_provenance.json) and [payload receipt](remote_verification.json) separate implementation, evidence and publication.
 
 Page 16 global ascent overlaps the old focal box by 1.12 pt due to unused accent height. Actual glyph+stroke ends at 125.88; unchanged focal region starts 128, leaving2.12logical points. Actual ink+stroke is checked against every focal region; conservative layout-box inset checks stay. No collision is ignored and no focal boundary moved.
 
 Open: A9 resolution, owner illustration approval, child reading, professional speech-language review, final trim/PPI and physical print. Q7 stays open. No invented story moment, new scene or game change. The [manifest](manifest.json) and [remote receipt](remote_verification.json) identify exact published commit, hashes, anonymous access and check time; publication is not creative acceptance.
+
+[Second-AI rounds and responses](peer_review/README.md) document the initial NOT_SATISFIED verdict, rejected intermediate repair, final exact-candidate handback and separate publication acceptance. Fresh five-pass observations bind the final master/email hashes. Negative checks prove changed PDFs cannot inherit approval and failed book evidence cannot aggregate to PASS; actual contract command outputs are in validation_results.json.

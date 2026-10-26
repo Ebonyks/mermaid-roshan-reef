@@ -1,0 +1,54 @@
+{
+  "review_id": "V38-PEER-R03",
+  "pdf_sha256": "87532aa297a82b5270eeff68dba776b9efb7bd1a63e21bd71e1a834644e70e11",
+  "email_sha256": "7449a6d5acfc1c8873e06fcbabb041f60cafe866b97d07bb009e880b89dcbbc6",
+  "page05_sha256": "41c1001afa3a1876ef550ef1653d773a8d3d85a3022703fd5d3034af6e587113",
+  "native_dust_sha256": "030c42fa1b9ffcd1b484be543f694f7666a6297c5bd1f70960174af15df89de6",
+  "document_opacity": 0.7,
+  "placement": "Uniform scale, alpha>=8 width430 original-door pixels, top810; four separate feathered masks. Native untouched.",
+  "handle_source_pixel_size_approximately": [
+    69,
+    34
+  ],
+  "independent_peer_alpha_measurement": {
+    "effective_alpha_32_footprints_range": [
+      [
+        86,
+        43
+      ],
+      [
+        89,
+        45
+      ]
+    ],
+    "effective_alpha_8_footprints_range": [
+      [
+        97,
+        56
+      ],
+      [
+        102,
+        59
+      ]
+    ],
+    "interpretation": "Both visible cores and faint fringes are at least handle size and below twice its width and height. Analytical alpha bounds supplement exact visual review, not child or print acceptance."
+  },
+  "unchanged_vs_initial_v38": "33 exact proof files; only page05 changes",
+  "diagnostics": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/r03_page05_7x5.png",
+      "sha256": "17ac6c34f2697a3ce8ad5e479be9c6ddb5af7774799b2650e3df42d022381062",
+      "operation": "Read-only final PDF proof, crop/enlargement or labeled comparison; never delivery artwork"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/r03_page05_before_after.png",
+      "sha256": "61d12e127bcbb6e2caaf1eff928b8a528ba7601c4aa8a3175d4415689f24fc60",
+      "operation": "Read-only final PDF proof, crop/enlargement or labeled comparison; never delivery artwork"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/r03_door_detail.png",
+      "sha256": "d0a934b3ce4fa12346b948266d46921ff69d847cd72476b7dd6197980f8d984c",
+      "operation": "Read-only final PDF proof, crop/enlargement or labeled comparison; never delivery artwork"
+    }
+  ]
+}

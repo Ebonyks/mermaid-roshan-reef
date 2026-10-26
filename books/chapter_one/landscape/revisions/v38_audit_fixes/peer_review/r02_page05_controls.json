@@ -1,0 +1,301 @@
+{
+  "page": {
+    "page": 5,
+    "mode": "C",
+    "art": [
+      "v34_closed_door"
+    ],
+    "layout": "wide_cut",
+    "text": "Sniff, sniff!\nSomeone was sniffling behind a big shell door.\n\u201cHello?\u201d said Roshan.",
+    "caption": {
+      "x": 42,
+      "y": 270,
+      "width": 220,
+      "size": 20,
+      "align": "left",
+      "color": "navy",
+      "shadow": false,
+      "halo": false,
+      "outline": 0
+    },
+    "foreground_zone": [
+      279,
+      62,
+      163,
+      225
+    ],
+    "border_assets": [],
+    "border_placements": [],
+    "integrated_background": "v34_quiet_bank",
+    "integrated_motifs": [
+      "little_puff_listening",
+      "closed_attic_books",
+      "shell_on_books"
+    ],
+    "integrated_prop_bounds": [
+      [
+        0.112,
+        0.867,
+        0.055,
+        0.065
+      ],
+      [
+        0.817,
+        0.892,
+        0.067,
+        0.05
+      ],
+      [
+        0.837,
+        0.869,
+        0.028,
+        0.038
+      ]
+    ],
+    "marginal_bunny_count": 1,
+    "background_theme": "One tiny listening little puff echoes the quiet plea; closed books suggest the dusty attic. No Grand Puff in the banks.",
+    "beat": "quiet_plea_before_reveal",
+    "original_page": null,
+    "v34_page": 23,
+    "local_patches": [
+      {
+        "source": "v38_door_dust",
+        "reference_size": [
+          1100,
+          1429
+        ],
+        "source_canvas_box": [
+          240,
+          740,
+          860,
+          1090
+        ],
+        "polygon": [
+          [
+            324,
+            842
+          ],
+          [
+            343,
+            820
+          ],
+          [
+            429,
+            821
+          ],
+          [
+            448,
+            844
+          ],
+          [
+            442,
+            891
+          ],
+          [
+            421,
+            900
+          ],
+          [
+            347,
+            898
+          ],
+          [
+            324,
+            881
+          ]
+        ],
+        "edge_feather_reference_pixels": 2,
+        "placement": {
+          "source": "v34_closed_door",
+          "box": [
+            279,
+            62,
+            163,
+            225
+          ]
+        }
+      },
+      {
+        "source": "v38_door_dust",
+        "reference_size": [
+          1100,
+          1429
+        ],
+        "source_canvas_box": [
+          240,
+          740,
+          860,
+          1090
+        ],
+        "polygon": [
+          [
+            449,
+            842
+          ],
+          [
+            468,
+            820
+          ],
+          [
+            529,
+            821
+          ],
+          [
+            548,
+            844
+          ],
+          [
+            542,
+            890
+          ],
+          [
+            521,
+            899
+          ],
+          [
+            472,
+            897
+          ],
+          [
+            449,
+            880
+          ]
+        ],
+        "edge_feather_reference_pixels": 2,
+        "placement": {
+          "source": "v34_closed_door",
+          "box": [
+            279,
+            62,
+            163,
+            225
+          ]
+        }
+      },
+      {
+        "source": "v38_door_dust",
+        "reference_size": [
+          1100,
+          1429
+        ],
+        "source_canvas_box": [
+          240,
+          740,
+          860,
+          1090
+        ],
+        "polygon": [
+          [
+            549,
+            840
+          ],
+          [
+            568,
+            818
+          ],
+          [
+            634,
+            819
+          ],
+          [
+            653,
+            842
+          ],
+          [
+            647,
+            892
+          ],
+          [
+            626,
+            901
+          ],
+          [
+            572,
+            899
+          ],
+          [
+            549,
+            882
+          ]
+        ],
+        "edge_feather_reference_pixels": 2,
+        "placement": {
+          "source": "v34_closed_door",
+          "box": [
+            279,
+            62,
+            163,
+            225
+          ]
+        }
+      },
+      {
+        "source": "v38_door_dust",
+        "reference_size": [
+          1100,
+          1429
+        ],
+        "source_canvas_box": [
+          240,
+          740,
+          860,
+          1090
+        ],
+        "polygon": [
+          [
+            654,
+            842
+          ],
+          [
+            673,
+            820
+          ],
+          [
+            760,
+            821
+          ],
+          [
+            779,
+            844
+          ],
+          [
+            773,
+            892
+          ],
+          [
+            752,
+            901
+          ],
+          [
+            677,
+            899
+          ],
+          [
+            654,
+            882
+          ]
+        ],
+        "edge_feather_reference_pixels": 2,
+        "placement": {
+          "source": "v34_closed_door",
+          "box": [
+            279,
+            62,
+            163,
+            225
+          ]
+        }
+      }
+    ]
+  },
+  "source": {
+    "file": "revisions/v38_audit_fixes/art/door_dust_attempt3.png",
+    "sha256": "a8937ab4acb25a01f5bc54611dc974fb8bbbaff7d56679907269cafe03d7afad",
+    "native_size": [
+      1669,
+      942
+    ],
+    "role": "A8 peer-corrected handle-size plain threshold dust",
+    "provenance": "V38 generation_evidence.json; original sources preserved, only declared local polygons used"
+  }
+}

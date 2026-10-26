@@ -4,14 +4,16 @@ import json,hashlib
 V=Path(__file__).resolve().parent;R=V.parents[4]
 p=R/'design/05_DOC_LEDGER.md';s=p.read_text('utf8')
 replacements={
+'books/chapter_one/DESIGN_LANGUAGE.md':('🟢','BINDING_DOMAIN','Static-book source/identity/layout rules and scoped owner exceptions. Owner decisions2026-10-19 and2026-10-25 preserve manuscript/character standards and govern V38 A1–A10; final trim open. Second-AI compliance review is supporting evidence, not new creative authority; no game/cinematic authority.'),
 'books/chapter_one/README.md':('🔵','SUPPORTING_CURRENT','V38 static review: A1–A8/A10 implemented, A9 resolution held; exact manuscript; owner/child/SLP/trim/print open.'),
 'books/chapter_one/landscape/PAGE_PLAN.md':('🔵','SUPPORTING_CURRENT','V38 exact 32-page owner words/order, hand-broken18/22 and preserved V34 source mapping.'),
-'books/chapter_one/landscape/REVIEW.md':('🔵','SUPPORTING_CURRENT','V38 five focused visual passes, scoped machine evidence and explicit A9/owner/print holds.'),
+'books/chapter_one/landscape/REVIEW.md':('🔵','SUPPORTING_CURRENT','V38 fresh five-pass review, separate iterative second-AI critique, strict checks and explicit A9/owner/print holds.'),
 'books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md':('🔵','SUPPORTING_CURRENT','V38 editorial continuity/readability analysis; child and professional SLP evidence open.'),
 'books/chapter_one/landscape/revisions/v37_consistency_20261022/README.md':('⚪','HISTORICAL_EVIDENCE','Sealed V37 review and native/proof/evidence packet. V38 owns current scoped review; original files unchanged.'),
 'books/chapter_one/landscape/revisions/v37_consistency_20261022/STRESS_REPORT.md':('⚪','HISTORICAL_EVIDENCE','Original twenty-run/seven-cycle V37 review, unchanged. V38 adds a separate five-pass review; no independent or final acceptance.'),
 'books/chapter_one/landscape/revisions/v38_audit_fixes/README.md':('🔵','SUPPORTING_CURRENT','V38 scoped entry, A1–A8/A10 implementation, A9 hold, source/proof/contrast/export/publication evidence; no owner/child/SLP/print acceptance.'),
-'books/chapter_one/landscape/revisions/v38_audit_fixes/BUILD_REPORT.md':('🔵','SUPPORTING_CURRENT','A1–A10 outcomes/evidence, exact V37 preservation, five focused passes, composed caption counts and explicit acceptance gaps.')
+'books/chapter_one/landscape/revisions/v38_audit_fixes/BUILD_REPORT.md':('🔵','SUPPORTING_CURRENT','A1–A10 outcomes/evidence, exact V37 preservation, five focused passes, composed caption counts and explicit acceptance gaps.'),
+'books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/README.md':('🔵','SUPPORTING_CURRENT','Owner-requested second-AI critique, versioned rounds/corrections, exact-artifact handback and separate publication verification; A9/owner/child/SLP/trim/print holds retained.')
 }
 found=set();lines=[]
 for line in s.splitlines():

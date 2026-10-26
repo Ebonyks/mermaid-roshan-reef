@@ -1,6 +1,6 @@
 {
   "method": "Bounded local edits; native-resolution W3b trial; originals preserved",
-  "calls": 7,
+  "calls": 9,
   "attempt_limit": 2,
   "records": [
     {
@@ -126,11 +126,12 @@
       ],
       "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-1ff1a8d0-0aa3-4808-8f5c-6b4c6c7d38b5.png",
       "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt2.png",
-      "selected": true,
-      "review": "Plain irregular faint wisps, no curls.",
+      "selected": false,
+      "review": "Retired by independent peer review: actual wisps smaller than the explicit handle-size criterion and too faint at book size. Preserved as original V38 evidence.",
       "provider": "Built-in image_gen; provider/model revision/seed/monetary usage not exposed",
       "transparent_background": false,
       "date": "2026-10-25",
+      "selected_at_initial_v38": true,
       "output_sha256": "050d1a77d946f8312d67c840470e36f332e77f5896ddb024daa610fe7f395620",
       "native_size": [
         1668,
@@ -272,8 +273,92 @@
           ]
         }
       ]
+    },
+    {
+      "call": 8,
+      "item": "A8",
+      "overall_attempt": 3,
+      "prompt": "Edit only IMAGE_1, the exact 620x350 crop of an existing purple closed door and red carpet steps. IMAGE_2 is the complete SAME door, provided ONLY to judge the scale of its small gold door handle (about69x34 original pixels); do not change or redraw the door. Add FOUR faint but readily visible ordinary lavender-grey household dust wisps drifting out from UNDER the closed door onto its top red step. Each wisp must be about95–110 original crop pixels wide and45–60 pixels tall: roughly1.4–1.6 times the handle width and1.3–1.8 times handle height. They must NOT be tiny smudges. Place four irregular softly edged powder clouds around crop centers (145,117),(265,119),(385,115),(505,118), with distinct small gaps. Their bottom edge spills gently onto the top red tread; each upper half veils the very bottom of the purple door. They are translucent-looking muted grey with a faint lavender tint, soft gathered dust with subtle grain, clearly readable against both red and purple. No internal drawn line, no coiling, no spirals, no smoke curls, no eyes, face, pearl, star, sparkle, creature or solid purple blob. Preserve exact door geometry, shut seam, gold hardware, step edges, red carpet pattern and lighting everywhere else. Nothing on lower steps. Keep exact620:350 crop framing and existing polished 2D storybook style. No caption, halo, rectangular patch or new scene.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/inputs/door_threshold.png",
+        "books/chapter_one/landscape/revisions/v34_editorial_polish/art/door_cutout_repair_attempt1.png"
+      ],
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-42a47619-d96b-4195-bb3f-71281d27ae22.png",
+      "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt3.png",
+      "selected": false,
+      "review": "Rejected by second AI at R02: dust size/readability improved, but generated door moulding acquired a visible wavy/doubled line. Native/control/proof preserved in peer_review.",
+      "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+      "transparent_background": false,
+      "date": "2026-10-25",
+      "selected_in_r02_preflight": true,
+      "output_sha256": "a8937ab4acb25a01f5bc54611dc974fb8bbbaff7d56679907269cafe03d7afad",
+      "native_size": [
+        1669,
+        942
+      ],
+      "mode": "RGB",
+      "alpha_bounds": null,
+      "bound_reference_records": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v38_audit_fixes/inputs/door_threshold.png",
+          "sha256": "2a496ea76e3d095477a6a86b05c0722d488854180f8204e5d31d17b2e8fae231",
+          "native_size": [
+            620,
+            350
+          ]
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/door_cutout_repair_attempt1.png",
+          "sha256": "1aac75f7dc6a447dae784435529dbc99617951d7e14198cb6d271d137068df6a",
+          "native_size": [
+            1100,
+            1429
+          ]
+        }
+      ]
+    },
+    {
+      "call": 9,
+      "item": "A8",
+      "overall_attempt": 4,
+      "correction_attempt": 2,
+      "prompt": "Extract ONLY the four pale lavender-grey dust wisps from IMAGE_1 onto genuine transparent RGBA. Keep their exact relative sizes, positions and irregular soft textured forms. This is a DUST-ONLY overlay: remove ALL door, gold, purple panels, horizontal moulding lines, red carpet, step edges and background pixels. No architecture color or line may remain. Preserve the full1669:942 canvas framing of the reference, including large empty transparent areas: four wisps stay in the narrow horizontal zone around y90–150 on a620x350 equivalent canvas, spread from x90to540. Do not crop tightly, center, rearrange or enlarge them. Each individual cloud remains roughly95–115px wide and45–55px tall at620x350scale, separated by a small natural gap. Render the dust itself neutral light grey with a muted lavender tint, semi-transparent to show the original door underneath when composited: soft cores about35–50percent opacity, wispy fringes fading to alpha0, fine watercolor powder grain. No red/gold/purple background residue, no baked checkerboard, black/white background, rectangle, halo, solid outlined cartoon cloud, coiling, spiral, face, eyes, pearl or sparkle. Keep exactly four quiet ordinary dust wisps and nothing else. Return clean true-alpha dust layer only.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt3.png"
+      ],
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-f0ee40f0-c36e-4126-82c1-8c923c319998.png",
+      "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt4_rgba.png",
+      "selected": true,
+      "review": "Dust-only trueRGBA: no generated architecture. Uniform document placement maps alpha>=8group to430source-pixel width. Document opacity0.7 selected after0.4density trial was too faint; original native alpha/painted pixels unchanged. Four separate dust masks; final independent review pending.",
+      "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+      "transparent_background": true,
+      "date": "2026-10-25",
+      "output_sha256": "030c42fa1b9ffcd1b484be543f694f7666a6297c5bd1f70960174af15df89de6",
+      "native_size": [
+        1669,
+        942
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        127,
+        56,
+        1601,
+        868
+      ],
+      "bound_reference_records": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt3.png",
+          "sha256": "a8937ab4acb25a01f5bc54611dc974fb8bbbaff7d56679907269cafe03d7afad",
+          "native_size": [
+            1669,
+            942
+          ]
+        }
+      ]
     }
   ],
   "stop_decision": "A9 held after two undersized takes with minor contour drift. No further generation or print-edition upscale; V37 approved cutout stays exact.",
-  "acceptance": "Selected additions are AI-reviewed candidates; owner acceptance open."
+  "acceptance": "Selected additions are AI-reviewed candidates; owner acceptance open.",
+  "peer_revision": "Two diagnosed correction takes after original V38. Final method is dust-only trueRGBA with document translucency; no generated architecture used.",
+  "attempt_policy": "Original V38 used two A8takes. Independent size diagnosis/input change authorized a two-take correction sequence; second correction changed to dust-onlyRGBA after RGBgeometry defect. No unrecorded retry or extra A9take."
 }

@@ -9,3 +9,5 @@ Playroom/art-room line breaks keep phrases together; the Rumi caption is one eve
 Eagle stays trapped under two bunnies; Roshan brushes each away before apology. Cooperative washing precedes Puff's rainbow reveal. Turns13→14,23→24,27→28, page25sofa/cloth and Whoosh14/15stay.
 
 [Comparisons](revisions/v38_audit_fixes/REVISION_REVIEW.html), [binding order](revisions/v38_audit_fixes/complete/print_pagination.json), [five passes](revisions/v38_audit_fixes/visual_audits.json). Approved bath pose remains exact; native resolution held after two trials. Child read-aloud and professional speech-language review remain open.
+
+Peer-review correction: four larger ordinary door wisps make the early dust clue readable while retaining the closed-door mystery and original architecture. [Second-AI critique and handback](revisions/v38_audit_fixes/peer_review/README.md) remain distinct from child comprehension and SLP acceptance. Turn-before/after diagnostics now show the actual13→14,23→24 and27→28 transitions separately from facing spreads.

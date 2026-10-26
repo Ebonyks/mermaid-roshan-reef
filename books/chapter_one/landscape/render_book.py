@@ -82,10 +82,16 @@ def local_patch(p):
   edge=edge*edge*(3-2*edge)
   matte=ImageChops.multiply(matte,Image.fromarray(np.uint8(edge*255),'L'))
   resource.putalpha(ImageChops.multiply(resource.getchannel('A'),matte))
+ opacity=float(q.get('opacity',1))
+ assert 0<opacity<=1
+ if opacity<1:
+  # Document-layer translucency; never rewrite or rematte the native artwork.
+  resource=resource.convert('RGBA');resource.putalpha(resource.getchannel('A').point(lambda a:round(a*opacity)))
  c.drawImage(ImageReader(resource),*target,mask='auto')
  record(k,(l,t,r,b),target,'bounded_inpaint_polygon_visible_pdf_resource')
  LAYERS[-1]['clip_reference_size']=q['reference_size'];LAYERS[-1]['clip_polygon_source_pixels']=q['polygon'];LAYERS[-1]['source_canvas_box']=q.get('source_canvas_box',[0,0,rw,rh])
  LAYERS[-1]['clip_canvas_transform_points']=[ox,oy,s]
+ if opacity<1:LAYERS[-1]['document_opacity']=opacity
  if feather:LAYERS[-1]['edge_feather_reference_pixels']=feather
  c.restoreState()
 

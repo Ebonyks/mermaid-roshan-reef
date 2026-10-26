@@ -45,7 +45,7 @@ unclassified until this ledger gains one new scoped row for it.
 | Doc | | Note |
 |---|---|---|
 | `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V38 static review: A1–A8/A10 implemented, A9 resolution held; exact manuscript; owner/child/SLP/trim/print open. |
-| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; static-book source/identity/layout rules and scoped owner exceptions. Owner decision 2026-10-19: the published audit handoff governs the next revision (its 14 changed captions win, V34 wording stays elsewhere, spoiler-free rear, larger print step); V35 proposals pending; owner/child/SLP/print evidence separate; no game/cinematic authority. |
+| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; Static-book source/identity/layout rules and scoped owner exceptions. Owner decisions2026-10-19 and2026-10-25 preserve manuscript/character standards and govern V38 A1–A10; final trim open. Second-AI compliance review is supporting evidence, not new creative authority; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |
@@ -817,7 +817,7 @@ Kept as-is; noted so a future edit updates every copy.
 | Doc | | Note |
 |---|---|---|
 | `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V38 exact 32-page owner words/order, hand-broken18/22 and preserved V34 source mapping. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V38 five focused visual passes, scoped machine evidence and explicit A9/owner/print holds. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V38 fresh five-pass review, separate iterative second-AI critique, strict checks and explicit A9/owner/print holds. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
@@ -852,3 +852,4 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v37_consistency_20261022/STRESS_REPORT.md` | ⚪ | `HISTORICAL_EVIDENCE`; Original twenty-run/seven-cycle V37 review, unchanged. V38 adds a separate five-pass review; no independent or final acceptance. |
 | `books/chapter_one/landscape/revisions/v38_audit_fixes/BUILD_REPORT.md` | 🔵 | `SUPPORTING_CURRENT`; A1–A10 outcomes/evidence, exact V37 preservation, five focused passes, composed caption counts and explicit acceptance gaps. |
 | `books/chapter_one/landscape/revisions/v38_audit_fixes/README.md` | 🔵 | `SUPPORTING_CURRENT`; V38 scoped entry, A1–A8/A10 implementation, A9 hold, source/proof/contrast/export/publication evidence; no owner/child/SLP/print acceptance. |
+| `books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Owner-requested second-AI critique, versioned rounds/corrections, exact-artifact handback and separate publication verification; A9/owner/child/SLP/trim/print holds retained. |

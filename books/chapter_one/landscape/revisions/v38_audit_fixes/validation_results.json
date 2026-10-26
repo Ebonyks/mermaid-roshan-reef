@@ -1,5 +1,7 @@
 {
   "status": "PASS",
+  "scope": "Syntax/local links and exact existing book-gate binding; contract gates only if explicitly executed",
+  "checked_at_utc": "2026-10-26T02:20:09.331680+00:00",
   "python_syntax": [
     "books/chapter_one/landscape/revisions/v38_audit_fixes/build_manifest.py",
     "books/chapter_one/landscape/revisions/v38_audit_fixes/build_review.py",
@@ -30,6 +32,11 @@
       "document": "books/chapter_one/landscape/revisions/v38_audit_fixes/REVISION_REVIEW.html",
       "link": "visual_audits.json",
       "target": "books/chapter_one/landscape/revisions/v38_audit_fixes/visual_audits.json"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v38_audit_fixes/REVISION_REVIEW.html",
+      "link": "peer_review/README.md",
+      "target": "books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/README.md"
     },
     {
       "document": "books/chapter_one/landscape/revisions/v38_audit_fixes/REVISION_REVIEW.html",
@@ -288,10 +295,48 @@
     }
   ],
   "book_gate": "PASS_WITH_DECLARED_A9_HOLD",
-  "unit_tests": "52 passed; tools.tests.test_audit_document_authority + tools.tests.test_audit_development",
-  "runtime_tests": "NOT_APPLICABLE: static book, no runtime/import/game assets/scripts/save/input/release changes",
-  "acceptance": "A9 and owner/child/SLP/trim/physical print stay open",
-  "document_authority": "ALL OK;603documents/603ledger rows",
-  "development_coverage": "ALL OK;--base auto5920c673305989ee29d91876480ff445dba9fc8b",
-  "unit_test_count": 52
+  "book_verification_sha256": "86d9fbc741227bf49e476987fa93318e28a67b3779f2b020864fc45e7eb14125",
+  "contract_gate_runs": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "returncode": 0,
+      "output": "DOCAUTH|INVENTORY=604|LEDGER=604|ACTIVE=56|RECORDS=58\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "returncode": 0,
+      "output": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "returncode": 0,
+      "output": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 25.827s\n\nOK\nDOCAUTH|STRESS|6/6\n"
+    }
+  ],
+  "unit_test_status": "Executed; see observed unittest output",
+  "runtime_tests": "NOT_APPLICABLE: static book; no runtime/import/game/save/input/release changes",
+  "acceptance": "A9 and owner/child/SLP/trim/physical print remain separate"
 }

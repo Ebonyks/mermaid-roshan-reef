@@ -1,13 +1,13 @@
 {
   "status": "PASS",
-  "source_sha256": "d8125dde586bcfb2fd775cd6c034f4b27a73428b760663d30d9d684eae64c037",
-  "output_sha256": "e5a77a154feaa30f5c9cc443602c968b034cbab7549e4dca91decc3113158d61",
-  "output_bytes": 24324210,
+  "source_sha256": "87532aa297a82b5270eeff68dba776b9efb7bd1a63e21bd71e1a834644e70e11",
+  "output_sha256": "7449a6d5acfc1c8873e06fcbabb041f60cafe866b97d07bb009e880b89dcbbc6",
+  "output_bytes": 24493144,
   "attempts": [
     {
       "iteration": 1,
       "default_quality": 87,
-      "bytes": 24266010,
+      "bytes": 24434944,
       "failed_pages": [
         16
       ],
@@ -17,7 +17,7 @@
     {
       "iteration": 2,
       "default_quality": 87,
-      "bytes": 24324210,
+      "bytes": 24493144,
       "failed_pages": [],
       "minimum_psnr_db": 40.230438014652385,
       "quality_overrides": {
@@ -53,7 +53,7 @@
     },
     {
       "page": 5,
-      "render_psnr_db": 45.04123199608738,
+      "render_psnr_db": 45.03967162605796,
       "text_vector_content_trim_and_image_sizes_exact": true
     },
     {
@@ -197,7 +197,7 @@
       "text_vector_content_trim_and_image_sizes_exact": true
     }
   ],
-  "alpha_mask_placements_byte_exact": 83,
+  "alpha_mask_placements_byte_exact": 86,
   "native_pixel_sizes_preserved": true,
   "source_unchanged": true,
   "minimum_render_psnr_db": 40.230438014652385,

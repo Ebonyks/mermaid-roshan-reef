@@ -7960,13 +7960,13 @@
       "provenance": "V38 generation_evidence.json; original sources preserved, only declared local polygons used"
     },
     "v38_door_dust": {
-      "file": "revisions/v38_audit_fixes/art/door_dust_attempt2.png",
-      "sha256": "050d1a77d946f8312d67c840470e36f332e77f5896ddb024daa610fe7f395620",
+      "file": "revisions/v38_audit_fixes/art/door_dust_attempt4_rgba.png",
+      "sha256": "030c42fa1b9ffcd1b484be543f694f7666a6297c5bd1f70960174af15df89de6",
       "native_size": [
-        1668,
-        943
+        1669,
+        942
       ],
-      "role": "A8 plain threshold dust",
+      "role": "A8 peer-corrected true-alpha dust-only layer, document opacity0.7",
       "provenance": "V38 generation_evidence.json; original sources preserved, only declared local polygons used"
     }
   },
@@ -8825,70 +8825,221 @@
             1429
           ],
           "source_canvas_box": [
-            240,
-            740,
-            860,
-            1090
+            282.52363636363634,
+            734.0072727272727,
+            804.4654545454546,
+            1028.5963636363635
           ],
           "polygon": [
             [
-              377,
-              836
+              328,
+              825
             ],
             [
-              415,
-              834
+              347,
+              803
             ],
             [
-              450,
-              849
+              430,
+              804
             ],
             [
-              490,
-              840
+              449,
+              827
             ],
             [
-              548,
-              837
+              443,
+              878
             ],
             [
-              577,
-              850
+              422,
+              887
             ],
             [
-              608,
-              835
+              351,
+              885
             ],
             [
-              645,
-              833
-            ],
-            [
-              680,
-              850
-            ],
-            [
-              700,
-              841
-            ],
-            [
-              735,
-              845
-            ],
-            [
-              753,
-              864
-            ],
-            [
-              747,
-              877
-            ],
-            [
-              375,
-              877
+              328,
+              868
             ]
           ],
           "edge_feather_reference_pixels": 2,
+          "opacity": 0.7,
+          "placement": {
+            "source": "v34_closed_door",
+            "box": [
+              279,
+              62,
+              163,
+              225
+            ]
+          }
+        },
+        {
+          "source": "v38_door_dust",
+          "reference_size": [
+            1100,
+            1429
+          ],
+          "source_canvas_box": [
+            282.52363636363634,
+            734.0072727272727,
+            804.4654545454546,
+            1028.5963636363635
+          ],
+          "polygon": [
+            [
+              450,
+              825
+            ],
+            [
+              469,
+              803
+            ],
+            [
+              536,
+              804
+            ],
+            [
+              555,
+              827
+            ],
+            [
+              549,
+              878
+            ],
+            [
+              528,
+              887
+            ],
+            [
+              473,
+              885
+            ],
+            [
+              450,
+              868
+            ]
+          ],
+          "edge_feather_reference_pixels": 2,
+          "opacity": 0.7,
+          "placement": {
+            "source": "v34_closed_door",
+            "box": [
+              279,
+              62,
+              163,
+              225
+            ]
+          }
+        },
+        {
+          "source": "v38_door_dust",
+          "reference_size": [
+            1100,
+            1429
+          ],
+          "source_canvas_box": [
+            282.52363636363634,
+            734.0072727272727,
+            804.4654545454546,
+            1028.5963636363635
+          ],
+          "polygon": [
+            [
+              556,
+              825
+            ],
+            [
+              575,
+              803
+            ],
+            [
+              641,
+              804
+            ],
+            [
+              660,
+              827
+            ],
+            [
+              654,
+              878
+            ],
+            [
+              633,
+              887
+            ],
+            [
+              579,
+              885
+            ],
+            [
+              556,
+              868
+            ]
+          ],
+          "edge_feather_reference_pixels": 2,
+          "opacity": 0.7,
+          "placement": {
+            "source": "v34_closed_door",
+            "box": [
+              279,
+              62,
+              163,
+              225
+            ]
+          }
+        },
+        {
+          "source": "v38_door_dust",
+          "reference_size": [
+            1100,
+            1429
+          ],
+          "source_canvas_box": [
+            282.52363636363634,
+            734.0072727272727,
+            804.4654545454546,
+            1028.5963636363635
+          ],
+          "polygon": [
+            [
+              661,
+              825
+            ],
+            [
+              680,
+              803
+            ],
+            [
+              758,
+              804
+            ],
+            [
+              777,
+              827
+            ],
+            [
+              771,
+              878
+            ],
+            [
+              750,
+              887
+            ],
+            [
+              684,
+              885
+            ],
+            [
+              661,
+              868
+            ]
+          ],
+          "edge_feather_reference_pixels": 2,
+          "opacity": 0.7,
           "placement": {
             "source": "v34_closed_door",
             "box": [
@@ -14770,7 +14921,7 @@
       }
     ]
   },
-  "revision": "V38 · accepted V37 audit fixes · A9 native resolution held",
+  "revision": "V38 R2 · audit fixes and doorway dust correction · A9 native resolution held",
   "review_href": "../REVISION_REVIEW.html",
   "physical_review_scale": 2,
   "format_note": "14x10-inch landscape review: existing7:5 composition preserved at2x vector scale, no raster upsample. Final trim/bleed and high-resolution pass pending.",
