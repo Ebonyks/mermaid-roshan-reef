@@ -44,7 +44,7 @@ unclassified until this ledger gains one new scoped row for it.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V36 review candidate, exact owner manuscript and rearA; explicit art gaps, owner/child/SLP/trim/print open. |
+| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V38 static review: A1–A8/A10 implemented, A9 resolution held; exact manuscript; owner/child/SLP/trim/print open. |
 | `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; static-book source/identity/layout rules and scoped owner exceptions. Owner decision 2026-10-19: the published audit handoff governs the next revision (its 14 changed captions win, V34 wording stays elsewhere, spoiler-free rear, larger print step); V35 proposals pending; owner/child/SLP/print evidence separate; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
@@ -816,14 +816,14 @@ Kept as-is; noted so a future edit updates every copy.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V37 exact32-page owner manuscript and preserved V34 source mapping. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V37 seven-cycle consistency repair, final scoped five-pass visual review and separate print/owner gaps. |
+| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V38 exact 32-page owner words/order, hand-broken18/22 and preserved V34 source mapping. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V38 five focused visual passes, scoped machine evidence and explicit A9/owner/print holds. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
 | `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performances and v17 repository-detail score; frightened lower-right stages supersede the quiet reveal; owner acceptance remains open. |
 
-| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V37 editorial comprehension/continuity analysis; child and SLP evidence open. |
+| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V38 editorial continuity/readability analysis; child and professional SLP evidence open. |
 
 | `books/chapter_one/reviews/2026-09-30/REVIEW.md` | ⚪ | `HISTORICAL_EVIDENCE`; unchanged-V27 comprehensive comparison and recommendations. V28 implements selected corrections; unresolved source/print questions remain current through landscape/REVIEW.md. |
 
@@ -848,5 +848,7 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v36_next_draft/BUILD_REPORT.md` | ⚪ | `HISTORICAL_EVIDENCE`; original Step1–11/W/C evidence and held repairs preserved. V37 supersedes scoped current art facts; print/owner/child/SLP gaps remain open. |
 | `books/chapter_one/landscape/revisions/v36_rear_composition_20261021/README.md` | 🔵 | `SUPPORTING_CURRENT`; owner-commissioned distinct rear composition; native source/provenance retained and integrated in V37 with bounded hair repair; no owner/print acceptance. |
 
-| `books/chapter_one/landscape/revisions/v37_consistency_20261022/README.md` | 🔵 | `SUPPORTING_CURRENT`; V37 book, exact sources/native repairs, final five visual audits and machine/print/owner claim boundaries. |
-| `books/chapter_one/landscape/revisions/v37_consistency_20261022/STRESS_REPORT.md` | 🔵 | `SUPPORTING_CURRENT`; twenty initial run summaries, compared issue catalog and five-audit results for all seven revisions. One AI reviewer; no independent or final-publication acceptance. |
+| `books/chapter_one/landscape/revisions/v37_consistency_20261022/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; Sealed V37 review and native/proof/evidence packet. V38 owns current scoped review; original files unchanged. |
+| `books/chapter_one/landscape/revisions/v37_consistency_20261022/STRESS_REPORT.md` | ⚪ | `HISTORICAL_EVIDENCE`; Original twenty-run/seven-cycle V37 review, unchanged. V38 adds a separate five-pass review; no independent or final acceptance. |
+| `books/chapter_one/landscape/revisions/v38_audit_fixes/BUILD_REPORT.md` | 🔵 | `SUPPORTING_CURRENT`; A1–A10 outcomes/evidence, exact V37 preservation, five focused passes, composed caption counts and explicit acceptance gaps. |
+| `books/chapter_one/landscape/revisions/v38_audit_fixes/README.md` | 🔵 | `SUPPORTING_CURRENT`; V38 scoped entry, A1–A8/A10 implementation, A9 hold, source/proof/contrast/export/publication evidence; no owner/child/SLP/print acceptance. |

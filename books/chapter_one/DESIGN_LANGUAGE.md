@@ -161,3 +161,10 @@ The owner directs Codex to follow the published V34 audit handoff (commit cc603d
 ## Owner direction 2026-10-21: distinct back-cover composition
 
 The owner rejected the rear cover as a repeat of an interior page and commissioned a new scene using existing Mermaid Roshan Day One castle materials in an unseen composition. This is a scoped exception to BK-PG-05 for the new back-cover candidate, replacing the rear-A staging requirement; it does not authorize other interior redraws or game changes. Preserve the existing character/material identities and spoiler-free premise. Record the reference-led rendering honestly, retain source hashes and original V36, and keep owner/print acceptance separate. See [new rear candidate](landscape/revisions/v36_rear_composition_20261021/README.md).
+
+
+## V38 owner decision (2026-10-25)
+
+The owner wrote: “Write the V38 Codex handoff for the V37 audit fixes, using your suggested defaults for Q1-Q6; leave Q7 (final trim) open.” The [accepted packet](handoffs/2026-10-25_v38_audit_fixes/README.md) governs A1–A10; the 2026-10-19 manuscript and character standards stay in force. This permits bounded rear Lamma/web/dust and door-dust additions and the higher-resolution W3b trial, without a new scene, pose, wording, game or release change.
+
+[V38](landscape/revisions/v38_audit_fixes/README.md) implements A1–A8/A10 with exact V37 originals and unnamed pages preserved. A9 held after two undersized trials with slight contour drift; approved bath stays exact. Five focused AI passes,307source/font seals and composed contrast are scoped evidence. V37's sealed folder is historical. Owner/child/SLP/final trim/PPI/physical-print gates stay open; no print edition starts.

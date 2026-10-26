@@ -10,7 +10,7 @@
     360
   ],
   "story_pages": 32,
-  "status": "V37 review candidate: character/composition stress repair; print/owner/child/SLP acceptance separate",
+  "status": "V38 review candidate; owner/child/SLP/trim/physical-print acceptance open",
   "font": "../archive/rough_v5/fonts/Sniglet-Regular.ttf",
   "sources": {
     "flight": {
@@ -7928,6 +7928,46 @@
       "file": "revisions/v37_consistency_20261022/art/land_necklace_attempt2.png",
       "sha256": "c40185ca3e13274bc6a71eb2507ae46b1d6d7c3cc390bde5b41bdc4ca626f803",
       "provenance_record": "revisions/v37_consistency_20261022/accessory_outputs.json"
+    },
+    "v38_pail": {
+      "file": "revisions/v38_audit_fixes/art/bank_pail_attempt1.png",
+      "sha256": "cf57b88972516f5233bfca171eb6cb784e64e220883f5d83aa48a0015647777a",
+      "native_size": [
+        1704,
+        923
+      ],
+      "role": "A5 bounded bank repair",
+      "provenance": "V38 generation_evidence.json; original sources preserved, only declared local polygons used"
+    },
+    "v38_rear_additions": {
+      "file": "revisions/v38_audit_fixes/art/rear_additions_attempt1.png",
+      "sha256": "7527e026acd36bd584f3f24f447aab09fc260600820d4bab97f9eb8b79dcf7e3",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "role": "A6 Lamma and A7 cobweb local windows only",
+      "provenance": "V38 generation_evidence.json; original sources preserved, only declared local polygons used"
+    },
+    "v38_rear_dust": {
+      "file": "revisions/v38_audit_fixes/art/rear_carpet_attempt2.png",
+      "sha256": "e86a5c059d5c72806fbea716ffdc708459ee29d5fc0560bed2df328a49630834",
+      "native_size": [
+        1965,
+        800
+      ],
+      "role": "A7 four new drift windows only",
+      "provenance": "V38 generation_evidence.json; original sources preserved, only declared local polygons used"
+    },
+    "v38_door_dust": {
+      "file": "revisions/v38_audit_fixes/art/door_dust_attempt2.png",
+      "sha256": "050d1a77d946f8312d67c840470e36f332e77f5896ddb024daa610fe7f395620",
+      "native_size": [
+        1668,
+        943
+      ],
+      "role": "A8 plain threshold dust",
+      "provenance": "V38 generation_evidence.json; original sources preserved, only declared local polygons used"
     }
   },
   "pages": [
@@ -8776,7 +8816,90 @@
       "background_theme": "One tiny listening little puff echoes the quiet plea; closed books suggest the dusty attic. No Grand Puff in the banks.",
       "beat": "quiet_plea_before_reveal",
       "original_page": null,
-      "v34_page": 23
+      "v34_page": 23,
+      "local_patches": [
+        {
+          "source": "v38_door_dust",
+          "reference_size": [
+            1100,
+            1429
+          ],
+          "source_canvas_box": [
+            240,
+            740,
+            860,
+            1090
+          ],
+          "polygon": [
+            [
+              377,
+              836
+            ],
+            [
+              415,
+              834
+            ],
+            [
+              450,
+              849
+            ],
+            [
+              490,
+              840
+            ],
+            [
+              548,
+              837
+            ],
+            [
+              577,
+              850
+            ],
+            [
+              608,
+              835
+            ],
+            [
+              645,
+              833
+            ],
+            [
+              680,
+              850
+            ],
+            [
+              700,
+              841
+            ],
+            [
+              735,
+              845
+            ],
+            [
+              753,
+              864
+            ],
+            [
+              747,
+              877
+            ],
+            [
+              375,
+              877
+            ]
+          ],
+          "edge_feather_reference_pixels": 2,
+          "placement": {
+            "source": "v34_closed_door",
+            "box": [
+              279,
+              62,
+              163,
+              225
+            ]
+          }
+        }
+      ]
     },
     {
       "page": 6,
@@ -9458,7 +9581,7 @@
         "duck_ripples",
         "duck_splashes",
         "rolled_towel",
-        "bath_plug_chain"
+        "shell_pail_clean_water"
       ],
       "integrated_prop_bounds": [
         [
@@ -9492,17 +9615,79 @@
           0.0490566
         ],
         [
-          0.77560647,
-          0.91698113,
-          0.05525606,
-          0.04716981
+          0.7715633423180593,
+          0.8924528301886793,
+          0.06199460916442048,
+          0.07452830188679245
         ]
       ],
       "marginal_bunny_count": 1,
       "bounds_note": "Final native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
       "original_page": 7,
       "beat": "v27_7",
-      "v34_page": 8
+      "v34_page": 8,
+      "background_patches": [
+        {
+          "source": "v38_pail",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "source_canvas_box": [
+            1090,
+            920,
+            1330,
+            1050
+          ],
+          "polygon": [
+            [
+              1152,
+              946
+            ],
+            [
+              1186,
+              946
+            ],
+            [
+              1198,
+              960
+            ],
+            [
+              1199,
+              985
+            ],
+            [
+              1218,
+              990
+            ],
+            [
+              1236,
+              1005
+            ],
+            [
+              1237,
+              1021
+            ],
+            [
+              1208,
+              1025
+            ],
+            [
+              1170,
+              1018
+            ],
+            [
+              1147,
+              1005
+            ],
+            [
+              1145,
+              972
+            ]
+          ],
+          "edge_feather_reference_pixels": 2
+        }
+      ]
     },
     {
       "page": 10,
@@ -10439,7 +10624,7 @@
       "background_theme": "full scene",
       "caption": {
         "x": 25,
-        "y": 104,
+        "y": 110,
         "width": 454,
         "size": 20,
         "align": "center",
@@ -10447,15 +10632,10 @@
         "shadow": false,
         "halo": true,
         "outline": 1,
-        "line_colors": [
-          "navy",
-          "navy",
-          "white"
-        ],
         "line_baselines": [
-          104,
-          78,
-          32
+          110,
+          84,
+          58
         ]
       },
       "foreground_zone": null,
@@ -10726,7 +10906,7 @@
       "art": [
         "v22_scene_16"
       ],
-      "text": "Chirp, chirp!\n“Someone in the playroom needs help!” said Roshan.",
+      "text": "Chirp, chirp!\n“Someone in the playroom\nneeds help!” said Roshan.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -11747,7 +11927,7 @@
       "art": [
         "v22_art_sorting"
       ],
-      "text": "In the art room, Roshan put the paints in their places.\nThen she scrubbed the table. Scrub, scrub!",
+      "text": "In the art room, Roshan put\nthe paints in their places.\nThen she scrubbed the table. Scrub, scrub!",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Sorting with existing sponge resting on tabletop; retained tidy V34 stationery.",
@@ -14261,11 +14441,17 @@
       }
     ],
     "subtitle": {
-      "text": "A Pearl Castle friendship story",
-      "x": 242,
-      "y": 259,
-      "width": 230,
-      "size": 11
+      "text": "A Pearl Castle\nfriendship story",
+      "x": 338.0,
+      "y": 262,
+      "width": 90.2,
+      "size": 13,
+      "align": "right",
+      "color": "navy",
+      "line_baselines": [
+        262,
+        246
+      ]
     }
   },
   "back_cover": {
@@ -14313,12 +14499,280 @@
           ]
         ],
         "edge_feather_reference_pixels": 3
+      },
+      {
+        "source": "v38_rear_additions",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "source_canvas_box": [
+          0,
+          0,
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            537,
+            520
+          ],
+          [
+            558,
+            522
+          ],
+          [
+            576,
+            534
+          ],
+          [
+            587,
+            539
+          ],
+          [
+            580,
+            550
+          ],
+          [
+            570,
+            566
+          ],
+          [
+            553,
+            576
+          ],
+          [
+            539,
+            568
+          ]
+        ],
+        "edge_feather_reference_pixels": 1.5
+      },
+      {
+        "source": "v38_rear_additions",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "source_canvas_box": [
+          0,
+          0,
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            1376,
+            0
+          ],
+          [
+            1484,
+            0
+          ],
+          [
+            1484,
+            106
+          ],
+          [
+            1458,
+            103
+          ],
+          [
+            1425,
+            81
+          ],
+          [
+            1398,
+            51
+          ],
+          [
+            1376,
+            26
+          ]
+        ],
+        "edge_feather_reference_pixels": 1.5
+      },
+      {
+        "source": "v38_rear_dust",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "source_canvas_box": [
+          600,
+          700,
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            647,
+            741
+          ],
+          [
+            665,
+            729
+          ],
+          [
+            720,
+            731
+          ],
+          [
+            739,
+            747
+          ],
+          [
+            730,
+            767
+          ],
+          [
+            673,
+            771
+          ],
+          [
+            647,
+            759
+          ]
+        ],
+        "edge_feather_reference_pixels": 2
+      },
+      {
+        "source": "v38_rear_dust",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "source_canvas_box": [
+          600,
+          700,
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            827,
+            843
+          ],
+          [
+            845,
+            831
+          ],
+          [
+            902,
+            833
+          ],
+          [
+            921,
+            849
+          ],
+          [
+            912,
+            876
+          ],
+          [
+            853,
+            880
+          ],
+          [
+            827,
+            868
+          ]
+        ],
+        "edge_feather_reference_pixels": 2
+      },
+      {
+        "source": "v38_rear_dust",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "source_canvas_box": [
+          600,
+          700,
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            1108,
+            1007
+          ],
+          [
+            1126,
+            995
+          ],
+          [
+            1190,
+            997
+          ],
+          [
+            1209,
+            1013
+          ],
+          [
+            1200,
+            1036
+          ],
+          [
+            1134,
+            1040
+          ],
+          [
+            1108,
+            1028
+          ]
+        ],
+        "edge_feather_reference_pixels": 2
+      },
+      {
+        "source": "v38_rear_dust",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "source_canvas_box": [
+          600,
+          700,
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            1366,
+            951
+          ],
+          [
+            1384,
+            939
+          ],
+          [
+            1446,
+            941
+          ],
+          [
+            1465,
+            957
+          ],
+          [
+            1456,
+            988
+          ],
+          [
+            1392,
+            992
+          ],
+          [
+            1366,
+            980
+          ]
+        ],
+        "edge_feather_reference_pixels": 2
       }
     ]
   },
-  "revision": "V37 — twenty-pass character and composition repair",
-  "review_href": "../README.md",
+  "revision": "V38 · accepted V37 audit fixes · A9 native resolution held",
+  "review_href": "../REVISION_REVIEW.html",
   "physical_review_scale": 2,
   "format_note": "14x10-inch landscape review: existing7:5 composition preserved at2x vector scale, no raster upsample. Final trim/bleed and high-resolution pass pending.",
-  "download_pdf_href": "Mermaid_Roshan_Book_V37_Email.pdf"
+  "download_pdf_href": "Mermaid_Roshan_Book_V38_Email.pdf"
 }

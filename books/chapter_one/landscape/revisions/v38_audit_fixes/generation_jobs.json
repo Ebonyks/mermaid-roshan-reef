@@ -1,0 +1,118 @@
+{
+  "method": "Bounded local edits; native-resolution W3b trial; originals preserved",
+  "calls": 7,
+  "attempt_limit": 2,
+  "records": [
+    {
+      "call": 1,
+      "item": "A5",
+      "prompt": "Edit IMAGE_1, this exact small crop of a picture-book marginal bank. Preserve the rolled lavender towel, the white shells, blue watercolor ground, dark hand-drawn contours, ground line, camera and composition. Replace ONLY the gold bath plug and its ENTIRE beaded chain on the left of the towel with one small shell-shaped open pail holding clean pale-aqua water and three tiny bubbles. The pail occupies the old plug/chain's compact footprint and sits on the same sand contact with a narrow soft shadow. It is clearly a little container with scalloped shell sides and a thin handle, not a second shell or a plug. No remaining gold plug or chain anywhere. Keep the towel and shells exactly where they are. Match this source's restrained outlined watercolor style and color. No text, no new background scene, no border or rectangular patch. Keep the exact 240:130 crop aspect and all unedited details.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/inputs/bank_right.png"
+      ],
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-219a22a3-e27c-4d5b-8d47-d20d72eaa637.png",
+      "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/bank_pail_attempt1.png",
+      "selected": true,
+      "review": "Only pail/old plug-chain footprint exposed; towel/shells preserved.",
+      "provider": "Built-in image_gen; provider/model revision/seed/monetary usage not exposed",
+      "transparent_background": false,
+      "date": "2026-10-25"
+    },
+    {
+      "call": 2,
+      "item": "A6+A7",
+      "prompt": "Make only tiny local additions to IMAGE_1, preserving this exact rear-cover castle hall picture, its camera, geometry, light, characters, furnishings and painted style. No redesign. (1) A TINY white plush Lamma HEAD, matching canonical IMAGE_2's pale face, lashes and pink cheeks, peeks around the LEFT purple curtain of the CENTRAL distant arched doorway with blue corridor. At original 1484x1060 coordinates put it in x540–585 y540–600: near corridor floor, about Roshan's hand height; most of the lamb stays hidden behind curtain, no full body. It is a quiet hide-and-seek detail, not a new focal point. (2) ONE thin pale soft cobweb only in the extreme upper-right corner x1380–1484 y0–110; fine radial threads with gently curved cross threads, visually akin to the existing illustrated cobwebs, attached to both corner edges, clear of wall lamp and banner. (3) Exactly FOUR additional small soft grey dust drifts, matching existing low fluffy tufts, on the lower red carpet at roughly (750,750),(880,860),(1120,990),(1420,850). Each about 70x30 original pixels. Soft low grey-lavender gathered dust with subtle contact shadows, no cartoon eyes, glitter or confetti. Keep hall bright and inviting. Keep top-left blank copy area unaltered, no dirt there. Preserve Roshan, her hands, hair, tiara, duster, little puff, all existing dust and every other object. This is a local inpaint reference; only tightly bounded addition windows will be used. Deliver exact 1484:1060 original framing and as much native detail as possible. No captions or new scene.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v36_rear_composition_20261021/rear_scene_attempt1.png",
+        "assets/sprites/stuffie_studio/lamma.png"
+      ],
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-ba0657b1-a8a5-4d31-8b46-ea3c9ad32425.png",
+      "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/rear_additions_attempt1.png",
+      "selected": true,
+      "review": "Selected only for Lamma and web. Dust not selected: mostly repainted existing tufts, and replaced right shell. Those areas excluded entirely.",
+      "provider": "Built-in image_gen; provider/model revision/seed/monetary usage not exposed",
+      "transparent_background": false,
+      "date": "2026-10-25"
+    },
+    {
+      "call": 3,
+      "item": "A8",
+      "prompt": "Edit only the closed-door threshold in IMAGE_1, the exact rectangular crop of an existing ornate storybook door and red steps. Keep the entire original purple door, gold edging, straight step edges, red carpet pattern, lighting and perspective fixed. Add exactly FOUR small faint lavender-grey irregular puffs of dust drifting out from UNDER the shut purple door where its bottom edge meets the TOP red step (the horizontal junction about one-third down this crop). Spread them irregularly along that junction, centered roughly at crop coordinates (160,122), (280,128), (390,123), (485,130) on this 620x350 crop. Each puff should be only 45–75 crop pixels wide and 30–45 high, translucent-looking wisps of soft gathered dust with fuzzy irregular contours, tapering over the upper red riser, separate from one another. Dust color from IMAGE_2 only: very pale muted grey-lavender, not glowing purple. The source should remain visible behind the faint dust. Do not draw anything anywhere else. No eyes, face, spirals, pearl, sparkle, star, creature, Roshan or opened door. Nothing spilling to the lower steps. Match the existing painted soft 2D storybook finish. Deliver exact 620:350 crop framing. This is a local inpaint, no new scene, no border.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/inputs/door_threshold.png",
+        "books/chapter_one/landscape/art/language_v26/puff_unwell.png"
+      ],
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-c57705af-dafd-436f-bcbd-fbc978ffde74.png",
+      "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt1.png",
+      "selected": false,
+      "review": "Rejected spiral curls.",
+      "provider": "Built-in image_gen; provider/model revision/seed/monetary usage not exposed",
+      "transparent_background": false,
+      "date": "2026-10-25"
+    },
+    {
+      "call": 4,
+      "item": "A8",
+      "prompt": "Edit IMAGE_1, the exact cropped purple closed door and red stairs, adding only FOUR small faint wisps of ordinary household DUST at the bottom edge of the closed purple door, where it meets the top red step. IMPORTANT: unstructured, irregular gauzy powder smudges, NOT curls or curls of smoke, NOT coiled lines, NOT spiral-shaped puffs. No recognizable symbols or creature anatomy. Four tiny soft fuzzy irregular horizontal dust motes, pale muted grey with a faint lavender tint; no outlined internal line at all. Different asymmetrical widths of roughly 45 to 75 original pixels, only 20 to 35 high, drifting outward from beneath the door, with the original red and purple barely visible through them. The door, hardware, step edges and carpet patterns stay completely fixed. Keep gaps between the four wisps, positioned across the purple door's bottom horizontal seam one-third down this crop. No eyes, face, pearls, stars, glitter, spirals, vortex, candy curls, redrawn architecture or character. Preserve exact 620:350 framing, soft polished storybook finish. This is a tiny local inpaint only.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/inputs/door_threshold.png"
+      ],
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-1ff1a8d0-0aa3-4808-8f5c-6b4c6c7d38b5.png",
+      "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt2.png",
+      "selected": true,
+      "review": "Plain irregular faint wisps, no curls.",
+      "provider": "Built-in image_gen; provider/model revision/seed/monetary usage not exposed",
+      "transparent_background": false,
+      "date": "2026-10-25"
+    },
+    {
+      "call": 5,
+      "item": "A9",
+      "prompt": "Create a high-resolution faithful restoration of IMAGE_1 for the picture book, on genuine transparent alpha. Output native 2048 by 2304 pixels or taller, with the complete Roshan-and-bathtub group itself AT LEAST 1800 pixels tall, narrow transparent margins. NOT a reimagining or another pose: preserve IMAGE_1's exact camera, three-quarter Roshan pose behind the far bathtub rim, tub shape, object positions, hand gestures, contours and colors. IMAGE_2 is Roshan's canonical identity anchor only: rounded human child ears, warm brown eyes and hair, her standard long tied rainbow ponytail on viewer-right, small gold tiara with a central blue heart gem, pink top with lilac sleeves. IMAGE_1 fixes the accepted composition and acting. Exactly TWO arms and TWO hands: image-left hand grips one scrub brush pressed against INSIDE tub wall; image-right hand lifts the chain attached to the single dangling bath plug. Roshan is calm and focused. Only her upper body above the far rim; no legs or body showing through tub, no foreground arm. The same cream scalloped tub with gold rim and lavender shading stands on its turquoise pedestal. Nearly empty shallow murky water curls in the SAME low drain swirl, with SAME green streaks on inner tub wall. Keep all parts in precisely the original positions and relative sizes. Preserve ear roundness, hand contact, chain links, drain, green streaks and clean true-alpha contour; improve only fine painted detail and native pixel resolution. Polished soft 2D storybook art with clean antialiasing, not pixel art, not 3D. No extra limb, no pointed ear, no duplicated hair lock, no new props, no scene/background, no checkerboard, no halo, no text. Deliver a single large transparent drawing, not a side-by-side comparison.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v36_next_draft/art/w3b_attempt2.png",
+        "assets/characters/roshan_25d/roshan_base.png"
+      ],
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-1e0bb59f-6eaf-4709-a995-9cff1fcdeae8.png",
+      "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/bath_native_attempt1.png",
+      "selected": false,
+      "review": "1182x1330, alpha group1288px high; enlarged ponytail silhouette.",
+      "provider": "Built-in image_gen; provider/model revision/seed/monetary usage not exposed",
+      "transparent_background": true,
+      "date": "2026-10-25"
+    },
+    {
+      "call": 6,
+      "item": "A9",
+      "prompt": "Create a high-resolution faithful restoration of IMAGE_1 for the picture book, on genuine transparent alpha. Output native 2048 by 2304 pixels or taller, with the complete Roshan-and-bathtub group itself AT LEAST 1800 pixels tall, narrow transparent margins. NOT a reimagining or another pose: preserve IMAGE_1's exact camera, three-quarter Roshan pose behind the far bathtub rim, tub shape, object positions, hand gestures, contours and colors. IMAGE_2 is Roshan's canonical identity anchor only: rounded human child ears, warm brown eyes and hair, her standard long tied rainbow ponytail on viewer-right, small gold tiara with a central blue heart gem, pink top with lilac sleeves. IMAGE_1 fixes the accepted composition and acting. Exactly TWO arms and TWO hands: image-left hand grips one scrub brush pressed against INSIDE tub wall; image-right hand lifts the chain attached to the single dangling bath plug. Roshan is calm and focused. Only her upper body above the far rim; no legs or body showing through tub, no foreground arm. The same cream scalloped tub with gold rim and lavender shading stands on its turquoise pedestal. Nearly empty shallow murky water curls in the SAME low drain swirl, with SAME green streaks on inner tub wall. Keep all parts in precisely the original positions and relative sizes. Preserve ear roundness, hand contact, chain links, drain, green streaks and clean true-alpha contour; improve only fine painted detail and native pixel resolution. Polished soft 2D storybook art with clean antialiasing, not pixel art, not 3D. No extra limb, no pointed ear, no duplicated hair lock, no new props, no scene/background, no checkerboard, no halo, no text. Deliver a single large transparent drawing, not a side-by-side comparison.\nResolution requirement is the purpose of this edit: the earlier take came back at 1181x1332, which is too small. Return a true high-resolution transparent asset at 2048x2304, not that size, with actual alpha-bounded group height >=1800 pixels. Keep the original accepted ponytail silhouette exactly (no wider or longer lock), as well as identical brush, chain, pose and bathtub contours.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v36_next_draft/art/w3b_attempt2.png",
+        "assets/characters/roshan_25d/roshan_base.png"
+      ],
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-33c4548b-dc4f-43af-ac9c-b1f540eb6724.png",
+      "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/bath_native_attempt2.png",
+      "selected": false,
+      "review": "1183x1330, group1320px high; slight brush and contour drift.",
+      "provider": "Built-in image_gen; provider/model revision/seed/monetary usage not exposed",
+      "transparent_background": true,
+      "date": "2026-10-25"
+    },
+    {
+      "call": 7,
+      "item": "A7",
+      "prompt": "Edit IMAGE_1, a crop of an existing picture-book red-carpet hall. Add exactly FOUR NEW separate small soft grey dust drifts in the empty RED CARPET areas only. Preserve ALL original dust tufts as well as Roshan's tail, gold borders, shells and architecture. This is not repainting the original tufts. At this exact 884x360 crop scale place the new tufts centered (90,45), (270,145), (555,328), (815,275). These four positions currently have bare red carpet. Each about 55–70 pixels wide and 20–28 pixels tall, low irregular soft pale grey-lavender household dust with fine soft fluffy contours, subtle shadow, matching the scene's small existing gathered dust tufts. No eyes, spirals, glow, creature, glitter or extra objects. Do not cover any original shell or character pixel. Keep existing carpet pattern visible between and around the small tufts. Preserve exact 884:360 crop framing, painted 2D storybook finish and light. Nothing else changes. Only these four tiny local windows will be used.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v38_audit_fixes/inputs/rear_carpet.png"
+      ],
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-d27f8b88-0933-465c-89a7-55ebac33e53f.png",
+      "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/rear_carpet_attempt2.png",
+      "selected": true,
+      "review": "Four additional drift windows on bare red carpet. Original shells, tufts and character excluded from masks. First rear take selected only for Lamma and web: its dust mostly repainted existing tufts.",
+      "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+      "transparent_background": false,
+      "date": "2026-10-25"
+    }
+  ],
+  "stop_decision": "A9 held after two undersized takes with minor contour drift. No further generation or print-edition upscale; V37 approved cutout stays exact.",
+  "acceptance": "Selected additions are AI-reviewed candidates; owner acceptance open."
+}

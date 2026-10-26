@@ -106,7 +106,7 @@ def cut(k,x,y,w,h):
  if contour:
   LAYERS[-1]['contour_polygon_source_pixels']=contour;c.restoreState()
  return target
-def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,outline=0,line_colors=None,leading=None,line_baselines=None):
+def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,outline=0,line_colors=None,leading=None,line_baselines=None,right=False):
  lines=[]
  for para in s.split('\n'):
   line=''
@@ -118,7 +118,8 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,o
  for line_index,line in enumerate(lines):
   if line_baselines:y=line_baselines[line_index]
   if line_colors:color=line_colors[line_index]
-  xx=x+(width-pdfmetrics.stringWidth(line,'Sniglet',size))/2 if center else x
+  line_width=pdfmetrics.stringWidth(line,'Sniglet',size)
+  xx=x+width-line_width if right else x+(width-line_width)/2 if center else x
   c.saveState();c.setFont('Sniglet',size)
   if shadow:
    c.setFillColorRGB(.04,.09,.18);c.drawString(xx+.6,y-.6,line)
@@ -182,7 +183,7 @@ for patch in B.get('cover',{}).get('local_patches',[]):local_patch({'local_patch
 text('Mermaid Roshan',142,312,338,30,True)
 text('and the Hidden Rainbow',142,282,338,22,True)
 subtitle=B.get('cover',{}).get('subtitle',dict(text='A Pearl Castle friendship story',x=24,y=28,width=456,size=13))
-if subtitle['text']:text(subtitle['text'],subtitle['x'],subtitle['y'],subtitle['width'],subtitle['size'],True)
+if subtitle['text']:text(subtitle['text'],subtitle['x'],subtitle['y'],subtitle['width'],subtitle['size'],subtitle.get('align','center')=='center',color=subtitle.get('color','navy'),line_baselines=subtitle.get('line_baselines'),right=subtitle.get('align')=='right')
 finish_page()
 for p in B['pages']:
  c.scale(S,S)
