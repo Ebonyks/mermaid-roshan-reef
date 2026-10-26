@@ -1,0 +1,36 @@
+{
+  "id": "picture-book-v38-peer-publication-20261025",
+  "baseline": "fee14c63bd83762454a784de6e2feae5a550749f",
+  "scope": "Publish anonymous all-file verification receipt and independent second-AI final publication acceptance as excluded metadata. Every sealed526-file payload member remains unchanged; no art, book, historical impact, game, release or print-edition modification.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Publication evidence for the scoped static-book handoff; no game finding is closed.",
+  "files": [
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/remote_verification.json",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/final_publication_acceptance.json"
+  ],
+  "validation": [
+    {
+      "command": "verify_remote.py fee14c63bd83762454a784de6e2feae5a550749f --receipt remote_verification.json",
+      "result": "PASS",
+      "evidence": "{\"access_mode\": \"Anonymous HTTPS; no GitHub credentials or cookies used\", \"bytes\": 1023073120, \"checked_at_utc\": \"2026-10-26T02:37:55.873780+00:00\", \"files\": 526, \"manifest_sha256\": \"d672d2ada41b60320d467e02ee15091a2946d008c012e82d50890b59b69b3432\", \"payload_sha256\": \"8944ee6ec3ed4a15812f35c7155ab7bf5575c9dfd09695428e6cf92bb91ffd41\", \"receipt_sha256\": \"73d97ffca54857804593ec745f5e49f02bfd1ea71f091184a800f222f36d6633\", \"status\": \"ALL_REQUIRED_REMOTE_BYTES_VERIFIED\"}"
+    },
+    {
+      "command": "Independent second-AI publication review of full receipt and independently fetched remote critical files",
+      "result": "PASS",
+      "evidence": "{\"path\": \"books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/final_publication_acceptance.json\", \"sha256\": \"054af5cb32ba9b6208e80582ac1cdf2fd02098710455153998686bc9434b646c\", \"verdict\": \"SATISFIED_WITH_DECLARED_HOLDS\"}"
+    },
+    {
+      "command": "Final publication metadata authority/development checks",
+      "result": "PASS",
+      "evidence": "[{\"command\": [\"C:\\\\Users\\\\Peter\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\", \"-X\", \"utf8\", \"-B\", \"tools/audit_document_authority.py\"], \"returncode\": 0, \"output\": \"DOCAUTH|INVENTORY=604|LEDGER=604|ACTIVE=56|RECORDS=58\\nDOCAUTH|RESULT|ALL OK\\n\"}, {\"command\": [\"C:\\\\Users\\\\Peter\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\", \"-X\", \"utf8\", \"-B\", \"tools/audit_development.py\", \"--base\", \"auto\"], \"returncode\": 0, \"output\": \"AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\\nAUDITDEV|RESULT|ALL OK\\n\"}]"
+    }
+  ],
+  "acceptance_gaps": "Second AI scoped handoff completion satisfied with declared A9 hold. Owner/child/SLP/final trim/PPI/physical print remain open. Publication and AI review do not close game master findings or grant runtime/device/release acceptance.",
+  "checked_at_utc": "2026-10-26T02:42:41.367207+00:00"
+}
