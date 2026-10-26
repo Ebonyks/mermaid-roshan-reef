@@ -1,0 +1,351 @@
+{
+  "review_id": "V39-PEER-FINAL-PUBLICATION",
+  "reviewer": "Independent second Codex AI /root/v38_peer_critic",
+  "recorded_at_utc": "2026-10-26T06:16:58.443Z",
+  "verdict": "SATISFIED_WITH_DECLARED_HOLDS",
+  "scope": "Final publication-only review of the exact V39 R04 static-book payload. Local artwork/evidence satisfaction remains bound to R04; publication verification does not grant owner/child/SLP/print/runtime acceptance.",
+  "published_payload_revision": "bab454c97c6202b7623a168dcbee625caca31da0",
+  "branch": "codex/mermaid-roshan-picture-book",
+  "entry_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/README.md",
+  "tree_url": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections",
+  "manifest": {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/manifest.json",
+    "bytes": 150227,
+    "sha256": "68824dc4ea4846ec091799749614d8b4e6ff38380e065437300b81d4b7241b54",
+    "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/manifest.json"
+  },
+  "payload_sha256": "668edfa355995abe53f91e550776ce72bacac128e63cac68583894c8da68d8b0",
+  "local_review": {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/r04_critique.json",
+    "sha256": "0e628450b49348a26b0463c5b39bca0d4c9d3d8138cb3307fde0a8ebca7a1db6",
+    "verdict": "SATISFIED_WITH_DECLARED_HOLDS",
+    "master_pdf_sha256": "12e1f9b08f2ac91bfc83217315cf6ced0d3a2266a3c25a1c014e38758e773b26",
+    "email_pdf_sha256": "4fd297013bf2235fee8e272a4957763d82632d043b9652833ffa7b6ed75f50c3",
+    "cover_proof_sha256": "9304bccfe16d0f1b5d9f5f5fa5cc269b8b27bfd32ee09e02041e83ee4ba071a1"
+  },
+  "complete_remote_receipt_review": {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/remote_verification.json",
+    "sha256": "06d1ded90b16cff419330b12b10eedf876549b15992e5d6b836a271b0f907ead",
+    "status": "ALL_REQUIRED_REMOTE_BYTES_VERIFIED",
+    "revision": "bab454c97c6202b7623a168dcbee625caca31da0",
+    "checked_at_utc": "2026-10-26T06:06:37.667669+00:00",
+    "access_mode": "Anonymous HTTPS; no GitHub credentials or cookies used",
+    "files_verified": 549,
+    "bytes_verified": 1041514514,
+    "independent_checks": "All 549 unique paths, byte lengths, SHA-256 values and exact-revision URLs were matched against the anonymously fetched pinned manifest. Manifest hash, sorted payload hash, counts and totals match. No missing, duplicated or substituted row found.",
+    "limit": "The implementing agent performed the complete 1,041,514,514-byte anonymous remote verification with the inspected verifier. This second AI reviewed every receipt row, independently fetched the manifest plus 39 critical files totaling 38,778,648 bytes, and independently hashed all 549 canonical local Git payload blobs. It does not claim a second complete 1 GB network download."
+  },
+  "independent_remote_checks": {
+    "revision": "bab454c97c6202b7623a168dcbee625caca31da0",
+    "checked_at_utc": "2026-10-26T06:13:18.865420+00:00",
+    "access_mode": "Anonymous HTTPS, no credentials or cookies",
+    "manifest": {
+      "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/manifest.json",
+      "bytes": 150227,
+      "sha256": "68824dc4ea4846ec091799749614d8b4e6ff38380e065437300b81d4b7241b54",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/manifest.json"
+    },
+    "payload_sha256": "668edfa355995abe53f91e550776ce72bacac128e63cac68583894c8da68d8b0",
+    "manifest_files": 549,
+    "manifest_bytes": 1041514514,
+    "all_549_receipt_rows_and_canonical_Git_payload_blobs_match": true,
+    "no_tracked_sealed_payload_change": true,
+    "working_changes_limited_to_excluded_metadata": [
+      "books/chapter_one/landscape/revisions/v39_owner_corrections/remote_verification.json"
+    ],
+    "reviewed_bindings_matched": 67,
+    "all_three_master_part_bindings_match": true,
+    "whitespace_equivalence_independently_verified": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/build_manifest.py",
+        "before_sha256": "051caa99e3268d260ecb79c775ec227022235cbf9096c69796426e38fb83f69b",
+        "after_sha256": "ebeebad72e95d1062ea5d313565d8dc84865cf5047f112120f1bc4b97a922cde",
+        "independently_verified": "Original signed bytes reconstructed exactly by appending one LF; Python AST including locations identical."
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/build_review.py",
+        "before_sha256": "37e6e3b9a4828b974650c9e8670db7409d56af74a5a6220e632e7e6c82578ad1",
+        "after_sha256": "bb5441353470a20f091e263d86bb5c228d388bcf150df19185ece885ad1cb137",
+        "independently_verified": "Original signed bytes reconstructed exactly by appending one LF; Python AST including locations identical."
+      }
+    ],
+    "remote_receipt_sha256": "06d1ded90b16cff419330b12b10eedf876549b15992e5d6b836a271b0f907ead",
+    "remote_receipt_checked_at_utc": "2026-10-26T06:06:37.667669+00:00",
+    "independent_critical_files_fetched": 39,
+    "independent_critical_bytes_fetched": 38778648,
+    "files": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/BOOK_CURRENT.json",
+        "bytes": 391230,
+        "sha256": "d1a26d22a32f4f685f4503cf6c3ce83c0fa68ff95cec2d97cfc2328ee05d3693",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/BOOK_CURRENT.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/BUILD_REPORT.md",
+        "bytes": 4480,
+        "sha256": "1116daa53ae549d322333876ec5813b4e8d808ab646dee0269cec4f3eb72c618",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/BUILD_REPORT.md"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/README.md",
+        "bytes": 3797,
+        "sha256": "261c37c32895c81dca7e7aeacf0af50f4820d6430ac4424eadbf2f29567bf7d0",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/README.md"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/occlusion_floor_cleanplate_attempt2.png",
+        "bytes": 1778890,
+        "sha256": "ccdde449c184f3dec9235e7af348494ea30991775b363e885c3d52f2d1c79320",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/art/occlusion_floor_cleanplate_attempt2.png"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/build_manifest.py",
+        "bytes": 4706,
+        "sha256": "ebeebad72e95d1062ea5d313565d8dc84865cf5047f112120f1bc4b97a922cde",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/build_manifest.py"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/build_review.py",
+        "bytes": 5982,
+        "sha256": "bb5441353470a20f091e263d86bb5c228d388bcf150df19185ece885ad1cb137",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/build_review.py"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/Mermaid_Roshan_Book_V39_Email.pdf",
+        "bytes": 24992564,
+        "sha256": "4fd297013bf2235fee8e272a4957763d82632d043b9652833ffa7b6ed75f50c3",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/complete/Mermaid_Roshan_Book_V39_Email.pdf"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/email_verification.json",
+        "bytes": 5758,
+        "sha256": "01ddc7818520dee79a4791477d81089e853a00582e8cc1f053322ca040a145a3",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/complete/email_verification.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/master_parts/parts.json",
+        "bytes": 845,
+        "sha256": "1af5d83a162621c8ff8440b2667c48e7cdafa46fcb1fb2e484fa7ce902283be5",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/complete/master_parts/parts.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_00.png",
+        "bytes": 2347416,
+        "sha256": "9304bccfe16d0f1b5d9f5f5fa5cc269b8b27bfd32ee09e02041e83ee4ba071a1",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_00.png"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_01.png",
+        "bytes": 2279614,
+        "sha256": "e2f7f009d784fdcb5e831f50ed7ed1f9a7cdd10f67a81a76ced4a361e5354c6c",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_01.png"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_24.png",
+        "bytes": 1524405,
+        "sha256": "45a75f4ec6f96b423481ca85714c116184cec35d42a5452ab9be05a32f099400",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_24.png"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_25.png",
+        "bytes": 1453215,
+        "sha256": "f5b2f23f6a0a4a1166dd94cebdcd5bb941ec558e1eb21bfca54255c1c2327b39",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_25.png"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_provenance.json",
+        "bytes": 231528,
+        "sha256": "37d0e67807a5ed0e1c8d2f81b1f9f3e17756afed234634c9a22150481dc76ad7",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_provenance.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/stress_results.json",
+        "bytes": 475,
+        "sha256": "32ca2842c8d2c3d23fc1125df6170a539250d0b298f1f457fd3137d2ae7803ee",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/complete/stress_results.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/verification.json",
+        "bytes": 77131,
+        "sha256": "def12a8fa6702c1f9785008d52eaaec29a3f49008911ccdb3c481b65cf07cc53",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/complete/verification.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/email_export.py",
+        "bytes": 4743,
+        "sha256": "ace9e59d2f419a76578daf08f0f2975ba9c9cb301d3743956b1a9c6552d53c29",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/email_export.py"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/generation_evidence.json",
+        "bytes": 42755,
+        "sha256": "2c41cf6acaa303f19aace0cef743c28ec42d8e67c004e9a59fa8fe945954d1e6",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/generation_evidence.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/input_provenance.json",
+        "bytes": 10014,
+        "sha256": "307a4c2179abb25301a7f62b8d088f62853ae0a0b37ca6859fbfbf35e20617ae",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/input_provenance.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/cover_composed.png",
+        "bytes": 2313914,
+        "sha256": "b777a8afd5084197d30d080cdf9b403e383690ccbf52254c2c1ff3af32b0f1cc",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/cover_composed.png"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/demo_landing_frame_408.png",
+        "bytes": 1147509,
+        "sha256": "55e938f09ed45ad874aef9dad8b90bb285e30fa2be9405739449657c1761c30e",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/demo_landing_frame_408.png"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_target.png",
+        "bytes": 61353,
+        "sha256": "00d367061d704e4968ee11cad60c2fef6b33ef556b901769a658c4c86364b093",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_target.png"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/local_validation.py",
+        "bytes": 3704,
+        "sha256": "9076339b2918b01d476713d8ba952841e1c8a8c16965eb4f0509544b2db66f9d",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/local_validation.py"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/occlusion_input_provenance.json",
+        "bytes": 1872,
+        "sha256": "b76b0f78530e23bf11ac05a506607f37344a260b81be22836573568c2938c1bb",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/occlusion_input_provenance.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/README.md",
+        "bytes": 2211,
+        "sha256": "12344dd6621fc21b9023eec39b849aaf9f25ec372b3f7a0c01b8837623d26b16",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/README.md"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/r03_response.json",
+        "bytes": 863,
+        "sha256": "a613517a78d3546f00236b86861746256f192efe4d191b2f98e9d72f8378b790",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/r03_response.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/r04_critique.json",
+        "bytes": 18374,
+        "sha256": "0e628450b49348a26b0463c5b39bca0d4c9d3d8138cb3307fde0a8ebca7a1db6",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/r04_critique.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/review_guard_negative_check.json",
+        "bytes": 1679,
+        "sha256": "5759b7d9865357960c5877399d8ba06a5730e1f15908c07e85511ca9ea485b6c",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/review_guard_negative_check.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/whitespace_equivalence.json",
+        "bytes": 802,
+        "sha256": "26c6762ba5c0dfc9e600e94d1f5145a6319288d10a9fb0419780745791b00662",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/whitespace_equivalence.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/prepare_inputs.py",
+        "bytes": 4882,
+        "sha256": "2256bcd6813b0360dc351b0a7178c08fc9a3a1b449756dcc5e29867f6e1d273f",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/prepare_inputs.py"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/prepare_revision.py",
+        "bytes": 8304,
+        "sha256": "7598c0b371d349ca149622706dac4b7c01f083ffd382594166a69b3b61c534b1",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/prepare_revision.py"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/reassemble_master.py",
+        "bytes": 1658,
+        "sha256": "7cb187b256b947ec2773f8b524f6645be5aefa1d190acb4c69389c752278e1f7",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/reassemble_master.py"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/record_generation.py",
+        "bytes": 1523,
+        "sha256": "5c79c67b1cadd82985de9ba67ea3c08e2fde281a9e46e051a59adf5428bc87cb",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/record_generation.py"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/record_review.py",
+        "bytes": 1055,
+        "sha256": "74c80a2baed42e552ce7ea2153d3c55e9abea89d6de7784be606160570117112",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/record_review.py"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/revision_scope.json",
+        "bytes": 13117,
+        "sha256": "5e6f048077183f0bbc32f0c2c1dbb1c56ad19f90f9ea7638c233b42b59fe9638",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/revision_scope.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/validation_results.json",
+        "bytes": 14527,
+        "sha256": "1c44878612225e868b4c692d93cbc9dbd07328bc4e8cd926708fb566748d2640",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/validation_results.json"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/verify_remote.py",
+        "bytes": 2561,
+        "sha256": "be4bfe9c4427645490981cb681ad18d15db2741af5d97a114003bda22f0a2636",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/verify_remote.py"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/verify_revision.py",
+        "bytes": 14664,
+        "sha256": "a4cce166103f887364c3564a1b9aa564da422e3c9c6210b87c85993eea789302",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/verify_revision.py"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/visual_audits.json",
+        "bytes": 4528,
+        "sha256": "8ee8a54c4e214e3667f84c281c1ac53759b8b7496ca7c98738287402cfe52c05",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bab454c97c6202b7623a168dcbee625caca31da0/books/chapter_one/landscape/revisions/v39_owner_corrections/visual_audits.json"
+      }
+    ],
+    "metadata_exclusions": [
+      "books/chapter_one/landscape/revisions/v39_owner_corrections/manifest.json",
+      "books/chapter_one/landscape/revisions/v39_owner_corrections/remote_verification.json",
+      "books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/final_publication_acceptance.json",
+      "design/audit_impacts/picture-book-v39-publication-20261025.json"
+    ]
+  },
+  "review_to_publication_binding": {
+    "matched_R04_artifact_proof_helper_bindings": 67,
+    "all_34_proof_hashes_match_R04": true,
+    "all_production_art_controls_and_exports_match_R04": true,
+    "all_three_lossless_master_part_hashes_match": true,
+    "single_lossless_master_delivery": "The exact reviewed 129,035,789-byte master is delivered in three verified binary parts. Their hashes match the published parts record and the exact local reconstruction independently verified in R04.",
+    "helper_exceptions": "Only build_manifest.py and build_review.py differ from their signed R04 helper hashes. Their disclosed whitespace changes were independently proved to remove one trailing LF each and preserve the complete Python AST including source locations. The detailed before/after hashes are recorded in independent_remote_checks; no behavior or art change is accepted by assumption.",
+    "post_seal_integrity": "All 549 canonical Git blob hashes match the sealed manifest. No staged or tracked change to a sealed payload member was present at the independent check; working differences were limited to declared excluded publication metadata.",
+    "line_ending_method": "Canonical Git bytes were used for repository-wide text checks because the Windows checkout may contain CRLF. Actual remote bytes and hash-bound R04 files were compared with the published manifest; checkout newline normalization was not mistaken for a content mutation."
+  },
+  "findings": [],
+  "remaining_payload_delivery_blockers": [],
+  "handoff_payload_satisfied": true,
+  "declared_holds": [
+    "A9 native bath-resolution target remains held; exact V38 drawing retained.",
+    "Native 1280×720 demo still and final book trim/PPI require separate print-resolution decisions.",
+    "Owner illustration acceptance, child-reading, qualified SLP and physical-print acceptance remain open.",
+    "No game/runtime/device/dev/master/release promotion acceptance or master-audit finding closure is granted."
+  ],
+  "publication_metadata": {
+    "status": "READY_FOR_EXCLUDED_METADATA_FOLLOWUP",
+    "declared_exclusions": [
+      "books/chapter_one/landscape/revisions/v39_owner_corrections/manifest.json",
+      "books/chapter_one/landscape/revisions/v39_owner_corrections/remote_verification.json",
+      "books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/final_publication_acceptance.json",
+      "design/audit_impacts/picture-book-v39-publication-20261025.json"
+    ],
+    "required_final_step": "Commit and push this final reviewer confirmation, the unchanged complete remote receipt and the dedicated publication-impact metadata, then verify their remote bytes separately. Preserve all 549 sealed payload files and the already verified manifest.",
+    "non_circular_scope": "This file and the publication receipt are explicitly excluded metadata. This review does not claim that its own not-yet-created bytes were already downloaded remotely or introduce circular self-hashing.",
+    "candidate_identity": "The corrected artwork/evidence payload remains pinned to bab454c97c6202b7623a168dcbee625caca31da0 regardless of the follow-up metadata commit."
+  },
+  "conclusion": "The publicly reachable published payload matches the independently satisfied R04 candidate, with the two precisely verified whitespace-only helper exceptions disclosed. All known local visual/evidence findings are resolved and no payload publication blocker remains. I am satisfied with the scoped handoff, retaining the declared holds and the explicit final metadata publication step."
+}
