@@ -19,6 +19,11 @@ python3 -m unittest tools.tests.test_audit_godot_baseline \
 	|| { echo "GODOT BASELINE CONTRACT TEST FAIL"; exit 1; }
 python3 tools/audit_godot_baseline.py --godot "$GODOT" \
 	|| { echo "GODOT BASELINE DRIFT"; exit 1; }
+# Persistent beta clothing: prove corruption controls before checking shipped layers.
+python3 -B -m unittest tools.tests.test_fashion_beta \
+	|| { echo "FASHION BETA CONTROL FAIL"; exit 1; }
+python3 -B tools/audit_fashion_beta.py \
+	|| { echo "FASHION BETA ASSET FAIL"; exit 1; }
 # fast static gates first (no Godot needed): syntax, then the ':=' Variant
 # inference shape that broke main.gd twice on 2026-07-11 - a parse error in
 # main.gd makes every probe idle to its 8m timeout, so catching it here
