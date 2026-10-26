@@ -110,6 +110,7 @@ static func run(main: ReefMain, check: Callable) -> void:
 	check.call(FashionDesigner.next_disguise_phase(main) == 3 and FashionParts.selected(main,"roshan","body") == "roshan_garden_v1" and FashionParts.selected(main,"roshan","tail") == "tail_strawberry_v1" and FashionParts.selected(main,"roshan","head") == "head_pearl_v1" and bool(main.fashion_rewards_claimed.get("garden_disguise_v1",false)),
 		"Real GUI disguise practice completes body/tail/head with a persistent mixed outfit")
 	main._wardrobe_ref()._close_wardrobe()
+	await FashionBetaTestCase.run(main, check)
 	main.chapter2_story_complete = old_complete
 	main.fashion_disguise_progress = old_progress
 	main.fashion_rewards_claimed = old_rewards

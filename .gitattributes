@@ -73,3 +73,6 @@ audit/remove_opera_anteroom_20261017/*.log -text -diff
 # Preserve exact native Opera icon-placement verification logs.
 audit/opera_door_icons_20261017/*.log -text -diff
 audit/opera_door_icons_20261017/*.txt -text -diff
+
+# Beta diagnostic evidence keeps canonical LF text and native warning spacing.
+assets_src/fashion_designer/beta_20261025/verification/*.log -text whitespace=-blank-at-eof,-blank-at-eol,cr-at-eol

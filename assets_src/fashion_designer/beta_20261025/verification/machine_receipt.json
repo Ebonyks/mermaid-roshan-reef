@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "scope": "Local implemented beta candidate; exact runtime inputs, not a product/visual acceptance score",
+  "baseline": "9c78f6aa9981cad8caae576c4f1c541c32f247e4",
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "renderer": "mobile",
+  "command": "GODOT=<approved4.7.2> APPDATA=<isolated suite02_appdata> bash scripts/ci.sh",
+  "command_exit": 0,
+  "trusted_probes": {
+    "count": 82,
+    "process_exits": {
+      "probe_reef_districts": "0",
+      "probe_ocean_kingdoms": "0",
+      "probe_audit": "0",
+      "probe_passive": "0",
+      "probe_living_world": "0",
+      "probe_load": "0",
+      "probe_rank": "0",
+      "probe_save_recovery": "0",
+      "probe_galaxy_state": "0",
+      "probe_collection": "0",
+      "probe_mg2d": "0",
+      "probe_fetch": "0",
+      "probe_melody": "0",
+      "probe_dolls": "0",
+      "probe_seek": "0",
+      "probe_audio": "0",
+      "probe_dance": "0",
+      "probe_l2": "0",
+      "probe_l2_living_cards": "0",
+      "probe_sky_lagoon_animals": "0",
+      "probe_l2_reenter": "0",
+      "probe_crown": "0",
+      "probe_throne": "0",
+      "probe_northern": "0",
+      "probe_human_art_audit": "0",
+      "probe_train": "0",
+      "probe_verbs": "0",
+      "probe_skins": "0",
+      "probe_touch_router": "0",
+      "probe_touch_stress": "0",
+      "probe_interaction": "0",
+      "probe_touch_adversary": "0",
+      "probe_touch_look": "0",
+      "probe_ui_system": "0",
+      "probe_voice": "0",
+      "probe_day_one_voice": "0",
+      "probe_day_one_d8_revisits": "0",
+      "probe_day_one_handoffs": "0",
+      "probe_kart_feel": "0",
+      "probe_combat": "0",
+      "probe_dust_bunny": "0",
+      "probe_dust_bunny_boss": "0",
+      "probe_dust_boss": "0",
+      "probe_hit": "0",
+      "probe_partner": "0",
+      "probe_combat_tutorial": "0",
+      "probe_imp_ai": "0",
+      "probe_mic": "0",
+      "probe_stuffie": "0",
+      "probe_dungeon": "0",
+      "probe_ember": "0",
+      "probe_opera": "0",
+      "probe_opera_2d": "0",
+      "probe_opera_diegetic_paths": "0",
+      "probe_opera_detective": "0",
+      "probe_opera_pipe": "0",
+      "probe_opera_nursery": "0",
+      "probe_opera_gesture_quality": "0",
+      "probe_kitchen_props": "0",
+      "probe_bathroom_props": "0",
+      "probe_castle_door_language": "0",
+      "probe_bathroom_integration": "0",
+      "probe_day_one_bathroom_bunny": "0",
+      "probe_day_one_bathroom_cleanup": "0",
+      "probe_day_one_bathroom_movie_handoff": "0",
+      "probe_day_one_director": "0",
+      "probe_day_one_integration": "0",
+      "probe_day_one_pool_cleanup": "0",
+      "probe_day_one_art_attack_state": "0",
+      "probe_day_one_castle_dressing": "0",
+      "probe_day_one_story_clips": "0",
+      "probe_chapter2": "0",
+      "probe_chapter2_farmer_resume": "0",
+      "probe_chapter2_lawn": "0",
+      "probe_alpha_milestone_save": "0",
+      "probe_dust_boss_balance": "0",
+      "probe_start_menu_routing": "0",
+      "probe_start_menu_new_game": "0",
+      "probe_castle_pool_life_2d": "0",
+      "probe_castle_pearl_art": "0",
+      "probe_fairy_art": "0",
+      "probe_props": "0"
+    }
+  },
+  "full_log": {
+    "path": "assets_src/fashion_designer/beta_20261025/verification/full_ci_02.log",
+    "sha256": "4918a29c29428a38ee75699511d320f25e6695d42f8e962cb9ed8ad60e806698",
+    "format": "UTF-8 LF; Windows redirected output normalized only for newline portability; native diagnostic spacing retained"
+  },
+  "frozen_source": {
+    "path": "assets_src/fashion_designer/beta_20261025/verification/frozen_source.json",
+    "sha256": "744cea5440a08f99c4ae43c903dbc57356b2c6e7fb754b9bc1d8a7bc7014efc2",
+    "count": 193
+  },
+  "new_art": {
+    "pieces": 12,
+    "layers": 156,
+    "fitted_cells": 1752,
+    "runtime_png_bytes": 8670947
+  },
+  "gui_fixture": {
+    "path": "assets_src/fashion_designer/beta_20261025/review_final05/input_fixture.json",
+    "captures": 21,
+    "actual_gui_target_taps": 110,
+    "save_profile": "C:/Users/Peter/.codex/worktrees/fashion-beta-20261025/mermaid-roshan-reef/tmp/fashion_beta_20261025/capture_final05_appdata/Godot/app_userdata/Mermaid Roshan Reef of Light",
+    "synthetic_unlocks": true,
+    "composed_cache_entries_at_fixture_end": 6,
+    "composed_cache_bytes_at_fixture_end": 11890688,
+    "memory_limit": "This is current composed images only, not total/peak memory or a device benchmark."
+  },
+  "native_diagnostics": [
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override"
+    },
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override"
+    },
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override"
+    },
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override"
+    },
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override"
+    },
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override"
+    },
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaAct: career world rejected its configuration"
+    },
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override"
+    },
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaAct: career world rejected its configuration"
+    },
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override"
+    },
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaAct: career world rejected its configuration"
+    },
+    {
+      "probe": "probe_chapter2",
+      "message": "ERROR: OperaHouse: slot 6 failed to start its Canvas career"
+    }
+  ],
+  "earlier_attempts": [
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/verification/bake.log",
+      "result": "FAILED: missing named original fallback; corrected in successful bake02/03"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/verification/ui.log",
+      "result": "INTERRUPTED exit -1 without verdict while own native capture also ran; cause unestablished. Isolated rerun and final full-suite UI exit0."
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/verification/rejected_pointer.png",
+      "result": "REJECTED oversized hand; corrected size ordering and real GUI bounds controls pass"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/verification/full_ci_attempt01.log",
+      "result": "FAILED impact paths used Windows separators; corrected. Complete final rerun exit0."
+    }
+  ],
+  "published_head_ci": "Later lane recorded by PR/Actions, not claimed by this local receipt.",
+  "acceptance": {
+    "independent_full_pose_art_motion": "PENDING",
+    "physical_phone_performance_readability": "PENDING",
+    "voice_child_owner_beta": "PENDING",
+    "master_audit": "UNSATISFIED; no finding closure or release claim"
+  },
+  "native_diagnostics_assessment": {
+    "result": "EXPECTED_NEGATIVE_CONTROLS",
+    "source": "scripts/probe_chapter2.gd _audit_startup_configurations, invalid configuration and failed-start cleanup controls at lines657-739",
+    "count": 12,
+    "unexpected": 0,
+    "new_wardrobe_ui_native_diagnostics": 0
+  }
+}
