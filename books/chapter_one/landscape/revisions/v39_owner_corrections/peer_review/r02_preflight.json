@@ -1,0 +1,130 @@
+{
+  "review_id": "V39-PEER-R02-PREFLIGHT",
+  "reviewer": "Independent second Codex AI /root/v38_peer_critic",
+  "recorded_at_utc": "2026-10-26T04:54:42.592Z",
+  "verdict": "NOT_SATISFIED",
+  "scope": "Read-only visual preflight of the five named V39 pages after render 69669. Subsequent render 66866 is a separate handback; final PDF/export/gates/publication acceptance has not been performed.",
+  "baseline": "Sealed V38 at cb3e2995df8fdf82e308352eb850b3e285f2c6c4",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08",
+    "Current owner V39 correction request and book character standards"
+  ],
+  "master_audit_findings": "None closed or invented; static-book local art review without runtime changes.",
+  "reviewed_R02_master_sha256": "10e76da51b4f667b6acbf9195d31fe1c9ba4e9559d4da5478605d6d7148ffb11",
+  "reviewed_proofs": {
+    "complete/page_00.png": "b3df30b941f9fc1ec16f5cf7eeefeb37dedf3b614dd2a97b133d1e1826ffd40d",
+    "complete/page_01.png": "e2f7f009d784fdcb5e831f50ed7ed1f9a7cdd10f67a81a76ced4a361e5354c6c",
+    "complete/page_02.png": "46d7f08e2fe656a75eb120102ceed39e7cfd491997a08a96f075276219a81cfb",
+    "complete/page_24.png": "45a75f4ec6f96b423481ca85714c116184cec35d42a5452ab9be05a32f099400",
+    "complete/page_25.png": "843392d082cc07fc13cd10356705718b23c7f93a4d69593cece3a74476c6655a"
+  },
+  "preserved_rejected_snapshots": {
+    "peer_review/r02_page_00.png": "b3df30b941f9fc1ec16f5cf7eeefeb37dedf3b614dd2a97b133d1e1826ffd40d",
+    "peer_review/r02_page_25.png": "843392d082cc07fc13cd10356705718b23c7f93a4d69593cece3a74476c6655a",
+    "peer_review/r02_BOOK_CURRENT.json": "28d98f2f95af610bd74e01e966ea5196b951977cda7f9c7a5ec5c15a45c3087b",
+    "peer_review/r02_cover_tail_comparison.png": "d159bf91e327a4d51d2c20dac14e5bb13a30d7d120f7a88b4d21c82e451cde96",
+    "peer_review/r02_puffs_comparison.png": "b71e445dca465636d3071511f94dcbe4bbcb85ed1ac085578a2cdc6359aba09a"
+  },
+  "control_binding_note": "R02 binds only to the preserved 28d98f2f95af610bd74e01e966ea5196b951977cda7f9c7a5ec5c15a45c3087b control snapshot, whose pre-fix Daddy polygon and y958 cheer-mask geometry were independently inspected. A concurrent working-file read returned 5b2be74e4cc38467177ccab007fb2968a24adc2ea26df17a0e76dd9b448442c5; the parent confirmed that was already the R03 mask correction, prepared while the R02 proofs remained. It is not the R02 control binding or a formatting-equivalent copy.",
+  "findings": [
+    {
+      "id": "V39-PEER-01",
+      "priority": "P2",
+      "blocking_local_completion": true,
+      "page": 0,
+      "title": "Old tail contour survives below the replacement fluke",
+      "evidence": [
+        "peer_review/r02_page_00.png",
+        "peer_review/r02_cover_tail_comparison.png"
+      ],
+      "reference_pixels": "1512×1080 proof, approximately x45–125, y694–714",
+      "observed": "A thin disconnected orange/pink curve remains on the floor below Daddy’s new crescent and points toward Rumi’s lower-left fin tip. The parent independently compared the old cover and confirmed this is the old ribbon-tail edge, rather than an intentional reflection. The focused native has clean floor there.",
+      "required_correction": "Extend the bounded old-tail removal through this complete contour, using the already generated native clean floor. Preserve the pot, Rumi, Roshan and floor joins; no extra generation needed. Review at whole-cover scale and close-up."
+    },
+    {
+      "id": "V39-PEER-02",
+      "priority": "P3",
+      "blocking_local_completion": true,
+      "page": 25,
+      "title": "A yellow cheering dash remains beside the unwell puff",
+      "evidence": [
+        "peer_review/r02_page_25.png",
+        "peer_review/r02_puffs_comparison.png"
+      ],
+      "reference_pixels": "1512×1080 proof, around x1086, y957",
+      "observed": "A small yellow dash remains above/left of the sofa puffs. Feathering at the y958 mask edge preserves the original mark; native care25 has clean background.",
+      "required_correction": "Extend the same blue-background replacement beyond the full mark and feather fringe, then inspect for a clean join without changing the sofa or ear silhouette."
+    }
+  ],
+  "candidate_observations": [
+    {
+      "item": "Daddy native anatomy",
+      "result": "VIABLE_CANDIDATE",
+      "path": "art/daddy_caudal_focused_attempt3.png",
+      "sha256": "9e94d959ae9ad1468e3184c4a93e482fccde00b387720c487e3b8d58bb1abb98",
+      "notes": "One scaled stem ends in a continuous crescent caudal fin with two tips and a shared terminal attachment. No separate scaled red spike remains. This is a plausible asymmetric fluke in the pose; it resolves the broad take’s side-fin/ribbon ambiguity. It does not excuse the composed old-edge remnant."
+    },
+    {
+      "item": "Rumi",
+      "result": "VIABLE_CANDIDATE",
+      "path": "art/rumi_caudal_focused_attempt3.png",
+      "sha256": "c49ad464fb059b314b47513397cfc222c3c0ddfecc8760afe173a07ee1be2339",
+      "notes": "Two pink lobes share a narrowed root and visible floor cleft; the upper hip fin remains separate. Painted rays, colour and transition match canonical Rumi. The declared 315-to-340 reference-width fit holds the right root and removes the previous paddle overlap. No new Rumi join defect identified beyond the separate old Daddy contour."
+    },
+    {
+      "item": "Lamma",
+      "result": "VIABLE_CANDIDATE",
+      "path": "assets/minigames/seek/lamma_animation.png, top-left open-eye frame",
+      "notes": "Existing painted atlas reuse improves on the flat egg-bearing source. Pale face, lashes, cheeks, wool, paws and feet remain recognizable; no egg or new generated character. Feet meet a soft shadow at a subordinate plush scale. No conspicuous chroma fringe seen."
+    },
+    {
+      "item": "Stained glass",
+      "result": "VIABLE_CANDIDATE",
+      "path": "complete/page_01.png",
+      "notes": "Actual approved Roshan portrait is recognizable inside the existing arch; no visible rectangular join or change to castle, current Roshan or caption."
+    },
+    {
+      "item": "Ground landing",
+      "result": "VIABLE_CANDIDATE",
+      "path": "complete/page_02.png",
+      "notes": "Plane is on wheels on land beside the source playground. Exact frame 408 independently decoded and compared pixel by pixel with the supplied input. Far swing support is cropped by the allowed page crop; this is not an invented scene defect. Native print-resolution limits stay open."
+    },
+    {
+      "item": "Unwell puffs",
+      "result": "VIABLE_CANDIDATE_EXCEPT_RECORDED_DASH",
+      "paths": [
+        "complete/page_24.png",
+        "complete/page_25.png"
+      ],
+      "notes": "Drooping/sneezing expressions and aqua pop-up tissue boxes read as gentle illness. Existing ears, pearls, water flask and sofa remain. The complete cloth replacement removes the earlier blue ghost; the separate cheering dash still needs removal."
+    }
+  ],
+  "independent_checks": {
+    "unchanged_V38_proofs_byte_exact": 29,
+    "only_named_changed_pages": [
+      0,
+      1,
+      2,
+      24,
+      25
+    ],
+    "original_demo_video_sha256": "b8d96c561cadef3cf334748591c5e76de6c5c7f4009f34235aeb153be1020062",
+    "frame_408_native_RGB_pixels_exact": true,
+    "frame_dimensions": [
+      1280,
+      720
+    ],
+    "frame_time_seconds": 17,
+    "method": "Exact ffmpeg frame decode to an in-memory PNG; all RGB pixels and dimensions compared with inputs/demo_landing_frame_408.png. No source or production pixel was modified."
+  },
+  "formal_handback_required": [
+    "Resolve both mask remnants and preserve the R02 evidence.",
+    "Provide final master/email/proofs and source, scope, caption and export evidence.",
+    "Record fresh implementer visual passes bound to the final artifacts.",
+    "Complete independent formal review and mandatory publication verification."
+  ],
+  "acceptance_limits": "Preflight does not accept V39 final delivery or change V38. A9 native bath-resolution hold and owner/child/SLP/trim/physical-print acceptance remain open. No game or release acceptance."
+}

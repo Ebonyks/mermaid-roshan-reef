@@ -1,0 +1,297 @@
+{
+  "status": "PASS",
+  "scope": "Syntax/local links and exact existing book-gate binding; contract gates only if explicitly executed",
+  "checked_at_utc": "2026-10-26T05:46:53.503394+00:00",
+  "python_syntax": [
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/build_manifest.py",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/build_review.py",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/email_export.py",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/local_validation.py",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/prepare_inputs.py",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/prepare_revision.py",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/reassemble_master.py",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/record_generation.py",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/record_review.py",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/verify_remote.py",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/verify_revision.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/audit_book.py"
+  ],
+  "html_links": [
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html",
+      "link": "complete/READ_BOOK.html",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html",
+      "link": "complete/Mermaid_Roshan_Book_V39_Email.pdf",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/Mermaid_Roshan_Book_V39_Email.pdf"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html",
+      "link": "visual_audits.json",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/visual_audits.json"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html",
+      "link": "peer_review/README.md",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/README.md"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html",
+      "link": "complete/verification.json",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/verification.json"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html",
+      "link": "details/comparison_00.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/details/comparison_00.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html",
+      "link": "details/comparison_01.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/details/comparison_01.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html",
+      "link": "details/comparison_02.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/details/comparison_02.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html",
+      "link": "details/comparison_24.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/details/comparison_24.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html",
+      "link": "details/comparison_25.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/details/comparison_25.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "Mermaid_Roshan_Book_V39_Email.pdf",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/Mermaid_Roshan_Book_V39_Email.pdf"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "../REVISION_REVIEW.html",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_00.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_00.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_01.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_01.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_02.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_02.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_03.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_03.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_04.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_04.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_05.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_05.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_06.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_06.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_07.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_07.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_08.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_08.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_09.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_09.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_10.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_10.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_11.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_11.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_12.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_12.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_13.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_13.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_14.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_14.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_15.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_15.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_16.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_16.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_17.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_17.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_18.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_18.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_19.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_19.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_20.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_20.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_21.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_21.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_22.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_22.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_23.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_23.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_24.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_24.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_25.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_25.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_26.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_26.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_27.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_27.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_28.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_28.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_29.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_29.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_30.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_30.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_31.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_31.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_32.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_32.png"
+    },
+    {
+      "document": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html",
+      "link": "page_33.png",
+      "target": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_33.png"
+    }
+  ],
+  "book_gate": "PASS_WITH_DECLARED_A9_HOLD",
+  "book_verification_sha256": "def12a8fa6702c1f9785008d52eaaec29a3f49008911ccdb3c481b65cf07cc53",
+  "contract_gate_runs": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "returncode": 0,
+      "output": "DOCAUTH|INVENTORY=607|LEDGER=607|ACTIVE=56|RECORDS=58\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "returncode": 0,
+      "output": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "returncode": 0,
+      "output": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 15.668s\n\nOK\nDOCAUTH|STRESS|6/6\n"
+    }
+  ],
+  "unit_test_status": "Executed; see observed unittest output",
+  "runtime_tests": "NOT_APPLICABLE: static book; no runtime/import/game/save/input/release changes",
+  "acceptance": "A9 and owner/child/SLP/trim/physical print remain separate"
+}

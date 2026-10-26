@@ -170,3 +170,12 @@ The owner wrote: “Write the V38 Codex handoff for the V37 audit fixes, using y
 [V38](landscape/revisions/v38_audit_fixes/README.md) implements A1–A8/A10 with exact V37 originals and unnamed pages preserved. A9 held after two undersized trials with slight contour drift; approved bath stays exact. Five focused AI passes,307source/font seals and composed contrast are scoped evidence. V37's sealed folder is historical. Owner/child/SLP/final trim/PPI/physical-print gates stay open; no print edition starts.
 
 The subsequent owner-requested [second-AI compliance review](landscape/revisions/v38_audit_fixes/peer_review/README.md) keeps this authority intact. Its A8 correction uses only a translucent dust layer over the exact original door. Evidence helpers fail closed on changed artifacts and execute rather than infer contract checks. Peer satisfaction concerns scoped handoff completion, not owner, child, SLP, trim or physical-print acceptance.
+
+
+## V39 owner illustration corrections (2026-10-25)
+
+The owner identifies cover Daddy/Rumi caudal anatomy and missing Lamma, lost Roshan stained glass in PDF2/story1, incorrect water landing in PDF3/story2, and insufficient illness props/acting for the two late marginal little-puff vignettes. These named corrections supersede older instructions to keep the water arrival and cloth-only care cues exact. The new cover Lamma is an additional silent sighting;10/rear remain.
+
+[V39](landscape/revisions/v39_owner_corrections/README.md) uses bounded local tail/face/hand/tissue-box repairs and direct approved-source reuse. Restore the actual existing castle stained-glass portrait inside its arch. Use exact demo frame408 at17s showing the plane on wheels by slide/swings; no invented scene. The native720p still is review source, not print-resolution approval. Preserve sofa, flask, canonical little-puff anatomy, exact words/manual breaks/captions/pagination/rear, V38 originals and all29 unnamed proofs.
+
+Eight native ImageGen calls/five selected local candidates and all rejects are recorded. A narrow canonical-fin input change follows two diagnosed broad failures. Five primary focused reviews and separate iterative second-AI critique apply only to exact declared artifacts. Retain A9 bath/native demo resolution, owner/child/SLP/trim/PPI/physical-print holds; no game or release authority is added.

@@ -1,9 +1,9 @@
 # Mermaid Roshan and the Hidden Rainbow
 
-Status: `SUPPORTING_CURRENT`; [V38 audit fixes](landscape/revisions/v38_audit_fixes/README.md), exact owner manuscript,34 pages/32 interiors,14 × 10 inch review.
+Status: SUPPORTING_CURRENT; [V39 owner corrections](landscape/revisions/v39_owner_corrections/README.md), exact32-page owner manuscript plus covers,14 ×10 inch review.
 
-[Read](landscape/revisions/v38_audit_fixes/complete/READ_BOOK.html) · [Review PDF](landscape/revisions/v38_audit_fixes/complete/Mermaid_Roshan_Book_V38_Email.pdf) · [A1–A10](landscape/revisions/v38_audit_fixes/BUILD_REPORT.md) · [Before/after V37](landscape/revisions/v38_audit_fixes/REVISION_REVIEW.html) · [Design language](DESIGN_LANGUAGE.md).
+[Read](landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html) · [Review PDF](landscape/revisions/v39_owner_corrections/complete/Mermaid_Roshan_Book_V39_Email.pdf) · [Correction report](landscape/revisions/v39_owner_corrections/BUILD_REPORT.md) · [Before/after V38](landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html) · [Design language](DESIGN_LANGUAGE.md).
 
-A1–A8/A10 implemented; five focused AI passes identify no remaining defect in that scope. A9 held after two undersized trials; approved V37 bath stays exact. Caption contrast79 PASS/7 OUTLINE_REQUIRED/0 FAIL. All 27unnamed proofs and307 unique V37 source/font files preserved. Owner/child/SLP/resolution/trim/physical-print acceptance remain open. V36/V37 and original evidence stay published. No game changes.
+Cover Daddy/Rumi caudal fins repaired and existing Lamma added; exact Roshan stained glass restored in story1; exact demo playground-side ground landing replaces water arrival in story2; stories24/25 little puffs look unwell beside tissue boxes. Five focused primary reviews and independent second-AI critique are separate records.29 unnamed proofs and311 unique V38 source/font files remain exact. Words/captions/rear/pagination and all prior scoped repairs stay.
 
-The [independent second-AI handback](landscape/revisions/v38_audit_fixes/peer_review/README.md) records iterative corrections to A8 and evidence validation. Original V38 and V37 remain recoverable at their recorded Git revisions.
+Owner/child/SLP/final trim/PPI/physical-print acceptance remain open, as do the retained A9 bath-resolution hold and native720p landing-still print-resolution limit. V38 and earlier editions remain preserved. No game or release change.

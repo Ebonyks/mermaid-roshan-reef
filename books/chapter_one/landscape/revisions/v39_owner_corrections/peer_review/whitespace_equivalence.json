@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "path": "build_manifest.py",
+      "before_sha256": "051caa99e3268d260ecb79c775ec227022235cbf9096c69796426e38fb83f69b",
+      "after_sha256": "ebeebad72e95d1062ea5d313565d8dc84865cf5047f112120f1bc4b97a922cde",
+      "ast_byte_identical": true,
+      "operation": "Remove one redundant trailing empty line to satisfy git diff --check; no code/behavior/art change"
+    },
+    {
+      "path": "build_review.py",
+      "before_sha256": "37e6e3b9a4828b974650c9e8670db7409d56af74a5a6220e632e7e6c82578ad1",
+      "after_sha256": "bb5441353470a20f091e263d86bb5c228d388bcf150df19185ece885ad1cb137",
+      "ast_byte_identical": true,
+      "operation": "Remove one redundant trailing empty line to satisfy git diff --check; no code/behavior/art change"
+    }
+  ]
+}

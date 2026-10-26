@@ -10,7 +10,7 @@
     360
   ],
   "story_pages": 32,
-  "status": "V38 review candidate; owner/child/SLP/trim/physical-print acceptance open",
+  "status": "V39 review candidate; owner/child/SLP/trim/physical-print acceptance open",
   "font": "../archive/rough_v5/fonts/Sniglet-Regular.ttf",
   "sources": {
     "flight": {
@@ -7968,6 +7968,106 @@
       ],
       "role": "A8 peer-corrected true-alpha dust-only layer, document opacity0.7",
       "provenance": "V38 generation_evidence.json; original sources preserved, only declared local polygons used"
+    },
+    "v39_daddy_tail": {
+      "file": "revisions/v39_owner_corrections/art/daddy_caudal_focused_attempt3.png",
+      "sha256": "9e94d959ae9ad1468e3184c4a93e482fccde00b387720c487e3b8d58bb1abb98",
+      "native_size": [
+        1339,
+        1174
+      ],
+      "role": "Only Daddy terminal-tail region after explicit independent anatomical diagnosis",
+      "provenance": "V39 input_provenance.json and generation_evidence.json; native/source originals preserved, only declared document masks/crop are used."
+    },
+    "v39_rumi_caudal": {
+      "file": "revisions/v39_owner_corrections/art/rumi_caudal_focused_attempt3.png",
+      "sha256": "c49ad464fb059b314b47513397cfc222c3c0ddfecc8760afe173a07ee1be2339",
+      "native_size": [
+        2075,
+        758
+      ],
+      "role": "Rumi forked pink caudal fin; narrowly focused after explicit two-take diagnosis",
+      "provenance": "V39 input_provenance.json and generation_evidence.json; native/source originals preserved, only declared document masks/crop are used."
+    },
+    "v39_care24": {
+      "file": "revisions/v39_owner_corrections/art/care24_attempt1.png",
+      "sha256": "8363e753b3a05fb9299f28d0a83ab75ed65e485ab1c474486b01d22b791ef56c",
+      "native_size": [
+        1860,
+        846
+      ],
+      "role": "Local little-puff facial/hand/tissue-box repair",
+      "provenance": "V39 input_provenance.json and generation_evidence.json; native/source originals preserved, only declared document masks/crop are used."
+    },
+    "v39_occlusion_floor": {
+      "file": "revisions/v39_owner_corrections/art/occlusion_floor_cleanplate_attempt2.png",
+      "sha256": "ccdde449c184f3dec9235e7af348494ea30991775b363e885c3d52f2d1c79320",
+      "native_size": [
+        2075,
+        758
+      ],
+      "role": "Only two tiny floor/obsolete-remnant windows; no Roshan or Daddy silhouette pixels accepted",
+      "provenance": "V39 input_provenance.json and generation_evidence.json; native/source originals preserved, only declared document masks/crop are used."
+    },
+    "v39_care25": {
+      "file": "revisions/v39_owner_corrections/art/care25_attempt1.png",
+      "sha256": "373f8606a99abc7d16d7a01ee7b447eedb24f6d5ea67ca2ce600a9dbd6748268",
+      "native_size": [
+        1632,
+        964
+      ],
+      "role": "Local sofa-puff facial/hand/tissue-box/cheering-mark repair",
+      "provenance": "V39 input_provenance.json and generation_evidence.json; native/source originals preserved, only declared document masks/crop are used."
+    },
+    "v39_foreground_lock": {
+      "file": "revisions/v39_owner_corrections/inputs/cover_composed.png",
+      "sha256": "b777a8afd5084197d30d080cdf9b403e383690ccbf52254c2c1ff3af32b0f1cc",
+      "native_size": [
+        1512,
+        1080
+      ],
+      "role": "Exact existing V38 composed-cover Roshan foreground fin; no generated pixels; original contour restoration after floor infill",
+      "provenance": "V39 input_provenance.json and generation_evidence.json; native/source originals preserved, only declared document masks/crop are used."
+    },
+    "v39_lamma": {
+      "file": "../../../assets/minigames/seek/lamma_animation.png",
+      "sha256": "4ff1c9748e68853879211c825ffc8c45b7388c8da7b17cf0a44c6cd320dd7f8c",
+      "native_size": [
+        1024,
+        512
+      ],
+      "role": "Exact existing painted Lamma RGBA atlas first frame; no egg, native painted wool/feet, document clip/placement only",
+      "provenance": "V39 input_provenance.json and generation_evidence.json; native/source originals preserved, only declared document masks/crop are used."
+    },
+    "v39_lamma_contact": {
+      "file": "../../../assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "role": "Existing soft teal contact-shadow RGBA; document opacity and flattening only",
+      "provenance": "V39 input_provenance.json and generation_evidence.json; native/source originals preserved, only declared document masks/crop are used."
+    },
+    "v39_stained_glass": {
+      "file": "../../../assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "sha256": "90da7b0106759690001a2bc7fd77042db5afa5e59f13c8557faa6b3b86d19cd8",
+      "native_size": [
+        1024,
+        1000
+      ],
+      "role": "Exact approved castle Roshan stained-glass portrait; uniform document scale and arch clip only",
+      "provenance": "V39 input_provenance.json and generation_evidence.json; native/source originals preserved, only declared document masks/crop are used."
+    },
+    "v39_demo_landing": {
+      "file": "revisions/v39_owner_corrections/inputs/demo_landing_frame_408.png",
+      "sha256": "55e938f09ed45ad874aef9dad8b90bb285e30fa2be9405739449657c1761c30e",
+      "native_size": [
+        1280,
+        720
+      ],
+      "role": "Exact owner-directed demo frame408 at17seconds; ground/wheels by slide and swings",
+      "provenance": "V39 input_provenance.json and generation_evidence.json; native/source originals preserved, only declared document masks/crop are used."
     }
   },
   "pages": [
@@ -8164,6 +8264,58 @@
             ]
           ],
           "edge_feather_reference_pixels": 3
+        },
+        {
+          "source": "v39_stained_glass",
+          "reference_size": [
+            1512,
+            1080
+          ],
+          "source_canvas_box": [
+            941.13,
+            452.42,
+            1258.57,
+            769.86
+          ],
+          "polygon": [
+            [
+              1075,
+              608
+            ],
+            [
+              1075,
+              555
+            ],
+            [
+              1078,
+              541
+            ],
+            [
+              1088,
+              529
+            ],
+            [
+              1104.5,
+              520
+            ],
+            [
+              1120,
+              531
+            ],
+            [
+              1129,
+              544
+            ],
+            [
+              1134,
+              559
+            ],
+            [
+              1134,
+              609
+            ]
+          ],
+          "edge_feather_reference_pixels": 0.3
         }
       ]
     },
@@ -8171,12 +8323,12 @@
       "page": 2,
       "mode": "F",
       "art": [
-        "v22_scene_02"
+        "v39_demo_landing"
       ],
       "text": "The plane landed at Sky Lagoon.\nPearl Castle was close by.",
       "layout": "full",
       "border_assets": [],
-      "background_theme": "full scene",
+      "background_theme": "Exact owner-directed demo ground landing on wheels beside slide/swings; preserve original source frame.",
       "caption": {
         "x": 28,
         "y": 316,
@@ -8192,7 +8344,13 @@
       "focal_exclusions": [],
       "original_page": 2,
       "beat": "v27_2",
-      "v34_page": 2
+      "v34_page": 2,
+      "art_crop": [
+        136,
+        0,
+        1144,
+        720
+      ]
     },
     {
       "page": 3,
@@ -12495,7 +12653,7 @@
       "text": "Grand Puff!\nHe was covered in dust.\nHe did not feel well.",
       "layout": "wide_cut",
       "border_assets": [],
-      "background_theme": "Two little puffs gently prepare tissue and water; Grand Puff is foreground only.",
+      "background_theme": "Two little puffs look gently unwell beside a pop-up tissue box and their existing water flask; Grand Puff remains foreground only.",
       "caption": {
         "x": 45,
         "y": 257,
@@ -12518,8 +12676,8 @@
       "integrated_motifs": [
         "attic_chest",
         "attic_book_stack",
-        "little_puff_tissue",
-        "little_puff_water_flask"
+        "little_puff_with_tissue_box",
+        "little_puff_unwell_with_water"
       ],
       "integrated_prop_bounds": [
         [
@@ -12557,13 +12715,117 @@
           0.901,
           0.025,
           0.045
+        ],
+        [
+          0.7661725067385444,
+          0.9245283018867925,
+          0.03504043126684636,
+          0.03490566037735849
         ]
       ],
       "marginal_bunny_count": 2,
       "bounds_note": "Final native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
       "original_page": 25,
       "beat": "v27_25",
-      "v34_page": 24
+      "v34_page": 24,
+      "background_patches": [
+        {
+          "source": "v39_care24",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "source_canvas_box": [
+            1040,
+            890,
+            1370,
+            1040
+          ],
+          "polygon": [
+            [
+              1091,
+              944
+            ],
+            [
+              1110,
+              937
+            ],
+            [
+              1179,
+              940
+            ],
+            [
+              1191,
+              960
+            ],
+            [
+              1193,
+              984
+            ],
+            [
+              1191,
+              1014
+            ],
+            [
+              1131,
+              1018
+            ],
+            [
+              1129,
+              998
+            ],
+            [
+              1094,
+              987
+            ]
+          ],
+          "edge_feather_reference_pixels": 1.5
+        },
+        {
+          "source": "v39_care24",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "source_canvas_box": [
+            1040,
+            890,
+            1370,
+            1040
+          ],
+          "polygon": [
+            [
+              1246,
+              947
+            ],
+            [
+              1315,
+              947
+            ],
+            [
+              1324,
+              963
+            ],
+            [
+              1324,
+              986
+            ],
+            [
+              1313,
+              1002
+            ],
+            [
+              1240,
+              998
+            ],
+            [
+              1238,
+              968
+            ]
+          ],
+          "edge_feather_reference_pixels": 1.5
+        }
+      ]
     },
     {
       "page": 25,
@@ -12574,7 +12836,7 @@
       "text": "“Hold on, we’ll make you feel\nclean and better!” said Roshan.",
       "layout": "wide_cut",
       "border_assets": [],
-      "background_theme": "Original little puffs keep their tiny sofa staging; cloth replaces popcorn, cheering marks removed.",
+      "background_theme": "Same tiny sofa and two gently unwell little puffs; aqua pop-up tissue box replaces cloth, cheering marks removed.",
       "caption": {
         "x": 30,
         "y": 316,
@@ -12599,9 +12861,9 @@
         "attic_books",
         "small_star",
         "sofa",
-        "little_puff_waiting_to_help",
-        "little_puff_folding_washcloth",
-        "folded_washcloth",
+        "little_puff_resting_unwell",
+        "little_puff_unwell_with_tissue",
+        "tissue_box",
         "small_plant"
       ],
       "integrated_prop_bounds": [
@@ -12658,6 +12920,12 @@
           0.89339623,
           0.01280323,
           0.05188679
+        ],
+        [
+          0.7771164021164021,
+          0.9138888888888889,
+          0.02447089947089947,
+          0.022222222222222223
         ]
       ],
       "marginal_bunny_count": 2,
@@ -12711,6 +12979,130 @@
             1250,
             1028
           ]
+        },
+        {
+          "source": "v39_care25",
+          "reference_size": [
+            1512,
+            1080
+          ],
+          "source_canvas_box": [
+            1060,
+            910,
+            1280,
+            1040
+          ],
+          "polygon": [
+            [
+              1073,
+              924
+            ],
+            [
+              1110,
+              924
+            ],
+            [
+              1110,
+              968
+            ],
+            [
+              1073,
+              968
+            ]
+          ],
+          "edge_feather_reference_pixels": 2
+        },
+        {
+          "source": "v39_care25",
+          "reference_size": [
+            1512,
+            1080
+          ],
+          "source_canvas_box": [
+            1060,
+            910,
+            1280,
+            1040
+          ],
+          "polygon": [
+            [
+              1111,
+              960
+            ],
+            [
+              1151,
+              958
+            ],
+            [
+              1163,
+              969
+            ],
+            [
+              1160,
+              993
+            ],
+            [
+              1145,
+              1004
+            ],
+            [
+              1110,
+              999
+            ],
+            [
+              1106,
+              975
+            ]
+          ],
+          "edge_feather_reference_pixels": 1.5
+        },
+        {
+          "source": "v39_care25",
+          "reference_size": [
+            1512,
+            1080
+          ],
+          "source_canvas_box": [
+            1060,
+            910,
+            1280,
+            1040
+          ],
+          "polygon": [
+            [
+              1173,
+              964
+            ],
+            [
+              1218,
+              963
+            ],
+            [
+              1233,
+              976
+            ],
+            [
+              1236,
+              1019
+            ],
+            [
+              1222,
+              1030
+            ],
+            [
+              1186,
+              1030
+            ],
+            [
+              1172,
+              1010
+            ],
+            [
+              1170,
+              982
+            ]
+          ],
+          "edge_feather_reference_pixels": 1.2
         }
       ],
       "v34_page": 25
@@ -14589,6 +14981,451 @@
           ]
         ],
         "edge_feather_reference_pixels": 3
+      },
+      {
+        "source": "v39_daddy_tail",
+        "reference_size": [
+          1512,
+          1080
+        ],
+        "source_canvas_box": [
+          0,
+          445,
+          325,
+          730
+        ],
+        "polygon": [
+          [
+            188,
+            449
+          ],
+          [
+            225,
+            458
+          ],
+          [
+            267,
+            464
+          ],
+          [
+            308,
+            474
+          ],
+          [
+            320,
+            493
+          ],
+          [
+            309,
+            519
+          ],
+          [
+            285,
+            545
+          ],
+          [
+            250,
+            570
+          ],
+          [
+            209,
+            589
+          ],
+          [
+            167,
+            605
+          ],
+          [
+            131,
+            618
+          ],
+          [
+            125,
+            636
+          ],
+          [
+            133,
+            664
+          ],
+          [
+            151,
+            695
+          ],
+          [
+            159,
+            714
+          ],
+          [
+            141,
+            724
+          ],
+          [
+            91,
+            724
+          ],
+          [
+            40,
+            717
+          ],
+          [
+            35,
+            688
+          ],
+          [
+            43,
+            649
+          ],
+          [
+            31,
+            626
+          ],
+          [
+            17,
+            626
+          ],
+          [
+            17,
+            595
+          ],
+          [
+            43,
+            577
+          ],
+          [
+            81,
+            566
+          ],
+          [
+            121,
+            551
+          ],
+          [
+            160,
+            517
+          ]
+        ],
+        "edge_feather_reference_pixels": 1.8
+      },
+      {
+        "source": "v39_rumi_caudal",
+        "reference_size": [
+          1512,
+          1080
+        ],
+        "source_canvas_box": [
+          55,
+          630,
+          395,
+          745
+        ],
+        "polygon": [
+          [
+            103.8,
+            673
+          ],
+          [
+            112,
+            654
+          ],
+          [
+            135,
+            636
+          ],
+          [
+            172,
+            631
+          ],
+          [
+            210,
+            632
+          ],
+          [
+            244,
+            640
+          ],
+          [
+            279,
+            648
+          ],
+          [
+            311,
+            640
+          ],
+          [
+            342,
+            630
+          ],
+          [
+            365,
+            630
+          ],
+          [
+            348,
+            652
+          ],
+          [
+            317,
+            669
+          ],
+          [
+            288,
+            674
+          ],
+          [
+            263,
+            669
+          ],
+          [
+            243,
+            669
+          ],
+          [
+            241,
+            672
+          ],
+          [
+            251,
+            680
+          ],
+          [
+            261,
+            692
+          ],
+          [
+            270,
+            708
+          ],
+          [
+            276,
+            728
+          ],
+          [
+            276,
+            735
+          ],
+          [
+            250,
+            736
+          ],
+          [
+            207,
+            733
+          ],
+          [
+            162,
+            730
+          ],
+          [
+            132,
+            715
+          ],
+          [
+            111.5,
+            700
+          ]
+        ],
+        "edge_feather_reference_pixels": 0.5
+      },
+      {
+        "source": "v39_occlusion_floor",
+        "reference_size": [
+          1512,
+          1080
+        ],
+        "source_canvas_box": [
+          55,
+          630,
+          395,
+          745
+        ],
+        "polygon": [
+          [
+            242,
+            674
+          ],
+          [
+            260,
+            674
+          ],
+          [
+            279,
+            689
+          ],
+          [
+            283,
+            710
+          ],
+          [
+            267,
+            710
+          ],
+          [
+            256,
+            707
+          ],
+          [
+            244,
+            697
+          ]
+        ],
+        "edge_feather_reference_pixels": 1.5
+      },
+      {
+        "source": "v39_foreground_lock",
+        "reference_size": [
+          1512,
+          1080
+        ],
+        "source_canvas_box": [
+          0,
+          0,
+          1512,
+          1080
+        ],
+        "polygon": [
+          [
+            246,
+            671
+          ],
+          [
+            260,
+            670
+          ],
+          [
+            273,
+            672
+          ],
+          [
+            285,
+            676
+          ],
+          [
+            302,
+            682
+          ],
+          [
+            320,
+            692
+          ],
+          [
+            345,
+            706
+          ],
+          [
+            370,
+            720
+          ],
+          [
+            396,
+            735
+          ],
+          [
+            396,
+            750
+          ],
+          [
+            289,
+            750
+          ],
+          [
+            287,
+            732
+          ],
+          [
+            285,
+            719
+          ],
+          [
+            282,
+            707
+          ],
+          [
+            278,
+            697
+          ],
+          [
+            271,
+            686
+          ],
+          [
+            264,
+            680
+          ],
+          [
+            256,
+            676
+          ],
+          [
+            249,
+            674
+          ]
+        ],
+        "edge_feather_reference_pixels": 0
+      },
+      {
+        "source": "v39_lamma_contact",
+        "reference_size": [
+          1512,
+          1080
+        ],
+        "source_canvas_box": [
+          1257,
+          965,
+          1410,
+          986
+        ],
+        "polygon": [
+          [
+            1257,
+            965
+          ],
+          [
+            1410,
+            965
+          ],
+          [
+            1410,
+            986
+          ],
+          [
+            1257,
+            986
+          ]
+        ],
+        "edge_feather_reference_pixels": 0,
+        "opacity": 0.35
+      },
+      {
+        "source": "v39_lamma",
+        "reference_size": [
+          1512,
+          1080
+        ],
+        "source_canvas_box": [
+          1225,
+          775,
+          2065.0,
+          1195.0
+        ],
+        "polygon": [
+          [
+            1225,
+            775
+          ],
+          [
+            1435,
+            775
+          ],
+          [
+            1435,
+            985
+          ],
+          [
+            1225,
+            985
+          ]
+        ],
+        "edge_feather_reference_pixels": 0
       }
     ],
     "subtitle": {
@@ -14921,9 +15758,9 @@
       }
     ]
   },
-  "revision": "V38 R2 · audit fixes and doorway dust correction · A9 native resolution held",
+  "revision": "V39 · owner corrections: tails, Lamma, stained glass, demo landing and unwell puffs",
   "review_href": "../REVISION_REVIEW.html",
   "physical_review_scale": 2,
   "format_note": "14x10-inch landscape review: existing7:5 composition preserved at2x vector scale, no raster upsample. Final trim/bleed and high-resolution pass pending.",
-  "download_pdf_href": "Mermaid_Roshan_Book_V38_Email.pdf"
+  "download_pdf_href": "Mermaid_Roshan_Book_V39_Email.pdf"
 }

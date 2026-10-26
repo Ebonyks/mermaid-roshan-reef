@@ -1,13 +1,11 @@
-# V38 review
+# V39 review
 
-Status: `SUPPORTING_CURRENT`. [A1–A10](revisions/v38_audit_fixes/BUILD_REPORT.md), [before/after](revisions/v38_audit_fixes/REVISION_REVIEW.html), [five passes](revisions/v38_audit_fixes/visual_audits.json), [machine evidence](revisions/v38_audit_fixes/complete/verification.json).
+Status: SUPPORTING_CURRENT. [Changes](revisions/v39_owner_corrections/BUILD_REPORT.md), [before/after](revisions/v39_owner_corrections/REVISION_REVIEW.html), [five focused passes](revisions/v39_owner_corrections/visual_audits.json), [independent critique](revisions/v39_owner_corrections/peer_review/README.md), [machine evidence](revisions/v39_owner_corrections/complete/verification.json).
 
-Seven named proofs change through captions and bounded additions. All 27unnamed proofs,307 unique source/font files and331 V37 source-key records stay exact. The old 20-run/seven-cycle V37 report is historical, not a new V38 claim.
+Five named proofs0/1/2/24/25 change.29 unnamed proofs,311 unique source/font files,335 old source-key records and exact manuscript/captions/pagination/rear remain. Historical V37 twenty-run/seven-cycle and V38 five-pass reports are preserved, not counted as new V39 passes.
 
-Five focused AI passes identify no remaining implemented A1–A8/A10 defect. Nine native calls retain rejected spiral dust, unused broad dust changes and two undersized bath trials. The bath remains 1332 native pixels; A9 held, no print-resolution pass claimed.
+The tails now read as terminal fins; existing Lamma is on the cover. The actual castle portrait is visible. The native demo proves ground arrival beside slide/swings. Late sick-puff vignettes use tissue boxes with unwell acting, no cloth/cheer remnants. Eight native calls are retained, including two rejected broad tail takes.
 
-Composed contrast79 PASS/7 OUTLINE_REQUIRED/0 FAIL of86 lines, all supports present. Actual page 16 glyph/stroke clears the unchanged focal region by 2.12 pt; unused font ascent is not ink. The 24.49 MB email preserves native sizes, vector/clips and86 exact alpha placements; minimum 40.230 dB/page.
+Composed caption contrast79 PASS/7 supported OUTLINE_REQUIRED/0 FAIL of86. Email24.99MB retains native sizes, vector/clips and97 alpha placements; minimum40.230dB/page. Source/proof mechanics and scoped AI judgments do not establish owner acceptance.
 
-Owner/child/SLP/final trim/PPI/A9 resolution/physical print remain open. No game/runtime/dev/master/release work.
-
-The [independent second-AI handback](revisions/v38_audit_fixes/peer_review/README.md) records iterative corrections to A8 and evidence validation. Original V38 and V37 remain recoverable at their recorded Git revisions.
+Open: owner/child/SLP, final trim/PPI/physical print, retained A9 native-resolution hold and native720p landing source. No game/runtime/dev/master/release work.
