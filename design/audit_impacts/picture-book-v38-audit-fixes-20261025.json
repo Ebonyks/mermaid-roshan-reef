@@ -157,9 +157,10 @@
     },
     {
       "command": "Anonymous exact-commit manifest and every payload file SHA256 verification",
-      "result": "PENDING",
-      "evidence": "remote_verification.json will name the pinned publication revision, hashes, anonymous access and check time."
+      "result": "PASS",
+      "evidence": "Published payload 4eae764467172311dc0e2762f88b2e5dc41e8fe1; 497 files / 1013796875 bytes anonymously verified at 2026-10-26T00:56:25.375918+00:00; manifest SHA256 b62d47db110343034b7e16522977023b03ec3829a1beffbf82a2b21241f168d9; payload SHA256 9900bfdaf268a34c2caecac2b352dc7ef9368d6cd1c97340f94f1caacd2bf30d. Receipt: books/chapter_one/landscape/revisions/v38_audit_fixes/remote_verification.json. This follow-up updates receipt/impact metadata only; book/art/export/manifest bytes stay as the verified payload."
     }
   ],
-  "acceptance_gaps": "A9native size: both new groups below1800px with minor contour drift; approved V37 1332px cutout retained under handoff stop condition. Owner illustration acceptance, child reading, professional SLP, final trim/PPI and physical print remain open. No game finding closure or release acceptance."
+  "acceptance_gaps": "A9native size: both new groups below1800px with minor contour drift; approved V37 1332px cutout retained under handoff stop condition. Owner illustration acceptance, child reading, professional SLP, final trim/PPI and physical print remain open. No game finding closure or release acceptance.",
+  "published_payload_revision": "4eae764467172311dc0e2762f88b2e5dc41e8fe1"
 }
