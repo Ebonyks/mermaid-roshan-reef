@@ -1,9 +1,11 @@
-# V40 story-comprehension review
+# V41 Part1 story-comprehension review
 
-Status: SUPPORTING_CURRENT; editorial evidence, separate from child and qualified SLP acceptance.
+Status: SUPPORTING_CURRENT; editorial evidence separate from child and qualifiedSLP acceptance.
 
-The arrival caption says Pearl Castle is close by. The previous crop omitted the castle and introduced an unexplained otter. The new source-only composition makes the two named places visible together: the plane is on the stone path beside the playground lawn, with Pearl Castle at the right. No unrelated animal is introduced. The bridge visibly connects with the path. Exact runtime distances are condensed for the book, without changing the story facts or game.
+The owner rejected the condensed V40 view for losing the setting. The complete Sky Lagoon panorama now makes the arrival legible as one place: plane on the original stone approach next to the left water, all playground equipment on its open lawn, continuous path to the castle bridge/right lagoon and the hillside route behind it. The current four-tower castle retains the actual Roshan stained glass. No unrelated otter or compressed geography. Sky and foreground extensions fit the page while preserving the native central scene.
 
-Flight → grounded arrival → castle approach remains the existing story1/2/3 sequence. The caption and its manual breaks are unchanged. All other 33 proofs retain V39's Lamma, tail, glass and tissue-box repairs and earlier work. Eagle remains trapped under two dust bunnies; waterfall clearing and turning rainbow, apology and care remain intact. Binding and reveal turns are unchanged.
+The unchanged flight→grounded arrival→castle-approach sequence uses the original exact caption/manual breaks. Story5 dust now visibly drifts under the closed door and over its top step; four shapeless lavender billows imply someone behind it without revealing Puff's eyes/star/pearls/spirals. Metric visibility and a second AI's unprompted reduced-page inspection support that intention; a real child reading remains open.
 
-[Sequence/comparison](revisions/v40_wide_arrival/REVISION_REVIEW.html) · [Five focused passes](revisions/v40_wide_arrival/visual_audits.json). Native source resolution and machine/AI checks remain distinct from owner reading, child comprehension, SLP and physical-print acceptance.
+All32 unnamed proofs retain previous tail/Lamma/glass/tissue-box repairs, two-bunny Eagle rescue, waterfall clearing/turning rainbow, apology/care and reveal turns. Exact manuscript, caption controls and binding unchanged. B2/A9 closes as not needed at11in; Part2 print is held until owner illustration acceptance.
+
+[Sequence/comparison](revisions/v41_final_review/REVISION_REVIEW.html) · [Independent critique](revisions/v41_final_review/peer_review/README.md). No measured learning outcome, qualifiedSLP, physical-print or owner creative approval is inferred.

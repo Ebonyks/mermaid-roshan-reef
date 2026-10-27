@@ -1,0 +1,28 @@
+[
+  {
+    "path": "books/chapter_one/landscape/revisions/v41_final_review/inputs/dust_wisps_source.png",
+    "sha256": "2ad4990ee88cc806119473317bd51bec89031427c4a573c0b1484897a06ace58",
+    "source": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt4_rgba.png",
+    "source_sha256": "030c42fa1b9ffcd1b484be543f694f7666a6297c5bd1f70960174af15df89de6",
+    "crop": [
+      100,
+      180,
+      1580,
+      500
+    ],
+    "operation": "Exact unaltered source crop; no generation pixels accepted yet"
+  },
+  {
+    "path": "books/chapter_one/landscape/revisions/v41_final_review/inputs/arrival_extension_target.png",
+    "sha256": "667ac0dd22917a5474fab405a69f6d3fa8f2fd13d29fe5cbd5d9cbe8214625ef",
+    "role": "Approved-source composed appearance edit target, native2048x1463; frozen source-world preview with transparent top/bottom. Not a position-only guide.",
+    "recipe": "inputs/extension_bound_world_recipe.json",
+    "note": "Recipe is the exact initial pre-contact-correction input snapshot; its source output hash names that historical input world, not the later60px-up corrected world. Generated central objects never accepted."
+  },
+  {
+    "path": "books/chapter_one/landscape/revisions/v41_final_review/inputs/arrival_seam_repair_target.png",
+    "sha256": "dd0e391f035daff30d122634e556e407e28fb0e8c25df498bdc88674c7f4570c",
+    "role": "Frozen rejected T01 raw composite to target local sky/foreground seam repair",
+    "operation": "T01 native output resized6144x4389 then current source world pasted at0,1401; straightjoins/halfcloud rejected. Input retained, not delivered final art."
+  }
+]

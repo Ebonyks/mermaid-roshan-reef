@@ -1,9 +1,9 @@
 # Mermaid Roshan and the Hidden Rainbow
 
-Status: SUPPORTING_CURRENT; [V40 wider arrival](landscape/revisions/v40_wide_arrival/README.md), exact 32-page owner manuscript plus covers, 14 × 10 inch review.
+Status: SUPPORTING_CURRENT; [V41 Part1](landscape/revisions/v41_final_review/README.md), exact32-page owner manuscript plus covers,14×10in illustration review.
 
-[Read](landscape/revisions/v40_wide_arrival/complete/READ_BOOK.html) · [Review PDF](landscape/revisions/v40_wide_arrival/complete/Mermaid_Roshan_Book_V40_Email.pdf) · [Before/after](landscape/revisions/v40_wide_arrival/REVISION_REVIEW.html) · [Design language](DESIGN_LANGUAGE.md).
+[Read](landscape/revisions/v41_final_review/complete/READ_BOOK.html) · [Reading PDF](landscape/revisions/v41_final_review/complete/Mermaid_Roshan_Book_V41_Email.pdf) · [Compare](landscape/revisions/v41_final_review/REVISION_REVIEW.html) · [Design language](DESIGN_LANGUAGE.md).
 
-Story2 now shows the landed plane, playground and Pearl Castle in one wider source-art composition, with no otter. All other 33 proofs and V39's cover tails/Lamma, Roshan glass and sick-puff tissue boxes stay exact. Words, captions and binding order remain unchanged. Five focused primary reviews, iterative second-AI critique and machine verification are separate records.
+The owner rejected V40's condensed arrival. Story2 now preserves the full original Sky Lagoon spacing, both water areas, playground, stone landing and route to the current four-tower Pearl Castle. Only sky/foreground extensions and bounded local joins use generated repair; protected central source geography remains exact. No otter. Story5 has taller, lighter dust at the door. All32 other proofs, words/captions/binding and previous source records remain exact.
 
-Owner/child/SLP/final trim/PPI/physical-print acceptance remain open, along with A9 bath resolution and the native demo plane's print-resolution limit. V39 and earlier editions remain preserved. No game or release change.
+B2/A9 closes as not needed at the chosen11in trim, with no third bath drawing. Print Part2 P1–P8 is held until the owner accepts these illustrations. Native-detail/print checks, physical test print, child reading and qualifiedSLP stay separate. No game or release change. V40 and earlier artifacts remain preserved historical evidence.

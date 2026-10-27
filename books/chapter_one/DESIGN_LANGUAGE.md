@@ -183,3 +183,12 @@ Eight native ImageGen calls/five selected local candidates and all rejects are r
 ## V40 owner composition direction — 2026-10-26
 
 PDF3 / story2 must omit the unexplained otter and zoom out to show both playground and Pearl Castle. A new blended composition from existing source artwork is authorized for this page. Preserve the landscape identity, grounded arrival, real castle portrait and connected path; condensed book staging is declared rather than presented as an exact gameplay camera/map. No full-scene redraw or identity redesign is needed. Preserve V39 and all other 33 proofs, exact manuscript/caption controls and binding. See [V40](landscape/revisions/v40_wide_arrival/README.md). A9, native source resolution and owner/child/SLP/trim/physical-print acceptance stay separate.
+
+
+## V41 owner decision (2026-10-26)
+
+The [V41 packet](handoffs/2026-10-26_v41_print_edition/README.md) records: “Write the V40 Codex work order using your suggested defaults: an 11-inch-wide trim (Q1), rebuild page 2 from its source layers (Q2), stronger page 5 dust (Q3), and no third page 9 attempt (Q4).” The owner subsequently rejected V40's merged/condensed composition and clarified: “The full Sky Lagoon setting: water, playground, landing area and route to Pearl Castle”. This direct decision overrides the packet's approved-V40 premise and the preceding V40 section's permission to condense this book view.
+
+[V41 Part1](landscape/revisions/v41_final_review/README.md) retains complete original panorama spacing and both water areas, playground, grounded arrival and route to the current four-tower castle. Only sky/foreground extension and declared bounded boundary joins use new generated repair; central source geography is restored. No otter, full-scene redraw, identity redesign, changed words or game work. B1 stronger dust remains featureless at0.9opacity; B2/A9 closes as not needed at11in with no third bath attempt.
+
+The packet says “Once the owner has accepted the illustrations” before print Part2. Deliver Part1 for that review and stop: P1–P8, print enlargement/PPI/boxes and printer files are held. All32 unnamed proofs, manuscript/captions/binding and old sources remain exact. Source seals, five focused inspections and independent critique do not substitute for owner, physical-print, child or qualifiedSLP acceptance. V40 arrival is OWNER_REJECTED, with original artifacts preserved as historical evidence.

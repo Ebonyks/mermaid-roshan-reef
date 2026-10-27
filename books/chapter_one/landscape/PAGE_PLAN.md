@@ -1,6 +1,6 @@
-# V38 page plan
+# V41 Part1 page plan
 
-Status: `SUPPORTING_CURRENT`. Exact owner manuscript; [preserved pagination](revisions/v38_audit_fixes/complete/print_pagination.json) and [controls](book.json).
+Status: `SUPPORTING_CURRENT`. Exact owner manuscript; [preserved pagination](revisions/v41_final_review/complete/print_pagination.json) and [controls](book.json).
 
 | Story | V34 source story | Caption |
 | --- | --- | --- |
@@ -36,3 +36,5 @@ Status: `SUPPORTING_CURRENT`. Exact owner manuscript; [preserved pagination](rev
 | 30 | 30 | The art room was tidy. / One little job at a time, / Pearl Castle was clean again. |
 | 31 | 31 | “We helped your rainbow shine!” said Roshan. / “Thank you!” said Grand Puff. / Roshan smiled. “Come and rest with us!” |
 | 32 | 32 | There was room for everyone. / They curled up and fell asleep. |
+
+V41 changes only story2 arrival composition and story5 dust. Both original water areas, full playground/landing/route and four-tower castle retain source geography. Words/manual breaks/caption controls/binding and32 unnamed proofs are exact versusV40. B2/A9 not needed at selected11in; Part2 print P1–P8 held until owner illustration acceptance.

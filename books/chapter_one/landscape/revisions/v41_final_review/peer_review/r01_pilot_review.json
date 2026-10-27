@@ -1,0 +1,125 @@
+{
+  "review_id": "V41_R01_INDEPENDENT_PILOT_VISUAL_REVIEW",
+  "reviewer": "/root/v38_peer_critic",
+  "verdict": "VIABLE_PILOT_FINAL_EXPORT_REVIEW_PENDING",
+  "scope": "Independent visual pilot critique and dust measurement only. Exact final master/email/export evidence and publication are not certified here.",
+  "baseline": "0d1c49d11651e292a13885413a043f8044032836",
+  "reviewed_artifacts": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/peer_review/details/landing_contact_r02.png",
+      "bytes": 462646,
+      "sha256": "a254ef2f7149a44ae19801150c496d9002c00af56bd82b9ccb03eb436d85d4ea",
+      "size": [
+        1180,
+        430
+      ]
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/peer_review/details/dust_pilot.png",
+      "bytes": 1473336,
+      "sha256": "7a82b4c67c7343fd56c9684cb27fe903bcbb19bdc44bd470df29587030e0852b",
+      "size": [
+        1512,
+        1080
+      ]
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/peer_review/details/dust_pilot_detail.png",
+      "bytes": 482586,
+      "sha256": "259762daeaf36460cb7972923b5fa38a47d061e8a31a73bb2207ebda665400a9",
+      "size": [
+        945,
+        630
+      ]
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/art/arrival_full_setting_candidate.png",
+      "bytes": 27241396,
+      "sha256": "71b917938f21235d0ac701db26438194fba43c0d405c430156d156c1c90ec67a",
+      "size": [
+        6144,
+        4389
+      ]
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/complete/page_02.png",
+      "sha256": "f8546bfd05643a64733735de94beada8e81889c569d0c15d2cfc1a765ec26d9c",
+      "bytes": 2444841,
+      "size": [
+        1512,
+        1080
+      ]
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/complete/page_05.png",
+      "sha256": "7a82b4c67c7343fd56c9684cb27fe903bcbb19bdc44bd470df29587030e0852b",
+      "bytes": 1473336,
+      "size": [
+        1512,
+        1080
+      ]
+    }
+  ],
+  "findings": [],
+  "disposition": [
+    {
+      "id": "V41-R00-CONTEXT",
+      "status": "MATERIALLY_CORRECTED_IN_PILOT",
+      "judgment": "The complete uncropped native world now communicates Sky Lagoon: left pool with its rope-post shore/landing, plane, separated slide/swing/seesaw meadow, right lagoon and native four-tower castle, continuous pink route and mountain trail/houses. These relationships are visible in the actual captioned page, not inferred solely from source seals."
+    },
+    {
+      "id": "V41-R00-CONTACT",
+      "status": "RESOLVED_IN_PILOT",
+      "judgment": "The complete plane and contact shadows moved 60 native pixels upward. The enlarged actual contact crop shows both tyres meeting clear stone and no foreground-leaf overlap. The arrival page retains the left landing area rather than moving the plane into the playground."
+    },
+    {
+      "id": "B1",
+      "status": "VISUALLY_AND_NUMERICALLY_VIABLE_PILOT",
+      "judgment": "At full-page and reduced 756x540 reading-size views without a locator, the lavender-grey dust is materially more visible than the previous thin line. Four soft billows emerge from the threshold and extend over the front of the top red step. No eyes, face, pearl, star or symbolic spiral is visible; no rectangular backing or obvious matte halo is visible. The wisps have a smoke-like softness, consistent with the requested shapeless dust cue. This is not an unprompted child/general-reader test."
+    }
+  ],
+  "independent_dust_measurement": {
+    "method": "Frozen audit-comparable max-channel RGB difference >6 against exact V37 page 05, 1512 x 1080 proof interpreted at 216 ppi for 7 x 5. Contrast is the ratio of the changed pixels' two mean linear luminances, not the mean pixelwise contrast.",
+    "pixels": 7622,
+    "bbox": [
+      985,
+      572,
+      1188,
+      635
+    ],
+    "height_inches": 0.2916666666666667,
+    "contrast_of_mean_linear_luminances": 2.2599406033545404,
+    "height_requirement_inches": 0.2,
+    "contrast_requirement": 2,
+    "passes_both_numeric_requirements": true,
+    "qualitative_evidence": "The dust's height is carried by the four readable billows themselves, not isolated almost-invisible outlier pixels; the clue remains visible in the reduced full page.",
+    "baseline_proof_sha256": "8d6c7129688420f2818d297b201b866f46f4342c6662358b08b0c3c7945537ed"
+  },
+  "arrival_join_review": {
+    "whole_page": "The full-setting composition reads as a single landscape with the caption in quiet sky. Both water areas and the route remain identifiable; the broader foreground is a continuation rather than a condensed replacement setting.",
+    "native_regions_inspected": [
+      "Upper boundary/pine/cloud crop x0..650,y1280..1980 in the 6144 x 4389 candidate",
+      "Lower grass/foreground boundary crop x1800..4300,y3080..3660 in the 6144 x 4389 candidate",
+      "Corrected tyre contacts via the native review crop"
+    ],
+    "visible_result": "No hard rectangular seam, detached pine crown, doubled pine silhouette or conspicuous double-exposed foreground contour was found in these inspected regions. Repeated source-style leaves and flowers read as foreground planting rather than duplicated landmarks.",
+    "method_precision": "The full uncropped source world is present, with declared local boundary feathering. Top 180 and bottom 300 native source rows are blended with generated extension pixels; not every source-world pixel remains byte/pixel exact. The protected central geographic/landmark region may be exact and must be independently verified.",
+    "R00_guard_clarification": "R00's proposed entire-core pixel lock was a conservative implementation guard. Bounded sky/foreground seam healing is eligible under DL-ASSET-08 when its windows are explicit, it preserves the complete setting and source identity, and actual joins are reviewed. This does not authorize horizontal crop, relocated landmarks or unrecorded whole-scene repaint.",
+    "required_final_evidence": [
+      "Exact final blend masks and native row ranges",
+      "Independent comparison of the protected geography/landmark core",
+      "Actual final PDF and email render checks at reading size",
+      "Source/provenance/attempt accounting and final gate results"
+    ]
+  },
+  "limits": [
+    "No final master/email hashes have been supplied or certified by this pilot record.",
+    "The actual final 34-page export, all 32 unnamed pages, page 9/B2 preservation, manuscript/caption controls, source seals, final contrast and guard evidence still require exact candidate review.",
+    "Part 2/P1\u2013P8 print preparation stays HELD_PENDING_OWNER_ILLUSTRATION_ACCEPTANCE. No third bath attempt.",
+    "Owner creative approval, unprompted reader/child response, SLP, native-source/print resolution, final trim/PPI and physical print remain separate.",
+    "No publication, runtime, device, game-wide master-audit or release acceptance."
+  ],
+  "changed_by_critic": [
+    "books/chapter_one/landscape/revisions/v41_final_review/peer_review/r01_pilot_review.json"
+  ]
+}

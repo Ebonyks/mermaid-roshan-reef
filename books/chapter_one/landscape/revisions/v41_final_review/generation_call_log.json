@@ -1,0 +1,43 @@
+[
+  {
+    "id": "ARRIVAL_EXTENSION_T01",
+    "prompt": "Use case: precise-object-edit / bounded outpainting. Image 1 is the exact edit target: a 2048 x 1463 page with a fully composed existing painted Sky Lagoon landscape in the horizontal band x0–2047, y467–1149, and transparent empty space above and below. Fill ONLY the transparent top and bottom with a seamless continuation of that exact polished 2D painted storybook art. Upper extension: the same soft turquoise textured sky with a few restrained existing-style small clouds; quiet clear top-left sky for later editable book text. Lower extension: continue the same foreground lawn, pink stone path and painted leafy flower banks naturally from the existing bottom edge. Preserve the complete existing landscape band and all its geometry: left water and rope-post landing, landed shell plane and wheels, central slide/single swing/seesaw, continuous path, hillside trail and cabins, four-tower Pearl Castle, its bridge and the right blue lagoon. Preserve all original landmark positions and scale. No horizontal cropping, panorama squeezing, changed horizon, relocated objects, extra trees/structures/props, otter, animals or people. No text, borders, panels or graphic bars. One continuous finished illustration at the original target aspect ratio. This is extension of existing artwork, not a redesign or full-scene redraw.",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/revisions/v41_final_review/inputs/arrival_extension_target.png"
+    ],
+    "transparent_background": false,
+    "timing": {
+      "start_ms": 1793076039532,
+      "end_ms": 1793076063182
+    },
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-1bf01a6e-f1c3-4ca2-93f8-1b5a98b1c194.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "DOOR_DUST_T01",
+    "prompt": "Use case: precise-object-edit, isolated small storybook dust repair. Image1 supplies the existing four soft lavender-grey dust wisps to refine; Image2 supplies ONLY the pale dusty-lavender painted material and colour, never its character features. Produce exactly four separate softly billowing wisps on genuine transparent RGBA background, in one horizontal row with comfortable transparent gaps. Keep the existing shapeless dust identity and gentle feathered painterly edges, but make each wisp about as tall as it is wide (twice its previous core height), brighter pale lavender-grey with an opaque readable core and softly fading edges. One wisp leans gently forward/downward so it can drift over the top stair edge. No eyes, faces, spiral curls, horns, pearl beads, star, smoke ring, outlines, scenery, door, step, shadow rectangle, text, checkerboard or background. These are four quiet puffs of drifting dust, not characters or four identical cloud icons. Keep the source hand-painted 2D storybook material; output a wide transparent sheet with enough vertical room for all four taller wisps.",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/revisions/v41_final_review/inputs/dust_wisps_source.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/language_v26/puff_unwell.png"
+    ],
+    "transparent_background": true,
+    "timing": {
+      "start_ms": 1793076039532,
+      "end_ms": 1793076082386
+    },
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-83de7c2b-9b80-4291-b3ee-f4e9dc53845c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "ARRIVAL_EXTENSION_T02",
+    "prompt": "Use case: precise-object-edit, local seam repair of an existing picture-book outpaint. Image1 is the exact edit target. It has an obvious straight horizontal join in the turquoise sky about31.9% down the page, with a small cloud accidentally cut in half at that join; and a join in the foreground vegetation about78.6% down. Image2 is the authoritative COMPLETE original wide Sky Lagoon scene: both water areas, rope posts and landing, parked plane, full playground including seesaw, original connecting path, hillside trail and cabins, FOUR-tower castle and bridge. Repair ONLY these boundary joins and their immediately adjoining sky/foreground. Remove the cut-off stray cloud at the upper join entirely and blend the sky naturally; keep the upper text space quiet. Continue existing leaf/grass/path textures smoothly at the lower join without a straight stripe. Preserve the full landscape's geographic spacing, original horizon, framing, every object and all original art within the central landscape. No cropping, squeezing, repositioning, missing landmarks, duplicated clouds, extra buildings, animals, people or otter. No text or panels. A continuous polished painted2D storybook page. This is a tightly bounded sky/grass seam repair, never a full-scene redesign.",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/revisions/v41_final_review/inputs/arrival_seam_repair_target.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/revisions/v41_final_review/art/sky_lagoon_full_world.png"
+    ],
+    "transparent_background": false,
+    "timing": {
+      "start_ms": 1793076524921,
+      "end_ms": 1793076590551
+    },
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-5cfa7d58-2952-4079-9c58-56b623b28322.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  }
+]

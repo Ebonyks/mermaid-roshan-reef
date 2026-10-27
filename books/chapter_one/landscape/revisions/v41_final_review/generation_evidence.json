@@ -1,0 +1,113 @@
+{
+  "method": "Built-in image_gen image editing. Three actual calls: two arrival-extension takes and one dust take. Source scene reuse, alpha-only plane isolation, static prop layout and bounded edge compositing. No scene redraw or character redesign.",
+  "calls": 3,
+  "arrival_takes": 2,
+  "dust_takes": 1,
+  "model_revision": "Not exposed by tool",
+  "seed": "Not exposed",
+  "request_id": "Not exposed; returned native filename preserved",
+  "usage_cost": "Not exposed; call counts and observed wall time recorded",
+  "attempts": [
+    {
+      "id": "ARRIVAL_EXTENSION_T01",
+      "prompt": "Use case: precise-object-edit / bounded outpainting. Image 1 is the exact edit target: a 2048 x 1463 page with a fully composed existing painted Sky Lagoon landscape in the horizontal band x0–2047, y467–1149, and transparent empty space above and below. Fill ONLY the transparent top and bottom with a seamless continuation of that exact polished 2D painted storybook art. Upper extension: the same soft turquoise textured sky with a few restrained existing-style small clouds; quiet clear top-left sky for later editable book text. Lower extension: continue the same foreground lawn, pink stone path and painted leafy flower banks naturally from the existing bottom edge. Preserve the complete existing landscape band and all its geometry: left water and rope-post landing, landed shell plane and wheels, central slide/single swing/seesaw, continuous path, hillside trail and cabins, four-tower Pearl Castle, its bridge and the right blue lagoon. Preserve all original landmark positions and scale. No horizontal cropping, panorama squeezing, changed horizon, relocated objects, extra trees/structures/props, otter, animals or people. No text, borders, panels or graphic bars. One continuous finished illustration at the original target aspect ratio. This is extension of existing artwork, not a redesign or full-scene redraw.",
+      "prompt_sha256": "75dada9f75a5e9d928310e0a666dfe98a20a4daf0df54b08cfc1e41a118de14e",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v41_final_review/inputs/arrival_extension_target.png",
+          "sha256": "667ac0dd22917a5474fab405a69f6d3fa8f2fd13d29fe5cbd5d9cbe8214625ef",
+          "native_size": [
+            2048,
+            1463
+          ]
+        }
+      ],
+      "transparent_background": false,
+      "native_output": "books/chapter_one/landscape/revisions/v41_final_review/art/arrival_extension_attempt1.png",
+      "sha256": "4ab126259019f267018b30407c57fe3ce4c288416fa91da58bbbb4b3e2b0e538",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "mode": "RGB",
+      "elapsed_seconds": 23.65,
+      "started_utc": "2026-10-27T04:40:39.532000+00:00",
+      "status": "REJECTED_RAW_COMPOSITE",
+      "notes": "Straight sky and grass seams, half cloud at top join; native output retained. No central generated scene pixels accepted.",
+      "provider_native_path": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-1bf01a6e-f1c3-4ca2-93f8-1b5a98b1c194.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "DOOR_DUST_T01",
+      "prompt": "Use case: precise-object-edit, isolated small storybook dust repair. Image1 supplies the existing four soft lavender-grey dust wisps to refine; Image2 supplies ONLY the pale dusty-lavender painted material and colour, never its character features. Produce exactly four separate softly billowing wisps on genuine transparent RGBA background, in one horizontal row with comfortable transparent gaps. Keep the existing shapeless dust identity and gentle feathered painterly edges, but make each wisp about as tall as it is wide (twice its previous core height), brighter pale lavender-grey with an opaque readable core and softly fading edges. One wisp leans gently forward/downward so it can drift over the top stair edge. No eyes, faces, spiral curls, horns, pearl beads, star, smoke ring, outlines, scenery, door, step, shadow rectangle, text, checkerboard or background. These are four quiet puffs of drifting dust, not characters or four identical cloud icons. Keep the source hand-painted 2D storybook material; output a wide transparent sheet with enough vertical room for all four taller wisps.",
+      "prompt_sha256": "34d6b3a9a8942a4ee0450004ee4595e189e9b401dee21f2ec107f174e524702b",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v41_final_review/inputs/dust_wisps_source.png",
+          "sha256": "2ad4990ee88cc806119473317bd51bec89031427c4a573c0b1484897a06ace58",
+          "native_size": [
+            1480,
+            320
+          ]
+        },
+        {
+          "path": "books/chapter_one/landscape/art/language_v26/puff_unwell.png",
+          "sha256": "ac6ecf90d5a024f7bd343a26c7e3cd1600cb906aff3a5749ab89600dae23bb38",
+          "native_size": [
+            1254,
+            1254
+          ]
+        }
+      ],
+      "transparent_background": true,
+      "native_output": "books/chapter_one/landscape/revisions/v41_final_review/art/door_dust_attempt1.png",
+      "sha256": "6ae0c9c036e5a613c339fd91151bd80b956e69a6469388214c0ba3fc5885c11a",
+      "native_size": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "elapsed_seconds": 42.854,
+      "started_utc": "2026-10-27T04:40:39.532000+00:00",
+      "status": "SELECTED_BOUNDED_DERIVATIVE",
+      "notes": "NativeRGBA wisps at0.9opacity, bounded doorbase placement; no character features",
+      "provider_native_path": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-83de7c2b-9b80-4291-b3ee-f4e9dc53845c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "ARRIVAL_EXTENSION_T02",
+      "prompt": "Use case: precise-object-edit, local seam repair of an existing picture-book outpaint. Image1 is the exact edit target. It has an obvious straight horizontal join in the turquoise sky about31.9% down the page, with a small cloud accidentally cut in half at that join; and a join in the foreground vegetation about78.6% down. Image2 is the authoritative COMPLETE original wide Sky Lagoon scene: both water areas, rope posts and landing, parked plane, full playground including seesaw, original connecting path, hillside trail and cabins, FOUR-tower castle and bridge. Repair ONLY these boundary joins and their immediately adjoining sky/foreground. Remove the cut-off stray cloud at the upper join entirely and blend the sky naturally; keep the upper text space quiet. Continue existing leaf/grass/path textures smoothly at the lower join without a straight stripe. Preserve the full landscape's geographic spacing, original horizon, framing, every object and all original art within the central landscape. No cropping, squeezing, repositioning, missing landmarks, duplicated clouds, extra buildings, animals, people or otter. No text or panels. A continuous polished painted2D storybook page. This is a tightly bounded sky/grass seam repair, never a full-scene redesign.",
+      "prompt_sha256": "2ea7fe3ca71a6e804eb79e9e8e7fba135132c7c623b8b46cf5637242956ddf51",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v41_final_review/inputs/arrival_seam_repair_target.png",
+          "sha256": "dd0e391f035daff30d122634e556e407e28fb0e8c25df498bdc88674c7f4570c",
+          "native_size": [
+            6144,
+            4389
+          ]
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v41_final_review/art/sky_lagoon_full_world.png",
+          "sha256": "13498d833fae601185a3bfb35aa48cbf12b982daf289ce672b08dec938530595",
+          "native_size": [
+            6144,
+            2048
+          ]
+        }
+      ],
+      "transparent_background": false,
+      "native_output": "books/chapter_one/landscape/revisions/v41_final_review/art/arrival_extension_attempt2.png",
+      "sha256": "ee4ce9ed95b4a21ab23e90a86c0b750e716c382b14ce9de5166278cef75ed29d",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "mode": "RGB",
+      "elapsed_seconds": 65.63,
+      "started_utc": "2026-10-27T04:48:44.921000+00:00",
+      "status": "SELECTED_BOUNDED_DERIVATIVE",
+      "notes": "Only sky/foreground extension with declared edge feather; native sourceworld restored",
+      "provider_native_path": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234 as C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-5cfa7d58-2952-4079-9c58-56b623b28322.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    }
+  ],
+  "acceptance": "Review candidate only; no owner/print approval implied"
+}

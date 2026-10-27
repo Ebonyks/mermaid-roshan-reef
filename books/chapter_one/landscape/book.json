@@ -10,7 +10,7 @@
     360
   ],
   "story_pages": 32,
-  "status": "V40 review candidate; owner/child/SLP/trim/physical-print acceptance open",
+  "status": "V41 Part1 illustration review; owner acceptance required before print Part2",
   "font": "../archive/rough_v5/fonts/Sniglet-Regular.ttf",
   "sources": {
     "flight": {
@@ -8078,6 +8078,26 @@
       ],
       "role": "Owner-requested condensed wider arrival composition; original panorama, castle, playground, native demo plane isolation; no otter",
       "provenance": "V40 composition_provenance.json; source-only crop/cutout/layout, no generation. Source resolution limits remain open."
+    },
+    "v41_arrival_full_setting": {
+      "file": "revisions/v41_final_review/art/arrival_full_setting_candidate.png",
+      "sha256": "71b917938f21235d0ac701db26438194fba43c0d405c430156d156c1c90ec67a",
+      "native_size": [
+        6144,
+        4389
+      ],
+      "role": "Full panorama/context preserved; bounded sky/foreground extension; draft pending seam review",
+      "provenance": "V41 world_composition_provenance.json and generation_evidence.json; originals retained; no print edition."
+    },
+    "v41_door_dust": {
+      "file": "revisions/v41_final_review/art/door_dust_attempt1.png",
+      "sha256": "6ae0c9c036e5a613c339fd91151bd80b956e69a6469388214c0ba3fc5885c11a",
+      "native_size": [
+        2172,
+        724
+      ],
+      "role": "Four shapeless lavender dust wisps, taller/lighter; native generated alpha, document-only bounded placement",
+      "provenance": "V41 world_composition_provenance.json and generation_evidence.json; originals retained; no print edition."
     }
   },
   "pages": [
@@ -8333,12 +8353,12 @@
       "page": 2,
       "mode": "F",
       "art": [
-        "v40_wide_arrival"
+        "v41_arrival_full_setting"
       ],
       "text": "The plane landed at Sky Lagoon.\nPearl Castle was close by.",
       "layout": "full",
       "border_assets": [],
-      "background_theme": "Source-only condensed book composition: plane on actual demo wheels beside playground lawn; Pearl Castle and bridge meet connected path; no otter. Not an exact runtime camera or geographic scale map.",
+      "background_theme": "Full native Sky Lagoon geography: both waters, landing, complete playground, original continuous route and current four-tower castle at its native shoreline anchor. No otter. Only sky/foreground extension to fit page.",
       "caption": {
         "x": 28,
         "y": 316,
@@ -8358,8 +8378,8 @@
       "art_crop": [
         0,
         0,
-        2867,
-        2048
+        6144,
+        4389
       ]
     },
     {
@@ -8987,227 +9007,37 @@
       "v34_page": 23,
       "local_patches": [
         {
-          "source": "v38_door_dust",
+          "source": "v41_door_dust",
           "reference_size": [
             1100,
             1429
           ],
           "source_canvas_box": [
-            282.52363636363634,
-            734.0072727272727,
-            804.4654545454546,
-            1028.5963636363635
+            330,
+            710,
+            790,
+            960
           ],
           "polygon": [
             [
-              328,
-              825
+              330,
+              710
             ],
             [
-              347,
-              803
+              790,
+              710
             ],
             [
-              430,
-              804
+              790,
+              960
             ],
             [
-              449,
-              827
-            ],
-            [
-              443,
-              878
-            ],
-            [
-              422,
-              887
-            ],
-            [
-              351,
-              885
-            ],
-            [
-              328,
-              868
+              330,
+              960
             ]
           ],
-          "edge_feather_reference_pixels": 2,
-          "opacity": 0.7,
-          "placement": {
-            "source": "v34_closed_door",
-            "box": [
-              279,
-              62,
-              163,
-              225
-            ]
-          }
-        },
-        {
-          "source": "v38_door_dust",
-          "reference_size": [
-            1100,
-            1429
-          ],
-          "source_canvas_box": [
-            282.52363636363634,
-            734.0072727272727,
-            804.4654545454546,
-            1028.5963636363635
-          ],
-          "polygon": [
-            [
-              450,
-              825
-            ],
-            [
-              469,
-              803
-            ],
-            [
-              536,
-              804
-            ],
-            [
-              555,
-              827
-            ],
-            [
-              549,
-              878
-            ],
-            [
-              528,
-              887
-            ],
-            [
-              473,
-              885
-            ],
-            [
-              450,
-              868
-            ]
-          ],
-          "edge_feather_reference_pixels": 2,
-          "opacity": 0.7,
-          "placement": {
-            "source": "v34_closed_door",
-            "box": [
-              279,
-              62,
-              163,
-              225
-            ]
-          }
-        },
-        {
-          "source": "v38_door_dust",
-          "reference_size": [
-            1100,
-            1429
-          ],
-          "source_canvas_box": [
-            282.52363636363634,
-            734.0072727272727,
-            804.4654545454546,
-            1028.5963636363635
-          ],
-          "polygon": [
-            [
-              556,
-              825
-            ],
-            [
-              575,
-              803
-            ],
-            [
-              641,
-              804
-            ],
-            [
-              660,
-              827
-            ],
-            [
-              654,
-              878
-            ],
-            [
-              633,
-              887
-            ],
-            [
-              579,
-              885
-            ],
-            [
-              556,
-              868
-            ]
-          ],
-          "edge_feather_reference_pixels": 2,
-          "opacity": 0.7,
-          "placement": {
-            "source": "v34_closed_door",
-            "box": [
-              279,
-              62,
-              163,
-              225
-            ]
-          }
-        },
-        {
-          "source": "v38_door_dust",
-          "reference_size": [
-            1100,
-            1429
-          ],
-          "source_canvas_box": [
-            282.52363636363634,
-            734.0072727272727,
-            804.4654545454546,
-            1028.5963636363635
-          ],
-          "polygon": [
-            [
-              661,
-              825
-            ],
-            [
-              680,
-              803
-            ],
-            [
-              758,
-              804
-            ],
-            [
-              777,
-              827
-            ],
-            [
-              771,
-              878
-            ],
-            [
-              750,
-              887
-            ],
-            [
-              684,
-              885
-            ],
-            [
-              661,
-              868
-            ]
-          ],
-          "edge_feather_reference_pixels": 2,
-          "opacity": 0.7,
+          "edge_feather_reference_pixels": 0,
+          "opacity": 0.9,
           "placement": {
             "source": "v34_closed_door",
             "box": [
@@ -15768,9 +15598,9 @@
       }
     ]
   },
-  "revision": "V40 · wider arrival: playground and Pearl Castle, no otter",
+  "revision": "V41 · full Sky Lagoon context and clearer door dust",
   "review_href": "../REVISION_REVIEW.html",
   "physical_review_scale": 2,
   "format_note": "14x10-inch landscape review: existing7:5 composition preserved at2x vector scale, no raster upsample. Final trim/bleed and high-resolution pass pending.",
-  "download_pdf_href": "Mermaid_Roshan_Book_V40_Email.pdf"
+  "download_pdf_href": "Mermaid_Roshan_Book_V41_Email.pdf"
 }

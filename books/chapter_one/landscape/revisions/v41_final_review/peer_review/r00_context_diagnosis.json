@@ -1,0 +1,310 @@
+{
+  "review_id": "V41_R00_CONTEXT_AND_DUST_DIAGNOSIS",
+  "reviewer": "/root/v38_peer_critic",
+  "verdict": "DIAGNOSTIC_ONLY_NOT_A_FINAL_PASS",
+  "baseline": "0d1c49d11651e292a13885413a043f8044032836",
+  "scope": "Read-only independent critique of the owner-rejected V40 concept, full-setting V41 source draft, and B1 dust acceptance method. No art/helper/control changes and no print work.",
+  "owner_direction": "Preserve the FULL Sky Lagoon setting: both water areas, playground, landing area and the route to Pearl Castle, with the full native panorama and original prop spacing. No otter. Part 2 print preparation is held until owner illustration acceptance.",
+  "applicable_rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08",
+    "Current V41 Part1 B1/B2 and the explicit Part1-to-Part 2 owner stop"
+  ],
+  "related_master_findings": "No game-wide finding is closed or repaired by this static-book diagnostic; runtime master-audit debt retains its scope.",
+  "authorities_and_reviewed_draft": [
+    {
+      "path": "books/chapter_one/handoffs/2026-10-26_v41_print_edition/README.md",
+      "bytes": 15095,
+      "sha256": "67589804df974b218feef17b7843907979581341194a70e983f09598b206c162"
+    },
+    {
+      "path": "books/chapter_one/handoffs/2026-10-26_v41_print_edition/AUDIT.md",
+      "bytes": 11284,
+      "sha256": "f10d55fe9e6958773bec91977c6842c0a75a3a7da6fadfd8444fdb025b46bbf1"
+    },
+    {
+      "path": "books/chapter_one/handoffs/2026-10-26_v41_print_edition/MANIFEST.json",
+      "bytes": 17370,
+      "sha256": "0001dc1f0d09f781dc2485da20ac2e8debb28c1603a435a759bcf52afa77959f"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_layout.json",
+      "bytes": 2383,
+      "sha256": "dad9fee76050d079b816ff2c415627fafa8611212842b8484658d6c564777b62"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "bytes": 70819,
+      "sha256": "fdbf57924c23ed75ac575aea2d0ee8b057ddfccae16d9dbc933104e1e1e70c75"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/art/sky_lagoon_full_world.png",
+      "bytes": 19181110,
+      "sha256": "e033efc86dd542054202ece3c75fec22a07a021ae1aac5349d440f9e725b328f"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/world_composition_provenance.json",
+      "bytes": 8175,
+      "sha256": "7aab127842dfc9b2f5a70e7c021306cd3a85794ccb0f23c84b9a06873d940cb8"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/inputs/arrival_extension_target.png",
+      "bytes": 2872889,
+      "sha256": "667ac0dd22917a5474fab405a69f6d3fa8f2fd13d29fe5cbd5d9cbe8214625ef"
+    }
+  ],
+  "packet_integrity": {
+    "handoff_manifest_files_verified": 70,
+    "method": "Packet documents checked against their declared publication bytes; other references checked against canonical committed bytes at f55c094cfde2c1722eb210c74f85b868a4158ce9, as the handoff manifest specifies."
+  },
+  "V40_review_failure": {
+    "conclusion": "The prior independent visual judgment missed a material loss of setting identity. Source seals, recognizable objects and correct wheel/bridge joins did not establish a good arrival scene.",
+    "omissions": [
+      "The x1250..4117 crop retained only 2867 of 6144 native horizontal pixels, omitting both water areas and the left rope-post shore/landing approach. The picture named Sky Lagoon while showing no lagoon.",
+      "The original long left-to-right journey, meadow spacing, right shoreline and mountain approach were replaced by a compact row of plane, playground and castle. Familiar objects no longer communicated the location's geographic context.",
+      "The review accepted a declared condensed book layout without establishing whether condensing preserved the owner's intended place. Declaring the transformation did not make that visual result successful.",
+      "Attention went to small matte/contact repairs, numerical source continuity and unchanged pages. The review needed an earlier whole-scene comparison to the approved full setting and a test of what setting facts disappeared.",
+      "Current castle source/layout authority was not made a hard compositional reference; a prior castle card and relocated bridge were accepted because they were recognizable."
+    ],
+    "accountability": "I had inspected the full panorama and noted that exact spacing would not fit a full-height 7:5 crop, but did not turn preservation of the setting into an acceptance condition. The owner's rejection supersedes my prior V40 candidate satisfaction. Historical machine and publication checks remain truthful byte evidence; they do not defend the rejected design.",
+    "change_to_review_method": "Start each new visual review with source-versus-page context: what place, route, water, action and relationships survive. Only then inspect identity, contacts, joins and mechanical seals. A perfect checksum cannot substitute for a useful scene."
+  },
+  "full_setting_hard_checks": [
+    {
+      "id": "WORLD-01",
+      "requirement": "Retain the complete 6144 x 2048 native panorama, x0 through 6144 and y0 through 2048. Only one uniform scale and vertical translation may place this world in the 7:5 page. No horizontal crop, stretch, condensed spacing, fade or hidden replacement of source context.",
+      "evidence": "Compare the exact native world strip before and after page assembly; verify original plate pixels outside declared source-card alpha footprints."
+    },
+    {
+      "id": "WORLD-02",
+      "requirement": "Both water areas must remain visibly identifiable at 7 x 5: the left pool with its complete authored rope-post shore, and the right lagoon/shoreline around the native castle. Merely retaining water underneath an oversized opaque card is insufficient.",
+      "evidence": "Whole-page visual review plus original-water/rope-post visibility overlays; only legitimate native-card occlusion is allowed."
+    },
+    {
+      "id": "WORLD-03",
+      "requirement": "Preserve the original stone route continuously from the left arrival area past the playground to the castle landing. Preserve its turns, shoreline relationship and clear approach, rather than painting a shorter connection.",
+      "evidence": "Original source route and its native sampled path remain geometrically aligned and visually traceable. The mountain path remains clear."
+    },
+    {
+      "id": "WORLD-04",
+      "requirement": "Use the current four-tower castle card and exact sky_lagoon_layout.json scale/bridge-bearing anchor. All four towers, Roshan glass, doorway and complete bridge remain visible and supported at the right shoreline.",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "source_sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "height_master": 1213.037568,
+      "anchor_pixel": [
+        358,
+        1019
+      ],
+      "anchor_master": [
+        5091.196814333333,
+        1559.644965
+      ],
+      "integer_document_box": [
+        4667,
+        353,
+        1211,
+        1213
+      ],
+      "evidence": "Anchor/support calculation and actual shore/bridge close-up; whole-page tower and water visibility."
+    },
+    {
+      "id": "WORLD-05",
+      "requirement": "Keep native playground rest positions and scale: slide at [2550,1400], height 620; swing frame at [3200,1390], height 480; seesaw at [3826,1500], height 265. Preserve separation, source aspect ratios, fixture supports and an attached single swing seat.",
+      "evidence": "Static source layout from sky_lagoon_promenade.gd, declared transforms and actual final visual relationships. A small declared seat fit is not permission to move or condense the playground."
+    },
+    {
+      "id": "WORLD-06",
+      "requirement": "Keep the actual plane and source wheels in the left landing area. The silhouette must remain complete, with no otter, painted-over foliage, detached gear or falsely claimed stone contacts. Both tyre contacts and their shadows must be judged against the actual path pixels.",
+      "evidence": "Native source matte/RGB equality plus an enlarged contact view and the ordinary full page. Source equality alone cannot prove support."
+    },
+    {
+      "id": "WORLD-07",
+      "requirement": "Extend only sky above and foreground below to fit7:5. The complete world must be restored unchanged after any generated extension; generated pixels cannot enter its native core or create new buildings, paths, pools, props or characters.",
+      "planned_page_canvas": [
+        6144,
+        4389
+      ],
+      "planned_native_world_band": [
+        0,
+        1401,
+        6144,
+        3449
+      ],
+      "evidence": "Exact core comparison, separate extension masks/native dimensions/provenance, and visual checks at both seams."
+    },
+    {
+      "id": "WORLD-08",
+      "requirement": "Review the entire7x5-equivalent page after the extensions and caption are present. Water, landing, playground, castle and connecting route must all read as one place; the full-width scene cannot be accepted solely because a small unchanged strip exists inside a mostly empty or unrelated page.",
+      "evidence": "Context-first visual critique at actual reading size, not only a giant native close-up or checksum. Do not recover readability by cropping/condensing the world again."
+    },
+    {
+      "id": "WORLD-09",
+      "requirement": "Retain exact manuscript, caption controls,34-page sequence, covers and all pages outside the authorized story2/story 5 scope, with existing source and owner holds intact.",
+      "evidence": "Final exact control and proof comparisons; five fresh focused primary reviews and separate independent critique of the exact final candidate."
+    }
+  ],
+  "first_full_world_draft": {
+    "image_sha256": "e033efc86dd542054202ece3c75fec22a07a021ae1aac5349d440f9e725b328f",
+    "status": "CONTEXT_RECOVERED_CONTACT_REFINEMENT_AND_FINAL_PAGE_REVIEW_NEEDED",
+    "visual_observations": [
+      "The full-width draft restores both water areas and the complete left rope-post approach. The arrival plane sits in the left part of the setting rather than beside an artificially moved castle.",
+      "Slide, swing and seesaw occupy the original separated meadow. The broad route, distant mountain houses/trail and right lagoon remain visible.",
+      "The current four-tower castle is recognizably the native shoreline destination, and its bridge meets the authored stone approach.",
+      "This is materially more faithful to Sky Lagoon's geographic context than V40. That judgment is based on the actual scene, not merely its source hash."
+    ],
+    "issue": {
+      "id": "V41-R00-CONTACT",
+      "severity": "P2",
+      "evidence": "In a native review crop x860..1450,y1490..1705, the main tyre ends on the flat grass verge below the curved path while the nose tyre is on stone. Both are ground-supported, but the draft provenance says the plane/wheels are on the original stone landing path.",
+      "recommendation": "Move the complete plane and associated shadows upward roughly 45\u201360 native pixels, then inspect the exact path edge/contact again. Preserve left landing-area geography and source plane/wheel pixels. A coordinate change alone is not acceptance."
+    },
+    "pending": "Generated top/bottom extensions, actual captioned book proof, native join review and B1 candidate are not reviewed by this diagnostic."
+  },
+  "B1_dust": {
+    "status": "CURRENT_DUST_FAILS_B1",
+    "current_proof_sha256": "41c1001afa3a1876ef550ef1653d773a8d3d85a3022703fd5d3034af6e587113",
+    "V37_baseline_proof_sha256": "8d6c7129688420f2818d297b201b866f46f4342c6662358b08b0c3c7945537ed",
+    "proof_size": [
+      1512,
+      1080
+    ],
+    "physical_review_size_inches": [
+      7,
+      5
+    ],
+    "pixels_per_inch": 216,
+    "audit_method_reproduction": {
+      "threshold_max_RGB_delta_gt": 6,
+      "changed_pixels": 2326,
+      "bbox_inclusive_exclusive": [
+        988,
+        597,
+        1176,
+        621
+      ],
+      "strip_inches_at_216ppi": 0.1111111111111111,
+      "mean_of_pixel_contrast_ratios": 1.643443481543435,
+      "contrast_of_mean_linear_luminances": 1.4357922484024122,
+      "mean_current_linear_luminance": 0.14349825236575342,
+      "mean_baseline_linear_luminance": 0.08476758394611511
+    },
+    "method_authority_note": "The audit does not spell out its mask threshold or aggregation code. Independently, max RGB delta>6 and contrast of mean linear luminances reproduce its exact 2,326 pixel count,0.1111 in strip and rounded 1.44 contrast. This is a disclosed reconstruction of the audit method, not a claim that its original code was supplied.",
+    "frozen_acceptance_calculation": {
+      "comparison": "Final rendered story 5 RGB PNG versus exact V37 page 05 RGB PNG, using the same 1512 x 1080 rendering.",
+      "mask": "max(abs(current_RGB-baseline_RGB),axis=channels)>6",
+      "height": "Inclusive bounding-box height of that mask divided by 216 pixels/inch.",
+      "minimum_height_inches": 0.2,
+      "minimum_inclusive_proof_pixel_height": 44,
+      "luminance": "sRGB channel/255; linearize at 0.04045 using channel/12.92 or((channel+0.055)/1.055)^2.4; combine 0.2126R+0.7152G+0.0722B.",
+      "contrast": "For changed pixels selected by the fixed mask, compute mean final linear luminance and mean V37 linear luminance, then(max(mean_final,mean_baseline)+0.05)/(min(mean_final,mean_baseline)+0.05).",
+      "minimum_contrast": 2,
+      "forbidden_substitution": "Do not replace contrast-of-means with the easier mean of per-pixel contrast ratios, silently raise the pixel-difference threshold, or count dust alpha/native height instead of the actual changed page pixels."
+    },
+    "current_primary_result": {
+      "changed_pixels": 2326,
+      "height_inches": 0.1111111111111111,
+      "contrast_of_mean_luminances": 1.4357922484024122,
+      "passes_height": false,
+      "passes_contrast": false
+    },
+    "sensitivity_diagnostics": [
+      {
+        "max_RGB_delta_gt": 0,
+        "pixels": 3609,
+        "bbox": [
+          984,
+          594,
+          1179,
+          626
+        ],
+        "strip_height_inches_at_7x5": 0.14814814814814814,
+        "mean_pixel_contrast_ratio": 1.4217712056742164,
+        "median_pixel_contrast_ratio": 1.1232125336027678
+      },
+      {
+        "max_RGB_delta_gt": 1,
+        "pixels": 3151,
+        "bbox": [
+          985,
+          595,
+          1179,
+          625
+        ],
+        "strip_height_inches_at_7x5": 0.1388888888888889,
+        "mean_pixel_contrast_ratio": 1.4818998041443676,
+        "median_pixel_contrast_ratio": 1.2006600928269469
+      },
+      {
+        "max_RGB_delta_gt": 2,
+        "pixels": 2834,
+        "bbox": [
+          986,
+          595,
+          1178,
+          623
+        ],
+        "strip_height_inches_at_7x5": 0.12962962962962962,
+        "mean_pixel_contrast_ratio": 1.5340784839438197,
+        "median_pixel_contrast_ratio": 1.2755875861706218
+      },
+      {
+        "max_RGB_delta_gt": 5,
+        "pixels": 2405,
+        "bbox": [
+          988,
+          596,
+          1176,
+          621
+        ],
+        "strip_height_inches_at_7x5": 0.11574074074074074,
+        "mean_pixel_contrast_ratio": 1.6240603176457495,
+        "median_pixel_contrast_ratio": 1.4027120567240872
+      },
+      {
+        "max_RGB_delta_gt": 10,
+        "pixels": 2044,
+        "bbox": [
+          989,
+          597,
+          1175,
+          620
+        ],
+        "strip_height_inches_at_7x5": 0.10648148148148148,
+        "mean_pixel_contrast_ratio": 1.7210482358404233,
+        "median_pixel_contrast_ratio": 1.5101738248394687
+      },
+      {
+        "max_RGB_delta_gt": 20,
+        "pixels": 1583,
+        "bbox": [
+          991,
+          598,
+          1174,
+          619
+        ],
+        "strip_height_inches_at_7x5": 0.09722222222222222,
+        "mean_pixel_contrast_ratio": 1.8799872773109267,
+        "median_pixel_contrast_ratio": 1.7344972049399237
+      }
+    ],
+    "qualitative_requirements": [
+      "Four soft shapeless lavender-grey wisps, roughly doubled core height and stronger opacity/lightness using dusty Puff's established colour; no eyes, spirals, pearls or star.",
+      "One wisp spills forward across the front edge of the top red step and clearly emerges from the closed threshold.",
+      "Preserve original door architecture/straight moulding and all surrounding stationery, words and banks. Alpha-only dust contours may touch the door; no backing rectangle, halo or repainted architecture.",
+      "At7x5, the clue must be easy to notice without a locator overlay. The bounding-height target cannot be satisfied by a few almost invisible outlier pixels while the four wisps remain faint.",
+      "Independent AI visibility inspection is not evidence of an unprompted child or general reader noticing the clue; keep that acceptance limitation honest."
+    ]
+  },
+  "B2_and_Part2": {
+    "B2": "No page 9 drawing changes and no third bath take. Preserve V37 source drawing and exact page 9 proof. The handoff's no-new-attempt decision is authorized.",
+    "A9_disposition": "Distinguish the decision that no new drawing is needed for the chosen 11 in trim from acceptance of a not-yet-built print output. No new print-quality evidence or general source-resolution approval is invented.",
+    "P1_through_P8": "HELD_PENDING_OWNER_ACCEPTANCE_OF_ILLUSTRATIONS",
+    "stale_P5_geometry": "The handoff's literal V40 crop x1250..4117, condensed prop positions and approved-V40-layout wording are superseded by the owner's later full-setting instruction. Preserve the historical handoff, record that override, and recompute any eventual print mapping from the approved V41 full-world layout only after the Part 2 stop is released."
+  },
+  "overall_limit": "Diagnostic critique only. No final candidate, publication, owner, child, SLP, print, runtime or release acceptance is granted.",
+  "changed_by_critic": [
+    "books/chapter_one/landscape/revisions/v41_final_review/peer_review/r00_context_diagnosis.json"
+  ]
+}

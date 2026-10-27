@@ -1,0 +1,24 @@
+{
+  "observed_trials": [
+    {
+      "arrival_quality": 85,
+      "final_bytes": 28080980,
+      "minimum_page_psnr_db": 40.04170405112063,
+      "result": "FAIL_25MB_CAP"
+    },
+    {
+      "arrival_quality": 35,
+      "final_bytes": 25221394,
+      "minimum_page_psnr_db": 40.04170405112063,
+      "result": "FAIL_25MB_CAP"
+    },
+    {
+      "arrival_start_quality": 25,
+      "final_arrival_quality": 27,
+      "final_bytes": 24934773,
+      "minimum_page_psnr_db": 40.04170405112063,
+      "result": "PASS"
+    }
+  ],
+  "notes": "Observed actual outputs; final per-iteration/per-page evidence in complete/email_verification.json. No source resizing or master changes."
+}

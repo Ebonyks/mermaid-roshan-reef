@@ -1,0 +1,119 @@
+{
+  "status": "FIVE_FOCUSED_PRIMARY_INSPECTIONS_COMPLETE",
+  "reviewer": "Primary Codex visual inspection; independent second-AI rounds recorded separately",
+  "checked_at_utc": "2026-10-27T05:06:25.666497+00:00",
+  "pdf_sha256": "2841e53057aa7b46add33ffab929535005f8a3e1a969563564c9f4580f6b5423",
+  "email_sha256": "7bc45c490eb590b89d0a51c3a18526d26bb3755689cf872b91ea64e095301259",
+  "passes": [
+    {
+      "run": 1,
+      "focus": "Full-setting context",
+      "result": "PASS_PART1_REVIEW",
+      "inspected": [
+        "complete/page_02.png",
+        "details/whole_playground.png"
+      ],
+      "inspected_sha256": {
+        "complete/page_02.png": "f8546bfd05643a64733735de94beada8e81889c569d0c15d2cfc1a765ec26d9c",
+        "details/whole_playground.png": "09049332577d8c51b9119561d6cb0966ef2f810b60d5efcaa1f39d54bbef2f08"
+      },
+      "observations": [
+        "Bothoriginal water areas and rope-postlanding remain visible; plane/playground/castle fit one full landscape without condensing source geography.",
+        "Four-tower castle portrait and original stone route remain readable; no otter. Quiet sky carries exact two-line caption."
+      ],
+      "remaining_in_scope_defects": []
+    },
+    {
+      "run": 2,
+      "focus": "Support,contact and route",
+      "result": "PASS_PART1_REVIEW",
+      "inspected": [
+        "details/landed_wheels.png",
+        "details/castle_route.png",
+        "details/whole_playground.png"
+      ],
+      "inspected_sha256": {
+        "details/landed_wheels.png": "faa8c1d647e603db0a0215ef75387c9280c7d05b0f2977ea22820f0afef19f83",
+        "details/castle_route.png": "749cbbde98f330f81115c46cf1a88726a63f299450c33ff8f6b94a5303205073",
+        "details/whole_playground.png": "09049332577d8c51b9119561d6cb0966ef2f810b60d5efcaa1f39d54bbef2f08"
+      },
+      "observations": [
+        "Both plane tyres meet stone with existing contact shadows; no grass/leaf obstruction. Native video plane remains softer than painting, a declared print-source limit.",
+        "Bridge end meets original path; castle remains in right lagoon. Playgroundslide,one swing,two-ended seesaw sit on the original lawn with room around them."
+      ],
+      "remaining_in_scope_defects": []
+    },
+    {
+      "run": 3,
+      "focus": "Boundary continuity",
+      "result": "PASS_PART1_REVIEW",
+      "inspected": [
+        "details/upper_join.png",
+        "details/lower_join.png",
+        "complete/page_02.png"
+      ],
+      "inspected_sha256": {
+        "details/upper_join.png": "a8dc058ba5a63b2a1e48a955b2e0c11e3acc389160b03df1089e9b8dd30f71b2",
+        "details/lower_join.png": "4febf8d8aa7476982e03d1c6368b8c109171f2eed138e8be6cf0ef7f134a5d18",
+        "complete/page_02.png": "f8546bfd05643a64733735de94beada8e81889c569d0c15d2cfc1a765ec26d9c"
+      },
+      "observations": [
+        "No straight color edge or half cloud remains at sky join; pine tip does not visibly double.",
+        "Foreground local blend shows continuous lawn/path/plant banks without rectangular seams or ghosted silhouettes. Generatedsky/foreground repair is confined to declared margins/boundaries; protected central native world stays exact."
+      ],
+      "remaining_in_scope_defects": []
+    },
+    {
+      "run": 4,
+      "focus": "Dust visibility and mystery",
+      "result": "PASS_PART1_REVIEW",
+      "inspected": [
+        "complete/page_05.png",
+        "details/dust.png",
+        "details/comparison_05.png"
+      ],
+      "inspected_sha256": {
+        "complete/page_05.png": "7a82b4c67c7343fd56c9684cb27fe903bcbb19bdc44bd470df29587030e0852b",
+        "details/dust.png": "9eac3f0519cd6bf3878971676162927d62ed0e0b696a925caf5e979c8818a161",
+        "details/comparison_05.png": "669f464be26600f2d698d82d35b1983fd85b05bb048c3d7ebe6d89649de0fb15"
+      },
+      "observations": [
+        "Four pale lavender billows visibly drift under the door in whole-page view and spill over the top step; materially stronger than previous faint dust.",
+        "No eyes,pearls,star,spirals or reveal ofPuff; no rectangle,cyan/magenta halo or change to bank/text/door contours. B1metrics separately measured .291667in and2.25994:1."
+      ],
+      "remaining_in_scope_defects": []
+    },
+    {
+      "run": 5,
+      "focus": "Sequence,exports and preserved story",
+      "result": "PASS_PART1_REVIEW",
+      "inspected": [
+        "details/arrival_sequence.png",
+        "details/email_page_02.png",
+        "details/email_page_05.png",
+        "complete/contact_1.jpg",
+        "complete/contact_2.jpg",
+        "complete/contact_3.jpg",
+        "complete/contact_4.jpg",
+        "complete/contact_5.jpg"
+      ],
+      "inspected_sha256": {
+        "details/arrival_sequence.png": "dff52ddb86f14ea533ec53528d4dd1cdfc8477c3dd72c49d54b978feb52670a0",
+        "details/email_page_02.png": "a82905c8c19aee9b94cc0c99d2769d2995aaf7bf6214ef7a7472d9a8f783d8a3",
+        "details/email_page_05.png": "20eb1056b21efc1207cfae10d5d556cf2c2bf18c26e8e453c73a525564414402",
+        "complete/contact_1.jpg": "4c403faf64de8271d73c3a9008c0986e763b7f8a667ef403de33026db6831b37",
+        "complete/contact_2.jpg": "71fc5d21980732176fac95f78bd4798312021cb97df4df4f3abb8d69efb6c966",
+        "complete/contact_3.jpg": "8326d6aeda6f2c5ef1f001426f77f71e58796e7dd27db28aaeeb08643a4208d2",
+        "complete/contact_4.jpg": "e12108feeb411b2b2cc8c9ca6f3fdd9a0d46a47f2300fc422289624581b98694",
+        "complete/contact_5.jpg": "c150bc3e363262deaa757568a1b22183cf3d19b6f15647fca66fa32153e78008"
+      },
+      "observations": [
+        "Flight\u2192groundedarrival\u2192castleapproach now uses the full setting; faces/tails on existingneighborpages remain untouched.",
+        "ReadingPDF changedpages have clean type and no visible compressionblock/displaced alpha; same fullsetting anddust legibility.",
+        "All34pages at contact-sheet scale retain ordering,careplot,waterfall/rainbow,Eagleunder2bunnies,late tissueprops,revealturns and spoiler-free rear; mechanical exact32proofchecks substantiate unchangedpages. This is a continuityscan,not new creativeacceptance of every olddetail."
+      ],
+      "remaining_in_scope_defects": []
+    }
+  ],
+  "acceptance": "Scoped visual observations; no owner,child,SLP,print or game-wide acceptance. P1-P8 held until owner illustration acceptance."
+}
