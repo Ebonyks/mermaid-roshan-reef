@@ -1,9 +1,9 @@
 # Mermaid Roshan and the Hidden Rainbow
 
-Status: SUPPORTING_CURRENT; [V39 owner corrections](landscape/revisions/v39_owner_corrections/README.md), exact32-page owner manuscript plus covers,14 ×10 inch review.
+Status: SUPPORTING_CURRENT; [V40 wider arrival](landscape/revisions/v40_wide_arrival/README.md), exact 32-page owner manuscript plus covers, 14 × 10 inch review.
 
-[Read](landscape/revisions/v39_owner_corrections/complete/READ_BOOK.html) · [Review PDF](landscape/revisions/v39_owner_corrections/complete/Mermaid_Roshan_Book_V39_Email.pdf) · [Correction report](landscape/revisions/v39_owner_corrections/BUILD_REPORT.md) · [Before/after V38](landscape/revisions/v39_owner_corrections/REVISION_REVIEW.html) · [Design language](DESIGN_LANGUAGE.md).
+[Read](landscape/revisions/v40_wide_arrival/complete/READ_BOOK.html) · [Review PDF](landscape/revisions/v40_wide_arrival/complete/Mermaid_Roshan_Book_V40_Email.pdf) · [Before/after](landscape/revisions/v40_wide_arrival/REVISION_REVIEW.html) · [Design language](DESIGN_LANGUAGE.md).
 
-Cover Daddy/Rumi caudal fins repaired and existing Lamma added; exact Roshan stained glass restored in story1; exact demo playground-side ground landing replaces water arrival in story2; stories24/25 little puffs look unwell beside tissue boxes. Five focused primary reviews and independent second-AI critique are separate records.29 unnamed proofs and311 unique V38 source/font files remain exact. Words/captions/rear/pagination and all prior scoped repairs stay.
+Story2 now shows the landed plane, playground and Pearl Castle in one wider source-art composition, with no otter. All other 33 proofs and V39's cover tails/Lamma, Roshan glass and sick-puff tissue boxes stay exact. Words, captions and binding order remain unchanged. Five focused primary reviews, iterative second-AI critique and machine verification are separate records.
 
-Owner/child/SLP/final trim/PPI/physical-print acceptance remain open, as do the retained A9 bath-resolution hold and native720p landing-still print-resolution limit. V38 and earlier editions remain preserved. No game or release change.
+Owner/child/SLP/final trim/PPI/physical-print acceptance remain open, along with A9 bath resolution and the native demo plane's print-resolution limit. V39 and earlier editions remain preserved. No game or release change.

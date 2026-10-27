@@ -1,0 +1,108 @@
+{
+  "review_id": "V40_R01_INDEPENDENT_COMPOSITION_CRITIQUE",
+  "reviewer": "/root/v38_peer_critic",
+  "verdict": "NOT_SATISFIED",
+  "scope": "Independent visual critique of the first source-only wide-arrival composition and its rendered PDF-page proof; not owner, child, print, runtime or publication acceptance.",
+  "owner_request": "PDF page 3 / story page 2: remove the otter and show the playground and Pearl Castle together in a wider blended arrival view.",
+  "reviewed_artifacts": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/peer_review/r01_composition.png",
+      "sha256": "41eea4461e9fe6a9092f6ca0635bc8bc017ca8b453ff22cc35b7a952b231da18",
+      "bytes": 8571302,
+      "review": "Whole scene and native-size plane/path, castle/bridge and swing/rope details. This is the unchanged archive of the initially inspected art/sky_lagoon_wide_arrival.png."
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/peer_review/r01_page_02.png",
+      "sha256": "af2131e55ba6d452073a25216a1d779d380814bb03fefb41e4563886e4417d3e",
+      "bytes": 2515091,
+      "review": "Actual rendered story-page proof with its two caption lines. This is the unchanged archive of the initially inspected complete/page_02.png."
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/peer_review/r01_composition_provenance.json",
+      "sha256": "76e24ce032bfb35a6b641782b14dc1e40165b777711ee35d8b5fdc3440915f00",
+      "bytes": 12167,
+      "review": "Initial source roles, crop, target boxes and plane matte polygon."
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/art/landed_plane_source_cutout.png",
+      "sha256": "5728726c6be87e7a64b5f9328e4992c0bf8c4a2db48c96e9a7880ffdd73929b1",
+      "bytes": 179883,
+      "review": "Alpha isolation inspected over white, black, magenta and green, with no project-file image modifications. Native RGB compared to frame 396 crop."
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/peer_review/r01_compositor.py",
+      "sha256": "cf73370caefdcda560d9f9e58b465f8896af793366e28916e9a83bed0664398f",
+      "bytes": 5099,
+      "review": "Exact archived R01 recipe independently reopened and confirmed to retain the old [120,1175,940,512] plane box and [160,1627,905,53] shadow. Its hash matches the initially recorded recipe hash."
+    }
+  ],
+  "findings": [
+    {
+      "id": "V40-R01-F01",
+      "priority": "P1",
+      "blocking": true,
+      "criterion": "The arrival must visibly be a grounded landing; whole-object contact and coherent source-led composition.",
+      "paths": [
+        "books/chapter_one/landscape/revisions/v40_wide_arrival/peer_review/r01_composition.png",
+        "books/chapter_one/landscape/revisions/v40_wide_arrival/peer_review/r01_page_02.png"
+      ],
+      "evidence": "The plane uses target box [120,1175,940,512]. Its main wheel ends near canvas y1680 and nose wheel near y1670, overlapping foreground leaf tips instead of meeting the pink stone path. The long soft contact shadow is behind the contacts on the path, so it does not establish ground support under either tyre. This remains visible in the actual captioned page proof.",
+      "required_correction": "Move the complete unchanged plane-and-gear isolation to a clear path segment, and place restrained existing-source contact shadows directly beneath the two actual tyre contacts. Preserve the wheel source pixels, plane aspect ratio and source orientation. Review the revised full page and native-size contact details before acceptance."
+    },
+    {
+      "id": "V40-R01-F03",
+      "priority": "P3",
+      "blocking": false,
+      "criterion": "Accurate transform descriptions.",
+      "paths": [
+        "books/chapter_one/landscape/revisions/v40_wide_arrival/peer_review/r01_composition_provenance.json"
+      ],
+      "evidence": "Contact-shadow entries use a 256x128 source fitted to boxes such as 440x46, while the generic operation string says Uniform resampling. These are deliberately non-uniform oval-shadow fits, unlike the aspect-preserving character/object layers.",
+      "required_correction": "Describe the final shadow operations as non-uniform oval scaling plus opacity and source-over. The shadows themselves do not require new art or shape preservation."
+    }
+  ],
+  "positive_observations": [
+    "The wider full-art scene shows the playground and recognizable Pearl Castle together without panels, a photo frame, a stretched 3:1 panorama or a new full-scene generation.",
+    "No otter body, face, tail or residual otter shadow is visible. The clean native background avoids an otter-removal inpaint.",
+    "The exact castle retains the Roshan stained-glass portrait, all towers and the complete drawbridge. The bridge/castle remain grounded; the small grass verge before the stone route is not a separate blocking defect.",
+    "The slide has complete supports/chute contact. The current runtime swing frame and single centered seat form a coherent fixture; both ropes attach visibly and all frame feet remain on grass.",
+    "The existing two-line caption reads clearly in quiet upper sky, and the main objects remain distinct at page-proof size.",
+    "The plane matte contains both genuine source wheels and no visible otter fragment. There is a narrow source-colored cyan fringe at the upper tail edge on a black/magenta inspection backdrop, but no conspicuous rectangular matte or broad contaminated halo in the actual scene; this is not independently raised as a blocking defect."
+  ],
+  "independent_machine_observations": {
+    "declared_source_hashes_checked": "All source paths in the inspected composition record resolved and matched their declared SHA-256 values.",
+    "plane_rgb_comparison": {
+      "source": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/demo_landing_frame_396.png",
+      "source_sha256": "c236f578bd6c16fef4c0dfa94bec0185cdf826859cb96313440358e4f8af62d2",
+      "native_crop": [
+        358,
+        318,
+        802,
+        560
+      ],
+      "rgb_max_absolute_difference": 0,
+      "alpha_nonzero_pixels": 47223,
+      "alpha_bbox_in_cutout": [
+        2,
+        1,
+        441,
+        242
+      ],
+      "scope": "Exact RGB equality before the declared document resampling; not a claim of newly generated detail or final-print resolution."
+    }
+  },
+  "declared_holds_and_limits": [
+    "This early review does not inspect the final full PDF, email export, all unchanged pages, final gates, manifest or publication.",
+    "The 444x242 native video-plane crop is enlarged to 940x512 in the composition. Its native-detail and eventual print-PPI limitations remain declared; exact-source reuse does not create resolution.",
+    "The condensed book layout differs from exact runtime spacing and demo staging, as permitted by this specific owner composition request. It must remain described as a source-led book composition, not an exact demo frame.",
+    "Existing V38/V39 A9 resolution hold and owner, child, SLP, trim and physical-print acceptance remain separate and unchanged.",
+    "No runtime, device, clinical, creative-owner or release acceptance is granted by this critique."
+  ],
+  "reviewer_errata": [
+    {
+      "withdrawn_id": "V40-R01-F02",
+      "status": "REVIEWER_MISBINDING_WITHDRAWN",
+      "explanation": "During concurrent parent revision the reviewer hashed the old current compositor, then read the revised current compositor, and incorrectly attributed the latter contents to archived r01_compositor.py. Direct reread of the exact archive confirms the original R01 coordinates and shadow. There is no archive provenance defect. Parent identified the review error; reviewer corrected it before R01 reporting. The genuine wheel-contact finding is unchanged."
+    }
+  ]
+}

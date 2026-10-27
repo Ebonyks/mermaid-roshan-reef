@@ -1,11 +1,9 @@
-# V39 story-comprehension review
+# V40 story-comprehension review
 
-Status: SUPPORTING_CURRENT; editorial evidence, separate from child/qualified SLP acceptance.
+Status: SUPPORTING_CURRENT; editorial evidence, separate from child and qualified SLP acceptance.
 
-Owner PDF2/3 map to story1/2. Restoring the actual Roshan stained-glass portrait keeps the castle recognizable; exact demo ground landing places arrival beside the playground. Cover Lamma adds a third silent discovery alongside10/rear, with no search prompt.
+The arrival caption says Pearl Castle is close by. The previous crop omitted the castle and introduced an unexplained otter. The new source-only composition makes the two named places visible together: the plane is on the stone path beside the playground lawn, with Pearl Castle at the right. No unrelated animal is introduced. The bridge visibly connects with the path. Exact runtime distances are condensed for the book, without changing the story facts or game.
 
-Stories24/25 now visually support illness: tired/sneezing little puffs with tissue boxes, water and the same sofa. This supersedes the cloth-folding cue for these named vignettes. Care and cooperative washing remain the book's plot. It changes no gameplay canon.
+Flight → grounded arrival → castle approach remains the existing story1/2/3 sequence. The caption and its manual breaks are unchanged. All other 33 proofs retain V39's Lamma, tail, glass and tissue-box repairs and earlier work. Eagle remains trapped under two dust bunnies; waterfall clearing and turning rainbow, apology and care remain intact. Binding and reveal turns are unchanged.
 
-Exact manuscript, manual breaks, caption controls and binding sequence remain V38. Eagle remains trapped under two bunnies, gently brushed free before apology. Waterfall clearing/turning rainbow and23→24/27→28 reveal turns stay. Post-recovery31 is unchanged.
-
-[Proof comparisons](revisions/v39_owner_corrections/REVISION_REVIEW.html), [true page turns](revisions/v39_owner_corrections/complete/turns_before_after.jpg), [five focused reviews](revisions/v39_owner_corrections/visual_audits.json). Native source and machine checks are distinct from owner reading, child comprehension, SLP and physical-print acceptance.
+[Sequence/comparison](revisions/v40_wide_arrival/REVISION_REVIEW.html) · [Five focused passes](revisions/v40_wide_arrival/visual_audits.json). Native source resolution and machine/AI checks remain distinct from owner reading, child comprehension, SLP and physical-print acceptance.

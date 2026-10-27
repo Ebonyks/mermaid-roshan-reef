@@ -1,0 +1,811 @@
+{
+  "review_id": "V40_R03_INDEPENDENT_FINAL_CANDIDATE_CRITIQUE",
+  "reviewer": "/root/v38_peer_critic",
+  "reviewed_at_utc": "2026-10-27T02:41:17.127234+00:00",
+  "verdict": "SATISFIED_WITH_DECLARED_HOLDS",
+  "scope": "Exact final static-book candidate and its exports. Independent second-AI visual critique plus independent read-only mechanical verification. Publication, owner creative acceptance, child/SLP, final trim/PPI and physical print are separate.",
+  "baseline": "f55c094cfde2c1722eb210c74f85b868a4158ce9",
+  "owner_request": "Remove the otter from PDF page 3 / story page 2 and compose a wider connected arrival view showing the playground and Pearl Castle together using existing source artwork.",
+  "final_exports": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf",
+      "sha256": "0689d8cbc7720b97c17f4c50522c8788a03533019547e7dca2ee75a80b99fde6",
+      "bytes": 136447787
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/complete/Mermaid_Roshan_Book_V40_Email.pdf",
+      "sha256": "c1859ba353e12692c2510549415abebb4ec6765cbce1c86bafa44df337391b3f",
+      "bytes": 24491687
+    }
+  ],
+  "scope_verdict": "No remaining blocker found within the owner-directed V40 static-book revision. Exact current outputs address the request, preserve the other pages and prior corrections, and carry honest source/resolution limitations. The provisional manifest and audit-impact record were deliberately not bound or accepted by this candidate review.",
+  "findings_disposition": [
+    {
+      "id": "V40-R01-F01",
+      "status": "RESOLVED",
+      "evidence": "The unchanged complete plane-and-gear cutout is now at [420,1135,940,512]. Both tyres sit on clear pink stone, with small source-oval contact shadows immediately beneath the contacts. Native detail and the actual final master/email page renders show no foreground-leaf overlap or hovering."
+    },
+    {
+      "id": "V40-R01-F02",
+      "status": "WITHDRAWN_REVIEWER_ERROR",
+      "evidence": "The R01 archive was always correct. The reviewer initially misbound the concurrently revised current recipe to the historical hash. Direct reopening of r01_compositor.py confirmed the original coordinates/shadow. R01 critique retains the explicit reviewer erratum; this was not a project provenance defect."
+    },
+    {
+      "id": "V40-R01-F03",
+      "status": "RESOLVED",
+      "evidence": "Final composition_provenance.json explicitly describes contact-shadow fitting as non-uniform oval scaling with opacity/source-over. Uniform scale/aspect remains preserved for the castle, fixtures and plane."
+    },
+    {
+      "id": "V40-R03-BRIDGE_REFINEMENT",
+      "status": "ACCEPTED_BOUNDED_REFINEMENT",
+      "evidence": "The whole castle and its source shadow move down 40 native pixels, to [1815,670,1000,977] and [1840,1575,900,70]. The complete bridge front now meets the stone route naturally without clipping the rail, doorway, portrait or towers. The prior grass verge was not fabricated into a new mandatory defect."
+    }
+  ],
+  "new_findings": [],
+  "visual_review": {
+    "independently_inspected": [
+      "The final actual master PDF page 3 rendered directly from the exact master, with its complete two-line caption and edge-to-edge composition.",
+      "Final email page 3 render, and its pixel equality to details/email_page_02.png.",
+      "Final native scene, the source-plane matte over white/black/magenta/green, native wheel/path and swing/rope details, final castle/path detail.",
+      "The final story1/story2/story3 sequence and previous/current comparison, including continuity of the Roshan stained glass and castle destination.",
+      "Frame396 native source and its spatial separation between the otter at the far left and the isolated plane/wheels."
+    ],
+    "observations": [
+      "No otter or residual otter fragment remains. Plane, slide, single swing and Pearl Castle read as one connected location.",
+      "The plane's wheels visibly establish a ground landing. A foreground overlap hides part of the slide chute naturally while its ladder/shell/teal slope and the separate swing remain readable.",
+      "The castle retains its native silhouette, four towers, gold trim, complete bridge and exact Roshan portrait. Its front route now connects to the stone path.",
+      "The swing's two ropes attach to the reused frame, its single centered seat is coherent, and all frame feet remain grounded on grass.",
+      "The panorama is cropped without horizontal squeezing. The large quiet sky supports the exact navy caption without a bar/panel or collision with the destination.",
+      "No new hard matte rectangle, duplicated fixture, obvious pasted-edge join or new compression defect was found in the final page at the inspected sizes.",
+      "The condensed layout and source-video softness are disclosed. Existing source imperfections and print-resolution holds are not recast as new generated detail."
+    ],
+    "honest_limit": "All 34 final master/email pages were independently rendered and compared mechanically. Fresh visual scrutiny focused on the changed arrival and immediate narrative neighbours; this is not a claim of a new 20-pass whole-book review or five additional independent human passes. The 33 unchanged pages retain the previously reviewed V39 pixels."
+  },
+  "independent_read_only_verification": {
+    "method": "Independent read-only comparison; no production scripts executed or evidence receipts rewritten.",
+    "pdf_checks": {
+      "pages": 34,
+      "exact_proofs": 34,
+      "unchanged_vs_v39": 33,
+      "email_minimum_psnr_db": 40.04170405112063,
+      "exact_alpha_mask_placements": 97,
+      "native_image_placements_preserved": 182,
+      "page_contents_vectors_clips_text_geometry_exact": true,
+      "page_rows": [
+        {
+          "page": 0,
+          "proof_sha256": "9304bccfe16d0f1b5d9f5f5fa5cc269b8b27bfd32ee09e02041e83ee4ba071a1",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 41.57551431547513
+        },
+        {
+          "page": 1,
+          "proof_sha256": "e2f7f009d784fdcb5e831f50ed7ed1f9a7cdd10f67a81a76ced4a361e5354c6c",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 41.69170110987251
+        },
+        {
+          "page": 2,
+          "proof_sha256": "ec07a1e3cdc89eadee11f3da1e1386a51da6f74be5c133b0e39347441281e8c8",
+          "exact_master_render": true,
+          "unchanged_vs_v39": false,
+          "email_psnr_db": 44.951326978233006
+        },
+        {
+          "page": 3,
+          "proof_sha256": "84e971ab04e50fa5888472dc504d97ba634af1b9111f4cf4e5bbf596e6dd5954",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 42.214338714943274
+        },
+        {
+          "page": 4,
+          "proof_sha256": "68befbd229750de53024a04a8ce06f1a9edc89591bc4943dcbd4c47305749e4d",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 42.07563117564814
+        },
+        {
+          "page": 5,
+          "proof_sha256": "41c1001afa3a1876ef550ef1653d773a8d3d85a3022703fd5d3034af6e587113",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 44.53140992589992
+        },
+        {
+          "page": 6,
+          "proof_sha256": "4b6aa0941e91e211dcbd01f77424cc870e0fec4ecbdb46ed1c526df2fad7973f",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 44.520512063644034
+        },
+        {
+          "page": 7,
+          "proof_sha256": "96ccc3e78a0848fadfb771065a8d039e307daafcf46eaeb74cc4ffcb0091538e",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 40.19441237831391
+        },
+        {
+          "page": 8,
+          "proof_sha256": "093208805ed0b9ba71708866815273a7b72e2bd32d55836112bcaed13e23873b",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 44.31626327589656
+        },
+        {
+          "page": 9,
+          "proof_sha256": "0eaffc362e484c2adc04c72c4d1bf30767fdb4d729491f2bee6eb13a5a4e1389",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 44.821357687516006
+        },
+        {
+          "page": 10,
+          "proof_sha256": "9b7e61c0a26ed6d438556157777e9307e5e9bbbad0e568a6427022ab5d30af0c",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 40.24187425810018
+        },
+        {
+          "page": 11,
+          "proof_sha256": "a45e9dc274348f81757c6820ae0acc5867ca288c745ed0634e811e1d504ad940",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 40.868487417679745
+        },
+        {
+          "page": 12,
+          "proof_sha256": "5e435d5d33588d48997acb5a1121428756eacada3c4d6c3b5510bbf86662711c",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 43.67495425346901
+        },
+        {
+          "page": 13,
+          "proof_sha256": "5a148e336eb671a48b7df538c437f33f95d82e0bba994b12eefb06302ab9b458",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 40.8323382660372
+        },
+        {
+          "page": 14,
+          "proof_sha256": "61d14b848f0c0e697ff4e84426bcdbf3eb50289317db809a70cf676001177403",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 40.04170405112063
+        },
+        {
+          "page": 15,
+          "proof_sha256": "e4e26ead2e517e6ee690ffb90414388ab1c4aaa46db4eb4aca73ebb15dcc2b79",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 41.64818757963821
+        },
+        {
+          "page": 16,
+          "proof_sha256": "91056d37e98f13b744ebb5da264891ed6acf69b0529411d69e81850d7c163bf3",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 40.230438014652385
+        },
+        {
+          "page": 17,
+          "proof_sha256": "fdad58ee33bb8b6e5f630275487d95f47ac7bbcf428e576a79996d52593b454d",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 44.27461079285956
+        },
+        {
+          "page": 18,
+          "proof_sha256": "efc9290c601561f6e95c1900d9699e3596885527571806d7b178c5baeb6da3ee",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 42.518980145949186
+        },
+        {
+          "page": 19,
+          "proof_sha256": "f50dc0bca5cb2120fdcd0f3f05357ee85c37d260849ec55bc338e29cfd5bb5c7",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 42.43732291660316
+        },
+        {
+          "page": 20,
+          "proof_sha256": "4cf5e86598ad2dbd1d8fde803df0590bc935038dbc84d3d17bd5e97bf8627997",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 42.07752836781498
+        },
+        {
+          "page": 21,
+          "proof_sha256": "07b7a2f3681f7a1e8c702aadac74b1123721186ac962e47db67ecf6626e63d5c",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 45.39294328237056
+        },
+        {
+          "page": 22,
+          "proof_sha256": "9452a6cc0ace54a2c13b5c06cc0a88ad4f9b764ca93db74bf1499aa83e286a5a",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 44.19587515208881
+        },
+        {
+          "page": 23,
+          "proof_sha256": "44937445e36254b61c48c6502652454dcfbbe5eb7de39428e2d6059a199c85a9",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 41.95511215227265
+        },
+        {
+          "page": 24,
+          "proof_sha256": "45a75f4ec6f96b423481ca85714c116184cec35d42a5452ab9be05a32f099400",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 44.393557481412024
+        },
+        {
+          "page": 25,
+          "proof_sha256": "f5b2f23f6a0a4a1166dd94cebdcd5bb941ec558e1eb21bfca54255c1c2327b39",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 44.350493317079334
+        },
+        {
+          "page": 26,
+          "proof_sha256": "af2c2d8e7ff67003669fe888115787dbdbe1d7d42c397f5d9fbe68f93ed5a193",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 42.38947438760413
+        },
+        {
+          "page": 27,
+          "proof_sha256": "6e4cd51db0cbdb6d4b87d0778f58620155547f4a7134dbc856fa47351eb013a2",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 42.00281361752057
+        },
+        {
+          "page": 28,
+          "proof_sha256": "f505f2dd01da20ae7b1aaec3f888de0281b67707de9de6a495a73023ce295945",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 41.89134995275042
+        },
+        {
+          "page": 29,
+          "proof_sha256": "58253dccb6d0b45464ca6a928570c297fa6c8aad8bd81b153646ab3f8425adbd",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 42.34819432689238
+        },
+        {
+          "page": 30,
+          "proof_sha256": "9e7b44f88a160a220466f20605c74253c943513e8881d52ef49cc45da670feb9",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 42.520261024784894
+        },
+        {
+          "page": 31,
+          "proof_sha256": "ad52a8896363afa4b8dea4172581bad80b83e7926a811f2e1a1be3efd752ce66",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 44.95159438007796
+        },
+        {
+          "page": 32,
+          "proof_sha256": "0a7489a7bec9e13577800dc4e9779b6cbea8f57ce7954aef0ae4ce198b9442ac",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 41.20703964514108
+        },
+        {
+          "page": 33,
+          "proof_sha256": "a3d91bdd255152df45b57ece3c8edf6f311c4dbf4f8de9de9b775e6bfccf1e50",
+          "exact_master_render": true,
+          "unchanged_vs_v39": true,
+          "email_psnr_db": 41.97724589129991
+        }
+      ]
+    },
+    "controls": {
+      "old_source_keys_exact": 345,
+      "all_manuscript_caption_controls_exact": true,
+      "cover_rear_33_unnamed_page_controls_preserved": true,
+      "canonical_sha256": "dfd07fa68315e2f9934462f77e94200be9ac1b9cf4aa46fb424093a4b36da6f5"
+    },
+    "source_seals": {
+      "unique_files": 321,
+      "exact_working_bytes_vs_baseline_git_blobs": true
+    },
+    "binary_parts": {
+      "count": 3,
+      "reconstruct_exact_master": true,
+      "parts": [
+        {
+          "file": "Mermaid_Roshan_V40_Lossless.pdf.part01",
+          "bytes": 52428800,
+          "sha256": "85c3a8f2fca0522ba098de44115a987c0a44b2dd14847fe931a0243ad557cd4b"
+        },
+        {
+          "file": "Mermaid_Roshan_V40_Lossless.pdf.part02",
+          "bytes": 52428800,
+          "sha256": "a3f6dcc0a21f8d465533fad9daf9be5d7c2cc28da1ae360b02faa2b3495ce593"
+        },
+        {
+          "file": "Mermaid_Roshan_V40_Lossless.pdf.part03",
+          "bytes": 31590187,
+          "sha256": "c48ba0ce00826716728589b17a46b8b47b39260e4614c16d1e4c17f77c192413"
+        }
+      ]
+    },
+    "source_composition_replay": {
+      "composition_pixel_replay_exact": true,
+      "source_rows": [
+        {
+          "role": "slide contact",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+          "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6"
+        },
+        {
+          "role": "swing contact",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+          "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6"
+        },
+        {
+          "role": "castle contact",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+          "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6"
+        },
+        {
+          "role": "plane body contact",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+          "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6"
+        },
+        {
+          "role": "main wheel contact",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+          "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6"
+        },
+        {
+          "role": "nose wheel contact",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+          "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6"
+        },
+        {
+          "role": "Pearl Castle with original Roshan glass",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+          "sha256": "90da7b0106759690001a2bc7fd77042db5afa5e59f13c8557faa6b3b86d19cd8"
+        },
+        {
+          "role": "playground slide",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+          "sha256": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4"
+        },
+        {
+          "role": "existing playground swing frame",
+          "source": "assets/props/story/play_swing_frame.png",
+          "sha256": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592"
+        },
+        {
+          "role": "one existing swing seat and its two ropes",
+          "source": "assets/props/story/play_swing_seat.png",
+          "sha256": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b"
+        },
+        {
+          "role": "plane isolation",
+          "source": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/demo_landing_frame_396.png",
+          "sha256": "c236f578bd6c16fef4c0dfa94bec0185cdf826859cb96313440358e4f8af62d2"
+        },
+        {
+          "role": "plane on landing wheels",
+          "source": "books/chapter_one/landscape/revisions/v40_wide_arrival/art/landed_plane_source_cutout.png",
+          "sha256": "5728726c6be87e7a64b5f9328e4992c0bf8c4a2db48c96e9a7880ffdd73929b1"
+        }
+      ],
+      "native_plane_rgb_max_difference": 0,
+      "native_plane_alpha_bbox": [
+        2,
+        1,
+        441,
+        242
+      ],
+      "castle_target_box": [
+        1815,
+        670,
+        1000,
+        977
+      ],
+      "castle_shadow_target_box": [
+        1840,
+        1575,
+        900,
+        70
+      ],
+      "shadow_methods_corrected": true,
+      "review_guard_normal_pass": true,
+      "review_guard_negative": {
+        "changed_path": "books/chapter_one/landscape/revisions/v40_wide_arrival/complete/page_02.png",
+        "rejected": true,
+        "observed": "('Stale reviewed artifact', 'complete/page_02.png')",
+        "method": "Actual guard AST executed with an in-memory substituted artifact hash; no files, PDFs or stored evidence changed."
+      }
+    },
+    "five_primary_review_bindings": {
+      "current_exact_master_email": true,
+      "inspected_hash_bindings_checked": 14,
+      "bindings": [
+        {
+          "pass_index": 1,
+          "path": "complete/page_02.png",
+          "sha256": "ec07a1e3cdc89eadee11f3da1e1386a51da6f74be5c133b0e39347441281e8c8"
+        },
+        {
+          "pass_index": 1,
+          "path": "details/comparison_02.png",
+          "sha256": "a51606a599d53cb30e7811e86ef97d5db9c9ecd45958cd2ecdcd3a829effa9e8"
+        },
+        {
+          "pass_index": 2,
+          "path": "art/sky_lagoon_wide_arrival.png",
+          "sha256": "9a4b5e6b6c19e25e639eeec9c40015953ed3b2fae3b95e5fa150127d992f054b"
+        },
+        {
+          "pass_index": 2,
+          "path": "details/plane_matte.png",
+          "sha256": "d03a560bed2903b010b6f4561098d6d50e9e1d4de4f79c7889583d8ce471f09c"
+        },
+        {
+          "pass_index": 2,
+          "path": "details/playground.png",
+          "sha256": "c8b5a1187e7c795c458142e7f1dca7e1f7b1f83bb8bc9e5c5a7c5cf348888388"
+        },
+        {
+          "pass_index": 3,
+          "path": "details/landed_wheels.png",
+          "sha256": "63bdba0237106d98cdffc4fc91f28e589baa2c0270cfb1c9a6c41a4081a9219e"
+        },
+        {
+          "pass_index": 3,
+          "path": "details/castle_path.png",
+          "sha256": "0ead320d324071860ee60e77d0dfc54d0bf6bc203dd7fa46e7ed77b23637c555"
+        },
+        {
+          "pass_index": 3,
+          "path": "complete/page_02.png",
+          "sha256": "ec07a1e3cdc89eadee11f3da1e1386a51da6f74be5c133b0e39347441281e8c8"
+        },
+        {
+          "pass_index": 4,
+          "path": "details/arrival_sequence.png",
+          "sha256": "e0812c09d40b4f9c336a75513128116f4a3142bbd346d121813bb3011956b2e2"
+        },
+        {
+          "pass_index": 4,
+          "path": "complete/contact_1.jpg",
+          "sha256": "bb53f5ec4c5c9074eb7600b9fda6bad13984a5197e5f438b8fec79f8bc6a99c6"
+        },
+        {
+          "pass_index": 4,
+          "path": "complete/page_02.png",
+          "sha256": "ec07a1e3cdc89eadee11f3da1e1386a51da6f74be5c133b0e39347441281e8c8"
+        },
+        {
+          "pass_index": 5,
+          "path": "details/email_page_02.png",
+          "sha256": "d66d0432978c09bdfbda81be62591813c9a2fdf7c84dcdaa85d04a4b99845067"
+        },
+        {
+          "pass_index": 5,
+          "path": "details/comparison_02.png",
+          "sha256": "a51606a599d53cb30e7811e86ef97d5db9c9ecd45958cd2ecdcd3a829effa9e8"
+        },
+        {
+          "pass_index": 5,
+          "path": "complete/page_02.png",
+          "sha256": "ec07a1e3cdc89eadee11f3da1e1386a51da6f74be5c133b0e39347441281e8c8"
+        }
+      ],
+      "limit": "Read and binding-checked primary observations; independent visual inspection is separately described in this critic record."
+    },
+    "actual_contract_receipt": {
+      "status": "PASS",
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "tools/audit_document_authority.py"
+          ],
+          "returncode": 0,
+          "output": "DOCAUTH|INVENTORY=612|LEDGER=612|ACTIVE=56|RECORDS=58\nDOCAUTH|RESULT|ALL OK\n"
+        },
+        {
+          "command": [
+            "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "tools/audit_development.py",
+            "--base",
+            "auto"
+          ],
+          "returncode": 0,
+          "output": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n"
+        },
+        {
+          "command": [
+            "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "-m",
+            "unittest",
+            "tools.tests.test_audit_document_authority",
+            "tools.tests.test_audit_development"
+          ],
+          "returncode": 0,
+          "output": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 13.655s\n\nOK\nDOCAUTH|STRESS|6/6\n"
+        }
+      ],
+      "limit": "Inspected actual captured subprocess results; did not redundantly rerun contract tests or alter receipt."
+    },
+    "additional_checks": {
+      "additional_bindings": [
+        {
+          "path": "books/chapter_one/landscape/render_book.py",
+          "bytes": 19436,
+          "sha256": "4c90a57f29d1c4cccc5f2ecd92242fddc929ab51765b210b663e84cfb4b79202"
+        },
+        {
+          "path": "books/chapter_one/landscape/audit_book.py",
+          "bytes": 25406,
+          "sha256": "7117facd63b519399dabf0329f1bac3d850832b37e370387473f1e8bb1bd8089"
+        },
+        {
+          "path": "books/chapter_one/landscape/book.json",
+          "bytes": 391839,
+          "sha256": "d579eacb6d280a3b7c1526324316296b78092c2919f2a13fb80adf3e1b395ec9"
+        }
+      ],
+      "syntax_files_independently_parsed": 11,
+      "reported_local_link_targets_independently_resolved": 45,
+      "contrast_lines": 86,
+      "contrast_counts": {
+        "PASS": 79,
+        "OUTLINE_REQUIRED": 7,
+        "FAIL": 0
+      },
+      "outlined_or_haloed_required_lines": 7,
+      "actual_glyph_checks_reported": 57,
+      "no_reported_glyph_collisions": true
+    },
+    "unchanged_v39_and_protected_original_paths": [],
+    "gate_review": "Read verify_revision.py, local_validation.py, email_export.py and build_review.py. The strict source/manuscript/caption/focal/contrast constraints remain enforced. Primary visual observations bind the exact master, email and every listed inspected artifact; changed inspected-byte hashes are rejected. No production validator was run in write mode by this critic.",
+    "source_method_conclusion": "The final composite is reproduced pixel-for-pixel in memory from the declared existing source crops/cutouts and RGBA layer operations. No generated or repainted scene pixels are required. Native plane RGB equals the source frame crop exactly before the declared document resampling."
+  },
+  "reviewed_artifact_bindings": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/BOOK_CURRENT.json",
+      "bytes": 391839,
+      "sha256": "d579eacb6d280a3b7c1526324316296b78092c2919f2a13fb80adf3e1b395ec9"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/BOOK_BASELINE.json",
+      "bytes": 391230,
+      "sha256": "d1a26d22a32f4f685f4503cf6c3ce83c0fa68ff95cec2d97cfc2328ee05d3693"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/revision_scope.json",
+      "bytes": 695,
+      "sha256": "948683b067a1797b90f41cb764a0d7beedc98a92e484eba28b3a16ba63d077ad"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/composition_provenance.json",
+      "bytes": 13212,
+      "sha256": "0e40015f2980bb3240aa324a2c5b94d8cec9e1de8d203b322a20b581e978a8bd"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/compose_arrival.py",
+      "bytes": 5315,
+      "sha256": "a64e524fefabfe9685738cfc53815f64cdc5f672b22f55304a30a03030e3f3e3"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/verify_revision.py",
+      "bytes": 11745,
+      "sha256": "e09ee283e54f463415360a9053c5c97a18f627f8fe79f7f0370f79f33661e4b5"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/local_validation.py",
+      "bytes": 3704,
+      "sha256": "39ad560cd7ee34579bc69ede92164e595a9fae0607305c07f17a54b159a2d3fc"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/email_export.py",
+      "bytes": 4743,
+      "sha256": "096495ea0d43831af4a7112f220b6dac60f793025b8c09c653fdd446ecc193ea"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/build_review.py",
+      "bytes": 3433,
+      "sha256": "2066526f4ebe49f3725c93a4170a5a208880cdfb785e54e54fcd5675f973e32e"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/reassemble_master.py",
+      "bytes": 1658,
+      "sha256": "900181a4a590ee0f41bd14abcaf38b8c03b51b2ba50820be7264851f37a845e3"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/README.md",
+      "bytes": 2842,
+      "sha256": "c5726a38994802271c1e3f2aed9b2bf30f3c918b2818684dfe82f27b6e68e9c1"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/BUILD_REPORT.md",
+      "bytes": 2787,
+      "sha256": "fd569c0a312c381b566e0cbc52fcd28bdaad2f062d42c3f08390366e9c0ff672"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/REVISION_REVIEW.html",
+      "bytes": 1010,
+      "sha256": "993ca3588e5eb824999fe612ddeaf4cfcd77c97b8c886768b9b376bf3ac8b5fc"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/changed_page_review.json",
+      "bytes": 584,
+      "sha256": "744659ba3562b42735645cae444d27138947126e7f563605cc80b4b38abee072"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/visual_audits.json",
+      "bytes": 5543,
+      "sha256": "8f54bd7072d4b88e65f7948a70c33faf134664c0deffea44520171f829f170ad"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/validation_results.json",
+      "bytes": 13600,
+      "sha256": "9bdacc07b3ee1e20799cad6da2c314eefa650d9709b90d26c7834d3e7e54aa7f"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/composed_caption_contrast.json",
+      "bytes": 18608,
+      "sha256": "b7caf0efda219397e5a7e891e831950c269f51c167c2e240227375f3e4813f56"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/complete/verification.json",
+      "bytes": 78776,
+      "sha256": "0eb8286ef8b364bfbb2d1380a9dc92c3569e618f4272f6ce80ff5185e402fa57"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/complete/email_verification.json",
+      "bytes": 6050,
+      "sha256": "2844f79a2fb7a526d90c9c88afc5c05d1e1213b89312ba9a5f7f9d8bdcb87de4"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/complete/master_parts/parts.json",
+      "bytes": 845,
+      "sha256": "9b31d5f8b66c15b9f59430a5a781187a18f9f6910ffc1b499b631333b0ac213c"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/complete/page_provenance.json",
+      "bytes": 231521,
+      "sha256": "7e3b4f429a70e8511c54d58fce532e630c22bb9667cf0ca7a83c2f05840cc9f7"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/complete/print_pagination.json",
+      "bytes": 916,
+      "sha256": "071583db04fe59e48848eecad4411149da0ee57ff177b041fd02c9542204708d"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/complete/READ_BOOK.html",
+      "bytes": 6325,
+      "sha256": "20028f63ab90c2a27b37b473c50ae337d626884ce39eb63303c6ff37a7b11528"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/art/landed_plane_source_cutout.png",
+      "bytes": 179883,
+      "sha256": "5728726c6be87e7a64b5f9328e4992c0bf8c4a2db48c96e9a7880ffdd73929b1"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/art/sky_lagoon_wide_arrival.png",
+      "bytes": 8554780,
+      "sha256": "9a4b5e6b6c19e25e639eeec9c40015953ed3b2fae3b95e5fa150127d992f054b"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/details/comparison_02.png",
+      "bytes": 1277382,
+      "sha256": "a51606a599d53cb30e7811e86ef97d5db9c9ecd45958cd2ecdcd3a829effa9e8"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/details/arrival_sequence.png",
+      "bytes": 955024,
+      "sha256": "e0812c09d40b4f9c336a75513128116f4a3142bbd346d121813bb3011956b2e2"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/details/landed_wheels.png",
+      "bytes": 156341,
+      "sha256": "63bdba0237106d98cdffc4fc91f28e589baa2c0270cfb1c9a6c41a4081a9219e"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/details/castle_path.png",
+      "bytes": 351210,
+      "sha256": "0ead320d324071860ee60e77d0dfc54d0bf6bc203dd7fa46e7ed77b23637c555"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/details/email_page_02.png",
+      "bytes": 2447756,
+      "sha256": "d66d0432978c09bdfbda81be62591813c9a2fdf7c84dcdaa85d04a4b99845067"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/details/playground.png",
+      "bytes": 719642,
+      "sha256": "c8b5a1187e7c795c458142e7f1dca7e1f7b1f83bb8bc9e5c5a7c5cf348888388"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/details/plane_matte.png",
+      "bytes": 778335,
+      "sha256": "d03a560bed2903b010b6f4561098d6d50e9e1d4de4f79c7889583d8ce471f09c"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/complete/contact_1.jpg",
+      "bytes": 342276,
+      "sha256": "bb53f5ec4c5c9074eb7600b9fda6bad13984a5197e5f438b8fec79f8bc6a99c6"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v40_wide_arrival/peer_review/r01_critique.json",
+      "bytes": 7859,
+      "sha256": "d3683709e976336b64f3472c7616f8241bffe9f9f8ca6475a442f02e731dc71c"
+    },
+    {
+      "path": "books/chapter_one/landscape/render_book.py",
+      "bytes": 19436,
+      "sha256": "4c90a57f29d1c4cccc5f2ecd92242fddc929ab51765b210b663e84cfb4b79202"
+    },
+    {
+      "path": "books/chapter_one/landscape/audit_book.py",
+      "bytes": 25406,
+      "sha256": "7117facd63b519399dabf0329f1bac3d850832b37e370387473f1e8bb1bd8089"
+    },
+    {
+      "path": "books/chapter_one/landscape/book.json",
+      "bytes": 391839,
+      "sha256": "d579eacb6d280a3b7c1526324316296b78092c2919f2a13fb80adf3e1b395ec9"
+    }
+  ],
+  "declared_holds": [
+    {
+      "id": "PUBLICATION_PENDING",
+      "status": "SEPARATE_NEXT_STAGE",
+      "detail": "The current manifest is provisional and intentionally excluded from this verdict. The finalized payload must still be sealed, pushed and anonymously verified at an immutable Git revision. No external handoff-complete claim is granted here."
+    },
+    {
+      "id": "A9_NATIVE_BATH_RESOLUTION",
+      "status": "RETAINED",
+      "detail": "The previously declared V38/V39 A9 native bath-resolution hold remains exactly in force; V40 neither revises nor accepts those source pixels for print."
+    },
+    {
+      "id": "SOURCE_RESOLUTION_AND_PRINT",
+      "status": "OPEN",
+      "detail": "The plane is an exact 444x242 native video isolation enlarged to 940x512 within the 2867x2048 review composition. It does not gain native detail. Castle and fixture native dimensions and all transforms remain recorded. Final trim/PPI and physical print acceptance remain open."
+    },
+    {
+      "id": "OWNER_CHILD_SLP",
+      "status": "SEPARATE",
+      "detail": "No owner creative approval, child reading test or qualified SLP judgment is supplied by this second-AI critique."
+    },
+    {
+      "id": "RUNTIME_DEVICE_RELEASE",
+      "status": "OUT_OF_SCOPE",
+      "detail": "Static-book outputs only. No runtime/device/gameplay/dev/master/release approval or game-wide master-audit satisfaction follows from this verdict."
+    }
+  ],
+  "concurrency_note": "Another collaborator's V41 future-work-order commit 2bcef329753fe10da95eeaa2460c34352e417e59 was reported above the task baseline. Its existence does not expand this review's V40 scope. This critic made no production edits and does not authorize overwriting that work.",
+  "changed_by_critic": [
+    "books/chapter_one/landscape/revisions/v40_wide_arrival/peer_review/r03_critique.json"
+  ]
+}

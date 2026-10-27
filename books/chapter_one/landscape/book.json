@@ -10,7 +10,7 @@
     360
   ],
   "story_pages": 32,
-  "status": "V39 review candidate; owner/child/SLP/trim/physical-print acceptance open",
+  "status": "V40 review candidate; owner/child/SLP/trim/physical-print acceptance open",
   "font": "../archive/rough_v5/fonts/Sniglet-Regular.ttf",
   "sources": {
     "flight": {
@@ -8068,6 +8068,16 @@
       ],
       "role": "Exact owner-directed demo frame408 at17seconds; ground/wheels by slide and swings",
       "provenance": "V39 input_provenance.json and generation_evidence.json; native/source originals preserved, only declared document masks/crop are used."
+    },
+    "v40_wide_arrival": {
+      "file": "revisions/v40_wide_arrival/art/sky_lagoon_wide_arrival.png",
+      "sha256": "9a4b5e6b6c19e25e639eeec9c40015953ed3b2fae3b95e5fa150127d992f054b",
+      "native_size": [
+        2867,
+        2048
+      ],
+      "role": "Owner-requested condensed wider arrival composition; original panorama, castle, playground, native demo plane isolation; no otter",
+      "provenance": "V40 composition_provenance.json; source-only crop/cutout/layout, no generation. Source resolution limits remain open."
     }
   },
   "pages": [
@@ -8323,12 +8333,12 @@
       "page": 2,
       "mode": "F",
       "art": [
-        "v39_demo_landing"
+        "v40_wide_arrival"
       ],
       "text": "The plane landed at Sky Lagoon.\nPearl Castle was close by.",
       "layout": "full",
       "border_assets": [],
-      "background_theme": "Exact owner-directed demo ground landing on wheels beside slide/swings; preserve original source frame.",
+      "background_theme": "Source-only condensed book composition: plane on actual demo wheels beside playground lawn; Pearl Castle and bridge meet connected path; no otter. Not an exact runtime camera or geographic scale map.",
       "caption": {
         "x": 28,
         "y": 316,
@@ -8346,10 +8356,10 @@
       "beat": "v27_2",
       "v34_page": 2,
       "art_crop": [
-        136,
         0,
-        1144,
-        720
+        0,
+        2867,
+        2048
       ]
     },
     {
@@ -15758,9 +15768,9 @@
       }
     ]
   },
-  "revision": "V39 · owner corrections: tails, Lamma, stained glass, demo landing and unwell puffs",
+  "revision": "V40 · wider arrival: playground and Pearl Castle, no otter",
   "review_href": "../REVISION_REVIEW.html",
   "physical_review_scale": 2,
   "format_note": "14x10-inch landscape review: existing7:5 composition preserved at2x vector scale, no raster upsample. Final trim/bleed and high-resolution pass pending.",
-  "download_pdf_href": "Mermaid_Roshan_Book_V39_Email.pdf"
+  "download_pdf_href": "Mermaid_Roshan_Book_V40_Email.pdf"
 }
