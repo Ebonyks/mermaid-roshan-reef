@@ -1,9 +1,9 @@
 # Mermaid Roshan and the Hidden Rainbow
 
-Status: SUPPORTING_CURRENT; [V41 Part1](landscape/revisions/v41_final_review/README.md), exact32-page owner manuscript plus covers,14×10in illustration review.
+Status: SUPPORTING_CURRENT; [V42 cropped doublewide arrival](landscape/revisions/v42_doublewide_arrival/README.md), illustration review.
 
-[Read](landscape/revisions/v41_final_review/complete/READ_BOOK.html) · [Reading PDF](landscape/revisions/v41_final_review/complete/Mermaid_Roshan_Book_V41_Email.pdf) · [Compare](landscape/revisions/v41_final_review/REVISION_REVIEW.html) · [Design language](DESIGN_LANGUAGE.md).
+[Read](landscape/revisions/v42_doublewide_arrival/complete/READ_BOOK.html) · [Wide arrival PDF](landscape/revisions/v42_doublewide_arrival/complete/Sky_Lagoon_Doublewide_V42.pdf) · [Reading PDF](landscape/revisions/v42_doublewide_arrival/complete/Mermaid_Roshan_Book_V42_Email.pdf) · [Compare](landscape/revisions/v42_doublewide_arrival/REVISION_REVIEW.html) · [Design language](DESIGN_LANGUAGE.md).
 
-The owner rejected V40's condensed arrival. Story2 now preserves the full original Sky Lagoon spacing, both water areas, playground, stone landing and route to the current four-tower Pearl Castle. Only sky/foreground extensions and bounded local joins use generated repair; protected central source geography remains exact. No otter. Story5 has taller, lighter dust at the door. All32 other proofs, words/captions/binding and previous source records remain exact.
+The arrival is twice the single-page width and loses about half the previous sky/foreground height. Both waters, landing, complete playground, route and four-tower castle remain in the same source geography. All33 other proofs,32captiontexts/manual breaks,previous repairs and source originals remain unchanged.
 
-B2/A9 closes as not needed at the chosen11in trim, with no third bath drawing. Print Part2 P1–P8 is held until the owner accepts these illustrations. Native-detail/print checks, physical test print, child reading and qualifiedSLP stay separate. No game or release change. V40 and earlier artifacts remain preserved historical evidence.
+This is a mixed-width34-entry review PDF. The separate castle entrance stays while the optional owner page-occupancy choice is pending. Actual bound-page count/parity/gutter is held; the swing needs a physical fold solution. PrintPart2, owner illustration acceptance,physical test print,child reading and qualifiedSLP remain open. V41 and earlier editions are preserved.

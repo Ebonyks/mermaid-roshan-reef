@@ -12,6 +12,16 @@ def overlap(a,b):
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--proof',required=True,type=Path);ap.add_argument('--baseline',required=True,type=Path);args=ap.parse_args()
  b=json.loads((ROOT/'book.json').read_text(encoding='utf8'));p=json.loads((args.proof/'page_provenance.json').read_text(encoding='utf8'));issues=[];pages={row['page']:row for row in b['pages']}
+ if b.get('revision','').startswith('V42'):
+  import subprocess,sys
+  expected=ROOT/'revisions/v42_doublewide_arrival'
+  assert args.proof.resolve()==(expected/'complete').resolve()
+  assert args.baseline.resolve()==(ROOT/'revisions/v41_final_review/complete').resolve()
+  result=subprocess.run([sys.executable,'-X','utf8','-B',str(expected/'verify_revision.py')])
+  if result.returncode:raise SystemExit(result.returncode)
+  verified=json.loads((args.proof/'verification.json').read_text('utf8'))
+  (args.proof/'stress_results.json').write_text(json.dumps({'mechanical_status':verified['status'],'gate':'V42 exact V41-source/scope/manuscript/geometry/composed-contrast gate','verification_sha256':hashlib.sha256((args.proof/'verification.json').read_bytes()).hexdigest(),'issues':verified['issues'],'held':verified['held'],'acceptance':'Owner illustration gate/child/SLP/physical-print acceptance separate'},indent=2)+'\n',encoding='utf8',newline='\n')
+  return
  if b.get('revision','').startswith('V41'):
   import subprocess,sys
   expected=ROOT/'revisions/v41_final_review'

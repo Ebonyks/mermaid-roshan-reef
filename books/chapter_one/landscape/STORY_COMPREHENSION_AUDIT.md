@@ -1,11 +1,9 @@
-# V41 Part1 story-comprehension review
+# V42 doublewide story-comprehension review
 
 Status: SUPPORTING_CURRENT; editorial evidence separate from child and qualifiedSLP acceptance.
 
-The owner rejected the condensed V40 view for losing the setting. The complete Sky Lagoon panorama now makes the arrival legible as one place: plane on the original stone approach next to the left water, all playground equipment on its open lawn, continuous path to the castle bridge/right lagoon and the hillside route behind it. The current four-tower castle retains the actual Roshan stained glass. No unrelated otter or compressed geography. Sky and foreground extensions fit the page while preserving the native central scene.
+The cropped wide arrival gives more page area to the actual setting and less to empty sky/foreground. Left water/posts/stone landing,plane,next playground,and the continuous route to the four-tower castle/right lagoon remain visible together in original geography. Original words/manual breaks remain. The next castle-entrance illustration and dialogue are retained, so flight->arrival->entrance remains explicit in this review.
 
-The unchanged flight→grounded arrival→castle-approach sequence uses the original exact caption/manual breaks. Story5 dust now visibly drifts under the closed door and over its top step; four shapeless lavender billows imply someone behind it without revealing Puff's eyes/star/pearls/spirals. Metric visibility and a second AI's unprompted reduced-page inspection support that intention; a real child reading remains open.
+All33other proofs retain the existing care story,visible door dust,waterfall/rainbow,Eagle under two bunnies,tissue boxes,apology and finale. No source or character redesign. Actual physical page placement is pending: converting this wide review entry to two bound pages adds one interior unit and changes later recto/verso/reveal parity. That mapping,printed gutter,owner acceptance,child reading,SLP andphysical print remain open.
 
-All32 unnamed proofs retain previous tail/Lamma/glass/tissue-box repairs, two-bunny Eagle rescue, waterfall clearing/turning rainbow, apology/care and reveal turns. Exact manuscript, caption controls and binding unchanged. B2/A9 closes as not needed at11in; Part2 print is held until owner illustration acceptance.
-
-[Sequence/comparison](revisions/v41_final_review/REVISION_REVIEW.html) · [Independent critique](revisions/v41_final_review/peer_review/README.md). No measured learning outcome, qualifiedSLP, physical-print or owner creative approval is inferred.
+[Source/crop and sequence](revisions/v42_doublewide_arrival/REVISION_REVIEW.html) · [Independent review](revisions/v42_doublewide_arrival/peer_review/README.md).

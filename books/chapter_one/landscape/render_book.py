@@ -192,6 +192,8 @@ subtitle=B.get('cover',{}).get('subtitle',dict(text='A Pearl Castle friendship s
 if subtitle['text']:text(subtitle['text'],subtitle['x'],subtitle['y'],subtitle['width'],subtitle['size'],subtitle.get('align','center')=='center',color=subtitle.get('color','navy'),line_baselines=subtitle.get('line_baselines'),right=subtitle.get('align')=='right')
 finish_page()
 for p in B['pages']:
+ W=504*int(p.get('width_multiplier',1))
+ c.setPageSize((W*S,H*S))
  c.scale(S,S)
  PAGE=p['page'];a=p['art'];layout=p['layout']
  if p['mode']=='F':
@@ -222,6 +224,8 @@ for p in B['pages']:
  for balloon in p.get('speech_bubbles',[]):speech(balloon)
  finish_page()
 PAGE='back_cover'
+W=504
+c.setPageSize((W*S,H*S))
 c.scale(S,S)
 back_transform=B['back_cover'].get('view_transform')
 if back_transform:
@@ -259,7 +263,7 @@ if B['back_cover'].get('caption'):
  q=B['back_cover']['caption'];text(q['text'],q['x'],q['y'],q['width'],q['size'],True,halo=q.get('halo',False),color=q['color'],outline=q.get('outline',0))
 finish_page();c.save()
 font_path=ROOT/B['font']
-(O/'page_provenance.json').write_text(json.dumps({'page_size_points':[W*S,H*S],'logical_layout_points':[W,H],'logical_to_physical_scale':S,'rear_view_transform':back_transform,'coordinate_system':'source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page','font':{'file':B['font'],'sha256':hashlib.sha256(font_path.read_bytes()).hexdigest()},'layers':LAYERS,'text_lines':TEXT_LINES,'note':'Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance.'},indent=2),encoding='utf8',newline='\n')
+(O/'page_provenance.json').write_text(json.dumps({'page_size_points':[W*S,H*S],'logical_layout_points':[W,H],'logical_to_physical_scale':S,'per_page_logical_widths':[504]+[504*int(p.get('width_multiplier',1)) for p in B['pages']]+[504],'rear_view_transform':back_transform,'coordinate_system':'source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page','font':{'file':B['font'],'sha256':hashlib.sha256(font_path.read_bytes()).hexdigest()},'layers':LAYERS,'text_lines':TEXT_LINES,'note':'Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance.'},indent=2),encoding='utf8',newline='\n')
 doc=pdfium.PdfDocument(str(PDF));thumbs=[]
 for i,page in enumerate(doc):
  im=page.render(scale=3/S).to_pil().convert('RGB');im.save(O/f'page_{i:02}.png')
@@ -270,12 +274,12 @@ for start in range(0,len(thumbs),8):
  for j,im in enumerate(thumbs[start:start+8]):
   x=j%4*336;y=j//4*262;sheet.paste(im,(x,y));idx=start+j;d.text((x+5,y+243),'Cover' if idx==0 else 'Back cover' if idx==33 else f'Page {idx}',fill='black')
  sheet.save(O/f'contact_{start//8+1}.jpg',quality=94)
-body=''.join(f'<figure><figcaption>{"Cover" if i==0 else "Back cover" if i==33 else "Page "+str(i)}</figcaption><img loading="lazy" src="page_{i:02}.png" alt="{html.escape("Cover" if i==0 else "Back cover" if i==33 else B["pages"][i-1]["text"])}"></figure>' for i in range(34))
-(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape book</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>'+str(7*S)+' × '+str(5*S)+' inches · 32 story pages + covers · '+html.escape(B.get('revision','Review proof'))+'</p><p><a href="'+html.escape(B.get('download_pdf_href','Mermaid_Roshan_LANDSCAPE_ROUGH.pdf'))+'">Download PDF</a> · <a href="'+html.escape(B.get('review_href','../REVISION_REVIEW.html'))+'">Revision audit and before/after views</a></p><p>34 pages including covers. Owner, child and final print acceptance remain open.</p></header><main>'+body+'</main>',encoding='utf8',newline='\n')
+body=''.join(f'<figure class="{"wide" if 0<i<33 and B["pages"][i-1].get("width_multiplier",1)==2 else "single"}"><figcaption>{"Cover" if i==0 else "Back cover" if i==33 else "Page "+str(i)}</figcaption><img loading="lazy" src="page_{i:02}.png" alt="{html.escape("Cover" if i==0 else "Back cover" if i==33 else B["pages"][i-1]["text"])}"></figure>' for i in range(34))
+(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape book</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}figure.wide{grid-column:1/-1}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>'+str(7*S)+' × '+str(5*S)+(' inch single pages · arrival spread is twice as wide · 32 story entries + covers · ' if any(p.get('width_multiplier',1)==2 for p in B['pages']) else ' inches · 32 story pages + covers · ')+html.escape(B.get('revision','Review proof'))+'</p><p><a href="'+html.escape(B.get('download_pdf_href','Mermaid_Roshan_LANDSCAPE_ROUGH.pdf'))+'">Download PDF</a> · <a href="'+html.escape(B.get('review_href','../REVISION_REVIEW.html'))+'">Revision audit and before/after views</a></p><p>34 pages including covers. Owner, child and final print acceptance remain open.</p></header><main>'+body+'</main>',encoding='utf8',newline='\n')
 # A portable rebuild provides the written review even without the earlier v7 images.
 if not B.get('revision') and not (O/'STRESS_TEST.html').exists() and (ROOT/'stress_review.json').exists():
  review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'))
  entries=''.join('<h2>Page '+str(row['page'])+'</h2><p><b>Baseline:</b> '+html.escape(row['baseline_issue'])+'</p><p><b>Revision:</b> '+html.escape(row['revision'])+'</p><p>'+html.escape(row['identity_review'])+'</p>' for row in review['pages'])
  (O/'STRESS_TEST.html').write_text('<!doctype html><meta charset="utf-8"><title>Book stress review</title><style>body{max-width:850px;margin:40px auto;padding:20px;font:18px/1.5 system-ui;color:#153047;background:#e5f2f8}</style><h1>Book stress review</h1><p>Revised rough; final owner acceptance remains open. This portable report contains the written review. The full before/after report additionally requires the v7 baseline proof.</p><a href="READ_BOOK.html">Read book</a>'+entries,encoding='utf8',newline='\n')
-(O/'verification.json').write_text(json.dumps({'pages':len(doc),'story_pages':len(B['pages']),'full_art':sum(p['mode']=='F' for p in B['pages']),'cutout':sum(p['mode']=='C' for p in B['pages']),'points':[W*S,H*S],'logical_layout_points':[W,H],'pdf_sha256':hashlib.sha256(PDF.read_bytes()).hexdigest(),'status':'rough; visual acceptance pending'},indent=2),encoding='utf8',newline='\n')
+(O/'verification.json').write_text(json.dumps({'pages':len(doc),'story_pages':len(B['pages']),'full_art':sum(p['mode']=='F' for p in B['pages']),'cutout':sum(p['mode']=='C' for p in B['pages']),'points':[504*S,H*S],'per_page_points':[[504*S,H*S]]+[[504*int(p.get('width_multiplier',1))*S,H*S] for p in B['pages']]+[[504*S,H*S]],'logical_layout_points':[W,H],'pdf_sha256':hashlib.sha256(PDF.read_bytes()).hexdigest(),'status':'rough; visual acceptance pending'},indent=2),encoding='utf8',newline='\n')
 print(PDF)

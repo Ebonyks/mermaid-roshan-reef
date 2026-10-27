@@ -10,7 +10,7 @@
     360
   ],
   "story_pages": 32,
-  "status": "V41 Part1 illustration review; owner acceptance required before print Part2",
+  "status": "Illustration review: arrival PDF entry is twice the single-page width; bound-page imposition awaits owner choice",
   "font": "../archive/rough_v5/fonts/Sniglet-Regular.ttf",
   "sources": {
     "flight": {
@@ -8358,9 +8358,9 @@
       "text": "The plane landed at Sky Lagoon.\nPearl Castle was close by.",
       "layout": "full",
       "border_assets": [],
-      "background_theme": "Full native Sky Lagoon geography: both waters, landing, complete playground, original continuous route and current four-tower castle at its native shoreline anchor. No otter. Only sky/foreground extension to fit page.",
+      "background_theme": "Doublewide full-width Sky Lagoon crop: excess top sky and bottom foreground removed; original waters, grounded plane, playground, path and four-tower castle preserved.",
       "caption": {
-        "x": 28,
+        "x": 60,
         "y": 316,
         "width": 365,
         "size": 20,
@@ -8377,10 +8377,11 @@
       "v34_page": 2,
       "art_crop": [
         0,
-        0,
+        1350,
         6144,
-        4389
-      ]
+        3544.285714285714
+      ],
+      "width_multiplier": 2
     },
     {
       "page": 3,
@@ -15598,9 +15599,9 @@
       }
     ]
   },
-  "revision": "V41 · full Sky Lagoon context and clearer door dust",
+  "revision": "V42 · doublewide cropped Sky Lagoon arrival",
   "review_href": "../REVISION_REVIEW.html",
   "physical_review_scale": 2,
-  "format_note": "14x10-inch landscape review: existing7:5 composition preserved at2x vector scale, no raster upsample. Final trim/bleed and high-resolution pass pending.",
-  "download_pdf_href": "Mermaid_Roshan_Book_V41_Email.pdf"
+  "format_note": "14x10in review single pages, arrival28x10in doublewidth spread. Full32storycaptions and castle-entrance illustration preserved. Final bound-page occupancy and printPart2 held.",
+  "download_pdf_href": "Mermaid_Roshan_Book_V42_Email.pdf"
 }

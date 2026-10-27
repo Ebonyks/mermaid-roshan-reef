@@ -1,0 +1,25 @@
+"""Actual wide-page proof, standalone spread and diagnostic fold review; no art generation."""
+from pathlib import Path
+import json,hashlib
+from PIL import Image,ImageDraw
+from pypdf import PdfReader,PdfWriter
+import pypdfium2 as pdfium
+V=Path(__file__).resolve().parent;C=V/'complete';D=V/'details';OLD=V.parent/'v41_final_review'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+def save(p,d):p.write_text(json.dumps(d,indent=2)+'\n',encoding='utf8',newline='\n')
+master=C/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf';r=PdfReader(master);w=PdfWriter();w.add_page(r.pages[2]);w.add_metadata({'/Title':'Mermaid Roshan - V42 Sky Lagoon doublewide review'})
+with (C/'Sky_Lagoon_Doublewide_V42.pdf').open('wb') as f:w.write(f)
+im=Image.open(C/'page_02.png').convert('RGB');assert im.size==(3024,1080)
+board=Image.new('RGB',(1512,1145),'#d8e3ed');d=ImageDraw.Draw(board)
+before=Image.open(OLD/'complete/page_02.png');before.thumbnail((756,540));board.paste(before,(378,30));after=im.resize((1512,540),Image.Resampling.LANCZOS);board.paste(after,(0,600));d.text((8,8),'V41 single page / extra sky and foreground',fill='black');d.text((8,578),'V42 doublewidth / same full landscape, about50% canvas height removed',fill='black');board.save(D/'before_after.png')
+fold=Image.new('RGB',(3024,1130),'#d8e3ed');fold.paste(im,(0,50));overlay=Image.new('RGBA',fold.size);dd=ImageDraw.Draw(overlay);dd.rectangle((1512-54,50,1512+54,1130),fill=(255,100,60,60));dd.line((1512,50,1512,1130),fill=(180,0,0,220),width=2);fold=Image.alpha_composite(fold.convert('RGBA'),overlay).convert('RGB');ImageDraw.Draw(fold).text((12,15),'DIAGNOSTIC ONLY: centre x3072; +/-0.25in at14x5 nominal spread. Swing contact with band is a future binding hold.',fill='black');fold.save(D/'fold_diagnostic.png')
+for name,box in [('landing',(250,580,800,870)),('castle_route',(2070,320,3024,970)),('caption',(140,40,1220,265)),('centre',(1340,350,1720,860))]:im.crop(box).save(D/(name+'.png'))
+doc=pdfium.PdfDocument(str(C/'Mermaid_Roshan_Book_V42_Email.pdf'));doc[2].render(scale=1.5).to_pil().convert('RGB').save(D/'email_spread.png');doc.close()
+sequence=Image.new('RGB',(1512,800),'#d8e3ed');dr=ImageDraw.Draw(sequence)
+for j,n in enumerate([1,3]):
+ x=Image.open(C/f'page_{n:02}.png');x.thumbnail((756,540));sequence.paste(x,(j*756,250));dr.text((j*756+8,230),'Preserved story'+str(n),fill='black')
+x=im.copy();x.thumbnail((672,240));sequence.paste(x,(420,0));dr.text((8,8),'V42 wide arrival between flight and unchanged castle entrance',fill='black');sequence.save(D/'sequence.png')
+save(C/'print_pagination.json',dict(status='HELD_PENDING_OWNER_PAGE_ASSIGNMENT_AND_ILLUSTRATION_ACCEPTANCE',pdf_entries=34,story_entries=32,doublewidth_pdf_entry=2,physical_page_units_if_arrival_is_split=33,reason='The review is mixed-width. Splitting arrival into two physical pages while retaining entrance adds one interior page unit and changes later recto/verso/reveal parity. Do not inherit V41 imposition as satisfied. Optional owner choice pending; printPart2 not started.',gutter='Conservative0.25in band at14x5 crosses part of swing; no character face,plane or castle in centre. Printed gutter solution remains unaccepted. Diagnostic overlay is not delivery art.'))
+save(V/'changed_page_review.json',dict(baseline='69276b5cd05eb9deec6b7080af09fb7c3029bef1',changed_pages=[2],source_crop= 'spread_recipe.json',before_sha256=sha(OLD/'complete/page_02.png'),after_sha256=sha(C/'page_02.png'),master_sha256=sha(master),standalone_sha256=sha(C/'Sky_Lagoon_Doublewide_V42.pdf'),generation_calls=0,notes='Actual PDF width doubled, height unchanged. Uniform exact source crop removes1350top/844.714bottom rows; all6144sourcecolumns and full original world retained.33otherproofsexact. Finalphysicalbinding held.'))
+(V/'REVISION_REVIEW.html').write_text('<!doctype html><meta charset="utf-8"><title>V42 doublewide arrival</title><style>body{margin:24px;background:#e7f1f6;color:#163047;font:18px/1.5 system-ui}img{max-width:100%;display:block;margin:20px 0}</style><h1>V42: cropped doublewide arrival</h1><p>One continuous full-width source window. Around half the previous canvas height is removed; both water areas, landing, playground, route and castle remain. This is a mixed-width illustration review. Actual binding/page assignment is held.</p><p><a href="complete/READ_BOOK.html">Read book</a> · <a href="complete/Sky_Lagoon_Doublewide_V42.pdf">Wide page PDF</a> · <a href="spread_recipe.json">Exact crop/source</a> · <a href="peer_review/README.md">Independent critique</a> · <a href="visual_audits.json">Five focused reviews</a></p><img src="complete/page_02.png"><h2>Previous/current</h2><img src="details/before_after.png"><h2>Sequence retains entrance</h2><img src="details/sequence.png"><h2>Future fold diagnostic only</h2><p>The tinted band is a review overlay only. It identifies the swing as a future physical-binding concern; it is absent from the delivered illustration.</p><img src="details/fold_diagnostic.png">',encoding='utf8',newline='\n')
+print('Wide proof, standalone PDF and diagnostic boards ready')

@@ -1,6 +1,6 @@
-# V41 Part1 page plan
+# V42 mixed-width review page plan
 
-Status: `SUPPORTING_CURRENT`. Exact owner manuscript; [preserved pagination](revisions/v41_final_review/complete/print_pagination.json) and [controls](book.json).
+Status: `SUPPORTING_CURRENT`. Exact owner manuscript; [pagination hold and review mapping](revisions/v42_doublewide_arrival/complete/print_pagination.json) and [controls](book.json).
 
 | Story | V34 source story | Caption |
 | --- | --- | --- |
@@ -37,4 +37,6 @@ Status: `SUPPORTING_CURRENT`. Exact owner manuscript; [preserved pagination](rev
 | 31 | 31 | “We helped your rainbow shine!” said Roshan. / “Thank you!” said Grand Puff. / Roshan smiled. “Come and rest with us!” |
 | 32 | 32 | There was room for everyone. / They curled up and fell asleep. |
 
-V41 changes only story2 arrival composition and story5 dust. Both original water areas, full playground/landing/route and four-tower castle retain source geography. Words/manual breaks/caption controls/binding and32 unnamed proofs are exact versusV40. B2/A9 not needed at selected11in; Part2 print P1–P8 held until owner illustration acceptance.
+Historical V41: changes only story2 arrival composition and story5 dust. Both original water areas, full playground/landing/route and four-tower castle retain source geography. Words/manual breaks/caption controls/binding and32 unnamed proofs are exact versusV40. B2/A9 not needed at selected11in; Part2 print P1–P8 held until owner illustration acceptance.
+
+V42 owner direction: arrival is a doublewide scene with significant top/bottom cropping. Story2 is currently one28x10in review PDF entry; all other entries14x10in. This preserves all32captiontexts and entrance artwork pending owner choice. Splitting this entry for physical binding yields33interior page units, so no inherited32-page imposition or reveal parity is claimed. Gutter and print Part2 remain held.
