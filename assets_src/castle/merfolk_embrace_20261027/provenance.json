@@ -1,0 +1,36 @@
+{
+  "source": "assets_src/castle/merfolk_embrace_20261027/source.png",
+  "original_filename": "20250612_2032_Merfolk Embrace_remix_01jxkej325fe2arn4hdt9c4r0w.png",
+  "source_sha256": "a20ea329d3cd71078611e9363a8c3f94cd15274005fc7da3de04dc6af6e7aad2",
+  "source_dimensions": [
+    1024,
+    1536
+  ],
+  "authority": "Owner supplied this exact image and requested its use as a painting in the castle on 2026-10-27.",
+  "license_provenance": "Owner-supplied AI artwork authorized for this project use; generation provider/model and broader license were not supplied. No third-party license or public-domain status asserted.",
+  "output": "assets/flats/castle/rooms/merfolk_embrace_painting.png",
+  "output_sha256": "b5c367b86043840accc1f47ac00e9cc5646687d34cd07f51c79e717fbca49c3c",
+  "output_dimensions": [
+    448,
+    640
+  ],
+  "artwork_rect": [
+    32,
+    32,
+    384,
+    576
+  ],
+  "modifications": "Full image uniformly reduced to 384x576 with Lanczos; added a 32px gilded frame/mat outside its bounds. No crop, repaint, generation, recoloring, or source overwrite.",
+  "builder": "python -B tools/build_castle_embrace_painting.py",
+  "pillow_version": "12.3.0",
+  "runtime": {
+    "room": "royal_bedroom",
+    "role": "noninteractive_wall_painting",
+    "source_art_rect": [
+      806,
+      104,
+      140,
+      200
+    ]
+  }
+}

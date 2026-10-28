@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-28T02:22:12.794559+00:00",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "mobile",
+  "quality": "speedy",
+  "viewport_dimensions": [
+    [
+      1280,
+      720
+    ],
+    [
+      1600,
+      720
+    ]
+  ],
+  "state": "Diagnostic post-Day-One freeplay; menu dismissed with existing API; actual room rebuilt by show_room. This is configured runtime evidence, not a natural story playthrough or canonical QA11 acceptance.",
+  "isolation": "Fresh APPDATA/LOCALAPPDATA directories under tmp/castle-embrace-20261027/{width}; normal child saves not loaded or mutated.",
+  "checks": [
+    "One unchanged, unshaded white-modulated Sprite2D with 448x640 texture",
+    "Painting absent after room exit and exactly one mid-layer child after reentry",
+    "Landscape viewport sizes asserted; Mobile rendering asserted",
+    "Desktop AI visual review: full picture readable, complete frame inside canvas, above bedside area, clear of avatar and navigation"
+  ],
+  "source_sha256": {
+    "scripts/arena/castle_rooms_25d.gd": "fec7a125523e4b1588cf138a597c5bfde0331108de35ab970f45989642a41c5b",
+    "tools/build_castle_embrace_painting.py": "99b5aed3fc35e3618eb012fa203e2b55508d68ca73df3f830efee30c9895ea2f",
+    "assets/flats/castle/rooms/merfolk_embrace_painting.png": "b5c367b86043840accc1f47ac00e9cc5646687d34cd07f51c79e717fbca49c3c"
+  },
+  "files": {
+    "assets_src/castle/merfolk_embrace_20261027/review/royal_bedroom_1280.png": "4d761b712550cbdb7fdf75620a2b8107367a425a191f18e9e73d605c76bb1bee",
+    "assets_src/castle/merfolk_embrace_20261027/review/capture_1280.log": "758946112326ac90af77dafa3160582dec101b4cc6ad4af4772ab3d4f0261aa2",
+    "assets_src/castle/merfolk_embrace_20261027/review/royal_bedroom_1600.png": "1992179f7ff5b687eb422fbf46075d22b83150aeb44384a6842536a8961a349e",
+    "assets_src/castle/merfolk_embrace_20261027/review/capture_1600.log": "8b216eccf1a0cbf8387a8fe7a40c504e2873c5f6f9b17be2c982aebc59429535",
+    "assets_src/castle/merfolk_embrace_20261027/review/capture_fixture.gd.txt": "c90066b70425c74d4b430cf8170e58fd9c0ea325254ee9d6edae09581bd469f7"
+  },
+  "prior_diagnostic_attempts": [
+    {
+      "result": "FAIL",
+      "reason": "Initial capture omitted the trusted post-Day-One fixture; correct story door gating rejected the room. No runtime code changed to bypass it.",
+      "log_sha256": "710f3f9a174d1ca266c4e68acb6fa5d4daa3ffca710ec8f37bff0bd37226fe92"
+    },
+    {
+      "result": "INVALID_VISUAL_EVIDENCE",
+      "reason": "Intermediate node/reentry checks passed but the maximized portrait window and visible start menu invalidated the screenshots. Corrected with existing windowed/menu APIs; no product change.",
+      "log_sha256": {
+        "1280": "e4183cf9433554d5a0a84ded46b8670d715b02fd090331e56db5784232d3cec6",
+        "1600": "e4183cf9433554d5a0a84ded46b8670d715b02fd090331e56db5784232d3cec6"
+      }
+    }
+  ],
+  "acceptance_limits": "Physical device/child/owner and canonical QA11 remain pending. Global MA-VIS-006/MA-DOC-008 lifecycles unchanged.",
+  "source_hash_mode": "PNG hashes bind raw bytes; text source hashes bind canonical UTF-8 LF bytes, as committed by Git. Saved review text/logs are normalized to LF before hashing."
+}

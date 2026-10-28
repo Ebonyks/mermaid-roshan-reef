@@ -1,0 +1,89 @@
+{
+  "id": "castle-embrace-painting-20261027",
+  "scope": "Owner-requested complete Merfolk Embrace picture displayed as a noninteractive framed wall painting in the castle Royal Bedroom. Preserve the supplied original, existing room artwork, navigation, touch targets, save state and gameplay. Revalidate only the existing V4 whole-controller binding after proving all96 reviewed frames and12 occlusion records identical; preserve all approval records and reviewer identity.",
+  "baseline": "95b68269f67650958c21ec1186385821eec10792",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-LAY-01",
+    "DL-READ-01",
+    "DL-READ-03",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-QA-01",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "New owner-requested decoration, not a repair or closure of an existing defect. MA-DOC-008 and MA-VIS-006 were consulted for identity authority and runtime evidence limits; their global work and lifecycle remain unchanged.",
+  "files": [
+    "scripts/arena/castle_rooms_25d.gd",
+    "tools/build_castle_embrace_painting.py",
+    "assets_src/castle/merfolk_embrace_20261027/source.png",
+    "assets_src/castle/merfolk_embrace_20261027/provenance.json",
+    "assets/flats/castle/rooms/merfolk_embrace_painting.png",
+    "ASSET_LICENSES.md",
+    "assets_src/castle/merfolk_embrace_20261027/review/royal_bedroom_1280.png",
+    "assets_src/castle/merfolk_embrace_20261027/review/capture_1280.log",
+    "assets_src/castle/merfolk_embrace_20261027/review/royal_bedroom_1600.png",
+    "assets_src/castle/merfolk_embrace_20261027/review/capture_1600.log",
+    "assets_src/castle/merfolk_embrace_20261027/review/capture_fixture.gd.txt",
+    "assets_src/castle/merfolk_embrace_20261027/review/runtime_receipt.json",
+    "assets/flats/castle/rooms/merfolk_embrace_painting.png.import",
+    "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+    "assets_src/castle/merfolk_embrace_20261027/review/binding_revalidation.json",
+    "assets_src/castle/merfolk_embrace_20261027/review/initial_ci_failure.log.gz",
+    "assets_src/castle/merfolk_embrace_20261027/review/ci_continuation.log.gz",
+    "assets_src/castle/merfolk_embrace_20261027/review/local_verification.json"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/build_castle_embrace_painting.py --check",
+      "result": "PASS",
+      "evidence": "Exact-byte source comparison with supplied attachment passes. tools/build_castle_embrace_painting.py --check passes; runtime 448x640 RGB PNG contains the full 384x576 uniformly reduced image and external 32px frame. Source and output hashes are in assets_src/castle/merfolk_embrace_20261027/provenance.json."
+    },
+    {
+      "command": "python -B -m gdtoolkit.parser scripts/arena/castle_rooms_25d.gd; python -B tools/lint_inference.py scripts/arena/castle_rooms_25d.gd",
+      "result": "PASS",
+      "evidence": "Both commands exit0 for the bounded16-line castle decoration addition; no new gameplay/save/input ownership."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "2026-10-27 local worktree at baseline95b68269: DOCAUTH INVENTORY=722 LEDGER=722 ACTIVE=71 RECORDS=74 RESULT ALL OK; AUDITDEV BASE95b68269f67650958c21ec1186385821eec10792 RESULT ALL OK. Re-run before commit."
+    },
+    {
+      "command": "GODOT=<approved 4.7.2-stable> scripts/ci.sh",
+      "result": "FAIL",
+      "evidence": "Preserved raw initial full-CI log: assets_src/castle/merfolk_embrace_20261027/review/initial_ci_failure.log.gz; decompressed SHA256 7ab4d76880580c2ae706d2fbd1364783d092c121e13e6f90f4a97ad7027c33e8. All earlier static gates passed; run stops at stale V4 whole-controller binding before gameplay probes. Strict96-frame/12-occlusion equivalence revalidation is separately recorded; no original failure hidden."
+    },
+    {
+      "command": "Exact-engine desktop Mobile capture of Royal Bedroom at 1280x720 and 1600x720",
+      "result": "PASS",
+      "evidence": "assets_src/castle/merfolk_embrace_20261027/review/runtime_receipt.json binds exact source hashes, Godot4.7.2 Mobile/Speedy, both real landscape viewports, successful room exit/reentry and context captures. Initial locked-room and menu-overlay diagnostic mistakes are recorded separately."
+    },
+    {
+      "command": "python -B tools/review_castle_interaction_frames_v4.py check; exact baseline payload reconstruction",
+      "result": "PASS",
+      "evidence": "Strict gate reports RESULT=OK assets=12 frames=96 reviewer=Luna visual re-review 2026-09-01. Exact prior candidate reconstructed by replacing only runtime-layout hash with baseline95b68269 hash. Existing per-frame approvals/reviewer preserved. Binding evidence: assets_src/castle/merfolk_embrace_20261027/review/binding_revalidation.json."
+    },
+    {
+      "command": "Unchanged scripts/ci.sh static gates + strict V4 binding recheck + exact suffix from RUNTIME_ERROR_RE at line180",
+      "result": "PASS",
+      "evidence": "assets_src/castle/merfolk_embrace_20261027/review/local_verification.json: all82 ordered original probes exit0; unchanged original CI suffix exits0; no source drift; initial failed run remains preserved. No test/timeout/classifier changes. Strict binding recheck passes all96 unchanged reviewed frames and12 occlusion records."
+    }
+  ],
+  "acceptance_gaps": "Required local machine checks and all82 trusted probes pass via documented source-bound continuation; exact-head GitHub CI/integration pending. Desktop Mobile configured runtime composition and leave/reentry checked. Physical Lenovo Tab M11 performance/phone readability, child, owner placement and formal canonical QA11 acceptance remain outstanding. No global audit satisfaction claimed.",
+  "review": {
+    "related_authority_recheck": "Fresh origin/dev95b68269 adds scoped Fashion/Chef/Nursery/support art and Rumi documentation facts; design06 art/medium/provenance rules and castle shell remain unchanged. Master planning/task index, changed ledger rows and MA-DOC-008/MA-VIS-006 limits were rechecked. This task adds no finding closure or authority change.",
+    "reuse_inventory": "Inspected existing castle backgrounds and movie_screen_frame.png; the latter is a landscape screen with opaque interior and shell crest, unsuitable for a full-height portrait without distortion. Reuse the supplied picture with a narrow deterministic frame, with no generation or replacement of existing artwork.",
+    "non_applicable": "No new objective, interaction, reward, voice, save field, animation or chapter; no corresponding interaction/cinematic acceptance claim."
+  }
+}
