@@ -443,6 +443,8 @@ R106 production2026-10-29: [shared painted Geology workbench](../../docs/handoff
 
 R106 exactsource verification2026-10-29: painted sharedworkbench passes currentstatic/all82trusted,220configurednativechecks/24directlyreviewed frames across all four activities/twoaspects.35new events split32bounded/3excludedfixturefailure. ExactsourceCI/Dev/formal/device/child/owner/global gaps stayopen; no acceptedart removal.
 
+R107 production2026-10-29: FV-4CD5292EEE1D whole fossil and three exact matching fragments, same golden ammonite identity. Soil cover remains separate/open. New static source does not close MA-VIS-006/008/010 or MA-OPERA-004; machine, formal and external lanes remain separate.
+
 ## MA-PLAY-001
 
 | Field | Value |

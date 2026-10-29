@@ -2185,3 +2185,7 @@ R105 CHG-111 exactsource verification completion2026-10-29: existingpainted grai
 - Rollback `manual_reconstruction`: after reviewing later consumers, restore only the exact old _draw_work_surface/private helper and remove WORK_SLAB resource/constants/loading/variable. Preserve all pan/mineral/sediment changes, sources/rejects/protected originals/save keys; no broad branch rollback. Revalidate the changed candidate.
 
 R106 CHG-112 current-source verification2026-10-29: exactowned-worktree staticprefix/all82/import and220nativechecks/24directlyreviewed candidateframes pass. Original river fixture assumption and3excluded frames retained; no runtime change for fixture repair. OldR105localstatic-prefix routing limit disclosed in R106scope note, with real exact0eCIgreen preserved; no unchanged engine rerun. ExactR106sourceCI/Dev/formal/external/globalgaps remain.
+
+R107 CHG-113 2026-10-29: painted fossil and matching fragments production from baseline44da99ba. Named wide backing, source identity retained; soil grid is separately open. Render-only candidate; evidence and acceptance tracked separately. Roll back only these bounded render/resources; preserve new source archive.
+
+R107 CHG-113 verification: exactcurrentstatic/import/all82trusted and114configurednativechecks/16directlyreviewed frames pass. One static edit, four technicalexports, one implementation;16newbounded frameevents, noexcluded events,6priorframes reused immutably. SourceCI/Dev/formal/device/child/owner/global gaps remain.

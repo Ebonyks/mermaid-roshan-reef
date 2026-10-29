@@ -37,9 +37,16 @@ const GEODE_SEAM_SPOTS: Array[Vector2] = [
 	Vector2(766.0, 216.0), Vector2(735.0, 278.0), Vector2(778.0, 340.0),
 	Vector2(744.0, 401.0), Vector2(770.0, 466.0),
 ]
-## Unreplaced fossil and rock illustrations remain measured art-replacement debt.
+## Unreplaced rock illustrations remain measured art-replacement debt.
 ## Never load the rejected checkerboard source studies.
-const FOSSIL_PATH := "res://assets/opera/worlds/hotspots/geologist_fossil.svg"
+const FOSSIL_PATH := "res://assets/opera/worlds/props/geologist_fossil_painted.png"
+const FOSSIL_PIECE_PATHS: Array[String] = [
+	"res://assets/opera/worlds/props/geologist_fossil_piece_0_painted.png",
+	"res://assets/opera/worlds/props/geologist_fossil_piece_1_painted.png",
+	"res://assets/opera/worlds/props/geologist_fossil_piece_2_painted.png",
+]
+## Each 512 canvas contains a 250x450 source third, at one uniform scale.
+const FOSSIL_PIECE_CANVAS_SIZE := Vector2(266.24, 266.24)
 const GEODE_PATH := ""
 const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg"
 const BRUSH_PATH := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
@@ -57,6 +64,7 @@ const MINERAL_LAVENDER_PATH := "res://assets/opera/worlds/props/geologist_minera
 const CRYSTALS_PATH := "res://assets/opera/worlds/props/goal_geologist.svg"
 
 var fossil_texture: Texture2D = null
+var fossil_piece_textures: Array[Texture2D] = []
 var geode_texture: Texture2D = null
 var rock_texture: Texture2D = null
 var brush_texture: Texture2D = null
@@ -267,7 +275,10 @@ func _load_textures() -> void:
 		painted_slab.diffuse_texture = slab_source
 		painted_slab.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		work_slab_texture = painted_slab
-	fossil_texture = _optional_texture(FOSSIL_PATH)
+	fossil_texture = _required_fossil_texture(FOSSIL_PATH)
+	fossil_piece_textures.clear()
+	for path: String in FOSSIL_PIECE_PATHS:
+		fossil_piece_textures.append(_required_fossil_texture(path))
 	geode_texture = _optional_texture(GEODE_PATH)
 	rock_texture = _optional_texture(ROCK_PATH)
 	brush_texture = _optional_texture(BRUSH_PATH)
@@ -730,6 +741,10 @@ func _draw_fossil() -> void:
 		if held:
 			_draw_brush(pointer_pos)
 		return
+	if _snapped_count() == 3:
+		# One complete source avoids independently filtered fragment seams.
+		_draw_fossil_whole(FOSSIL_TARGET_RECT, Color.WHITE)
+		return
 	_draw_fossil_whole(FOSSIL_TARGET_RECT, Color(1, 1, 1, 0.22))
 	for index in range(3):
 		var center := fossil_piece_target(index) if fossil_snapped[index] \
@@ -740,25 +755,34 @@ func _draw_fossil() -> void:
 			Rect2(center - FOSSIL_PIECE_SIZE * 0.5, FOSSIL_PIECE_SIZE))
 
 
+func _required_fossil_texture(path: String) -> Texture2D:
+	var source: Texture2D = _optional_texture(path)
+	assert(source != null, "Geologist painted fossil artwork is required: " + path)
+	if source == null:
+		return null
+	var painted := CanvasTexture.new()
+	painted.diffuse_texture = source
+	painted.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	return painted
+
+
 func _draw_fossil_whole(rect: Rect2, tint: Color) -> void:
-	if fossil_texture != null:
-		draw_texture_rect(fossil_texture, rect, false, tint)
-	else:
-		draw_arc(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.38,
-			0.0, TAU * 1.8, 54, Color("#f5ddaa", tint.a), 30.0, true)
+	if fossil_texture == null:
+		return
+	var painted_size: Vector2 = fossil_texture.get_size()
+	painted_size *= minf(rect.size.x / painted_size.x, rect.size.y / painted_size.y)
+	draw_texture_rect(fossil_texture,
+		Rect2(rect.get_center() - painted_size * 0.5, painted_size), false, tint)
 
 
 func _draw_fossil_piece(index: int, rect: Rect2) -> void:
-	if fossil_texture != null:
-		var source_size := fossil_texture.get_size()
-		var third := source_size.x / 3.0
-		draw_texture_rect_region(fossil_texture, rect,
-			Rect2(Vector2(third * float(index), 0.0),
-				Vector2(third, source_size.y)))
-	else:
-		draw_arc(rect.get_center(), rect.size.x * 0.34,
-			float(index) * 1.8, float(index + 1) * 1.8,
-			18, Color("#f8dca1"), 24.0, true)
+	var painted: Texture2D = fossil_piece_textures[index]
+	if painted == null:
+		return
+	# Whole padded cutouts register exactly with the unchanged 130x234 targets.
+	draw_texture_rect(painted,
+		Rect2(rect.get_center() - FOSSIL_PIECE_CANVAS_SIZE * 0.5,
+			FOSSIL_PIECE_CANVAS_SIZE), false)
 
 
 func _draw_brush(at: Vector2) -> void:
