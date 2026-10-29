@@ -1,0 +1,190 @@
+{
+  "stable_id": "FV-66629DC58A20",
+  "scope": "First mint PAN specimen only; other colours and shared helper consumers remain open.",
+  "source_baseline": "e69b50b5e74d02f55985c7b87cf1f2271b91d452",
+  "candidate_source_sha256": "b1290e7e336e1c6f7c44c97d8c1fef029954611000ee1a958b207273d8f406f2",
+  "candidate_png_sha256": "ccfff113ae678e150e2b0ba0d54bfda3071c7102f0e05cd0c850044f19dcc390",
+  "state": "PARTIAL_AGENT_SAME_SCENE_REVIEW_RUNTIME_FIT_READY_FOR_FULL_MACHINE_GATES",
+  "all_eight_current_frames_inspected": true,
+  "frames": [
+    {
+      "path": "native_1280/output/01_pan_start.png",
+      "sha256": "085949ef1b2af1fefe66f5f77dfa9d4c6237e7c7ea65288e6394bc3bfa974f8e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_frame_view": true,
+      "state": {
+        "complete": false,
+        "minerals": 0,
+        "mode": "geology_pan",
+        "reversals": 0,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.0
+      }
+    },
+    {
+      "path": "native_1280/output/02_pan_partial.png",
+      "sha256": "9cff85b398e4ab2d767f5351b3c83f64a2694d00fa8f7ef0af1a9a9113c45f54",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_frame_view": true,
+      "state": {
+        "complete": false,
+        "minerals": 1,
+        "mode": "geology_pan",
+        "reversals": 4,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.444444444444444
+      }
+    },
+    {
+      "path": "native_1280/output/03_pan_near_complete.png",
+      "sha256": "c310b1f72ce2f628a9e5307321b07b33c59afb9ada78e06f1fe4f5d655fcfc81",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_frame_view": true,
+      "state": {
+        "complete": false,
+        "minerals": 2,
+        "mode": "geology_pan",
+        "reversals": 8,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.888888888888889
+      }
+    },
+    {
+      "path": "native_1280/output/04_pan_complete.png",
+      "sha256": "e0263ca62a085720973ec628b1ca59f3185aad92f982f6351bda61e3e0e15dee",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_frame_view": true,
+      "state": {
+        "complete": true,
+        "minerals": 3,
+        "mode": "geology_pan",
+        "reversals": 9,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 1.0
+      }
+    },
+    {
+      "path": "native_1600/output/01_pan_start.png",
+      "sha256": "a0aba3c72416a299eb455d2e36b1c7c679a72062a46193b4d86fbec458ff254f",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_frame_view": true,
+      "state": {
+        "complete": false,
+        "minerals": 0,
+        "mode": "geology_pan",
+        "reversals": 0,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.0
+      }
+    },
+    {
+      "path": "native_1600/output/02_pan_partial.png",
+      "sha256": "ecbcf140f83d424c00cf6143e29296561a78104da1eaa8bad24a69d4a06089ba",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_frame_view": true,
+      "state": {
+        "complete": false,
+        "minerals": 1,
+        "mode": "geology_pan",
+        "reversals": 4,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.444444444444444
+      }
+    },
+    {
+      "path": "native_1600/output/03_pan_near_complete.png",
+      "sha256": "746fd5ac679c008b8629da4041e551483685f8a06dec765138e261153937bec0",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_frame_view": true,
+      "state": {
+        "complete": false,
+        "minerals": 2,
+        "mode": "geology_pan",
+        "reversals": 8,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.888888888888889
+      }
+    },
+    {
+      "path": "native_1600/output/04_pan_complete.png",
+      "sha256": "2084db08d6cd2d257054545df2241d39a3f2509d63267ee90fe3b3c727782a76",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_frame_view": true,
+      "state": {
+        "complete": true,
+        "minerals": 3,
+        "mode": "geology_pan",
+        "reversals": 9,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 1.0
+      }
+    }
+  ],
+  "same_scene_baseline": {
+    "revision": "e69b50b5e74d02f55985c7b87cf1f2271b91d452",
+    "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/MANIFEST.json",
+    "directly_compared": [
+      "native_context/1280/output/02_pan_partial.png",
+      "native_context/1280/output/04_pan_complete.png"
+    ],
+    "qualification": "Same Main/PAN surface and four configured washing states; actor idle timing is not frozen, so source and candidate captures are not whole-frame pixel equivalents."
+  },
+  "ten_axes": {
+    "contour": "Painted irregular crystal cluster with plum teal edge replaces the first five-sided flat token. Complete outline is visible against the same aqua water, with no rectangle or halo in all six frames where mint appears.",
+    "material": "Broad painted translucent aqua facets and pale cream highlights provide crystal volume next to the painted pan; old mint token was uniform flat facets with a thick uniform plum outline. Blue/lavender tokens remain visibly flat and open.",
+    "palette": "Retains mint/aqua specimen identity. Pale cream highlights and plum/teal shadows agree with the same-scene pan, Roshan and painted navigation; no runtime recolour.",
+    "light": "Authored upper-left facet highlights remain legible at actual size. No relighting, spatial shader or glow is added.",
+    "perspective": "Upright small cluster is a coherent loose specimen viewed slightly from above in the shallow painted pan. No independent axis stretch or crop. It differs in silhouette from the former symbol without changing the specimen identity.",
+    "scale": "Uniform complete512-square texture is drawn on56-square canvas; visible body about43x46px matches the former43px-wide outline footprint. It remains distinct at both1280x720 and1600x720 without overwhelming the pan.",
+    "contact": "The same unchanged mineral centre remains over inner water at partial, near-complete and completed pan offsets. Painted base is contained inside the rim. No new touch target or hand-to-specimen contact is claimed.",
+    "occlusion": "Complete mint body stays visible and clear of adjacent mineral centres and rim. Existing left-side Roshan/imp overlap persists at completion, independently of this asset. Flat sediment dots may cross the shared water field and remain replacement debt.",
+    "readability": "Aqua facets, bright tip and dark base distinguish the mineral from the calmer water at actual display scale. No visible alpha fringe. Formal phone/child recognition is still untested.",
+    "action_state": "Start has zero specimens; real GUI reversals reveal mint first, then unchanged blue/lavender, reaching3specimens after9reversals. All66bounded native checks pass across two aspects. Mint translates with the same pan centres, without animation changes. Natural whole-route and formalQA11 remain open."
+  },
+  "bounded_native_checks": 66,
+  "new_native_frame_events": 8,
+  "new_generation_calls": 0,
+  "candidate": "EXISTING_PAINTED_SOURCE_TECHNICAL_DERIVATIVE",
+  "integration": "SOURCE_BOUND_FIRST_MINT_ONLY_NOT_DEV",
+  "runtime": "BOUNDED_PRIVATE_MAIN_LAUNCHER_CONTEXT_PASS",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "reviewed_at_utc": "2026-10-29T06:14:33.050527+00:00",
+  "limits": "Agent visual inspection of all eight actual frames plus two same-scene prior frames. Synthetic private saved PAN checkpoint and real surface GUI events. Does not establish formalQA11, natural route, physical device, child or owner acceptance."
+}

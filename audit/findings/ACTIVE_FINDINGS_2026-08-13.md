@@ -399,6 +399,8 @@ R93 follow-up also records the separately verified R91 insect-tab payload (750na
 
 R101 Dev integration update2026-10-29: [Painted pan](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/dev_integration_20261029/README.md) is integrated at exactgreen source `e69b50b5e74d02f55985c7b87cf1f2271b91d452` (GitHub40824815737), with all3changed runtimefiles anonymously byte-verified. This is the fourth partialDev artifact, the same existing fifth boundedsourceartifact; no newframe/whole-role/removal credit. ExactnewDevAPK/formalQA11/device/child/owner and other flat scene roles remain open. Lifecycle unchanged.
 
+R102 partialproduction2026-10-29: [Firstmint actualruntime source](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r102_geologist_mint_runtime/README.md), local82/static/import and66configurednativechecks/8reviewedframes pass; fullsourcedelivery anonymous exact. Only firstmint. Othercolours/sharedcallers andsourceCI/Dev/formalQA11/device/child/owner remain pending; lifecycle unchanged, acceptedremoved0.
+
 ## MA-VIS-007
 
 | Field | Value |
