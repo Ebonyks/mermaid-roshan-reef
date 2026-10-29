@@ -407,6 +407,8 @@ R104 partialproduction2026-10-29: [remaining painted PAN mineral runtime](../../
 
 R104 Dev transition2026-10-29: [remaining painted PAN minerals](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/README.md) exactsource8df4757e integrated after sourceCI40855569210success;5runtimefiles anonymous exact. SixpartialDevartifacts, no newsource/frame/whole-role/removal credit. Formal/device/child/owner andotherGeologist/globalgaps open; lifecycle unchanged.
 
+R105 partialproduction2026-10-29: [painted PAN sediment runtime](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/README.md) actualsource0e2cf1c4, local82/static/native102 and8actualframes reviewed, source delivery anonymously exact.8source/6partialDev artifacts; no whole-role/removal acceptance. ExactCI/Dev/formal/device/child/owner, otherGeologist/global gaps and lifecycle remain open.
+
 ## MA-VIS-007
 
 | Field | Value |

@@ -10,29 +10,29 @@
   "all_game_artwork_total": null,
   "distinct_screen_total": null,
   "regression_total": null,
-  "retained_bounded": 6673,
+  "retained_bounded": 6681,
   "retained_excluded": 4134,
-  "retained_native_events": 10807,
-  "existing_sample_work_branch_implemented": 7,
-  "known_implementation_count_scope": "Seven bounded source implementation artifacts; six partial Dev artifacts, now including blue/lavender PAN dispatch at exact8df4757e6f2e399d1c4e3d7f352f0a38bef13b55. This integration adds no new source/frame/whole-role/accepted-removal credit; formal/external/global gaps remain.",
+  "retained_native_events": 10815,
+  "existing_sample_work_branch_implemented": 8,
+  "known_implementation_count_scope": "Eight bounded source implementation artifacts, including the new painted sediment draw; six partial Dev artifacts. No complete artwork-role or accepted-removal credit. Exact newsourceCI/Dev/formal/device/child/owner pending.",
   "samples_awaiting_review_global": null,
   "approved": 0,
   "dev_integrated": 6,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261029-R104-DEV",
+  "revision": "FV-AUDIT-20261029-R105",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
   "new_alias_credits": 0,
   "new_partial_role_credit": 0,
-  "new_native_frames": 0,
-  "new_bounded_contexts": 0,
+  "new_native_frames": 8,
+  "new_bounded_contexts": 8,
   "new_excluded_diagnostics": 0,
   "source_views_here": 0,
-  "existing_context_frames_reinspected_here": 0,
+  "existing_context_frames_reinspected_here": 2,
   "new_samples": 0,
-  "new_runtime_implementations": 0,
+  "new_runtime_implementations": 1,
   "new_generation_calls": 0,
   "reuse_ready_whole_role": false,
   "drawing_required_global": null,
@@ -141,8 +141,8 @@
     "observed_unique_trusted_probe_headers": 81
   },
   "source_current_frames_here": 0,
-  "candidate_neighbor_context_frames_here": 0,
-  "direct_native_frame_views_here": 0,
+  "candidate_neighbor_context_frames_here": 8,
+  "direct_native_frame_views_here": 8,
   "r94_hand_fit": "Six native cases/138checks/36rawframeevents; source16+selected proposed-neighbor candidate10 bounded; unselected49pxfit10excluded. Current routing/source and candidate contexts separate.",
   "r94_dev_integration": "r91_integration/DEV_INTEGRATION.json; exact39b0green sourcepush; redundantPRcancelled55minutesaftermandatorysuccess; newDevCI39058472107running; exactnewDevAPKnotverified.",
   "r95_geologist_pan_runtime": {
@@ -294,7 +294,7 @@
     "owner": null,
     "accepted_removed": 0
   },
-  "existing_runtime_candidates_committed_this_revision": 0,
+  "existing_runtime_candidates_committed_this_revision": 1,
   "r98_pan_source_publication": {
     "stable_id": "FV-F2DE53A80AA7",
     "source_revision": "ce05d4d38636fefc82af1172153c7f4d6119b562",
@@ -513,7 +513,7 @@
     "mission_complete": false,
     "recorded_at_utc": "2026-10-29T07:32:01.972068+00:00"
   },
-  "new_frame_unit": "Zero new native frame events; existing exact source/native context reused immutably for unchanged integrated sprites.",
+  "new_frame_unit": "Eight configured actualnativeframeevents at twoaspects, not8screens orartworks; zero newroles/families/removals.",
   "r103_mineral_variants": {
     "stable_id": "FV-66629DC58A20",
     "scope": "Two remaining blue/lavender PAN specimen source variants of the existing named mineral role. Not a new artwork-role denominator.",
@@ -689,5 +689,74 @@
     "candidate_neighbor_context_frames_here": 8,
     "direct_native_frame_views_here": 8,
     "existing_context_frames_reinspected_here": 2
+  },
+  "r105_sediment_runtime": {
+    "stable_id": "FV-1E16581A6287",
+    "scope": "Painted PAN sediment replaces flat grain dots for existing named sand-covering role; repeated20-to3instances are not newartworks.",
+    "state": "PAINTED_SEDIMENT_SOURCE_PUBLISHED_LOCAL82_STATIC_NATIVE102_PASS_EXACT_CI_PENDING",
+    "source_revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "source_baseline": "8df4757e6f2e399d1c4e3d7f352f0a38bef13b55",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/MANIFEST.json",
+    "source_delivery_required_files": 62,
+    "source_delivery_all_anonymous_exact": true,
+    "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "painted_original_source_revision": "cfcadc966bc2f3d9962243589d8a820c19ac2b0d",
+    "editable_native_master_revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+    "runtime_images": [
+      {
+        "path": "assets/opera/worlds/props/geologist_pan_grain_painted.png",
+        "sha256": "40be8dd96da1de49bf326c96bfc9d7292616549733089aad713308b447938d02",
+        "dimensions": [
+          512,
+          512
+        ],
+        "uniform_source_resize": [
+          512,
+          342
+        ],
+        "transparent_canvas_padding_offset": [
+          0,
+          85
+        ],
+        "recipe": "assets_src/flat_vector_geologist_pan_sediment_20261029/export_grain.lua",
+        "transform": "Whole original canvas uniformly fitted; bilinear resample, centered transparent pad. No crop, tint, threshold or repaint.",
+        "draw_canvas": [
+          22,
+          22
+        ],
+        "visible_body_approx": [
+          12.2,
+          9.45
+        ],
+        "nominal_uniform_scale": 0.5,
+        "integer_rounding": "683*0.5=341.5height rounded342px; width512 exact.0.1464percent raster-aspect rounding, no runtime nonuniform transform."
+      }
+    ],
+    "actual_native_checks": 102,
+    "new_native_frame_events": 8,
+    "actual_current_frame_views": 8,
+    "same_scene_baseline_frame_views": 2,
+    "current_static_all82": "PASS",
+    "unchanged_other_functions": 56,
+    "primitive_calls_before": 45,
+    "primitive_calls_after": 44,
+    "new_bounded_source_artifacts": 1,
+    "bounded_artifact_unit": "One bounded painted-sediment draw delta, not20newartworks or acceptedremovals",
+    "generation_calls_this_runtime_delta": 0,
+    "historical_source_generation_accounting": "Existing cfcadc96 source reused; not newgeneration or a reset of any funded/closed task",
+    "new_roles": 0,
+    "new_families": 0,
+    "candidate": "PAINTED_WHOLE_SEDIMENT_SOURCE_READY",
+    "integration": "BOUND_SOURCE_NOT_YET_DEV",
+    "runtime": "CONFIGURED_PRIVATE_MAIN_PAN_TWO_ASPECTS_PASS",
+    "Dev_integrated": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "mission_complete": false
   }
 }
