@@ -1121,3 +1121,5 @@ Owner-requested analysis and Codex handoff for the commissioned under-pool book,
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/README.md` | 🟣 | `SUPPORTING_EVIDENCE / CANDIDATE`; owner-resumed preserved pan reconciliation with Dev4d098375. Old exact-source CI green; current combined static/import/82trusted and54configured native checks pass,8actual frames reviewed. New exact CI/Dev and formal/device/child/owner pending. No new art or accepted-removal credit. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r102_geologist_mint_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` first mint-only Geologist washing specimen: existing painted source, declared512-square technical derivative, actual Mobile/Speedy66checks/8reviewed frames and current static/all82PASS. Exact sourceCI/Dev/formalQA11/device/child/owner and other colours/shared callers remain open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` remaining Geologist PAN painted mineral runtime change; source/current machine/scene and external acceptance recorded separately. |

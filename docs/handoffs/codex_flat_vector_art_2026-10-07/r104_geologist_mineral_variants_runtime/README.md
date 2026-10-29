@@ -1,0 +1,9 @@
+# Painted blue and lavender PAN minerals
+
+The remaining two flat Geologist washing-pan minerals now use whole painted blue and lavender sprites, matching the existing mint family. Their original centres, one-finger washing, reveal counts, completion, hit areas and save keys remain unchanged. The only active flat mineral helper and its three primitive draw calls are retired; Geologist census48to45,54unrelated functions byte-identical.
+
+Actual Godot4.7.2 Mobile/Speedy final imports and90configured native checks pass at1280x720 and1600x720. All eight actual scene frames were directly reviewed against the same8f baseline. Current static and all82unchanged trusted probes pass with frozen-source and normal-save guards. The textures are lossless512-square with mipmaps, exact bytes from the published R103 Aseprite exports; zero new generation in this runtime change. Source raw outputs, prompts and editable masters remain preserved at immutableR103.
+
+[Ten-axis scene review](FRAME_REVIEW.json), [full machine result](LOCAL_82_RESULT.json), [primitive census](CENSUS.json), [function/caller proof](FUNCTION_PRESERVATION.json), [derivation](../../../../assets_src/flat_vector_geologist_mineral_variants_runtime_20261029/DERIVATION.json), [impact](../../../../design/audit_impacts/flat-vector-geologist-mineral-variants-runtime-20261029.json), [published source](https://github.com/Ebonyks/mermaid-roshan-reef/tree/5930bf03dee0986689130f02390bba350f4ec56a/assets_src/imagegen/geologist_remaining_minerals_20261029) and [delivery manifest](MANIFEST.json) keep evidence lanes separate.
+
+Configured private PAN checks are actual runtime context, not naturally earned whole-route or formalQA11 evidence. Source CI/Dev, device, child and owner acceptance remain pending. Cave, work panel, sediment, separate crystal gallery and inherited completion actor overlap remain open, along with all-game inventory gaps. No whole-role, accepted-removal or mission-completion claim.

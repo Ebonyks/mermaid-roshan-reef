@@ -1,0 +1,35 @@
+{
+  "stable_id": "FV-66629DC58A20",
+  "baseline": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+  "canonical_source_revision": "5930bf03dee0986689130f02390bba350f4ec56a",
+  "scope": "Replace remaining blue/lavender PAN drawings using published painted sources. Preserve first mint, pan, all nonvisual functions/input/save. Remove pure render-only polygon helper after call-site proof. Gallery, cave/panel/sediment, source-only proofs, formalQA11/device/child/owner and full-game gaps remain separate.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-READ-02",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010",
+    "MA-OPERA-004"
+  ],
+  "required_evidence": "CUTOUT_OK; exact4.7.2 import, originalonefinger/save; two-aspect4actionstates; ten-axis actualscene review; primitive census decreases; parser/inference/currentstatic/all82trusted and sourceCI before Dev; immutable anonymous manifest delivery.",
+  "generation_calls_new": 0,
+  "accepted_removed": 0,
+  "started_at_utc": "2026-10-29T09:13:20.002175+00:00"
+}

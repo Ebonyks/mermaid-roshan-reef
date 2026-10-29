@@ -433,6 +433,8 @@ R95 production update2026-10-17: [Geologist painted pan](../../docs/handoffs/cod
 
 R102 partial production update2026-10-29: [First painted mint PAN specimen](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r102_geologist_mint_runtime/README.md) replaces one reachable flat-token depiction with a whole existing painted source. Current static/import/all82trusted checks and66configured two-aspect native checks pass; all8actual frames inspected. Blue/lavender, shared callers and whole-job acceptance remain open. Exact sourceCI/Dev/formalQA11/device/child/owner are separate and pending; `CONFIRMED_OPEN` and historical baseline claims remain unchanged.
 
+2026-10-29 bounded Geologist PAN production: [R104 blue/lavender runtime candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/README.md) uses exact published painted variants; the only active flat mineral helper call and render helper are retired. Same current census48to45primitivecalls,54unrelatedfunctions byte-identical. Actual4.7.2Mobile/Speedy90configured checks/8frames reviewed; currentstatic/all82PASS; exactsourceCI/Dev/formal/device/child/owner remain separate. Cave/panel/sediment/gallery and global gaps remain; lifecycle CONFIRMED_OPEN unchanged.
+
 ## MA-PLAY-001
 
 | Field | Value |

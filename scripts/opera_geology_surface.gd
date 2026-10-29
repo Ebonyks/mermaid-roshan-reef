@@ -48,6 +48,8 @@ const PAN_PATH := "res://assets/opera/worlds/props/geologist_washing_pan_painted
 const PAN_ART_REGION := Rect2(58.0, 315.0, 1138.0, 652.0)
 const PAN_ART_SOURCE_SIZE := Vector2(1254.0, 1254.0)
 const MINERAL_MINT_PATH := "res://assets/opera/worlds/props/geologist_mineral_mint_painted.png"
+const MINERAL_BLUE_PATH := "res://assets/opera/worlds/props/geologist_mineral_blue_painted.png"
+const MINERAL_LAVENDER_PATH := "res://assets/opera/worlds/props/geologist_mineral_lavender_painted.png"
 const CRYSTALS_PATH := "res://assets/opera/worlds/props/goal_geologist.svg"
 
 var fossil_texture: Texture2D = null
@@ -56,6 +58,8 @@ var rock_texture: Texture2D = null
 var brush_texture: Texture2D = null
 var pan_texture: Texture2D = null
 var mineral_mint_texture: Texture2D = null
+var mineral_blue_texture: Texture2D = null
+var mineral_lavender_texture: Texture2D = null
 var crystals_texture: Texture2D = null
 
 var touch_owner := -1
@@ -261,13 +265,9 @@ func _load_textures() -> void:
 		painted_pan.diffuse_texture = painted_source
 		painted_pan.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		pan_texture = painted_pan
-	var mineral_source: Texture2D = _optional_texture(MINERAL_MINT_PATH)
-	assert(mineral_source != null, "Geologist mint mineral artwork is required")
-	if mineral_source != null:
-		var painted_mineral := CanvasTexture.new()
-		painted_mineral.diffuse_texture = mineral_source
-		painted_mineral.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-		mineral_mint_texture = painted_mineral
+	mineral_mint_texture = _required_mineral_texture(MINERAL_MINT_PATH)
+	mineral_blue_texture = _required_mineral_texture(MINERAL_BLUE_PATH)
+	mineral_lavender_texture = _required_mineral_texture(MINERAL_LAVENDER_PATH)
 	crystals_texture = _optional_texture(CRYSTALS_PATH)
 
 
@@ -800,13 +800,12 @@ func _draw_pan() -> void:
 			sin(angle) * radius * 0.48)
 		grain_pos.x += pan_visual_x * 0.12 + sin(float(index) + pan_visual_x * 0.02) * 6.0
 		draw_circle(grain_pos, 6.0, Color("#d5a761"))
+	var minerals: Array[Texture2D] = [
+		mineral_mint_texture, mineral_blue_texture, mineral_lavender_texture,
+	]
 	for index in range(pan_minerals):
 		var mineral_center := center + Vector2(-82.0 + float(index) * 82.0, 34.0)
-		if index == 0:
-			_draw_mint_mineral(mineral_center, 28.0)
-		else:
-			_draw_mineral(mineral_center, 23.0,
-				Color.from_hsv(0.47 + float(index) * 0.12, 0.40, 1.0))
+		_draw_painted_mineral(mineral_center, 28.0, minerals[index])
 
 
 func _draw_geode() -> void:
@@ -908,31 +907,24 @@ func _draw_ellipse(center: Vector2, radii: Vector2, fill: Color,
 		draw_polyline(closed, outline, outline_width, true)
 
 
-func _draw_mint_mineral(center: Vector2, radius: float) -> void:
-	if mineral_mint_texture == null:
+func _required_mineral_texture(path: String) -> Texture2D:
+	var source: Texture2D = _optional_texture(path)
+	assert(source != null, "Geologist painted mineral artwork is required: " + path)
+	if source == null:
+		return null
+	var painted := CanvasTexture.new()
+	painted.diffuse_texture = source
+	painted.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	return painted
+
+
+func _draw_painted_mineral(center: Vector2, radius: float, texture: Texture2D) -> void:
+	if texture == null:
 		return
-	# Preserve the complete painted specimen, its transparent margin and one scale.
-	var painted_size: Vector2 = mineral_mint_texture.get_size()
+	# Preserve each complete authored specimen at one uniform scale and centre.
+	var painted_size: Vector2 = texture.get_size()
 	painted_size *= radius * 2.0 / maxf(painted_size.x, painted_size.y)
-	draw_texture_rect(mineral_mint_texture,
-		Rect2(center - painted_size * 0.5, painted_size), false)
-
-
-func _draw_mineral(center: Vector2, radius: float, color: Color) -> void:
-	var points := PackedVector2Array([
-		center + Vector2(-radius * 0.82, radius * 0.15),
-		center + Vector2(-radius * 0.34, -radius * 0.78),
-		center + Vector2(radius * 0.42, -radius * 0.60),
-		center + Vector2(radius * 0.84, radius * 0.12),
-		center + Vector2(radius * 0.18, radius * 0.80),
-	])
-	draw_colored_polygon(points, color)
-	var closed := points.duplicate()
-	closed.append(points[0])
-	draw_polyline(closed, Color("#392958"), 6.0, true)
-	draw_line(center + Vector2(-radius * 0.28, -radius * 0.55),
-		center + Vector2(radius * 0.18, radius * 0.50),
-		Color(1.0, 0.96, 0.70, 0.64), 4.0, true)
+	draw_texture_rect(texture, Rect2(center - painted_size * 0.5, painted_size), false)
 
 
 func _geode_half_points(seam_x: float, center_y: float, side: float,

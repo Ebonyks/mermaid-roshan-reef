@@ -1,0 +1,88 @@
+{
+  "baseline": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+  "runtime_source_lf_sha256": "b8c93a9daf36bee77f533db3604b9d0045bf7a632f1a991a24ec468f55195323",
+  "unchanged_functions": [
+    "_restore_bools",
+    "progress_snapshot",
+    "_draw_brush",
+    "_draw_rounded_rect",
+    "restore_progress",
+    "fossil_piece_target",
+    "fossil_piece_home",
+    "_snapped_count",
+    "cancel_input",
+    "_notification",
+    "_pan_drag",
+    "_draw_crystal_gallery",
+    "progress",
+    "_draw_fossil",
+    "_river_connected",
+    "geode_half_center",
+    "_geode_drag",
+    "_input_blocked",
+    "_demo_finger_pose",
+    "_seam_at",
+    "_note_material_change",
+    "_gui_input",
+    "_cleared_count",
+    "geode_seam_spot",
+    "_complete_mode",
+    "_draw_geode",
+    "_draw_ellipse",
+    "_is_number",
+    "river_path_point",
+    "_draw_river",
+    "stage_name",
+    "_draw_work_surface",
+    "_fossil_brush",
+    "river_path_cell_center",
+    "_emit_checkpoint",
+    "_press",
+    "_drag",
+    "_draw_fossil_piece",
+    "_wet_path_count",
+    "_seam_count",
+    "_draw_fossil_whole",
+    "_draw",
+    "_restore_true_indices",
+    "_geode_right_rect",
+    "configure",
+    "restart_demo",
+    "_true_indices",
+    "_geode_half_points",
+    "_river_flow_indices",
+    "_optional_texture",
+    "_process",
+    "_piece_at",
+    "_release",
+    "_river_stroke"
+  ],
+  "unchanged_count": 54,
+  "changed_render_functions": [
+    "_load_textures",
+    "_draw_pan"
+  ],
+  "removed_pure_render_helpers": [
+    "_draw_mineral",
+    "_draw_mint_mineral"
+  ],
+  "added_render_helpers": [
+    "_draw_painted_mineral",
+    "_required_mineral_texture"
+  ],
+  "old_active_call_sites": [
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "line": 808,
+      "text": "_draw_mineral(mineral_center, 23.0,"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "line": 921,
+      "text": "func _draw_mineral(center: Vector2, radius: float, color: Color) -> void:"
+    }
+  ],
+  "old_primitive_draw_calls_retired": 3,
+  "input_save_progression_hit_geometry_unchanged": true,
+  "global_source_scan_not_art_acceptance": true
+}

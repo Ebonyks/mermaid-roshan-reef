@@ -1,0 +1,304 @@
+{
+  "state": "FOCUSED_IMPORT_AND_TWO_ASPECT_CONTEXT_PASS_AGENT_REVIEW_REQUIRED",
+  "imports": [
+    {
+      "pass": 1,
+      "exit_code": 0,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-remaining-minerals-20261029\\runtime\\import1\\engine.log",
+      "sha256": "11bdfaeaa7f8380a4c5f5238a5ee73a9ad36b9a408c5c6959f894ee924a00753"
+    },
+    {
+      "pass": 2,
+      "exit_code": 0,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-remaining-minerals-20261029\\runtime\\import2\\engine.log",
+      "sha256": "8b6b9012c78f1483827679fc5488b570492c67b18f5a608310d70153f5b7c7a9"
+    }
+  ],
+  "cases": [
+    {
+      "width": 1280,
+      "checks": 45,
+      "frames": [
+        {
+          "castle_layer_visible": false,
+          "id": "01_pan_start",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "01_pan_start.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "df8893625908eb706c91fe92b0f0f0ffd1a50114f183c6f3ce7bbb81a47b21ff",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 0,
+            "mode": "geology_pan",
+            "reversals": 0,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.0
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "02_pan_partial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 52.5,
+          "path": "02_pan_partial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "f7cae89c618a24df03a6505c478defddafcdd07355b0740104f47d173ada283f",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 1,
+            "mode": "geology_pan",
+            "reversals": 4,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.444444444444444
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "03_pan_near_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 52.5,
+          "path": "03_pan_near_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "f80d615f731551fee494efad101a9b5d055d78ae69f3931e172687e65b3be4e5",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 2,
+            "mode": "geology_pan",
+            "reversals": 8,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.888888888888889
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "04_pan_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": -52.5,
+          "path": "04_pan_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "ad16ec2bbca0553c533c18e675934f5289173aaf5c3568d3cc31ce46474265cd",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": true,
+            "minerals": 3,
+            "mode": "geology_pan",
+            "reversals": 9,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 1.0
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-remaining-minerals-20261029\\runtime\\native_1280\\output\\RESULT.json",
+      "result_sha256": "0a23ecf922b96d667f4a1f741baa37767dd3e6bd9d120739e6d04dc2cd14ff1d"
+    },
+    {
+      "width": 1600,
+      "checks": 45,
+      "frames": [
+        {
+          "castle_layer_visible": false,
+          "id": "01_pan_start",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "01_pan_start.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "eb0c41c6bf29b8a7b357858268c680d18991cf9390c1c379cbced57e812fd828",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 0,
+            "mode": "geology_pan",
+            "reversals": 0,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.0
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "02_pan_partial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 52.5,
+          "path": "02_pan_partial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "5c382228aa12f60a5dd6683338ba45de3d735e3300287d571956c7e73071c324",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 1,
+            "mode": "geology_pan",
+            "reversals": 4,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.444444444444444
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "03_pan_near_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 52.5,
+          "path": "03_pan_near_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "c804b7671c5c242b18abc3c2ac6508d22525c117b269efc03ca95b3a07955859",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 2,
+            "mode": "geology_pan",
+            "reversals": 8,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.888888888888889
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "04_pan_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": -52.5,
+          "path": "04_pan_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "efd63a5967504367db95943dc70ac0808446091c8dc8f9b20139d289f9cfaa03",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": true,
+            "minerals": 3,
+            "mode": "geology_pan",
+            "reversals": 9,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 1.0
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-remaining-minerals-20261029\\runtime\\native_1600\\output\\RESULT.json",
+      "result_sha256": "85e06b86094acbd0a9d4c955f55dd2bf45b6eaf5126bdf15b336ca78721e7e30"
+    }
+  ],
+  "checks": 90,
+  "new_native_frame_events": 8,
+  "source_drift": [],
+  "normal_unchanged": true,
+  "normal_before": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "normal_after": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "new_generation_calls": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "full_trusted_suite": "PENDING_AFTER_AGENT_SCENE_REVIEW",
+  "completed_at_utc": "2026-10-29T09:16:08.535571+00:00"
+}
