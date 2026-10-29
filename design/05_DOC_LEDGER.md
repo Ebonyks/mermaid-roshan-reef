@@ -1125,3 +1125,5 @@ Owner-requested analysis and Codex handoff for the commissioned under-pool book,
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` remaining Geologist PAN painted mineral runtime change; source/current machine/scene and external acceptance recorded separately. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` painted sediment replacement using existing source; actualcontext/machine/sourceCI/Dev and formal/external acceptance tracked separately. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R106 shared painted Geology workbench; two takes/one rejected aspect, four-mode runtime, current machine/source CI/Dev and formal/external acceptance kept separate. |

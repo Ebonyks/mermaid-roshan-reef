@@ -1,0 +1,77 @@
+{
+  "id": "R106",
+  "stable_id": "FV-A6CE3E284202",
+  "scope": "Shared Geology workbench surface, all four reachable modes. Named missing overhead view of the established cream/lavender stone slab; fixed activity coordinates, one whole painted surface, no action/save/identity changes.",
+  "baseline": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010",
+    "MA-OPERA-004"
+  ],
+  "brief": "C1-C10; JA-GEO-02 work slab. Owner October17 quality-first direction supersedes old generation-saving gate.",
+  "method": "Built-in ImageGen precise-object-edit for named overhead view; existing original retained. Optional reuse is not a prerequisite.",
+  "budget": {
+    "new_static_brief_take_limit": 2,
+    "takes_started": 2,
+    "animation_calls": 0,
+    "no_funded_animation_budget_used": true,
+    "old_static_takes_retained_not_reset": true
+  },
+  "reference": {
+    "path": "reference_work_slab.png",
+    "source_revision": "cfcadc966bc2f3d9962243589d8a820c19ac2b0d",
+    "source_path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+    "sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+    "role": "appearance/identity reference only; original is historical candidate, not relabeled approved"
+  },
+  "context": "Actual source-bound Main/Opera Geologist four activities at1280/1600. Captures context only, not generation pixels.",
+  "evidence_required": [
+    "Exact engine Mobile/Speedy native context all four modes and states; ten-axis same-scene comparison",
+    "Whole authored source, RGBA C2, native Aseprite/export provenance and asset licenses",
+    "Required resource; retire three selected flat surface calls and private helper only; keep invisible hit geometry",
+    "Applicable current static/import/all82 trusted gates on actual changed runtime",
+    "Exact-source CI green before normal Dev integration; immutable anonymous full manifest verification",
+    "Candidate/integration/runtime/formalQA11/device/child/owner kept separate"
+  ],
+  "delivery": {
+    "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+    "runtime_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "canonical_branch": "codex/flat-vector-r6-20261012",
+    "access": "Anonymous HTTPS at immutable revisions"
+  },
+  "acceptance_gaps": "Natural/training/all-route, formalQA11, device, child and owner remain open; no accepted removal or whole-game totals inferred.",
+  "generation_state": {
+    "take": 2,
+    "started_at_utc": "2026-10-29T13:42:36.460819+00:00",
+    "backend": "built-in image_gen.imagegen; model/version unexposed",
+    "prompt": "PROMPT_TAKE02.txt",
+    "reference": "reference_work_slab.png",
+    "transparent_background": true,
+    "prior_reject": "take_01/DISPOSITION.json",
+    "stop_after_this_take_if_nonviable": true,
+    "state": "TERMINAL_TAKE02_RUNTIME_CANDIDATE_TAKE01_FIT_REJECT_RETAINED"
+  },
+  "runtime": "Actual1024lossless+mipmapped whole export,220configured checks and24directly inspected states pass; full82/currentstatic pass"
+}

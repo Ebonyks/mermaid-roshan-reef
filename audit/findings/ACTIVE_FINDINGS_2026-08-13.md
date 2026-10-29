@@ -439,6 +439,10 @@ R105 candidate2026-10-29: [painted pan sediment](../../docs/handoffs/codex_flat_
 
 R105 actualsource production2026-10-29: painted pan grain candidate passes currentstatic/all82trusted and102configurednativechecks/8directlyreviewedframes. Originalsetupguardlabel failure preserved with exactsource/capture binding correction, no native/pixel rerun. ExactsourceCI/Dev/formal/device/child/owner andotherjob/global gaps remain open; lifecycle unchanged.
 
+R106 production2026-10-29: [shared painted Geology workbench](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/README.md) replaces three flat surface layers and their private primitive helper with one complete overhead stone cutout. Two ImageGen takes/native provenance retained; take01 rejected for aspect. Four-mode context/current full machine/source CI/Dev and formalQA11/device/child/owner remain separately pending; other job art and finding lifecycle unchanged.
+
+R106 exactsource verification2026-10-29: painted sharedworkbench passes currentstatic/all82trusted,220configurednativechecks/24directlyreviewed frames across all four activities/twoaspects.35new events split32bounded/3excludedfixturefailure. ExactsourceCI/Dev/formal/device/child/owner/global gaps stayopen; no acceptedart removal.
+
 ## MA-PLAY-001
 
 | Field | Value |

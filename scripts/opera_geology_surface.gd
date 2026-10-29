@@ -47,6 +47,9 @@ const PAN_PATH := "res://assets/opera/worlds/props/geologist_washing_pan_painted
 ## Whole painted cutout region in its preserved 1254-square source; import is 1024.
 const PAN_ART_REGION := Rect2(58.0, 315.0, 1138.0, 652.0)
 const PAN_ART_SOURCE_SIZE := Vector2(1254.0, 1254.0)
+const WORK_SLAB_PATH := "res://assets/opera/worlds/props/geologist_work_slab_painted.png"
+const WORK_SLAB_ART_REGION := Rect2(57.0, 234.0, 1147.0, 782.0)
+const WORK_SLAB_SOURCE_SIZE := Vector2(1254.0, 1254.0)
 const PAN_GRAIN_PATH := "res://assets/opera/worlds/props/geologist_pan_grain_painted.png"
 const MINERAL_MINT_PATH := "res://assets/opera/worlds/props/geologist_mineral_mint_painted.png"
 const MINERAL_BLUE_PATH := "res://assets/opera/worlds/props/geologist_mineral_blue_painted.png"
@@ -58,6 +61,7 @@ var geode_texture: Texture2D = null
 var rock_texture: Texture2D = null
 var brush_texture: Texture2D = null
 var pan_texture: Texture2D = null
+var work_slab_texture: Texture2D = null
 var pan_grain_texture: Texture2D = null
 var mineral_mint_texture: Texture2D = null
 var mineral_blue_texture: Texture2D = null
@@ -256,6 +260,13 @@ func restart_demo() -> void:
 
 
 func _load_textures() -> void:
+	var slab_source: Texture2D = _optional_texture(WORK_SLAB_PATH)
+	assert(slab_source != null, "Geologist painted work slab artwork is required")
+	if slab_source != null:
+		var painted_slab := CanvasTexture.new()
+		painted_slab.diffuse_texture = slab_source
+		painted_slab.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		work_slab_texture = painted_slab
 	fossil_texture = _optional_texture(FOSSIL_PATH)
 	geode_texture = _optional_texture(GEODE_PATH)
 	rock_texture = _optional_texture(ROCK_PATH)
@@ -861,49 +872,18 @@ func _draw_geode() -> void:
 
 
 func _draw_work_surface() -> void:
-	var surface := Rect2(330.0, 130.0, 860.0, 560.0)
-	_draw_rounded_rect(Rect2(surface.position + Vector2(0.0, 14.0),
-		surface.size), 34.0,
-		Color(0.12, 0.09, 0.22, 0.56), Color(0.12, 0.09, 0.22, 0.0), 0.0)
-	_draw_rounded_rect(surface, 34.0, Color("#d4aa78"), Color("#392958"), 10.0)
-	_draw_rounded_rect(Rect2(surface.position + Vector2(18.0, 18.0),
-		surface.size - Vector2(36.0, 36.0)), 24.0,
-		Color(0.93, 0.78, 0.56, 0.18), Color(0.93, 0.78, 0.56, 0.0), 0.0)
-
-
-func _draw_rounded_rect(rect: Rect2, radius: float, fill: Color,
-		outline: Color, outline_width: float) -> void:
-	var r := minf(radius, minf(rect.size.x, rect.size.y) * 0.5)
-	draw_rect(Rect2(rect.position + Vector2(r, 0.0),
-		Vector2(rect.size.x - r * 2.0, rect.size.y)), fill, true)
-	draw_rect(Rect2(rect.position + Vector2(0.0, r),
-		Vector2(rect.size.x, rect.size.y - r * 2.0)), fill, true)
-	for corner in [
-		rect.position + Vector2(r, r),
-		rect.position + Vector2(rect.size.x - r, r),
-		rect.position + Vector2(rect.size.x - r, rect.size.y - r),
-		rect.position + Vector2(r, rect.size.y - r),
-	]:
-		draw_circle(corner, r, fill)
-	if outline_width <= 0.0 or outline.a <= 0.0:
+	if work_slab_texture == null:
 		return
-	draw_line(rect.position + Vector2(r, 0.0),
-		rect.position + Vector2(rect.size.x - r, 0.0), outline, outline_width, true)
-	draw_line(rect.position + Vector2(rect.size.x, r),
-		rect.position + Vector2(rect.size.x, rect.size.y - r), outline,
-		outline_width, true)
-	draw_line(rect.position + Vector2(rect.size.x - r, rect.size.y),
-		rect.position + Vector2(r, rect.size.y), outline, outline_width, true)
-	draw_line(rect.position + Vector2(0.0, rect.size.y - r),
-		rect.position + Vector2(0.0, r), outline, outline_width, true)
-	draw_arc(rect.position + Vector2(r, r), r, PI, PI * 1.5, 12,
-		outline, outline_width, true)
-	draw_arc(rect.position + Vector2(rect.size.x - r, r), r, PI * 1.5, TAU, 12,
-		outline, outline_width, true)
-	draw_arc(rect.position + Vector2(rect.size.x - r, rect.size.y - r), r, 0.0,
-		PI * 0.5, 12, outline, outline_width, true)
-	draw_arc(rect.position + Vector2(r, rect.size.y - r), r, PI * 0.5, PI, 12,
-		outline, outline_width, true)
+	var surface := Rect2(330.0, 130.0, 860.0, 560.0)
+	# Fit the complete authored slab uniformly. Transparent canvas stays intact;
+	# all interaction geometry and activity coordinates retain their old frame.
+	var scale: float = minf(surface.size.x / WORK_SLAB_ART_REGION.size.x,
+		surface.size.y / WORK_SLAB_ART_REGION.size.y)
+	var painted_size: Vector2 = WORK_SLAB_SOURCE_SIZE * scale
+	var painted_position: Vector2 = surface.get_center() \
+		- WORK_SLAB_ART_REGION.get_center() * scale
+	draw_texture_rect(work_slab_texture,
+		Rect2(painted_position, painted_size), false)
 
 
 func _draw_ellipse(center: Vector2, radii: Vector2, fill: Color,

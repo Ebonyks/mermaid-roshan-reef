@@ -1,0 +1,273 @@
+{
+  "captures": [
+    {
+      "castle_layer_visible": false,
+      "id": "01_initial",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "01_initial.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "fa9dcef175a04d3dd87ba1f8763c38171b8200864473b10a89f08f0ccd47fa59",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "mode": "geology_geode",
+        "pull": 0.0,
+        "seams": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "stage": "GEODE_SEAM",
+        "version": 1
+      },
+      "start_menu_active": false,
+      "world_phase": 3,
+      "world_visible": true
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "02_partial_seams",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "02_partial_seams.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "45962ae730ad5d7712c005c4a0f6931165bf70cd929ea4e877b24085f17162ad",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "mode": "geology_geode",
+        "pull": 0.0,
+        "seams": [
+          true,
+          true,
+          false,
+          false,
+          false
+        ],
+        "stage": "GEODE_SEAM",
+        "version": 1
+      },
+      "start_menu_active": false,
+      "world_phase": 3,
+      "world_visible": true
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "03_complete",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "03_complete.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "4db76cd96ae6e873e7b430a4186ccf0666d95ce6033a1f7282faac8f2ac764a7",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": true,
+        "mode": "geology_geode",
+        "pull": 120.0,
+        "seams": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "stage": "GEODE_OPEN",
+        "version": 1
+      },
+      "start_menu_active": false,
+      "world_phase": 3,
+      "world_visible": true
+    }
+  ],
+  "checks": [
+    {
+      "label": "exact approved engine hash",
+      "pass": true
+    },
+    {
+      "label": "Mobile native Windows time1",
+      "pass": true
+    },
+    {
+      "label": "private dependency bound before ready",
+      "pass": true
+    },
+    {
+      "label": "original Continue available",
+      "pass": true
+    },
+    {
+      "label": "start menu retired before world",
+      "pass": true
+    },
+    {
+      "label": "original Main owner-room launcher reached Opera",
+      "pass": true
+    },
+    {
+      "label": "castle room suspended beneath original Opera",
+      "pass": true
+    },
+    {
+      "label": "original full Geologist world",
+      "pass": true
+    },
+    {
+      "label": "own saved activity checkpoint restored",
+      "pass": true
+    },
+    {
+      "label": "original activity surface opened",
+      "pass": true
+    },
+    {
+      "label": "Speedy own profile",
+      "pass": true
+    },
+    {
+      "label": "original touch rect",
+      "pass": true
+    },
+    {
+      "label": "required painted workbench Canvas texture",
+      "pass": true
+    },
+    {
+      "label": "actual workbench import1024square",
+      "pass": true
+    },
+    {
+      "label": "actual workbench mipmaps",
+      "pass": true
+    },
+    {
+      "label": "workbench transparent corner",
+      "pass": true
+    },
+    {
+      "label": "workbench solid cream face",
+      "pass": true
+    },
+    {
+      "label": "workbench linear mipmap filter",
+      "pass": true
+    },
+    {
+      "label": "fixed shared hit geometry",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 01_initial",
+      "pass": true
+    },
+    {
+      "label": "native save 01_initial",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 02_partial_seams",
+      "pass": true
+    },
+    {
+      "label": "native save 02_partial_seams",
+      "pass": true
+    },
+    {
+      "label": "original input completes selected activity",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 03_complete",
+      "pass": true
+    },
+    {
+      "label": "native save 03_complete",
+      "pass": true
+    },
+    {
+      "label": "normal eleven save/archive hashes unchanged",
+      "pass": true
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "final_snapshot": {
+    "complete": true,
+    "mode": "geology_geode",
+    "pull": 120.0,
+    "seams": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "stage": "GEODE_OPEN",
+    "version": 1
+  },
+  "fixture": "Own saved-phase checkpoint, original Main/Opera/Geologist and real one-finger GUI events; not naturally earned/training/QA11 or device evidence",
+  "normal_after": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".bak.old": "absent",
+    ".bak.tmp": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent",
+    ".old": "absent",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent"
+  },
+  "normal_before": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".bak.old": "absent",
+    ".bak.tmp": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent",
+    ".old": "absent",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent"
+  },
+  "phase": 3,
+  "quality": "speedy",
+  "renderer": "mobile",
+  "source_revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5 + actual candidateSHA256 60e21c32e6d7f3d96cc5e53b1893b66f00069175ce18282979b22afd83ac5eb1",
+  "status": "PASS"
+}
