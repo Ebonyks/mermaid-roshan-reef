@@ -1,5 +1,5 @@
 {
-  "title": "Mermaid Roshan and the Hidden Rainbow",
+  "title": "Mermaid Roshan and the Dust Bunnies",
   "subtitle": "A Pearl Castle friendship story",
   "format_inches": [
     7,
@@ -8098,6 +8098,37 @@
       ],
       "role": "Four shapeless lavender dust wisps, taller/lighter; native generated alpha, document-only bounded placement",
       "provenance": "V41 world_composition_provenance.json and generation_evidence.json; originals retained; no print edition."
+    },
+    "v43_bunny_pair": {
+      "file": "revisions/v43_dust_bunnies_cover/art/bunny_pair_native.png",
+      "provenance": {
+        "method": "Built-in imagegen transparent identity-preserving cover-only character insert",
+        "originals_preserved": true
+      }
+    },
+    "v43_lamma_first": {
+      "file": "../../../assets/minigames/seek/lamma_animation.png",
+      "alpha_box": [
+        50,
+        50,
+        212,
+        247
+      ],
+      "provenance": {
+        "method": "Exact first atlas cel; whole body drawn behind original bucket overlay; no severed delivered head asset"
+      }
+    },
+    "v43_floor_repair": {
+      "file": "revisions/v43_dust_bunnies_cover/art/floor_repair_native.png",
+      "provenance": {
+        "method": "Bounded existing floor continuity inpaint; no character repair",
+        "source_crop": [
+          1128,
+          850,
+          1512,
+          1080
+        ]
+      }
     }
   },
   "pages": [
@@ -8107,7 +8138,7 @@
       "art": [
         "v22_scene_01"
       ],
-      "text": "“Look, Daddy!\nPearl Castle!”",
+      "text": "\u201cLook, Daddy!\nPearl Castle!\u201d",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -8390,7 +8421,7 @@
         "v29_castle03"
       ],
       "layout": "full",
-      "text": "“Let’s look inside,\nDaddy,” said Roshan.",
+      "text": "\u201cLet\u2019s look inside,\nDaddy,\u201d said Roshan.",
       "border_assets": [],
       "border_placements": [],
       "background_theme": "Existing Grok frame at4seconds: Roshan and Daddy at open doors, dirty interior visible. Full-art left-anchored trim preserves both characters and the threshold; no generated wall pixels.",
@@ -8674,7 +8705,7 @@
       "art": [
         "v23_castle_repair"
       ],
-      "text": "Inside, dust covered the floor.\n“Let’s clean it together!”\nsaid Roshan.",
+      "text": "Inside, dust covered the floor.\n\u201cLet\u2019s clean it together!\u201d\nsaid Roshan.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "dirty castle interior",
@@ -8955,7 +8986,7 @@
         "v34_closed_door"
       ],
       "layout": "wide_cut",
-      "text": "Sniff, sniff!\nSomeone was sniffling behind a big shell door.\n“Hello?” said Roshan.",
+      "text": "Sniff, sniff!\nSomeone was sniffling behind a big shell door.\n\u201cHello?\u201d said Roshan.",
       "caption": {
         "x": 42,
         "y": 270,
@@ -9059,7 +9090,7 @@
         "sponge",
         "v30_yellow_sponge"
       ],
-      "text": "Daddy gave her a brush and some sponges.\n“One little job at a time,” said Daddy.",
+      "text": "Daddy gave her a brush and some sponges.\n\u201cOne little job at a time,\u201d said Daddy.",
       "layout": "tools",
       "border_assets": [],
       "background_theme": "Eager bunny peeks from supply basket; bath accessories remain ready without duplicating main brush/sponge.",
@@ -10271,7 +10302,7 @@
       "art": [
         "net_cut"
       ],
-      "text": "“I’ll help!” said Roshan.\nScoop, scoop!",
+      "text": "\u201cI\u2019ll help!\u201d said Roshan.\nScoop, scoop!",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Actual pool rubbish: torn star wrapper left; algae-covered dented can and discarded blue cap right. Replaces clean accessories and empty basket.",
@@ -10808,7 +10839,7 @@
       "art": [
         "v29_hug16"
       ],
-      "text": "“You helped me!”\nsaid Rumi.\nShe gave Roshan\na great big hug.",
+      "text": "\u201cYou helped me!\u201d\nsaid Rumi.\nShe gave Roshan\na great big hug.",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Tiny working seahorse recalls freed fountain; one warm bunny and shell cup support Rumi's hug.",
@@ -11056,7 +11087,7 @@
       "art": [
         "v22_scene_16"
       ],
-      "text": "Chirp, chirp!\n“Someone in the playroom\nneeds help!” said Roshan.",
+      "text": "Chirp, chirp!\n\u201cSomeone in the playroom\nneeds help!\u201d said Roshan.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -11306,7 +11337,7 @@
       "art": [
         "v29_rescue18"
       ],
-      "text": "Two dust bunnies sat on Baby Eagle.\nThey wanted to play, but he was stuck.\n“I’ll help!” said Roshan.",
+      "text": "Two dust bunnies sat on Baby Eagle.\nThey wanted to play, but he was stuck.\n\u201cI\u2019ll help!\u201d said Roshan.",
       "layout": "floor_caption",
       "border_assets": [],
       "background_theme": "stuffie rescue",
@@ -11981,7 +12012,7 @@
       "art": [
         "eagle_original_isolated"
       ],
-      "text": "Baby Eagle was free!\n“Let’s play gently,” said Roshan.",
+      "text": "Baby Eagle was free!\n\u201cLet\u2019s play gently,\u201d said Roshan.",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Two small sheepish bunnies remain secondary speakers; displaced toys explain their rough play.",
@@ -12674,7 +12705,7 @@
       "art": [
         "v37_sponge_pose"
       ],
-      "text": "“Hold on, we’ll make you feel\nclean and better!” said Roshan.",
+      "text": "\u201cHold on, we\u2019ll make you feel\nclean and better!\u201d said Roshan.",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Same tiny sofa and two gently unwell little puffs; aqua pop-up tissue box replaces cloth, cheering marks removed.",
@@ -13972,7 +14003,7 @@
         "v34_inviting_cutout",
         "approved_rainbow_puff_cutout"
       ],
-      "text": "“We helped your rainbow shine!” said Roshan.\n“Thank you!” said Grand Puff.\nRoshan smiled. “Come and rest with us!”",
+      "text": "\u201cWe helped your rainbow shine!\u201d said Roshan.\n\u201cThank you!\u201d said Grand Puff.\nRoshan smiled. \u201cCome and rest with us!\u201d",
       "layout": "placements",
       "border_assets": [],
       "background_theme": "Combined rainbow reflection, grateful Puff and invitation to rest. Existing attentive Roshan contour, grateful Puff face and sleepy toy banks unite the former30/31 beats; no second static exchange page.",
@@ -14448,7 +14479,7 @@
     "V30: local adult-Rumi face repairs0/10/33; Roshan brooch removals on covers; dirty-hall face attention4; supplies plural5 with an existing-source-derived yellow sponge cutout. Page5 brush stays exact; pink sponge is reduced/right-shifted beside the added yellow sponge. No new narrative scene. V29 native art/scene compositions/canon/borders remain the base."
   ],
   "cover": {
-    "treatment": "Existing rendered story ensemble with bounded paint/craft debris removal and unwell Puff facial correction",
+    "treatment": "Existing shared castle/family setting; prominent canonical two-bunny foreground group; exact Lamma atlas cel behind existing blue bucket; editable navy title",
     "art": [
       "cover_rendered"
     ],
@@ -15204,84 +15235,138 @@
         "edge_feather_reference_pixels": 0
       },
       {
-        "source": "v39_lamma_contact",
+        "source": "v43_floor_repair",
         "reference_size": [
           1512,
           1080
         ],
         "source_canvas_box": [
-          1257,
-          965,
-          1410,
-          986
-        ],
-        "polygon": [
-          [
-            1257,
-            965
-          ],
-          [
-            1410,
-            965
-          ],
-          [
-            1410,
-            986
-          ],
-          [
-            1257,
-            986
-          ]
-        ],
-        "edge_feather_reference_pixels": 0,
-        "opacity": 0.35
-      },
-      {
-        "source": "v39_lamma",
-        "reference_size": [
+          1128,
+          850,
           1512,
           1080
         ],
-        "source_canvas_box": [
-          1225,
-          775,
-          2065.0,
-          1195.0
-        ],
         "polygon": [
           [
-            1225,
-            775
+            1150,
+            900
           ],
           [
-            1435,
-            775
+            1270,
+            900
           ],
           [
-            1435,
-            985
+            1270,
+            1070
           ],
           [
-            1225,
-            985
+            1150,
+            1070
           ]
         ],
-        "edge_feather_reference_pixels": 0
+        "edge_feather_reference_pixels": 3.5,
+        "edge_inset_reference_pixels": 8
       }
     ],
     "subtitle": {
-      "text": "A Pearl Castle\nfriendship story",
-      "x": 338.0,
-      "y": 262,
-      "width": 90.2,
-      "size": 13,
-      "align": "right",
-      "color": "navy",
-      "line_baselines": [
-        262,
-        246
-      ]
-    }
+      "text": "",
+      "x": 24,
+      "y": 28,
+      "width": 456,
+      "size": 13
+    },
+    "placements": [
+      {
+        "source": "v43_lamma_first",
+        "box": [
+          31,
+          78,
+          35,
+          49
+        ]
+      },
+      {
+        "source": "v43_bunny_pair",
+        "box": [
+          390,
+          19,
+          110,
+          141
+        ]
+      }
+    ],
+    "foreground_overlays": [],
+    "title_lines": [
+      {
+        "text": "Mermaid Roshan",
+        "x": 133,
+        "y": 318,
+        "width": 350,
+        "size": 24
+      },
+      {
+        "text": "and the Dust Bunnies",
+        "x": 133,
+        "y": 284,
+        "width": 350,
+        "size": 28
+      }
+    ],
+    "occlusions": [
+      {
+        "reference_size": [
+          1512,
+          1080
+        ],
+        "path": [
+          [
+            "M",
+            0,
+            1080
+          ],
+          [
+            "L",
+            360,
+            1080
+          ],
+          [
+            "L",
+            360,
+            800
+          ],
+          [
+            "L",
+            258,
+            800
+          ],
+          [
+            "L",
+            248,
+            778
+          ],
+          [
+            "C",
+            248,
+            748,
+            49,
+            748,
+            49,
+            778
+          ],
+          [
+            "L",
+            42,
+            800
+          ],
+          [
+            "L",
+            0,
+            800
+          ]
+        ],
+        "role": "Original blue bucket contour occludes whole Lamma cel; curved back rim, no rectangular floor edge across head"
+      }
+    ]
   },
   "back_cover": {
     "art": "v37_rear_scene",
@@ -15599,9 +15684,9 @@
       }
     ]
   },
-  "revision": "V42 · doublewide cropped Sky Lagoon arrival",
-  "review_href": "../REVISION_REVIEW.html",
+  "revision": "V43 dust bunnies cover review",
+  "review_href": "../README.md",
   "physical_review_scale": 2,
   "format_note": "14x10in review single pages, arrival28x10in doublewidth spread. Full32storycaptions and castle-entrance illustration preserved. Final bound-page occupancy and printPart2 held.",
-  "download_pdf_href": "Mermaid_Roshan_Book_V42_Email.pdf"
+  "download_pdf_href": "Mermaid_Roshan_and_the_Dust_Bunnies_V43.pdf"
 }

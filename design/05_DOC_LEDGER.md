@@ -44,8 +44,8 @@ unclassified until this ledger gains one new scoped row for it.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V38 static review: A1–A8/A10 implemented, A9 resolution held; exact manuscript; owner/child/SLP/trim/print open. |
-| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; Static-book source/identity/layout rules and scoped owner exceptions. Owner decisions2026-10-19 and2026-10-25 preserve manuscript/character standards and govern V38 A1–A10; final trim open. Second-AI compliance review is supporting evidence, not new creative authority; no game/cinematic authority. |
+| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V43 dust-bunny title/cover review; exact V42 body; owner/child/SLP/physical print and arrival imposition/gutter held. |
+| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; Static-book source/identity/layout rules and scoped owner exceptions through V43 dust-bunny cover direction; manuscript/character standards preserved; arrival imposition/gutter and print held. Second-AI compliance review is supporting evidence, not new creative authority; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |
@@ -865,6 +865,8 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v41_final_review/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; Preserved V41 source/proof/evidence; V42 supersedes arrival page format/crop. Owner and print acceptance separate. |
 | `books/chapter_one/landscape/revisions/v41_final_review/BUILD_REPORT.md` | ⚪ | `HISTORICAL_EVIDENCE`; Preserved V41 source/proof/evidence; V42 supersedes arrival page format/crop. Owner and print acceptance separate. |
 | `books/chapter_one/landscape/revisions/v41_final_review/peer_review/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; Preserved V41 source/proof/evidence; V42 supersedes arrival page format/crop. Owner and print acceptance separate. |
-| `books/chapter_one/landscape/revisions/v42_doublewide_arrival/README.md` | 🔵 | `SUPPORTING_CURRENT`; Current doublewide source crop and mixed-width review, preserved entrance and explicit physical pagination/gutter holds. |
-| `books/chapter_one/landscape/revisions/v42_doublewide_arrival/BUILD_REPORT.md` | 🔵 | `SUPPORTING_CURRENT`; Actual width/crop,source/default-regression/export evidence and unaccepted print mapping. |
-| `books/chapter_one/landscape/revisions/v42_doublewide_arrival/peer_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Independent crop/context/export critique; physical binding and owner acceptance separate. |
+| `books/chapter_one/landscape/revisions/v42_doublewide_arrival/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Preserved V42 doublewide source crop and mixed-width review, preserved entrance and explicit physical pagination/gutter holds. |
+| `books/chapter_one/landscape/revisions/v42_doublewide_arrival/BUILD_REPORT.md` | 🔵 | `HISTORICAL_EVIDENCE`; Actual width/crop,source/default-regression/export evidence and unaccepted print mapping. |
+| `books/chapter_one/landscape/revisions/v42_doublewide_arrival/peer_review/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Independent crop/context/export critique; physical binding and owner acceptance separate. |
+| `books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/README.md` | 🔵 | `SUPPORTING_CURRENT`; Current owner-selected dust-bunny cover/title and unchanged V42 body; print/owner holds explicit. |
+| `books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/peer_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Independent iterative cover critique; exact final candidate and publication lanes kept separate. |

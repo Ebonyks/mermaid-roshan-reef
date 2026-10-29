@@ -1,0 +1,91 @@
+{
+  "review_type": "Five distinct fresh focused primary inspections after final art revision, not five claimed child/owner sessions",
+  "checked_at_utc": "2026-10-29T06:58:09.561758+00:00",
+  "cover_sha256": "c3bd805e0e3d7852623aa4d0c64d2eb35be6f8e9c6c995047f0fed323ef97d93",
+  "reading_sha256": "3e390cb328dd3a8a712d0ebe6f33f8de2e5496565428307dfaa8e89206dd4978",
+  "passes": [
+    {
+      "pass_number": 1,
+      "focus": "Overall cover promise",
+      "result": "PASS_SCOPED_COVER_REVIEW",
+      "inspected": [
+        "complete/page_00.png",
+        "details/thumbnail.png"
+      ],
+      "inspected_sha256": {
+        "complete/page_00.png": "67fd3a8ac675cb7f0d55de5cf60f449c3d9bf06b081fd39fba8e5e0d6f9b392b",
+        "details/thumbnail.png": "6c2881c489948658a54cdd19106d903f772d69cbdeff4b6a6906febe5163e08f"
+      },
+      "observations": "Two foreground lavender bunnies plus doorway Puff make title tangible at full and thumbnail scales. Roshan remains central, no crowding or cropped canonical figures.",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "pass_number": 2,
+      "focus": "Typography",
+      "result": "PASS_SCOPED_COVER_REVIEW",
+      "inspected": [
+        "details/title.png",
+        "title_geometry.json"
+      ],
+      "inspected_sha256": {
+        "details/title.png": "b913b1b7f325ff57fd678c8f2ca699dea8fa1552aa6485f0a158c5d55d63be0a",
+        "title_geometry.json": "9eba6f1c16b8fdfed5045f02b4fd629972aef30f1862422a9ce634d07379ac9f"
+      },
+      "observations": "Exact new title reads in two navy Sniglet lines; actual top ink inset23.687988logical points exceeds18; clear of tiara, no leftover Hidden Rainbow/subtitle lettering.",
+      "remaining_in_scope_defects": [],
+      "binding_note": "Title geometry inspection rechecked after adding only cover/control hash fields; actual ink boxes, typography, proof pixels and measurement unchanged."
+    },
+    {
+      "pass_number": 3,
+      "focus": "Hidden Lamma and contact",
+      "result": "PASS_SCOPED_COVER_REVIEW",
+      "inspected": [
+        "details/lamma.png"
+      ],
+      "inspected_sha256": {
+        "details/lamma.png": "76ccce32b5d7062e36973046fad739e9824d7df496d37087aff03bbbf2b7283d"
+      },
+      "observations": "Tiny original Lamma ears/eyes/head peek over curved bucket back rim; entire body stays hidden, no floor rectangle cutting across lower face.",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "pass_number": 4,
+      "focus": "Identity,alpha and floor integration",
+      "result": "PASS_SCOPED_COVER_REVIEW",
+      "inspected": [
+        "details/bunnies.png",
+        "details/family.png"
+      ],
+      "inspected_sha256": {
+        "details/bunnies.png": "f02613efb4c451db1b8d36239216176276f72d7196b8340507e8b24b6a6ee4cf",
+        "details/family.png": "ec9f53a7013d4bded340a24058c417e36697aeb9641cef494e1dbd5060c62c57"
+      },
+      "observations": "Two ear curls,forehead curl,two ear pearls/two paw pearls per bunny; complete contours/soft contact shadows. Existing family/tails/Eagle retained. Old plate join healed locally with no pink spill or generated bird pixels.",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "pass_number": 5,
+      "focus": "Actual reading export and story sequence",
+      "result": "PASS_SCOPED_COVER_REVIEW",
+      "inspected": [
+        "complete/reading_cover.png",
+        "details/sequence.png"
+      ],
+      "inspected_sha256": {
+        "complete/reading_cover.png": "66131b6b71500816e87b56eea7da49d68ce3452a2e17baf5803a7cb426eede8b",
+        "details/sequence.png": "f914dfb889c41a1d25191342dacf6d8e704427a087fc607c103ea69b963fdcda"
+      },
+      "observations": "Compressed actual PDF retains clean cover lettering/edges. Flight, wide arrival, entrance, Puff and rear remain the previous illustrations; no rainbow-Puff spoiler added to cover. Physical imposition still held.",
+      "remaining_in_scope_defects": []
+    }
+  ],
+  "acceptance": "Exact scoped review only. Owner/child/SLP and physical print/gutter/imposition remain open.",
+  "artifact_bindings": {
+    "BOOK_CURRENT.json": "49ade265378f0fea177144cc01cd3dd7810b69fc9cdc6b0e6ba605c653ee3795",
+    "complete/cover_provenance.json": "f891dee9c489ef2ccdda65f6d8d8ba51d6f5dbbfe72e807ddad7e2055808de8b",
+    "generation_record.json": "39b3871eea641f5740b06a6485d886923eba44bb4f3b57d6c54146761688bf2c",
+    "floor_repair_record.json": "5c70e207bd3b4c8c43f2b3fe345e61f6e093d16ea09ae51e35800caf4f8a7300",
+    "../../render_book.py": "5b7773942d42679fdf94fec85c7db5d08f2e9ff93034005b71f92f316077287f"
+  },
+  "line_ending_recheck": "floor_repair_record JSON normalized CRLF to LF only; parsed record byte-for-byte equivalent after newline normalization, native/prompts/proofs/controls unchanged. Binding explicitly updated for fresh LF-clone reproducibility."
+}

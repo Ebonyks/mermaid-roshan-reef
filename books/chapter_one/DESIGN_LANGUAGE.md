@@ -199,3 +199,10 @@ The packet says “Once the owner has accepted the illustrations” before print
 Owner: “This should be a doublewide page, with significant cropping of top and bottom of screen.” [V42](landscape/revisions/v42_doublewide_arrival/README.md) supersedes V41's single-page arrival format while preserving its scene source. Crop the redundant sky/foreground, retain complete horizontal context and use one continuous uniform source window. No new generation or scene invention.
 
 Pending the optional owner choice of occupying stories2-3 versus adding an arrival page, the illustration review uses one double-width PDF entry, preserving all34entries,32captiontexts and the separate entrance illustration. It grants no physical imposition/reveal-parity pass: splitting it while retaining entrance produces33interior page units. The swing is close to the proposed centre fold; physical gutter and page placement are held. Print Part2 and owner,physical,child,qualifiedSLP acceptance remain open.
+
+
+## V43 owner cover and title direction (2026-10-28)
+
+The owner selects **Mermaid Roshan and the Dust Bunnies**, requests the bunnies have a more major cover role, and directs Lamma to be hidden with its head barely peeking behind the bucket. This supersedes the Hidden Rainbow cover title and the previous exposed full-body Lamma cover cameo. The existing scoped rendered-cover commission permits the two new canonical posed bunnies as a foreground insert; it does not authorize a full-scene redraw or family/identity changes.
+
+[V43](landscape/revisions/v43_dust_bunnies_cover/README.md) retains the existing castle/family artwork and anatomy corrections, makes the title editable, introduces a prominent two-bunny group, and hides the original whole Lamma cel behind the original bucket's curved rim. No severed head is a new asset. No body/rear illustration or manuscript changes. V42 sources/exports remain preserved, as do arrival imposition/gutter, printPart2 and owner/child/SLP/physical-print holds.

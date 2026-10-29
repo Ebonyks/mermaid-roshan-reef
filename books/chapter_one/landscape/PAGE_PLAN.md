@@ -1,4 +1,4 @@
-# V42 mixed-width review page plan
+# V43 page plan; V42 body preserved
 
 Status: `SUPPORTING_CURRENT`. Exact owner manuscript; [pagination hold and review mapping](revisions/v42_doublewide_arrival/complete/print_pagination.json) and [controls](book.json).
 

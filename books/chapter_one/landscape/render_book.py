@@ -71,6 +71,8 @@ def local_patch(p):
   # Layout-only soft clipping. The native generated file is preserved unchanged.
   resource=resource.convert('RGBA');matte=Image.new('L',resource.size,0)
   ImageDraw.Draw(matte).polygon([((px-cl)*iw/cw-l,(py-ct)*ih/ch-t) for px,py in q['polygon']],fill=255)
+  inset=float(q.get('edge_inset_reference_pixels',0))
+  if inset:matte=matte.filter(ImageFilter.MinFilter(2*math.ceil(inset*iw/cw)+1))
   matte=matte.filter(ImageFilter.GaussianBlur(feather*iw/cw))
   # Fade at the embedded resource boundary as well as polygon edges. A filled
   # rectangular matte alone has no zero pixels for GaussianBlur to blend into.
@@ -93,6 +95,7 @@ def local_patch(p):
  LAYERS[-1]['clip_canvas_transform_points']=[ox,oy,s]
  if opacity<1:LAYERS[-1]['document_opacity']=opacity
  if feather:LAYERS[-1]['edge_feather_reference_pixels']=feather
+ if q.get('edge_inset_reference_pixels'):LAYERS[-1]['edge_inset_reference_pixels']=q['edge_inset_reference_pixels']
  c.restoreState()
 
 def cut(k,x,y,w,h):
@@ -186,8 +189,27 @@ def page_extension(p):
 # Covers remain part of the rough, outside the 32 numbered story pages.
 full('cover_rendered')
 for patch in B.get('cover',{}).get('local_patches',[]):local_patch({'local_patch':patch})
-text('Mermaid Roshan',142,312,338,30,True)
-text('and the Hidden Rainbow',142,282,338,22,True)
+for placement in B.get('cover',{}).get('placements',[]):cut(placement['source'],*placement['box'])
+for overlay in B.get('cover',{}).get('foreground_overlays',[]):
+ region(overlay['source'],overlay['crop'],overlay['target'])
+for occlusion in B.get('cover',{}).get('occlusions',[]):
+ c.saveState()
+ if occlusion.get('path'):
+  shape=c.beginPath();rw,rh=occlusion['reference_size']
+  for command in occlusion['path']:
+   kind,*points=command
+   coords=[v*(W/rw if i%2==0 else -H/rh)+(0 if i%2==0 else H) for i,v in enumerate(points)]
+   if kind=='M':shape.moveTo(*coords)
+   elif kind=='L':shape.lineTo(*coords)
+   elif kind=='C':shape.curveTo(*coords)
+   else:raise ValueError(kind)
+  shape.close();c.clipPath(shape,stroke=0,fill=0)
+ else:cliprect(*occlusion['box'])
+ full('cover_rendered')
+ for patch in B.get('cover',{}).get('local_patches',[]):local_patch({'local_patch':patch})
+ c.restoreState()
+for q in B.get('cover',{}).get('title_lines',[dict(text='Mermaid Roshan',x=142,y=312,width=338,size=30),dict(text='and the Hidden Rainbow',x=142,y=282,width=338,size=22)]):
+ text(q['text'],q['x'],q['y'],q['width'],q['size'],True)
 subtitle=B.get('cover',{}).get('subtitle',dict(text='A Pearl Castle friendship story',x=24,y=28,width=456,size=13))
 if subtitle['text']:text(subtitle['text'],subtitle['x'],subtitle['y'],subtitle['width'],subtitle['size'],subtitle.get('align','center')=='center',color=subtitle.get('color','navy'),line_baselines=subtitle.get('line_baselines'),right=subtitle.get('align')=='right')
 finish_page()
@@ -275,7 +297,7 @@ for start in range(0,len(thumbs),8):
   x=j%4*336;y=j//4*262;sheet.paste(im,(x,y));idx=start+j;d.text((x+5,y+243),'Cover' if idx==0 else 'Back cover' if idx==33 else f'Page {idx}',fill='black')
  sheet.save(O/f'contact_{start//8+1}.jpg',quality=94)
 body=''.join(f'<figure class="{"wide" if 0<i<33 and B["pages"][i-1].get("width_multiplier",1)==2 else "single"}"><figcaption>{"Cover" if i==0 else "Back cover" if i==33 else "Page "+str(i)}</figcaption><img loading="lazy" src="page_{i:02}.png" alt="{html.escape("Cover" if i==0 else "Back cover" if i==33 else B["pages"][i-1]["text"])}"></figure>' for i in range(34))
-(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape book</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}figure.wide{grid-column:1/-1}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>'+str(7*S)+' × '+str(5*S)+(' inch single pages · arrival spread is twice as wide · 32 story entries + covers · ' if any(p.get('width_multiplier',1)==2 for p in B['pages']) else ' inches · 32 story pages + covers · ')+html.escape(B.get('revision','Review proof'))+'</p><p><a href="'+html.escape(B.get('download_pdf_href','Mermaid_Roshan_LANDSCAPE_ROUGH.pdf'))+'">Download PDF</a> · <a href="'+html.escape(B.get('review_href','../REVISION_REVIEW.html'))+'">Revision audit and before/after views</a></p><p>34 pages including covers. Owner, child and final print acceptance remain open.</p></header><main>'+body+'</main>',encoding='utf8',newline='\n')
+(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape book</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}figure.wide{grid-column:1/-1}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>'+html.escape(B['title'])+'</h1><p>'+str(7*S)+' × '+str(5*S)+(' inch single pages · arrival spread is twice as wide · 32 story entries + covers · ' if any(p.get('width_multiplier',1)==2 for p in B['pages']) else ' inches · 32 story pages + covers · ')+html.escape(B.get('revision','Review proof'))+'</p><p><a href="'+html.escape(B.get('download_pdf_href','Mermaid_Roshan_LANDSCAPE_ROUGH.pdf'))+'">Download PDF</a> · <a href="'+html.escape(B.get('review_href','../REVISION_REVIEW.html'))+'">Revision audit and before/after views</a></p><p>34 pages including covers. Owner, child and final print acceptance remain open.</p></header><main>'+body+'</main>',encoding='utf8',newline='\n')
 # A portable rebuild provides the written review even without the earlier v7 images.
 if not B.get('revision') and not (O/'STRESS_TEST.html').exists() and (ROOT/'stress_review.json').exists():
  review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'))

@@ -1,9 +1,9 @@
-# Mermaid Roshan and the Hidden Rainbow
+# Mermaid Roshan and the Dust Bunnies
 
-Status: SUPPORTING_CURRENT; [V42 cropped doublewide arrival](landscape/revisions/v42_doublewide_arrival/README.md), illustration review.
+Status: SUPPORTING_CURRENT; [V43 cover and title review](landscape/revisions/v43_dust_bunnies_cover/README.md).
 
-[Read](landscape/revisions/v42_doublewide_arrival/complete/READ_BOOK.html) · [Wide arrival PDF](landscape/revisions/v42_doublewide_arrival/complete/Sky_Lagoon_Doublewide_V42.pdf) · [Reading PDF](landscape/revisions/v42_doublewide_arrival/complete/Mermaid_Roshan_Book_V42_Email.pdf) · [Compare](landscape/revisions/v42_doublewide_arrival/REVISION_REVIEW.html) · [Design language](DESIGN_LANGUAGE.md).
+[Read](landscape/revisions/v43_dust_bunnies_cover/complete/READ_BOOK.html) · [Reading PDF](landscape/revisions/v43_dust_bunnies_cover/complete/Mermaid_Roshan_and_the_Dust_Bunnies_V43.pdf) · [Cover comparison](landscape/revisions/v43_dust_bunnies_cover/REVISION_REVIEW.html) · [Design language](DESIGN_LANGUAGE.md).
 
-The arrival is twice the single-page width and loses about half the previous sky/foreground height. Both waters, landing, complete playground, route and four-tower castle remain in the same source geography. All33 other proofs,32captiontexts/manual breaks,previous repairs and source originals remain unchanged.
+Owner selects the dust-bunny title and asks for a stronger cover role for the creatures. Two canonical lavender bunnies now occupy the foreground; Grand Puff remains in the doorway. Lamma is a tiny head peeking from behind the original blue bucket. The established family, castle and anatomy repairs remain, with editable vector lettering. Two bounded imagegen calls: one transparent character group and one small floor continuity repair; no full-scene redraw.
 
-This is a mixed-width34-entry review PDF. The separate castle entrance stays while the optional owner page-occupancy choice is pending. Actual bound-page count/parity/gutter is held; the swing needs a physical fold solution. PrintPart2, owner illustration acceptance,physical test print,child reading and qualifiedSLP remain open. V41 and earlier editions are preserved.
+All33 remaining PDF entries, including the doublewide Sky Lagoon arrival and separate entrance, retain exact V42 renders/text/images. V42 and earlier versions remain preserved. This is a34-entry mixed-width illustration review, not an imposed print edition. Arrival page assignment/gutter and printPart2, owner cover acceptance,physical print,child reading and qualifiedSLP remain open.
