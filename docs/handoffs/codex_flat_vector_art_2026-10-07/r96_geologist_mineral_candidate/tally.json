@@ -1,7 +1,7 @@
 {
   "schema": "reef.flat_vector_tally/1",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
-  "revision": "FV-AUDIT-20261029-R104",
+  "revision": "FV-AUDIT-20261029-R104-DEV",
   "status_lanes": [
     "NEEDS_CONTEXT_REVIEW",
     "IDENTIFIED",
@@ -11450,7 +11450,7 @@
     "owner": null,
     "accepted_removed": 0
   },
-  "existing_runtime_candidates_committed_this_revision": 1,
+  "existing_runtime_candidates_committed_this_revision": 0,
   "r99_parent_receipt_revision": "b7a97d8dc4008e3ff618e505ec64c9dffd7dd65e",
   "r99_pan_merge_revalidation": {
     "stable_id": "FV-F2DE53A80AA7",
@@ -11572,7 +11572,7 @@
     "mission_complete": false,
     "recorded_at_utc": "2026-10-29T06:35:35.079787+00:00"
   },
-  "partial_dev_artifacts_current_summary": 5,
+  "partial_dev_artifacts_current_summary": 6,
   "r102_mint_runtime": {
     "stable_id": "FV-66629DC58A20",
     "scope": "First mint PAN specimen only; blue/lavender and shared helper consumers remain open.",
@@ -11764,5 +11764,34 @@
     "mission_complete": false
   },
   "r104_retained_bounded_current_summary": 6673,
-  "r104_new_native_frame_events": 8
+  "r104_new_native_frame_events": 8,
+  "r104_dev_integration": {
+    "stable_id": "FV-66629DC58A20",
+    "state": "REMAINING_PAINTED_PAN_MINERALS_EXACT_GREEN_SOURCE_INTEGRATED_DEV",
+    "source_revision": "8df4757e6f2e399d1c4e3d7f352f0a38bef13b55",
+    "integrated_dev_revision": "8df4757e6f2e399d1c4e3d7f352f0a38bef13b55",
+    "source_CI_run": 40855569210,
+    "source_CI_conclusion": "success",
+    "trusted_probe_step": "success",
+    "runtime_files_anonymous_exact": 5,
+    "integration_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/DEV_INTEGRATION.json",
+    "source_CI_proof": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/SOURCE_CI_GREEN.json",
+    "partial_dev_artifact_credit": 1,
+    "partial_dev_artifact_key": "r104_geologist_mineral_variants_runtime",
+    "new_source_artifact_credit": 0,
+    "new_native_frames": 0,
+    "new_generation_calls": 0,
+    "new_roles": 0,
+    "new_families": 0,
+    "Dev_integrated": true,
+    "whole_role_closed": false,
+    "exact_new_Dev_APK_verified": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "mission_complete": false
+  },
+  "r104_dev_new_native_frames": 0
 }

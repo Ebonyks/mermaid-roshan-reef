@@ -1,0 +1,54 @@
+{
+  "id": "flat-vector-r104-minerals-dev-20261029",
+  "scope": "Canonical current registry/scene/tally from actual exact-green source Dev integration; partialDev5to6 once, source7 and native6673/4134/10807 unchanged. No runtime or generation changes on metadata branch.",
+  "baseline": "de3364b27dffe55e12d73603072bbfbc004b8c32",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-ASSET-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-OPERA-004"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/CANONICAL_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/DEV_WORKFLOW_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/OBSERVATION_REPAIR.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/PAYLOAD_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/PRIOR_OBSERVER_CONNECTION_STOP_20261029.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/PRODUCTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/SOURCE_CI_GREEN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Existing exact-source CIgreen and guarded normalDev fastforward with5anonymous exactruntimefiles",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/DEV_INTEGRATION.json; SOURCE_CI_GREEN.json; actualsource/8df4757e6f2e399d1c4e3d7f352f0a38bef13b55"
+    },
+    {
+      "command": "Current canonical authority/development and immutable anonymous delivery",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/CANONICAL_GATES.json; anonymous publication/receipt completion recorded separately, never inferred from document checks."
+    }
+  ],
+  "acceptance_gaps": "No complete-role/removal claim. FormalQA11, phone, child, owner, naturalroute/otherGeologist/global andexactnewDevAPK evidence pending."
+}

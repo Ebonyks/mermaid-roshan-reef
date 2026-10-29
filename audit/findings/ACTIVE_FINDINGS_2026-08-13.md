@@ -405,6 +405,8 @@ R103 production2026-10-29: [Blue/lavender mineral sources](../../docs/handoffs/c
 
 R104 partialproduction2026-10-29: [remaining painted PAN mineral runtime](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/README.md) actualsource8df4757e, local82/static/native90 and8actualframes reviewed, source delivery anonymously exact.7source/5partialDev artifacts; no whole-role/removal acceptance. ExactCI/Dev/formal/device/child/owner, otherGeologist/global gaps and lifecycle remain open.
 
+R104 Dev transition2026-10-29: [remaining painted PAN minerals](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/README.md) exactsource8df4757e integrated after sourceCI40855569210success;5runtimefiles anonymous exact. SixpartialDevartifacts, no newsource/frame/whole-role/removal credit. Formal/device/child/owner andotherGeologist/globalgaps open; lifecycle unchanged.
+
 ## MA-VIS-007
 
 | Field | Value |

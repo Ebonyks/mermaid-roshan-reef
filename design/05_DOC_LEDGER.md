@@ -1424,3 +1424,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/README.md` | 🟣 | `PROPOSED / CANDIDATE` source-only blue/lavender Geologist mineral variants, current8f86192b scene references, per-brief attempts and separate generation/runtime/acceptance lanes. Closed mint brief and existing sourceCI/integration remain unchanged. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` two remaining painted PAN specimens, actualsource delivery anonymous exact, local82/static/import/native90 and8actualframes reviewed. ExactCI/Dev/formal/device/child/owner and otherjob/global gaps open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/dev_integration_20261029/README.md` | 🟣 | `PROPOSED / CANDIDATE` verified exact-green source/Dev integration for remaining painted PAN minerals; no new art/frame/removal credit, external/formal/global acceptance open. |
