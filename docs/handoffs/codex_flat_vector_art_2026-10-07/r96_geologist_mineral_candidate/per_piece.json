@@ -11501,8 +11501,8 @@
       ],
       "reuse_inspection": "Existing complete painted alpha-extracted pan selected for its quality and fit. Reuse is optional under the owner2026-10-17 direction; no failed-reuse prerequisite.",
       "named_gap": null,
-      "status": "CURRENT_SOURCE_PUBLISHED_LOCAL82_NATIVE54_PASS_EXACT_CI_RUNNING",
-      "integration_sha": null,
+      "status": "PARTIAL_PAINTED_PAN_DEV_INTEGRATED_EXTERNAL_ACCEPTANCE_PENDING",
+      "integration_sha": "e69b50b5e74d02f55985c7b87cf1f2271b91d452",
       "acceptance_evidence": {
         "current_mobile_runtime": null,
         "wide_phone_runtime": null,
@@ -11726,6 +11726,33 @@
         "new_implementation_artifacts": 0,
         "accepted_removed": 0,
         "mission_complete": false
+      },
+      "r101_pre_dev_status": "CURRENT_SOURCE_PUBLISHED_LOCAL82_NATIVE54_PASS_EXACT_CI_RUNNING",
+      "r101_dev_integration": {
+        "stable_id": "FV-F2DE53A80AA7",
+        "state": "PAINTED_PAN_EXACT_GREEN_SOURCE_INTEGRATED_DEV",
+        "source_revision": "e69b50b5e74d02f55985c7b87cf1f2271b91d452",
+        "integrated_dev_revision": "e69b50b5e74d02f55985c7b87cf1f2271b91d452",
+        "prior_dev": "4d0983755d91686b671fe48c0efa748c7cc40498",
+        "source_CI_run": 40824815737,
+        "source_CI_conclusion": "success",
+        "trusted_probe_step": "success",
+        "integration_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/dev_integration_20261029/DEV_INTEGRATION.json",
+        "three_runtime_files_anonymous_exact": true,
+        "full_source47file_delivery": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/95cccfff8fac140edc6ea485952f7415b87c7e01/docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/SOURCE_REMOTE_VERIFICATION.json",
+        "new_native_frames": 0,
+        "new_source_artifact_credits": 0,
+        "partial_dev_artifact_credit": 1,
+        "partial_dev_artifact_key": "r95_geologist_pan_runtime",
+        "exact_new_Dev_APK_verified": false,
+        "whole_role_closed": false,
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "mission_complete": false,
+        "recorded_at_utc": "2026-10-29T06:35:35.079787+00:00"
       }
     },
     {
@@ -22642,7 +22669,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261029-R101",
+  "revision": "FV-AUDIT-20261029-R101-DEV",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -34740,5 +34767,31 @@
     "accepted_removed": 0,
     "mission_complete": false
   },
-  "r101_new_native_frame_events": 8
+  "r101_new_native_frame_events": 8,
+  "r101_dev_integration": {
+    "stable_id": "FV-F2DE53A80AA7",
+    "state": "PAINTED_PAN_EXACT_GREEN_SOURCE_INTEGRATED_DEV",
+    "source_revision": "e69b50b5e74d02f55985c7b87cf1f2271b91d452",
+    "integrated_dev_revision": "e69b50b5e74d02f55985c7b87cf1f2271b91d452",
+    "prior_dev": "4d0983755d91686b671fe48c0efa748c7cc40498",
+    "source_CI_run": 40824815737,
+    "source_CI_conclusion": "success",
+    "trusted_probe_step": "success",
+    "integration_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/dev_integration_20261029/DEV_INTEGRATION.json",
+    "three_runtime_files_anonymous_exact": true,
+    "full_source47file_delivery": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/95cccfff8fac140edc6ea485952f7415b87c7e01/docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/SOURCE_REMOTE_VERIFICATION.json",
+    "new_native_frames": 0,
+    "new_source_artifact_credits": 0,
+    "partial_dev_artifact_credit": 1,
+    "partial_dev_artifact_key": "r95_geologist_pan_runtime",
+    "exact_new_Dev_APK_verified": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "recorded_at_utc": "2026-10-29T06:35:35.079787+00:00"
+  }
 }

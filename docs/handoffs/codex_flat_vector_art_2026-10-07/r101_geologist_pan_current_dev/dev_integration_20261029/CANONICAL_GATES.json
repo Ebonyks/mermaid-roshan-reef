@@ -1,0 +1,31 @@
+{
+  "state": "PASS",
+  "gates": [
+    {
+      "gate": "authority",
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=815|LEDGER=815|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "4c15ef637ce7cf3621d1438b714f6c8b589832cc33d635fd19b12083f1a14df4"
+    },
+    {
+      "gate": "development",
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    }
+  ],
+  "engine_rerun": false,
+  "reason": "Production pixels/code/import unchanged; exactsourceCI and existing local/native evidence bind currentDev."
+}
