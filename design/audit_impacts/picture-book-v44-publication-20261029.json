@@ -1,0 +1,36 @@
+{
+  "id": "picture-book-v44-publication-20261029",
+  "baseline": "83be1b45426747310e8a2b6780f71d0bbcf5429d",
+  "scope": "Publish anonymous full-payload verification receipt and independent publication-only acceptance for the sealed V44 repair/audit. No payload member or artwork changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book publication metadata; no game finding closure.",
+  "files": [
+    "books/chapter_one/landscape/revisions/v44_door_and_consistency/remote_verification.json",
+    "books/chapter_one/landscape/revisions/v44_door_and_consistency/peer_review/final_publication_acceptance.json",
+    "design/audit_impacts/picture-book-v44-publication-20261029.json"
+  ],
+  "validation": [
+    {
+      "command": "Anonymous exact-revision manifest plus every payload member",
+      "result": "PASS",
+      "evidence": "127files/198383171bytes;2026-10-29T14:42:45.164283+00:00;payload f279bd9501cc607bdc03be24faa58739dafaf869f314d178564116e41d5405df;manifest 8b369eda25575f48bceaaf5515be776aca2c0a52f8cff1d95d5cafe1bc12f583;receipt SHA256 701777f09d3b7b9eca8a777985a5a484d3c66ceedd2922716609b757cc49165c"
+    },
+    {
+      "command": "Independent publication-only critique",
+      "result": "PASS",
+      "evidence": "Independent final_publication_acceptance.json SHA256 5b57eecf03a6bd97ae199ffe433ad113536e013539bfa733bf83d72ad9ac8c5b;127 pinned commit blobs and complete receipt membership;26 anonymous critical files/55250796bytes including both PDFs/all23candidate bindings; no second127file anonymous run claimed. Scoped publication satisfied with two open book findings/holds."
+    },
+    {
+      "command": "Document authority/development pre-commit gates",
+      "result": "PASS",
+      "evidence": "[{\"command\": \"C:\\\\Users\\\\Peter\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe -X utf8 -B tools/audit_document_authority.py\", \"exit_code\": 0, \"seconds\": 5.828, \"stdout\": \"DOCAUTH|INVENTORY=623|LEDGER=623|ACTIVE=56|RECORDS=58\\nDOCAUTH|RESULT|ALL OK\\n\", \"stderr\": \"\"}, {\"command\": \"C:\\\\Users\\\\Peter\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe -X utf8 -B tools/audit_development.py --base auto\", \"exit_code\": 0, \"seconds\": 5.156, \"stdout\": \"AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\\nAUDITDEV|RESULT|ALL OK\\n\", \"stderr\": \"\"}]"
+    }
+  ],
+  "acceptance_gaps": "Cover repair scope reviewed; whole-book BK44-O01/O02 remain open. Owner/child/qualifiedSLP,physical-print/arrival imposition/parity/gutter and V41printPart2 remain held; no game/dev/master/release."
+}
