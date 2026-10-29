@@ -1,0 +1,180 @@
+{
+  "stable_id": "FV-4CD5292EEE1D",
+  "state": "PAINTED_FOSSIL_WHOLE_AND_THREE_MATCHING_FRAGMENTS_IN_DEV_EXACT_SOURCE_CI_GREEN",
+  "source_revision": "f02aec12181b28706cae1f79705ff95df9aac7b9",
+  "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+  "source_baseline": "44da99ba5c68153fa247e0794425b5f6d7d3cc79",
+  "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r107_geologist_fossil_runtime/MANIFEST.json",
+  "source_delivery_required_files": 85,
+  "source_delivery_all_anonymous_exact": true,
+  "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r107_geologist_fossil_runtime/SOURCE_REMOTE_VERIFICATION.json",
+  "source_CI_run": 40929825552,
+  "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40929825552",
+  "source_CI_conclusion": "success",
+  "integrated_dev_revision": "f02aec12181b28706cae1f79705ff95df9aac7b9",
+  "runtime_exports": [
+    {
+      "role": "whole",
+      "path": "assets/opera/worlds/props/geologist_fossil_painted.png",
+      "dimensions": [
+        900,
+        540
+      ],
+      "sha256": "f7b5272f5d73cbd3de012eeffb4603104cc3053a534022a0dafda9e331408acf",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 55.2,
+        "faint_haze_pct_of_canvas": 0.4,
+        "semi_pct_of_visible": 0.8,
+        "near_opaque_pct_of_visible": 98.3,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          80,
+          84,
+          820,
+          455
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    },
+    {
+      "role": "piece0",
+      "path": "assets/opera/worlds/props/geologist_fossil_piece_0_painted.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "60774f99239dec9b6a3ee2d7e9f60ed5f0c34f6051379da13f7687ce6302f7a5",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 84.9,
+        "faint_haze_pct_of_canvas": 0.1,
+        "semi_pct_of_visible": 1.8,
+        "near_opaque_pct_of_visible": 97.5,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          197,
+          136,
+          381,
+          397
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    },
+    {
+      "role": "piece1",
+      "path": "assets/opera/worlds/props/geologist_fossil_piece_1_painted.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "5b4711ab21c5994cc7b6abf3ddd6747e71bca651cd77fb20daaa9e1715d4a0dd",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 72.2,
+        "faint_haze_pct_of_canvas": 0.1,
+        "semi_pct_of_visible": 1.0,
+        "near_opaque_pct_of_visible": 98.6,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          131,
+          101,
+          381,
+          410
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    },
+    {
+      "role": "piece2",
+      "path": "assets/opera/worlds/props/geologist_fossil_piece_2_painted.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "182d85783dae6d4f9aaba7e682aea3d115340e3f5253b9647c3d720397b0ce13",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 85.2,
+        "faint_haze_pct_of_canvas": 0.1,
+        "semi_pct_of_visible": 1.8,
+        "near_opaque_pct_of_visible": 97.4,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          131,
+          138,
+          315,
+          395
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    }
+  ],
+  "actual_native_checks": 114,
+  "candidate_frames_reviewed": 16,
+  "same_scene_source_frames_reused": 6,
+  "new_frame_events": {
+    "bounded": 16,
+    "excluded": 0,
+    "retained": 16
+  },
+  "current_static_all82": "PASS",
+  "unchanged_other_functions": 53,
+  "primitive_calls": {
+    "before": 33,
+    "after": 31,
+    "retired": "Two reachable optional whole/piece fallback arcs in this surface; global SVG preserved for other callers. Texture wrappers are separately counted, not artwork removals.",
+    "new_filter_wrapper_helper": 1,
+    "whole_and_piece_loads": 4,
+    "accepted_removed": 0
+  },
+  "new_bounded_source_artifacts": 1,
+  "partial_Dev_artifact_credit": 1,
+  "implementation_unit": "One coherent whole fossil/three fragments runtime implementation; four PNG exports are not four complete role removals.",
+  "new_generation_calls": 1,
+  "generated_outputs": 1,
+  "technical_exports": 4,
+  "backend": "built-in image_gen.imagegen",
+  "model_version": "NOT_EXPOSED",
+  "animation_calls": 0,
+  "new_roles": 0,
+  "new_families": 0,
+  "candidate": "USABLE_PAINTED_REPLACEMENT_CANDIDATE",
+  "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+  "runtime": "CONFIGURED_ORIGINAL_MAIN_OPERA_FOSSIL_TWO_ASPECT_PASS",
+  "Dev_integrated": true,
+  "exact_new_Dev_APK_verified": false,
+  "whole_role_closed": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "natural_training_allroutes": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "remaining": "Separate flat soil cover FV-4E515D6F7A64, cave/UI/otherart and original completion actor overlap; formal/external/global unknowns remain."
+}

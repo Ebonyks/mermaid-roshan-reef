@@ -2631,3 +2631,7 @@ Actualsource `44da99ba5c68153fa247e0794425b5f6d7d3cc79`: [production/evidence](.
 ### R106 painted workbench Dev integration
 
 2026-10-29: [verified integration](../docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/README.md), exactsource `44da99ba5c68153fa247e0794425b5f6d7d3cc79`, exactsourceCI success and trustedstepsuccess, ordinary guarded Dev fastforward,3changedruntimefiles anonymous exact. Source9 unchanged, partialDev7to8 exactly once; no newroles/families/frameevents/removal or generation. Runtime is unchanged from the published reviewed candidate, so no repeat engine suite. Formal/external/otherGeologist/globalgaps and exactnewDevAPK remain open. Actualruntime rollback remains sourceCHG-112 manual_reconstruction afterlaterconsumer review; this bookkeeping changes no runtime.
+
+### R107 painted fossil and exact matching fragments
+
+Actualsource `f02aec12181b28706cae1f79705ff95df9aac7b9`: [production/evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r107_geologist_fossil_runtime/README.md), one static wide backing and four technical exports, one coherent implementation. Currentstatic/import/all82trusted/native114/16reviewedframes and exactsourceCIgreen, normalDev integration verified.10source/9partialDev artifacts and16newbounded frameevents;6old sourceframes reused without credit. Allformal/external/global acceptance remains open, acceptedremoved0. Canonical bookkeeping repeats no engine suite; runtime rollback uses sourceCHG-113 with laterconsumer review.

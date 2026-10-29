@@ -415,6 +415,8 @@ R106 partialproduction2026-10-29: [shared painted workbench](../../docs/handoffs
 
 R106 Dev transition2026-10-29: [painted shared Geology workbench](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/README.md) exactsource44da99ba integrated after exactsourceCI success;3runtimefiles anonymous exact. EightpartialDevartifacts, no newsource/frame/whole-role/removal credit. Formal/device/child/owner andotherGeologist/globalgaps open; lifecycle unchanged.
 
+R107 partialproduction2026-10-29: [painted fossil and matching fragments](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r107_geologist_fossil_runtime/README.md) sourcef02aec12181b28706cae1f79705ff95df9aac7b9 is exactCIgreen and integratedDev; currentstatic/all82/native114/16directlyreviewedframes PASS.10source/9partialDev artifacts,16newbounded events. Soil/otherart and allformal/external/global gaps remain; no complete role or accepted removal.
+
 ## MA-VIS-007
 
 | Field | Value |

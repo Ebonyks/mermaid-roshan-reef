@@ -10,30 +10,30 @@
   "all_game_artwork_total": null,
   "distinct_screen_total": null,
   "regression_total": null,
-  "retained_bounded": 6713,
+  "retained_bounded": 6729,
   "retained_excluded": 4137,
-  "retained_native_events": 10850,
-  "existing_sample_work_branch_implemented": 9,
-  "known_implementation_count_scope": "Nine bounded source implementation artifacts; eight partial Dev artifacts, now including painted shared Geology workbench at exact44da99ba5c68153fa247e0794425b5f6d7d3cc79. This integration adds no new source/frame/whole-role/accepted-removal credit; formal/external/global gaps remain.",
+  "retained_native_events": 10866,
+  "existing_sample_work_branch_implemented": 10,
+  "known_implementation_count_scope": "Ten bounded published source implementation artifacts; nine partial Dev artifacts. One fossil whole/three fragments implementation. No complete role/accepted removal; formal/external/global gaps and unknown denominators remain.",
   "samples_awaiting_review_global": null,
   "approved": 0,
-  "dev_integrated": 8,
+  "dev_integrated": 9,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261029-R106-DEV",
+  "revision": "FV-AUDIT-20261029-R107-DEV",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
   "new_alias_credits": 0,
   "new_partial_role_credit": 0,
-  "new_native_frames": 0,
-  "new_bounded_contexts": 0,
+  "new_native_frames": 16,
+  "new_bounded_contexts": 16,
   "new_excluded_diagnostics": 0,
   "source_views_here": 0,
-  "existing_context_frames_reinspected_here": 0,
-  "new_samples": 0,
-  "new_runtime_implementations": 0,
-  "new_generation_calls": 0,
+  "existing_context_frames_reinspected_here": 6,
+  "new_samples": 1,
+  "new_runtime_implementations": 1,
+  "new_generation_calls": 1,
   "reuse_ready_whole_role": false,
   "drawing_required_global": null,
   "chosen_next_consumer": "FV-66629DC58A20",
@@ -48,7 +48,8 @@
     "r102_geologist_mint_runtime",
     "r104_geologist_mineral_variants_runtime",
     "r105_geologist_pan_sediment_runtime",
-    "r106_geologist_workbench_runtime"
+    "r106_geologist_workbench_runtime",
+    "r107_geologist_fossil_runtime"
   ],
   "r92_dev_ci_timeout": {
     "state": "DEV_ATTEMPT1_CANCELLED_CONFIRMED_55MIN_LIMIT_RETRY_PENDING",
@@ -88,7 +89,7 @@
     "new_artifacts_or_acceptance_credit": 0,
     "checked_at_utc": "2026-10-17T15:35:20.089988+00:00"
   },
-  "generated_candidate_samples_this_revision": 0,
+  "generated_candidate_samples_this_revision": 1,
   "generated_candidate_unit": "Two distinct raw PNG takes for one existing named role; no claim of2newartworks or accepted removals.",
   "r93_candidate_status": "FIRST_PAINTED_HAND_CANDIDATE_RETAINED_REVIEW_PENDING",
   "r91_local_CI_status": "PASS82_SOURCE_PAYLOAD_PUBLISHED_AND_ANONYMOUSLY_VERIFIED_REMOTE_CI_PENDING",
@@ -143,8 +144,8 @@
     "observed_unique_trusted_probe_headers": 81
   },
   "source_current_frames_here": 0,
-  "candidate_neighbor_context_frames_here": 0,
-  "direct_native_frame_views_here": 0,
+  "candidate_neighbor_context_frames_here": 16,
+  "direct_native_frame_views_here": 16,
   "r94_hand_fit": "Six native cases/138checks/36rawframeevents; source16+selected proposed-neighbor candidate10 bounded; unselected49pxfit10excluded. Current routing/source and candidate contexts separate.",
   "r94_dev_integration": "r91_integration/DEV_INTEGRATION.json; exact39b0green sourcepush; redundantPRcancelled55minutesaftermandatorysuccess; newDevCI39058472107running; exactnewDevAPKnotverified.",
   "r95_geologist_pan_runtime": {
@@ -296,7 +297,7 @@
     "owner": null,
     "accepted_removed": 0
   },
-  "existing_runtime_candidates_committed_this_revision": 0,
+  "existing_runtime_candidates_committed_this_revision": 1,
   "r98_pan_source_publication": {
     "stable_id": "FV-F2DE53A80AA7",
     "source_revision": "ce05d4d38636fefc82af1172153c7f4d6119b562",
@@ -515,7 +516,7 @@
     "mission_complete": false,
     "recorded_at_utc": "2026-10-29T07:32:01.972068+00:00"
   },
-  "new_frame_unit": "Zero new native frame events; existing exact source/native context reused immutably for unchanged integrated sprites.",
+  "new_frame_unit": "16new native frameevents, all bounded fossil states;6prior same-scene frames reused immutably, no duplicate frame credit.",
   "r103_mineral_variants": {
     "stable_id": "FV-66629DC58A20",
     "scope": "Two remaining blue/lavender PAN specimen source variants of the existing named mineral role. Not a new artwork-role denominator.",
@@ -596,7 +597,7 @@
     "direct_native_frame_views_here": 8,
     "existing_runtime_candidates_committed_this_revision": 1
   },
-  "technical_exports_this_revision": 0,
+  "technical_exports_this_revision": 4,
   "r104_mineral_runtime": {
     "stable_id": "FV-66629DC58A20",
     "scope": "Remaining blue/lavender PAN render variants, same existing mineral role; not separate whole-role/artwork count.",
@@ -846,8 +847,8 @@
     "accepted_removed": 0,
     "mission_complete": false
   },
-  "direct_candidate_frame_views_here": 0,
-  "source_context_frames_here": 0,
+  "direct_candidate_frame_views_here": 16,
+  "source_context_frames_here": 6,
   "r106_dev_integration": {
     "stable_id": "FV-A6CE3E284202",
     "state": "PAINTED_GEOLOGY_WORKBENCH_EXACT_GREEN_SOURCE_INTEGRATED_DEV",
@@ -884,5 +885,185 @@
     "candidate_neighbor_context_frames_here": 24,
     "direct_native_frame_views_here": 35,
     "existing_context_frames_reinspected_here": 0
+  },
+  "r107_fossil_runtime": {
+    "stable_id": "FV-4CD5292EEE1D",
+    "state": "PAINTED_FOSSIL_WHOLE_AND_THREE_MATCHING_FRAGMENTS_IN_DEV_EXACT_SOURCE_CI_GREEN",
+    "source_revision": "f02aec12181b28706cae1f79705ff95df9aac7b9",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "source_baseline": "44da99ba5c68153fa247e0794425b5f6d7d3cc79",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r107_geologist_fossil_runtime/MANIFEST.json",
+    "source_delivery_required_files": 85,
+    "source_delivery_all_anonymous_exact": true,
+    "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r107_geologist_fossil_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_CI_run": 40929825552,
+    "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40929825552",
+    "source_CI_conclusion": "success",
+    "integrated_dev_revision": "f02aec12181b28706cae1f79705ff95df9aac7b9",
+    "runtime_exports": [
+      {
+        "role": "whole",
+        "path": "assets/opera/worlds/props/geologist_fossil_painted.png",
+        "dimensions": [
+          900,
+          540
+        ],
+        "sha256": "f7b5272f5d73cbd3de012eeffb4603104cc3053a534022a0dafda9e331408acf",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 55.2,
+          "faint_haze_pct_of_canvas": 0.4,
+          "semi_pct_of_visible": 0.8,
+          "near_opaque_pct_of_visible": 98.3,
+          "opaque_255_pct": 0.0,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            80,
+            84,
+            820,
+            455
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      },
+      {
+        "role": "piece0",
+        "path": "assets/opera/worlds/props/geologist_fossil_piece_0_painted.png",
+        "dimensions": [
+          512,
+          512
+        ],
+        "sha256": "60774f99239dec9b6a3ee2d7e9f60ed5f0c34f6051379da13f7687ce6302f7a5",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 84.9,
+          "faint_haze_pct_of_canvas": 0.1,
+          "semi_pct_of_visible": 1.8,
+          "near_opaque_pct_of_visible": 97.5,
+          "opaque_255_pct": 0.0,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            197,
+            136,
+            381,
+            397
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      },
+      {
+        "role": "piece1",
+        "path": "assets/opera/worlds/props/geologist_fossil_piece_1_painted.png",
+        "dimensions": [
+          512,
+          512
+        ],
+        "sha256": "5b4711ab21c5994cc7b6abf3ddd6747e71bca651cd77fb20daaa9e1715d4a0dd",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 72.2,
+          "faint_haze_pct_of_canvas": 0.1,
+          "semi_pct_of_visible": 1.0,
+          "near_opaque_pct_of_visible": 98.6,
+          "opaque_255_pct": 0.0,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            131,
+            101,
+            381,
+            410
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      },
+      {
+        "role": "piece2",
+        "path": "assets/opera/worlds/props/geologist_fossil_piece_2_painted.png",
+        "dimensions": [
+          512,
+          512
+        ],
+        "sha256": "182d85783dae6d4f9aaba7e682aea3d115340e3f5253b9647c3d720397b0ce13",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 85.2,
+          "faint_haze_pct_of_canvas": 0.1,
+          "semi_pct_of_visible": 1.8,
+          "near_opaque_pct_of_visible": 97.4,
+          "opaque_255_pct": 0.0,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            131,
+            138,
+            315,
+            395
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      }
+    ],
+    "actual_native_checks": 114,
+    "candidate_frames_reviewed": 16,
+    "same_scene_source_frames_reused": 6,
+    "new_frame_events": {
+      "bounded": 16,
+      "excluded": 0,
+      "retained": 16
+    },
+    "current_static_all82": "PASS",
+    "unchanged_other_functions": 53,
+    "primitive_calls": {
+      "before": 33,
+      "after": 31,
+      "retired": "Two reachable optional whole/piece fallback arcs in this surface; global SVG preserved for other callers. Texture wrappers are separately counted, not artwork removals.",
+      "new_filter_wrapper_helper": 1,
+      "whole_and_piece_loads": 4,
+      "accepted_removed": 0
+    },
+    "new_bounded_source_artifacts": 1,
+    "partial_Dev_artifact_credit": 1,
+    "implementation_unit": "One coherent whole fossil/three fragments runtime implementation; four PNG exports are not four complete role removals.",
+    "new_generation_calls": 1,
+    "generated_outputs": 1,
+    "technical_exports": 4,
+    "backend": "built-in image_gen.imagegen",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "new_roles": 0,
+    "new_families": 0,
+    "candidate": "USABLE_PAINTED_REPLACEMENT_CANDIDATE",
+    "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+    "runtime": "CONFIGURED_ORIGINAL_MAIN_OPERA_FOSSIL_TWO_ASPECT_PASS",
+    "Dev_integrated": true,
+    "exact_new_Dev_APK_verified": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "natural_training_allroutes": null,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "remaining": "Separate flat soil cover FV-4E515D6F7A64, cave/UI/otherart and original completion actor overlap; formal/external/global unknowns remain."
   }
 }
