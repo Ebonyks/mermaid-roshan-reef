@@ -1,0 +1,1145 @@
+{
+  "schema": "mermaid_roshan.independent_whole_book_audit.v1",
+  "task": "V44 cover-door repair and new whole-book consistency audit",
+  "reviewer": "Independent second AI /root/v38_peer_critic",
+  "reviewed_at_utc": "2026-10-29T14:15:00Z",
+  "source_baseline": "5284b6dc0774ef24059790ab7a3a45da15c28c05",
+  "work_branch": "codex/mermaid-roshan-picture-book",
+  "verdict": "AUDIT_COMPLETE_WITH_OPEN_FINDINGS",
+  "scope_statement": "Fresh individual visual review of all 34 inherited book entries, plus an early look at the first repaired V44 doorway. This is not final V44 export acceptance. No old visual PASS was inherited.",
+  "prior_miss_acknowledgment": "The earlier scoped V43 satisfaction failed to identify the structurally incomplete cover doorway. That satisfaction does not establish correctness of the door. The owner's rejection is correct, and this review reopens that feature explicitly.",
+  "authority": {
+    "rules": [
+      "DL-ASSET-08",
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07"
+    ],
+    "applicability": "Static picture-book source-preserving review. Existing identity anchors and book design language apply. No game behavior, cinematic delivery or MA game-finding closure is claimed.",
+    "source_documents": [
+      {
+        "file": "books/chapter_one/DESIGN_LANGUAGE.md",
+        "sha256": "6f2a40e0c84c03993967dabe7c26cf3cd88b216d6f67f76ac50ee3958ad102d0",
+        "bytes": 38348
+      },
+      {
+        "file": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/CHARACTER_CONSISTENCY_2026-10-19.md",
+        "sha256": "c1bf763f62f85b12e3f711eae3338b09113113c2e2004b6232d62aeced967ced",
+        "bytes": 16556
+      }
+    ],
+    "implementation_limit": "Repair existing scenes locally from approved source art; preserve character identity, staging, action and manuscript. No full-scene redraw, new narrative event or generic style homogenization is recommended."
+  },
+  "method": {
+    "individual_entries_viewed": 34,
+    "proof_source": "V43 reading cover and exact V42 body PNGs, each opened individually. Repeated character/location/action features compared across the sequence.",
+    "actual_delivery_check": {
+      "method": "PDFium actual PDF 1.5x RGB rendering, no JPEG normalization",
+      "v43": {
+        "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/complete/Mermaid_Roshan_and_the_Dust_Bunnies_V43.pdf",
+        "sha256": "3e390cb328dd3a8a712d0ebe6f33f8de2e5496565428307dfaa8e89206dd4978",
+        "entries": 34
+      },
+      "v42": {
+        "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/Mermaid_Roshan_Book_V42_Email.pdf",
+        "sha256": "4717cebf145d9081e6f036118ab5f28c8868b02e956f196703ab440b1fb10ba6",
+        "entries": 34
+      },
+      "rows": [
+        {
+          "entry": 1,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "58eb661fda66c6c2c6759b78003087fc58e9c2867a299ef99b1f9c6ddcfecc5c",
+          "v42_email_decoded_rgb_sha256": "58eb661fda66c6c2c6759b78003087fc58e9c2867a299ef99b1f9c6ddcfecc5c",
+          "exact": true
+        },
+        {
+          "entry": 2,
+          "dimensions": [
+            3024,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "f85027a535612b7715b0a901f443903e760cf9b09c73c069c4c88c718884a857",
+          "v42_email_decoded_rgb_sha256": "f85027a535612b7715b0a901f443903e760cf9b09c73c069c4c88c718884a857",
+          "exact": true
+        },
+        {
+          "entry": 3,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "49f1fee0d82212197a494ab79f4c9657a0ad177e8429201e61697d7fbf1dd255",
+          "v42_email_decoded_rgb_sha256": "49f1fee0d82212197a494ab79f4c9657a0ad177e8429201e61697d7fbf1dd255",
+          "exact": true
+        },
+        {
+          "entry": 4,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "7405b006d8ed198e6b38ef7ddce7902c8911ef0862833745fd9edd1df2b324bc",
+          "v42_email_decoded_rgb_sha256": "7405b006d8ed198e6b38ef7ddce7902c8911ef0862833745fd9edd1df2b324bc",
+          "exact": true
+        },
+        {
+          "entry": 5,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "f1aa8f7a5b75729385f20d136acafef3ff56dab3d7d03de6b2ce50c92248a370",
+          "v42_email_decoded_rgb_sha256": "f1aa8f7a5b75729385f20d136acafef3ff56dab3d7d03de6b2ce50c92248a370",
+          "exact": true
+        },
+        {
+          "entry": 6,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "913aa70db1fd22be52c8cfa0f5b14017b39d7646229a25ee55933b0484e3c0b0",
+          "v42_email_decoded_rgb_sha256": "913aa70db1fd22be52c8cfa0f5b14017b39d7646229a25ee55933b0484e3c0b0",
+          "exact": true
+        },
+        {
+          "entry": 7,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "fd4b7d016b49826bd9aef039b2a21d58d16533b8ff544bd9e2e07156c9edfe5f",
+          "v42_email_decoded_rgb_sha256": "fd4b7d016b49826bd9aef039b2a21d58d16533b8ff544bd9e2e07156c9edfe5f",
+          "exact": true
+        },
+        {
+          "entry": 8,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "10cb583d21978cf0add555a0262df317447810125d238fbd1d34dae26c450273",
+          "v42_email_decoded_rgb_sha256": "10cb583d21978cf0add555a0262df317447810125d238fbd1d34dae26c450273",
+          "exact": true
+        },
+        {
+          "entry": 9,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "c3bd90a9a71870ce9388d9386b0882540457f7c875e8b98439a17b678883eeb8",
+          "v42_email_decoded_rgb_sha256": "c3bd90a9a71870ce9388d9386b0882540457f7c875e8b98439a17b678883eeb8",
+          "exact": true
+        },
+        {
+          "entry": 10,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "d511130a2135f42c1a28faaafbecc8fd1b3e0dc4de9d809db8d257110400b7a8",
+          "v42_email_decoded_rgb_sha256": "d511130a2135f42c1a28faaafbecc8fd1b3e0dc4de9d809db8d257110400b7a8",
+          "exact": true
+        },
+        {
+          "entry": 11,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "bfcf62bbe42cfaaeb57fa766086b454cee9723caf214cc4ca2d1a6984beda455",
+          "v42_email_decoded_rgb_sha256": "bfcf62bbe42cfaaeb57fa766086b454cee9723caf214cc4ca2d1a6984beda455",
+          "exact": true
+        },
+        {
+          "entry": 12,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "fc4aef2820e7a6ca5306a7b35d86cdc4ddd1f8e11e7af0ef771e59b150ec9c11",
+          "v42_email_decoded_rgb_sha256": "fc4aef2820e7a6ca5306a7b35d86cdc4ddd1f8e11e7af0ef771e59b150ec9c11",
+          "exact": true
+        },
+        {
+          "entry": 13,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "21ac75bb94cf788c40438625a6771fa0015799861c064493c5741003f48e905e",
+          "v42_email_decoded_rgb_sha256": "21ac75bb94cf788c40438625a6771fa0015799861c064493c5741003f48e905e",
+          "exact": true
+        },
+        {
+          "entry": 14,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "beb60049c7311047a6ffd21a542858c29de6a581d0b183e10a188b75a73d88bf",
+          "v42_email_decoded_rgb_sha256": "beb60049c7311047a6ffd21a542858c29de6a581d0b183e10a188b75a73d88bf",
+          "exact": true
+        },
+        {
+          "entry": 15,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "99aa08d84c7861904a0b273c200f65c180ce01d144512f5e7461c6cb2ea0a08a",
+          "v42_email_decoded_rgb_sha256": "99aa08d84c7861904a0b273c200f65c180ce01d144512f5e7461c6cb2ea0a08a",
+          "exact": true
+        },
+        {
+          "entry": 16,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "ff3dc17b28d86d22a1442c31ee1a901d7f11eaeb553d32b877740e72e0885dba",
+          "v42_email_decoded_rgb_sha256": "ff3dc17b28d86d22a1442c31ee1a901d7f11eaeb553d32b877740e72e0885dba",
+          "exact": true
+        },
+        {
+          "entry": 17,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "da6284827dc96331f2f848a92ba651f0ee0b7ecdd71e07f3ae02d57c40610b6e",
+          "v42_email_decoded_rgb_sha256": "da6284827dc96331f2f848a92ba651f0ee0b7ecdd71e07f3ae02d57c40610b6e",
+          "exact": true
+        },
+        {
+          "entry": 18,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "6e8841f48f079cfa7e387410289987b6616af737460833de78202be0710d21f5",
+          "v42_email_decoded_rgb_sha256": "6e8841f48f079cfa7e387410289987b6616af737460833de78202be0710d21f5",
+          "exact": true
+        },
+        {
+          "entry": 19,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "c7b9162e654fdccac56bcd598bab7de3c277f6d373e3fd94baa83002b230bfb0",
+          "v42_email_decoded_rgb_sha256": "c7b9162e654fdccac56bcd598bab7de3c277f6d373e3fd94baa83002b230bfb0",
+          "exact": true
+        },
+        {
+          "entry": 20,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "d48e24b9b3f2bd3e37f7e5c0598b7e8df0d1ca10938d6df8f1de851d622098b9",
+          "v42_email_decoded_rgb_sha256": "d48e24b9b3f2bd3e37f7e5c0598b7e8df0d1ca10938d6df8f1de851d622098b9",
+          "exact": true
+        },
+        {
+          "entry": 21,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "7b9b189114d7d3a9b25052eeba0216d61500bd7b3c7ebd9137af4ddf2ee27ea8",
+          "v42_email_decoded_rgb_sha256": "7b9b189114d7d3a9b25052eeba0216d61500bd7b3c7ebd9137af4ddf2ee27ea8",
+          "exact": true
+        },
+        {
+          "entry": 22,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "96c9eddb7e7169c0207a12ec2cd4185f603f2a7e00d9548757dcb11fabc6dc77",
+          "v42_email_decoded_rgb_sha256": "96c9eddb7e7169c0207a12ec2cd4185f603f2a7e00d9548757dcb11fabc6dc77",
+          "exact": true
+        },
+        {
+          "entry": 23,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "db99054e638d911428853248b04e629728731ccbf7e4d57ee41d2b66f33a0e3f",
+          "v42_email_decoded_rgb_sha256": "db99054e638d911428853248b04e629728731ccbf7e4d57ee41d2b66f33a0e3f",
+          "exact": true
+        },
+        {
+          "entry": 24,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "1536074bf210c5d425b82d359376364a7954b4bb9169cccd895e8cb57d164d71",
+          "v42_email_decoded_rgb_sha256": "1536074bf210c5d425b82d359376364a7954b4bb9169cccd895e8cb57d164d71",
+          "exact": true
+        },
+        {
+          "entry": 25,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "6af03d2460b1e205962224ec448e121c4df68fb3801bce9cdaf0f4f9a1f69a18",
+          "v42_email_decoded_rgb_sha256": "6af03d2460b1e205962224ec448e121c4df68fb3801bce9cdaf0f4f9a1f69a18",
+          "exact": true
+        },
+        {
+          "entry": 26,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "5fa87d3c92d951f33f5fef8209f18b9ea7308b8e83dd1683c303666b98bbd6ae",
+          "v42_email_decoded_rgb_sha256": "5fa87d3c92d951f33f5fef8209f18b9ea7308b8e83dd1683c303666b98bbd6ae",
+          "exact": true
+        },
+        {
+          "entry": 27,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "c547b04f8d996f266800cd7fbb2fe93accd8ce41dd21d26d3128ab30108a5025",
+          "v42_email_decoded_rgb_sha256": "c547b04f8d996f266800cd7fbb2fe93accd8ce41dd21d26d3128ab30108a5025",
+          "exact": true
+        },
+        {
+          "entry": 28,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "ecd687120e48e5a1052e163474f5065cc8ab3a6aaa86bff4d3881a5e6cc071e5",
+          "v42_email_decoded_rgb_sha256": "ecd687120e48e5a1052e163474f5065cc8ab3a6aaa86bff4d3881a5e6cc071e5",
+          "exact": true
+        },
+        {
+          "entry": 29,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "30de733f8b07d2bca46d837f90faeada98a505b82a0f52bb1b148dba1a30fc04",
+          "v42_email_decoded_rgb_sha256": "30de733f8b07d2bca46d837f90faeada98a505b82a0f52bb1b148dba1a30fc04",
+          "exact": true
+        },
+        {
+          "entry": 30,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "aad619d58815b5f4d9844a0752bcd5f1318d97169071bee7ba5b5db85debaead",
+          "v42_email_decoded_rgb_sha256": "aad619d58815b5f4d9844a0752bcd5f1318d97169071bee7ba5b5db85debaead",
+          "exact": true
+        },
+        {
+          "entry": 31,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "058cf3b3dd450cd5444089f5c22b9128aac0188490edb7eeae2dc765b54fa254",
+          "v42_email_decoded_rgb_sha256": "058cf3b3dd450cd5444089f5c22b9128aac0188490edb7eeae2dc765b54fa254",
+          "exact": true
+        },
+        {
+          "entry": 32,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "c04c0309ea6ef6213c28148ebf7bbadc2773932d2748e47338578325e71258ce",
+          "v42_email_decoded_rgb_sha256": "c04c0309ea6ef6213c28148ebf7bbadc2773932d2748e47338578325e71258ce",
+          "exact": true
+        },
+        {
+          "entry": 33,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "v43_decoded_rgb_sha256": "4eb906d1eab89985583f8cbfff2154ecbd43243a66cadf221ca1706e0868fb27",
+          "v42_email_decoded_rgb_sha256": "4eb906d1eab89985583f8cbfff2154ecbd43243a66cadf221ca1706e0868fb27",
+          "exact": true
+        }
+      ],
+      "all33_exact": true
+    },
+    "additional_visual_checks": [
+      "Fountain head crops for entries11/15/16 compared side by side in memory.",
+      "First repaired V44 doorway enlarged in memory to inspect leaves, hinges, handles, threshold and Puff occlusion.",
+      "Original canonical Roshan/Daddy/Rumi/Eagle/little-puff/Lamma/Grand-Puff identity images opened read-only."
+    ],
+    "honest_limit": "This on-screen audit is evidence of the observations below, not a guarantee that no microscopic error exists and not a physical trim, binding or child-readability test. The final V44 PDF/door proof is still required.",
+    "canonical_images": [
+      {
+        "path": "assets/characters/roshan_25d/roshan_base.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "bytes": 50051
+      },
+      {
+        "path": "assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1/handoff_art/characters/daddy_daddy_master.png",
+        "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+        "bytes": 4708599
+      },
+      {
+        "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "bytes": 470838
+      },
+      {
+        "path": "assets/book/baby_eagle.png",
+        "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+        "bytes": 235829
+      },
+      {
+        "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+        "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+        "bytes": 230768
+      },
+      {
+        "path": "assets/sprites/stuffie_studio/lamma.png",
+        "sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268",
+        "bytes": 925242
+      },
+      {
+        "path": "books/chapter_one/landscape/art/language_v26/puff_unwell.png",
+        "sha256": "ac6ecf90d5a024f7bd343a26c7e3cd1600cb906aff3a5749ab89600dae23bb38",
+        "bytes": 1575094
+      },
+      {
+        "path": "books/chapter_one/previews/2026-09-30/art/rainbow_puff_cutout.png",
+        "sha256": "c0d15aa35ab2056566a64c72d2ccfd690e65e8c5fa809c12e66b20ed87353135",
+        "bytes": 1135408
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "V44-F01",
+      "priority": "P1",
+      "kind": "STRUCTURAL_DEFECT",
+      "entries": [
+        0
+      ],
+      "state": "ORIGINAL_CONFIRMED_REPAIR_PENDING_FINAL_REVIEW",
+      "title": "Cover has only one complete door leaf and incomplete hinge structure",
+      "evidence": [
+        {
+          "entry": 0,
+          "file": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/complete/reading_cover.png",
+          "sha256": "66131b6b71500816e87b56eea7da49d68ce3452a2e17baf5803a7cb426eede8b",
+          "bytes": 2412329,
+          "crop_xyxy": [
+            1215,
+            150,
+            1512,
+            675
+          ]
+        },
+        {
+          "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/references/door_before.png",
+          "sha256": "f6f90bbf55586c007661cf49cb408ec6a335baecc306996215dd34b7f60d0001",
+          "bytes": 263996
+        }
+      ],
+      "observation": "The V43 cover shows a complete decorated right shell leaf, but the opposite side reads as an opening/jamb without its matching complete leaf/outer hinge assembly. This is a real construction omission, not simply natural occlusion.",
+      "permitted_repair": "Bounded doorway-only source-led repair with two coherent shell leaves, complete outer hinge assemblies and free-edge handles. Keep Puff and all other figures/columns/source scene intact.",
+      "early_repair_read": "First V44 repaired proof has two readable leaves, four outer hinge assemblies and inner hardware. Threshold and source joins look coherent at the enlarged view; Puff's partial ear/body occlusion is natural. Not yet a final export verdict."
+    },
+    {
+      "id": "V44-F02",
+      "priority": "P1",
+      "kind": "NEW_REPAIR_LAYOUT_COLLISION",
+      "entries": [
+        0
+      ],
+      "state": "REPAIR_REQUESTED",
+      "title": "New left door tip overlaps the title",
+      "evidence": [
+        {
+          "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/page_00.png",
+          "sha256": "b7603884f8232019db9ce2f0146c7c6b5bdc476e5ac0169123a4efb1b587c34c",
+          "bytes": 2369535,
+          "crop_xyxy": [
+            1215,
+            155,
+            1340,
+            255
+          ]
+        }
+      ],
+      "observation": "On the first repaired proof, the new left leaf's pointed gold top passes behind the final letters of 'Bunnies', approximately x1274–1314,y174–228 at 1512×1080. The mechanism is repaired but creates a title/architecture collision.",
+      "permitted_repair": "Keep a visible gap between actual title ink and the complete door silhouette. Parent proposes shifting both existing title lines left as one block, retaining exact wording/font sizes/baselines/line breaks. Review that result rather than accepting the current collision.",
+      "first_repair_controls": {
+        "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/BOOK_CURRENT.json",
+        "sha256": "108b19a42049cb765033dfd96d752f27b6a87fb14e65459723a194aafc6c4ade",
+        "bytes": 392830
+      }
+    },
+    {
+      "id": "V44-O01",
+      "priority": "P2",
+      "kind": "INHERITED_SETTING_CONTINUITY",
+      "entries": [
+        1,
+        2
+      ],
+      "state": "OPEN_NOT_REPAIRED",
+      "title": "Opening window shows a different setting from the selected full Sky Lagoon arrival",
+      "evidence": [
+        {
+          "entry": 1,
+          "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_01.png",
+          "sha256": "e2f7f009d784fdcb5e831f50ed7ed1f9a7cdd10f67a81a76ced4a361e5354c6c",
+          "bytes": 2279614,
+          "crop_xyxy": [
+            710,
+            20,
+            1410,
+            850
+          ]
+        },
+        {
+          "entry": 2,
+          "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_02.png",
+          "sha256": "b5d7d860d1d34c5c303702f807f197b06f45cc3683424cd7eee0ca8c9d504ece",
+          "bytes": 5128573,
+          "crop_xyxy": [
+            0,
+            0,
+            3024,
+            1080
+          ]
+        }
+      ],
+      "observation": "Story1 presents Pearl Castle on a small tropical ocean island, with surrounding islands, palms, sea horizon and a short shore bridge. Story2's owner-selected full Sky Lagoon has a mountain/cloud landscape, two water areas, playground, landing path and the route uphill to the castle. The camera angle alone does not establish a continuous geography between these visibly different source settings.",
+      "boundary": "This is an inherited source mismatch; it is not a new V44 door defect and does not justify inventing another whole scene. The four-tower castle and stained-glass identity agree, while surrounding geography does not.",
+      "permitted_repair": "If corrected in this consistency pass, replace only the scenery visible through the existing porthole using the established full Sky Lagoon/castle source composition. Preserve Roshan, plane/window frame, reflections, caption and restored Roshan stained glass. Otherwise keep this mismatch explicitly open; do not label whole-book scenery fully consistent.",
+      "source_refs": [
+        {
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_01.png",
+          "sha256": "e0a084746a0ef0bd935b7689df778c76d2f3489afd63279280ef19d180a3265b"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_provenance.json",
+          "sha256": "6b907f75d277da6553885c53d11a3a927e25ba3b6ebe80f1e87548de1ad4b968"
+        }
+      ]
+    },
+    {
+      "id": "V44-O02",
+      "priority": "P2",
+      "kind": "INHERITED_PROP_CONTINUITY",
+      "entries": [
+        11,
+        15,
+        16
+      ],
+      "state": "OPEN_NOT_REPAIRED",
+      "title": "Seahorse fountain's forehead changes between views",
+      "evidence": [
+        {
+          "entry": 11,
+          "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_11.png",
+          "sha256": "a45e9dc274348f81757c6820ae0acc5867ca288c745ed0634e811e1d504ad940",
+          "bytes": 2789895,
+          "crop_xyxy": [
+            1170,
+            255,
+            1350,
+            390
+          ]
+        },
+        {
+          "entry": 15,
+          "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_15.png",
+          "sha256": "e4e26ead2e517e6ee690ffb90414388ab1c4aaa46db4eb4aca73ebb15dcc2b79",
+          "bytes": 2330529,
+          "crop_xyxy": [
+            400,
+            35,
+            665,
+            285
+          ]
+        },
+        {
+          "entry": 16,
+          "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_16.png",
+          "sha256": "91056d37e98f13b744ebb5da264891ed6acf69b0529411d69e81850d7c163bf3",
+          "bytes": 2724421,
+          "crop_xyxy": [
+            1100,
+            360,
+            1200,
+            450
+          ]
+        }
+      ],
+      "observation": "Entry11 has a smooth lavender forehead/small ridge beads without a projecting cone. Entry15 has a large gold conical horn on the forehead, and entry16 has a much smaller gold nub. The large horn changes the silhouette and is not explained by the unblocking action. Opposite profile and scale account for some detail visibility but do not fully explain a central forward horn disappearing.",
+      "permitted_repair": "Choose the established seahorse prop authority and make only the forehead/horn detail consistent using existing source reuse or a bounded local repair. Retain cup/spout/water action, Roshan, pool layout and existing source staging. Do not redraw the room or treat all scale/perspective differences as defects.",
+      "source_refs": [
+        {
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_trapped.png",
+          "sha256": "dd7f716c7f470cef0361e339e281fc662558f88915448c42a25bcdaeb509d2d0"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png",
+          "sha256": "3031917eb02f4a606b57e08fe7a5924abe08020c11efd3faba8cf27343cdec62"
+        },
+        {
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_free.png",
+          "sha256": "c1f864bed9bcf443a326fdef85536f9b60592f104f873559a3e315101f06ba59"
+        }
+      ]
+    },
+    {
+      "id": "V44-O03",
+      "priority": "INFORMATIONAL",
+      "kind": "SOURCE_STYLE_VARIATION",
+      "entries": [
+        8,
+        17,
+        20,
+        21,
+        22,
+        25,
+        31
+      ],
+      "state": "DECLARED_NOT_A_REPAIR_BLOCKER",
+      "title": "Different existing source drawing finishes remain visible",
+      "observation": "Full scenes tend to be glossy and richly painted; Eagle21 and some spot illustrations have finer/darker contour drawing and flatter/more muted fills. Identity colours, costume parts, facial roles and required anatomy remain readable. These differences alone do not establish a character redesign.",
+      "decision": "Do not generate replacement characters merely to homogenize accepted source finishes. Preserve the source-led book method. No numeric style score or claim of perfect uniformity."
+    }
+  ],
+  "page_reviews": [
+    {
+      "page": 0,
+      "observations": "New two-line title/central Roshan/prominent canonical puff pair/hidden Lamma and restored family fins are coherent. Doorway at right does not have a complete readable pair of leaves/outer hinges/free-edge hardware; owner structural rejection is confirmed. Earlier scoped satisfaction missed this feature.",
+      "issues": [
+        "V44-F01"
+      ],
+      "status": "REPAIR_REQUIRED",
+      "pdf_page_one_based": 1,
+      "story_page": "front_cover",
+      "inspected_artifact": {
+        "entry": 0,
+        "file": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/complete/reading_cover.png",
+        "sha256": "66131b6b71500816e87b56eea7da49d68ce3452a2e17baf5803a7cb426eede8b",
+        "bytes": 2412329
+      }
+    },
+    {
+      "page": 1,
+      "observations": "Roshan child face, chestnut waves, gathered rainbow lock, rounded visible ear, fitted pink/lilac top, lavender tail and gold/blue tiara intact; hand on window readable. Four-tower castle and stained-glass portrait present. Open-ocean island/palms differ from story2 mountain/cloud terrain, an inherited geographic-source discrepancy.",
+      "issues": [
+        "V44-O01"
+      ],
+      "status": "SETTING_CONTINUITY_FINDING",
+      "pdf_page_one_based": 2,
+      "story_page": 1,
+      "inspected_artifact": {
+        "entry": 1,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_01.png",
+        "sha256": "e2f7f009d784fdcb5e831f50ed7ed1f9a7cdd10f67a81a76ced4a361e5354c6c",
+        "bytes": 2279614
+      }
+    },
+    {
+      "page": 2,
+      "observations": "Full source-width arrival retains both lagoons/posts, grounded wheeled plane, slide/swing/seesaw, path/mountain route and four-tower portrait castle. No otter. Deliberately wider page/height crop; plane native softness is a print hold, swing/fold and page-unit parity are already held. No new anatomy/layout defect observed.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 3,
+      "story_page": 2,
+      "inspected_artifact": {
+        "entry": 2,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_02.png",
+        "sha256": "b5d7d860d1d34c5c303702f807f197b06f45cc3683424cd7eee0ca8c9d504ece",
+        "bytes": 5128573
+      }
+    },
+    {
+      "page": 3,
+      "observations": "Close castle entrance has complete red double leaves and paired hinge plates, doorframe/threshold; Roshan rounded ear, left rainbow lock and fitted outfit match; Daddy navy/gold/glasses/teal cape/rainbow tail consistent. Larger relative Roshan than4 is perspective/pose, not a demonstrated scale defect. Caption clear of faces/handles.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 4,
+      "story_page": 3,
+      "inspected_artifact": {
+        "entry": 3,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_03.png",
+        "sha256": "84e971ab04e50fa5888472dc504d97ba634af1b9111f4cf4e5bbf596e6dd5954",
+        "bytes": 1891626
+      }
+    },
+    {
+      "page": 4,
+      "observations": "Dusty hall/route portals/theatre/library/kitchen icons coherent with later cleaned hall23. Daddy and small Roshan retain identity/costume, distinct terminal fins. Warm grime/light change is narrative; outlined white caption intentional over darker floor. No new joined strip or duplicate actor seen.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 5,
+      "story_page": 4,
+      "inspected_artifact": {
+        "entry": 4,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_04.png",
+        "sha256": "68befbd229750de53024a04a8ce06f1a9edc89591bc4943dcbd4c47305749e4d",
+        "bytes": 2433422
+      }
+    },
+    {
+      "page": 5,
+      "observations": "Closed purple shell double door, gold frame and centre seam with four featureless lavender threshold wisps; little listening puff remains marginal. Blue stationery/quiet centre and navy text consistent. Open-cover door reverse-face palette may differ; do not infer from colour alone that it is another door.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 6,
+      "story_page": 5,
+      "inspected_artifact": {
+        "entry": 5,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_05.png",
+        "sha256": "7a82b4c67c7343fd56c9684cb27fe903bcbb19bdc44bd470df29587030e0852b",
+        "bytes": 1473336
+      }
+    },
+    {
+      "page": 6,
+      "observations": "Brush plus yellow rounded and pink star sponges establish plural supplies. Canonical little puff with towels/soap marginal, no anatomy issue or raised bank intrusion. Long handled brush differs from9 shell scrubber and0 blue brush; generic tool variety is not automatically a contradiction.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 7,
+      "story_page": 6,
+      "inspected_artifact": {
+        "entry": 6,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_06.png",
+        "sha256": "4b6aa0941e91e211dcbd01f77424cc870e0fec4ecbdb46ed1c526df2fad7973f",
+        "bytes": 1500676
+      }
+    },
+    {
+      "page": 7,
+      "observations": "Dirty bath/sink/towel and gunk water are intentionally unclean. Splashing bunny has two tall curl ears/two ear beads/two pearl hands/forehead curl and full partly submerged cloud body; lighter lavender shifts with lighting. Text/gunk contrast outlined correctly.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 8,
+      "story_page": 7,
+      "inspected_artifact": {
+        "entry": 7,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_07.png",
+        "sha256": "96ccc3e78a0848fadfb771065a8d039e307daafcf46eaeb74cc4ffcb0091538e",
+        "bytes": 2772307
+      }
+    },
+    {
+      "page": 8,
+      "observations": "Roshan wipes shell sink using introduced yellow sponge, two hands/contact readable, outfit/left rainbow lock/gold blue tiara intact. Pose tail silhouette has more ruffled lobes than cover but no explicit canonical two-tip rule for Roshan; not classified as extra limb. Tiny mirror puff and shell supplies stay marginal.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 9,
+      "story_page": 8,
+      "inspected_artifact": {
+        "entry": 8,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_08.png",
+        "sha256": "093208805ed0b9ba71708866815273a7b72e2bd32d55836112bcaed13e23873b",
+        "bytes": 1577148
+      }
+    },
+    {
+      "page": 9,
+      "observations": "Tub visibly drained, held stopper chain and shell brush convey next cleanup action; dirt remains while scrub in progress. Roshan face/ear/hair/costume stable. Different compact shell brush is a kit variation, not a new character/scene. Low-source-resolution A9 not needed at selected trim is an existing hold; no third generation inferred.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 10,
+      "story_page": 9,
+      "inspected_artifact": {
+        "entry": 9,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_09.png",
+        "sha256": "0eaffc362e484c2adc04c72c4d1bf30767fdb4d729491f2bee6eb13a5a4e1389",
+        "bytes": 1521398
+      }
+    },
+    {
+      "page": 10,
+      "observations": "Bath refilled clean after drain/scrub, narrative explicitly supports water change. Same shell/teal bathroom vocabulary; small Lamma behind towels is a hidden discovery. Roshan and bath bunny have canonical palette/ears/pearl hands; two distinct hands touching support the encounter. No limb/contact defect seen.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 11,
+      "story_page": 10,
+      "inspected_artifact": {
+        "entry": 10,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_10.png",
+        "sha256": "9b7e61c0a26ed6d438556157777e9307e5e9bbbad0e568a6427022ab5d30af0c",
+        "bytes": 2495769
+      }
+    },
+    {
+      "page": 11,
+      "observations": "Roshan back view with net, Rumi submerged beyond, green waterfall/gunk pool, cup in seahorse mouth clear. Rumi adult brows/violet braid/purple jacket/star ear detail/teal pink tail present; smaller head due depth. Seahorse statue's forehead lacks conspicuous gold horn seen15; closeup needed to distinguish angle/source variation.",
+      "issues": [
+        "V44-O02"
+      ],
+      "status": "PROP_CONTINUITY_FINDING",
+      "pdf_page_one_based": 12,
+      "story_page": 11,
+      "inspected_artifact": {
+        "entry": 11,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_11.png",
+        "sha256": "a45e9dc274348f81757c6820ae0acc5867ca288c745ed0634e811e1d504ad940",
+        "bytes": 2789895
+      }
+    },
+    {
+      "page": 12,
+      "observations": "Same purple-handled net now full of leaves/star debris/cup, supporting scoop action. Dirty drips and discarded wrappers are story props; no actor scale comparison required. Navy caption and low prop banks clear.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 13,
+      "story_page": 12,
+      "inspected_artifact": {
+        "entry": 12,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_12.png",
+        "sha256": "5e435d5d33588d48997acb5a1121428756eacada3c4d6c3b5510bbf86662711c",
+        "bytes": 1522111
+      }
+    },
+    {
+      "page": 13,
+      "observations": "Close waterfall partially clears into red/orange strip while gunk remains, correct intermediate action before14. Shell/teal/pearl mount and flanking coral continue pool material family; close source view is not pixel-identical architecture to14, not alone a repair criterion.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 14,
+      "story_page": 13,
+      "inspected_artifact": {
+        "entry": 13,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_13.png",
+        "sha256": "5a148e336eb671a48b7df538c437f33f95d82e0bba994b12eefb06302ab9b458",
+        "bytes": 2613972
+      }
+    },
+    {
+      "page": 14,
+      "observations": "Waterfall fully rainbow with reflection in pool; residual debris/gunk and blocked fountain are deliberately not yet all cleaned (15–17 follow). Same shell-room vocabulary with wider/reverse view. Text explicitly explains magic; no actor inconsistency.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 15,
+      "story_page": 14,
+      "inspected_artifact": {
+        "entry": 14,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_14.png",
+        "sha256": "61d14b848f0c0e697ff4e84426bcdbf3eb50289317db809a70cf676001177403",
+        "bytes": 2553785
+      }
+    },
+    {
+      "page": 15,
+      "observations": "Roshan holds freed pink cup, water visibly exits unblocked seahorse spout. Pink/lilac/lavender/rainbow costume and rounded child features retained; tiara ornate/tilted but still one blue gem in gold. Gold horn on fountain forehead is a possible prop identity mismatch versus11; need side-by-side.",
+      "issues": [
+        "V44-O02"
+      ],
+      "status": "PROP_CONTINUITY_FINDING",
+      "pdf_page_one_based": 16,
+      "story_page": 15,
+      "inspected_artifact": {
+        "entry": 15,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_15.png",
+        "sha256": "e4e26ead2e517e6ee690ffb90414388ab1c4aaa46db4eb4aca73ebb15dcc2b79",
+        "bytes": 2330529
+      }
+    },
+    {
+      "page": 16,
+      "observations": "Clean dome pool follows staged cleanup, rainbow waterfall left and seahorse water stream right. Rumi's adult brows/almond face, violet braid, purple/navy/white/gold costume and turquoise-pink tail match17; arms are two distinct welcoming hands. Side hip fins and terminal fork read as tail anatomy, not additional limbs. Small fountain again lacks conspicuous horn seen15; compare exact crops.",
+      "issues": [
+        "V44-O02"
+      ],
+      "status": "PROP_CONTINUITY_FINDING",
+      "pdf_page_one_based": 17,
+      "story_page": 16,
+      "inspected_artifact": {
+        "entry": 16,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_16.png",
+        "sha256": "91056d37e98f13b744ebb5da264891ed6acf69b0529411d69e81850d7c163bf3",
+        "bytes": 2724421
+      }
+    },
+    {
+      "page": 17,
+      "observations": "Rumi/Roshan embrace: adult and child faces, distinct tails/roots, violet braid and Roshan left rainbow lock are readable. More glossy source paint is a style variation with stable identity. Fountain cameo and tiny soap bunny remain marginal. No cropped body or detached hand seen.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 18,
+      "story_page": 17,
+      "inspected_artifact": {
+        "entry": 17,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_17.png",
+        "sha256": "fdad58ee33bb8b6e5f630275487d95f47ac7bbcf428e576a79996d52593b454d",
+        "bytes": 1540805
+      }
+    },
+    {
+      "page": 18,
+      "observations": "Dusty playroom has complete wood double doors/ring handles, plush shelves and cloud exterior. Roshan listening pose retains crown/rounded ear/costume and child proportions. Foreground puff has two curl ears/studs/pearl hands; ear tilt is expressive, not added anatomy. Caption clear.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 19,
+      "story_page": 18,
+      "inspected_artifact": {
+        "entry": 18,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_18.png",
+        "sha256": "efc9290c601561f6e95c1900d9699e3596885527571806d7b178c5baeb6da3ee",
+        "bytes": 2128692
+      }
+    },
+    {
+      "page": 19,
+      "observations": "Exactly two canonical puffs trap Eagle over both wings; no blanket. Roshan feather brush matches6 kit. Eagle has crest/eye patch/pink wings/grey feet and black/white beak family; compare later views before calling palette drift. Rainbow lock placement follows three-quarter head turn. Playroom props/materials consistent with18.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 20,
+      "story_page": 19,
+      "inspected_artifact": {
+        "entry": 19,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_19.png",
+        "sha256": "f50dc0bca5cb2120fdcd0f3f05357ee85c37d260849ec55bc338e29cfd5bb5c7",
+        "bytes": 2172460
+      }
+    },
+    {
+      "page": 20,
+      "observations": "Roshan brushes a puff beside newly freed Eagle; yellow/pink/black feather and grey feet palette remains consistent. Two puffs have two ears/studs/pearl hands each; foreground puff's small curl body below brush is attached, no extra limb. Same playroom backdrop/brush contact and source story moment match19. Caption clear.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 21,
+      "story_page": 20,
+      "inspected_artifact": {
+        "entry": 20,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_20.png",
+        "sha256": "4cf5e86598ad2dbd1d8fde803df0590bc935038dbc84d3d17bd5e97bf8627997",
+        "bytes": 2141209
+      }
+    },
+    {
+      "page": 21,
+      "observations": "Eagle cutout retains pink crest/wings with black tips, yellow eye patches, grey feet and pale beak base/black tip. Muted fine-lined cutout style differs from full scene20 but identity is stable. Two apology bubbles point to the two marginal puffs; dialogue distinction and quiet layout readable.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 22,
+      "story_page": 21,
+      "inspected_artifact": {
+        "entry": 21,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_21.png",
+        "sha256": "07b7a2f3681f7a1e8c702aadac74b1123721186ac962e47db67ecf6626e63d5c",
+        "bytes": 1235897
+      }
+    },
+    {
+      "page": 22,
+      "observations": "Roshan sorts paints at shell-marked rolling table, yellow sponge present for caption's following scrub action. Pink/lilac top, lavender tail, gathered side rainbow lock, crown and child face remain canonical. All hands attach correctly; no tool/body join issue. Less glossy spot style is deliberate layout variation.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 23,
+      "story_page": 22,
+      "inspected_artifact": {
+        "entry": 22,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_22.png",
+        "sha256": "9452a6cc0ace54a2c13b5c06cc0a88ad4f9b764ca93db74bf1499aa83e286a5a",
+        "bytes": 1470644
+      }
+    },
+    {
+      "page": 23,
+      "observations": "Clean hall repeats purple masonry, gold shells/columns/portal route and still-closed raised shell door from4/5. Roshan alone follows sparkle route as story requires. Round ear/left rainbow lock/outfit stable. White outlined top caption avoids subject, and absence of Daddy is intentional solo climax.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 24,
+      "story_page": 23,
+      "inspected_artifact": {
+        "entry": 23,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_23.png",
+        "sha256": "44937445e36254b61c48c6502652454dcfbbe5eb7de39428e2d6059a199c85a9",
+        "bytes": 2274978
+      }
+    },
+    {
+      "page": 24,
+      "observations": "Grand Puff has two large curl ears/pearl studs, stacked curl crest/four-point star, two pearl hands and dusty cloud mass; tired expression supports illness. Small puffs have tissues/box and drooping lids, not cheering. Relative Puff size in spot composition is presentation scale, not physical drift.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 25,
+      "story_page": 24,
+      "inspected_artifact": {
+        "entry": 24,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_24.png",
+        "sha256": "45a75f4ec6f96b423481ca85714c116184cec35d42a5452ab9be05a32f099400",
+        "bytes": 1524405
+      }
+    },
+    {
+      "page": 25,
+      "observations": "Roshan holds established yellow sponge and retains child face, round ear, left gathered rainbow lock, pink/lilac bodice and lavender rainbow-tail anatomy. Two small sick puffs on sofa with tissue box match care motif24. No old yellow dash or exposed cloth fragment remains apparent at page size.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 26,
+      "story_page": 25,
+      "inspected_artifact": {
+        "entry": 25,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_25.png",
+        "sha256": "f5b2f23f6a0a4a1166dd94cebdcd5bb941ec558e1eb21bfca54255c1c2327b39",
+        "bytes": 1453215
+      }
+    },
+    {
+      "page": 26,
+      "observations": "Family wash scene keeps Daddy glasses/crown/navy-gold/teal cape, Rumi adult violet braid/purple uniform/teal-pink tail, small Roshan canonical costume, Eagle crest/eye patches/grey feet. Grand Puff's ear/crest/star/two pearl-hand identity matches24. Two adults/child/avian proportions readable; brush/sponge contacts support action. Edge-clipped adult terminal fin belongs to source framing, not a detached limb.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 27,
+      "story_page": 26,
+      "inspected_artifact": {
+        "entry": 26,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_26.png",
+        "sha256": "af2c2d8e7ff67003669fe888115787dbdbe1d7d42c397f5d9fbe68f93ed5a193",
+        "bytes": 2344471
+      }
+    },
+    {
+      "page": 27,
+      "observations": "Same family, tools and room as26 deliberately held while bubbles progressively conceal Puff. Hints of colour beneath foam support caption and next reveal; no duplicate actor or added limb. Fully obscured body is narrative occlusion, not missing anatomy. Outlined caption remains readable.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 28,
+      "story_page": 27,
+      "inspected_artifact": {
+        "entry": 27,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_27.png",
+        "sha256": "6e4cd51db0cbdb6d4b87d0778f58620155547f4a7134dbc856fa47351eb013a2",
+        "bytes": 2359148
+      }
+    },
+    {
+      "page": 28,
+      "observations": "Rainbow small Puff springs from washed dust; loss of dusty stacked mass and bright palette are explicitly transformation, while two spiral ears/studs, forehead curl/star and two pearl hands continue identity. Family/tool/room continuity with26/27 stable; bubbles and fallen dust intentionally remain.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 29,
+      "story_page": 28,
+      "inspected_artifact": {
+        "entry": 28,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_28.png",
+        "sha256": "f505f2dd01da20ae7b1aaec3f888de0281b67707de9de6a495a73023ce295945",
+        "bytes": 2414477
+      }
+    },
+    {
+      "page": 29,
+      "observations": "Small Puff lands within former dust footprint, same rainbow form as28/31. Father/adult Rumi/child Roshan/Eagle maintain costumes and proportions with hands/tools attached. 'Soft and small' explains scale change; dust still on floor before30 is ongoing cleaning sequence, not contradiction.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 30,
+      "story_page": 29,
+      "inspected_artifact": {
+        "entry": 29,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_29.png",
+        "sha256": "58253dccb6d0b45464ca6a928570c297fa6c8aad8bd81b153646ab3f8425adbd",
+        "bytes": 2282935
+      }
+    },
+    {
+      "page": 30,
+      "observations": "Art room clean after22: same shell-marked rounded rolling tables, paint containers, tools and stone material family; supplies sorted/no spilled paint. Wider source view adds other tables, not duplicated single prop. Navy caption clear against light floor without masking fixture.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 31,
+      "story_page": 30,
+      "inspected_artifact": {
+        "entry": 30,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_30.png",
+        "sha256": "9e7b44f88a160a220466f20605c74253c943513e8881d52ef49cc45da670feb9",
+        "bytes": 2057498
+      }
+    },
+    {
+      "page": 31,
+      "observations": "Rainbow Puff and Roshan invitation spot retains canonical identities; open hands attach to two arms, distinct curved tail/terminal fork. Rainbow ponytail fuller than some views but rooted at side/back; no false second ponytail. Marginal puffs yawn/rest following care, not cheering during24/25 illness. Three-line text clear.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 32,
+      "story_page": 31,
+      "inspected_artifact": {
+        "entry": 31,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_31.png",
+        "sha256": "ad52a8896363afa4b8dea4172581bad80b83e7926a811f2e1a1be3efd752ce66",
+        "bytes": 1540895
+      }
+    },
+    {
+      "page": 32,
+      "observations": "Sleep ending retains Daddy/Rumi/Roshan/Eagle/rainbow Puff with two lavender friends, correctly curled and naturally occluded by bubbles. Daddy glasses/crown/cape, Rumi long braid, Roshan child face/left rainbow lock/costume, Eagle yellow mask/pink crest/black feather tips consistent. Hands resting on Roshan/head and Eagle remain attached. Evening windows are an intentional time change.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 33,
+      "story_page": 32,
+      "inspected_artifact": {
+        "entry": 32,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_32.png",
+        "sha256": "0a7489a7bec9e13577800dc4e9779b6cbea8f57ce7954aef0ae4ce198b9442ac",
+        "bytes": 2282595
+      }
+    },
+    {
+      "page": 33,
+      "observations": "Back-cover invitation intentionally returns to dirty-hall premise after sleep ending, not chronological relapse. Roshan canonical palette/rounded ear/rainbow lock/tiara and open arms readable. Large brush and dust puff repeat supply/character motifs; tiny Lamma peeks from theatre portal. Room columns/route portals/red carpet continue castle language. No body/join defect at page size.",
+      "issues": [],
+      "status": "NO_NEW_SCOPED_DEFECT",
+      "pdf_page_one_based": 34,
+      "story_page": "back_cover",
+      "inspected_artifact": {
+        "entry": 33,
+        "file": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_33.png",
+        "sha256": "a3d91bdd255152df45b57ece3c8edf6f311c4dbf4f8de9de9b775e6bfccf1e50",
+        "bytes": 2354573
+      }
+    }
+  ],
+  "cross_sequence": {
+    "Roshan": "Child face/rounded ears, chestnut waves with one gathered rainbow ponytail, gold blue-gem tiara, pink/lilac top and lavender rainbow tail recur. Ponytail side changes are accounted for by turned/back views; the story31 lock is itself an established standard. Relative head/body size varies with framing and stylization, without a new definite anatomy defect. No recommendation to change full bodies.",
+    "Daddy": "Glasses/crown/pointed ears/navy-gold jacket/teal cape/rainbow tail recur in cover,3/4,26–29 and32. Olive/green hair strength and closed/open eyes are inherited lighting/acting differences. Repaired cover caudal roots and family overlaps read coherently.",
+    "Rumi": "Violet updo with long braid, pointed ears/star earrings, adult brows/almond eyes, purple/navy jacket/white shirt/gold belt and turquoise-pink tail recur. Submerged/hugging/washing/sleeping poses account for occlusion and scale. No new youthful-face regression established on28/29.",
+    "Eagle": "Pink crest, yellow eye patches, pastel scale feathers, pale beak base/black tip, pink wings/black tips and grey feet remain stable. Black forward beak and white base match the actual protected anchor, rather than an imagined all-white beak. Exactly two dust bunnies trap him in19; no blanket.",
+    "Puffs": "Little puffs retain two tall spiral ears/pearl studs, forehead curl and two pearl hands. Grand Puff retains stacked crest/star/two pearl hands when dusty; the small rainbow form after washing is explicitly narrative, not identity drift. Tissues/sick poses on24/25 and later sleep/rest are appropriate stages.",
+    "Lamma": "White plush/pale face/lashes/pink cheeks recur as hidden discoveries. Cover body is intentionally occluded by bucket; small head remains legible and no egg prop is exposed.",
+    "locations": "Dirty/clean hall, bathroom, pool and playroom preserve their identifying material/prop families. Actual source viewpoints differ, so no claim of a measured architectural floor plan is made. The opening island versus selected Sky Lagoon view is separately open.",
+    "actions": "Dirty→drained→scrubbed→refilled bath; partial→rainbow waterfall; blocked→unblocked fountain; Rumi trapped→freed; Eagle trapped under two puffs→brushed free; dusty→foamy→rainbow Puff; cleanup→sleep all read in order. Art room22 shows sorting before the caption's subsequent scrub. Back cover intentionally returns to premise.",
+    "layout_text": "Quiet navy-text spot pages and white-outlined full-scene captions are consistent treatments. No new clipped caption, figure/text collision or bank intrusion observed in inherited entries. The new V44 title/door collision is separately blocked."
+  },
+  "existing_holds": [
+    "Owner acceptance of exact new illustrations and the repaired final door.",
+    "Child/SLP/read-aloud and physical print/trim/colour/legibility acceptance.",
+    "V42 mixed-width arrival assignment, fold/gutter clearance, physical interior unit parity and downstream page-turn imposition remain held; this audit does not accept a binding.",
+    "Selected-size source-resolution limits, including existing A9 bath disposition, remain separate; this audit does not authorize a third bath trial or enlargement.",
+    "Final V44 export/evidence/publication review is pending the parent's exact frozen handback."
+  ],
+  "completion_conditions": [
+    "Close F01 against the actual repaired final doorway/export and close F02 against actual title ink clearance.",
+    "Record O01/O02 visibly and honestly. Repair locally if included, or retain explicitly open consistency findings; do not erase them by citing previous passes or source hashes.",
+    "Reinspect every corrected local join and preserve other pages/source identities/manuscript.",
+    "No broad-scene or character redraw is necessary on the evidence from this fresh 34-entry audit."
+  ],
+  "written_files": [
+    "books/chapter_one/landscape/revisions/v44_door_and_consistency/peer_review/whole_book_audit.json"
+  ],
+  "unchanged_by_reviewer": "All production art, controls, helpers, protected originals, root documents and previous revisions."
+}

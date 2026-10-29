@@ -44,8 +44,8 @@ unclassified until this ledger gains one new scoped row for it.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V43 dust-bunny title/cover review; exact V42 body; owner/child/SLP/physical print and arrival imposition/gutter held. |
-| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; Static-book source/identity/layout rules and scoped owner exceptions through V43 dust-bunny cover direction; manuscript/character standards preserved; arrival imposition/gutter and print held. Second-AI compliance review is supporting evidence, not new creative authority; no game/cinematic authority. |
+| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V44 paired-door repair and34-entry consistency audit with two open findings; exact V43/V42 body; owner/child/SLP/physical print and arrival imposition/gutter held. |
+| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; Static-book source/identity/layout rules and scoped owner exceptions through V44 bounded door repair and consistency-audit direction; manuscript/character standards preserved; arrival imposition/gutter and print held. Second-AI compliance review is supporting evidence, not new creative authority; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |
@@ -816,14 +816,14 @@ Kept as-is; noted so a future edit updates every copy.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V38 exact 32-page owner words/order, hand-broken18/22 and preserved V34 source mapping. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V38 fresh five-pass review, separate iterative second-AI critique, strict checks and explicit A9/owner/print holds. |
+| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V44 current page plan; exact32 owner captions and source mapping; doublewide physical imposition held. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V44 current scoped door review and comprehensive34-entry audit; two open continuity findings and owner/print holds. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
 | `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performances and v17 repository-detail score; frightened lower-right stages supersede the quiet reveal; owner acceptance remains open. |
 
-| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V39 editorial continuity/readability analysis; exact manuscript, demo ground arrival, unwell tissue-box vignettes; child and professional SLP evidence open. |
+| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V44 editorial continuity/readability analysis; two open scenery/prop findings, exact manuscript and child/SLP evidence open. |
 
 | `books/chapter_one/reviews/2026-09-30/REVIEW.md` | ⚪ | `HISTORICAL_EVIDENCE`; unchanged-V27 comprehensive comparison and recommendations. V28 implements selected corrections; unresolved source/print questions remain current through landscape/REVIEW.md. |
 
@@ -868,5 +868,11 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v42_doublewide_arrival/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Preserved V42 doublewide source crop and mixed-width review, preserved entrance and explicit physical pagination/gutter holds. |
 | `books/chapter_one/landscape/revisions/v42_doublewide_arrival/BUILD_REPORT.md` | 🔵 | `HISTORICAL_EVIDENCE`; Actual width/crop,source/default-regression/export evidence and unaccepted print mapping. |
 | `books/chapter_one/landscape/revisions/v42_doublewide_arrival/peer_review/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Independent crop/context/export critique; physical binding and owner acceptance separate. |
-| `books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/README.md` | 🔵 | `SUPPORTING_CURRENT`; Current owner-selected dust-bunny cover/title and unchanged V42 body; print/owner holds explicit. |
-| `books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/peer_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Independent iterative cover critique; exact final candidate and publication lanes kept separate. |
+| `books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Sealed V43 cover/title and unchanged V42 body; superseded for door structure by V44, no whole-book acceptance. |
+| `books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/peer_review/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Sealed V43 iterative critique; V44 reopens missed door structure, no inherited feature acceptance. |
+
+| `books/chapter_one/landscape/revisions/v44_door_and_consistency/README.md` | 🔵 | `SUPPORTING_CURRENT`; Current V44 cover doorway repair and full34-entry audit; two inherited continuity findings remain open. |
+
+| `books/chapter_one/landscape/revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; Current primary character/scenery/layout audit with page-specific evidence, proposed bounded repairs and explicit acceptance holds. |
+
+| `books/chapter_one/landscape/revisions/v44_door_and_consistency/peer_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Independent full-book and final-cover critique navigation; scope satisfaction and creative acceptance separate. |

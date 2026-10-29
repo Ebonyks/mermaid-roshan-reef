@@ -1,0 +1,878 @@
+{
+  "schema": "mermaid_roshan.independent_candidate_review.v1",
+  "reviewer": "Independent second AI /root/v38_peer_critic",
+  "reviewed_at_utc": "2026-10-29T14:35:00Z",
+  "revision": "v44_door_and_consistency",
+  "source_baseline": "5284b6dc0774ef24059790ab7a3a45da15c28c05",
+  "verdict": "SATISFIED_FOR_SCOPED_COVER_REPAIR",
+  "whole_book_consistency_verdict": "AUDIT_COMPLETE_WITH_TWO_OPEN_INHERITED_CONTINUITY_FINDINGS",
+  "scope": "Actual frozen V44 cover art/PDF and reading export, paired-door mechanics/joins/identity/hierarchy/title repair, exact inherited-body preservation, and corrected report facts. This is separate from owner acceptance, physical print and publication acceptance.",
+  "artifacts": [
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/art/door_attempt1.png",
+      "sha256": "93c3cb05f9e4e48ad3e297778686a3d58c21c2ce72988d631e153e5d303865e2",
+      "bytes": 1725024
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/art/door_attempt2.png",
+      "sha256": "f3425544c1989829229a4e30caad5b2b821d73ad22acc2a0b21a3875bc0645e8",
+      "bytes": 1758682
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/door_after_detail.png",
+      "sha256": "866955e22b70e03f6ca0f158080766181f403c773f42311c64862f987dfb2c75",
+      "bytes": 724588
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/primary_book_audit.json",
+      "sha256": "afddae0c9599d6a4b5895d0f0ef8ae97ad2e14e4a150a501f768951a67362bf8",
+      "bytes": 24383
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/r01_reconstruction_record.json",
+      "sha256": "42e92c29411d1770ca149ccb28bf352e7a8c9515796329a762603f6c6b059e15",
+      "bytes": 403
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/reconstructed_r01_title_collision.png",
+      "sha256": "b7603884f8232019db9ce2f0146c7c6b5bdc476e5ac0169123a4efb1b587c34c",
+      "bytes": 2369535
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/title_door_clearance.png",
+      "sha256": "b7443ce0429017442e72b05c626edf2e98f5db475ed6039c8034c4cb69e25188",
+      "bytes": 1017276
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/BOOK_BASELINE.json",
+      "bytes": 391154,
+      "sha256": "49ade265378f0fea177144cc01cd3dd7810b69fc9cdc6b0e6ba605c653ee3795"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/BOOK_CURRENT.json",
+      "sha256": "4b06dd726702eb45c5424bd47290c0ea22dac421b881c1f749bb0e0fdcb4c80f",
+      "bytes": 392722
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/build_cover.py",
+      "bytes": 4129,
+      "sha256": "ac65ccc40525a7ca91646fb702a42609ae736a1e230b058837c45bc910e0ad1f"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/cover_provenance.json",
+      "bytes": 47533,
+      "sha256": "3afb968a13860d5a9d8933592c9baec14fd2a6ee228818d71588a03a8b046bf4"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/export_record.json",
+      "sha256": "89de8018cd3cc392907c53bee00e87440734dbf02187b0f3bc5b8c6679787b50",
+      "bytes": 985
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/Mermaid_Roshan_and_the_Dust_Bunnies_V44.pdf",
+      "bytes": 24737227,
+      "sha256": "617715954de9dd99841651cd1127c8ac59da71b9ab404b285dd3d10a8d854290"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/Mermaid_Roshan_Dust_Bunnies_Cover_V44.pdf",
+      "bytes": 16741607,
+      "sha256": "db4fe7a5ba4d878d68d1255108eda01ad59c32d194edf3a732df7d93d38f5ca8"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/page_00.png",
+      "bytes": 2370800,
+      "sha256": "ae1d30ad1555ad5806cd47a013e5fa9295d19329ef923a5f4027daf31e2fe0bb"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/reading_cover.png",
+      "bytes": 2425387,
+      "sha256": "b04b981c4025a72356f40e7b0ec8325e244cfea5964c806da51316d55e860267"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/verification.json",
+      "sha256": "b87d2535fd94845c31c0b9878a226c185c9f817a30a01c0da627eea1fc0bb579",
+      "bytes": 69420
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md",
+      "sha256": "0ac1163dd53d7aa4835d88a75ee887f61c1e6661cd2f7bca1e84c268904e75c2",
+      "bytes": 10432
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/generation_record.json",
+      "bytes": 1836,
+      "sha256": "1158644b2bb41ccaff468697a25a7f1d7e05da39939dc2b8708f38ba413f4015"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/peer_review/whole_book_audit.json",
+      "sha256": "402e5cf1089618c31d9f1e52b0b689b06effe9a2d35942e6aeac35bdd9288496",
+      "bytes": 56116
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/README.md",
+      "sha256": "912bce2052a1e8473d527b826de990028a99d35de10064d946ab258ce5f38cb8",
+      "bytes": 3631
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/references/door_title_free_input.png",
+      "sha256": "67b5ad118c08ab0f86cbdbdd12dc0341c2f69218edc23e92192672940ebeda9d",
+      "bytes": 261096
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v44_door_and_consistency/visual_audits.json",
+      "sha256": "865068a9c64b1bccf6838646e284af72e09173f9d794a01ddefb33c8e15dfecb",
+      "bytes": 4433
+    }
+  ],
+  "visual_inspection": {
+    "opened": [
+      "complete/page_00.png",
+      "complete/reading_cover.png",
+      "audit/door_after_detail.png",
+      "audit/title_door_clearance.png"
+    ],
+    "door": {
+      "result": "PASS_SCOPED_VISUAL_REVIEW",
+      "observation": "A complete opened shell leaf is now readable on each side. Each leaf has two outer hinge assemblies and a handle at its inner free edge. Hinge axes/leaf orientation, bottom edges and threshold/floor contact form a coherent doorway. No definite hard mask join, cut-off hardware or detached architectural scrap remains in the inspected final views.",
+      "puff": "The original tired face, forehead star and central curls remain visible between the leaves. Partial ear/body occlusion by a real door edge is natural and is not missing anatomy. The bounded repair does not require exposing both ears.",
+      "limits": "This is illustration plausibility and local join review, not a claim of an engineering-simulated moving door."
+    },
+    "title": {
+      "result": "PASS_SCOPED_VISUAL_REVIEW",
+      "observation": "Both title lines shift left together and now clear the new left door tip. The block stays balanced over Roshan and clear of Daddy's crown. Wording, font sizes, baselines and line breaks are unchanged.",
+      "actual_pdf_ink": {
+        "text": "Mermaid Roshan\r\nand the Dust Bunnies",
+        "actual_ink_bounds_physical_points": [
+          317.531982421875,
+          567.10400390625,
+          834.2999877929688,
+          672.6240234375
+        ],
+        "top_inset_logical_points": 23.68798828125,
+        "cover_reading_vector_content_exact": true
+      },
+      "approximate_clearance": "About22px of visible horizontal separation at the closest title/door-tip area in the1512px proof; visual observation rather than a new acceptance threshold."
+    },
+    "hierarchy_and_identity": {
+      "result": "PASS_SCOPED_VISUAL_REVIEW",
+      "observation": "Roshan remains the cover focal figure, the two large foreground dust bunnies support the title, and Lamma's small face barely peeks behind the bucket as directed. Daddy/Rumi tails and the family/Eagle silhouette remain coherent. No new actor, displaced body or accidental cropped figure was introduced.",
+      "pixel_checks": [
+        {
+          "subject": "Daddy",
+          "guard_xyxy": [
+            0,
+            165,
+            400,
+            720
+          ],
+          "exact_original_pixels": true,
+          "changed_pixels": 0
+        },
+        {
+          "subject": "Rumi",
+          "guard_xyxy": [
+            250,
+            250,
+            550,
+            750
+          ],
+          "exact_original_pixels": true,
+          "changed_pixels": 0
+        },
+        {
+          "subject": "Roshan",
+          "guard_xyxy": [
+            245,
+            260,
+            950,
+            990
+          ],
+          "exact_original_pixels": true,
+          "changed_pixels": 0
+        },
+        {
+          "subject": "Eagle",
+          "guard_xyxy": [
+            845,
+            535,
+            1190,
+            1000
+          ],
+          "exact_original_pixels": true,
+          "changed_pixels": 0
+        },
+        {
+          "subject": "Lamma_bucket",
+          "guard_xyxy": [
+            40,
+            705,
+            320,
+            960
+          ],
+          "exact_original_pixels": true,
+          "changed_pixels": 0
+        },
+        {
+          "subject": "little_bunny_pair_bodies",
+          "guard_xyxy": [
+            1175,
+            730,
+            1512,
+            985
+          ],
+          "exact_original_pixels": true,
+          "changed_pixels": 0
+        }
+      ],
+      "guard_limit": "Bunny body guard excludes the changed doorway background above y720; unchanged source/control and visual review cover their ears."
+    },
+    "actual_reading_export": "Actual compressed cover retains readable hinges/handles, natural edges, title separation and figure detail at the inspected on-screen scale. No new visible compression defect was found."
+  },
+  "independent_machine_evidence": {
+    "method": "Read-only bundled Python/PDFium and pypdf checks performed independently, with no production or gate-output rewrites.",
+    "pdf_entry_counts": {
+      "lossless_cover": 1,
+      "reading": 34,
+      "inherited_baseline_reading": 34
+    },
+    "cover_pngs_are_exact_pdf_renders": [
+      {
+        "proof": "books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/page_00.png",
+        "proof_sha256": "ae1d30ad1555ad5806cd47a013e5fa9295d19329ef923a5f4027daf31e2fe0bb",
+        "render_rgb_sha256": "38888b239488853d3bfbf8e80c3e8b7bc36e6b73931f45aeb07fae54206e0475",
+        "exact_actual_pdf_render": true
+      },
+      {
+        "proof": "books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/reading_cover.png",
+        "proof_sha256": "b04b981c4025a72356f40e7b0ec8325e244cfea5964c806da51316d55e860267",
+        "render_rgb_sha256": "e58dfbe84abf531f0271463f833953cd813ade206413c7cff457b560cac8df8e",
+        "exact_actual_pdf_render": true
+      }
+    ],
+    "carried_body": {
+      "count": 33,
+      "method": "Every V44 body page independently rendered at1.5x RGB and compared byte-for-byte with V43; extracted text, vector content and media boxes also matched.",
+      "rows": [
+        {
+          "entry": 1,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "58eb661fda66c6c2c6759b78003087fc58e9c2867a299ef99b1f9c6ddcfecc5c",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 2,
+          "dimensions": [
+            3024,
+            1080
+          ],
+          "rgb_sha256": "f85027a535612b7715b0a901f443903e760cf9b09c73c069c4c88c718884a857",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 3,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "49f1fee0d82212197a494ab79f4c9657a0ad177e8429201e61697d7fbf1dd255",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 4,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "7405b006d8ed198e6b38ef7ddce7902c8911ef0862833745fd9edd1df2b324bc",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 5,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "f1aa8f7a5b75729385f20d136acafef3ff56dab3d7d03de6b2ce50c92248a370",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 6,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "913aa70db1fd22be52c8cfa0f5b14017b39d7646229a25ee55933b0484e3c0b0",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 7,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "fd4b7d016b49826bd9aef039b2a21d58d16533b8ff544bd9e2e07156c9edfe5f",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 8,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "10cb583d21978cf0add555a0262df317447810125d238fbd1d34dae26c450273",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 9,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "c3bd90a9a71870ce9388d9386b0882540457f7c875e8b98439a17b678883eeb8",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 10,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "d511130a2135f42c1a28faaafbecc8fd1b3e0dc4de9d809db8d257110400b7a8",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 11,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "bfcf62bbe42cfaaeb57fa766086b454cee9723caf214cc4ca2d1a6984beda455",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 12,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "fc4aef2820e7a6ca5306a7b35d86cdc4ddd1f8e11e7af0ef771e59b150ec9c11",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 13,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "21ac75bb94cf788c40438625a6771fa0015799861c064493c5741003f48e905e",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 14,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "beb60049c7311047a6ffd21a542858c29de6a581d0b183e10a188b75a73d88bf",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 15,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "99aa08d84c7861904a0b273c200f65c180ce01d144512f5e7461c6cb2ea0a08a",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 16,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "ff3dc17b28d86d22a1442c31ee1a901d7f11eaeb553d32b877740e72e0885dba",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 17,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "da6284827dc96331f2f848a92ba651f0ee0b7ecdd71e07f3ae02d57c40610b6e",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 18,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "6e8841f48f079cfa7e387410289987b6616af737460833de78202be0710d21f5",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 19,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "c7b9162e654fdccac56bcd598bab7de3c277f6d373e3fd94baa83002b230bfb0",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 20,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "d48e24b9b3f2bd3e37f7e5c0598b7e8df0d1ca10938d6df8f1de851d622098b9",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 21,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "7b9b189114d7d3a9b25052eeba0216d61500bd7b3c7ebd9137af4ddf2ee27ea8",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 22,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "96c9eddb7e7169c0207a12ec2cd4185f603f2a7e00d9548757dcb11fabc6dc77",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 23,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "db99054e638d911428853248b04e629728731ccbf7e4d57ee41d2b66f33a0e3f",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 24,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "1536074bf210c5d425b82d359376364a7954b4bb9169cccd895e8cb57d164d71",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 25,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "6af03d2460b1e205962224ec448e121c4df68fb3801bce9cdaf0f4f9a1f69a18",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 26,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "5fa87d3c92d951f33f5fef8209f18b9ea7308b8e83dd1683c303666b98bbd6ae",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 27,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "c547b04f8d996f266800cd7fbb2fe93accd8ce41dd21d26d3128ab30108a5025",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 28,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "ecd687120e48e5a1052e163474f5065cc8ab3a6aaa86bff4d3881a5e6cc071e5",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 29,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "30de733f8b07d2bca46d837f90faeada98a505b82a0f52bb1b148dba1a30fc04",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 30,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "aad619d58815b5f4d9844a0752bcd5f1318d97169071bee7ba5b5db85debaead",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 31,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "058cf3b3dd450cd5444089f5c22b9128aac0188490edb7eeae2dc765b54fa254",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 32,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "c04c0309ea6ef6213c28148ebf7bbadc2773932d2748e47338578325e71258ce",
+          "pixels_text_vectors_boxes_exact": true
+        },
+        {
+          "entry": 33,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "rgb_sha256": "4eb906d1eab89985583f8cbfff2154ecbd43243a66cadf221ca1706e0868fb27",
+          "pixels_text_vectors_boxes_exact": true
+        }
+      ]
+    },
+    "bounded_cover_difference": {
+      "changed_pixels": 133319,
+      "outside_declared_title_and_door_windows": 0,
+      "permitted_windows": [
+        [
+          400,
+          0,
+          1340,
+          355
+        ],
+        [
+          1190,
+          110,
+          1512,
+          721
+        ]
+      ],
+      "central_puff_guard_xyxy": [
+        1325,
+        390,
+        1398,
+        588
+      ],
+      "central_puff_pixels_exact": true
+    },
+    "cover_reading_psnr_db": 41.132369337193644,
+    "psnr_scope": "Encoding fidelity metric only; not an artistic score or proof of physical print quality.",
+    "generation_bindings": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v44_door_and_consistency/art/door_attempt1.png",
+        "sha256": "93c3cb05f9e4e48ad3e297778686a3d58c21c2ce72988d631e153e5d303865e2",
+        "record_binding_exact": true
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v44_door_and_consistency/door_prompt_attempt1.txt",
+        "sha256": "88b35371f7b39ff03082c70423960b2dff906b8fe59c3bdd3ef42127870af236",
+        "record_binding_exact": true
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v44_door_and_consistency/references/door_before.png",
+        "sha256": "f6f90bbf55586c007661cf49cb408ec6a335baecc306996215dd34b7f60d0001",
+        "record_binding_exact": true
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v44_door_and_consistency/art/door_attempt2.png",
+        "sha256": "f3425544c1989829229a4e30caad5b2b821d73ad22acc2a0b21a3875bc0645e8",
+        "record_binding_exact": true
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v44_door_and_consistency/door_prompt_attempt2.txt",
+        "sha256": "05a26e820ed66955340ccf25935221f30d546a6538a8df6f0f3ea3b63f53a6d4",
+        "record_binding_exact": true
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v44_door_and_consistency/references/door_title_free_input.png",
+        "sha256": "67b5ad118c08ab0f86cbdbdd12dc0341c2f69218edc23e92192672940ebeda9d",
+        "record_binding_exact": true
+      }
+    ],
+    "controls": {
+      "old_source_records_exact": true,
+      "pages_and_back_cover_controls_exact": true,
+      "new_source_keys": [
+        "v44_door_repair"
+      ],
+      "original_local_patches_preserved_in_order": true,
+      "old_local_patch_count": 12,
+      "new_local_patch_count": 14,
+      "new_patch_polygons": [
+        {
+          "source": "v44_door_repair",
+          "reference_size": [
+            1512,
+            1080
+          ],
+          "source_canvas_box": [
+            1190,
+            110,
+            1512,
+            720
+          ],
+          "polygon": [
+            [
+              1234,
+              200
+            ],
+            [
+              1290,
+              159
+            ],
+            [
+              1322,
+              165
+            ],
+            [
+              1322,
+              600
+            ],
+            [
+              1319,
+              645
+            ],
+            [
+              1246,
+              658
+            ],
+            [
+              1234,
+              590
+            ]
+          ],
+          "edge_feather_reference_pixels": 2,
+          "edge_inset_reference_pixels": 3
+        },
+        {
+          "source": "v44_door_repair",
+          "reference_size": [
+            1512,
+            1080
+          ],
+          "source_canvas_box": [
+            1190,
+            110,
+            1512,
+            720
+          ],
+          "polygon": [
+            [
+              1404,
+              150
+            ],
+            [
+              1488,
+              165
+            ],
+            [
+              1512,
+              220
+            ],
+            [
+              1512,
+              670
+            ],
+            [
+              1404,
+              645
+            ]
+          ],
+          "edge_feather_reference_pixels": 2,
+          "edge_inset_reference_pixels": 3
+        }
+      ],
+      "original_placement_foreground_overlay_and_occlusion_fields_unchanged": [
+        "art",
+        "spoiler_policy",
+        "subtitle",
+        "placements",
+        "foreground_overlays",
+        "occlusions"
+      ],
+      "title_lines": {
+        "old": [
+          {
+            "text": "Mermaid Roshan",
+            "x": 133,
+            "y": 318,
+            "width": 350,
+            "size": 24
+          },
+          {
+            "text": "and the Dust Bunnies",
+            "x": 133,
+            "y": 284,
+            "width": 350,
+            "size": 28
+          }
+        ],
+        "new": [
+          {
+            "text": "Mermaid Roshan",
+            "x": 113,
+            "y": 318,
+            "width": 350,
+            "size": 24
+          },
+          {
+            "text": "and the Dust Bunnies",
+            "x": 113,
+            "y": 284,
+            "width": 350,
+            "size": 28
+          }
+        ]
+      },
+      "metadata_only_changes": "Revision/download route and treatment text explicitly describe V44/leftward title shift."
+    },
+    "primary_strict_receipt": {
+      "observation": "Read the exact completed primary receipt, not claimed as another independent execution of all326 source comparisons.",
+      "status": "PASS_SCOPED_SOURCE_EXPORT_CHECKS",
+      "baseline": "5284b6dc0774ef24059790ab7a3a45da15c28c05",
+      "source_files_sealed": 326,
+      "cover_master_sha256": "db4fe7a5ba4d878d68d1255108eda01ad59c32d194edf3a732df7d93d38f5ca8",
+      "reading_sha256": "617715954de9dd99841651cd1127c8ac59da71b9ab404b285dd3d10a8d854290",
+      "cover_proof_sha256": "ae1d30ad1555ad5806cd47a013e5fa9295d19329ef923a5f4027daf31e2fe0bb",
+      "default_cover_regression": "Exact V43 RGB with V43 controls and unchanged renderer",
+      "cover_change_windows_only": true,
+      "original_central_puff_and_family_eagle_lamma_bunnies_exact": true,
+      "cover_email_psnr_db": 41.13236910984266,
+      "whole_book_visual_verdict": "AUDIT_COMPLETE_WITH_OPEN_CONTINUITY_FINDINGS"
+    }
+  },
+  "findings_disposition": [
+    {
+      "id": "V44-F01",
+      "state": "CLOSED_FOR_SCOPED_COVER_REPAIR",
+      "reason": "Final paired leaves, four outer hinges, inner handles and threshold resolve the actual structural omission. Earlier V43 scoped satisfaction missed it; that earlier miss is acknowledged rather than erased."
+    },
+    {
+      "id": "V44-F02",
+      "state": "CLOSED_FOR_SCOPED_COVER_REPAIR",
+      "reason": "The final title block shift creates visible clearance while retaining both complete arched leaf tips."
+    },
+    {
+      "id": "V44-O01",
+      "state": "OPEN_INHERITED_SETTING_MISMATCH",
+      "entries": [
+        1,
+        2
+      ],
+      "reason": "Ocean/island/palms through the opening porthole still differ from the selected forest/mountain Sky Lagoon arrival. V44 carries these exact pages. No repair or owner acceptance of this discrepancy is inferred."
+    },
+    {
+      "id": "V44-O02",
+      "state": "OPEN_INHERITED_PROP_MISMATCH",
+      "entries": [
+        11,
+        15,
+        16
+      ],
+      "reason": "Seahorse forehead remains smooth/no projected horn, then large gold cone, then small gold nub. Exact inherited pages preserve this mismatch; it is not closed by the door repair."
+    },
+    {
+      "id": "V44-O03",
+      "state": "DECLARED_INFORMATIONAL_STYLE_VARIATION",
+      "reason": "Existing paint softness/line-weight differences remain visible without establishing a new character identity or anatomy failure. Generic redraws are not warranted."
+    },
+    {
+      "id": "V44-DOC01",
+      "state": "CORRECTED_BEFORE_THIS_VERDICT",
+      "reason": "I found inaccurate primary-summary statements for9/12/33. Parent reopened actual pages and corrected both reports: compact shell brush/stopper-chain on9; loaded net with no visible Roshan on12; dirty-hall invitation/open arms/brush/puff/portal Lamma on rear33. The final corrected rows were independently reread and bound here.",
+      "corrected_primary_rows": [
+        {
+          "pdf_entry": 9,
+          "label": "Story 9",
+          "individual_native_view": true,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "decoded_rgb_sha256": "c3bd90a9a71870ce9388d9386b0882540457f7c875e8b98439a17b678883eeb8",
+          "art": [
+            "v36_bath_candidate"
+          ],
+          "layout": "C",
+          "observation": "Bath visibly drained; compact shell scrub brush contacts tub while Roshan holds stopper and chain. Tiara, hair and costume remain consistent; no definite extra limb.",
+          "disposition": "NO_ADDITIONAL_CONFIRMED_DEFECT_IN_THIS_REVIEW"
+        },
+        {
+          "pdf_entry": 12,
+          "label": "Story 12",
+          "individual_native_view": true,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "decoded_rgb_sha256": "fc4aef2820e7a6ca5306a7b35d86cdc4ddd1f8e11e7af0ef771e59b150ec9c11",
+          "art": [
+            "net_cut"
+          ],
+          "layout": "C",
+          "observation": "Loaded net contains gunk and recovered objects. Roshan is not depicted in this isolated prop composition; blue stationery and low props form a quiet action/result beat.",
+          "disposition": "NO_ADDITIONAL_CONFIRMED_DEFECT_IN_THIS_REVIEW"
+        },
+        {
+          "pdf_entry": 33,
+          "label": "Rear cover",
+          "individual_native_view": true,
+          "dimensions": [
+            1512,
+            1080
+          ],
+          "decoded_rgb_sha256": "4eb906d1eab89985583f8cbfff2154ecbd43243a66cadf221ca1706e0868fb27",
+          "art": "v37_rear_scene",
+          "layout": "cover",
+          "observation": "Rear is an invitation back to the dirty-hall premise: Roshan with open arms, large brush, lavender puff, red carpet and tiny portal Lamma. Character identity and castle material language remain consistent; this is deliberately exterior cover copy, not a chronological relapse.",
+          "disposition": "NO_ADDITIONAL_CONFIRMED_DEFECT_IN_THIS_REVIEW"
+        }
+      ]
+    }
+  ],
+  "rejected_iteration_evidence": {
+    "kind": "Explicit reconstruction, not an original preserved staging PDF",
+    "artifact": "audit/reconstructed_r01_title_collision.png",
+    "sha256": "b7603884f8232019db9ce2f0146c7c6b5bdc476e5ac0169123a4efb1b587c34c",
+    "reason": "This byte-identical PNG matches the exact hash recorded during my original R01 visual inspection. The current reconstruction record honestly states that the discarded staging PDF was not retained. It is sufficient to show the title collision; no false archival claim is made."
+  },
+  "source_production_scope": {
+    "method": "Two declared bounded existing-door generation attempts, selected architecture only through two document polygons. Original native outputs/prompts/inputs preserved with exact bindings. Provider revision/request IDs not exposed are explicitly unknown.",
+    "no_new_creative_requirement": "The repair does not call for a full scene redraw, new character art, a changed story action or body-page regeneration.",
+    "new_files_written_by_reviewer": [
+      "peer_review/final_candidate_review.json"
+    ]
+  },
+  "remaining_separate_lanes": [
+    "Two whole-book inherited continuity findings O01/O02 remain open; this verdict must not be represented as whole-book visual consistency satisfaction.",
+    "Owner acceptance of the exact repaired cover/illustrations remains pending.",
+    "Child/qualified SLP/read-aloud and physical print/trim/colour/bleed/resolution proof remain separate.",
+    "V42 mixed-width arrival assignment, centre swing/gutter, physical interior-unit parity and downstream reveal imposition remain held.",
+    "V41 print Part2 P1–P8 and selected-size source-resolution limits remain held.",
+    "Final authority/development/contract results and immutable GitHub every-file publication evidence are outside this candidate-art verdict and must be reviewed in the publication lane."
+  ],
+  "required_additional_artwork_for_scoped_door_repair": [],
+  "conclusion": "The named doorway and its induced title collision are resolved in the exact inspected V44 exports. The fresh whole-book audit is complete but retains its two identified continuity issues; no owner or print acceptance is granted."
+}

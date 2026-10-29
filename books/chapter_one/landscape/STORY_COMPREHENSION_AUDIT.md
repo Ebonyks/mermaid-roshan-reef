@@ -1,6 +1,6 @@
-# V43 cover promise and story comprehension
+# V44 cover and story comprehension
 
-Status: SUPPORTING_CURRENT. The selected title is Mermaid Roshan and the Dust Bunnies. The cover foregrounds two gentle lavender bunnies and retains the worried doorway Puff, matching the castle-care and friendship story. Lamma is a hidden sighting behind the blue bucket. The story text and all33 body/rear renders remain V42-exact; the prior scoped arrival analysis follows. Owner,child and qualifiedSLP acceptance remain separate.
+Status: SUPPORTING_CURRENT. V44 repairs the paired cover door and title clearance. The fresh34-entry review retains two open scenery/prop continuity findings, [documented here](revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md). All story words remain unchanged. The selected title is Mermaid Roshan and the Dust Bunnies. The cover foregrounds two gentle lavender bunnies and retains the worried doorway Puff, matching the castle-care and friendship story. Lamma is a hidden sighting behind the blue bucket. The story text and all33 body/rear renders remain V42-exact; the prior scoped arrival analysis follows. Owner,child and qualifiedSLP acceptance remain separate.
 
 ## Preserved V42 arrival analysis
 

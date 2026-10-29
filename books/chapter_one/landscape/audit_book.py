@@ -12,6 +12,12 @@ def overlap(a,b):
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--proof',required=True,type=Path);ap.add_argument('--baseline',required=True,type=Path);args=ap.parse_args()
  b=json.loads((ROOT/'book.json').read_text(encoding='utf8'))
+ if b.get('revision','').startswith('V44'):
+  import subprocess,sys
+  expected=ROOT/'revisions/v44_door_and_consistency'
+  assert args.proof.resolve()==(expected/'complete').resolve()
+  assert args.baseline.resolve()==(ROOT/'revisions/v43_dust_bunnies_cover/complete').resolve()
+  raise SystemExit(subprocess.run([sys.executable,'-X','utf8','-B',str(expected/'verify_revision.py')]).returncode)
  if b.get('revision','').startswith('V43'):
   import subprocess,sys
   expected=ROOT/'revisions/v43_dust_bunnies_cover'

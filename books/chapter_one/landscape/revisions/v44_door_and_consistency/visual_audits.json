@@ -1,0 +1,89 @@
+{
+  "review_type": "Five distinct fresh focused primary inspections after final cover revision; not five child/owner sessions",
+  "checked_at_utc": "2026-10-29T14:29:26.774651+00:00",
+  "cover_sha256": "db4fe7a5ba4d878d68d1255108eda01ad59c32d194edf3a732df7d93d38f5ca8",
+  "reading_sha256": "617715954de9dd99841651cd1127c8ac59da71b9ab404b285dd3d10a8d854290",
+  "passes": [
+    {
+      "pass_number": 1,
+      "focus": "Cover scale and hierarchy",
+      "result": "PASS_SCOPED_DOOR_REVIEW",
+      "inspected": [
+        "complete/page_00.png",
+        "audit/cover_thumbnail.png"
+      ],
+      "inspected_sha256": {
+        "complete/page_00.png": "ae1d30ad1555ad5806cd47a013e5fa9295d19329ef923a5f4027daf31e2fe0bb",
+        "audit/cover_thumbnail.png": "d22e314dcd0f351d1be9eb2c77e5784611eac17867668b2c4eaf9af9f7702df9"
+      },
+      "observations": "Door reads as an opened pair at full scale; Roshan remains focal. Bunny title promise and tiny hidden Lamma remain clear.",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "pass_number": 2,
+      "focus": "Structural mechanics",
+      "result": "PASS_SCOPED_DOOR_REVIEW",
+      "inspected": [
+        "audit/door_after_detail.png"
+      ],
+      "inspected_sha256": {
+        "audit/door_after_detail.png": "866955e22b70e03f6ca0f158080766181f403c773f42311c64862f987dfb2c75"
+      },
+      "observations": "Two leaves, four complete outer hinge assemblies, paired inner handles, plausible opening/contact and threshold. No definite hard mask seam observed.",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "pass_number": 3,
+      "focus": "Title clearance",
+      "result": "PASS_SCOPED_DOOR_REVIEW",
+      "inspected": [
+        "audit/title_door_clearance.png"
+      ],
+      "inspected_sha256": {
+        "audit/title_door_clearance.png": "b7443ce0429017442e72b05c626edf2e98f5db475ed6039c8034c4cb69e25188"
+      },
+      "observations": "Final shifted block clears new left door tip and Daddy crown. Words, size, baseline and line breaks retained. Earlier title collision is preserved as a hash-matched reconstruction.",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "pass_number": 4,
+      "focus": "Identity and source preservation",
+      "result": "PASS_SCOPED_DOOR_REVIEW",
+      "inspected": [
+        "audit/family_lamma_bunnies.png",
+        "complete/page_00.png"
+      ],
+      "inspected_sha256": {
+        "audit/family_lamma_bunnies.png": "980074956744834997c672b3caeba3d5b80694bdf9cb6b14f7f9887cc6b21518",
+        "complete/page_00.png": "ae1d30ad1555ad5806cd47a013e5fa9295d19329ef923a5f4027daf31e2fe0bb"
+      },
+      "observations": "Existing family, Eagle, bucket and cameos retain source pixels. Original central Puff face remains visible; opened leaves naturally occlude edge curls without changing his expression.",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "pass_number": 5,
+      "focus": "Actual reading export and narrative context",
+      "result": "PASS_SCOPED_DOOR_REVIEW",
+      "inspected": [
+        "complete/reading_cover.png",
+        "complete/context_01.png",
+        "complete/context_24.png"
+      ],
+      "inspected_sha256": {
+        "complete/reading_cover.png": "b04b981c4025a72356f40e7b0ec8325e244cfea5964c806da51316d55e860267",
+        "complete/context_01.png": "8358d5e7c5c4f7eef7331802cc8c4bab4fbc114a983f31815593eb6e96cde6f8",
+        "complete/context_24.png": "002cc096dea7c7201f4fd70a2fe257b9f448b0d03a031938b8236208d99e2cd1"
+      },
+      "observations": "Actual compressed reading cover retains complete hardware at reading scale and no visible new compression defect. Body setting discrepancy remains open; unwell Puff/tissue-box vignette remains unchanged.",
+      "remaining_in_scope_defects": []
+    }
+  ],
+  "artifact_bindings": {
+    "BOOK_CURRENT.json": "4b06dd726702eb45c5424bd47290c0ea22dac421b881c1f749bb0e0fdcb4c80f",
+    "complete/cover_provenance.json": "3afb968a13860d5a9d8933592c9baec14fd2a6ee228818d71588a03a8b046bf4",
+    "generation_record.json": "1158644b2bb41ccaff468697a25a7f1d7e05da39939dc2b8708f38ba413f4015",
+    "audit/primary_book_audit.json": "afddae0c9599d6a4b5895d0f0ef8ae97ad2e14e4a150a501f768951a67362bf8",
+    "peer_review/whole_book_audit.json": "402e5cf1089618c31d9f1e52b0b689b06effe9a2d35942e6aeac35bdd9288496"
+  },
+  "whole_book_verdict": "Two inherited continuity findings remain open; scoped repair PASS does not accept the whole book"
+}

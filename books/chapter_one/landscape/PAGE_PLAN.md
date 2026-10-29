@@ -1,4 +1,4 @@
-# V43 page plan; V42 body preserved
+# V44 page plan; V43/V42 body preserved
 
 Status: `SUPPORTING_CURRENT`. Exact owner manuscript; [pagination hold and review mapping](revisions/v42_doublewide_arrival/complete/print_pagination.json) and [controls](book.json).
 
@@ -40,3 +40,5 @@ Status: `SUPPORTING_CURRENT`. Exact owner manuscript; [pagination hold and revie
 Historical V41: changes only story2 arrival composition and story5 dust. Both original water areas, full playground/landing/route and four-tower castle retain source geography. Words/manual breaks/caption controls/binding and32 unnamed proofs are exact versusV40. B2/A9 not needed at selected11in; Part2 print P1–P8 held until owner illustration acceptance.
 
 V42 owner direction: arrival is a doublewide scene with significant top/bottom cropping. Story2 is currently one28x10in review PDF entry; all other entries14x10in. This preserves all32captiontexts and entrance artwork pending owner choice. Splitting this entry for physical binding yields33interior page units, so no inherited32-page imposition or reveal parity is claimed. Gutter and print Part2 remain held.
+
+V44 repairs only the cover doorway/title clearance. All32 story captions/controls and rear cover remain exact. Comprehensive review retains two open continuity findings in stories1–2 and11/15/16; see [audit](revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md).

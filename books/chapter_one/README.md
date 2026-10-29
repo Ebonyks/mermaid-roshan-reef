@@ -1,9 +1,9 @@
 # Mermaid Roshan and the Dust Bunnies
 
-Status: SUPPORTING_CURRENT; [V43 cover and title review](landscape/revisions/v43_dust_bunnies_cover/README.md).
+Status: SUPPORTING_CURRENT; [V44 door repair and whole-book consistency audit](landscape/revisions/v44_door_and_consistency/README.md).
 
-[Read](landscape/revisions/v43_dust_bunnies_cover/complete/READ_BOOK.html) · [Reading PDF](landscape/revisions/v43_dust_bunnies_cover/complete/Mermaid_Roshan_and_the_Dust_Bunnies_V43.pdf) · [Cover comparison](landscape/revisions/v43_dust_bunnies_cover/REVISION_REVIEW.html) · [Design language](DESIGN_LANGUAGE.md).
+[Read](landscape/revisions/v44_door_and_consistency/complete/READ_BOOK.html) · [Reading PDF](landscape/revisions/v44_door_and_consistency/complete/Mermaid_Roshan_and_the_Dust_Bunnies_V44.pdf) · [Comprehensive audit](landscape/revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md) · [Design language](DESIGN_LANGUAGE.md).
 
-Owner selects the dust-bunny title and asks for a stronger cover role for the creatures. Two canonical lavender bunnies now occupy the foreground; Grand Puff remains in the doorway. Lamma is a tiny head peeking from behind the original blue bucket. The established family, castle and anatomy repairs remain, with editable vector lettering. Two bounded imagegen calls: one transparent character group and one small floor continuity repair; no full-scene redraw.
+Grand Puff's cover doorway now has two opened leaves, four complete hinges and paired handles. Original character/cameo artwork is preserved; the title shifts slightly left for clearance. Both reviewers inspected all34 entries. Characters are broadly consistent, but opening geography and seahorse fountain ornament remain open continuity findings.
 
-All33 remaining PDF entries, including the doublewide Sky Lagoon arrival and separate entrance, retain exact V42 renders/text/images. V42 and earlier versions remain preserved. This is a34-entry mixed-width illustration review, not an imposed print edition. Arrival page assignment/gutter and printPart2, owner cover acceptance,physical print,child reading and qualifiedSLP remain open.
+All33 other entries remain exact V43/V42 reading pages. This34-entry mixed-width illustration review is not an imposed print edition. Arrival page assignment/gutter and V41 printPart2, owner illustrations, physical print, child and qualifiedSLP remain held. Prior versions are preserved; no game/release change.
