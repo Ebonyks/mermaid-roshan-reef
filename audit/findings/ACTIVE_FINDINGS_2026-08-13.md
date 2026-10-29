@@ -411,6 +411,8 @@ R105 partialproduction2026-10-29: [painted PAN sediment runtime](../../docs/hand
 
 R105 Dev transition2026-10-29: [painted PAN sediment](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/dev_integration_20261029/README.md) exactsource0e2cf1c4 integrated after exactsourceCI success;3runtimefiles anonymous exact. SevenpartialDevartifacts, no newsource/frame/whole-role/removal credit. Formal/device/child/owner andotherGeologist/globalgaps open; lifecycle unchanged.
 
+R106 partialproduction2026-10-29: [shared painted workbench](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/README.md), actualsource44da99ba local82/static/native220/24candidateframes reviewed and anonymous full source delivery.9source/7partialDev artifacts;35events split32bounded/3excluded. PriorR105localstatic-prefix routing limit disclosed; exact0esourceCIgreen remains. No acceptance closure; sourceCI/Dev/formal/device/child/owner/global gaps open.
+
 ## MA-VIS-007
 
 | Field | Value |

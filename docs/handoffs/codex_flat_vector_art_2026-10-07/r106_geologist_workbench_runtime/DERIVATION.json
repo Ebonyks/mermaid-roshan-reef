@@ -1,0 +1,56 @@
+{
+  "stable_id": "FV-A6CE3E284202",
+  "source_baseline": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+  "method": "Built-in ImageGen precise-object-edit, named overhead view; Aseprite native preservation and whole-canvas bilinear uniform1254to1024 export only",
+  "backend_exposed": "image_gen.imagegen",
+  "returned_keys": [
+    "image_url",
+    "output_hint"
+  ],
+  "model_version": "NOT_EXPOSED",
+  "request_id": "NOT_EXPOSED",
+  "seed": "NOT_EXPOSED",
+  "usage_or_cost": "NOT_EXPOSED",
+  "takes": 2,
+  "static_brief_cap": 2,
+  "take01_status": "REJECTED_RUNTIME_FIT",
+  "take02_status": "CANDIDATE_RUNTIME_CONTEXT_PENDING",
+  "animation_calls": 0,
+  "protected_originals_unchanged": true,
+  "historical_source_candidate_not_relabelled_approved": true,
+  "native_visible_RGBA_changed_pixels": 0,
+  "aseprite_version": "Aseprite 1.3.18.4-x64",
+  "runtime_export_dimensions": [
+    1024,
+    1024
+  ],
+  "native_dimensions": [
+    1254,
+    1254
+  ],
+  "runtime_path": "assets/opera/worlds/props/geologist_work_slab_painted.png",
+  "runtime_sha256": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4",
+  "all_visual_files": [
+    {
+      "path": "assets_src/imagegen/geologist_work_slab_overhead_20261029/native_roundtrip_proof.png",
+      "sha256": "8382c695ad34615bce387277e7e2d54bdd9efe55ad8af9173c4b3abcddeac2f1"
+    },
+    {
+      "path": "assets_src/imagegen/geologist_work_slab_overhead_20261029/reference_work_slab.png",
+      "sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80"
+    },
+    {
+      "path": "assets_src/imagegen/geologist_work_slab_overhead_20261029/take_01/native.png",
+      "sha256": "33388915708fa091db9cac6c48f935239dc8e974bb4790a123aa124bbdab008b"
+    },
+    {
+      "path": "assets_src/imagegen/geologist_work_slab_overhead_20261029/take_02/native.png",
+      "sha256": "16189cc4760bfbf54a7ad87bcddda68665674b444c16b0e5f828eadb75c63f4a"
+    },
+    {
+      "path": "assets_src/imagegen/geologist_work_slab_overhead_20261029/work_slab_native.aseprite",
+      "sha256": "9e7e76b11e8dea52f9b4c48c58acb35fd6960af33a01c1c29e8f1bfe066a23ee"
+    }
+  ],
+  "edits": "No crop, alpha threshold, tint, recolour, repaint, warp or added shadow. Complete authored surface retained."
+}

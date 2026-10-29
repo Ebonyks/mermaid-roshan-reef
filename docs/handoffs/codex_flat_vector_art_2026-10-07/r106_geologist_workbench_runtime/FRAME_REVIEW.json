@@ -1,0 +1,336 @@
+{
+  "stable_id": "FV-A6CE3E284202",
+  "source_baseline": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+  "candidate_surface_sha256": "60e21c32e6d7f3d96cc5e53b1893b66f00069175ce18282979b22afd83ac5eb1",
+  "runtime_png_sha256": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4",
+  "all_24_current_frames_inspected": true,
+  "all_8_baseline_frames_inspected": true,
+  "method": "Agent direct full native-frame inspection with tools.view_image; all four modes at1280/1600, initial/partial-or-assembly/complete. Qualitative ten-axis same-scene comparison, no fabricated numeric approval.",
+  "ten_axes": [
+    {
+      "axis": "silhouette",
+      "observation": "Flat regular panel with visible primitive corner construction becomes one handmade, chipped stone outline; whole slab stays within both canvases.",
+      "status": "CANDIDATE_CONTEXT_SUITABLE_PENDING_OWNER"
+    },
+    {
+      "axis": "contour",
+      "observation": "Deep plum authored boundary replaces repeated thick geometric outlines. No sticker rim or coloured edge fringe seen in24 actual frames.",
+      "status": "CANDIDATE_CONTEXT_SUITABLE_PENDING_OWNER"
+    },
+    {
+      "axis": "palette",
+      "observation": "Cream top/lavender lip retains source slab identity and gives aqua river/pan and purple geode separation; scene navy/plum and actor identities unchanged.",
+      "status": "CANDIDATE_CONTEXT_SUITABLE_PENDING_OWNER"
+    },
+    {
+      "axis": "light",
+      "observation": "Broad upper-left painted washes read with existing pan/actors; no new dynamic light or code shadow.",
+      "status": "CANDIDATE_CONTEXT_SUITABLE_PENDING_OWNER"
+    },
+    {
+      "axis": "material",
+      "observation": "Quiet matte stone wash and chips replace featureless flat tan fill. No procedural/noisy/PBR substitute.",
+      "status": "CANDIDATE_CONTEXT_SUITABLE_PENDING_OWNER"
+    },
+    {
+      "axis": "perspective",
+      "observation": "Nearly overhead work face supports fixed top-down activities; thin front lip gives depth. Complete body uniformly fitted; no nonuniform stretch.",
+      "status": "CANDIDATE_CONTEXT_SUITABLE_PENDING_OWNER"
+    },
+    {
+      "axis": "scale",
+      "observation": "Source body1147x782 fitted within old860x560 visual slot: about821.4x560; unchanged WORK_RECT860x490, river/fossil/pan/geode coordinates.",
+      "status": "CANDIDATE_CONTEXT_SUITABLE_PENDING_OWNER"
+    },
+    {
+      "axis": "contact",
+      "observation": "River endpoints/path, all loose fossil thirds, moving pan and opened geode stay on the visible top/support. Loose fossil bottoms stop above lip; no new contact shadow fabricated.",
+      "status": "CANDIDATE_CONTEXT_SUITABLE_PENDING_OWNER"
+    },
+    {
+      "axis": "occlusion",
+      "observation": "Work slab remains behind activity art and clear of actors/HUD in all24states; inherited completion actor overlap remains open.",
+      "status": "CANDIDATE_CONTEXT_SUITABLE_PENDING_OWNER"
+    },
+    {
+      "axis": "phone_readability",
+      "observation": "Activity silhouettes and tiny painted minerals/grains remain clear at1280/1600; broad surface detail does not obscure targets. This is desktop judgment; real phone/child/owner still pending.",
+      "status": "CANDIDATE_CONTEXT_SUITABLE_PENDING_OWNER"
+    }
+  ],
+  "frames": [
+    {
+      "kind": "baseline",
+      "width": 1280,
+      "phase": 0,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/baseline/1280/0/01_initial.png",
+      "sha256": "21496be5b37423febbb24c60a5ccccf3a339ad7cf91c2f5df9a0c6a0e9d95ee7",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 0,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/0/01_initial.png",
+      "sha256": "3d9b142fc58062a5d212b664dba7c08a4c47d991d68362a320cd88247573e0a2",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 0,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/0/02_partial_channel.png",
+      "sha256": "7441942fc45d185a21bfea1ebc9f6d704bde1a973230b99cd11f9cf22a4fb9bb",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 0,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/0/03_complete.png",
+      "sha256": "535ce2f7b8d275dfd7ba6cd92bb2ab2886bf14839da0cdc622cbdcff6338a8eb",
+      "directly_inspected": true
+    },
+    {
+      "kind": "baseline",
+      "width": 1280,
+      "phase": 1,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/baseline/1280/1/01_initial.png",
+      "sha256": "9194a3400a04e0658ffff261596f9f62f63c7cd2a7797d0f3fbc05475897ce9e",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 1,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/1/01_initial.png",
+      "sha256": "9c90fa0256cbd065810ef3e9e7fcb37cd699f1ed6b646f2766696bba70864da1",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 1,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/1/02_assembly_loose_pieces.png",
+      "sha256": "0df6624829b4ef921b9715c8baf4c2898f1b2e30b8284c62971c9badb0cfe237",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 1,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/1/03_complete.png",
+      "sha256": "9a9cb08260104f5cdcc1abe39562e399027702a43ec03fb0efaf28831f588377",
+      "directly_inspected": true
+    },
+    {
+      "kind": "baseline",
+      "width": 1280,
+      "phase": 2,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/baseline/1280/2/01_initial.png",
+      "sha256": "e861d8a2c9029ed101e62157939cda5eb8a2dd12a2175ea086f01542f006c5e2",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 2,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/2/01_initial.png",
+      "sha256": "6aba3190f5d901106211d3031886c69988fdd11f2a51b522e3c466d830b773bb",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 2,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/2/02_partial_wash.png",
+      "sha256": "09c3759d750c96c726a60dfb7f3ea0feb4ed6982dff7b49dc41294f1c7ccfe7b",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 2,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/2/03_complete.png",
+      "sha256": "a16f844a4f6bd30c2aa35e70f9e4fd507a12a312f12cbd4487366717a42de720",
+      "directly_inspected": true
+    },
+    {
+      "kind": "baseline",
+      "width": 1280,
+      "phase": 3,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/baseline/1280/3/01_initial.png",
+      "sha256": "5609dc0789cb0ef4d2f12f66dceca9c82f59669565d57622c2f4bdeacd951573",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 3,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/3/01_initial.png",
+      "sha256": "fa9dcef175a04d3dd87ba1f8763c38171b8200864473b10a89f08f0ccd47fa59",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 3,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/3/02_partial_seams.png",
+      "sha256": "45962ae730ad5d7712c005c4a0f6931165bf70cd929ea4e877b24085f17162ad",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1280,
+      "phase": 3,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/3/03_complete.png",
+      "sha256": "4db76cd96ae6e873e7b430a4186ccf0666d95ce6033a1f7282faac8f2ac764a7",
+      "directly_inspected": true
+    },
+    {
+      "kind": "baseline",
+      "width": 1600,
+      "phase": 0,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/baseline/1600/0/01_initial.png",
+      "sha256": "03f356e2da67c998010ad30ad464e8a97f8fd4d36987014ee3cbd4fc8f51e39c",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 0,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/0/01_initial.png",
+      "sha256": "b7413ef05c40038315d0d1ab61818bde87d66752a8898cecefc88bcd9062b09a",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 0,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/0/02_partial_channel.png",
+      "sha256": "ff50ff09e565d27cc88f8f45425d9da7c7a725ac5a17865b677ce6ed4160d447",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 0,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/0/03_complete.png",
+      "sha256": "a2070689c03c9212f4f7d8e552de1406f64673b144ebdaa4f224eb21c67e234e",
+      "directly_inspected": true
+    },
+    {
+      "kind": "baseline",
+      "width": 1600,
+      "phase": 1,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/baseline/1600/1/01_initial.png",
+      "sha256": "d929f822efed4d0c92fbd8ef86e641ef318e5d27fb420d165e04d05ab9ffb3c0",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 1,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/1/01_initial.png",
+      "sha256": "65c8d82dd1a8bd9fc89ccb72035fccbd58424b0c1349c95d73a7aad183280279",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 1,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/1/02_assembly_loose_pieces.png",
+      "sha256": "946ecb67dee43f0b31d100011a06b233718eec729c2cb4d9ab36e4c03fd44817",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 1,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/1/03_complete.png",
+      "sha256": "e3cadaaaf45648b1f21984b11b3af0d8ef0a5bdbff841692d4211243a850c607",
+      "directly_inspected": true
+    },
+    {
+      "kind": "baseline",
+      "width": 1600,
+      "phase": 2,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/baseline/1600/2/01_initial.png",
+      "sha256": "0e36831c07f043840d55117c0e4c55767118730f58913875fa7b60792f0f2515",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 2,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/2/01_initial.png",
+      "sha256": "c80622075f99ffa470fb5226f5be393b918ed51d438a149d3e6b8e0afb8a4c61",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 2,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/2/02_partial_wash.png",
+      "sha256": "10fe8ab53dbbc3af266af35d97f7a46f77e4d1b9ce83eacdf93b01022f84e498",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 2,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/2/03_complete.png",
+      "sha256": "72c1c02ac470c87decf69871a33fddd6c1a0245569a94e12e55580611c066189",
+      "directly_inspected": true
+    },
+    {
+      "kind": "baseline",
+      "width": 1600,
+      "phase": 3,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/baseline/1600/3/01_initial.png",
+      "sha256": "29ce96e96e83e3b57b16dc5c5978fa57162bd92c52e88470ea39e3c159bab1c4",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 3,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/3/01_initial.png",
+      "sha256": "21bd1a459fc568e34de8bde191ac6b9da0e26d0cff57ca75b59fe731c24a3b56",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 3,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/3/02_partial_seams.png",
+      "sha256": "0d15f92dc462b9e4b0feca9a4d8b4dbf363821545befa847476d397ff1394ecf",
+      "directly_inspected": true
+    },
+    {
+      "kind": "candidate",
+      "width": 1600,
+      "phase": 3,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1600/3/03_complete.png",
+      "sha256": "2832e802bacef3c642fcea2dd487752fd66ef5022c42e399857b0007a2560a0a",
+      "directly_inspected": true
+    }
+  ],
+  "new_frame_events": {
+    "bounded": 32,
+    "excluded": 3,
+    "retained_total": 35
+  },
+  "baseline_timing_limit": "Baseline initial captures retain original4-frame opening fade; candidate waits16frames to inspect settled opacity. No exact-frame opacity score or before/after full-state equivalence claim; actual runtime functions controlling fade are byte-identical.",
+  "prior_failure": "Original incorrect fixture river-press cell-count assumption preserved; corrected full earned snapshot negative. Runtime/asset unchanged, successful import retained.",
+  "open_debt": [
+    "Flat river channel/endpoint cues, fossil soil/whole/thirds, geode states/crystals, cave/background and shared UI",
+    "Original completion Roshan/guide overlap",
+    "Natural/training/all-route/formalQA11/device/child/owner and whole-game acceptance"
+  ],
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0
+}

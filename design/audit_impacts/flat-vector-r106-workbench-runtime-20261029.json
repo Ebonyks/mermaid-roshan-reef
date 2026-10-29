@@ -1,0 +1,66 @@
+{
+  "id": "flat-vector-r106-workbench-runtime-20261029",
+  "scope": "Canonical verified production delta for one shared painted workbench implementation,32bounded/3excluded frameevents and two static generations. Source8to9once; partialDev7 retained until actual exactCI/integration. No runtime changes or accepted artwork removal.",
+  "baseline": "ad278510bc63e71bb6ac5d45b04e47d9aef1a2b5",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-ASSET-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-OPERA-004"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/CANONICAL_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/DERIVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/FIXTURE_REPAIR.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/FOCUSED_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/FRAME_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/FUNCTION_PRESERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/IMPORT_RECEIPT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/LOCAL_82_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/PAYLOAD_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/POSTCOMMIT_EOL_CLEANUP.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/PRIMITIVE_CENSUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/PRIOR_STATIC_PREFIX_SCOPE_NOTE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/PRODUCTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/SOURCE_CI_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/SOURCE_PUBLICATION_FINAL.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/STATIC_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Actual frozen source currentstatic/import/all82trusted/native220/24directlyreviewedcandidateframes and full anonymous source delivery",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/SOURCE_REMOTE_VERIFICATION.json; FRAME_REVIEW.json; LOCAL_82_RESULT.json"
+    },
+    {
+      "command": "Current canonical authority/development and immutable anonymous delivery",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/CANONICAL_GATES.json; anonymous publication/receipt completion recorded separately, never inferred from document checks."
+    }
+  ],
+  "acceptance_gaps": "ExactsourceCI/Dev, natural/training/formalQA11/device/child/owner and otherGeologist/global gaps remain open. Zero accepted removals."
+}
