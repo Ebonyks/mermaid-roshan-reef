@@ -1,0 +1,304 @@
+{
+  "state": "FOCUSED_IMPORT_AND_TWO_ASPECT_CONTEXT_PASS_AGENT_REVIEW_REQUIRED",
+  "imports": [
+    {
+      "pass": 1,
+      "exit_code": 0,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-pan-sediment-20261029\\import1\\engine.log",
+      "sha256": "6ad60685a34c3e141b4387175ab22a2c51257f2b32940e37f6655bb2a20ed298"
+    },
+    {
+      "pass": 2,
+      "exit_code": 0,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-pan-sediment-20261029\\import2\\engine.log",
+      "sha256": "36f1ce42b8ab607ed1340f53cb0355fb1e8c9bf16fc26b1315ab59ed42b25f1b"
+    }
+  ],
+  "cases": [
+    {
+      "width": 1280,
+      "checks": 51,
+      "frames": [
+        {
+          "castle_layer_visible": false,
+          "id": "01_pan_start",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "01_pan_start.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "5cf1e31920068825e4d9324b70e83a7c574dd39e49d36b376ad050321d0d0310",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 0,
+            "mode": "geology_pan",
+            "reversals": 0,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.0
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "02_pan_partial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 52.5,
+          "path": "02_pan_partial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "915347f86792255027c85d325c487f99ef628693a6847ad2e3da2080b93766d6",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 1,
+            "mode": "geology_pan",
+            "reversals": 4,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.444444444444444
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "03_pan_near_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 52.5,
+          "path": "03_pan_near_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "ed3404e6418e72cda3266ffb1aa00c3e95ff7e0b205c5140a20075a1517267fa",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 2,
+            "mode": "geology_pan",
+            "reversals": 8,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.888888888888889
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "04_pan_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": -52.5,
+          "path": "04_pan_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "32d2d922bfde8954f9ca6eeef795cad75b734fca4f9461af3320b82f2db8b0f6",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": true,
+            "minerals": 3,
+            "mode": "geology_pan",
+            "reversals": 9,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 1.0
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-pan-sediment-20261029\\native_1280\\output\\RESULT.json",
+      "result_sha256": "598fb2379d1f51b249047e704c020caa2ba6ef233bdb48d64fd0d565564d19f3"
+    },
+    {
+      "width": 1600,
+      "checks": 51,
+      "frames": [
+        {
+          "castle_layer_visible": false,
+          "id": "01_pan_start",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "01_pan_start.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "b877ba2cb01178033ff8d65daef70201aac437993222db3bc0d84c1a2fe20897",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 0,
+            "mode": "geology_pan",
+            "reversals": 0,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.0
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "02_pan_partial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 52.5,
+          "path": "02_pan_partial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "385d71b9745716879966e9170cf68df87119acbd5e3823f160c6bb1ab0532acb",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 1,
+            "mode": "geology_pan",
+            "reversals": 4,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.444444444444444
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "03_pan_near_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 52.5,
+          "path": "03_pan_near_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "ed58ce28ee139804f6591e898fd8e927d3b91a0ffdd0f6f70309929d9ad1e6bd",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "minerals": 2,
+            "mode": "geology_pan",
+            "reversals": 8,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 0.888888888888889
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "04_pan_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": -52.5,
+          "path": "04_pan_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "4d221d5d28c079db02ac42875a94dba42d60746da7e48b159a20e3361b855efc",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": true,
+            "minerals": 3,
+            "mode": "geology_pan",
+            "reversals": 9,
+            "stage": "PAN",
+            "version": 1,
+            "wash": 1.0
+          },
+          "start_menu_active": false,
+          "world_phase": 2,
+          "world_visible": true
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-pan-sediment-20261029\\native_1600\\output\\RESULT.json",
+      "result_sha256": "7a4b688113f3bc952de0d954985875ee6f77e885a52d78c7e350442f831d92fa"
+    }
+  ],
+  "checks": 102,
+  "new_native_frame_events": 8,
+  "source_drift": [],
+  "normal_unchanged": true,
+  "normal_before": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "normal_after": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "new_generation_calls": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "full_trusted_suite": "PENDING_AFTER_AGENT_SCENE_REVIEW",
+  "completed_at_utc": "2026-10-29T11:28:02.054090+00:00"
+}

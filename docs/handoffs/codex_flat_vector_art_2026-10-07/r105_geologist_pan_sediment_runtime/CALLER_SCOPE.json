@@ -1,0 +1,49 @@
+{
+  "stable_id": "FV-1E16581A6287",
+  "baseline": "8df4757e6f2e399d1c4e3d7f352f0a38bef13b55",
+  "class_reference_callers": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "line": 1324,
+      "text": "(surface as OperaGeologySurface).progress_changed.connect(_on_geology_progress_changed)"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "line": 2693,
+      "text": "if career_id == \"geologist\" and surface is OperaGeologySurface and not _is_dev_playtest():"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "line": 2698,
+      "text": "(surface as OperaGeologySurface).restore_progress(mechanic as Dictionary)"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "line": 4847,
+      "text": "if surface is OperaGeologySurface:"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "line": 4848,
+      "text": "(surface as OperaGeologySurface).cancel_input(false)"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "line": 5124,
+      "text": "or not (surface is OperaGeologySurface):"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "line": 5127,
+      "text": "var snapshot := (surface as OperaGeologySurface).progress_snapshot() \\"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "line": 95,
+      "text": "\"OperaGeologySurface supports only its four geology modes\")"
+    }
+  ],
+  "painted_PAN_draw_owner": "OperaGeologySurface._draw_pan, unchangedmode/state dispatch; no remaining circle fallback in this renderer",
+  "visibility_limit": "Staticcaller wiring does not prove every natural/training route or formalhuman/device acceptance. Those remain open.",
+  "new_accepted_removal": 0
+}

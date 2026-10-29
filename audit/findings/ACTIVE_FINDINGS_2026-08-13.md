@@ -435,6 +435,10 @@ R102 partial production update2026-10-29: [First painted mint PAN specimen](../.
 
 2026-10-29 bounded Geologist PAN production: [R104 blue/lavender runtime candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/README.md) uses exact published painted variants; the only active flat mineral helper call and render helper are retired. Same current census48to45primitivecalls,54unrelatedfunctions byte-identical. Actual4.7.2Mobile/Speedy90configured checks/8frames reviewed; currentstatic/all82PASS; exactsourceCI/Dev/formal/device/child/owner remain separate. Cave/panel/sediment/gallery and global gaps remain; lifecycle CONFIRMED_OPEN unchanged.
 
+R105 candidate2026-10-29: [painted pan sediment](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/README.md) replaces the remaining grain-circle draw with an existing painted cutout, preserving grain positions/counts and all nonvisual functions. SourceC2 and nativebody preservation pass; actualruntime/context/currentfullmachine/sourceCI/Dev andformal/device/child/owner remain pending. Otherjob/global gaps and lifecycle unchanged.
+
+R105 actualsource production2026-10-29: painted pan grain candidate passes currentstatic/all82trusted and102configurednativechecks/8directlyreviewedframes. Originalsetupguardlabel failure preserved with exactsource/capture binding correction, no native/pixel rerun. ExactsourceCI/Dev/formal/device/child/owner andotherjob/global gaps remain open; lifecycle unchanged.
+
 ## MA-PLAY-001
 
 | Field | Value |

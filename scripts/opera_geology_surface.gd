@@ -47,6 +47,7 @@ const PAN_PATH := "res://assets/opera/worlds/props/geologist_washing_pan_painted
 ## Whole painted cutout region in its preserved 1254-square source; import is 1024.
 const PAN_ART_REGION := Rect2(58.0, 315.0, 1138.0, 652.0)
 const PAN_ART_SOURCE_SIZE := Vector2(1254.0, 1254.0)
+const PAN_GRAIN_PATH := "res://assets/opera/worlds/props/geologist_pan_grain_painted.png"
 const MINERAL_MINT_PATH := "res://assets/opera/worlds/props/geologist_mineral_mint_painted.png"
 const MINERAL_BLUE_PATH := "res://assets/opera/worlds/props/geologist_mineral_blue_painted.png"
 const MINERAL_LAVENDER_PATH := "res://assets/opera/worlds/props/geologist_mineral_lavender_painted.png"
@@ -57,6 +58,7 @@ var geode_texture: Texture2D = null
 var rock_texture: Texture2D = null
 var brush_texture: Texture2D = null
 var pan_texture: Texture2D = null
+var pan_grain_texture: Texture2D = null
 var mineral_mint_texture: Texture2D = null
 var mineral_blue_texture: Texture2D = null
 var mineral_lavender_texture: Texture2D = null
@@ -265,6 +267,13 @@ func _load_textures() -> void:
 		painted_pan.diffuse_texture = painted_source
 		painted_pan.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		pan_texture = painted_pan
+	var grain_source: Texture2D = _optional_texture(PAN_GRAIN_PATH)
+	assert(grain_source != null, "Geologist painted pan sediment artwork is required")
+	if grain_source != null:
+		var painted_grain := CanvasTexture.new()
+		painted_grain.diffuse_texture = grain_source
+		painted_grain.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		pan_grain_texture = painted_grain
 	mineral_mint_texture = _required_mineral_texture(MINERAL_MINT_PATH)
 	mineral_blue_texture = _required_mineral_texture(MINERAL_BLUE_PATH)
 	mineral_lavender_texture = _required_mineral_texture(MINERAL_LAVENDER_PATH)
@@ -799,7 +808,10 @@ func _draw_pan() -> void:
 		var grain_pos := center + Vector2(cos(angle) * radius * 1.35,
 			sin(angle) * radius * 0.48)
 		grain_pos.x += pan_visual_x * 0.12 + sin(float(index) + pan_visual_x * 0.02) * 6.0
-		draw_circle(grain_pos, 6.0, Color("#d5a761"))
+		if pan_grain_texture != null:
+			# Whole painted cutout; its visible body stays about12x9 screen pixels.
+			draw_texture_rect(pan_grain_texture,
+				Rect2(grain_pos - Vector2(11.0, 11.0), Vector2(22.0, 22.0)), false)
 	var minerals: Array[Texture2D] = [
 		mineral_mint_texture, mineral_blue_texture, mineral_lavender_texture,
 	]
