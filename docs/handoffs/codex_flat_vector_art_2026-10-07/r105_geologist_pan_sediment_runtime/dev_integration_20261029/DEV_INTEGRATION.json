@@ -1,0 +1,65 @@
+{
+  "state": "PAINTED_PAN_SEDIMENT_EXACT_GREEN_SOURCE_FAST_FORWARD_INTEGRATED_DEV",
+  "source_revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+  "integrated_dev_revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+  "prior_dev": "8df4757e6f2e399d1c4e3d7f352f0a38bef13b55",
+  "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+  "source_CI_run": 40873266025,
+  "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40873266025",
+  "source_CI_conclusion": "success",
+  "trusted_step": "success",
+  "Dev_head_verified_by_anonymous_runtime_bytes_and_git_remote": true,
+  "runtime_files": [
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+      "bytes": 35171,
+      "sha256": "caafd3491ad0bb7f2e6ec92a1e10622addd15e3ace4a39d2e4c664d040e0c45e",
+      "http_status": 200,
+      "anonymous_exact": true
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_pan_grain_painted.png",
+      "revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+      "bytes": 95922,
+      "sha256": "40be8dd96da1de49bf326c96bfc9d7292616549733089aad713308b447938d02",
+      "http_status": 200,
+      "anonymous_exact": true
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_pan_grain_painted.png.import",
+      "revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+      "bytes": 1012,
+      "sha256": "c47893945b461a84e5f02bcf1051b39df3ebf9e9648826b79c1a85e998b47599",
+      "http_status": 200,
+      "anonymous_exact": true
+    }
+  ],
+  "access_mode": "Anonymous immutable HTTPS GET without Authorization/cookies, exact bytes/SHA256 for three changed runtime files; Git remote exactDev ref checked separately. The actual full source delivery was previously independently verified.",
+  "source_clean": true,
+  "local_dev_master_untouched": true,
+  "PR_created": false,
+  "Dev_workflows": [
+    {
+      "conclusion": "",
+      "databaseId": 40881296574,
+      "headSha": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+      "status": "queued",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40881296574",
+      "workflowName": "Probe suite (graphics fork)"
+    }
+  ],
+  "exact_new_Dev_APK_verified": false,
+  "new_generation_calls": 0,
+  "new_native_frame_events": 0,
+  "new_implementation_artifact_credits": 0,
+  "partial_dev_artifact_credit": 1,
+  "whole_role_closed": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "completed_at_utc": "2026-10-29T13:22:18.981823+00:00"
+}

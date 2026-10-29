@@ -1,0 +1,447 @@
+{
+  "schema": "reef.runtime_trial_delivery/1",
+  "revision": "FV-AUDIT-20261029-R105-DEV",
+  "baseline": "479a0da3d3e8bdc283bc2658c43b9e1597ccf36f",
+  "files": [
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297678,
+      "sha256": "a5621d7e699c50d65204f848df3b39e582bda3d0842851dec52d18714ef7ef65",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 283179,
+      "sha256": "24d1513b2718ec8dc6474c23ab93d05f4902f289ddf5040b59afc64f7366320e",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 323292,
+      "sha256": "9af925983762aed506cef39c22c8aa781974377806b9a8a0665a79871ad04372",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 269449,
+      "sha256": "395ee8bac2e5c0e95561b14e6cc79a692983a81d4ea79f792a5e59776b77d1e9",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 116474,
+      "sha256": "ad34c20b7f315fbdf841b6ecf56afc928089d7586d1e46f8aabe46588a866b74",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/dev_integration_20261029/CANONICAL_GATES.json",
+      "bytes": 929,
+      "sha256": "f62ff3ce7e0db22f38b336b8b86e8bc44fa076bd14e52233ed61d4d286695340",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/dev_integration_20261029/DEV_INTEGRATION.json",
+      "bytes": 2610,
+      "sha256": "f5afbbf4cb70a5b6c271328a993d38d6b84deabdb21f4476690e63aa3f99cdf6",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/dev_integration_20261029/DEV_WORKFLOW_HANDLES.json",
+      "bytes": 284,
+      "sha256": "51bfea9bf2a7ac0997a297a4b42bd1e3be9e1aed38e85a2b168161db869aab85",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/dev_integration_20261029/PRODUCTION.json",
+      "bytes": 1154,
+      "sha256": "e596ad84e6d7f26066915b6789134743c0036eb0f1d3c6ed14dc9edf3643f47b",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/dev_integration_20261029/README.md",
+      "bytes": 1586,
+      "sha256": "16b22d0c0cf20d38b06212176670fb8b81dd58d1454f6b1149f1c061f44b3efb",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/dev_integration_20261029/SOURCE_CI_GREEN.json",
+      "bytes": 9916,
+      "sha256": "68e602a8ae2b1f93e64eb87e20a917b9570789c4d555efbbe917fc2a75c7b8a8",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 37066,
+      "sha256": "f97095daf071c6fcee8fd2afdb4f1268df7bb34bc793cc0177a7c9214916facc",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 1723059,
+      "sha256": "05f8092c5e51aebd617a988afba5d426aea68a98816c7f01559d79a3c2d40127",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1075971,
+      "sha256": "336e5e19893d4f6b375ef72eddb076d2170a53c7339c9e18a66a6075b14ed965",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 488370,
+      "sha256": "afca934259e6d42c089f06cd907d3625005d7e4388c2cf3fdafff88503bdcb76",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/audit_impacts/flat-vector-r105-pan-sediment-dev-20261029.json",
+      "bytes": 3364,
+      "sha256": "330bfb550b002c379e39ab88d57a6f21ec0d9d4ad13d4e5849207e8f6620e21a",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+      "path": "scripts/opera_geology_surface.gd",
+      "bytes": 35171,
+      "sha256": "caafd3491ad0bb7f2e6ec92a1e10622addd15e3ace4a39d2e4c664d040e0c45e",
+      "role": "Exact reviewed runtime source now integrated Dev; unchanged historical scene/source archive cited immutably"
+    },
+    {
+      "revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+      "path": "assets/opera/worlds/props/geologist_pan_grain_painted.png",
+      "bytes": 95922,
+      "sha256": "40be8dd96da1de49bf326c96bfc9d7292616549733089aad713308b447938d02",
+      "role": "Exact reviewed runtime source now integrated Dev; unchanged historical scene/source archive cited immutably"
+    },
+    {
+      "revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+      "path": "assets/opera/worlds/props/geologist_pan_grain_painted.png.import",
+      "bytes": 1012,
+      "sha256": "c47893945b461a84e5f02bcf1051b39df3ebf9e9648826b79c1a85e998b47599",
+      "role": "Exact reviewed runtime source now integrated Dev; unchanged historical scene/source archive cited immutably"
+    }
+  ],
+  "required_files": 19,
+  "required_bytes": 4766486,
+  "scope": "Current canonical production delta and selected direct current source/native evidence. Painted source candidates, technical exports, references and proofs plus direct mint runtime byte proof. Historical full delivery is an immutable citation, not a recursive dependency.",
+  "actual_runtime_source": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+  "source_CI_evidence": {
+    "conclusion": "success",
+    "createdAt": "2026-10-29T12:26:27Z",
+    "event": "push",
+    "headBranch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "headSha": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+    "jobs": [
+      {
+        "completedAt": "2026-10-29T13:21:24Z",
+        "conclusion": "success",
+        "databaseId": 123445485876,
+        "name": "probes",
+        "startedAt": "2026-10-29T12:26:29Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-29T12:26:31Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-29T12:26:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T12:35:07Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 2,
+            "startedAt": "2026-10-29T12:26:31Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T12:35:09Z",
+            "conclusion": "success",
+            "name": "Download Godot (checksum-verified)",
+            "number": 3,
+            "startedAt": "2026-10-29T12:35:07Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T12:37:48Z",
+            "conclusion": "success",
+            "name": "Static gates (parse + Variant-inference lint)",
+            "number": 4,
+            "startedAt": "2026-10-29T12:35:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T12:40:44Z",
+            "conclusion": "success",
+            "name": "Import (deadlock-guarded)",
+            "number": 5,
+            "startedAt": "2026-10-29T12:37:48Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T12:51:53Z",
+            "conclusion": "success",
+            "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+            "number": 6,
+            "startedAt": "2026-10-29T12:40:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:09:44Z",
+            "conclusion": "success",
+            "name": "Run trusted probes",
+            "number": 7,
+            "startedAt": "2026-10-29T12:51:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:09:57Z",
+            "conclusion": "success",
+            "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+            "number": 8,
+            "startedAt": "2026-10-29T13:09:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:15:03Z",
+            "conclusion": "success",
+            "name": "Dust boss balance playtest (advisory)",
+            "number": 9,
+            "startedAt": "2026-10-29T13:09:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:15:13Z",
+            "conclusion": "success",
+            "name": "Opera balance playtest (advisory)",
+            "number": 10,
+            "startedAt": "2026-10-29T13:15:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:15:17Z",
+            "conclusion": "success",
+            "name": "Publish opera art manifest (advisory)",
+            "number": 11,
+            "startedAt": "2026-10-29T13:15:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:15:18Z",
+            "conclusion": "success",
+            "name": "Upload opera art manifest",
+            "number": 12,
+            "startedAt": "2026-10-29T13:15:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:15:18Z",
+            "conclusion": "success",
+            "name": "Capture first-world visual review",
+            "number": 13,
+            "startedAt": "2026-10-29T13:15:18Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:16:52Z",
+            "conclusion": "success",
+            "name": "Capture legacy human-art diagnostic",
+            "number": 14,
+            "startedAt": "2026-10-29T13:15:18Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:16:54Z",
+            "conclusion": "success",
+            "name": "Upload legacy human-art diagnostic",
+            "number": 15,
+            "startedAt": "2026-10-29T13:16:52Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:17:11Z",
+            "conclusion": "success",
+            "name": "Capture Sky Lagoon visual review",
+            "number": 16,
+            "startedAt": "2026-10-29T13:16:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:17:13Z",
+            "conclusion": "success",
+            "name": "Upload Sky Lagoon visual review",
+            "number": 17,
+            "startedAt": "2026-10-29T13:17:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:18:21Z",
+            "conclusion": "success",
+            "name": "Capture northern-world visual review",
+            "number": 18,
+            "startedAt": "2026-10-29T13:17:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:18:23Z",
+            "conclusion": "success",
+            "name": "Upload northern-world visual review",
+            "number": 19,
+            "startedAt": "2026-10-29T13:18:21Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:21:04Z",
+            "conclusion": "success",
+            "name": "Capture dust-boss arena review",
+            "number": 20,
+            "startedAt": "2026-10-29T13:18:23Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:21:06Z",
+            "conclusion": "success",
+            "name": "Upload dust-boss arena review",
+            "number": 21,
+            "startedAt": "2026-10-29T13:21:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:21:20Z",
+            "conclusion": "success",
+            "name": "Capture pearl-castle visual review",
+            "number": 22,
+            "startedAt": "2026-10-29T13:21:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:21:22Z",
+            "conclusion": "success",
+            "name": "Upload pearl-castle visual review",
+            "number": 23,
+            "startedAt": "2026-10-29T13:21:20Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:21:23Z",
+            "conclusion": "success",
+            "name": "Upload advisory sensor receipts",
+            "number": 24,
+            "startedAt": "2026-10-29T13:21:22Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:21:23Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 48,
+            "startedAt": "2026-10-29T13:21:23Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T13:21:23Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 49,
+            "startedAt": "2026-10-29T13:21:23Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40873266025/job/123445485876"
+      },
+      {
+        "completedAt": "2026-10-29T12:36:07Z",
+        "conclusion": "success",
+        "databaseId": 123445486279,
+        "name": "area-music-provenance",
+        "startedAt": "2026-10-29T12:26:29Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-29T12:26:31Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-29T12:26:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T12:34:17Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 2,
+            "startedAt": "2026-10-29T12:26:31Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T12:35:01Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+            "number": 3,
+            "startedAt": "2026-10-29T12:34:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T12:36:03Z",
+            "conclusion": "success",
+            "name": "Verify deterministic area-music delivery",
+            "number": 4,
+            "startedAt": "2026-10-29T12:35:01Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T12:36:03Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+            "number": 7,
+            "startedAt": "2026-10-29T12:36:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T12:36:05Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 8,
+            "startedAt": "2026-10-29T12:36:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T12:36:05Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 9,
+            "startedAt": "2026-10-29T12:36:05Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40873266025/job/123445486279"
+      }
+    ],
+    "status": "completed",
+    "updatedAt": "2026-10-29T13:21:25Z",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40873266025"
+  },
+  "new_generation_calls": 0,
+  "new_bounded_source_artifacts": 0,
+  "new_native_frame_events": 0,
+  "accepted_removed": 0,
+  "mission_complete": false
+}
