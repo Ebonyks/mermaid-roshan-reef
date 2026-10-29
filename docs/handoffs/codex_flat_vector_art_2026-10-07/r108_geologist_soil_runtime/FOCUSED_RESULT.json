@@ -1,0 +1,957 @@
+{
+  "state": "FOCUSED_FOSSIL_TWO_ASPECT_PASS_AGENT_REVIEWED",
+  "imports": [
+    {
+      "pass": 1,
+      "exit_code": 0,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-soil-20261029\\import1\\engine.log",
+      "sha256": "47745bfa704efc0338335a2ddcd9c62a0e1f4d1d01ef5f8e27a62dae5cd680b6"
+    },
+    {
+      "pass": 2,
+      "exit_code": 0,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-soil-20261029\\import2\\engine.log",
+      "sha256": "a07858fda8e34830c19aaec849a83c9e7cdc50d16bb54079975a6505e82afd7a"
+    }
+  ],
+  "cases": [
+    {
+      "width": 1280,
+      "phase": 1,
+      "checks": 63,
+      "frames": [
+        {
+          "castle_layer_visible": false,
+          "id": "01_initial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "01_initial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "90a54f705e17d5775b05cc4f53394d149b85ed6295bbdfc48d3c8a8bdbab55c2",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "cleared": [],
+            "complete": false,
+            "fossil_stage": 0,
+            "mode": "geology_fossil",
+            "snapped": [
+              false,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_BRUSH",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "02_partial_brushing",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "02_partial_brushing.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "b21e72a0550ff5224c53bed3c3ea34ffe02163282e47e872f603f7bb81f7812f",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "complete": false,
+            "fossil_stage": 0,
+            "mode": "geology_fossil",
+            "snapped": [
+              false,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_BRUSH",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "03_assembly_loose_pieces",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "03_assembly_loose_pieces.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "334c6f5d8fbbec48fdd1eba253da597b4e3739e5e26fdda4ee3f30d68e7f310a",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": false,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              false,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "04_held_wrong_drop",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "04_held_wrong_drop.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "155d2ececeaf79808588c43ff687e8a43d990f599801342c82a594c9828a737a",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": false,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              false,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "05_wrong_drop_return",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "05_wrong_drop_return.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "4acacc64819c7c8c89b1918446ed70bc3dcaeebeb927d5f2332e3417cb8ca40a",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": false,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              false,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "06_one_snapped",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "06_one_snapped.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "17345a593922a395424ed78964140af62d698572a19c34f40f7c389837a3dc5d",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": false,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              true,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "07_two_snapped",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "07_two_snapped.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "57bb92c95f43f30c0111b889be78c75c810557a63dc4fe48e3d51d2752c9c4fd",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": false,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              true,
+              true,
+              false
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "08_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "08_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "f498f0d1f8c932fc58550eeaa21944ae226726467265766d8621f40f1e3a415b",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": true,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              true,
+              true,
+              true
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-soil-20261029\\candidate_1280_1\\output\\RESULT.json",
+      "result_sha256": "2a76ce05545c439e610652238971c9883ba8330e3a44c311ded44c06a9feaf7d"
+    },
+    {
+      "width": 1600,
+      "phase": 1,
+      "checks": 63,
+      "frames": [
+        {
+          "castle_layer_visible": false,
+          "id": "01_initial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "01_initial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "614b328fad56ec5174c2391f1e8996437420e07f6d7fb365aeee3b7f6b6bcfbb",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "cleared": [],
+            "complete": false,
+            "fossil_stage": 0,
+            "mode": "geology_fossil",
+            "snapped": [
+              false,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_BRUSH",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "02_partial_brushing",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "02_partial_brushing.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "5063ed93837f6dad2f93178995dc53d9969dcaa8dd49457627efc069d5f76438",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "complete": false,
+            "fossil_stage": 0,
+            "mode": "geology_fossil",
+            "snapped": [
+              false,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_BRUSH",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "03_assembly_loose_pieces",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "03_assembly_loose_pieces.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "d0a67ae19006e4f2b7ea261040978f67c2cbfea75b3ca77de7461f4168d9d2bd",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": false,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              false,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "04_held_wrong_drop",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "04_held_wrong_drop.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "2ca8510734e450fab81d3f5a7d9f3be3e29bf93bcbdac0e9ae47d28ab71ff8ac",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": false,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              false,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "05_wrong_drop_return",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "05_wrong_drop_return.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "22892485c277b023da2d99216892c8ee920725e865ea13e9640cf88af6b868a6",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": false,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              false,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "06_one_snapped",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "06_one_snapped.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "9743ab0a3bb38b9bf097b937da10224553f6b0fabac63ec90bfa9c7e8713f508",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": false,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              true,
+              false,
+              false
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "07_two_snapped",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "07_two_snapped.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "61a6ab5a7cf46340b9dcc484d33fa573da3ab4f9252e61f5d5819908c030a49b",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": false,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              true,
+              true,
+              false
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "08_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "08_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "d939ae40deca2ca059af0bcc2c3f58cf71e7f72edb386a4fb9e67eeeb2488473",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "cleared": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "complete": true,
+            "fossil_stage": 1,
+            "mode": "geology_fossil",
+            "snapped": [
+              true,
+              true,
+              true
+            ],
+            "stage": "FOSSIL_ASSEMBLE",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 1,
+          "world_visible": true
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-soil-20261029\\candidate_1600_1\\output\\RESULT.json",
+      "result_sha256": "367a70f8e1a446b84ba14b15550b8a0feeecdd68923972af45fded1285a71cb0"
+    }
+  ],
+  "checks": 126,
+  "new_native_frame_events": 16,
+  "source_drift": [],
+  "normal_unchanged": true,
+  "normal_before": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "normal_after": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "new_generation_calls": 2,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "full_trusted_suite": "PENDING_AFTER_AGENT_SCENE_REVIEW",
+  "completed_at_utc": "2026-10-29T21:23:48.526406+00:00",
+  "scope": "Actual fossil phase1 at1280/1600 only; single new soil material, existing sibling art/hit/save behavior unchanged."
+}

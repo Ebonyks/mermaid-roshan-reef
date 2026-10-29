@@ -445,6 +445,8 @@ R106 exactsource verification2026-10-29: painted sharedworkbench passes currents
 
 R107 production2026-10-29: FV-4CD5292EEE1D whole fossil and three exact matching fragments, same golden ammonite identity. Soil cover remains separate/open. New static source does not close MA-VIS-006/008/010 or MA-OPERA-004; machine, formal and external lanes remain separate.
 
+R108 production2026-10-29: FV-4E515D6F7A64 painted soil material replaces flat cover fill under the original40-cell functional scrub mask. One registered whole source, no generated per-cell parts; same26threshold/input/save. Candidate/machine/CI/Dev/formal/external lanes separate; no finding closure or accepted removal.
+
 ## MA-PLAY-001
 
 | Field | Value |

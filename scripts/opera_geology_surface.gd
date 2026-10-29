@@ -40,6 +40,7 @@ const GEODE_SEAM_SPOTS: Array[Vector2] = [
 ## Unreplaced rock illustrations remain measured art-replacement debt.
 ## Never load the rejected checkerboard source studies.
 const FOSSIL_PATH := "res://assets/opera/worlds/props/geologist_fossil_painted.png"
+const FOSSIL_SOIL_PATH := "res://assets/opera/worlds/props/geologist_fossil_soil_painted.png"
 const FOSSIL_PIECE_PATHS: Array[String] = [
 	"res://assets/opera/worlds/props/geologist_fossil_piece_0_painted.png",
 	"res://assets/opera/worlds/props/geologist_fossil_piece_1_painted.png",
@@ -64,6 +65,7 @@ const MINERAL_LAVENDER_PATH := "res://assets/opera/worlds/props/geologist_minera
 const CRYSTALS_PATH := "res://assets/opera/worlds/props/goal_geologist.svg"
 
 var fossil_texture: Texture2D = null
+var fossil_soil_texture: Texture2D = null
 var fossil_piece_textures: Array[Texture2D] = []
 var geode_texture: Texture2D = null
 var rock_texture: Texture2D = null
@@ -276,6 +278,7 @@ func _load_textures() -> void:
 		painted_slab.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		work_slab_texture = painted_slab
 	fossil_texture = _required_fossil_texture(FOSSIL_PATH)
+	fossil_soil_texture = _required_fossil_texture(FOSSIL_SOIL_PATH)
 	fossil_piece_textures.clear()
 	for path: String in FOSSIL_PIECE_PATHS:
 		fossil_piece_textures.append(_required_fossil_texture(path))
@@ -731,13 +734,18 @@ func _draw_fossil() -> void:
 		_draw_fossil_whole(FOSSIL_RECT.grow(-24.0), Color(1, 1, 1, 0.62))
 		var cell_size := Vector2(FOSSIL_RECT.size.x / float(FOSSIL_GRID_COLS),
 			FOSSIL_RECT.size.y / float(FOSSIL_GRID_ROWS))
-		for row in range(FOSSIL_GRID_ROWS):
-			for column in range(FOSSIL_GRID_COLS):
-				var index := row * FOSSIL_GRID_COLS + column
-				if not fossil_cleared[index]:
-					draw_rect(Rect2(FOSSIL_RECT.position \
-						+ Vector2(column, row) * cell_size,
-						cell_size + Vector2.ONE), Color("#c99159"), true)
+		if fossil_soil_texture != null:
+			var source_cell: Vector2 = fossil_soil_texture.get_size() 				/ Vector2(FOSSIL_GRID_COLS, FOSSIL_GRID_ROWS)
+			# One whole painted material; these are the existing saved eraser
+			# masks, with exact source/destination registration and no new art.
+			for row in range(FOSSIL_GRID_ROWS):
+				for column in range(FOSSIL_GRID_COLS):
+					var index := row * FOSSIL_GRID_COLS + column
+					if not fossil_cleared[index]:
+						var cell := Vector2(column, row)
+						draw_texture_rect_region(fossil_soil_texture,
+							Rect2(FOSSIL_RECT.position + cell * cell_size, cell_size),
+							Rect2(cell * source_cell, source_cell))
 		if held:
 			_draw_brush(pointer_pos)
 		return

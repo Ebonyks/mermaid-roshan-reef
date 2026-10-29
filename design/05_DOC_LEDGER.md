@@ -1129,3 +1129,5 @@ Owner-requested analysis and Codex handoff for the commissioned under-pool book,
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R106 shared painted Geology workbench; two takes/one rejected aspect, four-mode runtime, current machine/source CI/Dev and formal/external acceptance kept separate. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r107_geologist_fossil_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R107 painted whole fossil and three exact matching fragments; source/runtime/machine/formal/external lanes separate. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R108 whole painted soil material with existing functional scrub masks; runtime/machine/sourceCI/Dev/formal/external separate. |
