@@ -403,6 +403,8 @@ R102 partialproduction2026-10-29: [Firstmint actualruntime source](../../docs/ha
 
 R103 production2026-10-29: [Blue/lavender mineral sources](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/README.md) preserve two native outputs and512exports, actual scene source/ten-axis comparison, one take per separate variant. Mint exact-green8f source is now Dev-integrated. No new whole-role/accepted-removal claim; lifecycle unchanged.
 
+R104 partialproduction2026-10-29: [remaining painted PAN mineral runtime](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/README.md) actualsource8df4757e, local82/static/native90 and8actualframes reviewed, source delivery anonymously exact.7source/5partialDev artifacts; no whole-role/removal acceptance. ExactCI/Dev/formal/device/child/owner, otherGeologist/global gaps and lifecycle remain open.
+
 ## MA-VIS-007
 
 | Field | Value |

@@ -1,0 +1,25 @@
+{
+  "method": "Unchanged current measure_job_art.PRIMITIVE_DRAW over comment-stripped source lines, actual baseline vs current candidate",
+  "baseline": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+  "candidate_lf_sha256": "b8c93a9daf36bee77f533db3604b9d0045bf7a632f1a991a24ec468f55195323",
+  "Geologist_primitive_calls_before": 48,
+  "Geologist_primitive_calls_after": 45,
+  "delta": -3,
+  "current_job": {
+    "scripts": [
+      "scripts/opera_geology_surface.gd"
+    ],
+    "primitive_draw_calls": 45,
+    "primitive_node_constructions": 2,
+    "texture_draw_calls": 6
+  },
+  "current_totals": {
+    "files_with_primitive_drawing": 71,
+    "primitive_draw_calls": 889,
+    "primitive_node_constructions": 123,
+    "texture_draw_calls": 133,
+    "job_scripts_primitive_draw_calls": 765
+  },
+  "census_script_sha256": "3c828d1afd85c04c2214d58ad2c648864d77ba60572ffdc0bda25fa2ca7cab62",
+  "acceptance_limit": "Static implementation measurement only; not accepted artwork removal or whole-job closure."
+}

@@ -12462,7 +12462,7 @@
       ],
       "reuse_inspection": "Owner2026-10-17 quality-first rule makes reuse optional. Two actual context-bound painted outputs are retained; no clean-alpha or runtime acceptance.",
       "named_gap": null,
-      "status": "FIRST_MINT_DEV_INTEGRATED_BLUE_LAVENDER_PAINTED_SOURCES_PENDING_RUNTIME",
+      "status": "PAN_MINERALS_PAINTED_RUNTIME_SOURCE_PUBLISHED_CI_EXTERNAL_ACCEPTANCE_PENDING",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -12697,6 +12697,65 @@
         "owner": null,
         "accepted_removed": 0,
         "exact_new_Dev_APK_verified": false
+      },
+      "r104_prior_status": "FIRST_MINT_DEV_INTEGRATED_BLUE_LAVENDER_PAINTED_SOURCES_PENDING_RUNTIME",
+      "r104_mineral_runtime": {
+        "stable_id": "FV-66629DC58A20",
+        "scope": "Remaining blue/lavender PAN render variants, same existing mineral role; not separate whole-role/artwork count.",
+        "state": "PAINTED_PAN_VARIANTS_SOURCE_PUBLISHED_LOCAL82_STATIC_NATIVE90_PASS_EXACT_CI_PENDING",
+        "source_revision": "8df4757e6f2e399d1c4e3d7f352f0a38bef13b55",
+        "source_branch": "codex/flat-vector-geologist-mineral-runtime-20261029",
+        "source_baseline": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+        "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/MANIFEST.json",
+        "source_delivery_required_files": 53,
+        "source_delivery_all_anonymous_exact": true,
+        "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/SOURCE_REMOTE_VERIFICATION.json",
+        "source_art_and_native_masters_revision": "5930bf03dee0986689130f02390bba350f4ec56a",
+        "runtime_images": [
+          {
+            "variant": "blue",
+            "source_revision": "5930bf03dee0986689130f02390bba350f4ec56a",
+            "source_path": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/mineral_blue_512.png",
+            "runtime_path": "assets/opera/worlds/props/geologist_mineral_blue_painted.png",
+            "sha256": "44dc6cbe03143b0f89ec1bc57ce7e737a68752bd40ad8a37ebe471bf49d7b190",
+            "runtime_pixels": "Byte-identical published512square Aseprite whole-canvas export; no tint/crop/threshold/repaint.",
+            "source_derivation_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5930bf03dee0986689130f02390bba350f4ec56a/assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/DERIVATION.json"
+          },
+          {
+            "variant": "lavender",
+            "source_revision": "5930bf03dee0986689130f02390bba350f4ec56a",
+            "source_path": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/mineral_lavender_512.png",
+            "runtime_path": "assets/opera/worlds/props/geologist_mineral_lavender_painted.png",
+            "sha256": "cea8f66b34e657f8216f0038adefee38624a1e2900e365b55aa15169be60b20f",
+            "runtime_pixels": "Byte-identical published512square Aseprite whole-canvas export; no tint/crop/threshold/repaint.",
+            "source_derivation_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5930bf03dee0986689130f02390bba350f4ec56a/assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/DERIVATION.json"
+          }
+        ],
+        "actual_native_checks": 90,
+        "new_native_frame_events": 8,
+        "actual_current_frame_views": 8,
+        "same_scene_baseline_frame_views": 2,
+        "current_static_all82": "PASS",
+        "unchanged_other_functions": 54,
+        "primitive_calls_before": 48,
+        "primitive_calls_after": 45,
+        "new_bounded_source_artifacts": 1,
+        "bounded_artifact_unit": "One bounded two-variant runtime dispatch delta, not2newnamedroles/acceptedremovals",
+        "generation_calls_this_runtime_delta": 0,
+        "known_source_family_calls_total": 4,
+        "new_roles": 0,
+        "new_families": 0,
+        "candidate": "PAINTED_WHOLE_SPECIMENS_SOURCE_READY",
+        "integration": "BOUND_SOURCE_NOT_YET_DEV",
+        "runtime": "CONFIGURED_PRIVATE_MAIN_PAN_TWO_ASPECTS_PASS",
+        "Dev_integrated": false,
+        "whole_role_closed": false,
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "mission_complete": false
       }
     },
     {
@@ -22801,7 +22860,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261029-R103",
+  "revision": "FV-AUDIT-20261029-R104",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -34832,7 +34891,7 @@
     "original_source_CI_green": "39079175770 at ce05d4d3",
     "current_source_CI": "SOURCE_CI_HANDLES.json"
   },
-  "new_generation_calls": 2,
+  "new_generation_calls": 0,
   "r99_new_native_frame_events": 8,
   "r100_parent_receipt_revision": "54522f81b6cc77419d36367f0bcce76fc5f6faa8",
   "r100_pan_ci_recovery": {
@@ -35054,5 +35113,63 @@
     "owner": null,
     "accepted_removed": 0,
     "exact_new_Dev_APK_verified": false
+  },
+  "r104_mineral_runtime": {
+    "stable_id": "FV-66629DC58A20",
+    "scope": "Remaining blue/lavender PAN render variants, same existing mineral role; not separate whole-role/artwork count.",
+    "state": "PAINTED_PAN_VARIANTS_SOURCE_PUBLISHED_LOCAL82_STATIC_NATIVE90_PASS_EXACT_CI_PENDING",
+    "source_revision": "8df4757e6f2e399d1c4e3d7f352f0a38bef13b55",
+    "source_branch": "codex/flat-vector-geologist-mineral-runtime-20261029",
+    "source_baseline": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/MANIFEST.json",
+    "source_delivery_required_files": 53,
+    "source_delivery_all_anonymous_exact": true,
+    "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_art_and_native_masters_revision": "5930bf03dee0986689130f02390bba350f4ec56a",
+    "runtime_images": [
+      {
+        "variant": "blue",
+        "source_revision": "5930bf03dee0986689130f02390bba350f4ec56a",
+        "source_path": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/mineral_blue_512.png",
+        "runtime_path": "assets/opera/worlds/props/geologist_mineral_blue_painted.png",
+        "sha256": "44dc6cbe03143b0f89ec1bc57ce7e737a68752bd40ad8a37ebe471bf49d7b190",
+        "runtime_pixels": "Byte-identical published512square Aseprite whole-canvas export; no tint/crop/threshold/repaint.",
+        "source_derivation_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5930bf03dee0986689130f02390bba350f4ec56a/assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/DERIVATION.json"
+      },
+      {
+        "variant": "lavender",
+        "source_revision": "5930bf03dee0986689130f02390bba350f4ec56a",
+        "source_path": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/mineral_lavender_512.png",
+        "runtime_path": "assets/opera/worlds/props/geologist_mineral_lavender_painted.png",
+        "sha256": "cea8f66b34e657f8216f0038adefee38624a1e2900e365b55aa15169be60b20f",
+        "runtime_pixels": "Byte-identical published512square Aseprite whole-canvas export; no tint/crop/threshold/repaint.",
+        "source_derivation_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5930bf03dee0986689130f02390bba350f4ec56a/assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/DERIVATION.json"
+      }
+    ],
+    "actual_native_checks": 90,
+    "new_native_frame_events": 8,
+    "actual_current_frame_views": 8,
+    "same_scene_baseline_frame_views": 2,
+    "current_static_all82": "PASS",
+    "unchanged_other_functions": 54,
+    "primitive_calls_before": 48,
+    "primitive_calls_after": 45,
+    "new_bounded_source_artifacts": 1,
+    "bounded_artifact_unit": "One bounded two-variant runtime dispatch delta, not2newnamedroles/acceptedremovals",
+    "generation_calls_this_runtime_delta": 0,
+    "known_source_family_calls_total": 4,
+    "new_roles": 0,
+    "new_families": 0,
+    "candidate": "PAINTED_WHOLE_SPECIMENS_SOURCE_READY",
+    "integration": "BOUND_SOURCE_NOT_YET_DEV",
+    "runtime": "CONFIGURED_PRIVATE_MAIN_PAN_TWO_ASPECTS_PASS",
+    "Dev_integrated": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "mission_complete": false
   }
 }

@@ -2607,3 +2607,7 @@ Same artifact/sourcee69b50b5 reconciles Dev4d098375; current82/static/import and
 ### R103 remaining mineral source production
 
 2026-10-29: [Production record](../docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/README.md). Two painted blue/lavender sources and native masters/512exports produced against exact8f scene and painted mint family. Original/reject sources preserved. Mint exact-green Dev integration credited once,4to5partial artifacts; source6 and frame6665/4134/10799 totals unchanged. Source-only outputs are unconsumed; rollback requires no runtime repair, preserve sources/history and supersede candidates explicitly. Formal/device/child/owner and global gaps remain.
+
+### R104 two painted PAN mineral runtime variants
+
+2026-10-29 actualsource `8df4757e6f2e399d1c4e3d7f352f0a38bef13b55`: [production/evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/README.md). Two whole painted sprites replace only the remaining blue/lavender PAN drawings; pure flat helper retired, census48to45,54otherfunctions unchanged. Actualcurrentstatic/import/all82trusted and90configurednativechecks/8reviewedframes pass. Source delivery anonymously exact.7boundedsource/5partialDev artifacts; eightnewframeevents, no newrole/family/removal. ExactCI/Dev/formal/external/global gaps remain. Actualruntime rollback is sourceCHG-110 manual_reconstruction afterlaterconsumer review; canonical bookkeeping changes no runtime and repeats no healthy engine suite.
