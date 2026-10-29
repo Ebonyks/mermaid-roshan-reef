@@ -1,0 +1,7 @@
+# Painted shared Geology workbench - Dev integration
+
+The whole painted cream/lavender stone slab replaces three flat surface layers across all four Geology activities in Dev at exact source `44da99ba5c68153fa247e0794425b5f6d7d3cc79`, after exact source CI and its trusted-probe step succeeded. The guarded ordinary fast-forward leaves local master/dev and the primary dirty checkout untouched. Three changed runtime files were anonymously verified at that immutable source. [Integration](DEV_INTEGRATION.json), [green source CI](SOURCE_CI_GREEN.json), [production](PRODUCTION.json) and [manifest](MANIFEST.json) retain the actual result.
+
+The unchanged candidate passed exact4.7.2Mobile/Speedy current static/import/all82trusted and220configured native checks;24candidate states and8source frames directly viewed. Three prior failed-fixture diagnostics remain excluded. Whole native Aseprite/two-take provenance preserves the first aspect reject and no unreturned model/version is claimed. Primitive calls44to33,55other functions/gesture/save coordinates unchanged. No healthy engine suite, generation or capture repeated for this bookkeeping.
+
+Current tally9source/8partialDev implementation artifacts; frames remain6713bounded/4137excluded/10850retained, role/family lowerbounds263/35 and unknown denominators retained. This adds only one partialDev credit; zero new source/frame/whole-role/accepted-removal credit. ExactnewDevAPK, natural/training/full-route/formalQA11, phone, child, owner, otherflatart/inheritedactoroverlap and globalinventory gaps remain open.

@@ -1,0 +1,44 @@
+{
+  "baseline": "6ab841c2e71c1d9f03f9a2eb065e7a856a3ff6f3",
+  "source_revision": "44da99ba5c68153fa247e0794425b5f6d7d3cc79",
+  "cause": "Windows staging script decoded inherited UTF8 template without explicit UTF8, then saved those wrong characters. The complete original stopped operation/logs and script hashes are retained.",
+  "changes": [
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "line": 1436,
+      "before_sha256": "a4ce1689627d8725fff6b049b47ca4212d02885c74be48e6c0c334a520a14c77",
+      "after_sha256": "2aa28acdf00999a41db900f9afef5fd6877044ee3b6db2a7ee576f8cf122d957",
+      "change": "Only new R106 Dev row authority-state colour fixed from double-decoded UTF8 bytes to U+1F7E3; classification remains PROPOSED/CANDIDATE"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/README.md",
+      "line": 1,
+      "before_sha256": "c8749bd1f823b30fa20891c1d4be08eea61a0d798e2aff119a1051aeeded469f",
+      "after_sha256": "adaf776902b9da2f0b79aa8714b765c358d8d5f16b55c0eb76b9d84726c0c5cf",
+      "change": "Only the new title separator changed from mojibake em dash to ASCII hyphen"
+    }
+  ],
+  "runtime_hashes_unchanged": {
+    "scripts/opera_geology_surface.gd": "60e21c32e6d7f3d96cc5e53b1893b66f00069175ce18282979b22afd83ac5eb1",
+    "assets/opera/worlds/props/geologist_work_slab_painted.png": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4",
+    "assets/opera/worlds/props/geologist_work_slab_painted.png.import": "3f0ca970d9a26170de4b8e474992dfd95c969c3c0c7967eba2505c942c5d4d07"
+  },
+  "source_CI_run": 40896006186,
+  "source_CI_conclusion": "success",
+  "Dev_integrated": true,
+  "new_generation_calls": 0,
+  "new_native_frames": 0,
+  "engine_rerun": false,
+  "prepare_rerun": false,
+  "counter_delta_for_this_encoding_repair": 0,
+  "counts_retained": {
+    "bounded_source_artifacts": 9,
+    "partial_Dev_artifacts": 8,
+    "bounded_frames": 6713,
+    "excluded_frames": 4137,
+    "retained_frames": 10850,
+    "accepted_removed": 0
+  },
+  "acceptance": "FormalQA11/device/child/owner/natural/training/global unchanged and open",
+  "at_utc": "2026-10-29T16:10:53.733944+00:00"
+}

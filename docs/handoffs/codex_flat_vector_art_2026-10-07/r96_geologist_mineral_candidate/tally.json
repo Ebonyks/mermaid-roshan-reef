@@ -1,7 +1,7 @@
 {
   "schema": "reef.flat_vector_tally/1",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
-  "revision": "FV-AUDIT-20261029-R106",
+  "revision": "FV-AUDIT-20261029-R106-DEV",
   "status_lanes": [
     "NEEDS_CONTEXT_REVIEW",
     "IDENTIFIED",
@@ -11138,8 +11138,8 @@
     "child": "PENDING",
     "owner": "PENDING"
   },
-  "generated_candidate_samples_this_revision": 2,
-  "generation_calls_this_revision": 2,
+  "generated_candidate_samples_this_revision": 0,
+  "generation_calls_this_revision": 0,
   "r91_published_bounded_source_candidate": {
     "stable_site_id": "FVG-19B880B613E4",
     "consumer": "ui.critter_book/tab/insect",
@@ -11450,7 +11450,7 @@
     "owner": null,
     "accepted_removed": 0
   },
-  "existing_runtime_candidates_committed_this_revision": 1,
+  "existing_runtime_candidates_committed_this_revision": 0,
   "r99_parent_receipt_revision": "b7a97d8dc4008e3ff618e505ec64c9dffd7dd65e",
   "r99_pan_merge_revalidation": {
     "stable_id": "FV-F2DE53A80AA7",
@@ -11478,7 +11478,7 @@
     "original_source_CI_green": "39079175770 at ce05d4d3",
     "current_source_CI": "SOURCE_CI_HANDLES.json"
   },
-  "new_generation_calls": 2,
+  "new_generation_calls": 0,
   "r99_new_native_frame_events": 8,
   "r100_parent_receipt_revision": "54522f81b6cc77419d36367f0bcce76fc5f6faa8",
   "r100_pan_ci_recovery": {
@@ -11572,7 +11572,7 @@
     "mission_complete": false,
     "recorded_at_utc": "2026-10-29T06:35:35.079787+00:00"
   },
-  "partial_dev_artifacts_current_summary": 7,
+  "partial_dev_artifacts_current_summary": 8,
   "r102_mint_runtime": {
     "stable_id": "FV-66629DC58A20",
     "scope": "First mint PAN specimen only; blue/lavender and shared helper consumers remain open.",
@@ -11704,7 +11704,7 @@
     "accepted_removed": 0,
     "exact_new_Dev_APK_verified": false
   },
-  "technical_exports_this_revision": 1,
+  "technical_exports_this_revision": 0,
   "r104_mineral_runtime": {
     "stable_id": "FV-66629DC58A20",
     "scope": "Remaining blue/lavender PAN render variants, same existing mineral role; not separate whole-role/artwork count.",
@@ -11948,5 +11948,34 @@
     "bounded": 32,
     "excluded": 3,
     "retained": 35
-  }
+  },
+  "r106_dev_integration": {
+    "stable_id": "FV-A6CE3E284202",
+    "state": "PAINTED_GEOLOGY_WORKBENCH_EXACT_GREEN_SOURCE_INTEGRATED_DEV",
+    "source_revision": "44da99ba5c68153fa247e0794425b5f6d7d3cc79",
+    "integrated_dev_revision": "44da99ba5c68153fa247e0794425b5f6d7d3cc79",
+    "source_CI_run": 40896006186,
+    "source_CI_conclusion": "success",
+    "trusted_probe_step": "success",
+    "runtime_files_anonymous_exact": 3,
+    "integration_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/DEV_INTEGRATION.json",
+    "source_CI_proof": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/SOURCE_CI_GREEN.json",
+    "partial_dev_artifact_credit": 1,
+    "partial_dev_artifact_key": "r106_geologist_workbench_runtime",
+    "new_source_artifact_credit": 0,
+    "new_native_frames": 0,
+    "new_generation_calls": 0,
+    "new_roles": 0,
+    "new_families": 0,
+    "Dev_integrated": true,
+    "whole_role_closed": false,
+    "exact_new_Dev_APK_verified": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "mission_complete": false
+  },
+  "r106_dev_new_native_frames": 0
 }

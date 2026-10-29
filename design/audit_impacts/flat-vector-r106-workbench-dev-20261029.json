@@ -1,0 +1,59 @@
+{
+  "id": "flat-vector-r106-workbench-dev-20261029",
+  "scope": "Canonical current registry/scene/tally from actual exact-green source Dev integration; partialDev7to8 once, source9 and native6713/4137/10850 unchanged. No runtime or generation changes on metadata branch.",
+  "baseline": "6ab841c2e71c1d9f03f9a2eb065e7a856a3ff6f3",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-ASSET-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-OPERA-004"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/CANONICAL_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/DEV_WORKFLOW_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/METADATA_ENCODING_REPAIR.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/PAYLOAD_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/PRIOR_METADATA_PUBLICATION_FAILURE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/PRODUCTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/SOURCE_CI_GREEN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Existing exact-source CIgreen and guarded normalDev fastforward with3anonymous exactruntimefiles",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/DEV_INTEGRATION.json; SOURCE_CI_GREEN.json; actualsource/44da99ba5c68153fa247e0794425b5f6d7d3cc79"
+    },
+    {
+      "command": "Bounded UTF8 metadata repair and current source/count guards; preserve original failed authority check",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/METADATA_ENCODING_REPAIR.json; PRIOR_METADATA_PUBLICATION_FAILURE.json. Exactly two new metadata lines repaired; no runtime/engine/generation/prepare/counter rerun."
+    },
+    {
+      "command": "Current canonical authority/development and immutable anonymous delivery",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/CANONICAL_GATES.json; anonymous publication/receipt completion recorded separately, never inferred from document checks."
+    }
+  ],
+  "acceptance_gaps": "No complete-role/removal claim. FormalQA11, phone, child, owner, naturalroute/otherGeologist/global andexactnewDevAPK evidence pending."
+}

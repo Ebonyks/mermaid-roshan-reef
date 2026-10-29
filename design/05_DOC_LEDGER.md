@@ -1432,3 +1432,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/dev_integration_20261029/README.md` | 🟣 | `PROPOSED / CANDIDATE` verified exact-green source/Dev integration for painted PAN sediment; no new art/frame/removal credit, external/formal/global acceptance open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R106 shared painted workbench actual source/anonymous delivery; local82/static/native220 and24candidateframes reviewed. ExactCI/Dev/formal/external and otherjob/global gaps remain. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/README.md` | 🟣 | `PROPOSED / CANDIDATE` verified exact-green source/Dev integration for painted shared Geology workbench; no new art/frame/removal credit, external/formal/global acceptance open. |
