@@ -564,6 +564,7 @@ const GARDEN_SOIL_Y := 615.0        # where stems visually enter the pot
 const GARDEN_ART_BOTTOM := 0.881    # stem bottom fraction of the 512px canvas
 const GARDEN_SPROUT_RECT := 148.0   # -> ~105px of visible sprout
 const GARDEN_FLOWER_RECT := 228.0   # -> ~170px of visible flower
+const GARDEN_ART_ROOT := "res://assets/mg/painted_quality_20261018/"
 
 
 func _mg_build_garden() -> void:
@@ -579,9 +580,8 @@ func _mg_build_garden() -> void:
 	# five clay pots, each starting as a SEED
 	for i in range(5):
 		var x := 180.0 + float(i) * 240.0
-		var potm := _mg_circle(Vector2(x, 640), 64.0, Color(0.78, 0.42, 0.28))
-		potm.size = Vector2(150, 100)
-		potm.position = Vector2(x - 75, 600)
+		# The painted soil ellipse meets the same stem anchor at y615.
+		_mg_sprite(GARDEN_ART_ROOT + "pot.png", Vector2(x, 640), Vector2(160, 160))
 		# tap forgiveness: the Button (invisible, flat) is 140x140 so near-misses
 		# still count, with a small 52px seed resting on the pot rim (a seed must
 		# read SMALLER than the sprout and flower it grows into). Seeds sit 240px
@@ -599,13 +599,11 @@ func _mg_build_garden() -> void:
 		sp.set_meta("hx", x)
 		var idx := i
 		sp.pressed.connect(func(): _mg_garden_tap(idx, sp))
-	# Roshan watering, watching over the garden — raised clear of pot 5's
-	# fully-grown flower (rect top 414) and the pink can from the book art
-	# tilted so its rose pours toward her flowers
+	# Roshan watches over the garden. The handle meets her near hand and
+	# the spout faces the plants; the isolated prop no longer floats to her left.
 	_mg_sprite(m.skin_sprite_path(), Vector2(1150, 295), Vector2(180, 230))
-	var can := _mg_sprite("res://assets/mg/wateringcan.png", Vector2(1022, 362), Vector2(130, 137))
-	can.pivot_offset = can.size * 0.5
-	can.rotation = 0.32
+	var can := _mg_sprite(GARDEN_ART_ROOT + "wateringcan.png", Vector2(1132, 354), Vector2(137, 137))
+	can.flip_h = true
 	# a couple of drifting butterflies
 	for bi in range(3):
 		var bf := _mg_sprite("res://assets/mg/butterfly.png", Vector2(300 + float(bi) * 350, 220), Vector2(90, 90))
@@ -630,7 +628,7 @@ func _mg_garden_tap(i: int, b: Button) -> void:
 		# keeps the current rect (it only rewrites anchors), which left the art
 		# frozen at seed size — the original "seeds bigger than flowers" bug.
 		tex.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		tex.texture = load("res://assets/mg/k_sprout.png")
+		tex.texture = load(GARDEN_ART_ROOT + "k_sprout.png")
 		b.size = Vector2(GARDEN_SPROUT_RECT, GARDEN_SPROUT_RECT)
 		b.custom_minimum_size = b.size
 		b.position = Vector2(x - GARDEN_SPROUT_RECT * 0.5, GARDEN_SOIL_Y - GARDEN_SPROUT_RECT * GARDEN_ART_BOTTOM)
@@ -639,7 +637,7 @@ func _mg_garden_tap(i: int, b: Button) -> void:
 	else:
 		# seedling -> a distinct flower, with a happy pop; ~170px of visible
 		# flower rooted on the same soil line (seed < sprout < flower)
-		tex.texture = load("res://assets/mg/" + String((m.mg["flowers"] as Array)[i]) + ".png")
+		tex.texture = load(GARDEN_ART_ROOT + String((m.mg["flowers"] as Array)[i]) + ".png")
 		b.size = Vector2(GARDEN_FLOWER_RECT, GARDEN_FLOWER_RECT)
 		b.custom_minimum_size = b.size
 		b.position = Vector2(x - GARDEN_FLOWER_RECT * 0.5, GARDEN_SOIL_Y - GARDEN_FLOWER_RECT * GARDEN_ART_BOTTOM)

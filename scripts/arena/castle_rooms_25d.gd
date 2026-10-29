@@ -2982,6 +2982,22 @@ func _rebuild_depth_layers(room_id: String) -> void:
 		_add_layer_piece(m.castle_room_mid_layer, piece_data, MIDGROUND_Z)
 	for piece_data: Dictionary in layout.get("front", []):
 		_add_layer_piece(m.castle_room_front_layer, piece_data, FOREGROUND_Z)
+	if room_id == "royal_bedroom":
+		_build_embrace_wall_painting()
+
+func _build_embrace_wall_painting() -> void:
+	# The full owner-supplied image sits above the bedside area, outside the
+	# walk band. Room depth-layer teardown also owns this decorative card.
+	var texture: Texture2D = load(ROOM_ART + "merfolk_embrace_painting.png")
+	var painting: Sprite2D = _new_card("MerfolkEmbracePainting", texture)
+	var art_rect := Rect2(806.0, 104.0, 140.0, 200.0)
+	painting.position = _art_to_world(art_rect.get_center(), 0.25)
+	painting.scale = art_rect.size / texture.get_size() * ART_TO_STAGE
+	painting.z_index = _depth_to_z_index(0.25)
+	painting.set_meta("source_asset_role", "noninteractive_wall_painting")
+	painting.set_meta("source_art_rect", art_rect)
+	painting.set_meta("depth_z", 0.25)
+	m.castle_room_mid_layer.add_child(painting)
 
 func _build_hall_door_signs() -> void:
 	if m.castle_room_mid_layer == null:

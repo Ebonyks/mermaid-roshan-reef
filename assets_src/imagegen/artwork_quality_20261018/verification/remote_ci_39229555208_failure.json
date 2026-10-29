@@ -1,0 +1,10 @@
+{
+  "commit": "91b3c005f7ed571bd70aa9cb3218117809d09413",
+  "run": 39229555208,
+  "conclusion": "failure",
+  "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39229555208",
+  "diagnosis": "Commit staging used the impact file list, which omitted the new impact JSON itself. Remote static authority/coverage correctly rejected the absent record and its navigation link before probes. Local validation saw the untracked record and therefore had passed. No gate is waived.",
+  "repair": "Add the impact JSON itself and published failure receipt/log to its file list, commit the missing record, verify source pins unchanged, rerun local authority/coverage and exact-head remote CI.",
+  "failure_log_sha256": "ee2ed5a52b7f6af5b181d0e34d22f99e2a1ff06b33663b744883bb03fc39ce15",
+  "checked_utc": "2026-10-19T09:54:46.345814+00:00"
+}

@@ -1,0 +1,104 @@
+{
+  "id": "sky-lagoon-alive-demo-20261018",
+  "scope": "Owner-requested standalone demo showing how the approved Sky Lagoon v5 painted flat can feel alive and touchable without redrawing it: shader breeze, water shimmer, cloud drift, depth warp and tap ripples on the unchanged plate, plus chimney smoke, meadow motes, butterflies, animal startles, Roshan travel and twirl. It is deliberately not integrated into the main game (no change to main.tscn, main.gd or the shipping promenade). Also a written Codex handoff naming the art gaps the painting cannot supply. Benefit: gives the owner a concrete, A/B-switchable way to judge 'alive painting' techniques before any art or integration spend.",
+  "baseline": "cb203961964f39a25f04434c392bbd5df8cbe080",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-05",
+    "DL-VIS-05",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-06",
+    "DL-MOT-04",
+    "DL-MOT-06",
+    "DL-MOT-07",
+    "DL-MOT-15",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-PERF-04",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-06"
+  ],
+  "findings": [],
+  "no_findings_reason": "Standalone evaluation scene that is not reachable from the shipping game, so no finding's runtime state changes. Related MA-VIS-002 (Sky Lagoon visual medium) and MA-ROSHAN-006 (still Roshan sliding along the Sky Lagoon) keep their lifecycles; the demo's swim-atlas travel only informs a later repair.",
+  "files": [
+    "assets/shaders/sky_lagoon_alive_painting.gdshader",
+    "scenes/demo/sky_lagoon_alive.tscn",
+    "scripts/demo/sky_lagoon_alive.gd",
+    "scripts/probe_sky_lagoon_alive.gd",
+    "docs/handoffs/codex_sky_lagoon_alive_2026-10-18/README.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/cycles/sky-lagoon-alive-20261018/owner_answers.json"
+  ],
+  "validation": [
+    {
+      "command": "Godot_v4.7.2-stable_linux.x86_64 --headless --path . --check-only --script scripts/demo/sky_lagoon_alive.gd (and scripts/probe_sky_lagoon_alive.gd)",
+      "result": "PASS",
+      "evidence": "Official 4.7.2-stable linux zip, SHA-512 verified against .github/workflows/probes.yml GODOT_ZIP_SHA512; no analyzer errors or warnings."
+    },
+    {
+      "command": "python3 -m gdtoolkit.parser (gdtoolkit==4.5.0) and python3 tools/lint_inference.py on both new scripts",
+      "result": "PASS",
+      "evidence": "Both exit 0."
+    },
+    {
+      "command": "Godot 4.7.2 --headless --path . -s scripts/probe_sky_lagoon_alive.gd (isolated XDG_DATA_HOME)",
+      "result": "PASS",
+      "evidence": "SKY_ALIVE PASS failures=0. Covers material classification at 8 points, water/foliage/cloud/sky/cabin/animal/Roshan/ground taps, startle atlas use, twirl, route travel 1872->3596, and no save-file write. Motion measurement skipped headless."
+    },
+    {
+      "command": "xvfb-run -a Godot 4.7.2 --path . --rendering-method mobile --resolution 1280x720 -s scripts/probe_sky_lagoon_alive.gd",
+      "result": "PASS",
+      "evidence": "The container has no Vulkan (VK_KHR_surface missing), so Godot fell back to gl_compatibility on llvmpipe. That is not Mobile-renderer evidence. In-memory frame differences, no files written, mean 0-255: water 6.27 on / 0.00 off, foliage 18.01 / 0.28, sky clouds 1.18 / 0.00, bare path 0.07 / 0.00. Reported fps on software rendering is about 31 after the one-time GPU mask pass (it was about 9 when classifying every frame); not phone timing."
+    },
+    {
+      "command": "python3 tools/audit_roshan_2d.py; python3 tools/audit_probe_parity.py",
+      "result": "PASS",
+      "evidence": "ROSHAN2D ALL OK; PROBE_PARITY ALL OK. The new probe is not added to the trusted CI roster because the demo is not integrated."
+    },
+    {
+      "command": "python3 -B tools/audit_document_authority.py; python3 -B tools/audit_development.py --base auto; python3 tools/audit_game_2d.py (full Git history)",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK (717/717 ledger). AUDITDEV ALL OK against base cb203961. GAME2D inventory exact; the overall status stays at the repository's existing UNSATISFIED baseline. A first run flagged the demo's SubViewport flag that turns off its unused 3D world, because the audit counts that identifier as 3D debt; the line was removed and both probe runs were repeated with PASS."
+    },
+    {
+      "command": "Mobile renderer (Vulkan) run, Speedy-tier frame-time and overdraw on the target phone",
+      "result": "PENDING",
+      "evidence": "Not measurable in this container. Required before any integration (DL-PERF-01, DL-PERF-03)."
+    },
+    {
+      "command": "Owner visual review of the demo with the M motion toggle",
+      "result": "PENDING",
+      "evidence": "Claude produced no captures, per the 2026-09-30 written-handoff rule."
+    }
+  ],
+  "acceptance_gaps": "Owner look-and-feel review; actual Mobile/Vulkan rendering; target-phone frame time, overdraw and thermals; child play-test; owner decision on funding handoff gaps G1-G6; any main-game integration. Shader masks are heuristic until G1 lands. The butterfly is a borrowed Fairy moth placeholder (G4).",
+  "references_used": [
+    {
+      "path": "scripts/arena/sky_lagoon_layout.json",
+      "purpose": "Reviewed animal floor bounds and per-frame feet rows reused read-only for grounded animal placement."
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "purpose": "Land route, animal sizes and frame timing mirrored so the demo matches the shipping scene's scale."
+    },
+    {
+      "path": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/README.md",
+      "purpose": "Checked as prior object-animation work; excluded per the owner correction."
+    }
+  ],
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-SKY-OBJECTS-UNACCEPTED-20261018",
+      "evidence": "Owner, 2026-10-18 in this task: the earlier Sky Lagoon objects \"never passed audit due to flaws in ltx 2.5 workflows not producing quality products\".",
+      "write_back": "Recorded via tools/record_owner_decision.py; the Codex handoff now has 'What already exists' and 'Owner corrections' sections that exclude the v3 objects and require a different, piloted method for G3-G5."
+    }
+  ]
+}

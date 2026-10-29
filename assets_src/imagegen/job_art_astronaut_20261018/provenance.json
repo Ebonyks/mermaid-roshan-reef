@@ -1,0 +1,921 @@
+{
+  "provider": "builtin ImageGen",
+  "model_revision": "unexposed; owner approved available tool",
+  "baseline": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
+  "records": [
+    {
+      "id": "h_rest",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+      "native_sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+      "output": "assets/opera/worlds/widgets/widget_pipe_tile_h.png",
+      "output_sha256": "0538f237150e9347e5000a81b3dc6ed5e45c10d0d472dd4a16980c83593cc51e",
+      "source_ports": {
+        "W": [
+          106.6555530006898,
+          624.2776500344906
+        ],
+        "E": [
+          1146.5500347463517,
+          623.4854065323141
+        ]
+      },
+      "target_ports": {
+        "W": [
+          16.0,
+          128.0
+        ],
+        "E": [
+          240.0,
+          128.0
+        ]
+      },
+      "uniform_scale": 0.21271376615143878,
+      "translation": [
+        -5.2870401658503,
+        -4.708189513477862
+      ],
+      "source_crop": [
+        44,
+        464,
+        1209,
+        785
+      ],
+      "residual_pixels_at124px_draw": [
+        0.6793831364724388,
+        0.6793831364724491
+      ],
+      "rest_fueled_silhouette_iou": 0.9946764071577066,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "h_fueled",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_fueled_native.png",
+      "native_sha256": "8c0fea749fa13011af6e68b3630e99f92b6f05a97494c0359f66f1f2612444b0",
+      "output": "assets/opera/worlds/widgets/widget_pipe_tile_h_fueled.png",
+      "output_sha256": "8cc06f1f033ea7c2d5649225802d3e261d21f9ee8d26d216c9a1b0b693bd535a",
+      "source_ports": {
+        "W": [
+          106.6555530006898,
+          624.2776500344906
+        ],
+        "E": [
+          1146.5500347463517,
+          623.4854065323141
+        ]
+      },
+      "target_ports": {
+        "W": [
+          16.0,
+          128.0
+        ],
+        "E": [
+          240.0,
+          128.0
+        ]
+      },
+      "uniform_scale": 0.21271376615143878,
+      "translation": [
+        -5.2870401658503,
+        -4.708189513477862
+      ],
+      "source_crop": [
+        44,
+        464,
+        1209,
+        785
+      ],
+      "residual_pixels_at124px_draw": [
+        0.6793831364724388,
+        0.6793831364724491
+      ],
+      "rest_fueled_silhouette_iou": 0.9946764071577066,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "v_rest",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_v_rest_native.png",
+      "native_sha256": "dfb22719d98219548d6973a92d56f8462de2994aa0370d012a6bda35ad189dfe",
+      "output": "assets/opera/worlds/widgets/widget_pipe_tile_v.png",
+      "output_sha256": "e8a1ede9b9fc98b79fd71f12d5e1f3f0b0a252b887e36983c3643b93ac017d2e",
+      "source_ports": {
+        "N": [
+          627.0798606631403,
+          132.22990581860404
+        ],
+        "S": [
+          626.9165843485896,
+          1108.2214905059818
+        ]
+      },
+      "target_ports": {
+        "N": [
+          128.0,
+          16.0
+        ],
+        "S": [
+          128.0,
+          240.0
+        ]
+      },
+      "uniform_scale": 0.2249199658075319,
+      "translation": [
+        -13.024418767402437,
+        -11.606199926427394
+      ],
+      "source_crop": [
+        472,
+        71,
+        783,
+        1172
+      ],
+      "residual_pixels_at124px_draw": [
+        1.0341527009084872,
+        1.1359233424739947
+      ],
+      "rest_fueled_silhouette_iou": 0.9892429591718205,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "v_fueled",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_v_fueled_native.png",
+      "native_sha256": "7c1a831677f9b13b0f3a832b81615476fe4871132aa23f81522b40e45a27c19f",
+      "output": "assets/opera/worlds/widgets/widget_pipe_tile_v_fueled.png",
+      "output_sha256": "08ede0fda96ac7e581bfccb604bd54688a7a8e802a0bb3865a25b2743f0a37dd",
+      "source_ports": {
+        "N": [
+          627.0798606631403,
+          132.22990581860404
+        ],
+        "S": [
+          626.9165843485896,
+          1108.2214905059818
+        ]
+      },
+      "target_ports": {
+        "N": [
+          128.0,
+          16.0
+        ],
+        "S": [
+          128.0,
+          240.0
+        ]
+      },
+      "uniform_scale": 0.2249199658075319,
+      "translation": [
+        -13.024418767402437,
+        -11.606199926427394
+      ],
+      "source_crop": [
+        472,
+        71,
+        783,
+        1172
+      ],
+      "residual_pixels_at124px_draw": [
+        1.0341527009084872,
+        1.1359233424739947
+      ],
+      "rest_fueled_silhouette_iou": 0.9892429591718205,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "ne_rest",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_ne_rest_native.png",
+      "native_sha256": "8ca2d4d2f8ef39fc0d122d0b609311164c66953bd4e803510df5bec53ba2976b",
+      "output": "assets/opera/worlds/widgets/widget_pipe_elbow_ne.png",
+      "output_sha256": "6f9923c778533f753663888430310bbef20a769e4e22e3bf502f10ec71dad9aa",
+      "source_ports": {
+        "N": [
+          371.2164986251146,
+          194.5404216315307
+        ],
+        "E": [
+          1102.7343453510437,
+          849.3466951296648
+        ]
+      },
+      "target_ports": {
+        "N": [
+          128.0,
+          16.0
+        ],
+        "E": [
+          240.0,
+          128.0
+        ]
+      },
+      "uniform_scale": 0.15826615794427082,
+      "translation": [
+        66.19553057342605,
+        -11.10600164865842
+      ],
+      "source_crop": [
+        161,
+        127,
+        1174,
+        1054
+      ],
+      "residual_pixels_at124px_draw": [
+        2.3173845327791462,
+        2.2951375005886923
+      ],
+      "rest_fueled_silhouette_iou": 0.9912455008242611,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "ne_fueled",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_ne_fueled_native.png",
+      "native_sha256": "2d8e1659c11cb6e2c6ce1c4039c8b645713d02fc0dafa5a7947fbdc8aed2d3e2",
+      "output": "assets/opera/worlds/widgets/widget_pipe_elbow_ne_fueled.png",
+      "output_sha256": "5edf0b71ca5b7e7b52c221b5f0def876968a93ce74d7f3ebc642d5d316fbe026",
+      "source_ports": {
+        "N": [
+          371.2164986251146,
+          194.5404216315307
+        ],
+        "E": [
+          1102.7343453510437,
+          849.3466951296648
+        ]
+      },
+      "target_ports": {
+        "N": [
+          128.0,
+          16.0
+        ],
+        "E": [
+          240.0,
+          128.0
+        ]
+      },
+      "uniform_scale": 0.15826615794427082,
+      "translation": [
+        66.19553057342605,
+        -11.10600164865842
+      ],
+      "source_crop": [
+        161,
+        127,
+        1174,
+        1054
+      ],
+      "residual_pixels_at124px_draw": [
+        2.3173845327791462,
+        2.2951375005886923
+      ],
+      "rest_fueled_silhouette_iou": 0.9912455008242611,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "nw_rest",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_nw_rest_native.png",
+      "native_sha256": "f19bb85e86febbddfd60867c99f3dee57c1d857124ac33d885a1670c7548763f",
+      "output": "assets/opera/worlds/widgets/widget_pipe_elbow_nw.png",
+      "output_sha256": "df4c4680df8d2a397ddbcb2c5747a31670b07153e0622ceba85a064a2d00b80d",
+      "source_ports": {
+        "N": [
+          932.5229945278845,
+          183.5231109558738
+        ],
+        "W": [
+          180.50798821157127,
+          931.5269117418954
+        ]
+      },
+      "target_ports": {
+        "N": [
+          128.0,
+          16.0
+        ],
+        "W": [
+          16.0,
+          128.0
+        ]
+      },
+      "uniform_scale": 0.14933039316910868,
+      "translation": [
+        -11.10467713094117,
+        -11.255429146340717
+      ],
+      "source_crop": [
+        105,
+        124,
+        1141,
+        1126
+      ],
+      "residual_pixels_at124px_draw": [
+        0.10257969490837217,
+        0.10257969490836609
+      ],
+      "rest_fueled_silhouette_iou": 0.9909720471508567,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "nw_fueled",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_nw_fueled_native.png",
+      "native_sha256": "b102bfc7d1e1f51582ed32818698324dd60ff165efa283290676050713f7e02a",
+      "output": "assets/opera/worlds/widgets/widget_pipe_elbow_nw_fueled.png",
+      "output_sha256": "848dfcd4a8ccf9d7ce737debc287db9dd468bc5ae494a55a0611cb0b570063a6",
+      "source_ports": {
+        "N": [
+          932.5229945278845,
+          183.5231109558738
+        ],
+        "W": [
+          180.50798821157127,
+          931.5269117418954
+        ]
+      },
+      "target_ports": {
+        "N": [
+          128.0,
+          16.0
+        ],
+        "W": [
+          16.0,
+          128.0
+        ]
+      },
+      "uniform_scale": 0.14933039316910868,
+      "translation": [
+        -11.10467713094117,
+        -11.255429146340717
+      ],
+      "source_crop": [
+        105,
+        124,
+        1141,
+        1126
+      ],
+      "residual_pixels_at124px_draw": [
+        0.10257969490837217,
+        0.10257969490836609
+      ],
+      "rest_fueled_silhouette_iou": 0.9909720471508567,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "se_rest",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_se_rest_native.png",
+      "native_sha256": "9587fbd89188d9444ea1ba3151a655f5a18dfedf0db146ff923ebe47a6a7b8fb",
+      "output": "assets/opera/worlds/widgets/widget_pipe_elbow_se.png",
+      "output_sha256": "a77676ba3e25d969e8e35b88511bec1efda9ae4b21dbda4cf300e5f41ec99e0c",
+      "source_ports": {
+        "S": [
+          445.22941427960666,
+          1025.7943565626335
+        ],
+        "E": [
+          1073.2546313112969,
+          462.2865056302216
+        ]
+      },
+      "target_ports": {
+        "S": [
+          128.0,
+          240.0
+        ],
+        "E": [
+          240.0,
+          128.0
+        ]
+      },
+      "uniform_scale": 0.18252315538298713,
+      "translation": [
+        43.74107970801168,
+        48.695392783762
+      ],
+      "source_crop": [
+        257,
+        282,
+        1141,
+        1092
+      ],
+      "residual_pixels_at124px_draw": [
+        2.4487516042658375,
+        2.4637755676548205
+      ],
+      "rest_fueled_silhouette_iou": 0.9944659957841091,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "se_fueled",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_se_fueled_native.png",
+      "native_sha256": "b10c32cedf7b5da885005807ddeda0e925ea088bd61947ca4d593055890a2959",
+      "output": "assets/opera/worlds/widgets/widget_pipe_elbow_se_fueled.png",
+      "output_sha256": "3d12a96b7ad13d2292140e6e10eeea6aae66cd72334283351b9eec8d3702db8e",
+      "source_ports": {
+        "S": [
+          445.22941427960666,
+          1025.7943565626335
+        ],
+        "E": [
+          1073.2546313112969,
+          462.2865056302216
+        ]
+      },
+      "target_ports": {
+        "S": [
+          128.0,
+          240.0
+        ],
+        "E": [
+          240.0,
+          128.0
+        ]
+      },
+      "uniform_scale": 0.18252315538298713,
+      "translation": [
+        43.74107970801168,
+        48.695392783762
+      ],
+      "source_crop": [
+        257,
+        282,
+        1141,
+        1092
+      ],
+      "residual_pixels_at124px_draw": [
+        2.4487516042658375,
+        2.4637755676548205
+      ],
+      "rest_fueled_silhouette_iou": 0.9944659957841091,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "sw_rest",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_sw_rest_native.png",
+      "native_sha256": "9ca8a783f232252c69d64e093bf1397674e4dae9add8fb573db3f77e59eac04e",
+      "output": "assets/opera/worlds/widgets/widget_pipe_elbow_sw.png",
+      "output_sha256": "eaaeeaf8c0fb14b6d32519a54417f3541154995a9643dc8bcc7f02084ef9dc07",
+      "source_ports": {
+        "S": [
+          884.814586014586,
+          1044.5763191763192
+        ],
+        "W": [
+          202.0310158704584,
+          452.16547168291305
+        ]
+      },
+      "target_ports": {
+        "S": [
+          128.0,
+          240.0
+        ],
+        "W": [
+          16.0,
+          128.0
+        ]
+      },
+      "uniform_scale": 0.16866428680717205,
+      "translation": [
+        -17.757692998125194,
+        58.276556655119066
+      ],
+      "source_crop": [
+        129,
+        266,
+        1074,
+        1111
+      ],
+      "residual_pixels_at124px_draw": [
+        3.1689586910037693,
+        3.1718986114858216
+      ],
+      "rest_fueled_silhouette_iou": 0.9948037269490214,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "sw_fueled",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_sw_fueled_native.png",
+      "native_sha256": "7d4f06383d1147fb01265bbcd784e82e0d366b9505a92fb2258afc6385a29392",
+      "output": "assets/opera/worlds/widgets/widget_pipe_elbow_sw_fueled.png",
+      "output_sha256": "ae6e4f9fd253f69cb08649842ce6f3b6b076d2e7e1517967700101968b111f51",
+      "source_ports": {
+        "S": [
+          884.814586014586,
+          1044.5763191763192
+        ],
+        "W": [
+          202.0310158704584,
+          452.16547168291305
+        ]
+      },
+      "target_ports": {
+        "S": [
+          128.0,
+          240.0
+        ],
+        "W": [
+          16.0,
+          128.0
+        ]
+      },
+      "uniform_scale": 0.16866428680717205,
+      "translation": [
+        -17.757692998125194,
+        58.276556655119066
+      ],
+      "source_crop": [
+        129,
+        266,
+        1074,
+        1111
+      ],
+      "residual_pixels_at124px_draw": [
+        3.1689586910037693,
+        3.1718986114858216
+      ],
+      "rest_fueled_silhouette_iou": 0.9948037269490214,
+      "geometry_trial": "PASS_TRIAL",
+      "method": "Uniform downsample, transparent crop/pad and translation only; no warp/rotation/repaint. Shared rest/fueled registration."
+    },
+    {
+      "id": "pipe_plate",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_plate_native.png",
+      "native_sha256": "c51b22faaeb673e26b9078c6f27bb854a0e7089744cdbe22ce10ad31a5b10a40",
+      "output": "assets/opera/worlds/widgets/widget_pipe_plate.png",
+      "output_sha256": "5b7fd462afe6464d729fb97f15716c6c7df9036475bc02be4e94ae82753db669",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_crop": [
+        96,
+        108,
+        1156,
+        1131
+      ],
+      "uniform_scale": 0.22641509433962265,
+      "placement": [
+        8,
+        12
+      ],
+      "growth_scale": 1.0,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "pipe_plate_selected",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_plate_selected_retry_native.png",
+      "native_sha256": "a0abf830e93ae5ac837a26ab377b377c604971cd025840bd5f7e849582b57530",
+      "output": "assets/opera/worlds/widgets/widget_pipe_plate_selected.png",
+      "output_sha256": "d952844b8b7c29067e3f225243608c39410eea4204a8c4e4370fce96bc18a856",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_crop": [
+        96,
+        108,
+        1156,
+        1131
+      ],
+      "uniform_scale": 0.22641509433962265,
+      "placement": [
+        8,
+        12
+      ],
+      "growth_scale": 1.0,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "pipe_intake",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_intake_native.png",
+      "native_sha256": "dd1a3e8ec44eb5a4adeb60f23fdf6df2bf58ccb789ee0c62a8ab9f6080105f51",
+      "output": "assets/opera/worlds/widgets/widget_pipe_intake.png",
+      "output_sha256": "6727c6cbc3badbd3b7b5d1b28940f12ff3a1b82a5fed59c03b102962b98524ee",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_crop": [
+        176,
+        167,
+        1079,
+        1078
+      ],
+      "uniform_scale": 0.26344676180021953,
+      "placement": [
+        9,
+        8
+      ],
+      "growth_scale": 1.0,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "pipe_intake_fueled",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_intake_fueled_native.png",
+      "native_sha256": "d061b1332da6620ea55c3f73ae104945425da439d707d24d8f6e8ef6bbd9aae2",
+      "output": "assets/opera/worlds/widgets/widget_pipe_intake_fueled.png",
+      "output_sha256": "5c4abac77e8a4c781bdc418ba476d515ffcde74732e1176e0e4b83d6397993fa",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_crop": [
+        176,
+        167,
+        1079,
+        1078
+      ],
+      "uniform_scale": 0.26344676180021953,
+      "placement": [
+        9,
+        8
+      ],
+      "growth_scale": 1.0,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "pipe_napping_imp",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/imp_napping_native.png",
+      "native_sha256": "8ab4ce0d03664497695c2e728e121de4b5c52f7158876e382039d95a3500b71c",
+      "output": "assets/opera/worlds/widgets/widget_pipe_napping_imp.png",
+      "output_sha256": "267a1c52cd0f69700d4552e861c67c687a9d0124bc03bfff71d91ee5a01c7289",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_crop": [
+        62,
+        83,
+        1208,
+        1179
+      ],
+      "uniform_scale": 0.2094240837696335,
+      "placement": [
+        8,
+        13
+      ],
+      "growth_scale": 1.0,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "patch_0",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/patch_0_native.png",
+      "native_sha256": "1b472d80efa9e937b355536ad1d10be8a2d60a9a3e403239396c8db16403047e",
+      "output": "assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png",
+      "output_sha256": "afde07c8f741ec04e4de341f535902f56ce4b23dbe9503c2f00986d1431e017e",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_crop": [
+        169,
+        187,
+        1085,
+        1065
+      ],
+      "uniform_scale": 0.26200873362445415,
+      "placement": [
+        8,
+        13
+      ],
+      "growth_scale": 1.0,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "patch_1",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/patch_1_native.png",
+      "native_sha256": "0fb1b3401ef027ee0d5b756b76b319e0ba0a9335c75574d70063715a925f793a",
+      "output": "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png",
+      "output_sha256": "65a64cd72c82edaf39f47d721a5dd89b69ac26073f62f277240b425bc3db5f9f",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_crop": [
+        127,
+        127,
+        1123,
+        1114
+      ],
+      "uniform_scale": 0.24096385542168675,
+      "placement": [
+        8,
+        9
+      ],
+      "growth_scale": 1.0,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "patch_2",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/patch_2_native.png",
+      "native_sha256": "a1a35ce5fae957fbfc9f94a0955d5ffe502aa502d0f5cfda46258e001c9685b6",
+      "output": "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+      "output_sha256": "edd9d498339311be35a8f1d883d7cefc819dba1a8658c82b7ac7a2c173caf511",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_crop": [
+        94,
+        116,
+        1159,
+        1119
+      ],
+      "uniform_scale": 0.22535211267605634,
+      "placement": [
+        8,
+        15
+      ],
+      "growth_scale": 1.0,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "launch_cloud",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/launch_cloud_native.png",
+      "native_sha256": "856dfddfdd9dfb89a8695532ef9303627f5c7bf23b203c3a1e1b1680a316e94d",
+      "output": "assets/opera/worlds/widgets/widget_launch_cloud.png",
+      "output_sha256": "179d091f780efe77c5d3d7fe0f1062dd1a513d649eca6559f9b0777df4725917",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_crop": [
+        53,
+        185,
+        1205,
+        1086
+      ],
+      "uniform_scale": 0.20833333333333334,
+      "placement": [
+        8,
+        34
+      ],
+      "growth_scale": 1.0,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "launch_flame_0",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/launch_flame_clean_native.png",
+      "native_sha256": "5b6d08f83a0b51468561b69a33798e985d94304da81e7ddb6a437a45a6d0745a",
+      "output": "assets/opera/worlds/widgets/widget_launch_flame_0.png",
+      "output_sha256": "3640f44b4227bbdbda38421b55a438e943b4049131c7888d5d4334b791bb03ab",
+      "dimensions": [
+        256,
+        512
+      ],
+      "source_crop": [
+        272,
+        68,
+        981,
+        1194
+      ],
+      "uniform_scale": 0.1861777150916784,
+      "placement": [
+        62,
+        8
+      ],
+      "growth_scale": 0.55,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "launch_flame_1",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/launch_flame_clean_native.png",
+      "native_sha256": "5b6d08f83a0b51468561b69a33798e985d94304da81e7ddb6a437a45a6d0745a",
+      "output": "assets/opera/worlds/widgets/widget_launch_flame_1.png",
+      "output_sha256": "fe0e5794a215a4a5333a6bc90548ad89b698727006fb90c7ea653799c81d99a3",
+      "dimensions": [
+        256,
+        512
+      ],
+      "source_crop": [
+        272,
+        68,
+        981,
+        1194
+      ],
+      "uniform_scale": 0.23695345557122705,
+      "placement": [
+        44,
+        8
+      ],
+      "growth_scale": 0.7,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "launch_flame_2",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/launch_flame_clean_native.png",
+      "native_sha256": "5b6d08f83a0b51468561b69a33798e985d94304da81e7ddb6a437a45a6d0745a",
+      "output": "assets/opera/worlds/widgets/widget_launch_flame_2.png",
+      "output_sha256": "8f69d9e5644e5a5bbffd17eb0a91ddf74d7f8ca3efdb95f53287bbb2d557d2a6",
+      "dimensions": [
+        256,
+        512
+      ],
+      "source_crop": [
+        272,
+        68,
+        981,
+        1194
+      ],
+      "uniform_scale": 0.28772919605077574,
+      "placement": [
+        26,
+        8
+      ],
+      "growth_scale": 0.85,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "launch_flame_3",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/launch_flame_clean_native.png",
+      "native_sha256": "5b6d08f83a0b51468561b69a33798e985d94304da81e7ddb6a437a45a6d0745a",
+      "output": "assets/opera/worlds/widgets/widget_launch_flame_3.png",
+      "output_sha256": "56cb801eef65fd7dcd4699cb339e0b73a7c6c564079adf41c1ece26586d606b9",
+      "dimensions": [
+        256,
+        512
+      ],
+      "source_crop": [
+        272,
+        68,
+        981,
+        1194
+      ],
+      "uniform_scale": 0.3385049365303244,
+      "placement": [
+        8,
+        8
+      ],
+      "growth_scale": 1.0,
+      "method": "Uniform downsample and transparent crop/pad only. No painting, warp, recolor or rotation."
+    },
+    {
+      "id": "pipe_tank",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/pipe_tank_native.png",
+      "native_sha256": "e3ae20e04b39dbd14419d37f8bd9c33a13a9010270f2aea242a7a01abc9d0db3",
+      "output": "assets/opera/worlds/widgets/widget_pipe_tank.png",
+      "output_sha256": "51be671da10ed9b005173177a447249a28ab2c0afd6c975c16c5d835816406f0",
+      "source_port": [
+        1151.0871787163685,
+        678.1411393356381
+      ],
+      "target_port": [
+        240.0,
+        128.0
+      ],
+      "uniform_scale": 0.13813866813394432,
+      "translation": [
+        80.99035022606131,
+        34.3224862053394
+      ],
+      "source_crop": [
+        101,
+        154,
+        1209,
+        1064
+      ],
+      "method": "Uniform downsample, crop and transparent pad/translation; exact outlet center; no warped tank or painted connector."
+    },
+    {
+      "id": "pipe_guide_hand",
+      "output": "assets/opera/worlds/widgets/widget_pipe_guide_hand.png",
+      "output_sha256": "5b18d1aed74aa7804560abe702d14a3d4fc01cbc974a65583eacb9452610a383",
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/guide_hand_reused_native.png",
+      "native_sha256": "f255bc49dc91ca9d888249e74123f01674de0e2382aa09ffc650906c0d59e120",
+      "provider": "builtin ImageGen; model unexposed",
+      "prompt": "Use case: precise-object-edit. Input1 is the exact gesture/hand silhouette target: a friendly tutorial hand with the INDEX FINGER pointing straight DOWN, thumb to viewer left, three curled fingers to viewer right, short wrist at top, exactly five fingers total. Preserve this same readable pose and no sleeve. Upgrade its flat gradient appearance into a polished painted2D storybook hand: broad soft peach/ivory hand-painted color planes, restrained lavender underside shadows, confident deep-plum contour, soft upper-left light and clean antialiased edges. Input2 is material/contour/style reference ONLY, do not include the pearl. Rounded friendly anatomy, no fingernail detail or wrinkles needed, very clear at48px. Whole single hand centered in SQUARE transparent canvas with8% margin; straight-down fingertip near lower center. Remove the old exterior yellow halo completely. No glow, extra outline, text, icon, scenery, cast shadow or background. True native RGBA alpha.",
+      "tip_uv": [
+        0.4365234375,
+        0.986328125
+      ],
+      "changes": "Exact unchanged reuse of this campaign native ImageGen hand/technical512PNG; source and prompt retained."
+    }
+  ],
+  "replaced_placeholders": [
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png",
+      "baseline": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
+      "original_sha256": "bfafdf432e4e0cd42bef4c436bc50839e0ecb48f322e84da2cbb2a312afefe04",
+      "replacement": "Owner-commissioned JB-AST-03 square/circle/star painted metal patch family."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png",
+      "baseline": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
+      "original_sha256": "218c33235451de371a7644e18629a636955edc27722fc41de1d5167edf4cfd5d",
+      "replacement": "Owner-commissioned JB-AST-03 square/circle/star painted metal patch family."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+      "baseline": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
+      "original_sha256": "b2ac73c372b40b53914a3146c9c5c036ed9df0db898e699d64499d1b17d00b52",
+      "replacement": "Owner-commissioned JB-AST-03 square/circle/star painted metal patch family."
+    }
+  ],
+  "limits": "Candidate only; source and current Mobile scene/transition/input review at4.5 remain required; device/child/owner remain open."
+}

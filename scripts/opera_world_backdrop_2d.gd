@@ -170,7 +170,8 @@ func _load_tile_set(kind: String) -> Array[Texture2D]:
 	for row in range(2):
 		for column in range(2):
 			var path: String
-			if kind == "world" and scene_variant in ["chapter2_chef_cake", "strawberry_cake_workshop"]:
+			if kind == "world" and ((career_id == "chef" and scene_variant.is_empty()) \
+					or scene_variant in ["chapter2_chef_cake", "strawberry_cake_workshop"]):
 				path = "res://assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c%dr%d.png" % [column, row]
 			elif career_id == "ballerina" and kind == "stage":
 				path = "res://assets/opera/worlds/stage/finale_stage_c%dr%d.png" % [column, row]
@@ -197,6 +198,34 @@ func _draw_tile_set(textures: Array[Texture2D]) -> void:
 			var source := Rect2(0.0, source_y, 1024.0, 576.0)
 			var destination := Rect2(Vector2(float(column) * half.x, float(row) * half.y), half)
 			draw_texture_rect_region(textures[row * 2 + column], destination, source)
+
+
+func _draw_nursery_sharp_room() -> void:
+	# Exact native1024x576 sharp region, verified against source bytes.
+	# Framing repair only: native2K-per-screen coverage remains unmet.
+	var native_rect := Rect2(512, 731, 1024, 576)
+	for row in range(2):
+		for column in range(2):
+			var tile_origin := Vector2(column * 1024, row * 1024)
+			var overlap := native_rect.intersection(Rect2(tile_origin, Vector2(1024, 1024)))
+			var source := Rect2(overlap.position - tile_origin, overlap.size)
+			var destination := Rect2((overlap.position - native_rect.position) / native_rect.size * size,
+				overlap.size / native_rect.size * size)
+			draw_texture_rect_region(world_tiles[row * 2 + column], destination, source)
+
+
+func _draw_boxer_native_room() -> void:
+	# Recover the complete existing1672x941 native frame from the same tiles;
+	# retain original outer feather. This does not meet native2K coverage.
+	var native_rect := Rect2(188, 553, 1672, 941)
+	for row in range(2):
+		for column in range(2):
+			var tile_origin := Vector2(column * 1024, row * 1024)
+			var overlap := native_rect.intersection(Rect2(tile_origin, Vector2(1024, 1024)))
+			var source := Rect2(overlap.position - tile_origin, overlap.size)
+			var destination := Rect2((overlap.position - native_rect.position) / native_rect.size * size,
+				overlap.size / native_rect.size * size)
+			draw_texture_rect_region(world_tiles[row * 2 + column], destination, source)
 
 
 func _draw_racer_circuit() -> void:
@@ -239,6 +268,12 @@ func _draw() -> void:
 	if (career_id == "teacher" or scene_variant == "magic_storybook") and room_variant_tiles.size() == 8:
 		_draw_stuffie_room_tiles()
 		return
+	if career_id == "nursery" and world_tiles.size() == 4:
+		_draw_nursery_sharp_room()
+		return
+	if career_id == "boxer" and not stage_mode and world_tiles.size() == 4:
+		_draw_boxer_native_room()
+		return
 	if racer_driving and career_id == "racer" and world_tiles.size() == 4:
 		_draw_racer_circuit()
 		return
@@ -255,18 +290,22 @@ func _draw() -> void:
 	var mid := Color(palette[1])
 	var accent := Color(palette[2])
 	var active_tiles: Array[Texture2D] = stage_tiles if stage_mode and stage_tiles.size() == 4 else world_tiles
+	if career_id == "chef" and scene_variant.is_empty():
+		# Reuse the existing painted empty stations: one visible bowl/cake owner.
+		# This is reuse of a resolution-debt source, not a native-detail upgrade.
+		active_tiles = world_tiles
 	if active_tiles.size() == 4:
 		_draw_tile_set(active_tiles)
 		# The saved clean kitchen owns its painted light. Stage beams would add
 		# two broad alpha passes over the room and the persistent cake.
-		if stage_mode or not _is_chapter2_clean_kitchen():
+		if career_id not in ["chef", "nursery", "boxer", "doctor", "farmer", "magician", "painter"] and (stage_mode or not _is_chapter2_clean_kitchen()):
 			_draw_spotlights(accent)
 		return
 	if painting != null:
 		draw_texture_rect(painting, Rect2(Vector2.ZERO, size), false)
 		# spotlights are stage lighting — over a painted district they fight
 		# the art's own light sources
-		if stage_mode:
+		if stage_mode and career_id not in ["nursery", "boxer", "doctor", "farmer", "magician", "painter"]:
 			_draw_spotlights(accent)
 		if stage_mode:
 			_draw_stage_frame(accent)

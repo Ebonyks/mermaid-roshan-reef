@@ -1,0 +1,220 @@
+probes	Static gates (parse + Variant-inference lint)	ï»¿2026-10-19T09:45:12.0074611Z ##[group]Run pip install --quiet gdtoolkit==4.5.0 numpy==2.5.1 Pillow==12.3.0 scipy==1.18.0
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0075334Z ^[[36;1mpip install --quiet gdtoolkit==4.5.0 numpy==2.5.1 Pillow==12.3.0 scipy==1.18.0^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0075855Z ^[[36;1mpython3 -m unittest tools.tests.test_audit_godot_baseline^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0076289Z ^[[36;1mpython3 tools/audit_godot_baseline.py --godot godot^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0076716Z ^[[36;1mpython3 -m gdtoolkit.parser $(find scripts -name '*.gd')^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0077244Z ^[[36;1mpython3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0077813Z ^[[36;1m# Owner decision 2026-08-09: Mermaid Roshan is 2D-only. The stress^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0078307Z ^[[36;1m# pass proves every rule can fail before the real project is gated.^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0078910Z ^[[36;1mpython3 tools/audit_roshan_2d.py --stress^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0079233Z ^[[36;1mpython3 tools/audit_roshan_2d.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0079612Z ^[[36;1m# The Roshan audit remains the narrow atlas/identity invariant. The^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0080146Z ^[[36;1m# authoritative game-wide migration contract must also prove that^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0080618Z ^[[36;1m# its debt ceiling and falsification checks cannot be laundered.^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0081052Z ^[[36;1mpython3 -m unittest tools.tests.test_audit_game_2d^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0081415Z ^[[36;1mpython3 tools/audit_game_2d.py --stress^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0081823Z ^[[36;1mpython3 -m unittest tools.tests.test_audit_roshan_sprite_clipping^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0082257Z ^[[36;1mpython3 tools/audit_roshan_sprite_clipping.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0083251Z ^[[36;1mpython3 tools/audit_probe_parity.py --stress^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0083625Z ^[[36;1mpython3 tools/audit_probe_parity.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0084039Z ^[[36;1m# Current documentation controls runtime and repair authority. Prove^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0084548Z ^[[36;1m# exhaustive ledger/canonical-record checks can fail, then gate the^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0085039Z ^[[36;1m# exact repository Markdown inventory before accepting any repair.^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0085514Z ^[[36;1mpython3 -m unittest tools.tests.test_audit_document_authority^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0085950Z ^[[36;1mpython3 tools/audit_document_authority.py --stress^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0087035Z ^[[36;1mpython3 -m unittest tools.tests.test_audit_development tools.tests.test_record_owner_decision tools.tests.test_run_advisory_sensor tools.tests.test_study_game tools.tests.test_build_study_roadmap tools.tests.test_plan_prompt tools.tests.test_resolve_godot^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0088114Z ^[[36;1mpython3 tools/audit_development.py --base auto^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0088474Z ^[[36;1mpython3 tools/audit_document_authority.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0088798Z ^[[36;1mpython3 tools/audit_fairy_art_v2.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0089166Z ^[[36;1mpython3 tools/prepare_opera_nursery_art.py --check-only^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0089610Z ^[[36;1mpython3 tools/prepare_opera_minigame_art.py --check-only^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0090026Z ^[[36;1mpython3 tools/audit_opera_diegetic_hotspot_art.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0090413Z ^[[36;1mpython3 tools/audit_opera_borderless_minigame_art.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0090789Z ^[[36;1mpython3 tools/audit_opera_roshan_animation.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0091120Z ^[[36;1mpython3 tools/audit_sky_lagoon_kit.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0091438Z ^[[36;1mpython3 tools/audit_scene_congruency.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0091837Z ^[[36;1m# Painted 2.5D flats are drawn unshaded, so the Environment grade is^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0092322Z ^[[36;1m# the only thing between an approved PNG and the child's screen. This^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0093056Z ^[[36;1m# replays the shipped grade over the real art and fails when a profile^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0093482Z ^[[36;1m# clips or crushes pixels the source did not^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0093970Z ^[[36;1m# (LIGHTING_2P5D_AUDIT_2026-08-02 Â§1.7/Â§E1). Needs no Godot binary,^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0094438Z ^[[36;1m# so it belongs here with the other seconds-long static gates.^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0095090Z ^[[36;1mpython3 -m unittest tools.tests.test_check_grade_headroom^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0095472Z ^[[36;1mpython3 tools/check_grade_headroom.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0095994Z ^[[36;1m# Castle V4 delivery is source-owned and frame-reviewed. Keep these^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0096485Z ^[[36;1m# release gates in the protected probe workflow as well as ci.sh so^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0096949Z ^[[36;1m# promotion cannot accept stale healing, cutouts, or approvals.^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0097417Z ^[[36;1mpython3 tools/build_castle_interaction_v4_delivery.py --check^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0097842Z ^[[36;1mpython3 tools/audit_castle_native_interactions.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0098260Z ^[[36;1mpython3 tools/repair_castle_room_native_backgrounds.py --check^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0098874Z ^[[36;1mpython3 tools/build_interactive_background_ownership.py --check^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0099307Z ^[[36;1mpython3 tools/refine_castle_depth_cards.py --check^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0099698Z ^[[36;1mpython3 tools/audit_castle_static_depth_cards.py^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0100022Z ^[[36;1mpython3 -m unittest \^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0100319Z ^[[36;1m  tools.test_audit_castle_native_interactions \^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0100686Z ^[[36;1m  tools.test_build_castle_interaction_v4_delivery \^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0101039Z ^[[36;1m  tools.test_castle_interaction_frame_qa \^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0101394Z ^[[36;1m  tools.test_review_castle_interaction_frames_v4 \^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0101739Z ^[[36;1m  tools.test_refine_castle_depth_cards \^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0102078Z ^[[36;1m  tools.test_audit_castle_static_depth_cards \^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0102442Z ^[[36;1m  tools.test_repair_castle_room_native_backgrounds \^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0103109Z ^[[36;1m  tools.test_interactive_background_ownership^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0103519Z ^[[36;1mpython3 tools/review_castle_interaction_frames_v4.py check^[[0m
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0167177Z shell: /usr/bin/bash -e {0}
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0167460Z env:
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0167659Z   GODOT_RELEASE: 4.7.2-stable
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0168331Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:12.0169025Z ##[endgroup]
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:21.2137708Z ....
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:21.2138445Z ----------------------------------------------------------------------
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:21.2141349Z Ran 4 tests in 0.007s
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:21.2141639Z 
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:21.2141761Z OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:21.3145312Z GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:44.1000350Z ROSHAN2D| stress: 8 falsification cases ALL OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:46.4080117Z ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:48.6352324Z ...........................................................................
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:48.6353272Z ----------------------------------------------------------------------
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:48.6353675Z Ran 75 tests in 2.080s
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:48.6353832Z 
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:48.6353924Z OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:48.6354223Z GAME2D| stress: 14 falsification/control assertions ALL OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:48.8654599Z GAME2D| stress: 14 falsification/control assertions ALL OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:49.3181934Z .....
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:49.3182439Z ----------------------------------------------------------------------
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:49.3183548Z Ran 5 tests in 0.075s
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:49.3183788Z 
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:49.3183915Z OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.5550776Z naive 256px grid :      0 px of Roshan clipped,      0 px ghost
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.5551453Z shipped windows  :      0 px of Roshan clipped,      0 px ghost
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.5551946Z                    (0.00% -> 0.00% of her art lost)
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.5552451Z playground poses :     12 whole, single-silhouette 512px frames
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.5553355Z OK: every Roshan frame renders whole
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.6351180Z PROBE_PARITY|stress missing loop: OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.6352007Z PROBE_PARITY|stress duplicate probe: OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.6352408Z PROBE_PARITY|stress local/remote mismatch: OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.6353140Z PROBE_PARITY|stress missing probe file: OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.6353554Z PROBE_PARITY|stress missing separate invocation: OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.6353975Z PROBE_PARITY|stress missing parity gate: OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.6354389Z PROBE_PARITY|stress missing local music verifier: OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.6354840Z PROBE_PARITY|stress missing pinned music verifier: OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.6815175Z PROBE_PARITY|result: ALL OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.7997905Z .........................................
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.7998547Z ----------------------------------------------------------------------
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.7999138Z Ran 41 tests in 0.028s
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.7999377Z 
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.7999934Z OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.8000215Z DOCAUTH|STRESS|6/6
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:45:58.8641087Z DOCAUTH|STRESS|6/6
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:01.9235157Z ................................................................................................................
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:01.9236107Z ----------------------------------------------------------------------
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:01.9236660Z Ran 112 tests in 2.882s
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:01.9236876Z 
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:01.9236999Z OK
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.5999468Z AUDITDEV|BASE|e31864fb904b0e1192b90a2b577516864497bb10
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6000504Z AUDITDEV|FAIL|navigation target missing or outside repository: ../design/audit_impacts/artwork-quality-20261018.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6001442Z AUDITDEV|FAIL|no changed audit-impact record covers ASSET_LICENSES.md
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6002269Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/flower.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6003634Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/flower.png.import
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6004659Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/flower2.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6005657Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/flower2.png.import
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6006635Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/flower3.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6007610Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/flower3.png.import
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6008591Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/k_flower1.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6009592Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/k_flower1.png.import
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6010510Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/k_flower2.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6011404Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/k_flower2.png.import
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6012345Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/k_sprout.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6013401Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/k_sprout.png.import
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6014280Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/pot.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6015137Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/pot.png.import
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6016037Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/wateringcan.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6016970Z AUDITDEV|FAIL|no changed audit-impact record covers assets/mg/painted_quality_20261018/wateringcan.png.import
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6017922Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/.gdignore
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6018931Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/campaign_progress.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6019969Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/capture_garden.gd
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6021043Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/flower2_native.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6021791Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/flower3_native.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6022710Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/flower_native.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6023482Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/k_flower1_native.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6024241Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/k_flower2_native.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6025138Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/k_sprout_native.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6025923Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/pot_attempt01_rejected.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6026699Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/pot_native.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6027433Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/pot_prompts.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6028165Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/prepare_garden.py
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6028902Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/prompts.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6029618Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/provenance.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6030366Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/review/art_review.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6031134Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/review/capture.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6031943Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/review/garden-complete-1280.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6033174Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/review/garden-complete-1600.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6034056Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/review/garden-four-flowers-1280.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6034938Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/review/garden-four-flowers-1600.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6035823Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/review/garden-seeds-1280.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6036669Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/review/garden-seeds-1600.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6037507Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/review/garden-sprouts-1280.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6038343Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/review/garden-sprouts-1600.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6039249Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/audio_ledger_reconciliation.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6040218Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/baseline_native_control.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6041139Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/baseline_touch_adversary_1.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6042081Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/baseline_touch_adversary_2.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6043126Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/baseline_touch_adversary_3.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6044162Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/capture_contact.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6045037Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/direct_engine_melody.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6045927Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/direct_engine_melody.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6046835Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/first_failed_full_ci.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6047727Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/first_failed_full_ci.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6048683Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6049488Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6050310Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_direct_04.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6051171Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_direct_04.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6052091Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_direct_04_interrupted.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6053133Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_03.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6053997Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_03.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6054892Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_capture_05.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6055812Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_capture_05.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6056722Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6057628Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6058612Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher_01_coverage_rejected.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6059678Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher_01_coverage_rejected.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6060669Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher_02.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6061595Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/full_ci_native_launcher_02.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6062596Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/import_pot.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6063459Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/import_registration.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6064358Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/import_retry.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6065212Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/legacy_ledger_after.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6066355Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/legacy_ledger_before.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6067254Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/native_capture_05_events.jsonl
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6068187Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/native_capture_partner_control.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6069149Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/native_capture_transport_control.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6070113Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/native_launcher_03_events.jsonl
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6071355Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/native_launcher_04_events.jsonl
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6072293Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/native_probe_retries.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6073527Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/probe_dust_boss_balance_native_retry.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6074523Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/probe_partner_native_retry.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6075448Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/probe_props_native_retry.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6076426Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/probe_touch_adversary_native_retry.log
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6077365Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/recheck_failed_probes.py
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6078236Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/run_ci_direct_04.sh
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6079111Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/run_ci_native_03.sh
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6079984Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/run_ci_native_capture_05.sh
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6080933Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/run_full_ci_direct_04.py
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6082700Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/run_full_ci_native.sh
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6084254Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/run_full_ci_native_03.py
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6085193Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/run_full_ci_native_capture_05.py
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6086153Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/teacher_remote_integration.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6087088Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/windows_native_capture_05.py
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6087986Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/windows_timeout.py
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6088870Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/windows_timeout_direct_04.py
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6089779Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/verification/windows_timeout_retry_03.py
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6090637Z AUDITDEV|FAIL|no changed audit-impact record covers assets_src/imagegen/artwork_quality_20261018/wateringcan_native.png
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6091505Z AUDITDEV|FAIL|no changed audit-impact record covers audit/MASTER_AUDIT_2026-08-09.md
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6092134Z AUDITDEV|FAIL|no changed audit-impact record covers audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6093068Z AUDITDEV|FAIL|no changed audit-impact record covers audit/audio_quality_ledger_2026-08-24.csv
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6093694Z AUDITDEV|FAIL|no changed audit-impact record covers audit/audio_quality_summary_2026-08-24.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6094312Z AUDITDEV|FAIL|no changed audit-impact record covers audit/findings/ACTIVE_FINDINGS_2026-08-13.md
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6094955Z AUDITDEV|FAIL|no changed audit-impact record covers audit/minigame_art_quality_2026-09-05/registry.json
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6109485Z AUDITDEV|FAIL|no changed audit-impact record covers scripts/games/picture_games.gd
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6110215Z AUDITDEV|RESULT|104 ISSUE(S)
+probes	Static gates (parse + Variant-inference lint)	2026-10-19T09:46:02.6121620Z ##[error]Process completed with exit code 1.

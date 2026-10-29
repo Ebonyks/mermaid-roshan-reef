@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "a569d56f51dc719620cd63372fd5977445662db20486d9d9c95e6c492a7a6bf4",
+  "candidate_payload_sha256": "ed13d35a54331db9e6cf073536362a9b1f2b58879595233f29e03805ef31d59b",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -343,5 +343,22 @@
     "prior_payload_exactly_reproduced_by_restoring_layout_hash": true,
     "owner_acceptance": "pending",
     "limits": "No frame/pixel/occlusion approval or reviewer replacement. No new authoritative visual-runtime, device, child, owner or game-wide acceptance."
+  },
+  "castle_embrace_binding_revalidation": {
+    "date": "2026-10-27",
+    "baseline": "95b68269f67650958c21ec1186385821eec10792",
+    "reviewer": "Codex source/evidence revalidation; original per-frame reviewer and approvals unchanged",
+    "reason": "Owner-requested noninteractive wall painting is added only in Royal Bedroom, outside the seven V4 interaction rooms. The bounded16-line controller addition does not change ROOM_LAYOUTS, fixture rigs, V4 manifests, atlases, healed backgrounds, static card placement, z/alpha or any of the96 reviewed frame renders/occlusion records. The whole-file runtime-layout binding changes.",
+    "prior_candidate_payload_sha256": "a569d56f51dc719620cd63372fd5977445662db20486d9d9c95e6c492a7a6bf4",
+    "candidate_payload_sha256": "ed13d35a54331db9e6cf073536362a9b1f2b58879595233f29e03805ef31d59b",
+    "prior_runtime_layout_semantic_sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+    "runtime_layout_semantic_sha256": "fec7a125523e4b1588cf138a597c5bfde0331108de35ab970f45989642a41c5b",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "unchanged_reviewed_frames": 96,
+    "unchanged_asset_occlusion_records": 12,
+    "prior_payload_exactly_reproduced_by_restoring_layout_hash": true,
+    "evidence": "assets_src/castle/merfolk_embrace_20261027/review/binding_revalidation.json",
+    "owner_acceptance": "pending",
+    "limits": "No frame/pixel/occlusion approval or reviewer replacement. Painting has separate configured Mobile captures; physical device, child, owner and formal QA11 acceptance remain pending."
   }
 }

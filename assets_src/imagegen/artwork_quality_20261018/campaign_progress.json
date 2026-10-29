@@ -1,0 +1,1275 @@
+{
+  "schema": "reef.art_quality_campaign/1",
+  "updated_utc": "2026-10-19T13:36:42.126497+00:00",
+  "baseline": "e31864fb904b0e1192b90a2b577516864497bb10",
+  "source_register": "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/job_art_register.json",
+  "source_register_sha256": "bd57add7b550857ffed184dab0e97a3e764cca7365c1b3f0dbaf0204ce5e6d96",
+  "model": "Owner approved available builtin ImageGen; version/selector unexposed, never claimed2.5.",
+  "scope": "All108commissioned job-art items remain tracked, plus8Garden objects already replaced locally. Final all-scene census/audit still required beyond this job register.",
+  "threshold_rule": "Every applicable dimension>=4.5/5; no mean can compensate for a failing dimension. Regenerate/rework failures and repeat exact source/context review.",
+  "final_campaign_audit": "PENDING; no whole-game/master satisfaction or owner/device acceptance.",
+  "garden_extra": {
+    "objects": 8,
+    "status": "COMBINED_LOCAL06_PASS82_NO_DRIFT_EXACT_MERGE_HEAD_REMOTE_PENDING",
+    "evidence": "review/art_review.json",
+    "failed_remote_ci": 39229555208
+  },
+  "items": [
+    {
+      "id": "JA-GEO-01",
+      "package": "P1",
+      "job": "geologist",
+      "element": "Room backdrop and curtain-call proscenium",
+      "commissioned_action": "IMAGEGEN",
+      "status": "BLOCKED_NATIVE_BACKGROUND_RESOLUTION",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-geologist-20261018 (local uncommitted candidate; not delivered)"
+      ]
+    },
+    {
+      "id": "JA-GEO-02",
+      "package": "P1",
+      "job": "geologist",
+      "element": "Work tray",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "CANDIDATE_CONTEXT_AUDIT_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-geologist-20261018 (local uncommitted candidate; not delivered)"
+      ]
+    },
+    {
+      "id": "JA-GEO-03",
+      "package": "P1",
+      "job": "geologist",
+      "element": "River channel cells, spring and pool",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "CANDIDATE_CONTEXT_AUDIT_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-geologist-20261018 (local uncommitted candidate; not delivered)"
+      ]
+    },
+    {
+      "id": "JA-GEO-04",
+      "package": "P1",
+      "job": "geologist",
+      "element": "Fossil dirt grid and fossil",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "CANDIDATE_CONTEXT_AUDIT_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-geologist-20261018 (local uncommitted candidate; not delivered)"
+      ]
+    },
+    {
+      "id": "JA-GEO-05",
+      "package": "P1",
+      "job": "geologist",
+      "element": "Gold pan, water, grains, minerals",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "CANDIDATE_CONTEXT_AUDIT_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-geologist-20261018 (local uncommitted candidate; not delivered)"
+      ]
+    },
+    {
+      "id": "JA-GEO-06",
+      "package": "P1",
+      "job": "geologist",
+      "element": "Geode halves, tap spots, crystals",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "CANDIDATE_CONTEXT_AUDIT_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-geologist-20261018 (local uncommitted candidate; not delivered)"
+      ]
+    },
+    {
+      "id": "JA-GEO-07",
+      "package": "P1",
+      "job": "geologist",
+      "element": "Hotspot and goal SVGs",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "CANDIDATE_CONTEXT_AUDIT_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-geologist-20261018 (local uncommitted candidate; not delivered)"
+      ]
+    },
+    {
+      "id": "JA-GEO-08",
+      "package": "P1",
+      "job": "geologist",
+      "element": "Career crest",
+      "commissioned_action": "IMAGEGEN",
+      "status": "CANDIDATE_CONTEXT_AUDIT_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-geologist-20261018 (local uncommitted candidate; not delivered)"
+      ]
+    },
+    {
+      "id": "JA-TEA-01",
+      "package": "P2",
+      "job": "teacher",
+      "element": "Lesson board over the painted library",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PUBLISHED_STATIC_CANDIDATE_LOCAL82_PASS_REMOTE_INTEGRATION_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "e90c0daa83cf05644f0e9942e85c1198ed7901f7:assets_src/imagegen/job_art_teacher_20261018/review/art_review.json"
+      ]
+    },
+    {
+      "id": "JA-TEA-02",
+      "package": "P2",
+      "job": "teacher",
+      "element": "Shape tokens and the blank slot",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PUBLISHED_STATIC_CANDIDATE_LOCAL82_PASS_REMOTE_INTEGRATION_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "e90c0daa83cf05644f0e9942e85c1198ed7901f7:assets_src/imagegen/job_art_teacher_20261018/review/art_review.json"
+      ]
+    },
+    {
+      "id": "JA-TEA-03",
+      "package": "P2",
+      "job": "teacher",
+      "element": "Counting pearls, group trays, join button, ticks",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PUBLISHED_STATIC_CANDIDATE_LOCAL82_PASS_REMOTE_INTEGRATION_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "e90c0daa83cf05644f0e9942e85c1198ed7901f7:assets_src/imagegen/job_art_teacher_20261018/review/art_review.json"
+      ]
+    },
+    {
+      "id": "JA-TEA-04",
+      "package": "P2",
+      "job": "teacher",
+      "element": "Answer cards",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PUBLISHED_STATIC_CANDIDATE_LOCAL82_PASS_REMOTE_INTEGRATION_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "e90c0daa83cf05644f0e9942e85c1198ed7901f7:assets_src/imagegen/job_art_teacher_20261018/review/art_review.json"
+      ]
+    },
+    {
+      "id": "JA-TEA-05",
+      "package": "P2",
+      "job": "teacher",
+      "element": "Hint button, solved orbit, demo ring",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PUBLISHED_STATIC_CANDIDATE_LOCAL82_PASS_REMOTE_INTEGRATION_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "e90c0daa83cf05644f0e9942e85c1198ed7901f7:assets_src/imagegen/job_art_teacher_20261018/review/art_review.json"
+      ]
+    },
+    {
+      "id": "JA-TEA-06",
+      "package": "P2",
+      "job": "teacher",
+      "element": "Lesson-board hotspot and goal prop",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PUBLISHED_STATIC_CANDIDATE_LOCAL82_PASS_REMOTE_INTEGRATION_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "e90c0daa83cf05644f0e9942e85c1198ed7901f7:assets_src/imagegen/job_art_teacher_20261018/review/art_review.json"
+      ]
+    },
+    {
+      "id": "JA-TEA-07",
+      "package": "P2",
+      "job": "teacher",
+      "element": "Crest slot",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PUBLISHED_STATIC_CANDIDATE_LOCAL82_PASS_REMOTE_INTEGRATION_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "e90c0daa83cf05644f0e9942e85c1198ed7901f7:assets_src/imagegen/job_art_teacher_20261018/review/art_review.json"
+      ]
+    },
+    {
+      "id": "JA-AST-01",
+      "package": "P3",
+      "job": "astronaut",
+      "element": "Pipe tiles, grid plates, tray",
+      "commissioned_action": "IMAGEGEN",
+      "status": "LOCAL_STATIC_CANDIDATE_FULL_AND_EXTERNAL_GATES_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-astronaut-20261018:assets_src/imagegen/job_art_astronaut_20261018/review/art_review.json (local uncommitted)"
+      ]
+    },
+    {
+      "id": "JA-AST-02",
+      "package": "P3",
+      "job": "astronaut",
+      "element": "Napping imps on the board",
+      "commissioned_action": "IMAGEGEN",
+      "status": "LOCAL_STATIC_CANDIDATE_FULL_AND_EXTERNAL_GATES_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-astronaut-20261018:assets_src/imagegen/job_art_astronaut_20261018/review/art_review.json (local uncommitted)"
+      ]
+    },
+    {
+      "id": "JA-AST-03",
+      "package": "P3",
+      "job": "astronaut",
+      "element": "Fuel tank, outlet, rocket intake",
+      "commissioned_action": "IMAGEGEN",
+      "status": "LOCAL_STATIC_CANDIDATE_FULL_AND_EXTERNAL_GATES_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-astronaut-20261018:assets_src/imagegen/job_art_astronaut_20261018/review/art_review.json (local uncommitted)"
+      ]
+    },
+    {
+      "id": "JA-AST-04",
+      "package": "P3",
+      "job": "astronaut",
+      "element": "Patch pieces",
+      "commissioned_action": "IMAGEGEN",
+      "status": "LOCAL_STATIC_CANDIDATE_FULL_AND_EXTERNAL_GATES_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-astronaut-20261018:assets_src/imagegen/job_art_astronaut_20261018/review/art_review.json (local uncommitted)"
+      ]
+    },
+    {
+      "id": "JA-AST-05",
+      "package": "P3",
+      "job": "astronaut",
+      "element": "Flame and exhaust",
+      "commissioned_action": "IMAGEGEN",
+      "status": "STATIC_CANDIDATE_MOTION_ACCEPTANCE_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-astronaut-20261018:assets_src/imagegen/job_art_astronaut_20261018/review/art_review.json (local uncommitted)"
+      ]
+    },
+    {
+      "id": "JA-AST-06",
+      "package": "P3",
+      "job": "astronaut",
+      "element": "Backing disc",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "LOCAL_STATIC_CANDIDATE_FULL_AND_EXTERNAL_GATES_PENDING",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": [
+        "codex/job-art-astronaut-20261018:assets_src/imagegen/job_art_astronaut_20261018/review/art_review.json (local uncommitted)"
+      ]
+    },
+    {
+      "id": "JA-CHF-01",
+      "package": "P4",
+      "job": "chef",
+      "element": "Oven, window, cake, door handle, thermometer",
+      "commissioned_action": "IMAGEGEN",
+      "status": "SOURCE_CANDIDATES_AND_BASELINE_INSPECTION_IN_PROGRESS",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CHF-02",
+      "package": "P4",
+      "job": "chef",
+      "element": "Bowl and batter level",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "SOURCE_CANDIDATES_AND_BASELINE_INSPECTION_IN_PROGRESS",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CHF-03",
+      "package": "P4",
+      "job": "chef",
+      "element": "Stream, beads, splash",
+      "commissioned_action": "IMAGEGEN",
+      "status": "SOURCE_CANDIDATES_AND_BASELINE_INSPECTION_IN_PROGRESS",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CHF-04",
+      "package": "P4",
+      "job": "chef",
+      "element": "Jug squeezed about 17% and never empties",
+      "commissioned_action": "FIX_USE",
+      "status": "SOURCE_CANDIDATES_AND_BASELINE_INSPECTION_IN_PROGRESS",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CHF-05",
+      "package": "P4",
+      "job": "chef",
+      "element": "Bowl, batter and swirls",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "SOURCE_CANDIDATES_AND_BASELINE_INSPECTION_IN_PROGRESS",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CHF-06",
+      "package": "P4",
+      "job": "chef",
+      "element": "Whisk spun like a propeller round its own centre",
+      "commissioned_action": "FIX_USE",
+      "status": "SOURCE_CANDIDATES_AND_BASELINE_INSPECTION_IN_PROGRESS",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CHF-07",
+      "package": "P4",
+      "job": "chef",
+      "element": "Cake, plate, piping bag, frosting",
+      "commissioned_action": "IMAGEGEN",
+      "status": "SOURCE_CANDIDATES_AND_BASELINE_INSPECTION_IN_PROGRESS",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CHF-08",
+      "package": "P4",
+      "job": "chef",
+      "element": "Chocolate topping reads like a poop emoji",
+      "commissioned_action": "IMAGEGEN",
+      "status": "SOURCE_CANDIDATES_AND_BASELINE_INSPECTION_IN_PROGRESS",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CHF-09",
+      "package": "P4",
+      "job": "chef",
+      "element": "Stack cap warps the painted tier about 2.1x",
+      "commissioned_action": "FIX_USE",
+      "status": "SOURCE_CANDIDATES_AND_BASELINE_INSPECTION_IN_PROGRESS",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CDY-01",
+      "package": "P7",
+      "job": "candymaker",
+      "element": "Candies being dragged and the bins",
+      "commissioned_action": "COORDINATE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CDY-02",
+      "package": "P7",
+      "job": "candymaker",
+      "element": "Candy and twisting wrapper ends",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CDY-03",
+      "package": "P7",
+      "job": "candymaker",
+      "element": "Recipients of the shared candies",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CDY-04",
+      "package": "P7",
+      "job": "candymaker",
+      "element": "Syrup stream",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-DOC-01",
+      "package": "P6",
+      "job": "doctor",
+      "element": "Sink, faucet, water, hands",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-DOC-02",
+      "package": "P6",
+      "job": "doctor",
+      "element": "Bubbles overlay is flat rings",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-DOC-03",
+      "package": "P6",
+      "job": "doctor",
+      "element": "Scan plate the child drags",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-DOC-04",
+      "package": "P6",
+      "job": "doctor",
+      "element": "Bed, cushion, cast strips",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-DOC-05",
+      "package": "P6",
+      "job": "doctor",
+      "element": "Patient, roll and strip",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-FRM-01",
+      "package": "P6",
+      "job": "farmer",
+      "element": "Seed bed, holes, sprouts, flowers",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-FRM-02",
+      "package": "P6",
+      "job": "farmer",
+      "element": "Munch face pasted over the painted piglet",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-FRM-03",
+      "package": "P6",
+      "job": "farmer",
+      "element": "Duplicate basket, ring, sling, arc guide",
+      "commissioned_action": "REMOVE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-FRM-04",
+      "package": "P6",
+      "job": "farmer",
+      "element": "Barn gate destination",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-FRM-05",
+      "package": "P6",
+      "job": "farmer",
+      "element": "Seed squeezed into a square",
+      "commissioned_action": "FIX_USE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-MAG-01",
+      "package": "P6",
+      "job": "magician",
+      "element": "Rope and knots",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-MAG-02",
+      "package": "P6",
+      "job": "magician",
+      "element": "Star portal swirl",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-MAG-03",
+      "package": "P6",
+      "job": "magician",
+      "element": "Hats never move; a dot glides",
+      "commissioned_action": "FIX_USE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-MAG-04",
+      "package": "P6",
+      "job": "magician",
+      "element": "Flat gold slab over the painted knob; reveal has a white box",
+      "commissioned_action": "FIX_USE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-PNT-01",
+      "package": "P6",
+      "job": "painter",
+      "element": "Cloudy veil",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-PNT-02",
+      "package": "P6",
+      "job": "painter",
+      "element": "Extra frame slab and border",
+      "commissioned_action": "REMOVE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-PNT-03",
+      "package": "P6",
+      "job": "painter",
+      "element": "Banner squashed and cut into lane frames",
+      "commissioned_action": "FIX_USE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-DET-01",
+      "package": "P7",
+      "job": "detective",
+      "element": "Clues are gold dots and rings",
+      "commissioned_action": "COORDINATE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-DET-02",
+      "package": "P7",
+      "job": "detective",
+      "element": "Drop boxes and tokens about 30 px above the painted silhouettes; tokens drawn twice",
+      "commissioned_action": "FIX_USE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-DET-03",
+      "package": "P7",
+      "job": "detective",
+      "element": "Flat gold handle slab over the painted lock",
+      "commissioned_action": "FIX_USE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-BOX-01",
+      "package": "P5",
+      "job": "boxer",
+      "element": "Both gloves the child drags",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-BOX-02",
+      "package": "P5",
+      "job": "boxer",
+      "element": "Incoming counter-punch glove",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-BOX-03",
+      "package": "P5",
+      "job": "boxer",
+      "element": "Target rings over painted mitts and belt",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-BOX-04",
+      "package": "P5",
+      "job": "boxer",
+      "element": "Round progress lights",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-BOX-05",
+      "package": "P5",
+      "job": "boxer",
+      "element": "6% navy wash over the painted ring",
+      "commissioned_action": "REMOVE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-BAL-01",
+      "package": "P7",
+      "job": "ballerina",
+      "element": "Shell frames the child taps",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-BAL-02",
+      "package": "P7",
+      "job": "ballerina",
+      "element": "Ribbon trail and draggable pearl",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-BAL-03",
+      "package": "P7",
+      "job": "ballerina",
+      "element": "Twirl ring, progress arc, handle",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-BAL-04",
+      "package": "P7",
+      "job": "ballerina",
+      "element": "Pose portraits cut through the tail on row 2",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-BAL-05",
+      "package": "P7",
+      "job": "ballerina",
+      "element": "44% navy dimmer disc over wrong poses",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-RAC-01",
+      "package": "P7",
+      "job": "racer",
+      "element": "Steering bar, knob, turbo button",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-RAC-02",
+      "package": "P7",
+      "job": "racer",
+      "element": "Lap dials and start lights",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-RAC-03",
+      "package": "P7",
+      "job": "racer",
+      "element": "Track pearls",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-RAC-04",
+      "package": "P7",
+      "job": "racer",
+      "element": "Boost strips",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-RAC-05",
+      "package": "P7",
+      "job": "racer",
+      "element": "Driver crops cut at mid-thigh above the seat",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-RAC-06",
+      "package": "P7",
+      "job": "racer",
+      "element": "Start arch destination",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-NUR-01",
+      "package": "P5",
+      "job": "nursery",
+      "element": "Cradle and pillows",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-NUR-02",
+      "package": "P5",
+      "job": "nursery",
+      "element": "No picture: only the ghost finger draws",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-NUR-03",
+      "package": "P5",
+      "job": "nursery",
+      "element": "Drain meter over the bottle; peach slabs",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-NUR-04",
+      "package": "P5",
+      "job": "nursery",
+      "element": "Patting hand",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-NUR-05",
+      "package": "P5",
+      "job": "nursery",
+      "element": "Cribs and the blanket the child swipes",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-NUR-06",
+      "package": "P5",
+      "job": "nursery",
+      "element": "Crib mobile",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-POP-01",
+      "package": "P7",
+      "job": "popstar",
+      "element": "Three singing stars the child taps",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-POP-02",
+      "package": "P7",
+      "job": "popstar",
+      "element": "Stand mic tilted and floating; code notes",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-POP-03",
+      "package": "P7",
+      "job": "popstar",
+      "element": "Code sound arcs doubling the painted arcs",
+      "commissioned_action": "SUPERSEDED_BY_REBUILD",
+      "status": "PENDING_IN_OWNER_DIRECTED_REBUILD",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-SHR-01",
+      "package": "P8",
+      "job": "all careers",
+      "element": "Spotlight wedges over painted rooms",
+      "commissioned_action": "REMOVE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-SHR-02",
+      "package": "P8",
+      "job": "all careers",
+      "element": "Invitation halo, rotating arc, plus-sparkles",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-SHR-03",
+      "package": "P8",
+      "job": "all careers",
+      "element": "Progress pearls and card progress dots",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-SHR-04",
+      "package": "P8",
+      "job": "gesture careers",
+      "element": "Causal-backdrop oval, floor stripe and dots; crank playfield stripes",
+      "commissioned_action": "REMOVE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-SHR-05",
+      "package": "P8",
+      "job": "gesture careers",
+      "element": "Ghost-finger demo",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-SHR-06",
+      "package": "P8",
+      "job": "doctor, magician, painter, popstar",
+      "element": "Painted choices drawn at 60% alpha",
+      "commissioned_action": "FIX_USE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-SHR-07",
+      "package": "P8",
+      "job": "all careers and Day One rooms",
+      "element": "Ambient living-world doodles (25 motif kinds)",
+      "commissioned_action": "REMOVE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-SHR-08",
+      "package": "P8",
+      "job": "all careers",
+      "element": "Burst squares and confetti strips",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-SHR-09",
+      "package": "P8",
+      "job": "two-act careers",
+      "element": "Medals, pearls, bars, act icons, panels; default ProgressBars",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-SHR-10",
+      "package": "P8",
+      "job": "teacher and Chapter Two",
+      "element": "Caption box and Continue button",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CH2-01",
+      "package": "P9",
+      "job": "chapter two candymaker",
+      "element": "Pitcher, stream, lane boxes, crank, trays",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CH2-02",
+      "package": "P9",
+      "job": "chapter two detective",
+      "element": "Magic storybook",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CH2-03",
+      "package": "P9",
+      "job": "chapter two cake",
+      "element": "Tray, empty bowl, shadow",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CH2-04",
+      "package": "P9",
+      "job": "chapter two party",
+      "element": "710x238 glow slab around a small painted table",
+      "commissioned_action": "REMOVE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CH2-05",
+      "package": "P9",
+      "job": "chapter two party",
+      "element": "Rainbow banner forced into a wide slot",
+      "commissioned_action": "FIX_USE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CH2-06",
+      "package": "P9",
+      "job": "chapter two lawn",
+      "element": "Eleven party hats on protected portraits and Rumi",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CH2-07",
+      "package": "P9",
+      "job": "chapter two lawn",
+      "element": "Danger zone, safe ring, opening target",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CH2-08",
+      "package": "P9",
+      "job": "chapter two lawn",
+      "element": "Rainbow protection arcs and Continue chevron",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-D1-01",
+      "package": "P9",
+      "job": "day one rooms",
+      "element": "Purple wash, cracks, edge bands and drips",
+      "commissioned_action": "REMOVE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-D1-02",
+      "package": "P9",
+      "job": "day one bathroom",
+      "element": "Aqua arrows and bullseye while painted guides stay hidden",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-D1-03",
+      "package": "P9",
+      "job": "day one craft room",
+      "element": "Emoji hand, glyph stars, gold rings; grime squashed and tinted",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-D1-04",
+      "package": "P9",
+      "job": "day one craft room",
+      "element": "Flat paint-colour circles on a dark card",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-D1-05",
+      "package": "P9",
+      "job": "grand puff",
+      "element": "Flat lilac danger zone and lane; stretched vortex strip",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-D1-06",
+      "package": "P9",
+      "job": "grand puff",
+      "element": "36 flat-coloured 3D cubes as sparkles",
+      "commissioned_action": "WIRE_EXISTING",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-FSH-01",
+      "package": "P9",
+      "job": "fashion designer",
+      "element": "Lock, check, pointer and arrow glyph icons",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-FSH-02",
+      "package": "P9",
+      "job": "fashion designer",
+      "element": "Equip burst",
+      "commissioned_action": "IMAGEGEN",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-ARB-01",
+      "package": "P9",
+      "job": "arborist prototype",
+      "element": "Flat mint screen, panel, hill",
+      "commissioned_action": "COORDINATE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-ARB-02",
+      "package": "P9",
+      "job": "arborist prototype",
+      "element": "Tree choices without alpha show as navy boxes",
+      "commissioned_action": "FIX_USE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    },
+    {
+      "id": "JA-CLN-01",
+      "package": "P10",
+      "job": "all careers",
+      "element": "Vector-room fallbacks and dormant code fallbacks behind existing PNGs; dead station marker",
+      "commissioned_action": "RETIRE",
+      "status": "PENDING_REPAIR_AND_FINAL_AUDIT",
+      "minimum_applicable_score_required": 4.5,
+      "final_audit_score": null,
+      "evidence": []
+    }
+  ],
+  "global_gaps": [
+    "Native Geologist background minimum2048height unmet by1672x941builtin output; CLI/API budget/method authorization pending, no upscaled substitute.",
+    "Teacher e90c0daa passed all82local probes and exact remoteCI39217603860 and is integrated into dev. Astronaut90508b85 passed all82local probes and is pushed for remoteCI. Garden full82local pass; remoteCI/integration pending.",
+    "CanonicalQA11, exact human motion, actual physical-device/child/owner acceptance remain separate.",
+    "Shared P8 and untouched P4-P10 must be repaired and audited before campaign completion."
+  ],
+  "teacher_publication": {
+    "commit": "e90c0daa83cf05644f0e9942e85c1198ed7901f7",
+    "branch": "codex/job-art-teacher-20261018",
+    "local_full_ci": "PASS82of82",
+    "remote_ci": "PASS39217603860",
+    "integration": "Dev fast-forwarded to exact green e90c0daa83cf05644f0e9942e85c1198ed7901f7 on2026-10-19"
+  },
+  "astronaut_publication": {
+    "commit": "58339deb6cb25d5793c3623981e66fad5be0858a",
+    "remote_ci": "PASS39241651019",
+    "integration": "Verified fast-forwarddev58339deb2026-10-19",
+    "local_full_ci": "PASS82parent03andcombined04,no_source_drift",
+    "limits": "LocalAIappearance4.5floor scope only; final/time/global/device/child/owner separate."
+  },
+  "chef_publication": {
+    "commit": "c1429b109c5c5b3902e067d24c0928b3098f0dd8",
+    "remote_ci": "PASS39242387632",
+    "local_full_ci": "PASS82source02",
+    "integration": "PENDING reconciliation with currentdev583"
+  }
+}

@@ -1,0 +1,7 @@
+# Geologist painted pan — current Dev reconciliation
+
+Stable item `FV-F2DE53A80AA7`. The owner resumed production directly in this chat on 2026-10-29. This continuation preserves the complete painted pan at source `2d91d85f20271d109c5a8dc90390de15925a4b24`, whose exact GitHub run [39097764110](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/39097764110) succeeded.
+
+Incoming Dev is `4d0983755d91686b671fe48c0efa748c7cc40498`. Its Geologist surface is unchanged from the prior integration base; newer surrounding actor, world, job-art and wardrobe code requires validation of the combined candidate and fresh two-aspect pan context. Four append conflicts retain both sets of records. The historical pan CHG-104 and later Teacher CHG-104 remain separately qualified; neither history is renumbered.
+
+Current combined static/import and82unique trusted probes pass. All54configured two-aspect native checks pass and all8actual frames were inspected using the same ten-axis scene rubric. Exact new-source remote CI and Dev integration remain pending. The first hash-list failure and premature native third-probe exit remain preserved; no causal resolution is claimed from the successful serialized diagnostic. This revision generates no art and creates no additional implementation-artifact credit. Formal QA11, device, child, owner and whole-game coverage remain open. Prior R95/R99/R100 evidence is cited at its immutable published revisions rather than copied into this delivery.

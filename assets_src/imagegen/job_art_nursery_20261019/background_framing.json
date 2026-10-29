@@ -1,0 +1,41 @@
+{
+  "source": "assets_src/imagegen/opera_codex_2026-08-02/native/world_nursery_native.png",
+  "source_sha256": "8e94631d370d82972a2d0715edd75b6eaf72d61ef59eacd89abcffcd29dabdf0",
+  "source_dimensions": [
+    1254,
+    1254
+  ],
+  "native_authored_sharp_crop_xywh": [
+    115,
+    334,
+    1024,
+    576
+  ],
+  "existing_tile_master_crop_xywh": [
+    512,
+    731,
+    1024,
+    576
+  ],
+  "tiles": [
+    {
+      "path": "assets/opera/worlds/backdrops/world_nursery_c0r0.png",
+      "sha256": "ed0142cf00f970e65cd211ce1816fa411528f7bf31dff38a0d8046d243875133"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_nursery_c1r0.png",
+      "sha256": "fc0fed2f81b13694a86e10d91c09e1072716e58697d14c68d9d36ebd9b41eaef"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_nursery_c0r1.png",
+      "sha256": "65c04742ca49fb3450125dd98a66e8e69a36fccc31dda88fedaac9a8800cf3a2"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_nursery_c1r1.png",
+      "sha256": "8f1e09ffd00795119258fcca0e2b30d69475fdbe33ca33d350a9954bfdb9e2c7"
+    }
+  ],
+  "verified_pixel_equality": true,
+  "native_resolution": "1024x576 sharp native region retained, explicitly below2048per-playable-screen requirement. This fixes framing only; no upscale/native-coverage satisfaction claimed.",
+  "layout": "Nursery painting-normalized station coordinates now map to the whole screen; retain existing path/station ownership and input semantics, review actual navigation/contacts."
+}

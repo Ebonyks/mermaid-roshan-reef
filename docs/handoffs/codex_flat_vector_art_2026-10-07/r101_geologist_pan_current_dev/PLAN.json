@@ -1,0 +1,43 @@
+{
+  "at_utc": "2026-10-29T04:28:01.928155+00:00",
+  "owner_resume": "Direct human Continue in current chat; prior pause revoked. get_goal API still reports old paused timestamp1792277451 and has no resume method.",
+  "scope": "Reconcile preserved FV-F2DE53A80AA7 painted pan source2d91 with current Dev, validate actual merged candidate and integrate normally. No new art generation, no protected edits, no release.",
+  "source": "2d91d85f20271d109c5a8dc90390de15925a4b24",
+  "incoming_dev": "4d0983755d91686b671fe48c0efa748c7cc40498",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-PERF-01",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-OPERA-004",
+    "MA-CI-008"
+  ],
+  "evidence_required": [
+    "Exact merged source import/analyzer and full trusted probes; no healthy old-job rerun",
+    "New two-aspect bounded pan context only because caller/actor/source dependencies changed",
+    "Parser/inference/authority/development coverage; source/save guards",
+    "Exact source CI green before Dev integration",
+    "Publish bounded material integration receipt and exact anonymous manifest verification"
+  ],
+  "acceptance_remaining": [
+    "Formal QA11",
+    "device",
+    "child",
+    "owner",
+    "whole-game unknown coverage"
+  ]
+}

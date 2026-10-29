@@ -1,0 +1,541 @@
+{
+  "baseline": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
+  "provider": "Available builtin ImageGen, model revision unexposed with owner approval",
+  "records": [
+    {
+      "id": "oven_cool",
+      "source": "assets_src/imagegen/job_art_chef_20261019/oven_cool_raw_native.png",
+      "source_sha256": "d87b102fe64b352895b5b2b4627444cf34892689bdd28d5146afc4c229e9180e",
+      "output": "assets/opera/worlds/chef_quality_20261019/oven_cool.png",
+      "output_sha256": "19c4d2625cc80ca3cf3322656dabc2f624434be8d172f6736668df02526d2256",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_crop": [
+        142,
+        41,
+        1113,
+        1209
+      ],
+      "uniform_scale": 0.4246575342465753,
+      "placement": [
+        50,
+        8
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "oven_warm",
+      "source": "assets_src/imagegen/job_art_chef_20261019/oven_warm_risen_native.png",
+      "source_sha256": "a765038518ce73f38cc68e639815754f3f401c5dcf1b598c1249f1dd6ba2efdc",
+      "output": "assets/opera/worlds/chef_quality_20261019/oven_warm.png",
+      "output_sha256": "421a0bb0121956c5017a11aa5c0cf72eda822321c78a9139d949b273596d6cd6",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_crop": [
+        142,
+        41,
+        1113,
+        1209
+      ],
+      "uniform_scale": 0.4246575342465753,
+      "placement": [
+        50,
+        8
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "oven_open",
+      "source": "assets_src/imagegen/job_art_chef_20261019/oven_open_risen_native.png",
+      "source_sha256": "9957a618538d659a0343774854efa7f8f533a5bd36166c697637ec4918215188",
+      "output": "assets/opera/worlds/chef_quality_20261019/oven_open.png",
+      "output_sha256": "95c2e841ae63e617cb31f9423fcc4c7c697d05702882ae75472a839fa1c2bddb",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_crop": [
+        142,
+        41,
+        1113,
+        1209
+      ],
+      "uniform_scale": 0.4246575342465753,
+      "placement": [
+        50,
+        8
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "thermometer_empty",
+      "source": "assets_src/imagegen/job_art_chef_20261019/thermometer_empty_native.png",
+      "source_sha256": "87268b0e1e2b37d768062b45332c691ebb73263828bb7b4c6c82d846f43e058c",
+      "output": "assets/opera/worlds/chef_quality_20261019/thermometer_empty.png",
+      "output_sha256": "85b69ff23e83a6b4cc254aa8abbbfd23f14c3d007da4c3bcb6c6be245abdbd2a",
+      "dimensions": [
+        128,
+        512
+      ],
+      "source_crop": [
+        244,
+        78,
+        644,
+        1663
+      ],
+      "uniform_scale": 0.28,
+      "placement": [
+        8,
+        34
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "thermometer_full",
+      "source": "assets_src/imagegen/job_art_chef_20261019/thermometer_full_native.png",
+      "source_sha256": "274aa4b6364e4b6d9c2d9c87c529cbf5b4f7996f868d2c969cb287da3b23b10a",
+      "output": "assets/opera/worlds/chef_quality_20261019/thermometer_full.png",
+      "output_sha256": "50d31f79212b17953fb84ce183d18ea2fcc8df94f02d373b942c352328b80873",
+      "dimensions": [
+        128,
+        512
+      ],
+      "source_crop": [
+        244,
+        78,
+        644,
+        1663
+      ],
+      "uniform_scale": 0.28,
+      "placement": [
+        8,
+        34
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "pitcher_empty",
+      "source": "assets_src/imagegen/job_art_chef_20261019/pitcher_empty_first_native.png",
+      "source_sha256": "b59bf43c8a7c4e1979ae416f3a234b542d8d3c51a9cea1c3913ebca5436e174d",
+      "output": "assets/opera/worlds/chef_quality_20261019/pitcher_empty.png",
+      "output_sha256": "b6b8cee0d896334488a6b818bb8ee924ac9e521c12b3f06417a0c4d7471616b0",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_crop": [
+        111,
+        232,
+        1177,
+        1037
+      ],
+      "uniform_scale": 0.20132325141776938,
+      "translation": [
+        -2.1521739130434696,
+        -0.2396030245746772
+      ],
+      "placement": [
+        20,
+        46
+      ],
+      "method": "Uniform registration to measured original alpha16bbox21,46,234,209; no nonuniform fit. Renderer uses generated interior inside the original cup cavity, retaining every original exterior pixel."
+    },
+    {
+      "id": "chocolate_strawberry",
+      "source": "assets_src/imagegen/job_art_chef_20261019/chocolate_strawberry_retry_native.png",
+      "source_sha256": "987131d7692f73e23735a893f01fd1a888bc6b7f7404bea613cb60f579417286",
+      "output": "assets_src/imagegen/job_art_chef_20261019/chocolate_strawberry_prepared.png",
+      "output_sha256": "4124b0240f7b87ef4dc7d0d5546c7fc3c7850655def271d3003bae86eb57d40f",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_crop": [
+        197,
+        96,
+        1081,
+        1172
+      ],
+      "uniform_scale": 0.22304832713754646,
+      "placement": [
+        29,
+        8
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "batter_stream",
+      "source": "assets_src/imagegen/job_art_chef_20261019/batter_stream_native.png",
+      "source_sha256": "1866f75a34cf955595c5a4db231f1b5ceef8a036e209d3f9797a0de5c1d9a685",
+      "output": "assets/opera/worlds/chef_quality_20261019/batter_stream.png",
+      "output_sha256": "fa1f6dc254fd719c4f4c85e45e5690bedec1873683289453fbf268d65caf1d61",
+      "dimensions": [
+        64,
+        512
+      ],
+      "source_crop": [
+        401,
+        0,
+        549,
+        1660
+      ],
+      "uniform_scale": 0.2987951807228916,
+      "placement": [
+        10,
+        8
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "batter_drop",
+      "source": "assets_src/imagegen/job_art_chef_20261019/batter_drop_native.png",
+      "source_sha256": "804b9928920762fe50a708a0c773aa632dd402f28dd247bd2beac748e143644d",
+      "output": "assets/opera/worlds/chef_quality_20261019/batter_drop.png",
+      "output_sha256": "676d7ea71d8cb645fc67409c55eb02c7d850ea403150849398a83637c16b7ab3",
+      "dimensions": [
+        64,
+        64
+      ],
+      "source_crop": [
+        465,
+        344,
+        790,
+        928
+      ],
+      "uniform_scale": 0.0821917808219178,
+      "placement": [
+        18,
+        8
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "batter_splash",
+      "source": "assets_src/imagegen/job_art_chef_20261019/batter_splash_native.png",
+      "source_sha256": "2e5c07b20bde8d7ce408a435542b216c0d0f81475a16c827687f67786a347477",
+      "output": "assets/opera/worlds/chef_quality_20261019/batter_splash.png",
+      "output_sha256": "9a1b12c8a54f4bc2786d3d17033fc44b43c97d9256253f959bea21933d11df0d",
+      "dimensions": [
+        128,
+        128
+      ],
+      "source_crop": [
+        54,
+        452,
+        1203,
+        895
+      ],
+      "uniform_scale": 0.09747606614447346,
+      "placement": [
+        8,
+        42
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "piping_bag",
+      "source": "assets_src/imagegen/job_art_chef_20261019/piping_bag_native.png",
+      "source_sha256": "ee42abb68489620102e9c0260d760af6e069280086a0cdee3e4a9cfb4f6c9102",
+      "output": "assets/opera/worlds/chef_quality_20261019/piping_bag.png",
+      "output_sha256": "9ab076f96ba6441b8b68a4b663b2aa45554a85aca3bb1107b26534f9a8fe09c5",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_crop": [
+        87,
+        116,
+        1196,
+        1151
+      ],
+      "uniform_scale": 0.4472497745716862,
+      "placement": [
+        8,
+        24
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "frosting_cap_start",
+      "source": "assets_src/imagegen/job_art_chef_20261019/frosting_segment_retry_native.png",
+      "source_sha256": "403c7254cd12b3241ce6f9aadfca6743a522d5bda88243d07efebefa688b666d",
+      "output": "assets/opera/worlds/chef_quality_20261019/frosting_cap_start.png",
+      "output_sha256": "c7ce2c35b40c6269a42f9087585f2c3c444727417374df49d4e1e2c7953f713e",
+      "dimensions": [
+        128,
+        128
+      ],
+      "source_crop": [
+        152,
+        168,
+        536,
+        552
+      ],
+      "uniform_scale": 0.2916666666666667,
+      "placement": [
+        8,
+        8
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "frosting_segment",
+      "source": "assets_src/imagegen/job_art_chef_20261019/frosting_segment_retry_native.png",
+      "source_sha256": "403c7254cd12b3241ce6f9aadfca6743a522d5bda88243d07efebefa688b666d",
+      "output": "assets/opera/worlds/chef_quality_20261019/frosting_segment.png",
+      "output_sha256": "9e362bb82e34151a5cc17f6d6aed91b1cc2b68535de9cc43d4f5de47ee80490c",
+      "dimensions": [
+        128,
+        128
+      ],
+      "source_crop": [
+        894,
+        168,
+        1278,
+        552
+      ],
+      "uniform_scale": 0.2916666666666667,
+      "placement": [
+        8,
+        8
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "frosting_cap_end",
+      "source": "assets_src/imagegen/job_art_chef_20261019/frosting_segment_retry_native.png",
+      "source_sha256": "403c7254cd12b3241ce6f9aadfca6743a522d5bda88243d07efebefa688b666d",
+      "output": "assets/opera/worlds/chef_quality_20261019/frosting_cap_end.png",
+      "output_sha256": "b88b2d754e0c55243104cc86d1d4106c116ad752928b5a629cb77deaf7138672",
+      "dimensions": [
+        128,
+        128
+      ],
+      "source_crop": [
+        1636,
+        168,
+        2020,
+        552
+      ],
+      "uniform_scale": 0.2916666666666667,
+      "placement": [
+        8,
+        8
+      ],
+      "whole_source_canvas": false,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "stack_two",
+      "source": "assets_src/imagegen/job_art_chef_20261019/stack_two_native.png",
+      "source_sha256": "6fddbdcd2a6ebef309ea71303bf0e739f8f3c721cacdf56d7d289f3cf28a8f26",
+      "output": "assets/opera/worlds/chef_quality_20261019/stack_two.png",
+      "output_sha256": "a2db19a4514af2f68858d31022081308335b44551d9cdd9c763ba8e8fbd518fb",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "uniform_scale": 0.4082934609250399,
+      "placement": [
+        0,
+        0
+      ],
+      "whole_source_canvas": true,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "stack_four",
+      "source": "assets_src/imagegen/job_art_chef_20261019/stack_four_native.png",
+      "source_sha256": "19df71f551677986fa186297a241326535d7fac7c71b58a16eb431a04d862175",
+      "output": "assets/opera/worlds/chef_quality_20261019/stack_four.png",
+      "output_sha256": "145a4cd01c504132ef482ee40ad5ab5eee85df2189566098ef7a1253aff34418",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "uniform_scale": 0.4082934609250399,
+      "placement": [
+        0,
+        0
+      ],
+      "whole_source_canvas": true,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "bowl_empty",
+      "source": "assets/chapter2/birthday/chef_empty_shell_bowl_v1.png",
+      "source_sha256": "2538ae452b0f681c2832f328a9d844cba482cd9829a9414d2d3c732ca533c129",
+      "output": "assets/opera/worlds/chef_quality_20261019/bowl_empty.png",
+      "output_sha256": "32e3024d3835b53a1a5b1f8a1f33177d7dcd3c48ab5fc07d9db93407cc53d70e",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "uniform_scale": 0.5,
+      "placement": [
+        0,
+        0
+      ],
+      "whole_source_canvas": true,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "bowl_unstirred",
+      "source": "assets/chapter2/birthday/chapter2_chef_batter_unstirred.png",
+      "source_sha256": "f259c77205dfeee8ad3fe5f9a316eb9e433d4cc6a685cfb1d8e44daacfd6aca9",
+      "output": "assets/opera/worlds/chef_quality_20261019/bowl_unstirred.png",
+      "output_sha256": "064e696b789346670501afeb480a55171bb2510e6e58971f985b722e8c8078b7",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "uniform_scale": 0.5,
+      "placement": [
+        0,
+        0
+      ],
+      "whole_source_canvas": true,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "bowl_stirred",
+      "source": "assets/chapter2/birthday/chapter2_chef_batter_stirred.png",
+      "source_sha256": "065c85cb7af69abc2c59780b515579762488b9072d0fbe32e976facc3381bc56",
+      "output": "assets/opera/worlds/chef_quality_20261019/bowl_stirred.png",
+      "output_sha256": "a7e1020447c213295994ea091eb6f02884b9f8e789d0762a7ebfcba9067e4bab",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "uniform_scale": 0.5,
+      "placement": [
+        0,
+        0
+      ],
+      "whole_source_canvas": true,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "cake_unfrosted",
+      "source": "assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png",
+      "source_sha256": "b3741c02402693637dfd6367e98f41ce6380d2641ffe04b061f00bade1050a37",
+      "output": "assets/opera/worlds/chef_quality_20261019/cake_unfrosted.png",
+      "output_sha256": "dc5f832ad721d89979c57d4d118ede49c05b08b607130ebb33faca439da84161",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "uniform_scale": 0.5,
+      "placement": [
+        0,
+        0
+      ],
+      "whole_source_canvas": true,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "cake_frosted",
+      "source": "assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+      "source_sha256": "6937204494c98147552cb463b65c11104ffc43c85d9ca7bc907865601f2efc46",
+      "output": "assets/opera/worlds/chef_quality_20261019/cake_frosted.png",
+      "output_sha256": "4841085d46cb6da574a43eac388bd54730454ffed41b5f3897bf37b1705a2ea7",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "uniform_scale": 0.5,
+      "placement": [
+        0,
+        0
+      ],
+      "whole_source_canvas": true,
+      "method": "Uniform Lanczos downsample, literal source region and transparent padding only; no painting, recolor, warp or rotation."
+    },
+    {
+      "id": "guide_hand",
+      "source_commit": "e90c0daa83cf05644f0e9942e85c1198ed7901f7",
+      "provider": "builtin ImageGen, exact already-generated guide reuse",
+      "native": "assets_src/imagegen/job_art_chef_20261019/guide_hand_reused_native.png",
+      "native_sha256": "f255bc49dc91ca9d888249e74123f01674de0e2382aa09ffc650906c0d59e120",
+      "output": "assets/opera/worlds/chef_quality_20261019/guide_hand.png",
+      "output_sha256": "5b18d1aed74aa7804560abe702d14a3d4fc01cbc974a65583eacb9452610a383",
+      "fingertip_uv": [
+        0.4365234375,
+        0.986328125
+      ],
+      "method": "Exact byte reuse; source and generation prompt retained in Teacher commit. No new ImageGen call, redesign, warp, tint or rotation."
+    },
+    {
+      "id": "target_chef_piece_2",
+      "source": "assets_src/imagegen/job_art_chef_20261019/chocolate_strawberry_prepared.png",
+      "source_sha256": "4124b0240f7b87ef4dc7d0d5546c7fc3c7850655def271d3003bae86eb57d40f",
+      "output": "assets/opera/worlds/widgets/widget_target_chef_piece_2.png",
+      "output_sha256": "4124b0240f7b87ef4dc7d0d5546c7fc3c7850655def271d3003bae86eb57d40f",
+      "dimensions": [
+        256,
+        256
+      ],
+      "method": "Exact byte replacement of the commissioned ambiguous chocolate placeholder with the painted dipped strawberry; historic source retained in baseline6fb."
+    }
+  ],
+  "source_generation_calls": 22,
+  "limits": "Preparation only; no source or runtime acceptance inferred. Protected originals unchanged."
+}

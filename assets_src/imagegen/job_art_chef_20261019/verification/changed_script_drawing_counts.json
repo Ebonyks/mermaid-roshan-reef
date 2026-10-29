@@ -1,0 +1,76 @@
+{
+  "baseline": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
+  "rows": [
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "before": {
+        "primitive_draw_calls": 439,
+        "primitive_node_constructions": 0,
+        "texture_draw_calls": 61
+      },
+      "after": {
+        "primitive_draw_calls": 415,
+        "primitive_node_constructions": 0,
+        "texture_draw_calls": 60
+      },
+      "after_sha256": "0486426e332b56d979ca76c6a4402e44fe61fe3b31d47e6da55f5d82eeb5963f"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "before": {
+        "primitive_draw_calls": 8,
+        "primitive_node_constructions": 0,
+        "texture_draw_calls": 7
+      },
+      "after": {
+        "primitive_draw_calls": 1,
+        "primitive_node_constructions": 0,
+        "texture_draw_calls": 6
+      },
+      "after_sha256": "6c6eda3625cc49f7e93a8d2e385c0dbebe2baff3063fb7fefef6607b3fa4f97b"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "before": {
+        "primitive_draw_calls": 60,
+        "primitive_node_constructions": 9,
+        "texture_draw_calls": 10
+      },
+      "after": {
+        "primitive_draw_calls": 60,
+        "primitive_node_constructions": 9,
+        "texture_draw_calls": 10
+      },
+      "after_sha256": "ce17930b6d3a74d64ba137a699bc0f4c09503acf486d516cd3762e7fce999bfc"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "before": {
+        "primitive_draw_calls": 118,
+        "primitive_node_constructions": 0,
+        "texture_draw_calls": 6
+      },
+      "after": {
+        "primitive_draw_calls": 118,
+        "primitive_node_constructions": 0,
+        "texture_draw_calls": 6
+      },
+      "after_sha256": "6730704d955502da01008df35665807f730289cd4276612b36d5b50e584df7ca"
+    },
+    {
+      "path": "scripts/chef_painted_art.gd",
+      "before": {
+        "primitive_draw_calls": 0,
+        "primitive_node_constructions": 0,
+        "texture_draw_calls": 0
+      },
+      "after": {
+        "primitive_draw_calls": 1,
+        "primitive_node_constructions": 0,
+        "texture_draw_calls": 6
+      },
+      "after_sha256": "073758fda6c98c2c6fa8228aa4903c13504504e06b72590979a76cab1ab2ffa5"
+    }
+  ],
+  "limits": "Static syntax counts only. Textured masked polygons contain authored ImageGen pixels. Neither counts nor static path-template matching prove visual quality, active use, whole-campaign primitive elimination or acceptance."
+}

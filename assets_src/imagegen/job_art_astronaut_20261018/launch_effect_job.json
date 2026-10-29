@@ -1,0 +1,67 @@
+{
+  "id": "astronaut-launch-effects-20261018",
+  "action": "Rocket exhaust grows while the existing deliberate hold charges the launch.",
+  "fixed_parts": "Approved rocket identity and existing launch movement/input/save logic; upper-center plume attachment.",
+  "moving_parts": "Existing progress selects four uniform whole-picture growth scales; four whole cloud cutouts follow the existing exhaust centers.",
+  "method": "One usable native ImageGen flame-only still,4declared scale derivatives and an ImageGen cloud; Canvas growth. These are not4independent authored keys, character acting, or generated video. No frame campaign.",
+  "attempts": 2,
+  "cap": 2,
+  "usage": "2builtin flame calls, first rejected for unwanted hardware and second local cleanup selected;1cloud call; monetary revision/usage unexposed; no CLI/API spend.",
+  "native_reject": "launch_flame_full_native.png includes unwanted metal nozzle.",
+  "growth_scales": [
+    0.55,
+    0.7,
+    0.85,
+    1.0
+  ],
+  "pivot": "Top-center,8px runtime transparent margin; draw behind the existing rocket to preserve nozzle contact.",
+  "review": "All affected growth boundaries/contact/settle need current Mobile/frame-step review. No final motion/device/child/owner acceptance.",
+  "baseline": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
+  "output_lane": "Gameplay Canvas effect; no cinematic export",
+  "entry_exit": "Existing hold charges for4.5s in stage,5s legacy route. Existing rocket rises after64percent; release/completion lifecycle unchanged. No new loop.",
+  "runtime_geometry": "Four256x512RGBA plume exports, one256square cloud. Upper-center pivot is8native pixels below canvas top; draw behind approved rocket; native transparency retained.",
+  "contact_bound": "Shared computed rocket/nozzle center each draw. Flame begins4runtime pixels above nozzle; native8px alpha margin adds at most1.5runtime pixels at maximum exhaust, preserving overlap. Exact human contact review pending.",
+  "method_choice": "ImageGen fills named missing plume/cloud stills; existing Canvas growth supplies a bounded object effect. No character acting, local paint replacement, video backend or 3D fallback. Editable lossless PNGs and preparation code retained; Aseprite not required for source-preserving scale/pad only.",
+  "time_accounting": "Generation elapsed/cleanup minutes were not captured contemporaneously; limitation recorded, no fabricated timings. Two flame calls total; no more generation authorized by this job card. Subsequent local evidence window capped30minutes.",
+  "monetary_cap": "No CLI/API spend authorized or used; available builtin calls approved by owner. Provider billed amount/model revision unexposed.",
+  "stop_rule": "Two flame takes exhausted; first hardware reject, second selected. Any subsequent visual failure requires diagnosis/method revision, never a per-frame campaign.",
+  "source_exports": [
+    {
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/launch_cloud_native.png",
+      "native_sha256": "856dfddfdd9dfb89a8695532ef9303627f5c7bf23b203c3a1e1b1680a316e94d",
+      "output": "assets/opera/worlds/widgets/widget_launch_cloud.png",
+      "output_sha256": "179d091f780efe77c5d3d7fe0f1062dd1a513d649eca6559f9b0777df4725917"
+    },
+    {
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/launch_flame_clean_native.png",
+      "native_sha256": "5b6d08f83a0b51468561b69a33798e985d94304da81e7ddb6a437a45a6d0745a",
+      "output": "assets/opera/worlds/widgets/widget_launch_flame_0.png",
+      "output_sha256": "3640f44b4227bbdbda38421b55a438e943b4049131c7888d5d4334b791bb03ab"
+    },
+    {
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/launch_flame_clean_native.png",
+      "native_sha256": "5b6d08f83a0b51468561b69a33798e985d94304da81e7ddb6a437a45a6d0745a",
+      "output": "assets/opera/worlds/widgets/widget_launch_flame_1.png",
+      "output_sha256": "fe0e5794a215a4a5333a6bc90548ad89b698727006fb90c7ea653799c81d99a3"
+    },
+    {
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/launch_flame_clean_native.png",
+      "native_sha256": "5b6d08f83a0b51468561b69a33798e985d94304da81e7ddb6a437a45a6d0745a",
+      "output": "assets/opera/worlds/widgets/widget_launch_flame_2.png",
+      "output_sha256": "8f69d9e5644e5a5bbffd17eb0a91ddf74d7f8ca3efdb95f53287bbb2d557d2a6"
+    },
+    {
+      "native": "assets_src/imagegen/job_art_astronaut_20261018/launch_flame_clean_native.png",
+      "native_sha256": "5b6d08f83a0b51468561b69a33798e985d94304da81e7ddb6a437a45a6d0745a",
+      "output": "assets/opera/worlds/widgets/widget_launch_flame_3.png",
+      "output_sha256": "56cb801eef65fd7dcd4699cb339e0b73a7c6c564079adf41c1ece26586d606b9"
+    }
+  ],
+  "reviews": {
+    "local_ai_static": "review/art_review.json; all changed static objects>=4.5",
+    "local_transition": "review/capture_launch_motion.json and MP4 retain all growth boundaries/settle; exact human normal-speed/contact acceptance pending",
+    "machine": "Focused pipe probe ALL OK; full scripts/ci.sh pending",
+    "device": "PENDING",
+    "child_owner": "PENDING"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "failure": "Harness tried to hash retired Teacher SVG after successful static/import gates. No trusted probe or capture started.",
+  "original_stop": "VALIDATION_STOP.json",
+  "deleted_inputs": [
+    "assets/opera/worlds/hotspots/teacher_lesson_board.svg"
+  ],
+  "deletion_authority": "4d0983755d91686b671fe48c0efa748c7cc40498 relative to7a65b9f0",
+  "replacement_source": "Teacher SVGs were replaced upstream by painted PNGs; keep those current paths.",
+  "reuse_successful_static": {
+    "status": "PASS",
+    "exit_code": 0,
+    "started_at_utc": "2026-10-29T04:30:58.426601+00:00",
+    "completed_at_utc": "2026-10-29T04:50:16.739390+00:00",
+    "elapsed_seconds": 1158.281,
+    "log_sha256": "4edbda38cae9e90e5a8c2991c2c3a1a30e20db547992050a3ffb271f21e9675c",
+    "repo_ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+    "correction": "This exact current-source prefix validates all incoming art/code/wardrobe changes; prior static runs are retained as historical evidence only.",
+    "acceptance": "Machine lane only; no visual/device/child/owner acceptance."
+  },
+  "reuse_successful_import_log_sha256": "e48b40ffc3c4dd7649d721338fae4227c3550dc3ec29b48330cccc2352118ac0",
+  "original_normal_before_not_persisted": "The failed harness stopped before writing SOURCE_PIN; no retroactive normal-save PASS for that failed launch. New probe continuation takes independent before/after hash guards.",
+  "unstaged_import_sidecars": 0,
+  "non_eol_sidecars": []
+}

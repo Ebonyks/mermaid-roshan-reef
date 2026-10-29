@@ -1,0 +1,3400 @@
+{
+ "schema": "reef.job_art_register/1",
+ "handoff": "codex_job_art_imagegen_2026-10-17",
+ "baseline": "7a65b9f0abacddeee70230f220955f4d18d551b5",
+ "measured_with": "tools/measure_job_art.py -> data/measure_baseline.json",
+ "classes": {
+  "FLAT_CENTRAL": "code-drawn object the child acts on or watches change",
+  "FLAT_SUPPORT": "code-drawn supporting prop or interface piece",
+  "FLAT_FEEDBACK": "code-drawn feedback: rings, dots, bars, sparkles, confetti",
+  "FLAT_DECORATION": "code-drawn decoration over painted art: spotlights, washes, halos, motifs",
+  "VECTOR_FILE": "SVG or flat-vector PNG passing as painted art",
+  "MISSING_TEXTURE": "code requests a painted file that was never made and draws shapes instead",
+  "DISABLED_PATH": "texture path emptied or a template with no drawing branch",
+  "LOADED_NOT_DRAWN": "painted art loaded or passed in but never drawn",
+  "MISUSED": "painted art stretched, cropped, tinted, mis-pivoted, covered or ghosted",
+  "DEAD_FALLBACK": "code art that draws only if a texture is missing, or never"
+ },
+ "actions": {
+  "WIRE_EXISTING": "integrate existing painted art (stranded branch, assets_src or a retired card cut-out) after the BRIEFS C8 context check",
+  "IMAGEGEN": "generate per the named brief in BRIEFS.md",
+  "FIX_USE": "fix how existing painted art is drawn; no new art",
+  "REMOVE": "delete the code decoration; nothing replaces it",
+  "COORDINATE": "already in flight in another Codex session; finish it there and verify here",
+  "RETIRE": "delete dead or dormant code art after reference proof (DL-PERF-06)",
+  "SUPERSEDED_BY_REBUILD": "the game is being rebuilt from the ground up (docs/handoffs/codex_minigame_rebuilds_2026-10-17/, MA-OPERA-014); the item documents the current game only and its art follows the rebuild's art order"
+ },
+ "packages": {
+  "P0": "Governance and process",
+  "P1": "Geologist",
+  "P2": "Teacher",
+  "P3": "Astronaut",
+  "P4": "Chef",
+  "P5": "Nursery and Boxer (stranded art)",
+  "P6": "Doctor, Farmer, Magician, Painter",
+  "P7": "Ballerina, Racer, Pop Star, Detective, Candymaker",
+  "P8": "Shared career layers",
+  "P9": "Chapter Two, Day One, Fashion, Arborist",
+  "P10": "Census gate and clean-up"
+ },
+ "style_anchors": {
+  "A1": {
+   "path": "assets/opera/worlds/props/goal_chef.png",
+   "location": "dev",
+   "sha256": "cb28da49b252769ef143d75ddb890d2350cebf6e12aca33a875c88b04ff33467",
+   "size": [
+    512,
+    512
+   ],
+   "note": "painted prop finish"
+  },
+  "A2": {
+   "path": "assets/opera/worlds/widgets/widget_magic_cabinet_closed.png",
+   "location": "dev",
+   "sha256": "f0829a82157b1e1671fdca165dac68a8385645d648ec77604287e95a59796fcf",
+   "size": [
+    512,
+    512
+   ],
+   "note": "painted furniture finish"
+  },
+  "A3": {
+   "path": "assets/opera/worlds/widgets/widget_crank_doctor_patient.png",
+   "location": "dev",
+   "sha256": "ecf354fd812decbae250078cc2dc7bce8b8bb5c403afe5016bdabedbe0c8ffc9",
+   "size": [
+    512,
+    512
+   ],
+   "note": "character-prop finish"
+  },
+  "A4": {
+   "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+   "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+   "sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+   "size": [
+    1024,
+    1024
+   ],
+   "cutout_check": "CUTOUT_OK"
+  },
+  "A5": {
+   "path": "assets/characters/roshan_25d/roshan_base.png",
+   "location": "dev",
+   "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+   "size": [
+    256,
+    256
+   ],
+   "note": "Roshan identity anchor"
+  },
+  "A6": {
+   "path": "assets/castle/training/ghost_hand.png",
+   "location": "dev",
+   "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+   "size": [
+    512,
+    512
+   ],
+   "note": "guide hand"
+  }
+ },
+ "career_palette_tiles": {
+  "astronaut": {
+   "path": "assets/opera/worlds/backdrops/world_astronaut_c0r0.png",
+   "location": "dev",
+   "sha256": "b8170e88b746c5ec608a6318fac254f7cddc78719ca36efacf089100fdcc0535",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "ballerina": {
+   "path": "assets/opera/worlds/backdrops/world_ballerina_c0r0.png",
+   "location": "dev",
+   "sha256": "eb80cc6370747ef192d0e0129d113b3d6aeb5cdaab2ceed9ae27b5c1b3f36f1c",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "boxer": {
+   "path": "assets/opera/worlds/backdrops/world_boxer_c0r0.png",
+   "location": "dev",
+   "sha256": "ddec896f603a33791747e0020a9d3da83e683df42b00949460084792c525825f",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "candymaker": {
+   "path": "assets/opera/worlds/backdrops/world_candymaker_c0r0.png",
+   "location": "dev",
+   "sha256": "c3bf6be20a34de6070ac763c640f19f39ce13ee40bc580d737a79490caab4d86",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "chef": {
+   "path": "assets/opera/worlds/backdrops/world_chef_c0r0.png",
+   "location": "dev",
+   "sha256": "37af295efb4aeb1b3dabd012e2f814f3b45b3970bf6620b48ffccd01b64e1882",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "detective": {
+   "path": "assets/opera/worlds/backdrops/world_detective_c0r0.png",
+   "location": "dev",
+   "sha256": "7b98aa7fa3a381c84c0a9c19395d25da5cadb2b0e337ec02fcd395e28cbc9e26",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "doctor": {
+   "path": "assets/opera/worlds/backdrops/world_doctor_c0r0.png",
+   "location": "dev",
+   "sha256": "e9c168fc8590cece7d30efa8281b5ff9686726d9fb799739ef2b37183732c7cf",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "farmer": {
+   "path": "assets/opera/worlds/backdrops/world_farmer_c0r0.png",
+   "location": "dev",
+   "sha256": "3d1a2bf91f141919f34a1f1dccb1846ea8a1db6e1f3d3fc80c067c21031a9794",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "magician": {
+   "path": "assets/opera/worlds/backdrops/world_magician_c0r0.png",
+   "location": "dev",
+   "sha256": "27a0ded093913fff76a1edca5867bd6d3832e1a74b41cc6ec75368c114142c08",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "nursery": {
+   "path": "assets/opera/worlds/backdrops/world_nursery_c0r0.png",
+   "location": "dev",
+   "sha256": "ed0142cf00f970e65cd211ce1816fa411528f7bf31dff38a0d8046d243875133",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "painter": {
+   "path": "assets/opera/worlds/backdrops/world_painter_c0r0.png",
+   "location": "dev",
+   "sha256": "dfe0c7f09e91733e6768b5d0954771ebbc043946510304b7b5b7ccfa9b9ae07d",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "popstar": {
+   "path": "assets/opera/worlds/backdrops/world_popstar_c0r0.png",
+   "location": "dev",
+   "sha256": "f62f57c392242f6017999654a4080490101a098f51e8277566fc42c9cb928e95",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "racer": {
+   "path": "assets/opera/worlds/backdrops/world_racer_c0r0.png",
+   "location": "dev",
+   "sha256": "920b4df91bad73d288ff2cd39fe8cdccc2dfe8743bb64d65a691343b7630bf66",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "teacher": {
+   "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c0.png",
+   "location": "dev",
+   "sha256": "d42f48eeb5d0177e1316043eee94e1a096614f45e1f42ce7205ecd573b4c4e74",
+   "size": [
+    910,
+    1024
+   ],
+   "note": "teacher uses the library tiles"
+  },
+  "geologist": {
+   "path": "assets_src/geologist_rebuild_2026-09-05/geology_grotto_candidate.png",
+   "location": "dev",
+   "sha256": "e60684278d33e43a51eea3534b99aa8c70e90b2ef3f11004f4d04154273fbd4b",
+   "size": [
+    1672,
+    941
+   ],
+   "note": "no runtime room yet; JB-GEO-01"
+  }
+ },
+ "counts": {
+  "items": 108,
+  "by_class": {
+   "FLAT_CENTRAL": 41,
+   "DISABLED_PATH": 3,
+   "VECTOR_FILE": 7,
+   "FLAT_FEEDBACK": 15,
+   "MISUSED": 17,
+   "MISSING_TEXTURE": 4,
+   "FLAT_DECORATION": 12,
+   "LOADED_NOT_DRAWN": 5,
+   "FLAT_SUPPORT": 3,
+   "DEAD_FALLBACK": 1
+  },
+  "by_action": {
+   "IMAGEGEN": 48,
+   "WIRE_EXISTING": 22,
+   "FIX_USE": 12,
+   "COORDINATE": 3,
+   "REMOVE": 8,
+   "SUPERSEDED_BY_REBUILD": 14,
+   "RETIRE": 1
+  },
+  "by_severity": {
+   "HIGH": 59,
+   "MEDIUM": 38,
+   "LOW": 11
+  },
+  "by_package": {
+   "P1": 8,
+   "P2": 7,
+   "P3": 6,
+   "P4": 9,
+   "P5": 11,
+   "P6": 17,
+   "P7": 21,
+   "P8": 10,
+   "P9": 18,
+   "P10": 1
+  }
+ },
+ "items": [
+  {
+   "id": "JA-GEO-01",
+   "job": "geologist",
+   "phase": "ALL",
+   "element": "Room backdrop and curtain-call proscenium",
+   "where": [
+    "scripts/opera_world_backdrop_2d.gd:274-284",
+    "scripts/opera_world_backdrop_2d.gd:587-622",
+    "scripts/opera_world_backdrop_2d.gd:319-347"
+   ],
+   "now": "code sky, ground, hill, strata, crystals; vector proscenium",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets_src/geologist_rebuild_2026-09-05/geology_grotto_candidate.png",
+     "location": "dev",
+     "sha256": "e60684278d33e43a51eea3534b99aa8c70e90b2ef3f11004f4d04154273fbd4b",
+     "size": [
+      1672,
+      941
+     ],
+     "note": "REFERENCE_ONLY at 1672x941; composition and style input"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-GEO-01",
+   "package": "P1"
+  },
+  {
+   "id": "JA-GEO-02",
+   "job": "geologist",
+   "phase": "FOSSIL/PAN/GEODE",
+   "element": "Work tray",
+   "where": [
+    "scripts/opera_geology_surface.gd:837-880"
+   ],
+   "now": "tan code rectangle 860x560",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P1"
+  },
+  {
+   "id": "JA-GEO-03",
+   "job": "geologist",
+   "phase": "RIVER",
+   "element": "River channel cells, spring and pool",
+   "where": [
+    "scripts/opera_geology_surface.gd:631-657"
+   ],
+   "now": "code circles and lines",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/geology/painted_river_v1_20261002/dry_straight.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "d2d9f36cdfb2d529a9dff4d632faff17b3219e14eae4771c1069846f3a1586c8",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_river_v1_20261002/dry_junctions.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "583609303022d6aed39be963f74b8c5a9d5464ec8b5b8e1352dc5296606aed0b",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_river_v1_20261002/wet_straight.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "3631a77a46b75838be0979e96d32fe972923051d5cdea15615a3a63e5695f1b1",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_river_v1_20261002/wet_junctions.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "4e1cdf25d017e20d67823be2aff29610a02c6284483e96c047a6ca158f544c26",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_river_v1_20261002/earth_bed.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "92e5860e8bdcf3a78263e13f2a31569d2cc1729babbd22ba96369320bd268d47",
+     "size": [
+      1024,
+      512
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_river_v1_20261002/nodes.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "3812eb737c75c4a208fc5eb859b37c1612a0ff949f41e7a834314a06eb09e117",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P1"
+  },
+  {
+   "id": "JA-GEO-04",
+   "job": "geologist",
+   "phase": "FOSSIL",
+   "element": "Fossil dirt grid and fossil",
+   "where": [
+    "scripts/opera_geology_surface.gd:682-723"
+   ],
+   "now": "8x5 flat squares over an SVG stretched about 2:1",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil_soil.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P1"
+  },
+  {
+   "id": "JA-GEO-05",
+   "job": "geologist",
+   "phase": "PAN",
+   "element": "Gold pan, water, grains, minerals",
+   "where": [
+    "scripts/opera_geology_surface.gd:46",
+    "scripts/opera_geology_surface.gd:762-794",
+    "scripts/opera_geology_surface.gd:883-910"
+   ],
+   "now": "code ellipse, waves, pentagons; PAN_PATH is an empty string",
+   "class": "DISABLED_PATH",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/geology/painted_work_v1_20261001/pan.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "700062113b36450983a871324847fc61fcf7c8f4225dbf489022e97152936803",
+     "size": [
+      1024,
+      585
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_work_v1_20261001/grain.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "f5e1275a2027554eb7e6bf073d62517e3d0d3461f525b68a8b75ad09da07fd2c",
+     "size": [
+      1024,
+      683
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_work_v1_20261001/mineral.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "b35ccc29b0adb02006828e6f4c55e6240ddec2e9b0fb1e3130132c05fb479b47",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/props/geologist_washing_pan_painted.png",
+     "location": "branch codex/flat-vector-geologist-pan-runtime-20261017 @ 2d91d85f",
+     "sha256": "df6ec1df1c59a20d427cb50835ae04915b07de0cbe1b470e99d43c55518ff5ab",
+     "size": [
+      1254,
+      1254
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P1",
+   "note": "Choose one pan with the owner; Codex's runtime branch carries the 2026-09-05 pan."
+  },
+  {
+   "id": "JA-GEO-06",
+   "job": "geologist",
+   "phase": "GEODE",
+   "element": "Geode halves, tap spots, crystals",
+   "where": [
+    "scripts/opera_geology_surface.gd:43",
+    "scripts/opera_geology_surface.gd:797-834",
+    "scripts/opera_geology_surface.gd:913-924"
+   ],
+   "now": "code half-shells, seam, dots; SVG crystals; GEODE_PATH is an empty string",
+   "class": "DISABLED_PATH",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_six_states.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
+     "size": [
+      2048,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_bridge.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "8de208a66af043e68c8ab9a4fb3e05eb5703b48777ad955b2b045a9f91fa8f26",
+     "size": [
+      2048,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_geode_v1_20261001/closed.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "ead12c03986968f7dc34630ed1eda8e589caa9631e774f13af686f496ff1aad3",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_geode_v1_20261001/early_crack.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "82f92afb844daea7ae077e118951226df1def34d9398059d9321bd7488246832",
+     "size": [
+      1024,
+      931
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_geode_v1_20261001/middle_open.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "f196c510e71b4e2753757bb1660d8ca3d259dbedcbcb5d0510a526c127225725",
+     "size": [
+      1024,
+      709
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_geode_v1_20261001/open_embedded.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "f9b095c066af3674b00470d426941609488cfa090022660763eca8ef2ada4fc5",
+     "size": [
+      1024,
+      683
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P1",
+   "note": "Prefer the six-state sheet: registered states, no cross-fade (ODR-SPRITE-WHOLE-UNIT-20261007)."
+  },
+  {
+   "id": "JA-GEO-07",
+   "job": "geologist",
+   "phase": "ALL",
+   "element": "Hotspot and goal SVGs",
+   "where": [
+    "scripts/opera_hotspot_catalog.gd:134-137",
+    "scripts/opera_career_world_2d.gd:463",
+    "scripts/opera_geology_surface.gd:42",
+    "scripts/opera_geology_surface.gd:44",
+    "scripts/opera_geology_surface.gd:47"
+   ],
+   "now": "three hand-written SVGs",
+   "class": "VECTOR_FILE",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/geology/painted_work_v1_20261001/layered_rock.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "0f8cbccc5ac64279a69ed83a4ad631fc8b4c0d4b18260616ca89dc295950f985",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/geology/painted_work_v1_20261001/mineral.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "b35ccc29b0adb02006828e6f4c55e6240ddec2e9b0fb1e3130132c05fb479b47",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P1"
+  },
+  {
+   "id": "JA-GEO-08",
+   "job": "geologist",
+   "phase": "castle route",
+   "element": "Career crest",
+   "where": [
+    "scripts/castle_career_routes.gd:48"
+   ],
+   "now": "SVG, byte-identical to goal_geologist.svg",
+   "class": "VECTOR_FILE",
+   "severity": "LOW",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-GEO-02",
+   "package": "P1"
+  },
+  {
+   "id": "JA-TEA-01",
+   "job": "teacher",
+   "phase": "ALL",
+   "element": "Lesson board over the painted library",
+   "where": [
+    "scripts/opera_teacher_surface.gd:266-267"
+   ],
+   "now": "850x555 StyleBox panel and a line",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-TEA-01",
+   "package": "P2"
+  },
+  {
+   "id": "JA-TEA-02",
+   "job": "teacher",
+   "phase": "PATTERN/MATCH",
+   "element": "Shape tokens and the blank slot",
+   "where": [
+    "scripts/opera_teacher_surface.gd:308-323",
+    "scripts/opera_teacher_surface.gd:378-404"
+   ],
+   "now": "code circle, triangle, square, star, heart",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-TEA-02",
+   "package": "P2"
+  },
+  {
+   "id": "JA-TEA-03",
+   "job": "teacher",
+   "phase": "COUNT/ADD",
+   "element": "Counting pearls, group trays, join button, ticks",
+   "where": [
+    "scripts/opera_teacher_surface.gd:325-354",
+    "scripts/opera_teacher_surface.gd:366-376"
+   ],
+   "now": "code circles, StyleBox trays, line plus sign",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-TEA-03",
+   "package": "P2"
+  },
+  {
+   "id": "JA-TEA-04",
+   "job": "teacher",
+   "phase": "ALL",
+   "element": "Answer cards",
+   "where": [
+    "scripts/opera_teacher_surface.gd:276-291"
+   ],
+   "now": "StyleBox in state colours",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-TEA-04",
+   "package": "P2"
+  },
+  {
+   "id": "JA-TEA-05",
+   "job": "teacher",
+   "phase": "ALL",
+   "element": "Hint button, solved orbit, demo ring",
+   "where": [
+    "scripts/opera_teacher_surface.gd:292-306",
+    "scripts/opera_teacher_surface.gd:406-420"
+   ],
+   "now": "code circles, arcs, lines",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/castle/training/ghost_hand.png",
+     "location": "dev",
+     "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+     "size": [
+      512,
+      512
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P2"
+  },
+  {
+   "id": "JA-TEA-06",
+   "job": "teacher",
+   "phase": "walk-up",
+   "element": "Lesson-board hotspot and goal prop",
+   "where": [
+    "scripts/opera_hotspot_catalog.gd:47-52",
+    "scripts/opera_career_world_2d.gd:449"
+   ],
+   "now": "teacher_lesson_board.svg",
+   "class": "VECTOR_FILE",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-TEA-01",
+   "package": "P2"
+  },
+  {
+   "id": "JA-TEA-07",
+   "job": "teacher",
+   "phase": "castle route",
+   "element": "Crest slot",
+   "where": [
+    "scripts/castle_career_routes.gd:49"
+   ],
+   "now": "Roshan's teacher sprite used as the crest",
+   "class": "MISUSED",
+   "severity": "LOW",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-TEA-05",
+   "package": "P2"
+  },
+  {
+   "id": "JA-AST-01",
+   "job": "astronaut",
+   "phase": "PIPES",
+   "element": "Pipe tiles, grid plates, tray",
+   "where": [
+    "scripts/opera_gesture_surface.gd:708-722",
+    "scripts/opera_gesture_surface.gd:5816-5900"
+   ],
+   "now": "code; requested widget_pipe_*.png files were never made",
+   "class": "MISSING_TEXTURE",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_elbow_pipe.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "44ff44aaed63d0f2164f5d015d298889a883795db60e26ee2dc0e9b70f645647",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_straight_pipe.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "0236da6ad35cf15eb6a486550da54769f6c75c621180197e6240baa876aa75e1",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_ring_pipe.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "c0228faf6063962b7d93926eeb92e57cbba5dff9f52d5bedc55157befdcebdb5",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_elbow_fitted.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "ed6b4c5ad93a2718c71be8ceea04c60ed79b5d43157e50871f3bea40e0fa047d",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_straight_ghost_slot.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "aa006e1f902a6dec884f3bd34c0c5e8df067d55c00a2550f70289f6164c26c7d",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets/opera/worlds/widgets/astronaut_pipe_straight_candidate_v1.png",
+     "location": "branch codex/astronaut-clearance-20261006 @ ec533a5f",
+     "sha256": "6d6e487b5d0d4dd700c2781c23a201d414fe3911f77fd3770b69c9ac052a62ad",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-AST-01",
+   "package": "P3"
+  },
+  {
+   "id": "JA-AST-02",
+   "job": "astronaut",
+   "phase": "PIPES",
+   "element": "Napping imps on the board",
+   "where": [
+    "scripts/opera_gesture_surface.gd:5853-5859"
+   ],
+   "now": "four circles",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-AST-02",
+   "package": "P3"
+  },
+  {
+   "id": "JA-AST-03",
+   "job": "astronaut",
+   "phase": "PIPES",
+   "element": "Fuel tank, outlet, rocket intake",
+   "where": [
+    "scripts/opera_gesture_surface.gd:5871-5891"
+   ],
+   "now": "circles and a rectangle; tank and intake files never made",
+   "class": "MISSING_TEXTURE",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_bubble_tank.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "c876dc5ba8138507df9928f6e379826339b9c56b4b640fe8f57cb0eb6603709f",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-AST-01",
+   "package": "P3"
+  },
+  {
+   "id": "JA-AST-04",
+   "job": "astronaut",
+   "phase": "PATCH",
+   "element": "Patch pieces",
+   "where": [
+    "assets/opera/worlds/widgets/widget_target_astronaut_piece_0..2.png"
+   ],
+   "now": "flat-fill PNGs with uniform outline",
+   "class": "VECTOR_FILE",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-AST-03",
+   "package": "P3"
+  },
+  {
+   "id": "JA-AST-05",
+   "job": "astronaut",
+   "phase": "LAUNCH",
+   "element": "Flame and exhaust",
+   "where": [
+    "scripts/opera_gesture_surface.gd:2599-2627"
+   ],
+   "now": "orange triangle, circles",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-AST-04",
+   "package": "P3"
+  },
+  {
+   "id": "JA-AST-06",
+   "job": "astronaut",
+   "phase": "VALVE",
+   "element": "Backing disc",
+   "where": [
+    "scripts/opera_gesture_surface.gd:2461",
+    "scripts/opera_gesture_surface.gd:2467"
+   ],
+   "now": "dark navy disc hiding nothing",
+   "class": "FLAT_DECORATION",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_crank_astronaut.png",
+     "location": "dev",
+     "sha256": "d87238e8012e2166c929ed81fad317fbbe14665d0ce6026e9e6781b064ba0b54",
+     "size": [
+      1024,
+      608
+     ],
+     "note": "retired card; valve column can be cut out"
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P3"
+  },
+  {
+   "id": "JA-CHF-01",
+   "job": "chef",
+   "phase": "BAKE",
+   "element": "Oven, window, cake, door handle, thermometer",
+   "where": [
+    "scripts/opera_gesture_surface.gd:5358-5426",
+    "scripts/opera_gesture_surface.gd:776"
+   ],
+   "now": "brown rectangles; rectangle-and-circle cake; painted cake loaded never drawn",
+   "class": "LOADED_NOT_DRAWN",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_gauge_chef_success.png",
+     "location": "dev",
+     "sha256": "9aac570dc68d96aeb29b140d7d9f3fc806be7f55b1f2c75fb6121f43612e144c",
+     "size": [
+      1024,
+      608
+     ]
+    },
+    {
+     "path": "assets/opera/worlds/widgets/widget_gauge_chef.png",
+     "location": "dev",
+     "sha256": "bf74076cd3d9bd745d34a648f7a5f65508d119a1489674578d6b8d013893a838",
+     "size": [
+      1024,
+      608
+     ],
+     "note": "retired card holds a painted oven"
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_gameplay_oven_closed.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "1da1c30fa3224d9feebf5d6daea1537ec748b4a335011619898ccf289c223b2b",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_gameplay_oven_open.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "6fe7a0badb5019fd45c1f6322bb87c6e9ce4b61a2b081eddcda7a92026f00556",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-CHF-01",
+   "package": "P4"
+  },
+  {
+   "id": "JA-CHF-02",
+   "job": "chef",
+   "phase": "MIX",
+   "element": "Bowl and batter level",
+   "where": [
+    "scripts/opera_gesture_surface.gd:6248-6254"
+   ],
+   "now": "ovals",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/chapter2/birthday/chef_empty_shell_bowl_v1.png",
+     "location": "dev",
+     "sha256": "2538ae452b0f681c2832f328a9d844cba482cd9829a9414d2d3c732ca533c129",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets/chapter2/birthday/chapter2_chef_batter_unstirred.png",
+     "location": "dev",
+     "sha256": "f259c77205dfeee8ad3fe5f9a316eb9e433d4cc6a685cfb1d8e44daacfd6aca9",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P4"
+  },
+  {
+   "id": "JA-CHF-03",
+   "job": "chef",
+   "phase": "MIX",
+   "element": "Stream, beads, splash",
+   "where": [
+    "scripts/opera_gesture_surface.gd:6281-6296"
+   ],
+   "now": "lines and circles",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-05",
+   "package": "P4"
+  },
+  {
+   "id": "JA-CHF-04",
+   "job": "chef",
+   "phase": "MIX",
+   "element": "Jug squeezed about 17% and never empties",
+   "where": [
+    "scripts/opera_gesture_surface.gd:6075",
+    "scripts/opera_gesture_surface.gd:6269-6270"
+   ],
+   "now": "painted jug distorted",
+   "class": "MISUSED",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_pour_chef_mover.png",
+     "location": "dev",
+     "sha256": "8473620074731467a9a77c94abddc465a4ac47081343443bc802605c5696882b",
+     "size": [
+      256,
+      256
+     ]
+    }
+   ],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P4"
+  },
+  {
+   "id": "JA-CHF-05",
+   "job": "chef",
+   "phase": "STIR",
+   "element": "Bowl, batter and swirls",
+   "where": [
+    "scripts/opera_gesture_surface.gd:2313-2333"
+   ],
+   "now": "ovals and arcs",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/chapter2/birthday/chapter2_chef_batter_unstirred.png",
+     "location": "dev",
+     "sha256": "f259c77205dfeee8ad3fe5f9a316eb9e433d4cc6a685cfb1d8e44daacfd6aca9",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets/chapter2/birthday/chapter2_chef_batter_stirred.png",
+     "location": "dev",
+     "sha256": "065c85cb7af69abc2c59780b515579762488b9072d0fbe32e976facc3381bc56",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P4"
+  },
+  {
+   "id": "JA-CHF-06",
+   "job": "chef",
+   "phase": "STIR",
+   "element": "Whisk spun like a propeller round its own centre",
+   "where": [
+    "scripts/opera_gesture_surface.gd:2317-2321"
+   ],
+   "now": "painted whisk wrong pivot",
+   "class": "MISUSED",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_crank_chef_mover.png",
+     "location": "dev",
+     "sha256": "aa05e3bc9f33264f3d424fd4ea0869870b7c4e3f5ce3aad92de5daf9830b85e0",
+     "size": [
+      256,
+      256
+     ]
+    }
+   ],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P4"
+  },
+  {
+   "id": "JA-CHF-07",
+   "job": "chef",
+   "phase": "FROST",
+   "element": "Cake, plate, piping bag, frosting",
+   "where": [
+    "scripts/opera_gesture_surface.gd:1929-1946",
+    "scripts/opera_gesture_surface.gd:1855-1866"
+   ],
+   "now": "rectangle cake, polygon bag, polylines",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png",
+     "location": "dev",
+     "sha256": "b3741c02402693637dfd6367e98f41ce6380d2641ffe04b061f00bade1050a37",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+     "location": "dev",
+     "sha256": "6937204494c98147552cb463b65c11104ffc43c85d9ca7bc907865601f2efc46",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets/opera/worlds/widgets/widget_trace_chef.png",
+     "location": "dev",
+     "sha256": "81143e828b8cc4301bf10d2cbe9853402c2694df7e2199d8a80c41c7a447f0db",
+     "size": [
+      1024,
+      608
+     ],
+     "note": "retired card holds the piping bag"
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_gameplay_piping_ribbon.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "627320b137a4222d96a8e176541ede4dd6f93c0dc56f897265801df52d7c2b07",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-CHF-02",
+   "package": "P4"
+  },
+  {
+   "id": "JA-CHF-08",
+   "job": "chef",
+   "phase": "TOP",
+   "element": "Chocolate topping reads like a poop emoji",
+   "where": [
+    "assets/opera/worlds/widgets/widget_target_chef_piece_2.png"
+   ],
+   "now": "painted but misreads",
+   "class": "MISUSED",
+   "severity": "LOW",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-CHF-03",
+   "package": "P4"
+  },
+  {
+   "id": "JA-CHF-09",
+   "job": "chef",
+   "phase": "Chapter Two stack",
+   "element": "Stack cap warps the painted tier about 2.1x",
+   "where": [
+    "scripts/opera_chef_surface.gd:166-177"
+   ],
+   "now": "textured polygon stretch",
+   "class": "MISUSED",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/chapter2/birthday/chapter2_chef_baked_tiers_unstacked.png",
+     "location": "dev",
+     "sha256": "74b68d65ac3966cf1a2f9ad8aada8d17b8210342f32e2426ceab5b7164ba2cdd",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P4"
+  },
+  {
+   "id": "JA-CDY-01",
+   "job": "candymaker",
+   "phase": "SORT",
+   "element": "Candies being dragged and the bins",
+   "where": [
+    "scripts/opera_gesture_surface.gd:4690-4752",
+    "scripts/opera_gesture_surface.gd:812"
+   ],
+   "now": "polygons, flat bins; painted jars loaded never drawn",
+   "class": "LOADED_NOT_DRAWN",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png",
+     "location": "dev",
+     "sha256": "6265a6fa3bba2a55b29764dff19556dd11f631218b9081507575d46ef10cc60d",
+     "size": [
+      256,
+      256
+     ]
+    },
+    {
+     "path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_1.png",
+     "location": "dev",
+     "sha256": "baeaaf52b3d8dcae643888e4a3665d3f555df80514bafa3988ae1f1365b90cbb",
+     "size": [
+      256,
+      256
+     ]
+    },
+    {
+     "path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_2.png",
+     "location": "dev",
+     "sha256": "f65229623f611d59cf4b5fb180e976e7956c065a66ae622bc6996d2a77dfa63e",
+     "size": [
+      256,
+      256
+     ]
+    },
+    {
+     "path": "assets/opera/worlds/widgets/widget_lanes_candymaker_lit.png",
+     "location": "dev",
+     "sha256": "26639d304ef61822515f1884babdc1e1710c177778e93c003ef5598bb9d4c244",
+     "size": [
+      768,
+      256
+     ]
+    }
+   ],
+   "action": "COORDINATE",
+   "brief": null,
+   "package": "P7",
+   "note": "In flight: Codex candymaker-boxes-friends-20261017 (candymaker_sort_boxes_v2.png)."
+  },
+  {
+   "id": "JA-CDY-02",
+   "job": "candymaker",
+   "phase": "WRAP",
+   "element": "Candy and twisting wrapper ends",
+   "where": [
+    "scripts/opera_gesture_surface.gd:2373-2392",
+    "scripts/opera_gesture_surface.gd:798"
+   ],
+   "now": "oval and polygons; painted candy loaded never drawn",
+   "class": "LOADED_NOT_DRAWN",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_crank_candymaker_mover.png",
+     "location": "dev",
+     "sha256": "4e77bdc100f28a4a4639190c9be820ed9b05f6361d7ebf16fb250dbde92b585f",
+     "size": [
+      256,
+      256
+     ]
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-CDY-01",
+   "package": "P7"
+  },
+  {
+   "id": "JA-CDY-03",
+   "job": "candymaker",
+   "phase": "SHARE",
+   "element": "Recipients of the shared candies",
+   "where": [
+    "scripts/opera_gesture_surface.gd:2988-3014"
+   ],
+   "now": "stick-figure circles and lines",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/sprites/stuffie_studio/lamma.png",
+     "location": "dev",
+     "sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268",
+     "size": [
+      949,
+      1024
+     ],
+     "note": "Lamb-a' stuffie identity; generate a happy-with-candy state"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-CDY-02",
+   "package": "P7",
+   "note": "Owner answer Q4 2026-10-18 \"use extra stuffies\" (ODR-JOBART-SHARE-STUFFIES-20261018): recipients are stuffies, not new sea creatures or the protected portraits. Codex's in-flight candymaker-boxes-friends-20261017 work records ODR-CANDY-BOXES-FAMILY-20261017 (Baby Eagle, Rumi, Daddy Mermaid with voiced thanks); further recipients are stuffies, Lamb-a' and Mewsha first."
+  },
+  {
+   "id": "JA-CDY-04",
+   "job": "candymaker",
+   "phase": "SYRUP",
+   "element": "Syrup stream",
+   "where": [
+    "scripts/opera_gesture_surface.gd:6200-6222"
+   ],
+   "now": "polylines",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-05",
+   "package": "P7"
+  },
+  {
+   "id": "JA-DOC-01",
+   "job": "doctor",
+   "phase": "WASH",
+   "element": "Sink, faucet, water, hands",
+   "where": [
+    "scripts/opera_gesture_surface.gd:2770-2797"
+   ],
+   "now": "ovals and lines",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_basin_doctor.png",
+     "location": "dev",
+     "sha256": "4ac533cd383be7ba7aa8eb3fc679a1749f2e0c186ebed906b488e840d3e7fefd",
+     "size": [
+      1024,
+      608
+     ],
+     "note": "retired card holds a painted sink"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/ready.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-DOC-01",
+   "package": "P6"
+  },
+  {
+   "id": "JA-DOC-02",
+   "job": "doctor",
+   "phase": "WASH",
+   "element": "Bubbles overlay is flat rings",
+   "where": [
+    "assets/opera/worlds/widgets/widget_basin_doctor_bubbles.png"
+   ],
+   "now": "flat-vector PNG",
+   "class": "VECTOR_FILE",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+     "location": "dev",
+     "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+     "size": [
+      512,
+      512
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P6"
+  },
+  {
+   "id": "JA-DOC-03",
+   "job": "doctor",
+   "phase": "X-RAY",
+   "element": "Scan plate the child drags",
+   "where": [
+    "scripts/opera_gesture_surface.gd:4396-4409"
+   ],
+   "now": "cyan rectangle, gold card border",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-DOC-02",
+   "package": "P6"
+  },
+  {
+   "id": "JA-DOC-04",
+   "job": "doctor",
+   "phase": "CAST",
+   "element": "Bed, cushion, cast strips",
+   "where": [
+    "scripts/opera_gesture_surface.gd:2401-2443"
+   ],
+   "now": "nine ovals, six lines",
+   "class": "FLAT_CENTRAL",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_crank_doctor.png",
+     "location": "dev",
+     "sha256": "7022b93eda577ff888d0c994ff6e79f103bff5b2531cb8700c34cea6c2d1deb2",
+     "size": [
+      1024,
+      608
+     ],
+     "note": "retired card holds cast and cushion"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-DOC-03",
+   "package": "P6"
+  },
+  {
+   "id": "JA-DOC-05",
+   "job": "doctor",
+   "phase": "BANDAGE",
+   "element": "Patient, roll and strip",
+   "where": [
+    "scripts/opera_gesture_surface.gd:1961-1975",
+    "scripts/opera_gesture_surface.gd:1855-1866"
+   ],
+   "now": "brown round plush instead of the starfish patient",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_crank_doctor_patient.png",
+     "location": "dev",
+     "sha256": "ecf354fd812decbae250078cc2dc7bce8b8bb5c403afe5016bdabedbe0c8ffc9",
+     "size": [
+      512,
+      512
+     ]
+    },
+    {
+     "path": "assets/opera/worlds/widgets/widget_crank_doctor_mover.png",
+     "location": "dev",
+     "sha256": "97444bdd816b53b883478b805647cdcfb15050afcf8d281a7422400639c6544f",
+     "size": [
+      256,
+      256
+     ]
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_gameplay_bandage_roll.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "a0ce96c6602094f060cb3b919759ba6f61f306877bd0c0f809120e50d1f85ea6",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_gameplay_bandage_wrap.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "6383a0f78914f5f7913886b2efea61c76bf8ea5b9658054920dbd61d507a1d8b",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-DOC-03",
+   "package": "P6"
+  },
+  {
+   "id": "JA-FRM-01",
+   "job": "farmer",
+   "phase": "PLANT",
+   "element": "Seed bed, holes, sprouts, flowers",
+   "where": [
+    "scripts/opera_gesture_surface.gd:3823-3845"
+   ],
+   "now": "flat brown rectangle, dark holes, stick sprouts",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/backdrops/world_farmer_c0r0.png",
+     "location": "dev",
+     "sha256": "3d1a2bf91f141919f34a1f1dccb1846ea8a1db6e1f3d3fc80c067c21031a9794",
+     "size": [
+      1024,
+      1024
+     ],
+     "note": "crop reference for the tilled bed"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-FRM-01",
+   "package": "P6"
+  },
+  {
+   "id": "JA-FRM-02",
+   "job": "farmer",
+   "phase": "TOSS",
+   "element": "Munch face pasted over the painted piglet",
+   "where": [
+    "scripts/opera_gesture_surface.gd:5021-5045"
+   ],
+   "now": "pink circles",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_happy_piggy_group.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "d6571fcccb7009a4d070ab4e4aabdd57fad97677bf9b60572092ac64e197ba15",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-FRM-02",
+   "package": "P6"
+  },
+  {
+   "id": "JA-FRM-03",
+   "job": "farmer",
+   "phase": "TOSS",
+   "element": "Duplicate basket, ring, sling, arc guide",
+   "where": [
+    "scripts/opera_gesture_surface.gd:5048-5094",
+    "scripts/opera_gesture_surface.gd:4992-4996"
+   ],
+   "now": "code over the painted basket",
+   "class": "FLAT_DECORATION",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "REMOVE",
+   "brief": null,
+   "package": "P6"
+  },
+  {
+   "id": "JA-FRM-04",
+   "job": "farmer",
+   "phase": "HERD",
+   "element": "Barn gate destination",
+   "where": [
+    "scripts/opera_gesture_surface.gd:1631-1655"
+   ],
+   "now": "lines, circles, arc",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/backdrops/world_farmer_c0r0.png",
+     "location": "dev",
+     "sha256": "3d1a2bf91f141919f34a1f1dccb1846ea8a1db6e1f3d3fc80c067c21031a9794",
+     "size": [
+      1024,
+      1024
+     ],
+     "note": "crop reference for the barn doors"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-FRM-03",
+   "package": "P6"
+  },
+  {
+   "id": "JA-FRM-05",
+   "job": "farmer",
+   "phase": "PLANT",
+   "element": "Seed squeezed into a square",
+   "where": [
+    "scripts/opera_gesture_surface.gd:3849-3851"
+   ],
+   "now": "assets/mg/seed.png 512x469 distorted",
+   "class": "MISUSED",
+   "severity": "LOW",
+   "available_art": [],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P6"
+  },
+  {
+   "id": "JA-MAG-01",
+   "job": "magician",
+   "phase": "ROPE",
+   "element": "Rope and knots",
+   "where": [
+    "scripts/opera_gesture_surface.gd:1855-1866",
+    "scripts/opera_gesture_surface.gd:1981-1990"
+   ],
+   "now": "polylines and circles",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/hotspots/magician_rope.png",
+     "location": "dev",
+     "sha256": "f38205f3e00ab8de0b1dd176a52c7535abcfa369eafa1fe1032eacb003fc9843",
+     "size": [
+      512,
+      128
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P6"
+  },
+  {
+   "id": "JA-MAG-02",
+   "job": "magician",
+   "phase": "PORTAL",
+   "element": "Star portal swirl",
+   "where": [
+    "scripts/opera_gesture_surface.gd:657-677",
+    "scripts/opera_gesture_surface.gd:2040-2096"
+   ],
+   "now": "arcs and rotating dots; ring art never made",
+   "class": "MISSING_TEXTURE",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-MAG-01",
+   "package": "P6"
+  },
+  {
+   "id": "JA-MAG-03",
+   "job": "magician",
+   "phase": "TRACK",
+   "element": "Hats never move; a dot glides",
+   "where": [
+    "scripts/opera_gesture_surface.gd:5313-5327"
+   ],
+   "now": "code dots",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_lanes_magician_lit.png",
+     "location": "dev",
+     "sha256": "d19c4bbf676670e37b34876082d457ae244394bab69867a1bc487d5718f72c8b",
+     "size": [
+      768,
+      256
+     ],
+     "note": "has white scratch marks on the hats"
+    }
+   ],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P6"
+  },
+  {
+   "id": "JA-MAG-04",
+   "job": "magician",
+   "phase": "CABINET",
+   "element": "Flat gold slab over the painted knob; reveal has a white box",
+   "where": [
+    "scripts/opera_gesture_surface.gd:3980-3988"
+   ],
+   "now": "rectangle over painted art",
+   "class": "MISUSED",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_magic_cabinet_closed.png",
+     "location": "dev",
+     "sha256": "f0829a82157b1e1671fdca165dac68a8385645d648ec77604287e95a59796fcf",
+     "size": [
+      512,
+      512
+     ]
+    },
+    {
+     "path": "assets/opera/worlds/widgets/widget_magic_cabinet_reveal.png",
+     "location": "dev",
+     "sha256": "6e8764bc8031f9d09c360ba749f2c8fea89bf08b9316ad8b131ec255545cc2d9",
+     "size": [
+      512,
+      512
+     ]
+    }
+   ],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P6"
+  },
+  {
+   "id": "JA-PNT-01",
+   "job": "painter",
+   "phase": "PAINT",
+   "element": "Cloudy veil",
+   "where": [
+    "scripts/opera_gesture_surface.gd:4844-4852"
+   ],
+   "now": "up to 60 flat squares",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/props/fx_dust_puff.png",
+     "location": "dev",
+     "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+     "size": [
+      256,
+      256
+     ]
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-PNT-01",
+   "package": "P6"
+  },
+  {
+   "id": "JA-PNT-02",
+   "job": "painter",
+   "phase": "PAINT",
+   "element": "Extra frame slab and border",
+   "where": [
+    "scripts/opera_gesture_surface.gd:4834",
+    "scripts/opera_gesture_surface.gd:4853-4854"
+   ],
+   "now": "rectangle and border around a framed painting",
+   "class": "FLAT_DECORATION",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "REMOVE",
+   "brief": null,
+   "package": "P6"
+  },
+  {
+   "id": "JA-PNT-03",
+   "job": "painter",
+   "phase": "Chapter Two banner",
+   "element": "Banner squashed and cut into lane frames",
+   "where": [
+    "scripts/opera_gesture_surface.gd:4836",
+    "scripts/opera_gesture_surface.gd:1526",
+    "scripts/opera_gesture_surface.gd:2738-2741",
+    "scripts/opera_world_hotspot_2d.gd:304-307"
+   ],
+   "now": "256x512 banner distorted",
+   "class": "MISUSED",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+     "location": "dev",
+     "sha256": "1cbf785bded294e8e4f5814f5b85fb2a455e07c4fe16f8826b00545d095a6731",
+     "size": [
+      256,
+      512
+     ]
+    }
+   ],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P6"
+  },
+  {
+   "id": "JA-DET-01",
+   "job": "detective",
+   "phase": "SEARCH",
+   "element": "Clues are gold dots and rings",
+   "where": [
+    "scripts/opera_career_world_2d.gd:4650-4660"
+   ],
+   "now": "code",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_clue_board_tokens.png",
+     "location": "dev",
+     "sha256": "45fd838284dcf230b1ca5059b3fb1e913bc90f13c37cf215107f76c73fc7f002",
+     "size": [
+      768,
+      256
+     ]
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_feather_clue.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "26da1b140716c1c1a6f3f5cee037f60fb856475dcff1ff303d1a98a3a6581872",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_paw_clue.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "c19442d3967e9cdf0ea3eca9175d7857887359429ece7fc461759743d5ae3ce8",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_ribbon_clue.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "c32420b97e55b736eac137fa3c8554725c537458b1192a2294c666ee822308e2",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "COORDINATE",
+   "brief": null,
+   "package": "P7",
+   "note": "In flight: Codex detective-scene-investigation-20261017."
+  },
+  {
+   "id": "JA-DET-02",
+   "job": "detective",
+   "phase": "CASE BOARD",
+   "element": "Drop boxes and tokens about 30 px above the painted silhouettes; tokens drawn twice",
+   "where": [
+    "scripts/opera_gesture_surface.gd:3631-3639"
+   ],
+   "now": "rectangles; misregistered tokens",
+   "class": "MISUSED",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_clue_board_tokens.png",
+     "location": "dev",
+     "sha256": "45fd838284dcf230b1ca5059b3fb1e913bc90f13c37cf215107f76c73fc7f002",
+     "size": [
+      768,
+      256
+     ]
+    }
+   ],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P7"
+  },
+  {
+   "id": "JA-DET-03",
+   "job": "detective",
+   "phase": "CROWN",
+   "element": "Flat gold handle slab over the painted lock",
+   "where": [
+    "scripts/opera_gesture_surface.gd:3727-3728"
+   ],
+   "now": "rectangle over painted art",
+   "class": "MISUSED",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P7"
+  },
+  {
+   "id": "JA-BOX-01",
+   "job": "boxer",
+   "phase": "ALL",
+   "element": "Both gloves the child drags",
+   "where": [
+    "scripts/opera_boxing_surface.gd:761-802"
+   ],
+   "now": "compound circles; comment avoids glove art",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/refinement_v1/boxing_glove_left.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "8749d71eb5cdd5f84dc5a9bd96197b8ec6ac808b51333cd31bce9e1a032176ea",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/widgets/refinement_v1/boxing_glove_right.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "6a748cb12f71b81f4b9d01cf08bdf14d99831c48a13530288dc537ef4bc150b9",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_boxer_gameplay_padded_gloves.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "e1139c94f34f11eca832e1dd3cd758d91a1db962d5d0398b8048d696aad56470",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P5"
+  },
+  {
+   "id": "JA-BOX-02",
+   "job": "boxer",
+   "phase": "SOFT GUARD",
+   "element": "Incoming counter-punch glove",
+   "where": [
+    "scripts/opera_boxing_surface.gd:698-720"
+   ],
+   "now": "coral disc and arrow",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/refinement_v1/boxing_glove_right.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "6a748cb12f71b81f4b9d01cf08bdf14d99831c48a13530288dc537ef4bc150b9",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P5"
+  },
+  {
+   "id": "JA-BOX-03",
+   "job": "boxer",
+   "phase": "ALL",
+   "element": "Target rings over painted mitts and belt",
+   "where": [
+    "scripts/opera_boxing_surface.gd:682-695",
+    "scripts/opera_boxing_surface.gd:855-861"
+   ],
+   "now": "circles; flat ring PNG",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/widgets/widget_target_boxer_mark.png",
+     "location": "dev",
+     "sha256": "e0930c590c190ec145f1da292b3f74a3c86b8b578f798db0fafc76341b92fecc",
+     "size": [
+      128,
+      128
+     ],
+     "note": "flat-vector PNG"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-02",
+   "package": "P5"
+  },
+  {
+   "id": "JA-BOX-04",
+   "job": "boxer",
+   "phase": "ALL",
+   "element": "Round progress lights",
+   "where": [
+    "scripts/opera_boxing_surface.gd:645-655"
+   ],
+   "now": "circles",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_boxer_gameplay_round_lamps.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "f6b1eb7ec0312aa512b87882621d7896dea8736de8a3d730f46304dfb35284c1",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-03",
+   "package": "P5"
+  },
+  {
+   "id": "JA-BOX-05",
+   "job": "boxer",
+   "phase": "ALL",
+   "element": "6% navy wash over the painted ring",
+   "where": [
+    "scripts/opera_boxing_surface.gd:616"
+   ],
+   "now": "full-surface rectangle",
+   "class": "FLAT_DECORATION",
+   "severity": "LOW",
+   "available_art": [],
+   "action": "REMOVE",
+   "brief": null,
+   "package": "P5"
+  },
+  {
+   "id": "JA-BAL-01",
+   "job": "ballerina",
+   "phase": "PEARL MIRROR",
+   "element": "Shell frames the child taps",
+   "where": [
+    "scripts/opera_ballet_surface.gd:592-610"
+   ],
+   "now": "nine petal circles and rings",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_ballerina_gameplay_coral_shell_tile.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "8310c154069bf6744597c6de9e287f69700578bcfa23ad836cae30f8a499a8b6",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": "JB-BAL-01",
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-BAL-02",
+   "job": "ballerina",
+   "phase": "RIBBON TRAIL",
+   "element": "Ribbon trail and draggable pearl",
+   "where": [
+    "scripts/opera_ballet_surface.gd:639-680"
+   ],
+   "now": "three-pass lines, circles",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_ballerina_gameplay_twirl_ribbon.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "a0d71763c18e6e28d9505592dbea6b709b2a2db286a4d149063df21febcdf219",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": "JB-BAL-02",
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-BAL-03",
+   "job": "ballerina",
+   "phase": "GRAND TWIRL",
+   "element": "Twirl ring, progress arc, handle",
+   "where": [
+    "scripts/opera_ballet_surface.gd:683-717"
+   ],
+   "now": "circles and arcs",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": "JB-BAL-02",
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-BAL-04",
+   "job": "ballerina",
+   "phase": "PEARL MIRROR",
+   "element": "Pose portraits cut through the tail on row 2",
+   "where": [
+    "scripts/opera_ballet_surface.gd:613-623"
+   ],
+   "now": "region crop too short",
+   "class": "MISUSED",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": null,
+   "package": "P7",
+   "action_before_revision_4": "FIX_USE",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-BAL-05",
+   "job": "ballerina",
+   "phase": "PEARL MIRROR",
+   "element": "44% navy dimmer disc over wrong poses",
+   "where": [
+    "scripts/opera_ballet_surface.gd:586-588"
+   ],
+   "now": "circle over painted art",
+   "class": "FLAT_DECORATION",
+   "severity": "LOW",
+   "available_art": [],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": null,
+   "package": "P7",
+   "action_before_revision_4": "REMOVE",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-RAC-01",
+   "job": "racer",
+   "phase": "RACE",
+   "element": "Steering bar, knob, turbo button",
+   "where": [
+    "scripts/opera_racer_surface.gd:87-91",
+    "scripts/opera_racer_surface.gd:439-464"
+   ],
+   "now": "StyleBox pill, chevrons, circles, lightning polygon",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_racecar_driver_gameplay_steering_wheel.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "e7547adf0d1df3d631d96dc82a307d5662cd2f38fb1d8df704265b6cd6d0478d",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_racecar_driver_gameplay_turbo_button.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "bf8a3546a9ef3b8a2563b50d5335f0c82560e7a138b6e258ee38ec48cf142103",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": "JB-RAC-01",
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-RAC-02",
+   "job": "racer",
+   "phase": "RACE",
+   "element": "Lap dials and start lights",
+   "where": [
+    "scripts/opera_racer_surface.gd:420-438",
+    "scripts/opera_racer_surface.gd:465-469"
+   ],
+   "now": "circles and polygons",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": "JB-RAC-01",
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-RAC-03",
+   "job": "racer",
+   "phase": "RACE",
+   "element": "Track pearls",
+   "where": [
+    "scripts/opera_racer_surface.gd:354-361"
+   ],
+   "now": "circles",
+   "class": "FLAT_CENTRAL",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": "JB-SHR-03",
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-RAC-04",
+   "job": "racer",
+   "phase": "RACE",
+   "element": "Boost strips",
+   "where": [
+    "scripts/opera_racer_surface.gd:348-353"
+   ],
+   "now": "flat boost_ribbon.png squashed to about 55%",
+   "class": "VECTOR_FILE",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/kart/boost_ribbon.png",
+     "location": "dev",
+     "sha256": "b2617ce45be09837625bf21e145ef37401a87b9104f576c6093c3e44f912feb5",
+     "size": [
+      1024,
+      256
+     ],
+     "note": "flat-vector PNG"
+    },
+    {
+     "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_racecar_driver_gameplay_zoom_strip_active.png",
+     "location": "dev (assets_src, design reference only)",
+     "sha256": "f957dc58fec90181293a7c5a43de93fcde60e5c30b3683ba8bbef56d8589ecdd",
+     "size": [
+      1254,
+      1254
+     ]
+    }
+   ],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": "JB-RAC-01",
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-RAC-05",
+   "job": "racer",
+   "phase": "RACE",
+   "element": "Driver crops cut at mid-thigh above the seat",
+   "where": [
+    "scripts/opera_racer_surface.gd:385-392"
+   ],
+   "now": "region crop",
+   "class": "MISUSED",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": null,
+   "package": "P7",
+   "action_before_revision_4": "FIX_USE",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-RAC-06",
+   "job": "racer",
+   "phase": "TO THE LINE",
+   "element": "Start arch destination",
+   "where": [
+    "scripts/opera_gesture_surface.gd:1656-1665"
+   ],
+   "now": "small gold arch of lines",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/backdrops/world_racer_c0r0.png",
+     "location": "dev",
+     "sha256": "920b4df91bad73d288ff2cd39fe8cdccc2dfe8743bb64d65a691343b7630bf66",
+     "size": [
+      1024,
+      1024
+     ],
+     "note": "crop reference for the shell start arch"
+    },
+    {
+     "path": "assets/kart/finish_banner.png",
+     "location": "dev",
+     "sha256": "b9bbc62edf9de7402b6bc77bde9b47078e69d1d831f8f6913349328476fda7bc",
+     "size": [
+      1024,
+      256
+     ]
+    }
+   ],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": null,
+   "package": "P7",
+   "action_before_revision_4": "WIRE_EXISTING",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-NUR-01",
+   "job": "nursery",
+   "phase": "CATCH BABIES",
+   "element": "Cradle and pillows",
+   "where": [
+    "scripts/opera_nursery_catch.gd:242-270"
+   ],
+   "now": "flat-vector PNGs",
+   "class": "VECTOR_FILE",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/nursery/refinement_v1/cradle.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "81f2cba89d4e0c48d2d4ba1c4ac7386d7e96b4c50e58c6a93b1b27b5e0f10193",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/refinement_v1/pillows.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "bf5f86e916b4c512c761518ad1815beac6df8c833d60980b71c73e4d7fada66f",
+     "size": [
+      1024,
+      342
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P5"
+  },
+  {
+   "id": "JA-NUR-02",
+   "job": "nursery",
+   "phase": "WASH HANDS",
+   "element": "No picture: only the ghost finger draws",
+   "where": [
+    "scripts/opera_gesture_surface.gd:4006-4052",
+    "scripts/opera_gesture_surface.gd:749-813"
+   ],
+   "now": "template 'nursery' has no drawing branch",
+   "class": "DISABLED_PATH",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/ready.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/wet.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "82b7643dc59846285d1c4c4659a0217aa4fdceb35dd4fcb6bd8cf4f63d66b5d2",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "9de65b315c8ee742fc95765e1a2cd629ea8cdfef0e4381d906691b773ed24656",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_back.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "8b0c7fd5b9a594f08d64389f7cf6a1904340991961a9f0d70fe5930354261d96",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rinse.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "7629280357c273fb1de7f2d8c91b535242a00ada7a28c9aaab7e51116d6fb799",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+     "size": [
+      1024,
+      1024
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P5",
+   "note": "Owner answer Q3 2026-10-18 \"use them\" (ODR-JOBART-NURSERY-FRAMES-20261018): wire the stranded frames as they are."
+  },
+  {
+   "id": "JA-NUR-03",
+   "job": "nursery",
+   "phase": "FEED",
+   "element": "Drain meter over the bottle; peach slabs",
+   "where": [
+    "scripts/opera_gesture_surface.gd:3191-3227"
+   ],
+   "now": "bar gauge, rectangles; nipple faces away",
+   "class": "FLAT_FEEDBACK",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/nursery/refinement_v2/care_00.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "3af164a76b617cd66f2351c55c05ac6a0b7004924c8d5ace855c13680f63fa40",
+     "size": [
+      512,
+      512
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/refinement_v2/care_01.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "f75ebef743b99a4411cc81adc296f852db19b25bb445257c3920cbabfa2ebac7",
+     "size": [
+      512,
+      512
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/refinement_v2/care_02.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "0cb213591fe572cf65b0d3a693a339aef16a947734bd022eecdf5efdd02dfbef",
+     "size": [
+      512,
+      512
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/refinement_v2/care_03.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a",
+     "size": [
+      512,
+      512
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/refinement_v2/care_04.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "d2ed0cd68b4dcec66f197d4d327e6aa779957b95737d5abc2cd47e086981452d",
+     "size": [
+      512,
+      512
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/refinement_v2/care_05.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "be6f72ec39952f056ff2f41373280e45b48ec6cae81f2e12536ab06943a1f302",
+     "size": [
+      512,
+      512
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/refinement_v2/care_06.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "d03413a6df8bc4356058daabb996ae03ae520eede0bdaa645d8c4646cede9297",
+     "size": [
+      512,
+      512
+     ],
+     "cutout_check": "CUTOUT_OK"
+    },
+    {
+     "path": "assets/opera/worlds/nursery/refinement_v2/care_07.png",
+     "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+     "sha256": "dc85f634f827020f61f52c3fccba4566f37bff566640ba486aee3606343a302c",
+     "size": [
+      512,
+      512
+     ],
+     "cutout_check": "CUTOUT_OK"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-NUR-01",
+   "package": "P5",
+   "note": "Owner answer Q3 2026-10-18 \"use them\" (ODR-JOBART-NURSERY-FRAMES-20261018): wire the stranded frames as they are."
+  },
+  {
+   "id": "JA-NUR-04",
+   "job": "nursery",
+   "phase": "BURP",
+   "element": "Patting hand",
+   "where": [
+    "scripts/opera_gesture_surface.gd:3366-3384"
+   ],
+   "now": "a peach disc",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/castle/training/ghost_hand.png",
+     "location": "dev",
+     "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+     "size": [
+      512,
+      512
+     ]
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-06",
+   "package": "P5"
+  },
+  {
+   "id": "JA-NUR-05",
+   "job": "nursery",
+   "phase": "BEDTIME",
+   "element": "Cribs and the blanket the child swipes",
+   "where": [
+    "scripts/opera_gesture_surface.gd:3334-3356"
+   ],
+   "now": "teal rectangle, flat cribs",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/flats/castle/dream_house/dream_bed_0.png",
+     "location": "dev",
+     "sha256": "d78893db559b9693da9765022f05cd3432163ff755aadc8cfbda1b94c41b003e",
+     "size": [
+      253,
+      240
+     ],
+     "note": "reference"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-NUR-02",
+   "package": "P5"
+  },
+  {
+   "id": "JA-NUR-06",
+   "job": "nursery",
+   "phase": "CATCH BABIES",
+   "element": "Crib mobile",
+   "where": [
+    "scripts/opera_nursery_catch.gd:233-239"
+   ],
+   "now": "strings and dots",
+   "class": "FLAT_DECORATION",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/props/goal_nursery.png",
+     "location": "dev",
+     "sha256": "95c39b70d035d72eb226610ba21093a75ddc893d24592b9951c13c58a06fd431",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P5"
+  },
+  {
+   "id": "JA-POP-01",
+   "job": "popstar",
+   "phase": "RHYTHM",
+   "element": "Three singing stars the child taps",
+   "where": [
+    "scripts/opera_gesture_surface.gd:723-725",
+    "scripts/opera_gesture_surface.gd:5974-5999"
+   ],
+   "now": "ten-point polygons; star files never made",
+   "class": "MISSING_TEXTURE",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+     "location": "dev",
+     "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+     "size": [
+      128,
+      128
+     ]
+    }
+   ],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": "JB-POP-01",
+   "package": "P7",
+   "note": "Rhythm redesign in flight: Codex popstar-rhythm-20261017. Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014).",
+   "action_before_revision_4": "IMAGEGEN"
+  },
+  {
+   "id": "JA-POP-02",
+   "job": "popstar",
+   "phase": "SOUND CHECK",
+   "element": "Stand mic tilted and floating; code notes",
+   "where": [
+    "scripts/opera_gesture_surface.gd:2644-2678"
+   ],
+   "now": "rotated painted mic; circles and lines",
+   "class": "MISUSED",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/props/goal_popstar.png",
+     "location": "dev",
+     "sha256": "0a81e7c108234c4770730761704dcf16ca9b5c1d97b3ffee0c306c1c85e8c95a",
+     "size": [
+      512,
+      512
+     ]
+    }
+   ],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": "JB-POP-02",
+   "package": "P7",
+   "action_before_revision_4": "IMAGEGEN",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-POP-03",
+   "job": "popstar",
+   "phase": "ENCORE",
+   "element": "Code sound arcs doubling the painted arcs",
+   "where": [
+    "scripts/opera_gesture_surface.gd:2501-2510"
+   ],
+   "now": "arcs",
+   "class": "FLAT_DECORATION",
+   "severity": "LOW",
+   "available_art": [],
+   "action": "SUPERSEDED_BY_REBUILD",
+   "brief": null,
+   "package": "P7",
+   "action_before_revision_4": "REMOVE",
+   "note": "Revision 4: superseded by the owner-accepted rebuild (MA-OPERA-014)."
+  },
+  {
+   "id": "JA-SHR-01",
+   "job": "all careers",
+   "phase": "ALL",
+   "element": "Spotlight wedges over painted rooms",
+   "where": [
+    "scripts/opera_world_backdrop_2d.gd:350-361",
+    "scripts/opera_world_backdrop_2d.gd:258-263"
+   ],
+   "now": "two translucent polygons, pulsing",
+   "class": "FLAT_DECORATION",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "REMOVE",
+   "brief": null,
+   "package": "P8",
+   "note": "Owner answer Q2 2026-10-18 \"yes\" (ODR-JOBART-DECORATION-20261018)."
+  },
+  {
+   "id": "JA-SHR-02",
+   "job": "all careers",
+   "phase": "ALL",
+   "element": "Invitation halo, rotating arc, plus-sparkles",
+   "where": [
+    "scripts/opera_world_hotspot_2d.gd:234-283",
+    "scripts/opera_world_hotspot_2d.gd:350-363"
+   ],
+   "now": "circles, arcs, lines",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/props/fx_telegraph_ring.png",
+     "location": "dev",
+     "sha256": "12077afe02fa842d7e257d22110cc64df13a63510d2cd8c86fd4c7a06062572e",
+     "size": [
+      512,
+      512
+     ],
+     "note": "family reference"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-02",
+   "package": "P8"
+  },
+  {
+   "id": "JA-SHR-03",
+   "job": "all careers",
+   "phase": "ALL",
+   "element": "Progress pearls and card progress dots",
+   "where": [
+    "scripts/opera_career_world_2d.gd:2111-2124",
+    "scripts/opera_gesture_surface.gd:4403-4406"
+   ],
+   "now": "circles",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-03",
+   "package": "P8"
+  },
+  {
+   "id": "JA-SHR-04",
+   "job": "gesture careers",
+   "phase": "ALL",
+   "element": "Causal-backdrop oval, floor stripe and dots; crank playfield stripes",
+   "where": [
+    "scripts/opera_gesture_surface.gd:3131-3149",
+    "scripts/opera_gesture_surface.gd:2003-2019"
+   ],
+   "now": "code",
+   "class": "FLAT_DECORATION",
+   "severity": "LOW",
+   "available_art": [],
+   "action": "REMOVE",
+   "brief": null,
+   "package": "P8",
+   "note": "Owner answer Q2 2026-10-18 \"yes\" (ODR-JOBART-DECORATION-20261018)."
+  },
+  {
+   "id": "JA-SHR-05",
+   "job": "gesture careers",
+   "phase": "ALL",
+   "element": "Ghost-finger demo",
+   "where": [
+    "scripts/opera_gesture_surface.gd:4290-4296"
+   ],
+   "now": "circles",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/castle/training/ghost_hand.png",
+     "location": "dev",
+     "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+     "size": [
+      512,
+      512
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": "JB-SHR-06",
+   "package": "P8"
+  },
+  {
+   "id": "JA-SHR-06",
+   "job": "doctor, magician, painter, popstar",
+   "phase": "choice phases",
+   "element": "Painted choices drawn at 60% alpha",
+   "where": [
+    "scripts/opera_gesture_surface.gd:2741"
+   ],
+   "now": "ghosted painted art",
+   "class": "MISUSED",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P8"
+  },
+  {
+   "id": "JA-SHR-07",
+   "job": "all careers and Day One rooms",
+   "phase": "ALL",
+   "element": "Ambient living-world doodles (25 motif kinds)",
+   "where": [
+    "scripts/living_world_canvas.gd:114-349"
+   ],
+   "now": "code motifs on layer 11, viewport-anchored",
+   "class": "FLAT_DECORATION",
+   "severity": "LOW",
+   "available_art": [],
+   "action": "REMOVE",
+   "brief": null,
+   "package": "P8",
+   "note": "Owner answer Q2 2026-10-18 \"yes\" (ODR-JOBART-DECORATION-20261018): remove from job scenes; JB-SHR-01 closed."
+  },
+  {
+   "id": "JA-SHR-08",
+   "job": "all careers",
+   "phase": "success and curtain call",
+   "element": "Burst squares and confetti strips",
+   "where": [
+    "scripts/opera_career_world_2d.gd:3749-3761",
+    "scripts/opera_career_world_2d.gd:3974-3983"
+   ],
+   "now": "ColorRect pieces",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+     "location": "dev",
+     "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+     "size": [
+      128,
+      128
+     ]
+    },
+    {
+     "path": "assets/opera/worlds/props/fx_bop_puff.png",
+     "location": "dev",
+     "sha256": "4e64dfa88aa9a6105a61cdac0f978d207eb581b822ce854ac806a88e2a1c4e5c",
+     "size": [
+      512,
+      512
+     ],
+     "note": "fix opaque crop bars"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-04",
+   "package": "P8"
+  },
+  {
+   "id": "JA-SHR-09",
+   "job": "two-act careers",
+   "phase": "Hall HUD and finale",
+   "element": "Medals, pearls, bars, act icons, panels; default ProgressBars",
+   "where": [
+    "scripts/opera_performance_overlay.gd:110-215",
+    "scripts/opera_career_world_2d.gd:782-786",
+    "scripts/opera_career_world_2d.gd:1217-1228"
+   ],
+   "now": "all code",
+   "class": "FLAT_FEEDBACK",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-09",
+   "package": "P8"
+  },
+  {
+   "id": "JA-SHR-10",
+   "job": "teacher and Chapter Two",
+   "phase": "captions and continue",
+   "element": "Caption box and Continue button",
+   "where": [
+    "scripts/opera_career_world_2d.gd:1305-1315",
+    "scripts/chapter_two_lawn_finale_2d.gd:568-571"
+   ],
+   "now": "StyleBox and chevron",
+   "class": "FLAT_SUPPORT",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-10",
+   "package": "P8"
+  },
+  {
+   "id": "JA-CH2-01",
+   "job": "chapter two candymaker",
+   "phase": "COAT/SORT/GLAZE/PLACE",
+   "element": "Pitcher, stream, lane boxes, crank, trays",
+   "where": [
+    "scripts/opera_career_world_2d.gd:2164-2253",
+    "scripts/opera_career_world_2d.gd:2747-2750",
+    "scripts/opera_career_world_2d.gd:2634-2643"
+   ],
+   "now": "flat StyleBox props; painted tray passed as unread metadata",
+   "class": "LOADED_NOT_DRAWN",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
+     "location": "dev",
+     "sha256": "67caf1c52179a25407344905bdd5d83936721bdcfdc3b5bd274cf18663136839",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+     "location": "dev",
+     "sha256": "3bef406012e9a5ec90e18d3709b361f0ad0f9926f0961e05aac67e3e0c454c5f",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-CH2-01",
+   "package": "P9"
+  },
+  {
+   "id": "JA-CH2-02",
+   "job": "chapter two detective",
+   "phase": "BOARD/CANDLE",
+   "element": "Magic storybook",
+   "where": [
+    "scripts/opera_career_world_2d.gd:2272-2285"
+   ],
+   "now": "lavender rectangle with dots",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-CH2-02",
+   "package": "P9"
+  },
+  {
+   "id": "JA-CH2-03",
+   "job": "chapter two cake",
+   "phase": "first stage",
+   "element": "Tray, empty bowl, shadow",
+   "where": [
+    "scripts/chapter_two_giant_cake_2d.gd:512-527",
+    "scripts/chapter_two_giant_cake_2d.gd:555-561",
+    "scripts/chapter_two_giant_cake_2d.gd:596-598"
+   ],
+   "now": "rounded rectangles and ellipses",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/chapter2/birthday/chef_empty_shell_bowl_v1.png",
+     "location": "dev",
+     "sha256": "2538ae452b0f681c2832f328a9d844cba482cd9829a9414d2d3c732ca533c129",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
+     "location": "dev",
+     "sha256": "67caf1c52179a25407344905bdd5d83936721bdcfdc3b5bd274cf18663136839",
+     "size": [
+      1024,
+      1024
+     ]
+    },
+    {
+     "path": "assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png",
+     "location": "dev",
+     "sha256": "c28ff9ab18a20488cd78d2cc11000c97a3838879870a5d368fa68ee17c97acf6",
+     "size": [
+      1024,
+      1024
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P9"
+  },
+  {
+   "id": "JA-CH2-04",
+   "job": "chapter two party",
+   "phase": "table",
+   "element": "710x238 glow slab around a small painted table",
+   "where": [
+    "scripts/chapter_two_party_table_2d.gd:363-369"
+   ],
+   "now": "flat panel",
+   "class": "FLAT_DECORATION",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "REMOVE",
+   "brief": null,
+   "package": "P9"
+  },
+  {
+   "id": "JA-CH2-05",
+   "job": "chapter two party",
+   "phase": "table",
+   "element": "Rainbow banner forced into a wide slot",
+   "where": [
+    "scripts/chapter_two_party_table_2d.gd:347-360"
+   ],
+   "now": "256x512 shown about 59x118",
+   "class": "MISUSED",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+     "location": "dev",
+     "sha256": "1cbf785bded294e8e4f5814f5b85fb2a455e07c4fe16f8826b00545d095a6731",
+     "size": [
+      256,
+      512
+     ]
+    }
+   ],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P9"
+  },
+  {
+   "id": "JA-CH2-06",
+   "job": "chapter two lawn",
+   "phase": "finale",
+   "element": "Eleven party hats on protected portraits and Rumi",
+   "where": [
+    "scripts/chapter_two_lawn_finale_2d.gd:202-223"
+   ],
+   "now": "Polygon2D triangles and lines",
+   "class": "FLAT_SUPPORT",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-CH2-03",
+   "package": "P9"
+  },
+  {
+   "id": "JA-CH2-07",
+   "job": "chapter two lawn",
+   "phase": "Ember King",
+   "element": "Danger zone, safe ring, opening target",
+   "where": [
+    "scripts/chapter_two_lawn_finale_2d.gd:580-623"
+   ],
+   "now": "orange polygon, rings, dots",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/props/fx_telegraph_ring.png",
+     "location": "dev",
+     "sha256": "12077afe02fa842d7e257d22110cc64df13a63510d2cd8c86fd4c7a06062572e",
+     "size": [
+      512,
+      512
+     ],
+     "note": "family reference"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-07",
+   "package": "P9"
+  },
+  {
+   "id": "JA-CH2-08",
+   "job": "chapter two lawn",
+   "phase": "finale",
+   "element": "Rainbow protection arcs and Continue chevron",
+   "where": [
+    "scripts/chapter_two_lawn_finale_2d.gd:568-574"
+   ],
+   "now": "arcs, flat panel",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-10",
+   "package": "P9"
+  },
+  {
+   "id": "JA-D1-01",
+   "job": "day one rooms",
+   "phase": "dirty rooms",
+   "element": "Purple wash, cracks, edge bands and drips",
+   "where": [
+    "scripts/arena/day_one_castle_grime.gd:39-60"
+   ],
+   "now": "code over the room and Roshan (MA-VIS-008)",
+   "class": "FLAT_DECORATION",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "REMOVE",
+   "brief": null,
+   "package": "P9",
+   "note": "Owner answer 2026-10-05: a dirty look only when dirty objects are specifically being cleaned (ODR-POOL-DIRT-LOOK-20261005)."
+  },
+  {
+   "id": "JA-D1-02",
+   "job": "day one bathroom",
+   "phase": "scrub, wipe, drain",
+   "element": "Aqua arrows and bullseye while painted guides stay hidden",
+   "where": [
+    "scripts/games/day_one_bathroom_cleaning.gd:38-42",
+    "scripts/games/day_one_bathroom_cleaning.gd:68-94",
+    "scripts/games/day_one_bathroom_toilet.gd:220-223"
+   ],
+   "now": "code guides; painted soap ring and swoosh hidden",
+   "class": "LOADED_NOT_DRAWN",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+     "location": "dev",
+     "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+     "size": [
+      512,
+      512
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P9"
+  },
+  {
+   "id": "JA-D1-03",
+   "job": "day one craft room",
+   "phase": "cleaning",
+   "element": "Emoji hand, glyph stars, gold rings; grime squashed and tinted",
+   "where": [
+    "scripts/day_one_art_studio.gd:173-296",
+    "scripts/day_one_art_studio.gd:240-262",
+    "scripts/day_one_art_studio.gd:542-562"
+   ],
+   "now": "glyphs and code; distorted painted grime",
+   "class": "MISUSED",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/castle/training/ghost_hand.png",
+     "location": "dev",
+     "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+     "size": [
+      512,
+      512
+     ]
+    },
+    {
+     "path": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+     "location": "dev",
+     "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+     "size": [
+      128,
+      128
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P9"
+  },
+  {
+   "id": "JA-D1-04",
+   "job": "day one craft room",
+   "phase": "finale",
+   "element": "Flat paint-colour circles on a dark card",
+   "where": [
+    "scripts/attack_customizer.gd:72-73",
+    "scripts/attack_customizer.gd:185-192"
+   ],
+   "now": "code circles",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-D1-01",
+   "package": "P9"
+  },
+  {
+   "id": "JA-D1-05",
+   "job": "grand puff",
+   "phase": "dodge",
+   "element": "Flat lilac danger zone and lane; stretched vortex strip",
+   "where": [
+    "scripts/dust_boss_telegraph_2d.gd:104-205"
+   ],
+   "now": "code polygons",
+   "class": "FLAT_CENTRAL",
+   "severity": "HIGH",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/props/fx_telegraph_ring.png",
+     "location": "dev",
+     "sha256": "12077afe02fa842d7e257d22110cc64df13a63510d2cd8c86fd4c7a06062572e",
+     "size": [
+      512,
+      512
+     ],
+     "note": "family reference"
+    }
+   ],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-07",
+   "package": "P9"
+  },
+  {
+   "id": "JA-D1-06",
+   "job": "grand puff",
+   "phase": "taps and rounds",
+   "element": "36 flat-coloured 3D cubes as sparkles",
+   "where": [
+    "scripts/main.gd:7446-7471"
+   ],
+   "now": "code, and 3D debt (MA-2D-002)",
+   "class": "FLAT_FEEDBACK",
+   "severity": "MEDIUM",
+   "available_art": [
+    {
+     "path": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+     "location": "dev",
+     "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+     "size": [
+      128,
+      128
+     ]
+    }
+   ],
+   "action": "WIRE_EXISTING",
+   "brief": null,
+   "package": "P9"
+  },
+  {
+   "id": "JA-FSH-01",
+   "job": "fashion designer",
+   "phase": "wardrobe",
+   "element": "Lock, check, pointer and arrow glyph icons",
+   "where": [
+    "scripts/fashion_wardrobe.gd:196",
+    "scripts/fashion_wardrobe.gd:213-227"
+   ],
+   "now": "emoji and font glyphs (MA-TYPE-004)",
+   "class": "FLAT_SUPPORT",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-08",
+   "package": "P9"
+  },
+  {
+   "id": "JA-FSH-02",
+   "job": "fashion designer",
+   "phase": "equip",
+   "element": "Equip burst",
+   "where": [
+    "scripts/wardrobe_ui.gd:161-214"
+   ],
+   "now": "flat Polygon2D star burst",
+   "class": "FLAT_FEEDBACK",
+   "severity": "LOW",
+   "available_art": [],
+   "action": "IMAGEGEN",
+   "brief": "JB-SHR-04",
+   "package": "P9"
+  },
+  {
+   "id": "JA-ARB-01",
+   "job": "arborist prototype",
+   "phase": "tree book",
+   "element": "Flat mint screen, panel, hill",
+   "where": [
+    "scripts/opera_tree_book_test.gd:330-343"
+   ],
+   "now": "code",
+   "class": "FLAT_CENTRAL",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "COORDINATE",
+   "brief": null,
+   "package": "P9",
+   "note": "In flight: codex/arborist-spray-20261015."
+  },
+  {
+   "id": "JA-ARB-02",
+   "job": "arborist prototype",
+   "phase": "tree book",
+   "element": "Tree choices without alpha show as navy boxes",
+   "where": [
+    "assets/opera/tree_book_test/lagoon_tree_bigleaf_maple.png",
+    "assets/opera/tree_book_test/lagoon_tree_pacific_dogwood.png"
+   ],
+   "now": "no alpha",
+   "class": "MISUSED",
+   "severity": "MEDIUM",
+   "available_art": [],
+   "action": "FIX_USE",
+   "brief": null,
+   "package": "P9"
+  },
+  {
+   "id": "JA-CLN-01",
+   "job": "all careers",
+   "phase": "fallbacks",
+   "element": "Vector-room fallbacks and dormant code fallbacks behind existing PNGs; dead station marker",
+   "where": [
+    "scripts/opera_world_backdrop_2d.gd:364-622",
+    "scripts/opera_career_world_2d.gd:2335-2348"
+   ],
+   "now": "dead or dormant code art",
+   "class": "DEAD_FALLBACK",
+   "severity": "LOW",
+   "available_art": [],
+   "action": "RETIRE",
+   "brief": null,
+   "package": "P10",
+   "note": "Delete after the job's painted art lands; make missing textures fail loudly in probes (BRIEFS C9)."
+  }
+ ],
+ "owner_answers_2026_10_18": {
+  "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+  "Q1": {
+   "answer": "all the above",
+   "decision": "ODR-JOBART-ORDER-20261018"
+  },
+  "Q2": {
+   "answer": "yes",
+   "decision": "ODR-JOBART-DECORATION-20261018"
+  },
+  "Q3": {
+   "answer": "use them",
+   "decision": "ODR-JOBART-NURSERY-FRAMES-20261018"
+  },
+  "Q4": {
+   "answer": "use extra stuffies",
+   "decision": "ODR-JOBART-SHARE-STUFFIES-20261018"
+  },
+  "Q5": {
+   "answer": "yes",
+   "decision": "ODR-JOBART-PROCESS-20261018"
+  }
+ },
+ "packages_note": "Owner answer Q1 2026-10-18 \"all the above\" (ODR-JOBART-ORDER-20261018): every package is first priority; packages editing scripts/opera_gesture_surface.gd (P4, P6, P7, P8) take turns in that file in the listed order.",
+ "revision": 4
+}

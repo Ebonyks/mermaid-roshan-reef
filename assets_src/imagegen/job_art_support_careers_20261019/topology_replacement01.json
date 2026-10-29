@@ -1,0 +1,117 @@
+{
+  "status": "REPLACED_REJECTED_B_KEY",
+  "retained_old_runtime": "assets_src/imagegen/job_art_support_careers_20261019/review/retired_herd_topology01/widget_herd_farmer_b.png",
+  "retained_old_runtime_sha256": "232f7d358f89917f876af62ac14943f0078135fe6ae0065d631189cd31091829",
+  "old_record": {
+    "path": "assets/opera/worlds/support_quality_20261019/widget_herd_farmer_b.png",
+    "sha256": "232f7d358f89917f876af62ac14943f0078135fe6ae0065d631189cd31091829",
+    "dimensions": [
+      512,
+      512
+    ],
+    "source": "assets_src/imagegen/job_art_support_careers_20261019/farmer_herd_step_b_native.png",
+    "source_sha256": "e8a2be54188f9750b625c47c4a80e54ebac9f78fa3fdbd846aac20bfa7c642ab",
+    "source_dimensions": [
+      1254,
+      1254
+    ],
+    "technical_derivation": {
+      "method": "Whole native canvas uniform downsample and common family padding/translation only. No clipping/source paint or alpha removal.",
+      "uniform_native_scale": 0.3428641572242587,
+      "output_whole_size": [
+        430,
+        430
+      ],
+      "output_origin": [
+        41,
+        41
+      ],
+      "reference": "farmer_herd_step_a",
+      "registration_uniform_scale": 0.9997015744959553,
+      "registration_translation_at_512": [
+        -0.021541218565697132,
+        -0.016840731948374696
+      ]
+    },
+    "cutout": {
+      "mode": "RGBA",
+      "transparent_pct": 67.1,
+      "faint_haze_pct_of_canvas": 1.0,
+      "semi_pct_of_visible": 3.6,
+      "near_opaque_pct_of_visible": 93.4,
+      "opaque_255_pct": 0.4,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "content_bbox": [
+        61,
+        105,
+        453,
+        409
+      ],
+      "verdict": "CUTOUT_OK"
+    },
+    "acceptance": "CANDIDATE_PENDING_CURRENT_CONTEXT_MOTION_4.5_DEVICE_OWNER"
+  },
+  "new_record": {
+    "path": "assets/opera/worlds/support_quality_20261019/widget_herd_farmer_b.png",
+    "sha256": "429a506e190275507aecae74ec403d76d36ede870245b458e555beea6f69c7d2",
+    "dimensions": [
+      512,
+      512
+    ],
+    "source": "assets_src/imagegen/job_art_support_careers_20261019/farmer_herd_step_b_cleanup_native.png",
+    "source_sha256": "c5f9eb8751e763504543454916842f4e5fdcca3dc6e4945373a64c0ca8bca3de",
+    "source_dimensions": [
+      1254,
+      1254
+    ],
+    "technical_derivation": {
+      "method": "Whole original native uniformly registered to fixed stepAheads/body, resized/padded only. ImageGen alone repaired the extra hoof; no pixel painting/masking/partwarp in technical export.",
+      "uniform_native_scale": 0.34295126301050766,
+      "output_whole_size": [
+        430,
+        430
+      ],
+      "output_origin": [
+        41,
+        41
+      ],
+      "reference": "farmer_herd_step_a",
+      "registration_uniform_scale": 0.9999555520256153,
+      "registration_translation_at_512": [
+        -0.0799649096118558,
+        -0.04338074888439246
+      ],
+      "fixed_feature_inliers": 229,
+      "fixed_feature_p95_residual_at_512": 1.4415780457285827
+    },
+    "cutout": {
+      "mode": "RGBA",
+      "transparent_pct": 67.2,
+      "faint_haze_pct_of_canvas": 0.9,
+      "semi_pct_of_visible": 3.2,
+      "near_opaque_pct_of_visible": 93.9,
+      "opaque_255_pct": 0.4,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "content_bbox": [
+        61,
+        104,
+        453,
+        409
+      ],
+      "verdict": "CUTOUT_OK"
+    },
+    "acceptance": "CANDIDATE_SOURCE_ANATOMY_REPAIRED_CURRENT_HERD_CAPTURE_MOTION_4.5_PENDING"
+  },
+  "gen_action_cap": "HERD3/4aggregate, B2/2 exhausted; no moreBgen",
+  "limits": "Four foreground limbs now visible in native; fullspeed/framestep/current-context/per-object4.5/device/owner still separate."
+}

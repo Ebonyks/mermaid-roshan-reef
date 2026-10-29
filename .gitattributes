@@ -79,3 +79,6 @@ audit/opera_door_icons_20261017/*.log -text -diff
 audit/opera_door_icons_20261017/*.txt -text -diff
 
 docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/**/*.log -text -diff
+# Beta diagnostic evidence keeps canonical LF text and native warning spacing.
+assets_src/fashion_designer/beta_20261025/verification/*.log -text whitespace=-blank-at-eof,-blank-at-eol,cr-at-eol
+docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/**/*.log -text -diff

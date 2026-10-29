@@ -1,0 +1,61 @@
+{
+  "records": [
+    {
+      "source": "assets_src/imagegen/job_art_support_careers_20261019/doctor_find_concerned_native.png",
+      "reference": "assets_src/imagegen/job_art_support_careers_20261019/doctor_patient_base_native.png",
+      "fixed_feature_domain": "patient",
+      "fixed_inliers": 235,
+      "uniform_scale": 0.9995777904297429,
+      "translation_at_512": [
+        -0.019838030043244345,
+        -0.09071952944892579
+      ],
+      "p95_residual_at_512": 1.2216887689760623,
+      "rotation_diagnostic_degrees": 0.024647406046354365,
+      "method": "Fixed-parts SIFT/ransac diagnostic; constrained whole-picture uniform scale+translation only. No perpart warp/paint/alpha cleanup."
+    },
+    {
+      "source": "assets_src/imagegen/job_art_support_careers_20261019/doctor_find_sleepy_native.png",
+      "reference": "assets_src/imagegen/job_art_support_careers_20261019/doctor_patient_base_native.png",
+      "fixed_feature_domain": "patient",
+      "fixed_inliers": 236,
+      "uniform_scale": 0.9997247748234287,
+      "translation_at_512": [
+        -0.033608171678991286,
+        -0.1029226651688696
+      ],
+      "p95_residual_at_512": 1.3425612319861397,
+      "rotation_diagnostic_degrees": -0.0007870412493768742,
+      "method": "Fixed-parts SIFT/ransac diagnostic; constrained whole-picture uniform scale+translation only. No perpart warp/paint/alpha cleanup."
+    },
+    {
+      "source": "assets_src/imagegen/job_art_support_careers_20261019/doctor_find_happy_cap_native.png",
+      "reference": "assets_src/imagegen/job_art_support_careers_20261019/doctor_patient_base_native.png",
+      "fixed_feature_domain": "patient",
+      "fixed_inliers": 219,
+      "uniform_scale": 0.999981850168567,
+      "translation_at_512": [
+        0.004727160890834484,
+        -0.1634496268818761
+      ],
+      "p95_residual_at_512": 1.3013330750697016,
+      "rotation_diagnostic_degrees": 0.004447796388582563,
+      "method": "Fixed-parts SIFT/ransac diagnostic; constrained whole-picture uniform scale+translation only. No perpart warp/paint/alpha cleanup."
+    },
+    {
+      "source": "assets_src/imagegen/job_art_support_careers_20261019/farmer_herd_step_b_native.png",
+      "reference": "assets_src/imagegen/job_art_support_careers_20261019/farmer_herd_step_a_native.png",
+      "fixed_feature_domain": "herd",
+      "fixed_inliers": 283,
+      "uniform_scale": 0.9997015744959553,
+      "translation_at_512": [
+        -0.021541218565697132,
+        -0.016840731948374696
+      ],
+      "p95_residual_at_512": 1.4363486946954156,
+      "rotation_diagnostic_degrees": 0.035479020908919495,
+      "method": "Fixed-parts SIFT/ransac diagnostic; constrained whole-picture uniform scale+translation only. No perpart warp/paint/alpha cleanup."
+    }
+  ],
+  "limits": "Machine fixed-feature fit only; exact identity/topology/acting/contact/style/motion review separate."
+}

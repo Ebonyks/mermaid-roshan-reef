@@ -1,0 +1,22 @@
+{
+  "status": "STOPPED_BEFORE_WORLD_EDITS",
+  "failure": "Windows defaultcp1252 read of UTF8career_world file raised UnicodeDecodeError. First three written files had reversible encoding misdecode; recovered exact UTF8 by inverse transcoding before continuing. All later edits use explicitUTF8.",
+  "recovered_files": [
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "partial_raw_sha256": "88fb213662696d9aa7234027cbc28ee0e3a1aaff486bfbbec91c848209f9661e",
+      "fixed_utf8_sha256": "f64fcdf753bdc46ca5f0cf81dea11a81e757ea7342ebd0dc47ceb9a0a56bd66e"
+    },
+    {
+      "path": "scripts/support_career_painted_art.gd",
+      "partial_raw_sha256": "2a8fdcb725308ef4c6c1c926b8155a1d76f8dc49a5dd18eb8ff99d41a33d6fe1",
+      "fixed_utf8_sha256": "2a8fdcb725308ef4c6c1c926b8155a1d76f8dc49a5dd18eb8ff99d41a33d6fe1"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "partial_raw_sha256": "477087546f05e2423fb866907a12f3d65dee1c793133cbe64b3ef290c09d28c5",
+      "fixed_utf8_sha256": "477087546f05e2423fb866907a12f3d65dee1c793133cbe64b3ef290c09d28c5"
+    }
+  ],
+  "scope": "No native artwork modified. Final source function diff is computed against exact UTF8gitparent, not misdecoded text."
+}

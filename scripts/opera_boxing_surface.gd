@@ -24,22 +24,10 @@ const STRONG_ASSIST_SECONDS := 10.0
 const COUNTER_SECONDS := 3.2
 const IMP_PATH := "res://assets/opera/worlds/actors/rival_boxer"
 const MITTS_PATH := \
-	"res://assets/opera/worlds/widgets/widget_track_boxer_mover.png"
-const TARGET_PATH := \
-	"res://assets/opera/worlds/widgets/widget_target_boxer_mark.png"
+	"res://assets/opera/worlds/boxer_quality_20261019/focus_mitt.png"
 const BELT_PATH := "res://assets/opera/worlds/props/goal_boxer.png"
-const PUFF_PATH := "res://assets/opera/worlds/props/fx_bop_puff.png"
-const TELEGRAPH_PATH := \
-	"res://assets/opera/worlds/props/fx_telegraph_ring.png"
+const PUFF_PATH := "res://assets/opera/worlds/boxer_quality_20261019/impact_puff.png"
 
-const GLOVE_CORAL := Color("#f27e77")
-const GLOVE_LIGHT := Color("#ffaaa0")
-const GLOVE_SHADOW := Color("#d75f68")
-const CUFF_TEAL := Color("#4ca9a6")
-const CUFF_CORAL := Color("#df716f")
-const PEARL_GOLD := Color("#ffd46a")
-const INK := Color("#382485")
-const BUBBLE := Color("#b9f6ff")
 
 const JAB_TARGETS: Array[Vector2] = [
 	Vector2(0.43, 0.32), Vector2(0.57, 0.32),
@@ -74,11 +62,11 @@ var _elapsed := 0.0
 var _redraw_t := 0.0
 var _saw_screen_touch := false
 
+var _painted_gloves: Array[Texture2D] = []
+var _feedback_pictures: PaintedFeedbackArt = null
 var _mitts_texture: Texture2D = null
-var _target_texture: Texture2D = null
 var _belt_texture: Texture2D = null
 var _puff_texture: Texture2D = null
-var _telegraph_texture: Texture2D = null
 var _imp_textures: Dictionary = {}
 var _pop_player: AudioStreamPlayer = null
 var _bonk_player: AudioStreamPlayer = null
@@ -251,12 +239,13 @@ func _load_texture(path: String) -> Texture2D:
 
 
 func _load_resources() -> void:
+	if _painted_gloves.is_empty():
+		_painted_gloves.append(_load_texture("res://assets/opera/worlds/boxer_quality_20261019/glove_left.png"))
+		_painted_gloves.append(_load_texture("res://assets/opera/worlds/boxer_quality_20261019/glove_right.png"))
 	if _mitts_texture == null:
 		_mitts_texture = _load_texture(MITTS_PATH)
-		_target_texture = _load_texture(TARGET_PATH)
 		_belt_texture = _load_texture(BELT_PATH)
 		_puff_texture = _load_texture(PUFF_PATH)
-		_telegraph_texture = _load_texture(TELEGRAPH_PATH)
 	for state: String in [
 		"idle", "windup", "charge", "recover", "guard", "stagger",
 		"taunt", "bopped", "bow",
@@ -611,25 +600,23 @@ func _belt_rect() -> Rect2:
 
 
 func _draw() -> void:
-	# The approved 2K boxer painting remains the stage. This surface adds only
-	# interaction ink, targets, two vector gloves, the approved imp, and FX.
-	draw_rect(Rect2(Vector2.ZERO, size), Color(0.02, 0.03, 0.14, 0.06), true)
+	# Authored pictures retain their own light. Invitation pixels sit behind
+	# the actual mitt, opponent or buckle, never as ink over their faces.
 	_draw_progress_lights()
-	_draw_punch_lanes()
 	match mode:
 		"boxing_guide":
-			_draw_mitts()
 			for hand in range(2):
 				_draw_target(guide_target_position(hand), _guide_done[hand])
-		"boxing_jab":
 			_draw_mitts()
+		"boxing_jab":
 			_draw_target(active_target_position(), false)
+			_draw_mitts()
 		"boxing_guard":
 			_draw_counter()
 		"boxing_imp":
-			_draw_boxer_imp()
-			if imp_is_open():
+			if imp_is_open() or _imp_state == "windup":
 				_draw_target(active_target_position(), false)
+			_draw_boxer_imp()
 		"boxing_belt":
 			_draw_belt()
 	for hand in range(2):
@@ -642,57 +629,43 @@ func _draw() -> void:
 		_draw_demo()
 
 
+func _pictures() -> PaintedFeedbackArt:
+	if _feedback_pictures == null:
+		_feedback_pictures = PaintedFeedbackArt.new()
+	return _feedback_pictures
+
+
 func _draw_progress_lights() -> void:
 	var count := _mode_goal()
 	var step := 34.0
 	var start_x := (size.x - step * float(count - 1)) * 0.5
+	var working := not touch_owners.is_empty() 		and maxf(_glove_depth(0), _glove_depth(1)) > 0.1
 	for index in range(count):
 		var at := Vector2(start_x + float(index) * step, 28.0)
-		var done := index < _round_index
-		draw_circle(at, 11.0, Color(INK, 0.82))
-		draw_circle(at, 7.0, PEARL_GOLD if done else Color(BUBBLE, 0.38))
-		if done:
-			draw_circle(at - Vector2(2.0, 2.0), 2.2, Color.WHITE)
+		var state := "full" if index < _round_index else (
+			"filling" if index == _round_index and working else "empty")
+		_pictures().pearl(self, at, state, 30.0)
 
 
-func _draw_punch_lanes() -> void:
-	if mode == "boxing_guard":
-		return
-	for hand in range(2):
-		var start := glove_rest_position(hand)
-		var target := guide_target_position(hand) if mode == "boxing_guide" \
-			else active_target_position()
-		var color := Color(BUBBLE, 0.23 if glove_fingers[hand] == -1 else 0.42)
-		draw_line(start, target, color, 8.0, true)
-		for marker in range(1, 4):
-			var amount := float(marker) / 4.0
-			var at := start.lerp(target, amount)
-			draw_circle(at, 10.0 + amount * 10.0, Color(color, color.a * 0.55), false, 3.0, true)
+
 
 
 func _draw_mitts() -> void:
 	if _mitts_texture == null:
 		return
-	var side := minf(350.0, size.y * 0.52)
-	var rect := Rect2(Vector2(size.x * 0.5 - side * 0.5, size.y * 0.31 - side * 0.5),
-		Vector2.ONE * side)
-	draw_texture_rect(_mitts_texture, rect, false, Color.WHITE)
+	var side := minf(180.0, size.y * 0.26)
+	var targets: Array[Vector2] = [active_target_position()]
+	if mode == "boxing_guide":
+		targets = [guide_target_position(0), guide_target_position(1)]
+	for target: Vector2 in targets:
+		# The authored shell medallion is the actual existing hit centre.
+		draw_texture_rect(_mitts_texture,
+			Rect2(target - Vector2(0.5, 0.516) * side, Vector2.ONE * side), false)
 
 
 func _draw_target(at: Vector2, completed: bool) -> void:
-	var pulse := 1.0 + sin(_elapsed * 5.0) * 0.08
-	var radius := _target_radius() * pulse
-	var color := PEARL_GOLD if completed else Color("#fff1a6")
-	draw_circle(at, radius * 0.82, Color(color, 0.13))
-	draw_arc(at, radius, 0.0, TAU, 48, Color(color, 0.82), 7.0, true)
-	draw_arc(at, radius * 0.68, 0.0, TAU, 40, Color(BUBBLE, 0.54), 4.0, true)
-	if _target_texture != null:
-		var side := radius * 0.92
-		draw_texture_rect(_target_texture,
-			Rect2(at - Vector2.ONE * side * 0.5, Vector2.ONE * side), false,
-			Color(color, 0.92 if not completed else 0.62))
-	if completed:
-		_draw_star(at, 28.0, Color.WHITE)
+	var key := int(floor(_elapsed / 0.22)) % 4
+	_pictures().invitation(self, at, _target_radius() * 2.2, key, completed)
 
 
 func _draw_counter() -> void:
@@ -702,22 +675,7 @@ func _draw_counter() -> void:
 	var amount := clampf(1.0 - _counter_t / COUNTER_SECONDS, 0.0, 1.0)
 	var eased := amount * amount * (3.0 - 2.0 * amount)
 	var counter := origin.lerp(target, eased)
-	if _telegraph_texture != null:
-		var ring_side := 120.0 + amount * 50.0
-		draw_texture_rect(_telegraph_texture,
-			Rect2(counter - Vector2.ONE * ring_side * 0.5, Vector2.ONE * ring_side),
-			false, Color(PEARL_GOLD, 0.46))
-	draw_circle(counter, 34.0 + amount * 18.0, Color(GLOVE_CORAL, 0.92))
-	draw_arc(counter, 34.0 + amount * 18.0, 0.0, TAU, 32, INK, 6.0, true)
-	var arrow_end := target - Vector2(0.0, 76.0)
-	draw_line(origin, arrow_end, Color(PEARL_GOLD, 0.62), 8.0, true)
-	var direction := (arrow_end - origin).normalized()
-	var perpendicular := Vector2(-direction.y, direction.x)
-	var arrow := PackedVector2Array([
-		arrow_end, arrow_end - direction * 28.0 + perpendicular * 18.0,
-		arrow_end - direction * 28.0 - perpendicular * 18.0,
-	])
-	draw_colored_polygon(arrow, PEARL_GOLD)
+	_paint_glove(1, counter, 160.0 * (0.78 + amount * 0.25), 0.0)
 
 
 func _draw_boxer_imp() -> void:
@@ -730,21 +688,13 @@ func _draw_boxer_imp() -> void:
 	if texture != null:
 		draw_texture_rect(texture,
 			Rect2(center - Vector2.ONE * side * 0.5, Vector2.ONE * side), false)
-	if _imp_state == "windup" and _telegraph_texture != null:
-		var pulse := 190.0 + sin(_elapsed * 10.0) * 20.0
-		draw_texture_rect(_telegraph_texture,
-			Rect2(center - Vector2.ONE * pulse * 0.5, Vector2.ONE * pulse), false,
-			Color(PEARL_GOLD, 0.66))
-	if _imp_state == "recover":
-		draw_arc(active_target_position(), _target_radius() + 24.0,
-			0.0, TAU, 48, Color(PEARL_GOLD, 0.84), 9.0, true)
 
 
 func _draw_belt() -> void:
+	_draw_target(active_target_position(), finished)
 	var rect := _belt_rect()
 	if _belt_texture != null:
 		draw_texture_rect(_belt_texture, rect, false)
-	_draw_target(active_target_position(), finished)
 
 
 func _glove_depth(hand: int) -> float:
@@ -758,48 +708,24 @@ func _glove_depth(hand: int) -> float:
 		0.0, 1.0)
 
 
+func _paint_glove(hand: int, at: Vector2, side: float, angle: float) -> void:
+	if hand < 0 or hand >= _painted_gloves.size() or _painted_gloves[hand] == null:
+		return
+	draw_set_transform(at, angle)
+	draw_texture_rect(_painted_gloves[hand],
+		Rect2(-Vector2(0.49, 0.43) * side, Vector2.ONE * side), false)
+	draw_set_transform(Vector2.ZERO)
+
+
 func _draw_glove(hand: int) -> void:
 	var position := glove_positions[hand]
 	var depth := _glove_depth(hand)
 	var scale_value := 0.92 + depth * 0.38
 	if _impact_t > 0.0 and position.distance_to(_impact_position) < 130.0:
 		scale_value += sin((_impact_t / 0.52) * PI) * 0.10
-	var mirror := 1.0 if hand == 0 else -1.0
-	var angle := (-0.08 if hand == 0 else 0.08) \
-		+ clampf((pointer_pos.x - position.x) / maxf(1.0, size.x), -0.08, 0.08)
-	draw_set_transform(position + Vector2(0.0, 15.0), angle,
-		Vector2(mirror * scale_value, scale_value))
-	draw_circle(Vector2(-4.0, -12.0), 54.0, Color(0.06, 0.03, 0.16, 0.20))
-	draw_circle(Vector2(23.0, -32.0), 35.0, Color(0.06, 0.03, 0.16, 0.20))
-	draw_circle(Vector2(38.0, 5.0), 28.0, Color(0.06, 0.03, 0.16, 0.20))
-	draw_set_transform(position, angle, Vector2(mirror * scale_value, scale_value))
-	# Compound circles give the fist a smooth storybook silhouette without
-	# deriving or regenerating the approved fused glove bitmap.
-	draw_circle(Vector2(-4.0, -12.0), 55.0, INK)
-	draw_circle(Vector2(22.0, -34.0), 36.0, INK)
-	draw_circle(Vector2(37.0, 5.0), 29.0, INK)
-	draw_rect(Rect2(-34.0, 18.0, 61.0, 35.0), INK, true)
-	draw_circle(Vector2(-4.0, -12.0), 49.0, GLOVE_CORAL)
-	draw_circle(Vector2(20.0, -33.0), 30.0, GLOVE_CORAL)
-	draw_circle(Vector2(35.0, 5.0), 23.0, GLOVE_SHADOW)
-	draw_rect(Rect2(-28.0, 17.0, 53.0, 34.0), GLOVE_CORAL, true)
-	draw_arc(Vector2(35.0, 5.0), 23.0, -1.3, 1.8, 20, INK, 4.0, true)
-	draw_arc(Vector2(-5.0, -28.0), 28.0, -2.8, -0.25, 20,
-		Color(GLOVE_LIGHT, 0.68), 5.0, true)
-	draw_line(Vector2(-17.0, -10.0), Vector2(18.0, -6.0),
-		Color(GLOVE_SHADOW, 0.74), 3.5, true)
-	var cuff := CUFF_CORAL if hand == 0 else CUFF_TEAL
-	draw_rect(Rect2(-35.0, 32.0, 70.0, 31.0), INK, true)
-	draw_rect(Rect2(-30.0, 36.0, 60.0, 22.0), cuff, true)
-	draw_line(Vector2(-30.0, 36.0), Vector2(30.0, 36.0),
-		Color("#fff1c9"), 2.0, true)
-	draw_circle(Vector2.ZERO + Vector2(0.0, 47.0), 12.0, PEARL_GOLD)
-	draw_arc(Vector2(0.0, 47.0), 12.0, 0.0, TAU, 20, INK, 3.2, true)
-	for ray in [-0.75, -0.25, 0.25, 0.75]:
-		var direction := Vector2(sin(float(ray)), -cos(float(ray)))
-		draw_line(Vector2(0.0, 49.0), Vector2(0.0, 49.0) + direction * 7.0,
-			Color("#fff0bd"), 2.4, true)
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	var angle := (-0.08 if hand == 0 else 0.08) 		+ clampf((pointer_pos.x - position.x) / maxf(1.0, size.x), -0.08, 0.08)
+	# Separate original left/right art: no mirror or independently deformed cuff.
+	_paint_glove(hand, position, 168.0 * scale_value, angle)
 
 
 func _draw_impact() -> void:
@@ -809,24 +735,16 @@ func _draw_impact() -> void:
 		draw_texture_rect(_puff_texture,
 			Rect2(_impact_position - Vector2.ONE * side * 0.5, Vector2.ONE * side),
 			false, Color(1.0, 1.0, 1.0, 1.0 - amount * 0.55))
-	else:
-		draw_arc(_impact_position, 42.0 + amount * 80.0, 0.0, TAU, 32,
-			Color(BUBBLE, 1.0 - amount), 8.0, true)
 
 
 func _draw_friendly_hit() -> void:
 	var amount := clampf(hit_feedback_t / 0.78, 0.0, 1.0)
 	var center := Vector2(size.x * 0.5, size.y * 0.64)
-	for index in range(8):
-		var angle := float(index) / 8.0 * TAU + _elapsed * 0.8
-		var radius := 100.0 + float(index % 3) * 28.0
-		var bubble := center + Vector2.from_angle(angle) * radius
-		draw_circle(bubble, 10.0 + float(index % 2) * 6.0,
-			Color(BUBBLE, amount * 0.62), false, 4.0, true)
-	for index in range(5):
-		var star_angle := float(index) / 5.0 * TAU - _elapsed
-		_draw_star(center + Vector2.from_angle(star_angle) * 76.0,
-			13.0, Color(PEARL_GOLD, amount))
+	if _puff_texture != null:
+		var side := 170.0 + (1.0 - amount) * 60.0
+		draw_texture_rect(_puff_texture,
+			Rect2(center - Vector2.ONE * side * 0.5, Vector2.ONE * side),
+			false, Color(1.0, 1.0, 1.0, amount))
 
 
 func _draw_demo() -> void:
@@ -840,22 +758,17 @@ func _draw_demo() -> void:
 		hand = _guard_side
 		start = glove_rest_position(hand)
 		target = guard_target_position(hand)
-	elif mode == "boxing_belt":
-		target = active_target_position()
 	var travel := clampf(cycle / 0.72, 0.0, 1.0)
 	travel = travel * travel * (3.0 - 2.0 * travel)
 	var at := start.lerp(target, travel)
-	draw_line(start, target, Color(PEARL_GOLD, 0.34), 6.0, true)
-	draw_circle(at, 31.0, Color(PEARL_GOLD, 0.24))
-	draw_circle(at, 18.0, Color(1.0, 0.97, 0.82, 0.92))
-	draw_arc(at, 31.0 + sin(_elapsed * 7.0) * 4.0,
-		0.0, TAU, 28, Color(PEARL_GOLD, 0.82), 5.0, true)
+	var texture := _pictures().art("res://assets/opera/worlds/teacher/guide_hand.png")
+	if texture != null:
+		var side := 58.0
+		draw_set_transform(at, PI)
+		draw_texture_rect(texture, Rect2(-Vector2(0.436523, 0.986328) * side,
+			Vector2.ONE * side), false)
+		draw_set_transform(Vector2.ZERO)
 
 
-func _draw_star(center: Vector2, radius: float, color: Color) -> void:
-	var points := PackedVector2Array()
-	for index in range(10):
-		var use_radius := radius if index % 2 == 0 else radius * 0.45
-		points.append(center + Vector2.from_angle(-PI * 0.5 + float(index) * PI / 5.0)
-			* use_radius)
-	draw_colored_polygon(points, color)
+
+

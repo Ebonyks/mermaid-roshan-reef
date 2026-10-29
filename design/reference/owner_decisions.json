@@ -595,6 +595,182 @@
       "checks": [],
       "checkable": false,
       "cycle": "opera-icons-20261017"
+    },
+    {
+      "id": "ODR-MINIGAME-REBUILD-20261017",
+      "date": "2026-10-17",
+      "subject": "Pop Star, Ballerina and Racer quality (owner verdict, DL-QA-06)",
+      "question": "Direct owner request to analyse and redesign the weakest minigames; no question was asked.",
+      "decision": "Pop Star, Ballerina and Racer are the weakest minigames, their current versions are very weak, and they must be completely rebuilt from the ground up; several other games in the set are superior. The Pop Star's note-memory echo is a usable mechanic even though its shell is poor. The specific redesigns are proposals awaiting the owner's answers; no new design, art or build is accepted.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_request.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014",
+        "MA-OPERA-005"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "id": "ODR-POPSTAR-CORE-20261018",
+      "date": "2026-10-18",
+      "subject": "Pop Star rebuild core loop",
+      "question": "Owner question Q1 in docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md section 6 (revision 1); the owner chose the default.",
+      "decision": "Rebuild the Pop Star around the timed echo plus play-along choruses: the band plays a one-bar call and Roshan answers it on her drums in the next bar, with ribbon play-along choruses between verses.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "id": "ODR-POPSTAR-SONG-20261018",
+      "date": "2026-10-18",
+      "subject": "Pop Star rebuild song",
+      "question": "Owner question Q2 in docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md section 6 (revision 1); the owner chose the default.",
+      "decision": "Use a new concert arrangement of the existing Starlight Singalong first; use Iko Iko for the Day Two story only once its game-use rights are confirmed.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "id": "ODR-POPSTAR-BAND-20261018",
+      "date": "2026-10-18",
+      "subject": "Pop Star rebuild band",
+      "question": "Owner question Q3 in docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md section 6 (revision 1); the owner chose the default.",
+      "decision": "Daddy (ukulele) and Baby Eagle (bass) are the free-play Pop Star band.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "id": "ODR-BALLET-CONCEPT-20261018",
+      "date": "2026-10-18",
+      "subject": "Ballerina rebuild concept",
+      "question": "Owner question Q4 in docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md section 6 (revision 1); the owner chose the default.",
+      "decision": "Rebuild the Ballerina as the music-box ballet: the child dances each step at her own pace on Roshan, whose animation lands on the beat; make-your-own-dance comes later as an encore.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014",
+        "MA-OPERA-005"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "id": "ODR-RACER-VIEW-20261018",
+      "date": "2026-10-18",
+      "subject": "Racer rebuild view",
+      "question": "Owner question Q5 in docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md section 6 (revision 1); the owner chose the default.",
+      "decision": "Rebuild the Racer as the side-scrolling three-lane race (Reef Grand Prix) rather than a following camera over the existing painted circuit.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "date": "2026-10-18",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-JOBART-ORDER-20261018",
+      "subject": "Job-art repair order",
+      "question": "Q1: Which jobs first? (default: Geologist and Teacher, then Astronaut and Chef, then Nursery and Boxer, then the rest)",
+      "decision": "The owner answered \"all the above\": every listed job package is first priority and none is deferred.",
+      "cycle": "job-art-imagegen-20261018"
+    },
+    {
+      "date": "2026-10-18",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-JOBART-DECORATION-20261018",
+      "subject": "Decorative code layers in job scenes",
+      "question": "Q2: Ambient doodles, spotlights and sparkle rings drawn over the jobs: remove them, or repaint them as painted effects? (default: remove the spotlights, backdrop stripes and ambient doodles from job scenes; replace the invitation halo and sparkles with one painted ring and sparkle family)",
+      "decision": "The owner answered \"yes\", accepting the stated default: remove the spotlights, backdrop stripes and ambient doodles from job scenes, and replace the invitation halo and sparkles with one painted ring and sparkle family.",
+      "cycle": "job-art-imagegen-20261018"
+    },
+    {
+      "date": "2026-10-18",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-JOBART-NURSERY-FRAMES-20261018",
+      "subject": "Stranded Nursery Roshan frames",
+      "question": "Q3: The stranded Nursery care and wash frames show Roshan in the older career design; use them, or regenerate them following the base-world child (ODR-ROSHAN-Q13)?",
+      "decision": "The owner answered \"use them\": the stranded Nursery care and wash frames are used as they are.",
+      "cycle": "job-art-imagegen-20261018"
+    },
+    {
+      "date": "2026-10-18",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-JOBART-SHARE-STUFFIES-20261018",
+      "subject": "Candymaker SHARE recipients",
+      "question": "Q4: Candymaker SHARE needs six friends: new painted sea friends, or the protected family friend portraits?",
+      "decision": "The owner answered \"use extra stuffies\": the SHARE recipients are stuffies, not new painted sea creatures and not the protected friend portraits.",
+      "cycle": "job-art-imagegen-20261018"
+    },
+    {
+      "date": "2026-10-18",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-JOBART-PROCESS-20261018",
+      "subject": "Codex job-art working process",
+      "question": "Q5: May Codex work in one branch per package, with one impact record and green CI before merging, and stop publishing per-step receipts for internal work? (external handoffs keep the full GitHub delivery rule)",
+      "decision": "The owner answered \"yes\": Codex works one branch per package with one impact record and green CI before merging, and stops publishing per-step receipts for internal work; external handoffs keep the full GitHub delivery rule.",
+      "cycle": "job-art-imagegen-20261018"
+    },
+    {
+      "id": "ODR-SKY-OBJECTS-UNACCEPTED-20261018",
+      "subject": "Earlier Sky Lagoon object animations",
+      "question": "Do the existing Sky Lagoon v3 object animations (and earlier layers/objects) already cover the alive-painting work?",
+      "decision": "The owner answered: the objects \"never passed audit due to flaws in ltx 2.5 workflows not producing quality products\". The v3 objects and their predecessors are not a runtime source; new whole-drawing frames need a different, piloted method.",
+      "source": "docs/handoffs/codex_sky_lagoon_alive_2026-10-18/README.md#owner-corrections",
+      "checks": [],
+      "checkable": false,
+      "authority": "recorded_owner",
+      "date": "2026-10-18",
+      "cycle": "sky-lagoon-alive-20261018"
+    },
+    {
+      "id": "ODR-RUMI-REVISION-HANDOFF-20261017",
+      "date": "2026-10-17",
+      "authority": "recorded_owner",
+      "subject": "Rumi under-pool book: plot, world and game-integration revision",
+      "question": "Owner direction for the commissioned under-pool book after the 2026-10-12 visual/detective edition.",
+      "decision": "Owner: the book \"needs significant plot revisions, and developments to be able to integrate smoothly into the game environment\"; \"Focus on producing rich, robust undersea world, the inspirations are clearly in the comics, but they appear narrow, and a bathhouse scene is not truly developed. Also, not nearly enough plotting to hold together such a long book.\" Analyse traditional comics for pacing and style and draft solutions as a Codex handoff. Commissions analysis and a written handoff; accepts no story, art or runtime change and commissions no playable chapter.",
+      "source": "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md#owner-request-2026-10-17",
+      "checks": [],
+      "checkable": false,
+      "cycle": "rumi-revision-20261017"
     }
   ]
 }

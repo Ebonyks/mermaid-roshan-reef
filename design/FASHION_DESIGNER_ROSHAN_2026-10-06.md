@@ -518,3 +518,57 @@ Published-head CI is recorded separately in the PR. Full-pose fit/motion,
 Daddy headpiece phone-size legibility, device performance/readability, spoken
 cues, child and owner acceptance remain pending. No master promotion or
 master-audit satisfaction is claimed.
+
+
+## Beta wardrobe expansion - 2026-10-25
+
+The owner reports that Roshan enjoys dress-up and commissions more costumes and
+an integrated, polished GUI as a beta requirement. This bounded expansion begins
+at integration `9c78f6aa9981cad8caae576c4f1c541c32f247e4`; it does not accept the
+older studies or commission a new story mission. The
+[beta impact](audit_impacts/fashion-beta-20261025.json) records exact scope,
+changed-file coverage and evidence.
+
+Four new painted sets add twelve independent pieces for all three mermaids:
+ballet, magician, candy and astronaut. Ballet and magician are starter choices;
+Candy Maker and Astronaut stars grant their matching head, body and tail pieces
+through existing durable career bits. No new save key, star bit or mask is needed.
+Old choices, unknown future fields, original art and animation bindings remain.
+The catalogue extends all thirteen existing character-image families with 156
+layers; it retains all previous item definitions, registration and layer paths.
+
+The wardrobe reuses the approved painted paper/card art with six direct choices
+per page, a larger single current-look preview, cropped face selectors and clear
+selected frames. Pictured Head, Body and Tail tabs remain independent. Pagination
+has large previous/next buttons and a small supporting counter. An opaque calm
+backing hides world hints. One painted pointer identifies the live required
+party/practice target; it does not point at every option. Tap remains sufficient;
+owner touch cancellation is neutral, including a later stale release.
+
+Existing scene props and clothing were inventoried first. None supplied the twelve
+independent garments needed by these four themes. ImageGen provided twelve named
+static native pieces; their exact prompts, style references and native hashes are
+preserved in `assets_src/fashion_designer/beta_20261025/generation_manifest.json`.
+The new bake uses the complete trimmed garment rectangle in the unchanged source
+masks, excludes skin/hands and preserves silhouettes. It applies no blanket opacity
+reduction. This material fitting is not evidence of a silhouette transplant or
+accepted full-pose fit. Offline raw-image warnings do not apply to runtime imports.
+No protected originals or selected story clips are modified; no on-device AI runs.
+
+The focused actual-input probe passes cancellation, six-card reachability,
+all-three-character starter selections, earned unlocks and transactional mixed
+outfit reload. Independent read-only provenance/geometry checks cover 156 layers
+and 1,752 fitted cells, with four corruption-control tests. Desktop Mobile captures
+use synthetic unlocks and an isolated profile. Full-suite/published-head results
+belong to the impact and machine receipt. Full-pose visual/motion review, physical
+phone performance/readability, spoken cues, child and owner beta acceptance remain
+pending. Machine passes establish no numerical art score or master-audit closure.
+The first interrupted focused run is retained alongside the successful isolated
+rerun; the historical desktop-profile uncertainty remains unchanged.
+
+The final beta candidate passes the complete exact Godot4.7.2 local82-probe
+suite with all process exits0 and 193 unchanged frozen runtime/source inputs.
+The [machine receipt](../assets_src/fashion_designer/beta_20261025/verification/machine_receipt.json)
+binds the log, input fixture, source hashes and earlier failed attempts. Exact
+published-head CI is tracked by the PR/Actions as a separate later lane; all
+visual/device/child/owner acceptance limits above remain.

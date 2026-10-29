@@ -1,0 +1,113 @@
+{
+  "status": "FAIL",
+  "baseline": "2d91d85f20271d109c5a8dc90390de15925a4b24",
+  "incoming_dev": "4d0983755d91686b671fe48c0efa748c7cc40498",
+  "index_tree": "e586f841e8fa77128003ce6248588943fe0deaa4",
+  "started_at_utc": "2026-10-29T05:07:12.333841+00:00",
+  "completed_at_utc": "2026-10-29T05:07:41.622489+00:00",
+  "elapsed_probe_seconds": 29.287,
+  "probe_count": 3,
+  "passed_count": 2,
+  "results": [
+    {
+      "probe": "probe_reef_districts",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_reef_districts.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "timeout_after_verdict_accepted": false,
+      "elapsed_seconds": 6.908,
+      "failure_lines": [],
+      "output_nonempty": true,
+      "positive_verdict_observed": true,
+      "passed": true,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-pan-resume-20261029\\probe_resume\\probe_reef_districts\\engine.log",
+      "log_sha256": "97a6d8b58ab878973011b9bddb5709bdfdafcc6fd2f58069e7826b2cb095c0bd"
+    },
+    {
+      "probe": "probe_ocean_kingdoms",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_ocean_kingdoms.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "timeout_after_verdict_accepted": false,
+      "elapsed_seconds": 8.5,
+      "failure_lines": [],
+      "output_nonempty": true,
+      "positive_verdict_observed": true,
+      "passed": true,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-pan-resume-20261029\\probe_resume\\probe_ocean_kingdoms\\engine.log",
+      "log_sha256": "df234d3d43c3aa502846363ab085a2cdb54b8b65e295a3444595f275951f7b59"
+    },
+    {
+      "probe": "probe_audit",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 4294967295,
+      "timeout_after_verdict_accepted": false,
+      "elapsed_seconds": 10.76,
+      "failure_lines": [],
+      "output_nonempty": true,
+      "positive_verdict_observed": false,
+      "passed": false,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-pan-resume-20261029\\probe_resume\\probe_audit\\engine.log",
+      "log_sha256": "ff59a5a793db214b4845b45c6e8e25921e4d53366f4dfe90899bf04a2fab99d6"
+    }
+  ],
+  "runtime_changes": [],
+  "sidecar_changes": [],
+  "normal_before": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "normal_after": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "normal_unchanged": true,
+  "original_full_CI": "FAIL retained; no retrospective success claim.",
+  "qualification": "Machine validation of actual reconciled pan candidate only; formalQA11/device/child/owner/global closure remain open."
+}

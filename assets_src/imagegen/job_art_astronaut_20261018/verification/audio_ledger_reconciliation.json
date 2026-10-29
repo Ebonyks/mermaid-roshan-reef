@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "baseline": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
+  "rows": 857,
+  "changes": [
+    {
+      "path": "assets/audio/ambience_lagoon.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "2",
+          "3"
+        ]
+      }
+    },
+    {
+      "path": "assets/audio/castle/bubble_water.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "9",
+          "10"
+        ]
+      }
+    },
+    {
+      "path": "assets/audio/castle/curtain_swish.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "12",
+          "13"
+        ]
+      }
+    },
+    {
+      "path": "assets/audio/chime.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "11",
+          "12"
+        ]
+      }
+    },
+    {
+      "path": "assets/audio/hop_boing.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "9",
+          "10"
+        ]
+      }
+    },
+    {
+      "path": "assets/audio/ui_tap.ogg",
+      "fields": {
+        "runtime_reference_count": [
+          "13",
+          "14"
+        ]
+      }
+    }
+  ],
+  "scope": "All857audio hashes/current filename counts verified; same six inherited count-only maintenance fields. No audio/source/listening measurements changed."
+}

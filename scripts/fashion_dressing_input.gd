@@ -75,6 +75,10 @@ func _input(event: InputEvent) -> void:
 	if _pointer(event) != int(drag["pointer"]):
 		viewport.set_input_as_handled()
 		return
+	if event is InputEventScreenTouch and (event as InputEventScreenTouch).canceled:
+		cancel(true)
+		viewport.set_input_as_handled()
+		return
 	var point: Vector2 = _point(event)
 	var stage: Control = m.wd.get("stage") as Control
 	var ghost: TextureRect = drag.get("ghost") as TextureRect

@@ -3,7 +3,7 @@ extends RefCounted
 ## Independent clothing policy; durable choices and transient texture cache stay on main.
 const PEOPLE: Array[String] = ["roshan", "rumi", "daddy_mermaid"]
 const SLOTS: Array[String] = ["head", "body", "tail"]
-const CATALOG: FashionSkinCatalog = preload("res://assets/fashion/slots_v1/catalog.tres")
+const CATALOG: FashionSkinCatalog = preload("res://assets/fashion/beta_20261025/catalog.tres")
 
 static func definition(id: String) -> Dictionary:
 	for entry: Dictionary in CATALOG.data.get("items", []):
@@ -47,8 +47,9 @@ static func items(person: String, slot: String) -> Array[Dictionary]:
 	return result
 
 static func _rank(item: Dictionary) -> int:
-	var kinds: Array[String] = ["original","royal","pearl","ribbon","party","garden","disguise","star","blossom","winter","strawberry","chef","painter"]
-	return kinds.find(String(item["kind"]))
+	var kinds: Array[String] = ["original","royal","pearl","ribbon","ballet","magician","party","garden","disguise","star","blossom","winter","strawberry","chef","painter","candy","astronaut"]
+	var rank: int = kinds.find(String(item["kind"]))
+	return rank if rank >= 0 else kinds.size()
 
 static func refresh_unlocks(main: ReefMain) -> void:
 	for item: Dictionary in CATALOG.data.get("items", []):
@@ -56,6 +57,8 @@ static func refresh_unlocks(main: ReefMain) -> void:
 		var earned: bool = (main.chapter2_farmer_strawberries_ready or (main.opera_stars & (1 << ChapterTwoDirector.ACT_FARMER)) != 0 or FashionDesigner.owned(main,"roshan_garden_v1")) if theme == "strawberry" else false
 		if theme == "chef": earned = main.chapter2_chef_cake_baked or (main.opera_stars & (1 << ChapterTwoDirector.ACT_CHEF)) != 0
 		if theme == "painter": earned = (main.opera_stars & (1 << ChapterTwoDirector.ACT_PAINTER)) != 0
+		if theme == "candy": earned = (main.opera_stars & (1 << ChapterTwoDirector.ACT_CANDY_MAKER)) != 0
+		if theme == "astronaut": earned = (main.opera_stars & (1 << ChapterTwoDirector.ACT_ASTRONAUT)) != 0
 		if earned:
 			FashionDesigner.grant(main, String(item["id"]))
 

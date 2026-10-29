@@ -1,0 +1,50 @@
+{
+  "status": "PASS_AFTER_METADATA_COVERAGE_REPAIR",
+  "records": [
+    {
+      "index": 0,
+      "log": "assets_src/imagegen/job_art_chef_20261019/verification/publication_gate_0.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result": "PASS"
+    },
+    {
+      "index": 1,
+      "log": "assets_src/imagegen/job_art_chef_20261019/verification/publication_gate_1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result": "PASS"
+    },
+    {
+      "index": 2,
+      "log": "assets_src/imagegen/job_art_chef_20261019/verification/publication_gate_2.log",
+      "sha256": "88d93c318ac80175272114e61d76ed4b6f0e65e479fb07c3647f8228283ecb6e",
+      "result": "PASS"
+    },
+    {
+      "index": 3,
+      "log": "assets_src/imagegen/job_art_chef_20261019/verification/publication_gate_3.log",
+      "sha256": "97ed21bfe49d8e2146c3e7ce788db79d674c2210e247ed0c411ffad4951447b7",
+      "result": "PASS"
+    },
+    {
+      "index": 4,
+      "log": "assets_src/imagegen/job_art_chef_20261019/verification/publication_gate_4.log",
+      "sha256": "03642b04f6dd63b44829d298d5f4eded9b05dc434625881fdaaff7ebdd534cd8",
+      "result": "PASS"
+    },
+    {
+      "index": 5,
+      "log": "assets_src/imagegen/job_art_chef_20261019/verification/publication_gate_5.log",
+      "sha256": "e5a956b1d4f6c64347f0732c4fee99514afabd153c7ccc63f705d118ce089657",
+      "result": "FAIL_COVERAGE_LOG_PATHS_NOT_YET_LISTED"
+    },
+    {
+      "index": 6,
+      "log": "assets_src/imagegen/job_art_chef_20261019/verification/publication_gate_6.log",
+      "sha256": "41794c97dbb48f7bfada561b7074ed76386cbe8ef16e6a64a67b7b3457437f92",
+      "result": "PASS"
+    }
+  ],
+  "static": "Parser/inference,11strict-builder unit tests,42derivatives,authority pass in original logs0..4. Gate5 found only5new log paths missing from impact; retained failure, then reserved all final paths and gate6passed.",
+  "full82": "full_ci_native_capture_02 PASS; all runtime/art pins rechecked unchanged.",
+  "remote": "PENDING topic publication exact-head CI; not integrated."
+}
