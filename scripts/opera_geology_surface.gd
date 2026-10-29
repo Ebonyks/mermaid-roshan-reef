@@ -37,8 +37,8 @@ const GEODE_SEAM_SPOTS: Array[Vector2] = [
 	Vector2(766.0, 216.0), Vector2(735.0, 278.0), Vector2(778.0, 340.0),
 	Vector2(744.0, 401.0), Vector2(770.0, 466.0),
 ]
-## Approved vectors remain runtime authority until the new raster candidates
-## pass alpha/native-resolution review. Never load rejected checkerboard art.
+## Unreplaced fossil and rock illustrations remain measured art-replacement debt.
+## Never load the rejected checkerboard source studies.
 const FOSSIL_PATH := "res://assets/opera/worlds/hotspots/geologist_fossil.svg"
 const GEODE_PATH := ""
 const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg"
@@ -47,6 +47,7 @@ const PAN_PATH := "res://assets/opera/worlds/props/geologist_washing_pan_painted
 ## Whole painted cutout region in its preserved 1254-square source; import is 1024.
 const PAN_ART_REGION := Rect2(58.0, 315.0, 1138.0, 652.0)
 const PAN_ART_SOURCE_SIZE := Vector2(1254.0, 1254.0)
+const MINERAL_MINT_PATH := "res://assets/opera/worlds/props/geologist_mineral_mint_painted.png"
 const CRYSTALS_PATH := "res://assets/opera/worlds/props/goal_geologist.svg"
 
 var fossil_texture: Texture2D = null
@@ -54,6 +55,7 @@ var geode_texture: Texture2D = null
 var rock_texture: Texture2D = null
 var brush_texture: Texture2D = null
 var pan_texture: Texture2D = null
+var mineral_mint_texture: Texture2D = null
 var crystals_texture: Texture2D = null
 
 var touch_owner := -1
@@ -259,6 +261,13 @@ func _load_textures() -> void:
 		painted_pan.diffuse_texture = painted_source
 		painted_pan.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		pan_texture = painted_pan
+	var mineral_source: Texture2D = _optional_texture(MINERAL_MINT_PATH)
+	assert(mineral_source != null, "Geologist mint mineral artwork is required")
+	if mineral_source != null:
+		var painted_mineral := CanvasTexture.new()
+		painted_mineral.diffuse_texture = mineral_source
+		painted_mineral.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		mineral_mint_texture = painted_mineral
 	crystals_texture = _optional_texture(CRYSTALS_PATH)
 
 
@@ -793,8 +802,11 @@ func _draw_pan() -> void:
 		draw_circle(grain_pos, 6.0, Color("#d5a761"))
 	for index in range(pan_minerals):
 		var mineral_center := center + Vector2(-82.0 + float(index) * 82.0, 34.0)
-		_draw_mineral(mineral_center, 23.0,
-			Color.from_hsv(0.47 + float(index) * 0.12, 0.40, 1.0))
+		if index == 0:
+			_draw_mint_mineral(mineral_center, 28.0)
+		else:
+			_draw_mineral(mineral_center, 23.0,
+				Color.from_hsv(0.47 + float(index) * 0.12, 0.40, 1.0))
 
 
 func _draw_geode() -> void:
@@ -894,6 +906,16 @@ func _draw_ellipse(center: Vector2, radii: Vector2, fill: Color,
 		var closed := points.duplicate()
 		closed.append(points[0])
 		draw_polyline(closed, outline, outline_width, true)
+
+
+func _draw_mint_mineral(center: Vector2, radius: float) -> void:
+	if mineral_mint_texture == null:
+		return
+	# Preserve the complete painted specimen, its transparent margin and one scale.
+	var painted_size: Vector2 = mineral_mint_texture.get_size()
+	painted_size *= radius * 2.0 / maxf(painted_size.x, painted_size.y)
+	draw_texture_rect(mineral_mint_texture,
+		Rect2(center - painted_size * 0.5, painted_size), false)
 
 
 func _draw_mineral(center: Vector2, radius: float, color: Color) -> void:

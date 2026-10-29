@@ -1,0 +1,74 @@
+{
+  "id": "FV-66629DC58A20",
+  "baseline": "e69b50b5e74d02f55985c7b87cf1f2271b91d452",
+  "scope": "Replace the first mint specimen in Geologist PAN using its existing Aseprite-cleaned painted candidate. Blue/lavender specimens, crystal gallery, cave/panel/sediment and full-route gaps remain open.",
+  "source_revision": "1f4127e1e9da75d6bc397f81544ed9b4bb2b6f0b",
+  "source_path": "assets_src/flat_vector_geologist_mineral_20261017/matte01/mineral_mint_alpha.png",
+  "source_sha256": "f66227e25ecccf8783b992f66d044da7444618c38ae3696ab62f51e52dc60013",
+  "method": "Direct reuse, deterministic Aseprite whole-canvas bilinear export into512square with8percent margin; no new painted/generative pixels or identity change. Native source/Aseprite master/two raw takes stay preserved at immutable source revision.",
+  "runtime_asset": "assets/opera/worlds/props/geologist_mineral_mint_painted.png",
+  "reference_scene": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/e69b50b5e74d02f55985c7b87cf1f2271b91d452/docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/native",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-READ-02",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010",
+    "MA-OPERA-004"
+  ],
+  "evidence_required": [
+    "CUTOUT_OK plus actual512x512alpha/margin/import/mipmap verification",
+    "Same scene four PAN states at1280x720/1600x720; actual imported pixels; ten-axis comparison to immutable R101 baseline",
+    "Nonvisual behavior/functions and save/input/progression unchanged; no flat mint fallback",
+    "Exact4.7.2 Mobile/Speedy applicable focused/full and source-bound currentCI beforeDev",
+    "Mandatory authority/coverage and anonymous actual-manifest delivery"
+  ],
+  "raw_takes_already_used": 2,
+  "new_ImageGen_calls": 0,
+  "no_cap_reset": true,
+  "formal_QA11_device_child_owner": "PENDING",
+  "accepted_removed": 0,
+  "started_at_utc": "2026-10-29T05:56:41.914935+00:00",
+  "runtime_canvas": [
+    512,
+    512
+  ],
+  "runtime_draw_canvas_size": [
+    56,
+    56
+  ],
+  "runtime_visible_body_approx": [
+    43.4,
+    45.5
+  ],
+  "runtime_alpha_margin": [
+    57,
+    48,
+    58,
+    48
+  ],
+  "runtime_fit": "Complete512square canvas, one scale, original mineral center; original input geometry unchanged. Margin counterbalance keeps visible specimen near old silhouette.",
+  "specific_brief_checks": [
+    "C2 CUTOUT_OK; alpha margins>=40pixels",
+    "C3 512square for small object",
+    "C9 required load asserted; mint draw path has no flat fallback"
+  ],
+  "current_cutout_profile": "assets_src/flat_vector_geologist_mineral_runtime_20261029/CUTOUT_PROFILE.json"
+}
