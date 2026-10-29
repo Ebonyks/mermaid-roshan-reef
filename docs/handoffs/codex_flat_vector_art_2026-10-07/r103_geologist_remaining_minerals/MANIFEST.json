@@ -1,0 +1,643 @@
+{
+  "schema": "reef.runtime_trial_delivery/1",
+  "revision": "FV-AUDIT-20261029-R103",
+  "baseline": "9a067a1b84d80a5500772a15d0420cfe86b15fdb",
+  "files": [
+    {
+      "revision": null,
+      "path": "ASSET_LICENSES.md",
+      "bytes": 5389446,
+      "sha256": "854deb2e5844ca7cb8f9f610483a5f490b2ce5ed89f14307e32dfa06506fe398",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/CONTEXT.json",
+      "bytes": 15685,
+      "sha256": "93c6b7f8a7118ef1ef9bbece43821d3b71bd241ed695cb0a16ea1cdbd33c35a2",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/READABILITY_RECEIPT.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/READABILITY_ROLE.json",
+      "bytes": 1031,
+      "sha256": "05329ceb295dfc4146db6ec5d3d74b9ca14fe8aeccd05c4fadba69793c655a85",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/PROMPT_TAKE01.txt",
+      "bytes": 1621,
+      "sha256": "0d09496af56610ccfc73b47ba7f1e6a01ddb42c5a7dec5dc0221d6142abb41ba",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/ASEPRITE_RECEIPT.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/DERIVATION.json",
+      "bytes": 3144,
+      "sha256": "e203770745bacb5e73188b20e5499f942bc4717aa9ffcab600086233e8073703",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/mineral_blue_512.png",
+      "bytes": 217534,
+      "sha256": "44dc6cbe03143b0f89ec1bc57ce7e737a68752bd40ad8a37ebe471bf49d7b190",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/mineral_native.aseprite",
+      "bytes": 1626451,
+      "sha256": "22df8e9d6b698b6f52987241aabd1a88fa228c5a0440fc877e47fcc21a8a3747",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/native_roundtrip_proof.png",
+      "bytes": 1047475,
+      "sha256": "579fbec2f65508117cf29f7cf15b1421a10773112b06d01265b735607727a973",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/take01/CUTOUT_PROFILE.json",
+      "bytes": 316,
+      "sha256": "e726a2582096390f93a022f04df6b734b7e7ced802c9c3cd07400615e68eaec7",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/take01/native.png",
+      "bytes": 1080626,
+      "sha256": "c30d9e92331aab39344797fecee8939de865c8f4aacb8472a720afe1260a6935",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/export_variants.lua",
+      "bytes": 472,
+      "sha256": "535aab37102762fe5b8d7198a1646f069e9db26d497c7de96b188f293a9ef4b6",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/inputs/mint_current.png",
+      "bytes": 265095,
+      "sha256": "ccfff113ae678e150e2b0ba0d54bfda3071c7102f0e05cd0c850044f19dcc390",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/inputs/pan_complete_context_1280.png",
+      "bytes": 251258,
+      "sha256": "e0263ca62a085720973ec628b1ca59f3185aad92f982f6351bda61e3e0e15dee",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/PROMPT_TAKE01.txt",
+      "bytes": 1617,
+      "sha256": "943600fb91a53dc2c1e1bbda664f19a792397ab5219d4afc84d2e6fe2cf40622",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/ASEPRITE_RECEIPT.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/DERIVATION.json",
+      "bytes": 3188,
+      "sha256": "6aabb4d16133f99774b26ae085045cc063b95890f08fd6789a5d2a74e5947273",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/mineral_lavender_512.png",
+      "bytes": 214071,
+      "sha256": "cea8f66b34e657f8216f0038adefee38624a1e2900e365b55aa15169be60b20f",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/mineral_native.aseprite",
+      "bytes": 1618814,
+      "sha256": "17d3473a951ea121a8d5cca270dd525692d0846890397ef95f2eda4342ecd60a",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/native_roundtrip_proof.png",
+      "bytes": 1021926,
+      "sha256": "52ea45d01ccdaf723bf9b8ee410feec6fa017b2e3710fc29fe071f910fc33917",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/take01/CUTOUT_PROFILE.json",
+      "bytes": 316,
+      "sha256": "4c0fe4e73d0da594251b5262946a4b7e5c27e847fd83bef76d91f7b3f4692bbb",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/take01/native.png",
+      "bytes": 1072220,
+      "sha256": "4fda49ae61d423062cdd0094159371c643bbbca22bcfa8d8639790c94d49e1a1",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/readability_proof.lua",
+      "bytes": 547,
+      "sha256": "0ae2c318924517451ff0b633ac19fde3f81d8a7bec00ba9aee04b1c2e58853bd",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/readability_proof.png",
+      "bytes": 122739,
+      "sha256": "9a15f2804511a1827a2ac7443f39be9c94ca3f2776bc5a397aed64f5220aa445",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297706,
+      "sha256": "13f7e2e1a128ab1c80678aae1159f01e89b640973b488bf66b86de3ce5a8f5b6",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 280044,
+      "sha256": "be07b87ebc6087df3e0ccb89cf1cb15fe97bed9320ade8b774ae7f4d4bc7f0a7",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 321551,
+      "sha256": "e6987018ab69d7d3803050f5546b0134ccaf311ac7413896ec45b1f7810c9a94",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 268155,
+      "sha256": "2ac2859d4f596ab24222dd85b401d50e40c8aaf32bd423f2a3482fba0ad81454",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 107370,
+      "sha256": "5510bce9eca4ad00c0c427ce1ddc3cc2eed82d471220bff14e5a6615ebda76fc",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/CANONICAL_GATES.json",
+      "bytes": 929,
+      "sha256": "aa86841c2716fbb9050822bf6b453074f2e315501fdd0f674ba4993782852984",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/MINT_DEV_INTEGRATION.json",
+      "bytes": 2619,
+      "sha256": "ee67dcbeec369ab32837820f06a4e49c0567970f3ddd1aaa33e2b2dda5a0e620",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/MINT_SOURCE_CI_GREEN.json",
+      "bytes": 9920,
+      "sha256": "a7975d3aa85f70bbd7b9fc900d457d7f1e7c4de7cbc6a918b8db40aeae4c84ad",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/PLAN.json",
+      "bytes": 3682,
+      "sha256": "a2fc506ec4f823b9f50277d813f59af0f14c073d0a69e11676b2349a5f61c3db",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/PRODUCTION.json",
+      "bytes": 2613,
+      "sha256": "6da0ea604ea42920155a823639842311d20a2a72c6e6126c3d8291d1a8c81aa5",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/README.md",
+      "bytes": 1914,
+      "sha256": "3679b0b6c5ed828d4f4c01fccf8875e9ff56b4e6e3dda7b521df499de4ed6c1d",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/SOURCE_REVIEW.json",
+      "bytes": 2429,
+      "sha256": "441951ef2f43e829e5de0afdb3a07f5e0c4c21dbce6d32c74d98934cfe128ea2",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 27168,
+      "sha256": "9d5673965b7c4311bc22f2535e4c33b5f5a9a3ea84db6bc3f628e2e99eea6eaf",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 1703844,
+      "sha256": "cfad7b7e5e884c27d95a1fa50043f816133bab89e0a9464cd2c2748c418261ef",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1047412,
+      "sha256": "9b90ea2107500cf28473be2fea878948f576fe5fb79d7b7d4973ee681f45d161",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 479100,
+      "sha256": "69f9eca574b39310a39b34ea5460a26b16bb6f5e666b4441ff2769557b25b49d",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/audit_impacts/flat-vector-r103-geologist-mineral-source-20261029.json",
+      "bytes": 6407,
+      "sha256": "fb353f82d784b44a94836b243813b62421a86f3fe2e1f94b9242dc712e44f943",
+      "role": "Verified current canonical production/context/count delta"
+    },
+    {
+      "revision": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+      "path": "scripts/opera_geology_surface.gd",
+      "bytes": 34683,
+      "sha256": "b1290e7e336e1c6f7c44c97d8c1fef029954611000ee1a958b207273d8f406f2",
+      "role": "Direct exact first-mint Dev runtime byte proof; historical full source receipt cited immutably"
+    },
+    {
+      "revision": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+      "path": "assets/opera/worlds/props/geologist_mineral_mint_painted.png",
+      "bytes": 265095,
+      "sha256": "ccfff113ae678e150e2b0ba0d54bfda3071c7102f0e05cd0c850044f19dcc390",
+      "role": "Direct exact first-mint Dev runtime byte proof; historical full source receipt cited immutably"
+    },
+    {
+      "revision": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+      "path": "assets/opera/worlds/props/geologist_mineral_mint_painted.png.import",
+      "bytes": 1021,
+      "sha256": "40f8f90d0913138d6fadecf375798301db38734cb068c948a26affa728982682",
+      "role": "Direct exact first-mint Dev runtime byte proof; historical full source receipt cited immutably"
+    }
+  ],
+  "required_files": 47,
+  "required_bytes": 18819254,
+  "scope": "Current canonical production delta and selected direct current source/native evidence. Painted source candidates, technical exports, references and proofs plus direct mint runtime byte proof. Historical full delivery is an immutable citation, not a recursive dependency.",
+  "actual_runtime_source": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+  "source_CI_evidence": {
+    "conclusion": "success",
+    "createdAt": "2026-10-29T07:29:55Z",
+    "event": "push",
+    "headBranch": "codex/flat-vector-geologist-mineral-runtime-20261029",
+    "headSha": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+    "jobs": [
+      {
+        "completedAt": "2026-10-29T08:25:02Z",
+        "conclusion": "success",
+        "databaseId": 123320190690,
+        "name": "probes",
+        "startedAt": "2026-10-29T07:29:57Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-29T07:29:59Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-29T07:29:58Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T07:38:11Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 2,
+            "startedAt": "2026-10-29T07:29:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T07:38:13Z",
+            "conclusion": "success",
+            "name": "Download Godot (checksum-verified)",
+            "number": 3,
+            "startedAt": "2026-10-29T07:38:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T07:40:53Z",
+            "conclusion": "success",
+            "name": "Static gates (parse + Variant-inference lint)",
+            "number": 4,
+            "startedAt": "2026-10-29T07:38:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T07:43:51Z",
+            "conclusion": "success",
+            "name": "Import (deadlock-guarded)",
+            "number": 5,
+            "startedAt": "2026-10-29T07:40:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T07:55:15Z",
+            "conclusion": "success",
+            "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+            "number": 6,
+            "startedAt": "2026-10-29T07:43:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:13:16Z",
+            "conclusion": "success",
+            "name": "Run trusted probes",
+            "number": 7,
+            "startedAt": "2026-10-29T07:55:15Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:13:32Z",
+            "conclusion": "success",
+            "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+            "number": 8,
+            "startedAt": "2026-10-29T08:13:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:18:38Z",
+            "conclusion": "success",
+            "name": "Dust boss balance playtest (advisory)",
+            "number": 9,
+            "startedAt": "2026-10-29T08:13:32Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:18:48Z",
+            "conclusion": "success",
+            "name": "Opera balance playtest (advisory)",
+            "number": 10,
+            "startedAt": "2026-10-29T08:18:38Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:18:52Z",
+            "conclusion": "success",
+            "name": "Publish opera art manifest (advisory)",
+            "number": 11,
+            "startedAt": "2026-10-29T08:18:48Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:18:53Z",
+            "conclusion": "success",
+            "name": "Upload opera art manifest",
+            "number": 12,
+            "startedAt": "2026-10-29T08:18:52Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:18:53Z",
+            "conclusion": "success",
+            "name": "Capture first-world visual review",
+            "number": 13,
+            "startedAt": "2026-10-29T08:18:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:20:28Z",
+            "conclusion": "success",
+            "name": "Capture legacy human-art diagnostic",
+            "number": 14,
+            "startedAt": "2026-10-29T08:18:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:20:30Z",
+            "conclusion": "success",
+            "name": "Upload legacy human-art diagnostic",
+            "number": 15,
+            "startedAt": "2026-10-29T08:20:28Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:20:46Z",
+            "conclusion": "success",
+            "name": "Capture Sky Lagoon visual review",
+            "number": 16,
+            "startedAt": "2026-10-29T08:20:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:20:49Z",
+            "conclusion": "success",
+            "name": "Upload Sky Lagoon visual review",
+            "number": 17,
+            "startedAt": "2026-10-29T08:20:46Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:21:57Z",
+            "conclusion": "success",
+            "name": "Capture northern-world visual review",
+            "number": 18,
+            "startedAt": "2026-10-29T08:20:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:21:59Z",
+            "conclusion": "success",
+            "name": "Upload northern-world visual review",
+            "number": 19,
+            "startedAt": "2026-10-29T08:21:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:24:41Z",
+            "conclusion": "success",
+            "name": "Capture dust-boss arena review",
+            "number": 20,
+            "startedAt": "2026-10-29T08:21:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:24:43Z",
+            "conclusion": "success",
+            "name": "Upload dust-boss arena review",
+            "number": 21,
+            "startedAt": "2026-10-29T08:24:41Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:24:57Z",
+            "conclusion": "success",
+            "name": "Capture pearl-castle visual review",
+            "number": 22,
+            "startedAt": "2026-10-29T08:24:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:24:59Z",
+            "conclusion": "success",
+            "name": "Upload pearl-castle visual review",
+            "number": 23,
+            "startedAt": "2026-10-29T08:24:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:25:00Z",
+            "conclusion": "success",
+            "name": "Upload advisory sensor receipts",
+            "number": 24,
+            "startedAt": "2026-10-29T08:24:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:25:00Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 48,
+            "startedAt": "2026-10-29T08:25:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T08:25:00Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 49,
+            "startedAt": "2026-10-29T08:25:00Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40835803523/job/123320190690"
+      },
+      {
+        "completedAt": "2026-10-29T07:40:58Z",
+        "conclusion": "success",
+        "databaseId": 123320191027,
+        "name": "area-music-provenance",
+        "startedAt": "2026-10-29T07:29:58Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-29T07:29:59Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-29T07:29:58Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T07:39:13Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 2,
+            "startedAt": "2026-10-29T07:29:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T07:39:54Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+            "number": 3,
+            "startedAt": "2026-10-29T07:39:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T07:40:53Z",
+            "conclusion": "success",
+            "name": "Verify deterministic area-music delivery",
+            "number": 4,
+            "startedAt": "2026-10-29T07:39:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T07:40:54Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+            "number": 7,
+            "startedAt": "2026-10-29T07:40:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T07:40:56Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 8,
+            "startedAt": "2026-10-29T07:40:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-29T07:40:56Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 9,
+            "startedAt": "2026-10-29T07:40:56Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40835803523/job/123320191027"
+      }
+    ],
+    "status": "completed",
+    "updatedAt": "2026-10-29T08:25:02Z",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40835803523"
+  },
+  "new_generation_calls": 2,
+  "new_bounded_source_artifacts": 0,
+  "new_native_frame_events": 0,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

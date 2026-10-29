@@ -1,0 +1,78 @@
+{
+  "schema": "reef.source_art_production/1",
+  "stable_id": "FV-66629DC58A20",
+  "scope": "Two remaining PAN colour variants, blue and lavender, of the already-documented mineral token. First-mint brief is closed and its two takes stay preserved. No runtime writes while the existing source8f86192b CI/integration continuation is healthy.",
+  "canonical_baseline": "9a067a1b84d80a5500772a15d0420cfe86b15fdb",
+  "actual_rendered_context_source": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+  "inputs": [
+    {
+      "source_revision": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+      "source_path": "assets/opera/worlds/props/geologist_mineral_mint_painted.png",
+      "copied_path": "assets_src/imagegen/geologist_remaining_minerals_20261029/inputs/mint_current.png",
+      "sha256": "ccfff113ae678e150e2b0ba0d54bfda3071c7102f0e05cd0c850044f19dcc390",
+      "bytes": 265095,
+      "role": "Read-only painted family source for a separate blue/lavender variant; original mint stays unchanged",
+      "bound_to_imagegen": true,
+      "protected_original": false,
+      "source_modified": false
+    },
+    {
+      "source_revision": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r102_geologist_mint_runtime/native/1280/04_pan_complete.png",
+      "copied_path": "assets_src/imagegen/geologist_remaining_minerals_20261029/inputs/pan_complete_context_1280.png",
+      "sha256": "e0263ca62a085720973ec628b1ca59f3185aad92f982f6351bda61e3e0e15dee",
+      "bytes": 251258,
+      "role": "Actual Main/PAN configured completion context and neighboring artwork; inspected by Codex, NOT bound as ImageGen pixels",
+      "bound_to_imagegen": false,
+      "protected_original": false,
+      "source_modified": false
+    }
+  ],
+  "additional_viewed_style_anchor": {
+    "source_revision": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+    "path": "assets/opera/worlds/props/goal_chef.png",
+    "sha256": "cb28da49b252769ef143d75ddb890d2350cebf6e12aca33a875c88b04ff33467",
+    "role": "Approved painted prop finish, visually inspected only; not bound to ImageGen"
+  },
+  "source_character_or_HUD_pixels_bound": false,
+  "budget": {
+    "authority": "Owner2026-10-17 alljob painted quality direction; current BRIEFS C7 default two per brief. No separately funded animation task is used.",
+    "closed_mint_brief_takes_used": 2,
+    "closed_mint_brief_new_calls": 0,
+    "new_briefs": {
+      "blue": {
+        "target": "separate blue specimen, not mint repair",
+        "maximum_takes": 2,
+        "attempts_started": 0,
+        "completed_outputs": 0
+      },
+      "lavender": {
+        "target": "separate lavender specimen, not mint repair",
+        "maximum_takes": 2,
+        "attempts_started": 0,
+        "completed_outputs": 0
+      }
+    },
+    "no_cap_reset_or_backend_switch": true,
+    "reported_monetary_usage": null
+  },
+  "mode": "Built-in image_gen edit producing separate variants; no CLI fallback, code-drawn substitute or uniform runtime tint.",
+  "actual_model_selector_exposed": false,
+  "model_version": "Record only if returned; never infer2.5",
+  "runtime_batch_reserved_branch": "codex/flat-vector-geologist-mineral-runtime-20261029",
+  "runtime_batch_current_source_ci": 40835803523,
+  "runtime_and_current_mint_originals_unchanged": true,
+  "generation_calls_here": 0,
+  "new_role_or_family_credit": 0,
+  "new_native_frame_events": 0,
+  "new_bounded_implementation_artifacts": 0,
+  "accepted_removed": 0,
+  "candidate": "PENDING",
+  "integration": null,
+  "runtime": null,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "created_at_utc": "2026-10-29T08:15:28.257675+00:00"
+}

@@ -1,0 +1,53 @@
+{
+  "stable_id": "FV-66629DC58A20",
+  "scope": "Two remaining blue/lavender PAN specimen source variants of the existing named mineral role. Not a new artwork-role denominator.",
+  "candidate": "TWO_PAINTED_VARIANTS_CUTOUT_OK_WITH_NATIVE_MASTERS_AND_512_EXPORTS",
+  "source_context_revision": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+  "source_context": "assets_src/imagegen/geologist_remaining_minerals_20261029/inputs/pan_complete_context_1280.png",
+  "source_context_sha256": "e0263ca62a085720973ec628b1ca59f3185aad92f982f6351bda61e3e0e15dee",
+  "outputs": [
+    {
+      "variant": "blue",
+      "native": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/take01/native.png",
+      "native_sha256": "c30d9e92331aab39344797fecee8939de865c8f4aacb8472a720afe1260a6935",
+      "export": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/mineral_blue_512.png",
+      "export_sha256": "44dc6cbe03143b0f89ec1bc57ce7e737a68752bd40ad8a37ebe471bf49d7b190",
+      "native_master": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/mineral_native.aseprite",
+      "takes_used": 1,
+      "takes_cap": 2,
+      "cutout": "CUTOUT_OK"
+    },
+    {
+      "variant": "lavender",
+      "native": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/take01/native.png",
+      "native_sha256": "4fda49ae61d423062cdd0094159371c643bbbca22bcfa8d8639790c94d49e1a1",
+      "export": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/mineral_lavender_512.png",
+      "export_sha256": "cea8f66b34e657f8216f0038adefee38624a1e2900e365b55aa15169be60b20f",
+      "native_master": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/mineral_native.aseprite",
+      "takes_used": 1,
+      "takes_cap": 2,
+      "cutout": "CUTOUT_OK"
+    }
+  ],
+  "generation_calls_this_revision": 2,
+  "closed_mint_brief_calls_new": 0,
+  "known_family_generation_calls_total": 4,
+  "actual_backend": "Built-in image_gen; no model selector. Output exposes image_url and output_hint only; model/version/requestID/seed/usage not returned.",
+  "source_review": "docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/SOURCE_REVIEW.json",
+  "technical_exports": 2,
+  "native_masters": 2,
+  "proof_images": 3,
+  "input_copies": 2,
+  "new_native_frame_events": 0,
+  "new_bounded_source_artifacts": 0,
+  "new_roles": 0,
+  "new_families": 0,
+  "integration": null,
+  "runtime": null,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

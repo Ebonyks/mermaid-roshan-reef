@@ -401,6 +401,8 @@ R101 Dev integration update2026-10-29: [Painted pan](../../docs/handoffs/codex_f
 
 R102 partialproduction2026-10-29: [Firstmint actualruntime source](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r102_geologist_mint_runtime/README.md), local82/static/import and66configurednativechecks/8reviewedframes pass; fullsourcedelivery anonymous exact. Only firstmint. Othercolours/sharedcallers andsourceCI/Dev/formalQA11/device/child/owner remain pending; lifecycle unchanged, acceptedremoved0.
 
+R103 production2026-10-29: [Blue/lavender mineral sources](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/README.md) preserve two native outputs and512exports, actual scene source/ten-axis comparison, one take per separate variant. Mint exact-green8f source is now Dev-integrated. No new whole-role/accepted-removal claim; lifecycle unchanged.
+
 ## MA-VIS-007
 
 | Field | Value |

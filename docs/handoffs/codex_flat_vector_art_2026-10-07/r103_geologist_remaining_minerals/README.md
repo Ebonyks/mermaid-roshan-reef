@@ -1,0 +1,9 @@
+# Blue and lavender Geologist minerals
+
+Two painted colour variants now have preserved native outputs, editable Aseprite masters and transparent512-square exports. They replace the documented remaining flat mineral drawings when the next runtime change lands. [Production record](PRODUCTION.json), [ten-axis source comparison](SOURCE_REVIEW.json), [actual inputs and backend limits](../../../../assets_src/imagegen/geologist_remaining_minerals_20261029/CONTEXT.json) and [delivery manifest](MANIFEST.json) keep source readiness separate from acceptance.
+
+Each separate blue/lavender brief used one take of its two-take cap. The earlier mint-only two-take brief remains closed and its originals/rejects remain preserved. The built-in tool returned no model/version/requestID; no claim of version2.5 is made. Source C2 checks pass, with no crop, alpha threshold, recolouring or code-drawn replacement in technical export. The opaque readability proof is source-only and never generation or delivery pixels.
+
+The existing first mint is now integrated into Dev at exact source8f86192be96dcdfc59b9f1c87899c4df015548a8 after source CI40835803523 succeeded. [Integration proof](MINT_DEV_INTEGRATION.json) and [CI proof](MINT_SOURCE_CI_GREEN.json) are preserved. This adds one partial Dev artifact once: six bounded source implementation artifacts, five partial Dev artifacts. The two new unconsumed source outputs add no implementation/artwork-role credit and no gameplay frame events. Retained events remain6665bounded/4134excluded/10799total; known-role/family lower bounds263/35 remain unchanged. Accepted removals and formal runtime replacements remain zero.
+
+Actual blue/lavender runtime integration, scene fit in both aspects and all action states, formal QA11, device, child and owner acceptance are pending. Flat cave/panel/sediment and other game-wide inventories remain open. Exact new Dev APK is not verified.

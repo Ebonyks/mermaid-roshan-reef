@@ -1,0 +1,314 @@
+{
+  "schema": "reef.source_art_production/1",
+  "stable_id": "FV-66629DC58A20",
+  "scope": "Two remaining PAN colour variants, blue and lavender, of the already-documented mineral token. First-mint brief is closed and its two takes stay preserved. No runtime writes while the existing source8f86192b CI/integration continuation is healthy.",
+  "canonical_baseline": "9a067a1b84d80a5500772a15d0420cfe86b15fdb",
+  "actual_rendered_context_source": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+  "inputs": [
+    {
+      "source_revision": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+      "source_path": "assets/opera/worlds/props/geologist_mineral_mint_painted.png",
+      "copied_path": "assets_src/imagegen/geologist_remaining_minerals_20261029/inputs/mint_current.png",
+      "sha256": "ccfff113ae678e150e2b0ba0d54bfda3071c7102f0e05cd0c850044f19dcc390",
+      "bytes": 265095,
+      "role": "Read-only painted family source for a separate blue/lavender variant; original mint stays unchanged",
+      "bound_to_imagegen": true,
+      "protected_original": false,
+      "source_modified": false
+    },
+    {
+      "source_revision": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r102_geologist_mint_runtime/native/1280/04_pan_complete.png",
+      "copied_path": "assets_src/imagegen/geologist_remaining_minerals_20261029/inputs/pan_complete_context_1280.png",
+      "sha256": "e0263ca62a085720973ec628b1ca59f3185aad92f982f6351bda61e3e0e15dee",
+      "bytes": 251258,
+      "role": "Actual Main/PAN configured completion context and neighboring artwork; inspected by Codex, NOT bound as ImageGen pixels",
+      "bound_to_imagegen": false,
+      "protected_original": false,
+      "source_modified": false
+    }
+  ],
+  "additional_viewed_style_anchor": {
+    "source_revision": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+    "path": "assets/opera/worlds/props/goal_chef.png",
+    "sha256": "cb28da49b252769ef143d75ddb890d2350cebf6e12aca33a875c88b04ff33467",
+    "role": "Approved painted prop finish, visually inspected only; not bound to ImageGen"
+  },
+  "source_character_or_HUD_pixels_bound": false,
+  "budget": {
+    "authority": "Owner2026-10-17 alljob painted quality direction; current BRIEFS C7 default two per brief. No separately funded animation task is used.",
+    "closed_mint_brief_takes_used": 2,
+    "closed_mint_brief_new_calls": 0,
+    "new_briefs": {
+      "blue": {
+        "target": "separate blue specimen, not mint repair",
+        "maximum_takes": 2,
+        "attempts_started": 1,
+        "completed_outputs": 1,
+        "state": "PAINTED_SOURCE_AND_512_EXPORT_CUTOUT_OK_ACTUAL_NEWUSE_RUNTIME_PENDING",
+        "started_at_utc": "2026-10-29T08:22:40.807140+00:00",
+        "prompt_sha256": "0d09496af56610ccfc73b47ba7f1e6a01ddb42c5a7dec5dc0221d6142abb41ba",
+        "take01": {
+          "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/take01/native.png",
+          "sha256": "c30d9e92331aab39344797fecee8939de865c8f4aacb8472a720afe1260a6935",
+          "bytes": 1080626,
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            0,
+            0,
+            1214,
+            1224
+          ],
+          "alpha_corners": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "source_file_preserved": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-dbdb18eb-e95c-4490-9908-84db162c9dee.png",
+          "local_tool_output_id": "exec-dbdb18eb-e95c-4490-9908-84db162c9dee",
+          "provider_request_id": "Not returned; local output UUID is not provider identity",
+          "backend": "built-in image_gen",
+          "model_or_revision": "Not returned",
+          "seed": "Not returned",
+          "reported_usage": null,
+          "tool_wall_seconds_observed": 43.3,
+          "prompt_file": "blue/PROMPT_TAKE01.txt",
+          "prompt_sha256": "0d09496af56610ccfc73b47ba7f1e6a01ddb42c5a7dec5dc0221d6142abb41ba",
+          "inspected": "Displayed generated native; formal source/cutout review next",
+          "completed_at_utc": "2026-10-29T08:25:41.357145+00:00",
+          "cutout_profile": {
+            "mode": "RGBA",
+            "transparent_pct": 58.9,
+            "faint_haze_pct_of_canvas": 0.3,
+            "semi_pct_of_visible": 0.7,
+            "near_opaque_pct_of_visible": 98.5,
+            "opaque_255_pct": 0.1,
+            "corner_alpha": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "content_bbox": [
+              133,
+              113,
+              1119,
+              1142
+            ],
+            "verdict": "CUTOUT_OK"
+          },
+          "source_bytes_unchanged_after_profile": true
+        },
+        "technical_export": {
+          "variant": "blue",
+          "source": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/take01/native.png",
+          "source_sha256": "c30d9e92331aab39344797fecee8939de865c8f4aacb8472a720afe1260a6935",
+          "source_unchanged": true,
+          "master": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/mineral_native.aseprite",
+          "master_sha256": "22df8e9d6b698b6f52987241aabd1a88fa228c5a0440fc877e47fcc21a8a3747",
+          "native_roundtrip_proof": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/native_roundtrip_proof.png",
+          "native_roundtrip_sha256": "579fbec2f65508117cf29f7cf15b1421a10773112b06d01265b735607727a973",
+          "native_visible_RGBA_exact_pixels": 640545,
+          "native_visible_RGBA_changed_pixels": 0,
+          "hidden_or_faint_RGBA_different_pixels": 0,
+          "output": "assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/mineral_blue_512.png",
+          "output_sha256": "44dc6cbe03143b0f89ec1bc57ce7e737a68752bd40ad8a37ebe471bf49d7b190",
+          "output_canvas": [
+            512,
+            512
+          ],
+          "method": "Whole1254-square source uniformly resized to512square with Aseprite bilinear, no crop, repaint, recolour, threshold, or additional composited pixels. Runtime derivative is resampled, not raw-pixel identical.",
+          "cutout_profile": {
+            "mode": "RGBA",
+            "transparent_pct": 59.0,
+            "faint_haze_pct_of_canvas": 0.3,
+            "semi_pct_of_visible": 0.9,
+            "near_opaque_pct_of_visible": 98.3,
+            "opaque_255_pct": 0.0,
+            "corner_alpha": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "content_bbox": [
+              54,
+              46,
+              457,
+              466
+            ],
+            "verdict": "CUTOUT_OK"
+          },
+          "tool": "Aseprite 1.3.18.4-x64",
+          "tool_sha256": "e320ffdf2663dc39b012c5791dd0ac5cec64b3621b7f3bb82b5f02b6c73483bf",
+          "script_sha256": "535aab37102762fe5b8d7198a1646f069e9db26d497c7de96b188f293a9ef4b6",
+          "command": [
+            "C:\\Program Files\\Aseprite\\Aseprite.exe",
+            "--batch",
+            "--script-param",
+            "source=C:/Users/Peter/.codex/worktrees/flat-vector-r6-20261012/mermaid-roshan-reef/assets_src/imagegen/geologist_remaining_minerals_20261029/blue/take01/native.png",
+            "--script-param",
+            "master=C:/Users/Peter/.codex/worktrees/flat-vector-r6-20261012/mermaid-roshan-reef/assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/mineral_native.aseprite",
+            "--script-param",
+            "roundtrip=C:/Users/Peter/.codex/worktrees/flat-vector-r6-20261012/mermaid-roshan-reef/assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/native_roundtrip_proof.png",
+            "--script-param",
+            "output=C:/Users/Peter/.codex/worktrees/flat-vector-r6-20261012/mermaid-roshan-reef/assets_src/imagegen/geologist_remaining_minerals_20261029/blue/export01/mineral_blue_512.png",
+            "--script",
+            "C:/Users/Peter/.codex/worktrees/flat-vector-r6-20261012/mermaid-roshan-reef/assets_src/imagegen/geologist_remaining_minerals_20261029/export_variants.lua"
+          ],
+          "elapsed_seconds": 0.951,
+          "role_of_roundtrip_image": "BYTE_PRESERVATION_PROOF_ONLY_NOT_RUNTIME_OR_GENERATION_INPUT",
+          "new_generation_calls": 0,
+          "runtime_integration": null,
+          "formal_QA11_device_child_owner": "PENDING"
+        }
+      },
+      "lavender": {
+        "target": "separate lavender specimen, not mint repair",
+        "maximum_takes": 2,
+        "attempts_started": 1,
+        "completed_outputs": 1,
+        "state": "PAINTED_SOURCE_AND_512_EXPORT_CUTOUT_OK_ACTUAL_NEWUSE_RUNTIME_PENDING",
+        "started_at_utc": "2026-10-29T08:31:55.932115+00:00",
+        "prompt_sha256": "943600fb91a53dc2c1e1bbda664f19a792397ab5219d4afc84d2e6fe2cf40622",
+        "take01": {
+          "path": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/take01/native.png",
+          "sha256": "4fda49ae61d423062cdd0094159371c643bbbca22bcfa8d8639790c94d49e1a1",
+          "bytes": 1072220,
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "cutout_profile": {
+            "mode": "RGBA",
+            "transparent_pct": 59.4,
+            "faint_haze_pct_of_canvas": 0.3,
+            "semi_pct_of_visible": 0.6,
+            "near_opaque_pct_of_visible": 98.6,
+            "opaque_255_pct": 0.1,
+            "corner_alpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "content_bbox": [
+              137,
+              115,
+              1116,
+              1140
+            ],
+            "verdict": "CUTOUT_OK"
+          },
+          "original_preserved": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-f88e3373-5683-4ba4-808e-61b9ca0a1df2.png",
+          "local_tool_output_id": "exec-f88e3373-5683-4ba4-808e-61b9ca0a1df2",
+          "provider_request_id": "Not returned; local output UUID is not provider identity",
+          "backend": "built-in image_gen",
+          "model_or_revision": "Not returned",
+          "seed": "Not returned",
+          "reported_usage": null,
+          "tool_wall_seconds_observed": 40.4,
+          "prompt_file": "lavender/PROMPT_TAKE01.txt",
+          "prompt_sha256": "943600fb91a53dc2c1e1bbda664f19a792397ab5219d4afc84d2e6fe2cf40622",
+          "inspected": "Displayed native full output; actual runtime new-use fit remains pending",
+          "completed_at_utc": "2026-10-29T08:37:01.113668+00:00"
+        },
+        "technical_export": {
+          "variant": "lavender",
+          "source": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/take01/native.png",
+          "source_sha256": "4fda49ae61d423062cdd0094159371c643bbbca22bcfa8d8639790c94d49e1a1",
+          "source_unchanged": true,
+          "master": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/mineral_native.aseprite",
+          "master_sha256": "17d3473a951ea121a8d5cca270dd525692d0846890397ef95f2eda4342ecd60a",
+          "native_roundtrip_proof": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/native_roundtrip_proof.png",
+          "native_roundtrip_sha256": "52ea45d01ccdaf723bf9b8ee410feec6fa017b2e3710fc29fe071f910fc33917",
+          "native_visible_RGBA_exact_pixels": 633407,
+          "native_visible_RGBA_changed_pixels": 0,
+          "hidden_or_faint_RGBA_different_pixels": 0,
+          "output": "assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/mineral_lavender_512.png",
+          "output_sha256": "cea8f66b34e657f8216f0038adefee38624a1e2900e365b55aa15169be60b20f",
+          "output_canvas": [
+            512,
+            512
+          ],
+          "method": "Whole1254-square source uniformly resized to512square with Aseprite bilinear, no crop, repaint, recolour, threshold, or additional composited pixels. Runtime derivative is resampled, not raw-pixel identical.",
+          "cutout_profile": {
+            "mode": "RGBA",
+            "transparent_pct": 59.5,
+            "faint_haze_pct_of_canvas": 0.3,
+            "semi_pct_of_visible": 0.9,
+            "near_opaque_pct_of_visible": 98.4,
+            "opaque_255_pct": 0.0,
+            "corner_alpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "content_bbox": [
+              56,
+              47,
+              456,
+              465
+            ],
+            "verdict": "CUTOUT_OK"
+          },
+          "tool": "Aseprite 1.3.18.4-x64",
+          "tool_sha256": "e320ffdf2663dc39b012c5791dd0ac5cec64b3621b7f3bb82b5f02b6c73483bf",
+          "script_sha256": "535aab37102762fe5b8d7198a1646f069e9db26d497c7de96b188f293a9ef4b6",
+          "command": [
+            "C:\\Program Files\\Aseprite\\Aseprite.exe",
+            "--batch",
+            "--script-param",
+            "source=C:/Users/Peter/.codex/worktrees/flat-vector-r6-20261012/mermaid-roshan-reef/assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/take01/native.png",
+            "--script-param",
+            "master=C:/Users/Peter/.codex/worktrees/flat-vector-r6-20261012/mermaid-roshan-reef/assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/mineral_native.aseprite",
+            "--script-param",
+            "roundtrip=C:/Users/Peter/.codex/worktrees/flat-vector-r6-20261012/mermaid-roshan-reef/assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/native_roundtrip_proof.png",
+            "--script-param",
+            "output=C:/Users/Peter/.codex/worktrees/flat-vector-r6-20261012/mermaid-roshan-reef/assets_src/imagegen/geologist_remaining_minerals_20261029/lavender/export01/mineral_lavender_512.png",
+            "--script",
+            "C:/Users/Peter/.codex/worktrees/flat-vector-r6-20261012/mermaid-roshan-reef/assets_src/imagegen/geologist_remaining_minerals_20261029/export_variants.lua"
+          ],
+          "elapsed_seconds": 0.936,
+          "role_of_roundtrip_image": "BYTE_PRESERVATION_PROOF_ONLY_NOT_RUNTIME_OR_GENERATION_INPUT",
+          "new_generation_calls": 0,
+          "runtime_integration": null,
+          "formal_QA11_device_child_owner": "PENDING"
+        }
+      }
+    },
+    "no_cap_reset_or_backend_switch": true,
+    "reported_monetary_usage": null
+  },
+  "mode": "Built-in image_gen edit producing separate variants; no CLI fallback, code-drawn substitute or uniform runtime tint.",
+  "actual_model_selector_exposed": false,
+  "model_version": "Record only if returned; never infer2.5",
+  "runtime_batch_reserved_branch": "codex/flat-vector-geologist-mineral-runtime-20261029",
+  "runtime_batch_current_source_ci": 40835803523,
+  "runtime_and_current_mint_originals_unchanged": true,
+  "generation_calls_here": 2,
+  "new_role_or_family_credit": 0,
+  "new_native_frame_events": 0,
+  "new_bounded_implementation_artifacts": 0,
+  "accepted_removed": 0,
+  "candidate": "TWO_PAINTED_SOURCE_VARIANTS_AND_512_EXPORTS_READY_FOR_ACTUAL_SCENE_INTEGRATION",
+  "integration": null,
+  "runtime": null,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "created_at_utc": "2026-10-29T08:15:28.257675+00:00",
+  "closed_mint_brief_unchanged": true,
+  "readability_proof": "READABILITY_ROLE.json",
+  "actual_mint_dev_integration": "docs/handoffs/codex_flat_vector_art_2026-10-07/r103_geologist_remaining_minerals/MINT_DEV_INTEGRATION.json",
+  "raw_generated_outputs_here": 2,
+  "known_family_calls_including_closed_mint": 4
+}
