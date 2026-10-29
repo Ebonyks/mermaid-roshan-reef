@@ -1,3 +1,5 @@
+Current production continuation: [R101 painted pan source delivery](r101_geologist_pan_current_dev/README.md). Exact current source/local checks and54native checks pass; sourceCI/Dev/formal/physical acceptance remain separate.
+
 # Current R94 production
 
 [Painted hand native fit and third partial Dev code integration](r94_painted_hand_native/README.md). Same one-take hand candidate,138native checks, clearer36px fit and explicit source/proposed-scene contexts; insect-tab PR37merged. No accepted artwork removals. Current canonical paths are in CURRENT.json; historical sections below retain their dated scopes.

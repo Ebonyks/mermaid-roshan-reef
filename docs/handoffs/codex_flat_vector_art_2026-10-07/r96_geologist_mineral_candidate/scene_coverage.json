@@ -14691,7 +14691,7 @@
     }
   ],
   "coverage_note": "Craft80 guarded API fixture adds game.craft_studio partial alias;77/176partial,0complete,99without. Natural/full states/acceptance and distinct screen total remain unknown.",
-  "revision": "FV-AUDIT-20261018-R100",
+  "revision": "FV-AUDIT-20261029-R101",
   "partial_entries": 78,
   "complete_entries": 0,
   "entries_without_current_slice": 98,
@@ -16767,7 +16767,7 @@
       {
         "id": "FVOBS-CATALOGUE-CRITTERS-BINDING",
         "status": "EXPLICIT_SAVED_BOOK_PARTIAL_BINDING_ONLY",
-        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton→open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
+        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton\u2192open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
         "evidence": "CRITTER_ALIAS_BINDING.json"
       },
       {
@@ -23794,5 +23794,44 @@
     "accepted_removed": 0,
     "mission_complete": false
   },
-  "r100_new_native_frame_events": 0
+  "r100_new_native_frame_events": 0,
+  "r101_parent_receipt_revision": "1f4127e1e9da75d6bc397f81544ed9b4bb2b6f0b",
+  "r101_pan_current_dev": {
+    "stable_id": "FV-F2DE53A80AA7",
+    "source_revision": "e69b50b5e74d02f55985c7b87cf1f2271b91d452",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "incoming_dev": "4d0983755d91686b671fe48c0efa748c7cc40498",
+    "state": "CURRENT_SOURCE_PUBLISHED_LOCAL82_NATIVE54_PASS_EXACT_CI_RUNNING",
+    "local_unique_trusted_probes": 82,
+    "current_static_import": "PASS",
+    "source_and_normal_save_guards": "PASS",
+    "new_native_frame_events": 8,
+    "native_checks": 54,
+    "all_eight_current_frames_directly_inspected": true,
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/e69b50b5e74d02f55985c7b87cf1f2271b91d452/docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/MANIFEST.json",
+    "source_required_files": 47,
+    "source_required_bytes": 26694623,
+    "source_all_anonymous_exact": true,
+    "exact_source_CI": [
+      {
+        "conclusion": "",
+        "databaseId": 40824815737,
+        "headSha": "e69b50b5e74d02f55985c7b87cf1f2271b91d452",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40824815737",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "original_failures": "Hash-list referenced retired upstream Teacher SVG after successful gates; no tests/captures ran. Later native third probe exited4294967295 without failure line/verdict. CauseUNKNOWN, retained; successful serialized diagnostic is not a causal fix claim.",
+    "Dev_integration": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "new_generation_calls": 0,
+    "new_implementation_artifacts": 0,
+    "accepted_removed": 0,
+    "mission_complete": false
+  },
+  "r101_new_native_frame_events": 8
 }

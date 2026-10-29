@@ -1,0 +1,104 @@
+{
+  "stable_id": "FV-F2DE53A80AA7",
+  "state": "PARTIAL_AGENT_SCENE_REVIEW_CURRENT_RECONCILED_SOURCE",
+  "source": "2d91d85f20271d109c5a8dc90390de15925a4b24 + incoming4d0983755d91686b671fe48c0efa748c7cc40498",
+  "source_pin": "probe_resume/SOURCE_PIN.json",
+  "all_eight_current_frames_inspected": true,
+  "frames": [
+    {
+      "path": "native_context/1280/output/01_pan_start.png",
+      "sha256": "8e519a20740b901134fd0527cc6a47d3c2feee3d2c21c11848fa6a398a8373a7",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_frame_view": true
+    },
+    {
+      "path": "native_context/1280/output/02_pan_partial.png",
+      "sha256": "e839819d405fe99eb91765c222bd723fc41e567a270909b260abc63dd730bfbb",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_frame_view": true
+    },
+    {
+      "path": "native_context/1280/output/03_pan_near_complete.png",
+      "sha256": "c2671920eb12f632218477fc6a49acdb750bb7f4ddbacda132fa739981d002e5",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_frame_view": true
+    },
+    {
+      "path": "native_context/1280/output/04_pan_complete.png",
+      "sha256": "9d76d7bf7b4f587856845a439bebcdd934851436536e7be940c9a44333412f80",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_frame_view": true
+    },
+    {
+      "path": "native_context/1600/output/01_pan_start.png",
+      "sha256": "4e8ebf4e17a290170719bbaa3f96ca8cb07ca423405adbec3cacd91e93d0319f",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_frame_view": true
+    },
+    {
+      "path": "native_context/1600/output/02_pan_partial.png",
+      "sha256": "326a4bb2740c352e31fa9f1db8aa0667276ae564e09477bbd505990f362fbc1d",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_frame_view": true
+    },
+    {
+      "path": "native_context/1600/output/03_pan_near_complete.png",
+      "sha256": "82baf9ce837ab156358593c13ac7a524c7f8c3c3b1e1a6fac8974734b076dc6d",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_frame_view": true
+    },
+    {
+      "path": "native_context/1600/output/04_pan_complete.png",
+      "sha256": "82ea0ec1d27ace6488b8e67dadef5bd7e436d5353f28727fabb7a07b184784ad",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_frame_view": true
+    }
+  ],
+  "ten_axes": {
+    "contour": "Whole painted plum contour matches same-scene painted navigation and Roshan; complete visible contour plus12source-pixel margin retained.",
+    "material": "Broad bronze/gold rim and aqua painted water bands; surrounding flat cave/workspace/sediment/minerals remain open.",
+    "palette": "Warm bronze/cream and aqua agree with same-scene Roshan hat/trim and painted navigation; original purple shadows retained.",
+    "light": "Upper-left highlights and lavender underside; source pixels unchanged, no relighting or3D shader.",
+    "perspective": "One coherent gently elevated oval; deeper painted bowl than old ellipse, with all inspected grain/mineral centers over water.",
+    "scale": "Width457.6 matches old outer silhouette; uniform262px height stays in original520x320target. Actual imported texture1024square.",
+    "contact": "Grains and three minerals remain over inner water in inspected start/partial/end offsets. Actor hand contact not established.",
+    "occlusion": "All eight current frames keep the whole pan inside its workspace. Completion still overlaps Roshan and the imp on the left, as the immutable R95 baseline already did; this is an unresolved separate actor layout defect.",
+    "readability": "Whole bronze rim, darker plum contour and calm aqua interior remain distinct at1280x720 and1600x720. Sediment dots, polygon minerals, cave stripes and work panel still require painted replacements; phone/child recognition remains open.",
+    "action_state": "Four actual configured states at each width preserve the current nine-reversal washing/mineral progression and moved pan offsets. The 54 fixture checks pass. No hand-to-pan action/contact acceptance or natural end-to-end route is claimed."
+  },
+  "same_scene_baseline": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/2d91d85f20271d109c5a8dc90390de15925a4b24/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/CONGRUENCY_REVIEW.json",
+  "bounded_native_checks": 54,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "new_artwork": 0,
+  "new_frame_events": 8,
+  "limits": "Synthetic private PAN checkpoint through actual Main library launcher; direct GUI surface inputs. Current captures/source hashes remain diagnostic, not formal same-process challenge evidence or natural-route/device/child/owner approval.",
+  "reviewed_at_utc": "2026-10-29T05:11:03.037077+00:00"
+}
