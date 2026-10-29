@@ -1,0 +1,35 @@
+{
+  "id": "picture-book-v43-publication-20261029",
+  "baseline": "191a5a3feb8204bad9e1a3efff393777f554c56a",
+  "scope": "Publish excluded anonymous every-file receipt and independent publication-only acceptance for frozen V43 dust-bunny cover/reading payload. No sealed production/review/source member changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static-book publication evidence only; no game finding closure.",
+  "files": [
+    "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/remote_verification.json",
+    "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/peer_review/final_publication_acceptance.json"
+  ],
+  "validation": [
+    {
+      "command": "Anonymous exact-revision manifest and every required file fetch",
+      "result": "PASS",
+      "evidence": "remote_verification.json:191a5a3feb8204bad9e1a3efff393777f554c56a;122files/215562687bytes exact; no credentials/cookies;2026-10-29T07:21:54.203257+00:00; payload e6f02eb713e91c471d335af49fec4c155c7d98ce833993219dd24c9c423d1c1c."
+    },
+    {
+      "command": "Independent publication-only critique",
+      "result": "PASS",
+      "evidence": "peer_review/final_publication_acceptance.json SHA9c1b85fe2d3795461357fc33131e8a93cfc5bd2856051b62cc82ed7b95adc163:122pinnedGitobjects and fullreceipt matched;38candidatebindings; independent33anonymousobjects/49281746bytes including bothPDFs exact. Owner/print holds retained."
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_document_authority.py; python -X utf8 -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Metadatafollowup:620/620authorityALL OK; auto baseline5920c673305989ee29d91876480ff445dba9fc8b developmentALL OK. Payload validation/52unit tests/strictPDF/source gate unchanged and sealed."
+    }
+  ],
+  "acceptance_gaps": "Owner cover acceptance,child/SLP,physical print,V41printP1-P8 and arrival physical pagination/gutter remain held. No game/dev/master/release authority."
+}
