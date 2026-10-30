@@ -64,6 +64,14 @@ const MINERAL_BLUE_PATH := "res://assets/opera/worlds/props/geologist_mineral_bl
 const MINERAL_LAVENDER_PATH := "res://assets/opera/worlds/props/geologist_mineral_lavender_painted.png"
 const CRYSTALS_PATH := "res://assets/opera/worlds/props/geologist_crystal_gallery_painted.png"
 
+const RIVER_SOURCE_PATH := "res://assets/opera/worlds/props/geologist_river_source_painted.png"
+const RIVER_SINK_DRY_PATH := "res://assets/opera/worlds/props/geologist_river_sink_dry_painted.png"
+const RIVER_SINK_FULL_PATH := "res://assets/opera/worlds/props/geologist_river_sink_full_painted.png"
+
+var river_source_texture: Texture2D = null
+var river_sink_dry_texture: Texture2D = null
+var river_sink_full_texture: Texture2D = null
+
 var fossil_texture: Texture2D = null
 var fossil_soil_texture: Texture2D = null
 var fossil_piece_textures: Array[Texture2D] = []
@@ -277,6 +285,9 @@ func _load_textures() -> void:
 		painted_slab.diffuse_texture = slab_source
 		painted_slab.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		work_slab_texture = painted_slab
+	river_source_texture = _required_mineral_texture(RIVER_SOURCE_PATH)
+	river_sink_dry_texture = _required_mineral_texture(RIVER_SINK_DRY_PATH)
+	river_sink_full_texture = _required_mineral_texture(RIVER_SINK_FULL_PATH)
 	fossil_texture = _required_fossil_texture(FOSSIL_PATH)
 	fossil_soil_texture = _required_fossil_texture(FOSSIL_SOIL_PATH)
 	fossil_piece_textures.clear()
@@ -701,13 +712,18 @@ func _draw_river() -> void:
 		draw_circle(center, 21.0, color)
 		if flowing.has(index):
 			draw_arc(center, 13.0, PI, TAU, 14, Color("#b6f1ed"), 3.0, true)
-	draw_circle(river_path_point(0), 43.0, Color("#514466"))
-	draw_circle(river_path_point(0), 35.0, Color("#8bf1f3"))
+	# Complete authored pool states; original logical endpoints and connectivity
+	# stay authoritative. No procedural pool body or layered water-fill fallback.
+	var source_size := Vector2(106.5, 106.5)
+	if river_source_texture != null:
+		draw_texture_rect(river_source_texture,
+			Rect2(river_path_point(0) - source_size * 0.5, source_size), false)
 	var finish := river_path_point(RIVER_PATH.size() - 1)
-	draw_circle(finish, 47.0, Color("#514466"))
-	draw_circle(finish, 39.0, Color("#77dbe0") if _river_connected() else Color("#a58a95"))
-	draw_arc(finish, 26.0, 0.0, TAU, 28, Color("#ead6bd"), 4.0, true)
-
+	var sink_texture: Texture2D = river_sink_full_texture 		if _river_connected() else river_sink_dry_texture
+	var sink_size := Vector2(118.5, 118.5)
+	if sink_texture != null:
+		draw_texture_rect(sink_texture,
+			Rect2(finish - sink_size * 0.5, sink_size), false)
 
 func _river_flow_indices() -> Dictionary:
 	var start := RIVER_PATH[0]

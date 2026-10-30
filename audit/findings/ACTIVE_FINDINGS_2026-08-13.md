@@ -449,6 +449,8 @@ R108 production2026-10-29: FV-4E515D6F7A64 painted soil material replaces flat c
 
 R109 production2026-10-29: FV-F7DB96881260 whole painted aqua/lilac crystal gallery replaces selected SVG/procedural fallback under unchanged geode reveal/tap/pull/save. Original shell/cavity/seam targets remain measured debt. Candidate/runtime/machine/CI/Dev/formal/external separate; lifecycle and accepted removals unchanged.
 
+R110 production2026-10-29: FV-4120D0DEF44C three whole painted river source/dry/full receiving pools replace five flat source/sink drawcalls. Connectivity, original cell/touch/save and other artwork unchanged; one static three-state brief. Candidate/runtime/machine/CI/Dev/formal/external separate; lifecycle/accepted removals unchanged.
+
 ## MA-PLAY-001
 
 | Field | Value |

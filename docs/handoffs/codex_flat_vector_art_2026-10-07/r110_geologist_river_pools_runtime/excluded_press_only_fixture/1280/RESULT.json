@@ -1,0 +1,464 @@
+{
+  "captures": [
+    {
+      "castle_layer_visible": false,
+      "id": "01_initial",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "01_initial.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "d03c18f651130528dcc7ae83057b2c6ee4693918bfcabf02eefe5d5ae8d9f791",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "mode": "geology_river",
+        "stage": "RIVER",
+        "version": 1,
+        "wet": []
+      },
+      "start_menu_active": false,
+      "world_phase": 0,
+      "world_visible": true
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "02_isolated_receiver_dry",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "02_isolated_receiver_dry.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "ec02b8ce885aebc4663994f9652a35901e4be1946cf52fd8b7b99db8e344d9cd",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "mode": "geology_river",
+        "stage": "RIVER",
+        "version": 1,
+        "wet": []
+      },
+      "start_menu_active": false,
+      "world_phase": 0,
+      "world_visible": true
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "03_source_released_partial",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "03_source_released_partial.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "e612ff8c3b97b9d2325a1fadd8b896f5a21192a169fb973ccea1f2a03c870375",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "mode": "geology_river",
+        "stage": "RIVER",
+        "version": 1,
+        "wet": [
+          18,
+          19
+        ]
+      },
+      "start_menu_active": false,
+      "world_phase": 0,
+      "world_visible": true
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "04_partial_channel",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "04_partial_channel.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "d2b025b386faa3e231dc0102c9b8b4394c3bf2768462c694021fd4692ef8f3ad",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "mode": "geology_river",
+        "stage": "RIVER",
+        "version": 1,
+        "wet": [
+          11,
+          12,
+          13,
+          18,
+          19,
+          20
+        ]
+      },
+      "start_menu_active": false,
+      "world_phase": 0,
+      "world_visible": true
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "05_near_receiver_dry",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "05_near_receiver_dry.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "9b2940584f5192118879d35201567572c64df89b94be50628a838f9da528f34a",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "mode": "geology_river",
+        "stage": "RIVER",
+        "version": 1,
+        "wet": [
+          11,
+          12,
+          13,
+          18,
+          19,
+          20,
+          22,
+          24,
+          31,
+          32,
+          33
+        ]
+      },
+      "start_menu_active": false,
+      "world_phase": 0,
+      "world_visible": true
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "06_complete_connected",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "06_complete_connected.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "97a0406e6a7d75d65a57dce29d2dff2d1d4ae83b8a22365d81d783c279e677bd",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": true,
+        "mode": "geology_river",
+        "stage": "RIVER",
+        "version": 1,
+        "wet": [
+          11,
+          12,
+          13,
+          18,
+          19,
+          20,
+          22,
+          24,
+          25,
+          26,
+          31,
+          32,
+          33
+        ]
+      },
+      "start_menu_active": false,
+      "world_phase": 0,
+      "world_visible": true
+    }
+  ],
+  "checks": [
+    {
+      "label": "exact approved engine hash",
+      "pass": true
+    },
+    {
+      "label": "Mobile native Windows time1",
+      "pass": true
+    },
+    {
+      "label": "private dependency bound before ready",
+      "pass": true
+    },
+    {
+      "label": "original Continue available",
+      "pass": true
+    },
+    {
+      "label": "start menu retired before world",
+      "pass": true
+    },
+    {
+      "label": "original Main owner-room launcher reached Opera",
+      "pass": true
+    },
+    {
+      "label": "castle room suspended beneath original Opera",
+      "pass": true
+    },
+    {
+      "label": "original full Geologist world",
+      "pass": true
+    },
+    {
+      "label": "own saved activity checkpoint restored",
+      "pass": true
+    },
+    {
+      "label": "original activity surface opened",
+      "pass": true
+    },
+    {
+      "label": "Speedy own profile",
+      "pass": true
+    },
+    {
+      "label": "original touch rect",
+      "pass": true
+    },
+    {
+      "label": "required pool CanvasTexture 0",
+      "pass": true
+    },
+    {
+      "label": "actual pool512 and mipmaps 0",
+      "pass": true
+    },
+    {
+      "label": "pool transparent corners 0",
+      "pass": true
+    },
+    {
+      "label": "pool linear mipmap filter 0",
+      "pass": true
+    },
+    {
+      "label": "required pool CanvasTexture 1",
+      "pass": true
+    },
+    {
+      "label": "actual pool512 and mipmaps 1",
+      "pass": true
+    },
+    {
+      "label": "pool transparent corners 1",
+      "pass": true
+    },
+    {
+      "label": "pool linear mipmap filter 1",
+      "pass": true
+    },
+    {
+      "label": "required pool CanvasTexture 2",
+      "pass": true
+    },
+    {
+      "label": "actual pool512 and mipmaps 2",
+      "pass": true
+    },
+    {
+      "label": "pool transparent corners 2",
+      "pass": true
+    },
+    {
+      "label": "pool linear mipmap filter 2",
+      "pass": true
+    },
+    {
+      "label": "original river brush/cells",
+      "pass": true
+    },
+    {
+      "label": "fixed shared hit geometry",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 01_initial",
+      "pass": true
+    },
+    {
+      "label": "native save 01_initial",
+      "pass": true
+    },
+    {
+      "label": "passive cannot excavate or fill receiver",
+      "pass": true
+    },
+    {
+      "label": "isolated receiver excavation stays dry",
+      "pass": false
+    },
+    {
+      "label": "native frame dimensions 02_isolated_receiver_dry",
+      "pass": true
+    },
+    {
+      "label": "native save 02_isolated_receiver_dry",
+      "pass": true
+    },
+    {
+      "label": "JSON retains isolated dry receiver excavation",
+      "pass": true
+    },
+    {
+      "label": "restore has no transient owner",
+      "pass": true
+    },
+    {
+      "label": "wrong finger cannot connect painted pools",
+      "pass": true
+    },
+    {
+      "label": "cancel retains earned channel without owner",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 03_source_released_partial",
+      "pass": true
+    },
+    {
+      "label": "native save 03_source_released_partial",
+      "pass": true
+    },
+    {
+      "label": "partial connected source leaves receiver dry",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 04_partial_channel",
+      "pass": true
+    },
+    {
+      "label": "native save 04_partial_channel",
+      "pass": true
+    },
+    {
+      "label": "near receiver gap still dry",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 05_near_receiver_dry",
+      "pass": true
+    },
+    {
+      "label": "native save 05_near_receiver_dry",
+      "pass": true
+    },
+    {
+      "label": "connected route fills receiving basin",
+      "pass": true
+    },
+    {
+      "label": "original input completes selected activity",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 06_complete_connected",
+      "pass": true
+    },
+    {
+      "label": "native save 06_complete_connected",
+      "pass": true
+    },
+    {
+      "label": "normal eleven save/archive hashes unchanged",
+      "pass": true
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "final_snapshot": {
+    "complete": true,
+    "mode": "geology_river",
+    "stage": "RIVER",
+    "version": 1,
+    "wet": [
+      11,
+      12,
+      13,
+      18,
+      19,
+      20,
+      22,
+      24,
+      25,
+      26,
+      31,
+      32,
+      33
+    ]
+  },
+  "fixture": "Own saved-phase checkpoint, original Main/Opera/Geologist and real one-finger GUI events; not naturally earned/training/QA11 or device evidence",
+  "normal_after": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".bak.old": "absent",
+    ".bak.tmp": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent",
+    ".old": "absent",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent"
+  },
+  "normal_before": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".bak.old": "absent",
+    ".bak.tmp": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent",
+    ".old": "absent",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent"
+  },
+  "phase": 0,
+  "quality": "speedy",
+  "renderer": "mobile",
+  "source_revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786 + actual candidateSHA256 523f243f21bdc277667f9b1086b4d07e149d34184ed6aec277f17ad3775d102c",
+  "status": "FAIL"
+}
