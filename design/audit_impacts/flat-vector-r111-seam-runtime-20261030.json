@@ -1,0 +1,69 @@
+{
+  "id": "flat-vector-r111-seam-runtime-20261030",
+  "scope": "Verified R111 wholepainted closed/mint-cleft seamcue source/Dev delta.14source/13partialDev implementations,16bounded/0excluded events appliedonce;1static take/2wholePNGexports/oneimplementation, no complete role/removal. Canonicalbranch no runtime change.",
+  "baseline": "489e5a33d76dcfe38787feae6daca56a2885ac3e",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-ASSET-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-OPERA-004"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/CANONICAL_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/CANONICAL_PUBLICATION_RUNNER.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/DERIVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/DEV_WORKFLOW_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/FOCUSED_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/FRAME_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/FUNCTION_PRESERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/LOCAL_82_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/PAYLOAD_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/POSTCOMMIT_EOL_CLEANUP.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/PRIMITIVE_CENSUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/PRODUCTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/SOURCE_CI_GREEN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/SOURCE_CI_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/SOURCE_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/SOURCE_PUBLICATION_FINAL.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/STATIC_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Actualsource currentstatic/import/all82/native108/16reviewedframes/fullanonymoussource/exactsourceCIgreen/Dev",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/SOURCE_REMOTE_VERIFICATION.json; LOCAL_82_RESULT.json; FRAME_REVIEW.json; SOURCE_CI_GREEN.json; DEV_INTEGRATION.json"
+    },
+    {
+      "command": "Currentcanonical authority/development and anonymous every-required-file immutable delivery",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/CANONICAL_GATES.json; publication/receipt verification separately recorded, not inferred."
+    }
+  ],
+  "acceptance_gaps": "Closed/open shell,cavity,vertical seam,inheritedpointer/cave/otherart remain separately flat. Tinycontour/child state recognition/physical shell integration require review. Original119terminal pull gap unchanged; formal/external/natural/training/allroutes/global unknowns remain. ExactnewDevAPK unverified,acceptedremoved0. SourceMA-VIS-010 remains in its immutable sourcefinding register; canonicalbookkeeping cites its own defined006/OPERA004."
+}

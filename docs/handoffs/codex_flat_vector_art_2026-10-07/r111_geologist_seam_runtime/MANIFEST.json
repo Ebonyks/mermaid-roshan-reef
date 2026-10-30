@@ -1,0 +1,545 @@
+{
+  "schema": "reef.runtime_trial_delivery/1",
+  "revision": "FV-AUDIT-20261030-R111-DEV",
+  "baseline": "489e5a33d76dcfe38787feae6daca56a2885ac3e",
+  "files": [
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297614,
+      "sha256": "63e7568f6ee71d266ad438f5a55a140dd64dcdc85b2c027074ff23fb400c0659",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 288134,
+      "sha256": "3ddf5ae63fbd1e85d407d893c35f0f2e43ead84a18b77cad374babaef33293b2",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 326608,
+      "sha256": "3e7197c4669b87a0f528448bea86a9abf2e4c98410d9dc29ac3cfa4087ba6aee",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 271499,
+      "sha256": "f0a0d51e614fee8777f3bc0d1d1d01a2c0149dc88dd115eef28a3ea547603864",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 142491,
+      "sha256": "ba9625956f02ae2fd15068daffaade7a90ca473f1ca0ac0739efce16675b5baf",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/CANONICAL_GATES.json",
+      "bytes": 731,
+      "sha256": "803a38747ee5b7e5a1a707b3840e27a6915b117e6bfec087e0f66b1d96715deb",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/CANONICAL_PUBLICATION_RUNNER.py",
+      "bytes": 22156,
+      "sha256": "0c7449a55a658135995bbe743b3c68e84302e6996c6efb548279cc2afc0a8539",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/DERIVATION.json",
+      "bytes": 5206,
+      "sha256": "d2e4ba4aa76cab72c4610962e77c23d53c528c64b5cac736764a4d8996a9112f",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/DEV_INTEGRATION.json",
+      "bytes": 2981,
+      "sha256": "c4483cbfe9f565567b3e9eb6f91be08e3f16be13bd1d3ee255c6138ed758f0d7",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/DEV_WORKFLOW_HANDLES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/FOCUSED_RESULT.json",
+      "bytes": 17765,
+      "sha256": "48885e36896836929fb3746ec8ebb0e536ba8dfa79bb57cf147ca4e6ed0f2da2",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/FRAME_REVIEW.json",
+      "bytes": 3759,
+      "sha256": "d0a0edc2c5b689a8f00f663d8fa0985fa0eafbd1ca4ac58ff730e3f29a7e77f0",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/FUNCTION_PRESERVATION.json",
+      "bytes": 1834,
+      "sha256": "8a68b434d106dcbc20c03e0c229795b9c6dcaa9331cab122e6b517b56fc879da",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/LOCAL_82_RESULT.json",
+      "bytes": 91200,
+      "sha256": "e1d5dbdc9ce5c9ffbdc6be4af8270241def9221aa6619ada0583977188331ab9",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/PLAN.json",
+      "bytes": 5464,
+      "sha256": "497b92252881ab58946147f2402c6ae1cc9f5a14c3569b3e667ad37cb65ebf98",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/POSTCOMMIT_EOL_CLEANUP.json",
+      "bytes": 230,
+      "sha256": "ed263a4629343858fc18eefbe7775a797d427b173d6b4cb4bc4debdadc7be14b",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/PRIMITIVE_CENSUS.json",
+      "bytes": 242,
+      "sha256": "b55190a4e431f5ca563a7ddca71540b7aaf24874b55137bf81c2cae3dc72bad7",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/PRODUCTION.json",
+      "bytes": 4252,
+      "sha256": "38cef4d2ae07ac9fc19e72b8bb85f1d112cef1de72da61278b45dfc091a3c153",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/README.md",
+      "bytes": 1672,
+      "sha256": "69e4f2f20df653720cc6dc75208adb3f5694a62ee0ea3eb02d6caabb1abab300",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/SOURCE_CI_GREEN.json",
+      "bytes": 9916,
+      "sha256": "02a73f365a8c59064fc23bbf9cf03692f909e00c270bd036eced0401531f2021",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/SOURCE_CI_HANDLES.json",
+      "bytes": 284,
+      "sha256": "d8dc39305a26410668a069426537dff877625d0c5a6a5bf30859c5b96e983c17",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/SOURCE_PIN.json",
+      "bytes": 648515,
+      "sha256": "ae440221ad3cab1abcc8a45da941819f7673eddda32ed7325c1617e6e04e7576",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/SOURCE_PUBLICATION_FINAL.json",
+      "bytes": 698,
+      "sha256": "d188c7f2d5922010d3bd9f8483fc263d8b4f7bd7e27561bc69d68ae880b5d2b4",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/SOURCE_REMOTE_VERIFICATION.json",
+      "bytes": 41512,
+      "sha256": "765a9fa55b082070351ec227fe9718751619e430069f4721b719ac162bad8c24",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/STATIC_RESULT.json",
+      "bytes": 353,
+      "sha256": "da74b07c0a7cd2030c9f2c6651d8e927d07e0113198958c62b19bdc64f3b0266",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/STATUS.json",
+      "bytes": 1107,
+      "sha256": "1a15b0e5b65ad00d09511ba93674d91dfb692e1f5bacff5b788c5447ef27e2bb",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 63811,
+      "sha256": "3a748f12d016f06bec24f65f4caba5a4f39b9421ddfee0bdcce7dab4458cab68",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 1784758,
+      "sha256": "ea1bb7beeaa9945293ff6566a8dc53b4243e95d3a921884e8360c2713960c989",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1160059,
+      "sha256": "12782790a4029e876d3f93c969e47d982eab6ea4445b58aa53de06e97bf7b552",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 515641,
+      "sha256": "4992f29d09026389f69a62b192ef6e311eac9afd350df16fc3c3d8709c9f607d",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/audit_impacts/flat-vector-r111-seam-runtime-20261030.json",
+      "bytes": 5043,
+      "sha256": "99a456cd1cb5d5de0a05a8c44f922d8644f4ab76deebe4f0b4819267bb4f8502",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets/opera/worlds/props/geologist_geode_seam_closed_painted.png",
+      "bytes": 257556,
+      "sha256": "5e0525f398d306e3e3b4e99d6a6e97036f0a6fdd0d5d05d6390388e31be9aea3",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets/opera/worlds/props/geologist_geode_seam_closed_painted.png.import",
+      "bytes": 1037,
+      "sha256": "f6fb17316a13498374b084e0cf777b3dd89e733d2a95ede63b450f5f9dcad2e2",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets/opera/worlds/props/geologist_geode_seam_done_painted.png",
+      "bytes": 270440,
+      "sha256": "c8c83d5a1504cf777f98174fa94ae409e9a1a32c0127132d4d59af0c213e41f7",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets/opera/worlds/props/geologist_geode_seam_done_painted.png.import",
+      "bytes": 1030,
+      "sha256": "6f7f07557c2362845843225a9199a05994ef6862855e40b3699511a06e777907",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/DERIVATION.json",
+      "bytes": 5206,
+      "sha256": "d2e4ba4aa76cab72c4610962e77c23d53c528c64b5cac736764a4d8996a9112f",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/GENERATION.json",
+      "bytes": 783,
+      "sha256": "d718a4bc57b875a0fce18fb63aeee98dcf3c63c0ac3239c59e1eb33413e2c3a2",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/PLAN.json",
+      "bytes": 5464,
+      "sha256": "497b92252881ab58946147f2402c6ae1cc9f5a14c3569b3e667ad37cb65ebf98",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/PROMPT.txt",
+      "bytes": 1966,
+      "sha256": "bef7be7d275d992ef9d546e3f5a604891cb6573956522633e7cea4e501d642b9",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/closed_crop.aseprite",
+      "bytes": 949943,
+      "sha256": "58e63701310a75976888978787bd26a8800a3c395b6e2259efc765ce73c84a89",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/done_crop.aseprite",
+      "bytes": 1009648,
+      "sha256": "a821d79c9e1610e61d00c84d5b25e0992e9ac1caccc4198e5a2c2a92867c2c93",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/export_whole_states.lua",
+      "bytes": 867,
+      "sha256": "e71a667a84f098d1b8e550ead65f267e7303e411dc6ba7272646a777ae7d62b3",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/native_roundtrip.png",
+      "bytes": 1424080,
+      "sha256": "df8638dfd2edcc1f311e310f80ae152f258e3a0c8efb1d81f05ececa48caf5c2",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/seams_native.aseprite",
+      "bytes": 1987290,
+      "sha256": "2a30ab02e66b758b87c6c2db02daa4d0a1d517d7bb046513639da1301179c15f",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/take01_native.png",
+      "bytes": 1465968,
+      "sha256": "1ac72bb5decaed7315c0f3133b3dfdd90cd76051139540c8c0674edcbcef8261",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets_src/imagegen/geologist_geode_seams_20261030/technical_export.py",
+      "bytes": 3975,
+      "sha256": "2d6051df19c5a589e957c2e5ab57062a552bdc79acfff7222d1d3de7f97ffdb8",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/01_initial.png",
+      "bytes": 531697,
+      "sha256": "a2d085bf68f3579f7833c68b5a0145c0efd0468292aeb6743c240236f17ee7d4",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/02_partial_seams.png",
+      "bytes": 532595,
+      "sha256": "e034ee7758c94ad33dff959a19778b20a7788622b443702197e472cc81a38906",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/03_ready_to_pull.png",
+      "bytes": 533726,
+      "sha256": "1c1de79dda0d2df01eea3531fc888a28c779698523f37f2a974e2f5fc3a168d2",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/04_reveal_25.png",
+      "bytes": 506747,
+      "sha256": "54da3b959abdc314564e112c215cacbba71eb6ee5e41d617486b9d8928934184",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/05_reveal_60_released.png",
+      "bytes": 508200,
+      "sha256": "94066f267f1a7e0314463393e35bcb5822779fbbed296bd4123ecda7534db115",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/06_reveal_90.png",
+      "bytes": 509174,
+      "sha256": "7f9ba216c37d6dc262411b3d4848e3c726e4d8876f7e815b21fe5d7897804cbd",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/07_reveal_100.png",
+      "bytes": 508574,
+      "sha256": "35f500caaa702c1969dea19a0567edfac502703e31ea57e883871f6e97090d5a",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/08_complete.png",
+      "bytes": 502727,
+      "sha256": "0a31bdfb8f80444d99d62133171b7e35a4604d063f8b2ea97fa544e1db3d1120",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/01_initial.png",
+      "bytes": 539483,
+      "sha256": "10aac11d36a759655844a0c824f56241f9b2a8b82d58cbfd0febd9fca8298cee",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/02_partial_seams.png",
+      "bytes": 540329,
+      "sha256": "fd1f009cd276334bc60f6051d6ebfe981e49e4e98e5511cf0bfc504172ead444",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/03_ready_to_pull.png",
+      "bytes": 541584,
+      "sha256": "0ee18456f339c2277e300e7018e7156f129be2358e96da10f09cff006cf45145",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/04_reveal_25.png",
+      "bytes": 514582,
+      "sha256": "fbafe5de99ccf3b677dd66ca2f79821df16e902e8103693a0b89114fbad419b5",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/05_reveal_60_released.png",
+      "bytes": 515576,
+      "sha256": "48b74c5f6423cab2e30d12aa0689a8bac6a9e8d131e3e248b64736c20a4def9b",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/06_reveal_90.png",
+      "bytes": 516687,
+      "sha256": "372e623d9b7cad0497b4ca9e5e78cdb681594b82142f485e21d1569447b2cfea",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/07_reveal_100.png",
+      "bytes": 516059,
+      "sha256": "751f02760a7dc05a0e41fd5506a55f806ee91d19bd8c99acf36e0432e008c694",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/08_complete.png",
+      "bytes": 510417,
+      "sha256": "c43a5b030805d2acf447f0d89f32283a6274505a323b95e959856d3ca09dc51e",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "scripts/opera_geology_surface.gd",
+      "bytes": 37030,
+      "sha256": "1ffb490b890155870e7dac3164347704906428cb66306a4bf255a8c0888cb416",
+      "role": "Actual complete painted seam cue states, source/editable master/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "51b2e1ef7b32d155786277871fc3f5e941145ea6",
+      "path": "assets/opera/worlds/props/geologist_work_slab_painted.png",
+      "bytes": 786464,
+      "sha256": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4",
+      "role": "Neighboringbench appearance style; original provisional candidate scope unchanged"
+    },
+    {
+      "revision": "51b2e1ef7b32d155786277871fc3f5e941145ea6",
+      "path": "assets/opera/worlds/props/geologist_mineral_mint_painted.png",
+      "bytes": 265095,
+      "sha256": "ccfff113ae678e150e2b0ba0d54bfda3071c7102f0e05cd0c850044f19dcc390",
+      "role": "Neighboring mint mineral palette/material reference; original approvalscope unchanged"
+    },
+    {
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/candidate/1280/01_initial.png",
+      "bytes": 521054,
+      "sha256": "d4773db5178efbda25d8ec16fe23f257a5fb8e7080ce0fb3a9746cc8be682595",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/candidate/1280/02_partial_seams.png",
+      "bytes": 515720,
+      "sha256": "99857ad627a6cb45492be125c825f95fac6e69f1abf5c9f66b4c0f5441b7a3b1",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/candidate/1280/03_ready_to_pull.png",
+      "bytes": 509112,
+      "sha256": "0433e022381ff6c2c01947c1b1df68444ac965a1eb4eb648418a9a81090841d4",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/candidate/1280/04_reveal_25.png",
+      "bytes": 506745,
+      "sha256": "19a3fe2cbcb98cffb989bd71af2e8a783fa781f3e35169f6e86efaa743406bd4",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/candidate/1600/01_initial.png",
+      "bytes": 528875,
+      "sha256": "878f055f06913aa0e706ce8cdedb1debb074519750b618a68403c947c2deacf5",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/candidate/1600/02_partial_seams.png",
+      "bytes": 523291,
+      "sha256": "8cdc7cbc9a5533380d552ca2593d828cc9f68547ed05890c297919cc636d2b52",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/candidate/1600/03_ready_to_pull.png",
+      "bytes": 516909,
+      "sha256": "f9ef13f53571b16fbaf47112f68bba3d512177e369e76c0b1a9d4f596bbb191a",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/candidate/1600/04_reveal_25.png",
+      "bytes": 514587,
+      "sha256": "32cb9175cfaa02d470c14c53ec8faf3b58beac64308e171d0af95419ef69061d",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    }
+  ],
+  "required_files": 75,
+  "required_bytes": 26653830,
+  "actual_runtime_source": "70715413b21232920f07a4df79a5721f9885962a",
+  "scope": "Currentcanonical coherent2whole seamstate source/Dev delta, complete newnative/source/master/exports,16reviewed currentframes and8immutable contextframes. Fullsource independentlydelivered; no recursive archive.",
+  "new_generation_calls": 1,
+  "new_bounded_source_artifacts": 1,
+  "new_frame_events": {
+    "bounded": 16,
+    "excluded": 0,
+    "retained": 16
+  },
+  "accepted_removed": 0,
+  "mission_complete": false
+}
