@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261029-R107-DEV",
-  "current_entry": "r107_geologist_fossil_runtime/README.md",
+  "revision": "FV-AUDIT-20261029-R108-DEV",
+  "current_entry": "r108_geologist_soil_runtime/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r107_geologist_fossil_runtime/MANIFEST.json",
+  "current_manifest": "r108_geologist_soil_runtime/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r107_geologist_fossil_runtime/SOURCE_CI_GREEN.json",
+  "current_ci_evidence": "r108_geologist_soil_runtime/SOURCE_CI_GREEN.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -2549,5 +2549,95 @@
     "accepted_removed": 0,
     "mission_complete": false,
     "remaining": "Separate flat soil cover FV-4E515D6F7A64, cave/UI/otherart and original completion actor overlap; formal/external/global unknowns remain."
+  },
+  "r108_soil_runtime": {
+    "stable_id": "FV-4E515D6F7A64",
+    "state": "PAINTED_SOIL_MATERIAL_IN_DEV_EXACT_SOURCE_CI_GREEN",
+    "source_revision": "97cfaa0bd90e47c33dfcae790417d3a1b2d5299a",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "source_baseline": "f02aec12181b28706cae1f79705ff95df9aac7b9",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/MANIFEST.json",
+    "source_delivery_required_files": 88,
+    "source_delivery_all_anonymous_exact": true,
+    "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_CI_run": 40964693116,
+    "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/40964693116",
+    "source_CI_conclusion": "success",
+    "integrated_dev_revision": "97cfaa0bd90e47c33dfcae790417d3a1b2d5299a",
+    "runtime_exports": [
+      {
+        "role": "whole_soil_material",
+        "path": "assets/opera/worlds/props/geologist_fossil_soil_painted.png",
+        "dimensions": [
+          1008,
+          540
+        ],
+        "sha256": "e0f664a1685abe470333f624406340415208aa234db534b2e94ccfe575825058",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 38.4,
+          "faint_haze_pct_of_canvas": 0.5,
+          "semi_pct_of_visible": 0.8,
+          "near_opaque_pct_of_visible": 98.4,
+          "opaque_255_pct": 0.0,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            102,
+            52,
+            906,
+            488
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      }
+    ],
+    "actual_native_checks": 126,
+    "candidate_frames_reviewed": 16,
+    "same_scene_source_frames_reused": 8,
+    "new_frame_events": {
+      "bounded": 16,
+      "excluded": 0,
+      "retained": 16
+    },
+    "current_static_all82": "PASS",
+    "unchanged_other_functions": 56,
+    "primitive_calls": {
+      "before": 31,
+      "after": 30,
+      "retired": "Only fossil flat brown cover fill; original functional scrub grid retained, fossil whole/fragments/other artwork unchanged.",
+      "new_filter_wrapper_helper": 0,
+      "new_required_painted_texture_load": 1,
+      "accepted_removed": 0
+    },
+    "new_bounded_source_artifacts": 1,
+    "partial_Dev_artifact_credit": 1,
+    "implementation_unit": "One registered whole painted soil material under unchanged saved scrub masks; not a complete role/removal.",
+    "new_generation_calls": 2,
+    "generated_outputs": 2,
+    "technical_exports": 1,
+    "backend": "built-in image_gen.imagegen",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "new_roles": 0,
+    "new_families": 0,
+    "candidate": "USABLE_PAINTED_REPLACEMENT_CANDIDATE",
+    "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+    "runtime": "CONFIGURED_ORIGINAL_MAIN_OPERA_FOSSIL_TWO_ASPECT_PASS",
+    "Dev_integrated": true,
+    "exact_new_Dev_APK_verified": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "natural_training_allroutes": null,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "remaining": "Straight scrub boundaries remain functional geometry and a visual-refinement limitation. Cave/UI/otherart and original completion actor overlap, formal/external/global unknowns remain."
   }
 }

@@ -1,0 +1,71 @@
+{
+  "id": "flat-vector-r108-soil-runtime-20261029",
+  "scope": "Verified R108 one whole painted soil material production and normalDev delta. Source10to11, partialDev9to10,16newbounded frameevents once. One technicalPNG export, two staticgenerations (take01aspectreject); role/family/removals0. No runtime change in this canonical branch.",
+  "baseline": "3f3a7f9c3cd167a799892daa0c4e1148a15a6468",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-ASSET-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-OPERA-004"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/CANONICAL_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/CANONICAL_PUBLICATION_RUNNER.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/CI_TRANSPORT_RECOVERY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/DERIVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/DEV_WORKFLOW_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/FOCUSED_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/FRAME_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/FUNCTION_PRESERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/LOCAL_82_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/MASK_REGISTRATION_PROOF.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/PAYLOAD_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/POSTCOMMIT_EOL_CLEANUP.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/PRIMITIVE_CENSUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/PRODUCTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/SOURCE_CI_GREEN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/SOURCE_CI_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/SOURCE_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/SOURCE_PUBLICATION_FINAL.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/STATIC_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Actual frozen source currentstatic/import/all82trusted/native126/16reviewedframes, fullanonymous source and exactgreenCI normalDev integration",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/SOURCE_REMOTE_VERIFICATION.json; LOCAL_82_RESULT.json; FRAME_REVIEW.json; SOURCE_CI_GREEN.json; DEV_INTEGRATION.json"
+    },
+    {
+      "command": "Current canonical authority/development and anonymous immutable every-required-file delivery",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/CANONICAL_GATES.json; publication/receipt verification separately recorded, not inferred."
+    }
+  ],
+  "acceptance_gaps": "FormalQA11/device/child/owner/natural/training/allroutes, scrub-boundary/otherart/global gaps remain. ExactnewDevAPK unverified. Acceptedremoved0."
+}

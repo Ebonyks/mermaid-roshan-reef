@@ -2635,3 +2635,7 @@ Actualsource `44da99ba5c68153fa247e0794425b5f6d7d3cc79`: [production/evidence](.
 ### R107 painted fossil and exact matching fragments
 
 Actualsource `f02aec12181b28706cae1f79705ff95df9aac7b9`: [production/evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r107_geologist_fossil_runtime/README.md), one static wide backing and four technical exports, one coherent implementation. Currentstatic/import/all82trusted/native114/16reviewedframes and exactsourceCIgreen, normalDev integration verified.10source/9partialDev artifacts and16newbounded frameevents;6old sourceframes reused without credit. Allformal/external/global acceptance remains open, acceptedremoved0. Canonical bookkeeping repeats no engine suite; runtime rollback uses sourceCHG-113 with laterconsumer review.
+
+### R108 painted soil material
+
+Actualsource `97cfaa0bd90e47c33dfcae790417d3a1b2d5299a`: [production/evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/README.md), two static takes, one aspect reject, one whole material export, one coherent implementation. Currentstatic/import/all82trusted/native126/16reviewedframes and exactsourceCIgreen, normalDev integration verified.11source/10partialDev artifacts and16newbounded frameevents;8old sourceframes reused without credit. Allformal/external/global acceptance remains open, acceptedremoved0. Canonical bookkeeping repeats no engine suite; runtime rollback uses sourceCHG-114 with laterconsumer review.

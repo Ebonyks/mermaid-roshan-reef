@@ -1436,3 +1436,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/dev_integration_20261029/README.md` | 🟣 | `PROPOSED / CANDIDATE` verified exact-green source/Dev integration for painted shared Geology workbench; no new art/frame/removal credit, external/formal/global acceptance open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r107_geologist_fossil_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R107 painted whole fossil/three matching fragments in Dev; exactsourceCIgreen/local82/static/native114/16frames reviewed; formal/external/global acceptance open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R108 painted soil material with unchanged functional masks in Dev; exactsourceCIgreen/local82/static/native126/16frames reviewed; formal/external/global acceptance open. |
