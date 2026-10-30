@@ -1,0 +1,16 @@
+{
+  "state": "FIXTURE_PRESS_ONLY_ASSUMPTION_CORRECTED_REAL_DRAG_REQUIRED",
+  "baseline": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+  "original_failing_checks": [
+    {
+      "label": "isolated receiver excavation stays dry",
+      "pass": false
+    }
+  ],
+  "cause": "Original river _press acquires ownership only; _river_stroke runs on real _drag. Fixture pressed/released at receiver but incorrectly asserted excavation. Actual release-only frame correctly stayed unexcavated/dry.",
+  "repair": "Add actual8px owned ScreenDrag at receiver before release; retain original isolation/connected-state assertions and then test real painted dry receiver after actual excavation. No runtime, art, thresholds or assertions relaxed.",
+  "excluded_native_events": 6,
+  "healthy_import_reused": true,
+  "engine_suite_repeated": false,
+  "new_generation_calls": 0
+}

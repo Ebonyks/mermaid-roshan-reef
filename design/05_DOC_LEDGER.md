@@ -1440,3 +1440,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R108 painted soil material with unchanged functional masks in Dev; exactsourceCIgreen/local82/static/native126/16frames reviewed; formal/external/global acceptance open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R109 whole painted gallery in Dev, exactsourceCIgreen/local82/static/native88/16reviewedframes; preexisting119gap/remaining geode/formal/external/global acceptance open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R110whole paintedriver pools inDev; exactsourceCIgreen/local82/static/native98/12reviewedframes. Formal/external/otherart/globalacceptance open. |

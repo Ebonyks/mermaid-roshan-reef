@@ -1,0 +1,70 @@
+{
+  "id": "flat-vector-r110-river-pools-runtime-20261029",
+  "scope": "Verified R110 wholepaintedsource/dry/full receivingpool source/Dev delta.13source/12partialDev implementations,12bounded/6excluded events appliedonce; one static take/3wholePNGexports/oneimplementation, no completerole/removal. Canonicalbranch noruntime change.",
+  "baseline": "345a6b233c5884b622f52d2c0225c64b69bea408",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-ASSET-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-OPERA-004"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/CANONICAL_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/CANONICAL_PUBLICATION_RUNNER.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/DERIVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/DEV_WORKFLOW_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/FIXTURE_PRESS_RECOVERY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/FOCUSED_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/FRAME_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/FUNCTION_PRESERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/LOCAL_82_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/PAYLOAD_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/POSTCOMMIT_EOL_CLEANUP.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/PRIMITIVE_CENSUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/PRODUCTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/SOURCE_CI_GREEN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/SOURCE_CI_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/SOURCE_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/SOURCE_PUBLICATION_FINAL.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/STATIC_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Actualsource currentstatic/import/all82/native98/12reviewedframes, fixturefailure retained/fullanonymoussource/exactsourceCIgreen/Dev",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/SOURCE_REMOTE_VERIFICATION.json; LOCAL_82_RESULT.json; FRAME_REVIEW.json; FIXTURE_PRESS_RECOVERY.json; SOURCE_CI_GREEN.json; DEV_INTEGRATION.json"
+    },
+    {
+      "command": "Currentcanonical authority/development and anonymous every-required-file immutable delivery",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/CANONICAL_GATES.json; publication/receipt verification separately recorded, not inferred."
+    }
+  ],
+  "acceptance_gaps": "Otherflat river excavation/channel, cave/UI/otherart and original completion actoroverlap remain.6excluded originalpress-only fixturefailureframes retained; actualdrag correction changes no runtime/art or assertion. Existinggeode119terminal gap/formal/external/global unknowns remain. ExactnewDevAPK unverified, acceptedremoved0. SourceMA-VIS-010 remains in its immutable sourcefinding register; canonical bookkeeping cites its own definedMA-VIS-006/MA-OPERA-004."
+}

@@ -2643,3 +2643,7 @@ Actualsource `97cfaa0bd90e47c33dfcae790417d3a1b2d5299a`: [production/evidence](.
 ### R109 painted crystal gallery
 
 Actualsource `0f4fad1901967b8cc536c6d894dd255f4a9bb786`: [production/evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/README.md), one static take/whole512export/implementation. Currentstatic/import/all82trusted/native88/16reviewedframes and exactsourceCIgreen/normalDev verified;8excluded nativeframes retain unchanged119terminal defect.12source/11partialDev artifacts,16newbounded/8excluded events;6prior frames reused without credit. Remaining geode/formal/external/global acceptance open, acceptedremoved0. Runtime rollback uses sourceCHG-115 after laterconsumer review; canonical bookkeeping runs no engine suite.
+
+### R110 painted river source and receiving pools
+
+Actualsource `51b2e1ef7b32d155786277871fc3f5e941145ea6`: [production/evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/README.md), one static take/3whole512exports/onecoherentimplementation. Currentstatic/import/all82trusted/native98/12reviewedframes and exactsourceCIgreen/normalDev verified,6excluded fixturefailureframes retained.13source/12partialDev artifacts,12newbounded/6excluded events;6oldsourceframes reused withoutcredit. Remainingformal/external/otherart/globalacceptanceopen, acceptedremoved0. Runtime rollback uses sourceCHG-116 after laterconsumerreview; canonicalmetadata runsnoengine suite.

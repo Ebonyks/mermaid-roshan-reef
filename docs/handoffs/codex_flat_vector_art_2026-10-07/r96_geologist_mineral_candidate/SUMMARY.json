@@ -10,25 +10,25 @@
   "all_game_artwork_total": null,
   "distinct_screen_total": null,
   "regression_total": null,
-  "retained_bounded": 6761,
-  "retained_excluded": 4145,
-  "retained_native_events": 10906,
-  "existing_sample_work_branch_implemented": 12,
-  "known_implementation_count_scope": "Twelve bounded published source implementations, eleven partialDev artifacts. One whole painted gallery implementation, no complete role/accepted removal; formal/external/119terminal/otherart/global gaps and unknown denominators remain.",
+  "retained_bounded": 6773,
+  "retained_excluded": 4151,
+  "retained_native_events": 10924,
+  "existing_sample_work_branch_implemented": 13,
+  "known_implementation_count_scope": "Thirteen bounded published source implementations, twelve partialDev artifacts. Onecoherent poolimplementation with3wholePNGexports, no complete role/accepted removal. Formal/external/otherart/global gaps and unknown denominators remain.",
   "samples_awaiting_review_global": null,
   "approved": 0,
-  "dev_integrated": 11,
+  "dev_integrated": 12,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261029-R109-DEV",
+  "revision": "FV-AUDIT-20261029-R110-DEV",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
   "new_alias_credits": 0,
   "new_partial_role_credit": 0,
-  "new_native_frames": 24,
-  "new_bounded_contexts": 16,
-  "new_excluded_diagnostics": 8,
+  "new_native_frames": 18,
+  "new_bounded_contexts": 12,
+  "new_excluded_diagnostics": 6,
   "source_views_here": 0,
   "existing_context_frames_reinspected_here": 6,
   "new_samples": 1,
@@ -51,7 +51,8 @@
     "r106_geologist_workbench_runtime",
     "r107_geologist_fossil_runtime",
     "r108_geologist_soil_runtime",
-    "r109_geologist_gallery_runtime"
+    "r109_geologist_gallery_runtime",
+    "r110_geologist_river_pools_runtime"
   ],
   "r92_dev_ci_timeout": {
     "state": "DEV_ATTEMPT1_CANCELLED_CONFIRMED_55MIN_LIMIT_RETRY_PENDING",
@@ -146,8 +147,8 @@
     "observed_unique_trusted_probe_headers": 81
   },
   "source_current_frames_here": 0,
-  "candidate_neighbor_context_frames_here": 16,
-  "direct_native_frame_views_here": 16,
+  "candidate_neighbor_context_frames_here": 12,
+  "direct_native_frame_views_here": 12,
   "r94_hand_fit": "Six native cases/138checks/36rawframeevents; source16+selected proposed-neighbor candidate10 bounded; unselected49pxfit10excluded. Current routing/source and candidate contexts separate.",
   "r94_dev_integration": "r91_integration/DEV_INTEGRATION.json; exact39b0green sourcepush; redundantPRcancelled55minutesaftermandatorysuccess; newDevCI39058472107running; exactnewDevAPKnotverified.",
   "r95_geologist_pan_runtime": {
@@ -518,7 +519,7 @@
     "mission_complete": false,
     "recorded_at_utc": "2026-10-29T07:32:01.972068+00:00"
   },
-  "new_frame_unit": "16bounded valid-path current nativeframes plus8excluded preexisting119terminal failure frames;6prior same-scene frames reused immutably with no new credit.",
+  "new_frame_unit": "12bounded currentnativeframes plus6excluded press-onlyfixturefailureframes;6prior same-scene frames reused immutably without newcredit.",
   "r103_mineral_variants": {
     "stable_id": "FV-66629DC58A20",
     "scope": "Two remaining blue/lavender PAN specimen source variants of the existing named mineral role. Not a new artwork-role denominator.",
@@ -599,7 +600,7 @@
     "direct_native_frame_views_here": 8,
     "existing_runtime_candidates_committed_this_revision": 1
   },
-  "technical_exports_this_revision": 1,
+  "technical_exports_this_revision": 3,
   "r104_mineral_runtime": {
     "stable_id": "FV-66629DC58A20",
     "scope": "Remaining blue/lavender PAN render variants, same existing mineral role; not separate whole-role/artwork count.",
@@ -849,7 +850,7 @@
     "accepted_removed": 0,
     "mission_complete": false
   },
-  "direct_candidate_frame_views_here": 16,
+  "direct_candidate_frame_views_here": 12,
   "source_context_frames_here": 6,
   "r106_dev_integration": {
     "stable_id": "FV-A6CE3E284202",
@@ -1226,5 +1227,176 @@
     "accepted_removed": 0,
     "mission_complete": false,
     "remaining": "Original geode shell/cavity/seam targets, cave/UI/otherart/completion actor overlap remain. Exact unchanged119-to120 guard fails;8excluded nativeframes preserved, no mechanic change or edgecase acceptance. Formal/external/global unknowns remain."
+  },
+  "r110_river_pools_runtime": {
+    "stable_id": "FV-4120D0DEF44C",
+    "state": "PAINTED_RIVER_SOURCE_SINK_POOLS_IN_DEV_EXACT_SOURCE_CI_GREEN",
+    "source_revision": "51b2e1ef7b32d155786277871fc3f5e941145ea6",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "source_baseline": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/MANIFEST.json",
+    "source_delivery_required_files": 95,
+    "source_delivery_all_anonymous_exact": true,
+    "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_CI_run": 41009012520,
+    "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41009012520",
+    "source_CI_conclusion": "success",
+    "integrated_dev_revision": "51b2e1ef7b32d155786277871fc3f5e941145ea6",
+    "runtime_exports": [
+      {
+        "role": "source",
+        "path": "assets/opera/worlds/props/geologist_river_source_painted.png",
+        "dimensions": [
+          512,
+          512
+        ],
+        "sha256": "0186849e77e9445c942eae5b1eb07936a1f6312e5c4693ad7ccc8c979ae0bb80",
+        "crop": [
+          0,
+          0,
+          724,
+          724
+        ],
+        "uniform_scale": 0.7071823204419889,
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 50.5,
+          "faint_haze_pct_of_canvas": 0.7,
+          "semi_pct_of_visible": 1.1,
+          "near_opaque_pct_of_visible": 97.4,
+          "opaque_255_pct": 0.1,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            53,
+            50,
+            467,
+            449
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      },
+      {
+        "role": "sink_dry",
+        "path": "assets/opera/worlds/props/geologist_river_sink_dry_painted.png",
+        "dimensions": [
+          512,
+          512
+        ],
+        "sha256": "566bc325e2ab9554166446a47a586a57c010080b54c075e7a8eb1f83ca925d25",
+        "crop": [
+          739,
+          0,
+          724,
+          724
+        ],
+        "uniform_scale": 0.7071823204419889,
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 51.0,
+          "faint_haze_pct_of_canvas": 0.7,
+          "semi_pct_of_visible": 1.0,
+          "near_opaque_pct_of_visible": 97.5,
+          "opaque_255_pct": 0.1,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            56,
+            49,
+            462,
+            449
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      },
+      {
+        "role": "sink_full",
+        "path": "assets/opera/worlds/props/geologist_river_sink_full_painted.png",
+        "dimensions": [
+          512,
+          512
+        ],
+        "sha256": "9d860b290b1b8e4128c1ca0325eb0d62585abc302173de252b66f5240468e652",
+        "crop": [
+          1459,
+          0,
+          724,
+          724
+        ],
+        "uniform_scale": 0.7071823204419889,
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 51.3,
+          "faint_haze_pct_of_canvas": 0.7,
+          "semi_pct_of_visible": 1.1,
+          "near_opaque_pct_of_visible": 97.5,
+          "opaque_255_pct": 0.1,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            58,
+            49,
+            462,
+            449
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      }
+    ],
+    "actual_native_checks": 98,
+    "candidate_frames_reviewed": 12,
+    "same_scene_source_frames_reused": 6,
+    "new_frame_events": {
+      "bounded": 12,
+      "excluded": 6,
+      "retained": 18
+    },
+    "current_static_all82": "PASS",
+    "unchanged_other_functions": 56,
+    "primitive_calls": {
+      "before": 28,
+      "after": 23,
+      "retired": "Only river source/sink fourcircles and one targetarc; excavation/channel/cues and otherart remain separate.",
+      "new_filter_wrapper_helper": 0,
+      "new_required_painted_texture_load": 3,
+      "accepted_removed": 0
+    },
+    "new_bounded_source_artifacts": 1,
+    "partial_Dev_artifact_credit": 1,
+    "implementation_unit": "One coherent paintedsource/dry/full receivingpool implementation;3wholePNGs, not3roles or a complete acceptedremoval.",
+    "new_generation_calls": 1,
+    "generated_outputs": 1,
+    "technical_exports": 3,
+    "backend": "built-in image_gen.imagegen",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "new_roles": 0,
+    "new_families": 0,
+    "candidate": "USABLE_PAINTED_REPLACEMENT_CANDIDATE",
+    "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+    "runtime": "CONFIGURED_ORIGINAL_MAIN_OPERA_RIVER_TWO_ASPECT_PASS",
+    "Dev_integrated": true,
+    "exact_new_Dev_APK_verified": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "natural_training_allroutes": null,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "remaining": "Otherflat river excavation/channel, cave/UI/otherart and original completion actoroverlap remain.6excluded originalpress-only fixturefailureframes retained; actualdrag correction changes no runtime/art or assertion. Existinggeode119terminal gap/formal/external/global unknowns remain."
   }
 }

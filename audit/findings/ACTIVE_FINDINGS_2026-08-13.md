@@ -421,6 +421,8 @@ R108 partialproduction2026-10-29: [painted fossil and matching fragments](../../
 
 R109 partialproduction2026-10-29: [painted crystal gallery](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/README.md) source0f4fad1901967b8cc536c6d894dd255f4a9bb786 exactCIgreen/integratedDev, currentstatic/all82/native88/16reviewedframes pass validpath.8excluded frames preserve unchanged119terminal gap; no gameplay edit or edgecase acceptance.12source/11partialDev artifacts, othergeode/otherart and formal/external/global gaps remain; lifecycle/accepted removals unchanged.
 
+R110partialproduction2026-10-29: [paintedriver pools](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/README.md) source51b2e1ef7b32d155786277871fc3f5e941145ea6 exactCIgreen/integratedDev, currentstatic/all82/native98/12reviewedframes pass.6excluded press-onlyfixturefailureframes retained, correctedactualdrag changes no runtime/art/assertion.13source/12partialDev artifacts, otherart/formal/external/globalgaps remain; lifecycle/acceptedremovals unchanged.
+
 ## MA-VIS-007
 
 | Field | Value |
