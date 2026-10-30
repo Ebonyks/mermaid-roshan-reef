@@ -1,0 +1,37 @@
+{
+  "state": "PAINTED_GEODE_SHELL_SOURCE_LOCAL82_STATIC_NATIVE134_PASS_EXACT_CI_PENDING",
+  "stable_id": "FV-99DB2D71D276",
+  "related_stable_ids": [
+    "FV-C1AB21410352"
+  ],
+  "baseline": "70715413b21232920f07a4df79a5721f9885962a",
+  "new_generation_calls": 2,
+  "rejected_takes": 1,
+  "new_runtime_images": 3,
+  "new_bounded_implementation_artifacts": 1,
+  "implementation_unit": "One coherent whole painted closed shell/exact matching halves implementation across two partial named roles, not two implementations or accepted removals.",
+  "new_frame_events": {
+    "bounded": 24,
+    "excluded": 0,
+    "retained_total": 24
+  },
+  "native_checks": 134,
+  "candidate_frames_reviewed": 24,
+  "baseline_frames_reused": 16,
+  "primitive_calls": {
+    "before": 21,
+    "after": 16,
+    "retired": "Two shellpolygon fills/two outlines/vertical seam, no rendered geometric shell fallback. Legacyhalfpoints helper retained without activecaller, not acceptedart; cavity/pointer/otherart remain separate.",
+    "new_required_textures": 3,
+    "accepted_removed": 0
+  },
+  "functions_byte_identical": 56,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "checked_at_utc": "2026-10-30T11:33:25.087258+00:00"
+}

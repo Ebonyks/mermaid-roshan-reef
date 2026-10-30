@@ -48,7 +48,11 @@ const FOSSIL_PIECE_PATHS: Array[String] = [
 ]
 ## Each 512 canvas contains a 250x450 source third, at one uniform scale.
 const FOSSIL_PIECE_CANVAS_SIZE := Vector2(266.24, 266.24)
-const GEODE_PATH := ""
+const GEODE_PATH := "res://assets/opera/worlds/props/geologist_geode_shell_painted.png"
+const GEODE_LEFT_PATH := "res://assets/opera/worlds/props/geologist_geode_shell_left_painted.png"
+const GEODE_RIGHT_PATH := "res://assets/opera/worlds/props/geologist_geode_shell_right_painted.png"
+## Whole512 source; exact half256x512 crops occupy x128..384 in padded512 exports.
+const GEODE_SHELL_ART_REGION := Rect2(45.0, 137.0, 423.0, 259.0)
 const GEODE_SEAM_CLOSED_PATH := "res://assets/opera/worlds/props/geologist_geode_seam_closed_painted.png"
 const GEODE_SEAM_DONE_PATH := "res://assets/opera/worlds/props/geologist_geode_seam_done_painted.png"
 const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg"
@@ -78,6 +82,8 @@ var fossil_texture: Texture2D = null
 var fossil_soil_texture: Texture2D = null
 var fossil_piece_textures: Array[Texture2D] = []
 var geode_texture: Texture2D = null
+var geode_left_texture: Texture2D = null
+var geode_right_texture: Texture2D = null
 var geode_seam_closed_texture: Texture2D = null
 var geode_seam_done_texture: Texture2D = null
 var rock_texture: Texture2D = null
@@ -297,7 +303,9 @@ func _load_textures() -> void:
 	fossil_piece_textures.clear()
 	for path: String in FOSSIL_PIECE_PATHS:
 		fossil_piece_textures.append(_required_fossil_texture(path))
-	geode_texture = _optional_texture(GEODE_PATH)
+	geode_texture = _required_mineral_texture(GEODE_PATH)
+	geode_left_texture = _required_mineral_texture(GEODE_LEFT_PATH)
+	geode_right_texture = _required_mineral_texture(GEODE_RIGHT_PATH)
 	geode_seam_closed_texture = _required_mineral_texture(GEODE_SEAM_CLOSED_PATH)
 	geode_seam_done_texture = _required_mineral_texture(GEODE_SEAM_DONE_PATH)
 	rock_texture = _optional_texture(ROCK_PATH)
@@ -887,26 +895,31 @@ func _draw_pan() -> void:
 
 func _draw_geode() -> void:
 	var center := GEODE_RECT.get_center()
-	var seam_x := center.x
 	var opened := geode_pull > 0.0
 	if opened:
 		_draw_ellipse(center + Vector2(geode_pull * 0.5, 0.0),
 			Vector2(36.0 + geode_pull * 0.32, 122.0), Color("#291f48"),
 			Color("#392958"), 8.0)
 		_draw_crystal_gallery(center + Vector2(geode_pull * 0.5, 0.0))
-	var left_half := _geode_half_points(seam_x, center.y, -1.0, 0.0)
-	var right_half := _geode_half_points(seam_x + geode_pull, center.y, 1.0, 0.0)
-	draw_colored_polygon(left_half, Color("#65506e"))
-	draw_colored_polygon(right_half, Color("#755c7d"))
-	var left_outline := left_half.duplicate()
-	left_outline.append(left_half[0])
-	draw_polyline(left_outline, Color("#392958"), 12.0, true)
-	var right_outline := right_half.duplicate()
-	right_outline.append(right_half[0])
-	draw_polyline(right_outline, Color("#392958"), 12.0, true)
-	if not opened:
-		draw_line(Vector2(seam_x, center.y - 130.0),
-			Vector2(seam_x, center.y + 130.0), Color("#392958"), 9.0, true)
+	var shell_scale: float = minf(440.0 / GEODE_SHELL_ART_REGION.size.x,
+		280.0 / GEODE_SHELL_ART_REGION.size.y)
+	var shell_origin: Vector2 = center - GEODE_SHELL_ART_REGION.get_center() * shell_scale
+	if opened:
+		# Exact matching halves from the same whole source. Crop transparent padding
+		# in the draw only, retaining every painted pixel and the original translation.
+		var half_size: Vector2 = Vector2(256.0, 512.0) * shell_scale
+		var half_source := Rect2(128.0, 0.0, 256.0, 512.0)
+		if geode_left_texture != null:
+			draw_texture_rect_region(geode_left_texture,
+				Rect2(shell_origin, half_size), half_source)
+		if geode_right_texture != null:
+			draw_texture_rect_region(geode_right_texture,
+				Rect2(shell_origin + Vector2(256.0 * shell_scale + geode_pull, 0.0),
+					half_size), half_source)
+	elif geode_texture != null:
+		# The complete closed image avoids a sampling seam between touching halves.
+		draw_texture_rect(geode_texture,
+			Rect2(shell_origin, Vector2(512.0, 512.0) * shell_scale), false)
 	for index in range(GEODE_SEAM_SPOTS.size()):
 		var done := geode_seams[index]
 		if opened:

@@ -453,6 +453,8 @@ R110 production2026-10-29: FV-4120D0DEF44C three whole painted river source/dry/
 
 R111 production2026-10-30: FV-4502C5860C45 whole painted closed/mint-cleft seam cue states replace selected five circle/arc targets only. Tap count/centres/hit radius/pull/save unchanged; shell/cavity/pointer and original119 terminal gap remain open. Candidate/runtime/machine/CI/Dev/formal/external separate; finding lifecycle and accepted removals unchanged.
 
+R112 production2026-10-30: FV-99DB2D71D276 matching geode halves and FV-C1AB21410352 closed shell share one whole painted source; exact cropped halves preserve skin through originalpull. Marker/tap/hit/save/gallery/cavity unchanged, original119gap open. One bounded implementation/two partial roles, no role closure or accepted removal. Candidate/runtime/machine/CI/Dev/formal/external separate; finding lifecycle unchanged.
+
 ## MA-PLAY-001
 
 | Field | Value |

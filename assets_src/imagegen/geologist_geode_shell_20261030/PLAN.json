@@ -1,0 +1,101 @@
+{
+  "revision": "R112",
+  "stable_id": "FV-99DB2D71D276",
+  "related_stable_ids": [
+    "FV-C1AB21410352"
+  ],
+  "baseline": "70715413b21232920f07a4df79a5721f9885962a",
+  "scope": "One coherent painted geode shell family: generate one whole closed horizontal oval geode, preserve native/master and derive exact left/right halves from the same pixels. Replace only closed/open shell polygon fills/outlines and vertical seam with whole authored textures. Closed draws whole once; existing right-half pull translates exact derived half, left stays fixed, gallery/cavity/markers/input/save unchanged. One bounded implementation spanning two existing roles, neither role accepted/closed.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010",
+    "MA-OPERA-004"
+  ],
+  "context": [
+    {
+      "path": "assets/opera/worlds/props/geologist_work_slab_painted.png",
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "sha256": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4",
+      "role": "appearance_style_reference"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_mineral_lavender_painted.png",
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "sha256": "cea8f66b34e657f8216f0038adefee38624a1e2900e365b55aa15169be60b20f",
+      "role": "appearance_palette_material_reference"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/03_ready_to_pull.png",
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "sha256": "1c1de79dda0d2df01eea3531fc888a28c779698523f37f2a974e2f5fc3a168d2",
+      "role": "scene_context_only_never_generation_pixels"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/04_reveal_25.png",
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "sha256": "54da3b959abdc314564e112c215cacbba71eb6ee5e41d617486b9d8928934184",
+      "role": "scene_context_only_never_generation_pixels"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "sha256": "1ffb490b890155870e7dac3164347704906428cb66306a4bf255a8c0888cb416",
+      "role": "source_binding"
+    }
+  ],
+  "quality_choice": "Polished muted lavender/grey/plum geode skin with warm upper-left painted bands. Same source for closed and all pulled states avoids unrelated halves. Screenshots constrain current size/offset/context in text only. Bench/mineral appearance refs retain provisional candidate scope; historical checkerboard prop sources remain rejected, not imported/relabelled. Reuse optional, no failed-reuse gate.",
+  "generation": {
+    "backend": "built-in image_gen.imagegen",
+    "model_version": "NOT_EXPOSED",
+    "static_take_cap": 2,
+    "calls_used": 2,
+    "animation_calls": 0,
+    "monetary_usage": "NOT_EXPOSED",
+    "state": "TAKE02_WHOLE_AND_EXACT_MATCHING_HALVES_EXPORTED",
+    "cap_scope": "Entire R112 whole shell brief; halves are exact Aseprite derivatives, not separately generated or an animation campaign.",
+    "dispatch_utc": "2026-10-30T10:39:08.471203+00:00",
+    "take01_rejected_runtime_fit": true,
+    "native_sha256": "cfb9d22eba220516982de89fe3608eec1d529ace17f0cf35185e7c2f6d241319"
+  },
+  "required_evidence": [
+    "Whole native sheet/editableAseprite/roundtrip preservation; whole512 and exact registered half512 exports, C2 and pixel reassembly equality",
+    "Only resource/render functions changed; no old shell polygon fallback; original functional coordinates/touch/save/pull unchanged; primitive census falls",
+    "OriginalMain/Opera native1280/1600 initial/partial/allseams and early2/6/12/25/40/60/90/100/120pull frame-step/release/restore/completion, direct same-scene ten-axis review",
+    "Actual candidate exact4.7.2 Mobile/Speedy import/currentstatic/all82, source pin and normal11save guard",
+    "Complete source anonymousimmutable, exactsourceCIgreen/normalDev",
+    "Canonical registry/coverage/tally one verified production delta; allactual deliveryfiles anonymousimmutable"
+  ],
+  "acceptance_gaps": "FormalQA11/device/child/owner and natural/training/allroutes open. Existing cavity/guide/cave/otherart and geode119terminal gap unchanged. Whole role closure/acceptedremoval/globalcompletion0. No new motion or paidanimation calls, existing original translation only; frame-step contact review required.",
+  "destination": {
+    "repo": "Ebonyks/mermaid-roshan-reef",
+    "runtime_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "canonical_branch": "codex/flat-vector-r6-20261012",
+    "access": "Anonymous immutable manifests and everyrequiredfile"
+  },
+  "coordination": "Read-only coordinator/Geologist completed/notLoaded; owned U/Rclean. Freshfetch U==originDev70715413; R111 terminalsuccessalready notified. No othereditor/messages/pausedgoals touched.",
+  "started_at_utc": "2026-10-30T10:36:41.529181+00:00",
+  "runtime": "134nativechecks/24directlyinspected currentframes includingearly2/6/12px opening;16immutable sourceframes reused,0newcredit. Two static takes/oneaspectreject/threeexactexports. No excludedcurrentruns; original119gap unchanged. All82/static/CI/Dev pending.",
+  "current_machine": "PASS frozen currentstatic/import/all82trusted and134nativechecks/24directlyreviewedframes,16immutable contextframes reused. Noexcluded currentruns; metadata stage/callcounter corrections disclosed, no runtime/art/engine rerun."
+}

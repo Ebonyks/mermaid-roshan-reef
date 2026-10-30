@@ -1,0 +1,28 @@
+local s=app.open("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/geologist_geode_shell_20261030/shell_uniform432.png")
+local n=Sprite(512,512,ColorMode.RGB)
+local im=Image(512,512,ColorMode.RGB)
+im:drawImage(s.cels[1].image,Point(40,40))
+n.cels[1].image=im
+n:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/geologist_geode_shell_20261030/shell_whole512.aseprite")
+n:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets/opera/worlds/props/geologist_geode_shell_painted.png")
+local original=n.cels[1].image
+local half=Image(256,512,ColorMode.RGB)
+half:drawImage(original,Point(-0,0))
+local h=Sprite(512,512,ColorMode.RGB)
+local out=Image(512,512,ColorMode.RGB)
+out:drawImage(half,Point(128,0))
+h.cels[1].image=out
+h:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/geologist_geode_shell_20261030/shell_left512.aseprite")
+h:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets/opera/worlds/props/geologist_geode_shell_left_painted.png")
+h:close()
+local half=Image(256,512,ColorMode.RGB)
+half:drawImage(original,Point(-256,0))
+local h=Sprite(512,512,ColorMode.RGB)
+local out=Image(512,512,ColorMode.RGB)
+out:drawImage(half,Point(128,0))
+h.cels[1].image=out
+h:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/geologist_geode_shell_20261030/shell_right512.aseprite")
+h:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets/opera/worlds/props/geologist_geode_shell_right_painted.png")
+h:close()
+n:close()
+s:close()
