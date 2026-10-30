@@ -1,0 +1,17 @@
+{
+  "state": "PREEXISTING_KNOWN_GEODE119_TERMINAL_GAP_REPRODUCED_NO_RUNTIME_REGRESSION",
+  "baseline": "97cfaa0bd90e47c33dfcae790417d3a1b2d5299a",
+  "actual_native_failing_checks": [
+    {
+      "label": "original input completes selected activity",
+      "pass": false
+    }
+  ],
+  "exact_unchanged_geode_drag_lf_sha256": "4eda2d9cf6537b8ba4e06274b3b6332627aa8b28c1bfcae0c019523f1f9a7dec",
+  "cause": "Original next_pull is clamped120 then returns for next_pull<=geode_pull+1. From119 every attempted120 returns. ExistingR14 historical local terminal-guard trial was not integrated into current runtime.",
+  "scope_decision": "Gallery rendering task preserves mechanics, so do not conceal this with gameplay changes or report this edgecase as passing. Preserve actual8native failed-run frames as excluded events. Re-run only configured native gallery context with ordinary partial100-to120 qualifying drag, retaining successful actual import. Current native valid-path checks remain meaningful;119 terminal restoration remains an explicit acceptance gap.",
+  "runtime_or_art_changed_for_recovery": false,
+  "new_generation_calls": 0,
+  "excluded_native_events": 8,
+  "full_machine_suite_repeated": false
+}

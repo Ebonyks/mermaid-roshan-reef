@@ -419,6 +419,8 @@ R107 partialproduction2026-10-29: [painted fossil and matching fragments](../../
 
 R108 partialproduction2026-10-29: [painted fossil and matching fragments](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/README.md) source97cfaa0bd90e47c33dfcae790417d3a1b2d5299a is exactCIgreen and integratedDev; currentstatic/all82/native126/16directlyreviewedframes PASS.11source/10partialDev artifacts,16newbounded events. Soil/otherart and allformal/external/global gaps remain; no complete role or accepted removal.
 
+R109 partialproduction2026-10-29: [painted crystal gallery](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/README.md) source0f4fad1901967b8cc536c6d894dd255f4a9bb786 exactCIgreen/integratedDev, currentstatic/all82/native88/16reviewedframes pass validpath.8excluded frames preserve unchanged119terminal gap; no gameplay edit or edgecase acceptance.12source/11partialDev artifacts, othergeode/otherart and formal/external/global gaps remain; lifecycle/accepted removals unchanged.
+
 ## MA-VIS-007
 
 | Field | Value |

@@ -2639,3 +2639,7 @@ Actualsource `f02aec12181b28706cae1f79705ff95df9aac7b9`: [production/evidence](.
 ### R108 painted soil material
 
 Actualsource `97cfaa0bd90e47c33dfcae790417d3a1b2d5299a`: [production/evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/README.md), two static takes, one aspect reject, one whole material export, one coherent implementation. Currentstatic/import/all82trusted/native126/16reviewedframes and exactsourceCIgreen, normalDev integration verified.11source/10partialDev artifacts and16newbounded frameevents;8old sourceframes reused without credit. Allformal/external/global acceptance remains open, acceptedremoved0. Canonical bookkeeping repeats no engine suite; runtime rollback uses sourceCHG-114 with laterconsumer review.
+
+### R109 painted crystal gallery
+
+Actualsource `0f4fad1901967b8cc536c6d894dd255f4a9bb786`: [production/evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/README.md), one static take/whole512export/implementation. Currentstatic/import/all82trusted/native88/16reviewedframes and exactsourceCIgreen/normalDev verified;8excluded nativeframes retain unchanged119terminal defect.12source/11partialDev artifacts,16newbounded/8excluded events;6prior frames reused without credit. Remaining geode/formal/external/global acceptance open, acceptedremoved0. Runtime rollback uses sourceCHG-115 after laterconsumer review; canonical bookkeeping runs no engine suite.
