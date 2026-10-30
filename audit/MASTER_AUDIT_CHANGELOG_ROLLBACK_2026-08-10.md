@@ -2651,3 +2651,7 @@ Actualsource `51b2e1ef7b32d155786277871fc3f5e941145ea6`: [production/evidence](.
 ### R111 painted geode seam cues
 
 Actualsource `70715413b21232920f07a4df79a5721f9885962a`: [production/evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/README.md),1static take/2whole512exports/one coherent implementation. Currentstatic/import/all82trusted/native108/16reviewedframes and exactsourceCIgreen/normalDev verified;8oldcontextframes reused withoutcredit,0excluded currentruns.14source/13partialDev artifacts,16newbounded events. Remainingformal/external/otherart/globalacceptance open,acceptedremoved0. Runtime rollback uses sourceCHG-117 after laterconsumerreview; canonicalmetadata runs noengine suite.
+
+### R112 painted matching geode shell family
+
+Actualsource `803dbac68705d46bcb4a5da4d060a0ae8cf09d6d`: [production/evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/README.md),2static takes/1aspectreject retained/3whole ormatchinghalf512exports/one implementation spanningtwo partialroles. Currentstatic/import/all82trusted/native134/24reviewedframes and exactsourceCIgreen/normalDev verified;16oldcontextframes reused withoutcredit,0excludedcurrentruns.15source/14partialDev artifacts,24newbounded events. Guarded metadata path/callcounter correction retained, no healthy engine/native rerun. Remainingformal/external/otherart/119gap/global acceptance open,acceptedremoved0. Runtime rollback uses sourceCHG-118 after laterconsumerreview; canonicalmetadata runsnoengine suite.

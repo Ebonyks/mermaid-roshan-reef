@@ -1,0 +1,179 @@
+{
+  "stable_id": "FV-99DB2D71D276",
+  "related_stable_ids": [
+    "FV-C1AB21410352"
+  ],
+  "baseline": "70715413b21232920f07a4df79a5721f9885962a",
+  "backend": "built-in image_gen.imagegen",
+  "model_version": "NOT_EXPOSED",
+  "request_id": "NOT_EXPOSED",
+  "seed": "NOT_EXPOSED",
+  "usage": "NOT_EXPOSED",
+  "exposed_result_fields": [
+    "image_url",
+    "output_hint"
+  ],
+  "native_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-a365c37d-e39a-4b8d-bab7-0b84221d19fc.png",
+  "native_sha256": "cfb9d22eba220516982de89fe3608eec1d529ace17f0cf35185e7c2f6d241319",
+  "native_dimensions": [
+    1254,
+    1254
+  ],
+  "native_alpha16_bbox": [
+    14,
+    279,
+    1241,
+    1032
+  ],
+  "native_body_aspect": 1.6294820717131475,
+  "takes": 2,
+  "rejects": 1,
+  "rejected_take01": "TAKE01.json; fullnative preserved, 1.9247bodyaspect would miss old seamendpoints at440wide; no runtime/stretch workaround.",
+  "animation_calls": 0,
+  "aseprite_version": "Aseprite 1.3.18.4-x64",
+  "native_visible_rgba_changed_pixels": 0,
+  "technical_operations": "Actual Aseprite native whole master/roundtrip; uniform432/1254 scale ofcomplete square source, pad40px on eachside to512square. Derive exact nonoverlapping left/right256x512halves of thatwhole512, pad128px oneachside tosame512canvas. No newappearancepixels,tint,mask redrawing,deformation,independent halves or synthesis.",
+  "whole512_alpha16_bbox": [
+    45,
+    137,
+    468,
+    396
+  ],
+  "logical_fit_scale": 1.0401891252955082,
+  "logical_visible_body": [
+    440.0,
+    269.40898345153664
+  ],
+  "logical_canvas_side": 532.5768321513002,
+  "split_x_in_whole512": 256,
+  "half_canvas_crop_x": [
+    0,
+    256
+  ],
+  "half_canvas_padding_x": 128,
+  "reassembled_visible_rgba_changed_pixels": 0,
+  "registration": "Closed useswholetexture once, opening usesexact twohalves fromsamewholepixels/commoncanvas, left fixed andright translated byoriginalpull. Wholepixelcoordinate x maps to its half x+128 orx-256+128; no scalechange.",
+  "commands": [
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_shell_20261030\\take02_native.png",
+      "--save-as",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_shell_20261030\\shell_native.aseprite"
+    ],
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_shell_20261030\\shell_native.aseprite",
+      "--save-as",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_shell_20261030\\native_roundtrip.png"
+    ],
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_shell_20261030\\shell_native.aseprite",
+      "--scale",
+      "0.3444976076555024",
+      "--save-as",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_shell_20261030\\shell_uniform432.png"
+    ],
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "--script",
+      "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-shell-20261030\\export_whole_and_halves.lua"
+    ]
+  ],
+  "exports": [
+    {
+      "role": "whole",
+      "path": "assets/opera/worlds/props/geologist_geode_shell_painted.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "b6c9693794cde8ef372fe457ffde659556043778459ddfa913ca61b2773219c7",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 67.7,
+        "faint_haze_pct_of_canvas": 0.3,
+        "semi_pct_of_visible": 0.6,
+        "near_opaque_pct_of_visible": 98.5,
+        "opaque_255_pct": 0.1,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          45,
+          137,
+          468,
+          396
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    },
+    {
+      "role": "left",
+      "path": "assets/opera/worlds/props/geologist_geode_shell_left_painted.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "f3f2733609165062e1d1c780185742dcb2da27d6879025bc7b884e23668c9e79",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 83.9,
+        "faint_haze_pct_of_canvas": 0.1,
+        "semi_pct_of_visible": 0.6,
+        "near_opaque_pct_of_visible": 98.5,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          173,
+          137,
+          384,
+          396
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    },
+    {
+      "role": "right",
+      "path": "assets/opera/worlds/props/geologist_geode_shell_right_painted.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "568fb19e0dbefb8345f4ff1a265cec2c0a2bc3657884cd0055f629977bcea894",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 83.8,
+        "faint_haze_pct_of_canvas": 0.1,
+        "semi_pct_of_visible": 0.6,
+        "near_opaque_pct_of_visible": 98.6,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          128,
+          137,
+          340,
+          396
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    }
+  ]
+}

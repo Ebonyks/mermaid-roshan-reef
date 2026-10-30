@@ -10,30 +10,30 @@
   "all_game_artwork_total": null,
   "distinct_screen_total": null,
   "regression_total": null,
-  "retained_bounded": 6789,
+  "retained_bounded": 6813,
   "retained_excluded": 4151,
-  "retained_native_events": 10940,
-  "existing_sample_work_branch_implemented": 14,
-  "known_implementation_count_scope": "Fourteen bounded published source implementations,thirteen partialDev artifacts. Onecoherent seamcue implementation with2wholePNGexports, no complete role/acceptedremoval. Formal/external/otherart/global gaps/unknown denominators remain.",
+  "retained_native_events": 10964,
+  "existing_sample_work_branch_implemented": 15,
+  "known_implementation_count_scope": "Fifteen bounded published source implementations,fourteen partialDev artifacts. One whole shell/matchinghalves implementation with3PNGexports spans two partialroles, no complete role/accepted removal. Formal/external/otherart/global gaps/unknown denominators remain.",
   "samples_awaiting_review_global": null,
   "approved": 0,
-  "dev_integrated": 13,
+  "dev_integrated": 14,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261030-R111-DEV",
+  "revision": "FV-AUDIT-20261030-R112-DEV",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
   "new_alias_credits": 0,
   "new_partial_role_credit": 0,
-  "new_native_frames": 16,
-  "new_bounded_contexts": 16,
+  "new_native_frames": 24,
+  "new_bounded_contexts": 24,
   "new_excluded_diagnostics": 0,
   "source_views_here": 0,
-  "existing_context_frames_reinspected_here": 8,
+  "existing_context_frames_reinspected_here": 16,
   "new_samples": 1,
   "new_runtime_implementations": 1,
-  "new_generation_calls": 1,
+  "new_generation_calls": 2,
   "reuse_ready_whole_role": false,
   "drawing_required_global": null,
   "chosen_next_consumer": "FV-66629DC58A20",
@@ -53,7 +53,8 @@
     "r108_geologist_soil_runtime",
     "r109_geologist_gallery_runtime",
     "r110_geologist_river_pools_runtime",
-    "r111_geologist_seam_runtime"
+    "r111_geologist_seam_runtime",
+    "r112_geologist_shell_runtime"
   ],
   "r92_dev_ci_timeout": {
     "state": "DEV_ATTEMPT1_CANCELLED_CONFIRMED_55MIN_LIMIT_RETRY_PENDING",
@@ -148,8 +149,8 @@
     "observed_unique_trusted_probe_headers": 81
   },
   "source_current_frames_here": 0,
-  "candidate_neighbor_context_frames_here": 16,
-  "direct_native_frame_views_here": 16,
+  "candidate_neighbor_context_frames_here": 24,
+  "direct_native_frame_views_here": 24,
   "r94_hand_fit": "Six native cases/138checks/36rawframeevents; source16+selected proposed-neighbor candidate10 bounded; unselected49pxfit10excluded. Current routing/source and candidate contexts separate.",
   "r94_dev_integration": "r91_integration/DEV_INTEGRATION.json; exact39b0green sourcepush; redundantPRcancelled55minutesaftermandatorysuccess; newDevCI39058472107running; exactnewDevAPKnotverified.",
   "r95_geologist_pan_runtime": {
@@ -520,7 +521,7 @@
     "mission_complete": false,
     "recorded_at_utc": "2026-10-29T07:32:01.972068+00:00"
   },
-  "new_frame_unit": "16bounded currentnativeframes,0excluded currentevents;8prior same-scene sourceframes reused immutably withoutcredit.",
+  "new_frame_unit": "24bounded currentnativeframes,0excluded currentevents;16prior same-scene sourceframes reused immutably withoutcredit.",
   "r103_mineral_variants": {
     "stable_id": "FV-66629DC58A20",
     "scope": "Two remaining blue/lavender PAN specimen source variants of the existing named mineral role. Not a new artwork-role denominator.",
@@ -601,7 +602,7 @@
     "direct_native_frame_views_here": 8,
     "existing_runtime_candidates_committed_this_revision": 1
   },
-  "technical_exports_this_revision": 2,
+  "technical_exports_this_revision": 3,
   "r104_mineral_runtime": {
     "stable_id": "FV-66629DC58A20",
     "scope": "Remaining blue/lavender PAN render variants, same existing mineral role; not separate whole-role/artwork count.",
@@ -851,8 +852,8 @@
     "accepted_removed": 0,
     "mission_complete": false
   },
-  "direct_candidate_frame_views_here": 16,
-  "source_context_frames_here": 8,
+  "direct_candidate_frame_views_here": 24,
+  "source_context_frames_here": 16,
   "r106_dev_integration": {
     "stable_id": "FV-A6CE3E284202",
     "state": "PAINTED_GEOLOGY_WORKBENCH_EXACT_GREEN_SOURCE_INTEGRATED_DEV",
@@ -1532,5 +1533,159 @@
     "accepted_removed": 0,
     "mission_complete": false,
     "remaining": "Closed/open shell,cavity,vertical seam,inheritedpointer/cave/otherart remain separately flat. Tinycontour/child state recognition/physical shell integration require review. Original119terminal pull gap unchanged; formal/external/natural/training/allroutes/global unknowns remain."
-  }
+  },
+  "r112_shell_runtime": {
+    "stable_id": "FV-99DB2D71D276",
+    "related_stable_ids": [
+      "FV-C1AB21410352"
+    ],
+    "state": "PAINTED_GEODE_SHELL_FAMILY_IN_DEV_EXACT_SOURCE_CI_GREEN",
+    "source_revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "source_baseline": "70715413b21232920f07a4df79a5721f9885962a",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/MANIFEST.json",
+    "source_delivery_required_files": 109,
+    "source_delivery_all_anonymous_exact": true,
+    "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_CI_run": 41049755620,
+    "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41049755620",
+    "source_CI_conclusion": "success",
+    "integrated_dev_revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+    "runtime_exports": [
+      {
+        "role": "whole",
+        "path": "assets/opera/worlds/props/geologist_geode_shell_painted.png",
+        "dimensions": [
+          512,
+          512
+        ],
+        "sha256": "b6c9693794cde8ef372fe457ffde659556043778459ddfa913ca61b2773219c7",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 67.7,
+          "faint_haze_pct_of_canvas": 0.3,
+          "semi_pct_of_visible": 0.6,
+          "near_opaque_pct_of_visible": 98.5,
+          "opaque_255_pct": 0.1,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            45,
+            137,
+            468,
+            396
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      },
+      {
+        "role": "left",
+        "path": "assets/opera/worlds/props/geologist_geode_shell_left_painted.png",
+        "dimensions": [
+          512,
+          512
+        ],
+        "sha256": "f3f2733609165062e1d1c780185742dcb2da27d6879025bc7b884e23668c9e79",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 83.9,
+          "faint_haze_pct_of_canvas": 0.1,
+          "semi_pct_of_visible": 0.6,
+          "near_opaque_pct_of_visible": 98.5,
+          "opaque_255_pct": 0.0,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            173,
+            137,
+            384,
+            396
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      },
+      {
+        "role": "right",
+        "path": "assets/opera/worlds/props/geologist_geode_shell_right_painted.png",
+        "dimensions": [
+          512,
+          512
+        ],
+        "sha256": "568fb19e0dbefb8345f4ff1a265cec2c0a2bc3657884cd0055f629977bcea894",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 83.8,
+          "faint_haze_pct_of_canvas": 0.1,
+          "semi_pct_of_visible": 0.6,
+          "near_opaque_pct_of_visible": 98.6,
+          "opaque_255_pct": 0.0,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            128,
+            137,
+            340,
+            396
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      }
+    ],
+    "actual_native_checks": 134,
+    "candidate_frames_reviewed": 24,
+    "same_scene_source_frames_reused": 16,
+    "new_frame_events": {
+      "bounded": 24,
+      "excluded": 0,
+      "retained": 24
+    },
+    "current_static_all82": "PASS",
+    "unchanged_other_functions": 56,
+    "primitive_calls": {
+      "before": 21,
+      "after": 16,
+      "retired": "Two shellpolygon fills/two outlines/vertical seam, no rendered geometric shell fallback. Legacyhalfpoints helper retained without activecaller, not acceptedart; cavity/pointer/otherart remain separate.",
+      "new_required_textures": 3,
+      "accepted_removed": 0
+    },
+    "new_bounded_source_artifacts": 1,
+    "partial_Dev_artifact_credit": 1,
+    "implementation_unit": "One coherent painted whole closed shell/exact matching halves implementation;3PNGexports across two partial roles, not two artifacts or accepted removals.",
+    "new_generation_calls": 2,
+    "generated_outputs": 2,
+    "rejected_takes": 1,
+    "technical_exports": 3,
+    "backend": "built-in image_gen.imagegen",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "new_roles": 0,
+    "new_families": 0,
+    "candidate": "USABLE_PAINTED_REPLACEMENT_CANDIDATE",
+    "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+    "runtime": "CONFIGURED_ORIGINAL_MAIN_OPERA_GEODE_TWO_ASPECT_EARLY_OPENING_FRAMESTEP_PASS",
+    "Dev_integrated": true,
+    "exact_new_Dev_APK_verified": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "natural_training_allroutes": null,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "remaining": "Originalcavity/inheritedpointer/cave/otherart remain separately flat. Whole skin/matched halves now painted, but actualdevice performance/childrecognition/finalcontact/formalQA11/owner/natural/training/allroutes remain open. Original119terminalgap unchanged. Metadata preflight path/callcounter correction disclosed, healthy native/import reused."
+  },
+  "rejected_native_takes_this_revision": 1
 }

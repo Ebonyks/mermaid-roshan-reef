@@ -425,6 +425,8 @@ R110partialproduction2026-10-29: [paintedriver pools](../../docs/handoffs/codex_
 
 R111partialproduction2026-10-30: [painted geode seam cues](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/README.md), source70715413b21232920f07a4df79a5721f9885962a exactCIgreen/integratedDev, currentstatic/all82/native108/16reviewedframes pass;8oldcontextframes reused withoutcredit,0excluded currentruns.14source/13partialDev artifacts; otherart/formal/external/global gaps remain. Lifecycle/acceptedremovals unchanged.
 
+R112partialproduction2026-10-30: [painted matching geode shell](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/README.md), source803dbac68705d46bcb4a5da4d060a0ae8cf09d6d exactCIgreen/integratedDev, currentstatic/all82/native134/24reviewedframes pass;16oldcontextframes reused withoutcredit,0excludedcurrentruns.15source/14partialDev artifacts; oneimplementation/twopartialroles. Otherart/formal/external/global gaps remain, lifecycle/acceptedremovals unchanged.
+
 ## MA-VIS-007
 
 | Field | Value |

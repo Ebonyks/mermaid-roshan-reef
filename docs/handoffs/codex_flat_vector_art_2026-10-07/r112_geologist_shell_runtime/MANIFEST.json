@@ -1,0 +1,713 @@
+{
+  "schema": "reef.runtime_trial_delivery/1",
+  "revision": "FV-AUDIT-20261030-R112-DEV",
+  "baseline": "fb8a060bbc6f21fa873b98a1b76abb08c0611c9c",
+  "files": [
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297656,
+      "sha256": "b5b196bfea69e2d4c93f39db3f4a33d98a8f032a711dd73cebebab4f6b5b278c",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 288951,
+      "sha256": "85f9ba6d02f39ad6d53c3550cd4c8418823319f35f18149a099b327f3760d882",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 327106,
+      "sha256": "93fe076c2a44cbc5e5a54506946d96bea3f293bd0204df2d4d285bb0d38bb875",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 271828,
+      "sha256": "5babdd64bb8f90b02dd18a189163c8c62f60ec7616a3fea038ca86ee1e763dfc",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 147832,
+      "sha256": "e80d969766c99e8b0c609de6092f5aae6bb8563fe7f2d9e409049501f9787460",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/CANONICAL_GATES.json",
+      "bytes": 731,
+      "sha256": "29b9bedd8085ba6d43518532b7ef732d36af41ea78109ccaf4077da706c05784",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/CANONICAL_PUBLICATION_RUNNER.py",
+      "bytes": 23518,
+      "sha256": "63fa911a70d59ae4890b5c8eabad4047317197bdbbc0e9b3529f69f3137700da",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/DERIVATION.json",
+      "bytes": 5847,
+      "sha256": "ca284ec145235439c05ccc2385f5f64f14c99c4127ed2331fd5c94694dbf896b",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/DEV_INTEGRATION.json",
+      "bytes": 3920,
+      "sha256": "b2619d47a7b193050547d78a1ec09f6f988ea0cf05feb2cc5b3c8e3dd985e199",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/DEV_WORKFLOW_HANDLES.json",
+      "bytes": 284,
+      "sha256": "0af180ce4808c69fa3afbadee53be47e155e08cf70351cc2d15a999a19a69e9c",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/FOCUSED_RESULT.json",
+      "bytes": 25411,
+      "sha256": "6aa0f95b669ec59ef92123740e384d9c3de92800174600b659eac9373b2c7656",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/FRAME_REVIEW.json",
+      "bytes": 4147,
+      "sha256": "57894bad196d7598d710e5a47b9f6c3b5aa342eee995994cb71a6fee1cae15ab",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/FUNCTION_PRESERVATION.json",
+      "bytes": 1873,
+      "sha256": "63e0a4951a3f1aeb63f95abda1ebf05b00e09bad70f49a9f6756b4d5cc082a95",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/LOCAL_82_RESULT.json",
+      "bytes": 91360,
+      "sha256": "ff05ba4493e277756f26800c0a09a4cf7a7d01fe89df3dce7be712f62d2fc3ec",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/PLAN.json",
+      "bytes": 5864,
+      "sha256": "ca141c8709f47be48324ba0fb0331a58b7f4997399d18a1f6a89d39070a3f69d",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/POSTCOMMIT_EOL_CLEANUP.json",
+      "bytes": 230,
+      "sha256": "d35c24eae21d4f810ddd47c67571810188015921ba344f1ab5dce3cfdb673575",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/PREPARE_PATH_RECOVERY.json",
+      "bytes": 9192,
+      "sha256": "3f10958ab9a392d2d2e4bfd6346729156fd994b0ebb5ef4f6dc1ed79bb1999e6",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/PRIMITIVE_CENSUS.json",
+      "bytes": 307,
+      "sha256": "218880f9ec2a3e3732b798331e3d0f353f13b71c8f0b9f98481eef830a11122b",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/PRODUCTION.json",
+      "bytes": 5009,
+      "sha256": "055d0ecc9aadfdc69a444b8fcc1cf528e232663663a5fffa7ed94583bb3b9421",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/README.md",
+      "bytes": 1925,
+      "sha256": "bc7e37a3670e5eb289c2bf019f7692f7e3198053d7b0e627e96959259c83d4c0",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/SOURCE_CI_GREEN.json",
+      "bytes": 9916,
+      "sha256": "d828d49a170663a93ab50db4e1cb4e67ad78eb0f3cc3485f8d7ec24d245b314e",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/SOURCE_CI_HANDLES.json",
+      "bytes": 289,
+      "sha256": "786a0f9fb361e1323b4edec87ce898003a453b50d6c3e421fe3e0d2e6ec2b619",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/SOURCE_PIN.json",
+      "bytes": 649368,
+      "sha256": "5d483deabb0d5a12b3e2a3da9f3e95f5c03803cadbdd3416b3f2ce9a47305422",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/SOURCE_PUBLICATION_FINAL.json",
+      "bytes": 701,
+      "sha256": "d2a6bf44c1a6dc0d58f69078107c50111aa5aa8cacdf32e379525dbcdc563e4e",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/SOURCE_REMOTE_VERIFICATION.json",
+      "bytes": 53533,
+      "sha256": "d35b184cff3574bc85582c9fcbcb3b1538d57054bc5343caba59e08ed4c706cc",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/STATIC_RESULT.json",
+      "bytes": 353,
+      "sha256": "5dd52b8af55998c7a2ebf7aa30561df5d17e5318adfe8a4679f8ac0c10b854ea",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/STATUS.json",
+      "bytes": 1313,
+      "sha256": "328b3d72002cb770fc7d6585e021714545c79083b56445f4ccbfc8448a654b1d",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 69261,
+      "sha256": "2692f2d86bd766fdf324310e0d875d11596ca66f457558fda690315bfedefa08",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 1804580,
+      "sha256": "d43c74dfbee96ee2834e04d12864b45b38fcbd38fc5f38eaa0b846a364d4d6cc",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1177314,
+      "sha256": "de0943ca272c1ea269eb8b1eaa0c21de44fccb5655727978ea2e59fc0c844f7f",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 521264,
+      "sha256": "d22df5965cace1f650277fdcd4f62f7b545bc76aea578b235172674dd8511380",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/audit_impacts/flat-vector-r112-shell-runtime-20261030.json",
+      "bytes": 5332,
+      "sha256": "190fe547daf3df19f698a5518817eac3d694d383d9e6ba90fb2a57b560d12d23",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets/opera/worlds/props/geologist_geode_shell_left_painted.png",
+      "bytes": 99723,
+      "sha256": "f3f2733609165062e1d1c780185742dcb2da27d6879025bc7b884e23668c9e79",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets/opera/worlds/props/geologist_geode_shell_left_painted.png.import",
+      "bytes": 1034,
+      "sha256": "a05e458d8979f4c910f9143f163e1d51c31746f8bbc769a09833c8ddaa032572",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets/opera/worlds/props/geologist_geode_shell_painted.png",
+      "bytes": 191623,
+      "sha256": "b6c9693794cde8ef372fe457ffde659556043778459ddfa913ca61b2773219c7",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets/opera/worlds/props/geologist_geode_shell_painted.png.import",
+      "bytes": 1018,
+      "sha256": "22ea52d362e49d082a7a7618151af6927f1535f9cee85929a849a8d1713f706c",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets/opera/worlds/props/geologist_geode_shell_right_painted.png",
+      "bytes": 103004,
+      "sha256": "568fb19e0dbefb8345f4ff1a265cec2c0a2bc3657884cd0055f629977bcea894",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets/opera/worlds/props/geologist_geode_shell_right_painted.png.import",
+      "bytes": 1037,
+      "sha256": "ca493556019542f6393ac8a50a10421bb586c483953c6cf7f83e592cf9c14e6b",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/DERIVATION.json",
+      "bytes": 5847,
+      "sha256": "ca284ec145235439c05ccc2385f5f64f14c99c4127ed2331fd5c94694dbf896b",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/PLAN.json",
+      "bytes": 5864,
+      "sha256": "ca141c8709f47be48324ba0fb0331a58b7f4997399d18a1f6a89d39070a3f69d",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/PROMPT.txt",
+      "bytes": 2268,
+      "sha256": "788bd5532a9eb882a5805b969b1fca8fc21e527b8281db6e7f1156c600ecb9e5",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/PROMPT_TAKE02.txt",
+      "bytes": 1828,
+      "sha256": "8f6ecdef21ce1191cac4b53ae8ec633fc3a80f58302307535717ac6ff442a67c",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/TAKE01.json",
+      "bytes": 984,
+      "sha256": "68472fd51ed12d15ef885bb06eb4a7cbae7734fff351bf48c9666b7d5dda1024",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/TAKE02.json",
+      "bytes": 529,
+      "sha256": "d7c040c4fb3dc331fb9010f414665a08d71bbb5d4637bbfdd67264b06b781aaa",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/export_whole_and_halves.lua",
+      "bytes": 1862,
+      "sha256": "2fb06bbee9e260911621de26c4744d31ca3ab4717e59de7921b43f5d8eccf9df",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/native_roundtrip.png",
+      "bytes": 1296003,
+      "sha256": "cf0219e746ef36078f18beb7f3e4e8a3c7c0c341a9ceae47360e5401e87a7323",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/shell_left512.aseprite",
+      "bytes": 124465,
+      "sha256": "60c3981408b564beffffd720cf7ade132719e9eb05ea1a410d1ef041ce38c229",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/shell_native.aseprite",
+      "bytes": 1907022,
+      "sha256": "a48e33243e5ac25edfafbc01f7944af6f21b5cc4c5d49305d02cf66688b81f8b",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/shell_right512.aseprite",
+      "bytes": 132341,
+      "sha256": "8bebcb62769bff198d6b7eee7d52cb819936369cc0664edda3481d3c2fd41759",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/shell_uniform432.png",
+      "bytes": 189380,
+      "sha256": "6f34313fe9ff5c7e44e4142075d7865e7b784f051dc48f1d6135b5cf4004bfb5",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/shell_whole512.aseprite",
+      "bytes": 249929,
+      "sha256": "ee6ffb919ee2a9ab95bfd62014cd40f05ba8e3879ce026d783ef97725dfa7862",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/take01_native.png",
+      "bytes": 1786760,
+      "sha256": "e6c823bbaea888a591d7a09c6e85e08fe8271443312cc64aa5ba2610792528de",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/take02_native.png",
+      "bytes": 1444291,
+      "sha256": "cfb9d22eba220516982de89fe3608eec1d529ace17f0cf35185e7c2f6d241319",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets_src/imagegen/geologist_geode_shell_20261030/technical_export.py",
+      "bytes": 5981,
+      "sha256": "340eba25863954280bf6e8f1c8448c806da2568e0cdd746cf0a92b80a3fe19d2",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/01_initial.png",
+      "bytes": 670918,
+      "sha256": "26d2ae248e04156a4a96510ee23c8f74dfdcd4661ff82518d8dcbbff91fb0f2d",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/02_partial_seams.png",
+      "bytes": 672238,
+      "sha256": "9498a1004cbfaf9206afdbb3a81b2929021e90fbd9b14b274a9d7dc053a45bc1",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/03_ready_to_pull.png",
+      "bytes": 673173,
+      "sha256": "80ff0eaf4e90bd3455993e83e6ffe919d5b895e75342acd98710b6de1955ceb8",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/04_reveal_2.png",
+      "bytes": 663972,
+      "sha256": "5387a912c191a294d810b92e3be725a1021501f2948cc129e0f9aeb908dcc387",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/05_reveal_6.png",
+      "bytes": 664270,
+      "sha256": "e82e82a98edc34f0d79c65cd5551911252b60148466b48de927fe18fd3215426",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/06_reveal_12.png",
+      "bytes": 664574,
+      "sha256": "b5c5649d5eff598a9fadcf11aea58981978f093d6e0d72de355e4f4244dad4a4",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/07_reveal_25.png",
+      "bytes": 665136,
+      "sha256": "a308713822385f729f5eb8f784180bb9b0dae8c7c3e128696acb7b2169fea786",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/08_reveal_40.png",
+      "bytes": 665669,
+      "sha256": "ebe3606262d9ea23cb30951b86d7e7a83cc9fdccf3e4f49d1199f78e7e4c091d",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/09_reveal_60_released.png",
+      "bytes": 666324,
+      "sha256": "c779817aeb7482c38e3550975e32ad1fe03ed6d0f7dbdb54bd1157bd62055ef2",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/10_reveal_90.png",
+      "bytes": 666966,
+      "sha256": "69895d21b797aafdff40d518d4ea9978133c77f7d604e318362674f558418482",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/11_reveal_100.png",
+      "bytes": 665811,
+      "sha256": "0d916bcefd2d01cda0ccacf5756740e4293a1be9c01ef0c6ca19c876991ee60d",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1280/12_complete.png",
+      "bytes": 659484,
+      "sha256": "d19bbb3cf45f04b2505c831ae7cbfe282052f8e359ea4ba58826a00affba5014",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/01_initial.png",
+      "bytes": 679558,
+      "sha256": "6c35859160026db62b515f75cd54aa5d064c6190e29b949e100cae46beba765a",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/02_partial_seams.png",
+      "bytes": 680547,
+      "sha256": "a668dcb0cad7f3ccc51249ba03ad2a01b2f748a4fdf6709c776dbae567f69a1d",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/03_ready_to_pull.png",
+      "bytes": 681832,
+      "sha256": "1768eea73188d930ed72b9844c68d97403f88ad514bf6ccb729222c6952c2d69",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/04_reveal_2.png",
+      "bytes": 672557,
+      "sha256": "5a191979717714cc98942ccca08e56d9ec4f4be50ea415856b6484343cc2df14",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/05_reveal_6.png",
+      "bytes": 672865,
+      "sha256": "6f24c81db393915c0b58396c6359a60ff82606ba7a2bedfc8ad00fcc31e4526a",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/06_reveal_12.png",
+      "bytes": 673155,
+      "sha256": "3624f187fe0ba381838692e1d9ae015a47414eab60d0da03ccc070dc957242b5",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/07_reveal_25.png",
+      "bytes": 673735,
+      "sha256": "ac7ccfb2a992bdc59dc6173f933041f8b76d24f019581d14c29a0d9eb21ba5c5",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/08_reveal_40.png",
+      "bytes": 673880,
+      "sha256": "404548945917627acd4c2779c7d7796b6033618590db66fb2bc27d58d8039cc4",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/09_reveal_60_released.png",
+      "bytes": 674800,
+      "sha256": "ca5b8ee2928b5f26fbefb8c7e20c77839d9b7f64dbf3d9c824067f1a50fc0349",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/10_reveal_90.png",
+      "bytes": 675251,
+      "sha256": "cd0ede1c7f778128f1c078cfb1baa72deb403aeb2a2d40eb7698c4a9babbd3b2",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/11_reveal_100.png",
+      "bytes": 674028,
+      "sha256": "8a3c09297235db3bf055ae4a28ee0cf14d7c1c69fcb84971955a74f6518ece05",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/candidate/1600/12_complete.png",
+      "bytes": 667107,
+      "sha256": "c5c3a6cb907b6e542700be62b274af3967091b00aa65c951a7a49a960abb4892",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "scripts/opera_geology_surface.gd",
+      "bytes": 37997,
+      "sha256": "6678cff8f010f296771ed45084517a0f2873c2052b05add1b490fa7e6fb524f3",
+      "role": "Actual painted whole shell/exact matching halves, source/master/reject/native context/current machine evidence; no global acceptance inferred"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets/opera/worlds/props/geologist_work_slab_painted.png",
+      "bytes": 786464,
+      "sha256": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4",
+      "role": "Neighboring bench appearance style; original provisional candidate scope retained"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "assets/opera/worlds/props/geologist_mineral_lavender_painted.png",
+      "bytes": 214071,
+      "sha256": "cea8f66b34e657f8216f0038adefee38624a1e2900e365b55aa15169be60b20f",
+      "role": "Neighboring lavender mineral palette/material reference; original approvalscope unchanged"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/01_initial.png",
+      "bytes": 531697,
+      "sha256": "a2d085bf68f3579f7833c68b5a0145c0efd0468292aeb6743c240236f17ee7d4",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/02_partial_seams.png",
+      "bytes": 532595,
+      "sha256": "e034ee7758c94ad33dff959a19778b20a7788622b443702197e472cc81a38906",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/03_ready_to_pull.png",
+      "bytes": 533726,
+      "sha256": "1c1de79dda0d2df01eea3531fc888a28c779698523f37f2a974e2f5fc3a168d2",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/04_reveal_25.png",
+      "bytes": 506747,
+      "sha256": "54da3b959abdc314564e112c215cacbba71eb6ee5e41d617486b9d8928934184",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/05_reveal_60_released.png",
+      "bytes": 508200,
+      "sha256": "94066f267f1a7e0314463393e35bcb5822779fbbed296bd4123ecda7534db115",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/06_reveal_90.png",
+      "bytes": 509174,
+      "sha256": "7f9ba216c37d6dc262411b3d4848e3c726e4d8876f7e815b21fe5d7897804cbd",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/07_reveal_100.png",
+      "bytes": 508574,
+      "sha256": "35f500caaa702c1969dea19a0567edfac502703e31ea57e883871f6e97090d5a",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1280/08_complete.png",
+      "bytes": 502727,
+      "sha256": "0a31bdfb8f80444d99d62133171b7e35a4604d063f8b2ea97fa544e1db3d1120",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/01_initial.png",
+      "bytes": 539483,
+      "sha256": "10aac11d36a759655844a0c824f56241f9b2a8b82d58cbfd0febd9fca8298cee",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/02_partial_seams.png",
+      "bytes": 540329,
+      "sha256": "fd1f009cd276334bc60f6051d6ebfe981e49e4e98e5511cf0bfc504172ead444",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/03_ready_to_pull.png",
+      "bytes": 541584,
+      "sha256": "0ee18456f339c2277e300e7018e7156f129be2358e96da10f09cff006cf45145",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/04_reveal_25.png",
+      "bytes": 514582,
+      "sha256": "fbafe5de99ccf3b677dd66ca2f79821df16e902e8103693a0b89114fbad419b5",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/05_reveal_60_released.png",
+      "bytes": 515576,
+      "sha256": "48b74c5f6423cab2e30d12aa0689a8bac6a9e8d131e3e248b64736c20a4def9b",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/06_reveal_90.png",
+      "bytes": 516687,
+      "sha256": "372e623d9b7cad0497b4ca9e5e78cdb681594b82142f485e21d1569447b2cfea",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/07_reveal_100.png",
+      "bytes": 516059,
+      "sha256": "751f02760a7dc05a0e41fd5506a55f806ee91d19bd8c99acf36e0432e008c694",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    },
+    {
+      "revision": "70715413b21232920f07a4df79a5721f9885962a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/candidate/1600/08_complete.png",
+      "bytes": 510417,
+      "sha256": "c43a5b030805d2acf447f0d89f32283a6274505a323b95e959856d3ca09dc51e",
+      "role": "Same-scene geode baseline reused immutably, zero newframecredit"
+    }
+  ],
+  "required_files": 99,
+  "required_bytes": 38823547,
+  "actual_runtime_source": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+  "scope": "Currentcanonical one wholepaintedshell/matchinghalves source/Dev delta across two partialroles, complete native/source/master/reject/exports,24reviewedcurrentframes and16immutablecontextframes. Fullsource independentlydelivered, no recursive archive.",
+  "new_generation_calls": 2,
+  "new_bounded_source_artifacts": 1,
+  "new_frame_events": {
+    "bounded": 24,
+    "excluded": 0,
+    "retained": 24
+  },
+  "accepted_removed": 0,
+  "mission_complete": false
+}
