@@ -49,6 +49,8 @@ const FOSSIL_PIECE_PATHS: Array[String] = [
 ## Each 512 canvas contains a 250x450 source third, at one uniform scale.
 const FOSSIL_PIECE_CANVAS_SIZE := Vector2(266.24, 266.24)
 const GEODE_PATH := ""
+const GEODE_SEAM_CLOSED_PATH := "res://assets/opera/worlds/props/geologist_geode_seam_closed_painted.png"
+const GEODE_SEAM_DONE_PATH := "res://assets/opera/worlds/props/geologist_geode_seam_done_painted.png"
 const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg"
 const BRUSH_PATH := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
 const PAN_PATH := "res://assets/opera/worlds/props/geologist_washing_pan_painted.png"
@@ -76,6 +78,8 @@ var fossil_texture: Texture2D = null
 var fossil_soil_texture: Texture2D = null
 var fossil_piece_textures: Array[Texture2D] = []
 var geode_texture: Texture2D = null
+var geode_seam_closed_texture: Texture2D = null
+var geode_seam_done_texture: Texture2D = null
 var rock_texture: Texture2D = null
 var brush_texture: Texture2D = null
 var pan_texture: Texture2D = null
@@ -294,6 +298,8 @@ func _load_textures() -> void:
 	for path: String in FOSSIL_PIECE_PATHS:
 		fossil_piece_textures.append(_required_fossil_texture(path))
 	geode_texture = _optional_texture(GEODE_PATH)
+	geode_seam_closed_texture = _required_mineral_texture(GEODE_SEAM_CLOSED_PATH)
+	geode_seam_done_texture = _required_mineral_texture(GEODE_SEAM_DONE_PATH)
 	rock_texture = _optional_texture(ROCK_PATH)
 	brush_texture = _optional_texture(BRUSH_PATH)
 	var painted_source: Texture2D = _optional_texture(PAN_PATH)
@@ -907,11 +913,11 @@ func _draw_geode() -> void:
 			continue
 		var spot := GEODE_SEAM_SPOTS[index] + Vector2(geode_pull * 0.5, 0.0) \
 			if opened and index >= 2 else GEODE_SEAM_SPOTS[index]
-		draw_circle(spot, 22.0,
-			Color("#ffe69a") if not done else Color("#8ce6dd"))
-		if not done:
-			draw_arc(spot, 32.0, 0.0, TAU, 24,
-				Color(1.0, 0.89, 0.42, 0.56), 5.0, true)
+		var painted: Texture2D = geode_seam_done_texture if done else geode_seam_closed_texture
+		if painted != null:
+			# Whole authored state, same centre and common registered canvas.
+			draw_texture_rect(painted, Rect2(spot - Vector2(32.0, 32.0),
+				Vector2(64.0, 64.0)), false)
 
 
 func _draw_work_surface() -> void:

@@ -451,6 +451,8 @@ R109 production2026-10-29: FV-F7DB96881260 whole painted aqua/lilac crystal gall
 
 R110 production2026-10-29: FV-4120D0DEF44C three whole painted river source/dry/full receiving pools replace five flat source/sink drawcalls. Connectivity, original cell/touch/save and other artwork unchanged; one static three-state brief. Candidate/runtime/machine/CI/Dev/formal/external separate; lifecycle/accepted removals unchanged.
 
+R111 production2026-10-30: FV-4502C5860C45 whole painted closed/mint-cleft seam cue states replace selected five circle/arc targets only. Tap count/centres/hit radius/pull/save unchanged; shell/cavity/pointer and original119 terminal gap remain open. Candidate/runtime/machine/CI/Dev/formal/external separate; finding lifecycle and accepted removals unchanged.
+
 ## MA-PLAY-001
 
 | Field | Value |

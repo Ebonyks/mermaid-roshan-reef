@@ -1,0 +1,97 @@
+{
+  "revision": "R111",
+  "stable_id": "FV-4502C5860C45",
+  "baseline": "51b2e1ef7b32d155786277871fc3f5e941145ea6",
+  "scope": "Replace only five geode seam target circle/arc drawings with two complete authored painted mineral seam/contact cue states. Same five centres, unresolved warm gold and completed mint distinction; no new objectives, counting, target geometry, 56px hit radius, 120px pull, saves, actors or other art changes. Whole-image swaps on existing seam bits; no code-drawn object parts. Shell/cavity/vertical seam remain separate debt.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010",
+    "MA-OPERA-004"
+  ],
+  "context": [
+    {
+      "path": "assets/opera/worlds/props/geologist_work_slab_painted.png",
+      "revision": "51b2e1ef7b32d155786277871fc3f5e941145ea6",
+      "sha256": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4",
+      "role": "appearance_style_reference"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_mineral_mint_painted.png",
+      "revision": "51b2e1ef7b32d155786277871fc3f5e941145ea6",
+      "sha256": "ccfff113ae678e150e2b0ba0d54bfda3071c7102f0e05cd0c850044f19dcc390",
+      "role": "appearance_palette_material_reference"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/candidate/1280/01_initial.png",
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "sha256": "d4773db5178efbda25d8ec16fe23f257a5fb8e7080ce0fb3a9746cc8be682595",
+      "role": "scene_context_only_never_generation_pixels"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/candidate/1280/02_partial_seams.png",
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "sha256": "99857ad627a6cb45492be125c825f95fac6e69f1abf5c9f66b4c0f5441b7a3b1",
+      "role": "scene_context_only_never_generation_pixels"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "51b2e1ef7b32d155786277871fc3f5e941145ea6",
+      "sha256": "523f243f21bdc277667f9b1086b4d07e149d34184ed6aec277f17ad3775d102c",
+      "role": "source_binding"
+    }
+  ],
+  "quality_choice": "Small warm cream/plum mineral seam nodules with quiet painted material and a resolved mint state; ImageGen supplies the named missing state family. Existing marker-fit/R15 reused-star trials remain historical unapproved studies, not new acceptance. Reuse optional and no failed-reuse prerequisite. Actual current geode scene inspected; screenshots context only. Existing bench/mineral appearance refs have provisional candidate scope, never relabelled owner approved.",
+  "generation": {
+    "backend": "built-in image_gen.imagegen",
+    "model_version": "NOT_EXPOSED",
+    "static_take_cap": 2,
+    "calls_used": 1,
+    "animation_calls": 0,
+    "monetary_usage": "NOT_EXPOSED",
+    "state": "TAKE01_TWO_WHOLE_STATES_EXPORTED",
+    "cap_scope": "Entire R111 static two-state seam cue brief; no perstate budget reset.",
+    "dispatch_utc": "2026-10-30T07:38:49.908661+00:00",
+    "native_sha256": "1ac72bb5decaed7315c0f3133b3dfdd90cd76051139540c8c0674edcbcef8261"
+  },
+  "required_evidence": [
+    "Whole native sheet/Aseprite preservation, same registration two512 RGBA exports and C2",
+    "Only resource loader and geode marker rendering changed; all other functions/constants unchanged; primitive census falls",
+    "OriginalMain/Opera native1280/1600 initial/partial/allseams/reveal/completion, passive/wrongfinger/cancel/JSONrestore; same-scene tenaxes comparison",
+    "Actual candidate import/currentstatic/all82 exact4.7.2 Mobile/Speedy; source pin and normal save guard",
+    "Source manifest anonymous immutable, exactsource CI green, normal Dev integration",
+    "Canonical current per-piece registry/coverage/tally verified delta once, full required manifest anonymous immutable"
+  ],
+  "acceptance_gaps": "FormalQA11/device/child/owner and natural/training/allroutes remain open; geode shell/cavity/vertical seam and inherited pointer remain separate debt. Preexisting119 terminal pull gap unchanged from R109. Accepted artwork removals0; no full role or whole-game acceptance.",
+  "destination": {
+    "repo": "Ebonyks/mermaid-roshan-reef",
+    "runtime_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "canonical_branch": "codex/flat-vector-r6-20261012",
+    "access": "Anonymous immutable manifests and everyrequiredfile"
+  },
+  "coordination": "Existing coordinator/Geologist read-only snapshots completed/notLoaded, U/R clean; freshfetch source==originDev. No paused goal resumed, other editor touched or other chat messaged.",
+  "started_at_utc": "2026-10-30T07:38:40.374993+00:00",
+  "runtime": "108nativechecks/16directlyinspected currentframes;8immutable prior same-scene frames reused, no new credit. No excluded currentruns. Original119gap unchanged; all82/static/CI/Dev pending.",
+  "current_machine": "PASS frozen currentstatic/import/all82trusted and108nativechecks/16directlyviewedframes,8immutable contextframes reused. Noexcluded currentruns, no gameplay/art assertion changes."
+}

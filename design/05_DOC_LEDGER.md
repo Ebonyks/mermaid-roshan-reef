@@ -1135,3 +1135,5 @@ Owner-requested analysis and Codex handoff for the commissioned under-pool book,
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R109 whole painted crystal gallery; original geode shells/cavity remain debt; candidate/runtime/machine/CI/Dev/formal/external separate. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R110 whole painted river source/dry/full receiving pools with unchanged connectivity; candidate/runtime/machine/CI/Dev/formal/external separate. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R111 whole painted geode seam states; candidate/runtime/machine/CI/Dev/formal/external separate. |
