@@ -427,6 +427,8 @@ R111partialproduction2026-10-30: [painted geode seam cues](../../docs/handoffs/c
 
 R112partialproduction2026-10-30: [painted matching geode shell](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/README.md), source803dbac68705d46bcb4a5da4d060a0ae8cf09d6d exactCIgreen/integratedDev, currentstatic/all82/native134/24reviewedframes pass;16oldcontextframes reused withoutcredit,0excludedcurrentruns.15source/14partialDev artifacts; oneimplementation/twopartialroles. Otherart/formal/external/global gaps remain, lifecycle/acceptedremovals unchanged.
 
+R113partialproduction2026-10-30: [painted Geologist Library crest](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/README.md), sourceca58aacd96bf10b2c5413659b1ee0f1b1a45f63b exactCIgreen/integratedDev/currentstatic/all82/native70/10candidate and34/2source frames pass.16source/15partialDev artifacts,12newbounded events/0excluded. Otherart/formal/external/global gaps remain; lifecycle/acceptedremoval unchanged.
+
 ## MA-VIS-007
 
 | Field | Value |

@@ -1446,3 +1446,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R111 whole painted seamcue states inDev; exactsourceCIgreen/local82/static/native108/16reviewedframes. Formal/external/otherart/global acceptance open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R112 wholepainted closed shell/exactmatchinghalves inDev; exactsourceCIgreen/local82/static/native134/24reviewedframes. Oneimplementation/twopartialroles, formal/external/otherart/global acceptance open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R113 wholepainted Geologist Library crest inDev; exactsourceCIgreen/local82/static/native70/10candidate and34/2source frames. Formal/external/otherart/global acceptance open. |
