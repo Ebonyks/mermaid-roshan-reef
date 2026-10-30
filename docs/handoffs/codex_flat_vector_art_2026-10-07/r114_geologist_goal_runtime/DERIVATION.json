@@ -1,0 +1,69 @@
+{
+  "stable_id": "FV-2E260E1F7107",
+  "baseline": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+  "method": "DIRECT_WHOLE_SOURCE_REUSE_THROUGH_NATIVE_FULL_IMAGE_ALIAS",
+  "new_generation_calls": 0,
+  "new_runtime_images": 0,
+  "technical_exports": 0,
+  "animation_calls": 0,
+  "source_generation": {
+    "task": "R109",
+    "backend": "built-in image_gen.imagegen",
+    "model_version": "NOT_EXPOSED",
+    "calls": 1,
+    "not_recredited_here": true
+  },
+  "source_acceptance_scope": "Existing provisional painted R109 gallery candidate integratedDev; no final owner approval relabeling.",
+  "source_original_derivation": "assets_src/imagegen/geologist_crystal_gallery_20261029/DERIVATION.json",
+  "source_revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+  "native_source": "assets_src/imagegen/geologist_crystal_gallery_20261029/take01_native.png",
+  "editable_master": "assets_src/imagegen/geologist_crystal_gallery_20261029/gallery_native.aseprite",
+  "exports": [
+    {
+      "path": "assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+      "sha256": "6eae2e93fdafdfb3a059d3968de1ec39d92174035d7f6a211d1d9b828024c900",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "existing whole crystal reused as final goal and catalog source",
+      "existing_unchanged": true,
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 63.3,
+        "faint_haze_pct_of_canvas": 0.4,
+        "semi_pct_of_visible": 0.7,
+        "near_opaque_pct_of_visible": 98.2,
+        "opaque_255_pct": 0.1,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          95,
+          51,
+          422,
+          472
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    }
+  ],
+  "edits": "Whole-image alias and resource dictionary/constants only. Underlying512PNG/native/master and all194functions unchanged. Exact runtimeImage pixel identity and underlyinglossless mipmaps must pass actualcandidate capture. No newraster/appearance/technicalexport.",
+  "originals_preserved": true,
+  "native_alias": {
+    "path": "assets/opera/worlds/props/goal_geologist.tres",
+    "sha256": "4adef859b52f912f5fc4870ec66510f79a93c46ee127cb98c629b3a97c24d424",
+    "type": "AtlasTexture",
+    "atlas": "res://assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+    "region": [
+      0,
+      0,
+      512,
+      512
+    ],
+    "reason": "Satisfy existing goal_* resource whitelist without relaxing it or copying paintedPNG into another allocation."
+  }
+}

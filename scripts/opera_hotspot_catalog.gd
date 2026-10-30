@@ -134,7 +134,7 @@ const SPECS: Dictionary = {
 		"RIVER": {"path": "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg", "motion": "pulse", "size": Vector2(128, 128), "presentation": "painted"},
 		"FOSSIL": {"path": "res://assets/opera/worlds/hotspots/geologist_fossil.svg", "motion": "rock", "size": Vector2(132, 132), "presentation": "painted"},
 		"PAN": {"path": "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg", "motion": "bounce", "size": Vector2(112, 112), "presentation": "overlay"},
-		"GEODE": {"path": "res://assets/opera/worlds/props/goal_geologist.svg", "motion": "pulse", "size": Vector2(150, 150), "presentation": "painted"},
+		"GEODE": {"path": "res://assets/opera/worlds/props/goal_geologist.tres", "motion": "pulse", "size": Vector2(150, 150), "presentation": "painted"},
 	},
 }
 
@@ -193,7 +193,7 @@ const ASSET_META: Dictionary = {
 	"res://assets/opera/worlds/widgets/widget_crank_popstar_mover.png": {"dimensions": Vector2i(256, 256), "role": "object_group"},
 	"res://assets/opera/worlds/hotspots/geologist_layered_rock.svg": {"dimensions": Vector2i(256, 256), "role": "object"},
 	"res://assets/opera/worlds/hotspots/geologist_fossil.svg": {"dimensions": Vector2i(256, 256), "role": "object"},
-	"res://assets/opera/worlds/props/goal_geologist.svg": {"dimensions": Vector2i(256, 256), "role": "object_group"},
+	"res://assets/opera/worlds/props/goal_geologist.tres": {"dimensions": Vector2i(512, 512), "role": "object_group"},
 }
 
 

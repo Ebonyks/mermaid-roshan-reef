@@ -1,0 +1,102 @@
+{
+  "revision": "R114",
+  "stable_id": "FV-2E260E1F7107",
+  "related_stable_ids": [],
+  "baseline": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+  "scope": "Replace the flat goal_geologist.svg goal illustration with the existing whole painted crystal gallery source through shared resource references in GOAL_PROPS and the GEODE catalog spec/source metadata. Retire tracked oldSVG, archive its ignored local import separately. No new PNG/generation or shape drawing. Actual visible consumer is the completed-world curtain-call goal prop; the painted GEODE hotspot loads the source but draws invitation only, so do not credit a worldbackdrop replacement. All functions, geometry, callbacks, reward/save/input, timing and geology art remain unchanged. Catalog gate requires props/goal_* names. Use a native full-image AtlasTexture resource goal_geologist.tres referencing the unchanged galleryPNG, rather than bypassing _allowed_runtime_path or duplicating raster data. All194functions and functional geometry stay identical; no cropping or UV region smaller than the complete source.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010",
+    "MA-OPERA-004"
+  ],
+  "context": [
+    {
+      "path": "assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "sha256": "6eae2e93fdafdfb3a059d3968de1ec39d92174035d7f6a211d1d9b828024c900",
+      "role": "whole_appearance_reuse_source"
+    },
+    {
+      "path": "assets_src/imagegen/geologist_crystal_gallery_20261029/DERIVATION.json",
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "sha256": "8b9091a0717bedffbaac59347cc2e0f873980566a62da528323783497e865caf",
+      "role": "native_master_derivation_provenance"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "sha256": "468af880c3cc2910f7036d2d8accb6f8190fe44bf18acdce94e5d30d988868b2",
+      "role": "goal_visible_consumer"
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "sha256": "e638dbd1fafe18e34b9b1926ead809ade7d4d744c3909ab72f1f541c6a27683e",
+      "role": "catalog_source_only_consumer"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "sha256": "477087546f05e2423fb866907a12f3d65dee1c793133cbe64b3ef290c09d28c5",
+      "role": "loaded_painted_source_not_drawn_ownership"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_geologist.svg",
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "role": "retired_weak_source"
+    }
+  ],
+  "quality_choice": "Direct whole-source reuse chosen for exact mineral object identity, polished aqua/lavender painted depth, phone-readable silhouette and runtime suitability. Same crystal gallery the child uncovers becomes the final displayed find. Medallion crest is a UI role and is not substituted as a physical crystal. Reuse optional/no failed-reuse gate; no approved art regenerated for novelty.",
+  "generation": {
+    "backend": "NO_NEW_GENERATION_DIRECT_REUSE",
+    "source_backend": "built-in image_gen.imagegen",
+    "source_model_version": "NOT_EXPOSED",
+    "calls_used": 0,
+    "animation_calls": 0,
+    "monetary_usage": "NO_NEW_PAID_WORK",
+    "source_source_generation_calls_this_task": 0
+  },
+  "required_evidence": [
+    "OriginalMain synthetic saved phase3 checkpoint, actual seam taps and100-to120pull through original completion/curtain-call callback at1280/1600; oldgoalvisible baseline, candidate same states and fullbounce/settle; no natural wholecareer claim",
+    "Direct existingPNG/source/master/provenance hash/C2; no crop/tint/deformation/technicalexport, exact sourcepixel identity",
+    "Both resource dictionaries updated, metadata512 correct, trackedSVG retired/ignoredsidecar separately archived; everyGDfunction and hit/save/transition constant byte-identical",
+    "Actualcandidate exact4.7.2 Mobile/Speedy import/currentstatic/all82, normal11savehash guard and sourceclosure",
+    "Fullsource everymanifestfile anonymousimmutable/exactsourceCIgreen/normalDev; canonical registry/coverage/tally onceverified delta and own fullmanifest anonymousimmutable"
+  ],
+  "acceptance_gaps": "FormalQA11/device/child/owner/natural/training/allroutes and targetdevice performance remain open. Loaded hotspot source is catalog-only with no painted landmark body; original flatbackdrop crystals/river/cave and119pullgap unchanged. No whole-role closure/acceptedremoval/globalcompletion.",
+  "destination": {
+    "repo": "Ebonyks/mermaid-roshan-reef",
+    "runtime_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "canonical_branch": "codex/flat-vector-r6-20261012",
+    "access": "Anonymous immutable manifest and everyrequiredfile"
+  },
+  "coordination": "Read-only coordinator/Geologist completed/notLoaded unchanged. Freshfetch cleanUca58aacd==originDev, cleanR7cce5147, R113 terminalsuccessnotified, no handles. No otherchats/pausedgoals/dirtyprimary touched.",
+  "started_at_utc": "2026-10-30T18:46:17.860458+00:00",
+  "runtime": "Actualnativewhole-image alias76checks/8reviewedframes, source66checks/8validframes. Original4sourcefloat plus8catalog-ineligiblepriorcandidate frames excluded;16bounded12excluded28retained newevents. All194functions unchanged; no newPNG/generation/exports. Original52green/1red catalogpath suite retained; actualalias fullsuite pending.",
+  "catalog_path_recovery": "CATALOG_PATH_RECOVERY.json; original52green/1red preserved, new actualcandidate import/native/currentstatic/all82 required after realbinding/resource change.",
+  "current_machine": "PASS frozen actualcandidate currentstatic/import/all82trusted, candidate76checks/8reviewedframes and source66checks/8validreviewedframes.4sourcefloat and8catalog-ineligible priorcandidate frames excluded; originalcatalogfailure/nativealiasrepair/incomplete setupcapture0frame evidence preserved. All194functions identical, sharedsource no generation/export."
+}

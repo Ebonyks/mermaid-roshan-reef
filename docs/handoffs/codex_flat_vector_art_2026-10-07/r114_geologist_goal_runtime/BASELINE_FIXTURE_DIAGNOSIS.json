@@ -1,0 +1,13 @@
+{
+  "state": "CONFIRMED_FLOAT_LAYOUT_EQUALITY_RECOVERY",
+  "original_failure": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-goal-20261030\\INITIAL_BASELINE_STOP.json",
+  "at_utc": "2026-10-30T18:49:30.065402+00:00",
+  "original_fixture": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-goal-20261030\\initial_capture_goal.gd",
+  "source_revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+  "original_frames": 4,
+  "excluded_native_frame_events": 4,
+  "diagnosis": "Original combined exact size/aspect/filter assertion failed while captured goal size reports220x220 and original source explicitly sets KEEP_ASPECT_CENTERED/IGNORE. Replace only Vector2 exact equality with existing logical size is_equal_approx, retain aspect/filter assertions and capture their actual values. Candidate/runtime/art remain untouched. Confirm corrected baseline before binding repair.",
+  "no_runtime_or_asserted_threshold_change": true,
+  "healthy_import_or_engine_suite_repeated": false,
+  "confirmation": "Corrected source passes33checks/4frames peraspect,66checks/8frames total; original exactsize comparison alone was unstable. Original aspect/inputfilter assertions retained and pass, recorded actualstretch6/filter2/220logicalsize. Runtime unchanged;4first-runframes retainedexcluded."
+}

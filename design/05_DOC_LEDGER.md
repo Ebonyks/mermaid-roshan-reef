@@ -1141,3 +1141,5 @@ Owner-requested analysis and Codex handoff for the commissioned under-pool book,
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R112 whole painted shell and exact derived halves; one implementation/two partial roles, candidate/runtime/machine/CI/Dev/formal/external separate. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R113 whole painted Geologist Library crest. Source/native/machine/CI/Dev/formal/external evidence separate; no whole-role acceptance/removal. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R114 whole painted crystal goal by direct source reuse; actual curtain-call/render ownership, native/source/machine/CI/Dev/formal/external separate. |

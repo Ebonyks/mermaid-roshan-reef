@@ -460,7 +460,7 @@ const GOAL_PROPS := {
 	"racer": "goal_racer",
 	"popstar": "goal_popstar",
 	"nursery": "goal_nursery",
-	"geologist": "goal_geologist.svg",
+	"geologist": "goal_geologist.tres",
 }
 var m: ReefMain
 var config: Dictionary = {}
