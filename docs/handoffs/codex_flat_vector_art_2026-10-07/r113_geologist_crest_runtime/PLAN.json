@@ -1,0 +1,99 @@
+{
+  "revision": "R113",
+  "stable_id": "FV-8C7C289334A2",
+  "related_stable_ids": [],
+  "baseline": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+  "scope": "Complete painted Geologist route-card crest. Replace only the 50x50 Library CareerCrest SVG resource with one new whole256-square painted aqua/lilac crystal and small ammonite medallion. Remove retired SVG and its import after exact caller scan, preserve original resource/source in nonruntime provenance. All route button/input/save/reward/layout behavior stays byte-identical. Existing goal_geologist.svg is a separate role and remains open; this is one bounded implementation and no accepted artwork removal.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010",
+    "MA-OPERA-004"
+  ],
+  "context": [
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_chef.png",
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "sha256": "55ab3093ca9f7e9df0bfb5011980727b140648ce0f10974c6ee8392928f77288",
+      "role": "appearance_style_reference"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_mineral_lavender_painted.png",
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "sha256": "cea8f66b34e657f8216f0038adefee38624a1e2900e365b55aa15169be60b20f",
+      "role": "appearance_palette_material_reference"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_painted.png",
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "sha256": "f7b5272f5d73cbd3de012eeffb4603104cc3053a534022a0dafda9e331408acf",
+      "role": "appearance_fossil_reference"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.svg",
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "role": "retired_weak_source_not_appearance_reference"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "sha256": "3ce7d47bf542f577077427dab033c734cad27f89aefc3a8990adb48bbe884912",
+      "role": "source_binding"
+    }
+  ],
+  "quality_choice": "Use ImageGen for complete polished painted crest matching neighboring painted career medallions and current Geologist mineral/fossil family. Reuse optional, no failed-reuse gate. River substrate/cell/channel repair deferred as coherent-family task, not a tiny procedural cosmetic substitute. Pan-water historical row already corresponds to R95 painted whole pan; no new generation/implementation credit for its eventual reconciliation.",
+  "generation": {
+    "backend": "built-in image_gen.imagegen",
+    "model_version": "NOT_EXPOSED",
+    "static_take_cap": 2,
+    "calls_used": 1,
+    "animation_calls": 0,
+    "monetary_usage": "NOT_EXPOSED",
+    "cap_scope": "Entire static R113 crest brief, default two takes maximum; no separately funded animation spend.",
+    "state": "TAKE01_WHOLE256_EXPORTED_NATIVE_CONTEXT_PENDING",
+    "dispatch_utc": "2026-10-30T13:51:39.718301+00:00",
+    "native_sha256": "3eff4de08b63ffa035486069bcd9c1c376847d2099b37e19465654ff711c7951"
+  },
+  "required_evidence": [
+    "Exact old SVG/callers/source hash and originalMain Library baseline at1280/1600 with HUD",
+    "Native whole image/editableAseprite/roundtrip0visibleRGBAchanged and uniform256 export/C2",
+    "Candidate original Library unearned/completed/focus/reentry and original Geologist route launch; unchanged generous button/50px crest bounds, input/save/all routes function hashes",
+    "Ten-axis direct same-scene review; exact4.7.2 Mobile/Speedy actualasset import/currentstatic/all82; source pin and normal11save guard",
+    "All source manifestfiles anonymousimmutable; exactsourceCIgreen normalDev; canonical verified delta only and every actualdeliveryfile anonymousimmutable"
+  ],
+  "acceptance_gaps": "FormalQA11/device/child/owner and natural/training/allroute acceptance remain open. Old actor identities/goal SVG/cave/river/pointer and119geode pull gap unchanged. Whole-role acceptance/removal/globalcompletion0.",
+  "destination": {
+    "repo": "Ebonyks/mermaid-roshan-reef",
+    "runtime_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "canonical_branch": "codex/flat-vector-r6-20261012",
+    "access": "Anonymous immutable manifest and everyrequiredfile"
+  },
+  "coordination": "Read-only coordinator/Geologist completed/notLoaded unchanged; U/Rclean, R112 terminalsuccessnotified, no activehandles; no otherchatmessages/pausedgoals/dirtyprimary changes.",
+  "started_at_utc": "2026-10-30T13:49:04.676419+00:00",
+  "runtime": "Sourcebaseline34checks/2frames, candidate70checks/10frames at1280/1600 directlyreviewed. One paintedwhole256, noexcludedruns. Same50pxframe/cardinput/save/route. Currentstatic/all82/sourceCI/Dev pending.",
+  "current_machine": "PASS frozen currentstatic/import/all82trusted, source34checks/2baselineframes and candidate70checks/10directlyreviewedframes. No excluded runs; native/formal/device/child/owner separate."
+}

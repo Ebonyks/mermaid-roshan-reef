@@ -455,6 +455,8 @@ R111 production2026-10-30: FV-4502C5860C45 whole painted closed/mint-cleft seam 
 
 R112 production2026-10-30: FV-99DB2D71D276 matching geode halves and FV-C1AB21410352 closed shell share one whole painted source; exact cropped halves preserve skin through originalpull. Marker/tap/hit/save/gallery/cavity unchanged, original119gap open. One bounded implementation/two partial roles, no role closure or accepted removal. Candidate/runtime/machine/CI/Dev/formal/external separate; finding lifecycle unchanged.
 
+R113 production2026-10-30: FV-8C7C289334A2 Geologist Library crest becomes one whole painted medallion at original50px frame; oldSVG/import retained as nonruntime provenance. Source-bound twoaspect baseline then candidate/native/machine/CI/Dev/formal/external separate. Otherart/goalSVG unchanged, no accepted removal or finding lifecycle change.
+
 ## MA-PLAY-001
 
 | Field | Value |
