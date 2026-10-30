@@ -459,6 +459,8 @@ R113 production2026-10-30: FV-8C7C289334A2 Geologist Library crest becomes one w
 
 R114production2026-10-30: FV-2E260E1F7107 final crystal goal reuses existing whole painted gallery, originalSVG resource retired. Actual curtain-call consumer visible; catalog-only hotspot source load is not a backdrop repair. Source/native/machine/CI/Dev/formal/external separate, allfunctions/input/save/timing unchanged. No accepted removal or finding lifecycle change.
 
+R115 partial production2026-10-30: [whole Geologist foreground station set](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md), baseline6d2e7c515738bb40a923210bb05c01aafc526e0e, one generated whole-tray sheet/three512exports plus existingwhole fossil/gallery. Only backdrop setup/foreground draw changed;28otherfunctions plusworld/input/save exact. Seven localprimitive sites reduce to one unchangedstrata call; cavebackground/river/natural/formal/device/child/owner/global acceptance remain open, lifecycle unchanged. Native/sourceCI/Dev are separate pending lanes.
+
 ## MA-PLAY-001
 
 | Field | Value |

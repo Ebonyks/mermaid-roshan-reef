@@ -102,6 +102,9 @@ Doctor/Farmer/Magician/Painter P6 painted-art candidate (2026-10-19): [CHG-108 i
 
 ### Development task index
 
+| Geologist in-world painted station props | [R115 candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-geologist-station-props-20261030.json); whole fossil/three trays/gallery foreground candidate; originaltaskguard/input/save unchanged. Cavebackground/river/formal/external open. |
+
+
 Read the row for the task and all affected shared systems before editing. Revisit
 it when scope changes and at review/completion. This index routes to current
 rules; sealed evidence below remains scoped to its recorded build. Follow the

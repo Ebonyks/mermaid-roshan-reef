@@ -1143,3 +1143,6 @@ Owner-requested analysis and Codex handoff for the commissioned under-pool book,
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R113 whole painted Geologist Library crest. Source/native/machine/CI/Dev/formal/external evidence separate; no whole-role acceptance/removal. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R114 whole painted crystal goal by direct source reuse; actual curtain-call/render ownership, native/source/machine/CI/Dev/formal/external separate. |
+
+| `assets_src/imagegen/geologist_station_props_20261030/README.md` | 🟣 | `PROPOSED / CANDIDATE` R115 whole in-world foreground station artwork; cave/river/formal/external acceptance remain open. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R115 in-world fossil/tray/crystal candidate, original route/visibility/runtime and independent acceptance evidence. |

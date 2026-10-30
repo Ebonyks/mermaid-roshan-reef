@@ -44,11 +44,26 @@ var stage_tiles: Array[Texture2D] = []
 var room_variant_tiles: Array[Texture2D] = []
 var sky_lagoon_tiles: Array[Texture2D] = []
 var farmer_basket_texture: Texture2D = null
+var geologist_fossil_texture: Texture2D = null
+var geologist_gallery_texture: Texture2D = null
+var geologist_tray_textures: Array[Texture2D] = []
 
 
 func setup(id: String, variant: String = "") -> void:
 	career_id = id
 	scene_variant = variant
+	geologist_fossil_texture = null
+	geologist_gallery_texture = null
+	geologist_tray_textures.clear()
+	if career_id == "geologist":
+		geologist_fossil_texture = load("res://assets/opera/worlds/props/geologist_fossil_painted.png") as Texture2D
+		geologist_gallery_texture = load("res://assets/opera/worlds/props/geologist_crystal_gallery_painted.png") as Texture2D
+		assert(geologist_fossil_texture != null and geologist_gallery_texture != null,
+			"Geologist painted foreground sources are required")
+		for colour: String in ["mint", "blue", "lavender"]:
+			var texture := load("res://assets/opera/worlds/props/geologist_station_tray_%s_painted.png" % colour) as Texture2D
+			assert(texture != null, "Geologist painted specimen trays are required")
+			geologist_tray_textures.append(texture)
 	farmer_basket_texture = null
 	if scene_variant == "sky_lagoon_farmer":
 		farmer_basket_texture = load("res://assets/castle/day_one_pool/activities/cleanup_basket.png") as Texture2D
@@ -623,7 +638,7 @@ func _draw_popstar(mid: Color, accent: Color) -> void:
 	draw_circle(Vector2(640, 250), 72, Color(accent, 0.42))
 
 
-func _draw_geologist(mid: Color, accent: Color) -> void:
+func _draw_geologist(mid: Color, _accent: Color) -> void:
 	# A readable crystal-cave laboratory: layered walls, a fossil table,
 	# specimen trays and one glowing destination cluster. All geometry stays
 	# broad and sparse enough for the Mobile renderer and a four-year-old.
@@ -637,25 +652,31 @@ func _draw_geologist(mid: Color, accent: Color) -> void:
 		]), color, 34.0)
 	if bool(get_meta("geology_work_open", false)):
 		return
-	# Fossil inspection slab.
-	draw_rect(Rect2(250, 430, 250, 94), Color("#d8bb8b"), true)
-	draw_arc(Vector2(376, 476), 32, -0.3, TAU * 1.65, 38,
-		Color("#875f72"), 11.0)
-	# Three big specimen trays match the specialist sorting surface.
+	# Whole painted station objects share the specialist activity identities.
+	# The original visibility guard above keeps one pixel owner during work.
+	draw_texture_rect(geologist_fossil_texture,
+		_geologist_prop_destination(geologist_fossil_texture,
+			Rect2(80, 84, 740, 371), Rect2(250, 398, 250, 126)), false)
+	var tray_contents: Array[Rect2] = [
+		Rect2(66, 116, 405, 283),
+		Rect2(49, 115, 407, 285),
+		Rect2(46, 115, 406, 285),
+	]
 	for index in range(3):
 		var tray_x := 550.0 + float(index) * 145.0
-		draw_rect(Rect2(tray_x, 452, 110, 74), Color("#2f274e"), true)
-		draw_rect(Rect2(tray_x, 452, 110, 74), accent.lightened(float(index) * 0.08), false, 7.0)
-	# Finale crystal cluster.
-	var base := Vector2(1080, 520)
-	for crystal in range(5):
-		var x := base.x + (float(crystal) - 2.0) * 34.0
-		var height := 80.0 + float((crystal * 31) % 55)
-		var crystal_color := Color.from_hsv(0.46 + float(crystal) * 0.055, 0.42, 1.0)
-		draw_colored_polygon(PackedVector2Array([
-			Vector2(x - 20, base.y), Vector2(x - 14, base.y - height * 0.72),
-			Vector2(x, base.y - height), Vector2(x + 15, base.y - height * 0.70),
-			Vector2(x + 20, base.y),
-		]), crystal_color)
-	var pulse := 58.0 + (sin(elapsed * 2.1) + 1.0) * 10.0
-	draw_arc(Vector2(1080, 420), pulse, 0.0, TAU, 36, Color(accent, 0.55), 8.0)
+		draw_texture_rect(geologist_tray_textures[index],
+			_geologist_prop_destination(geologist_tray_textures[index],
+				tray_contents[index], Rect2(tray_x, 452, 110, 74)), false)
+	draw_texture_rect(geologist_gallery_texture,
+		_geologist_prop_destination(geologist_gallery_texture,
+			Rect2(95, 51, 327, 421), Rect2(992, 386, 176, 134)), false)
+
+
+func _geologist_prop_destination(texture: Texture2D, content: Rect2, bounds: Rect2) -> Rect2:
+	# Map the measured authored contour to its station without cropping,
+	# changing aspect, tinting, or manufacturing a shadow/contact patch.
+	var factor := minf(bounds.size.x / content.size.x,
+		bounds.size.y / content.size.y)
+	var origin := Vector2(bounds.get_center().x - content.get_center().x * factor,
+		bounds.end.y - content.end.y * factor)
+	return Rect2(origin, texture.get_size() * factor)
