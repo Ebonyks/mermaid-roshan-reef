@@ -1448,3 +1448,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R112 wholepainted closed shell/exactmatchinghalves inDev; exactsourceCIgreen/local82/static/native134/24reviewedframes. Oneimplementation/twopartialroles, formal/external/otherart/global acceptance open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R113 wholepainted Geologist Library crest inDev; exactsourceCIgreen/local82/static/native70/10candidate and34/2source frames. Formal/external/otherart/global acceptance open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R114wholepainted finalcrystalgoal via nativefullimage alias inDev; exactsourceCIgreen/local82/static/native76/8candidate and66/8sourceframes. Originalcatalog failure/excludedframes retained, formal/external/otherart/global acceptance open. |

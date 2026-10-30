@@ -21552,6 +21552,103 @@
       "runtime_consumers": [
         {
           "path": "scripts/opera_career_world_2d.gd",
+          "scope": "GOAL_PROPS / original curtain-call prop",
+          "binding": "exact_nativegoalalias_resource_and_native_visible_source",
+          "ambiguous": false,
+          "visible": true
+        },
+        {
+          "path": "scripts/opera_hotspot_catalog.gd",
+          "scope": "GEODE spec / ASSET_META",
+          "binding": "loaded_source_only_painted_invitation_owns_render",
+          "ambiguous": false,
+          "visible": false
+        }
+      ],
+      "screen_coverage": {
+        "measured_current_bounds": {
+          "frame": [
+            220,
+            220
+          ],
+          "evidence": "Actualgoalresource/globalrect/visibility per docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/candidate/{1280,1600}/RESULT.json"
+        },
+        "coverage_state": "PARTIAL_CURRENT_SOURCE_BOUND_REAL_COMPLETION_CURTAIN_CALL_TWO_ASPECT",
+        "geometry_expressions": [],
+        "note": "Nativealiasvisible onlyactualcurtain-call; loadedhotspot resource doesnotdraw sourceobject. No backdrop coverage/acceptance credit."
+      },
+      "evidence_level": "SOURCE_INSPECTION",
+      "observed_weakness": "Source-bound candidate goal geologist uses or delegates visible primitive/material construction in FILE_SCOPE. No current phone-context quality verdict is claimed.",
+      "priority": "P1",
+      "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
+      "context_brief_id": "BRIEF-LITERAL_SVG",
+      "reuse_candidates": [],
+      "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
+      "named_gap": "OriginalflatgoalSVG retired; samewholepaintedgallery appears as actualcompletedfind via compliantgoal_* nativealias. Entire194functions/input/save/timing/frame unchanged.",
+      "status": "PAINTED_FINAL_GOAL_PARTIAL_DEV_EXACT_CI_GREEN_EXTERNAL_ACCEPTANCE_PENDING",
+      "integration_sha": "6d2e7c515738bb40a923210bb05c01aafc526e0e",
+      "acceptance_evidence": {
+        "current_mobile_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/6d2e7c515738bb40a923210bb05c01aafc526e0e/docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/candidate/1280",
+        "wide_phone_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/6d2e7c515738bb40a923210bb05c01aafc526e0e/docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/candidate/1600",
+        "device": null,
+        "child": null,
+        "owner": null,
+        "machine": "docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/LOCAL_82_RESULT.json",
+        "old_fallback_retired": {
+          "source_revision": "6d2e7c515738bb40a923210bb05c01aafc526e0e",
+          "scope": "Trackedgoal_geologist.svg retired, ignoredoldimport separatelyarchived; whole-image nativegoalalias usesexistingpaintedsource. No procedural worldbackdrop repair.",
+          "role_closed": false
+        }
+      },
+      "dependencies": [
+        "Current source-bound actualcurtain-call two-aspect source/candidate comparison",
+        "Optionalquality-driven reuse/ImageGen, no failed-reuse prerequisite",
+        "FormalQA11/device/child/owner/natural/training/allroutes, separatebackdrop and global gaps"
+      ],
+      "unchanged_contracts": [
+        "Visible object/input/socket transforms and generous one-finger targets",
+        "Additive saves and unknown keys; no lost progress",
+        "Current action, answer/count, narrative and authored identity",
+        "Protected originals and owner-selected Day One clips"
+      ],
+      "replacement_output": {
+        "lane": "Canvas Sprite2D/TextureRect or authored texture material on functional Control",
+        "layer_owner": "Existing scene/controller; exact z_index retained unless reviewed framing change is needed",
+        "runtime_budget": "<=1024 longest side or POT; POT-only VRAM; Mobile/Speedy 30fps and measured overdraw",
+        "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
+        "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
+      },
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261030-R114-DEV",
+          "source": "6d2e7c515738bb40a923210bb05c01aafc526e0e",
+          "review": "docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/FRAME_REVIEW.json",
+          "candidate": "usable whole painted finalgoal",
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null
+        }
+      ],
+      "proposed_update": "Review goal geologist during Exact catalog presentation/phase and specialist direct texture consumer; crest is Castle route-card icon on Castle room library picture route; temporary Opera painted left elevator -> playtest card also launches same engine without durable rewards. Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+      "route_refs": [
+        "opera.act.16"
+      ],
+      "route_evidence": "Castle room library picture route; temporary Opera painted left elevator -> playtest card also launches same engine without durable rewards",
+      "context_action": "Exact catalog presentation/phase and specialist direct texture consumer; crest is Castle route-card icon",
+      "source_image_reviews": [
+        {
+          "observation_id": "ROOT-OBS-04",
+          "evidence": "SOURCE_INSPECTED",
+          "observation": "GEODE_PATH is empty. The shell halves are coloured polygons, seam dots and flat outline; opening exposes crystal SVG.",
+          "reference": "context_review_observations.json"
+        }
+      ],
+      "individual_brief_id": "PIECE-FV-2E260E1F7107",
+      "r114_prior_status": "IDENTIFIED",
+      "r114_prior_runtime_consumers": [
+        {
+          "path": "scripts/opera_career_world_2d.gd",
           "line": 463,
           "scope": "ballet_voice_hold_seconds",
           "binding": "filename_match_candidate",
@@ -21576,65 +21673,124 @@
           "binding": "literal_res_path"
         }
       ],
-      "screen_coverage": {
-        "measured_current_bounds": null,
-        "coverage_state": "COVERAGE_GAP",
-        "geometry_expressions": [],
-        "note": "Expressions are scope evidence, not measured per-piece screen bounds."
-      },
-      "evidence_level": "SOURCE_INSPECTION",
-      "observed_weakness": "Source-bound candidate goal geologist uses or delegates visible primitive/material construction in FILE_SCOPE. No current phone-context quality verdict is claimed.",
-      "priority": "P1",
-      "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
-      "context_brief_id": "BRIEF-LITERAL_SVG",
-      "reuse_candidates": [],
-      "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
-      "named_gap": null,
-      "status": "IDENTIFIED",
-      "integration_sha": null,
-      "acceptance_evidence": {
-        "current_mobile_runtime": null,
-        "wide_phone_runtime": null,
+      "r114_goal_runtime": {
+        "stable_id": "FV-2E260E1F7107",
+        "state": "PAINTED_GEOLOGIST_FINAL_GOAL_NATIVE_ALIAS_IN_DEV_EXACT_SOURCE_CI_GREEN",
+        "source_revision": "6d2e7c515738bb40a923210bb05c01aafc526e0e",
+        "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+        "source_baseline": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+        "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/MANIFEST.json",
+        "source_delivery_required_files": 115,
+        "source_delivery_all_anonymous_exact": true,
+        "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/SOURCE_REMOTE_VERIFICATION.json",
+        "source_CI_run": 41125207452,
+        "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41125207452",
+        "source_CI_conclusion": "success",
+        "integrated_dev_revision": "6d2e7c515738bb40a923210bb05c01aafc526e0e",
+        "runtime_exports": [
+          {
+            "path": "assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+            "sha256": "6eae2e93fdafdfb3a059d3968de1ec39d92174035d7f6a211d1d9b828024c900",
+            "dimensions": [
+              512,
+              512
+            ],
+            "role": "existing whole crystal reused as final goal and catalog source",
+            "existing_unchanged": true,
+            "cutout": {
+              "mode": "RGBA",
+              "transparent_pct": 63.3,
+              "faint_haze_pct_of_canvas": 0.4,
+              "semi_pct_of_visible": 0.7,
+              "near_opaque_pct_of_visible": 98.2,
+              "opaque_255_pct": 0.1,
+              "corner_alpha": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "content_bbox": [
+                95,
+                51,
+                422,
+                472
+              ],
+              "verdict": "CUTOUT_OK"
+            }
+          }
+        ],
+        "native_alias": {
+          "path": "assets/opera/worlds/props/goal_geologist.tres",
+          "sha256": "4adef859b52f912f5fc4870ec66510f79a93c46ee127cb98c629b3a97c24d424",
+          "type": "AtlasTexture",
+          "atlas": "res://assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+          "region": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "reason": "Satisfy existing goal_* resource whitelist without relaxing it or copying paintedPNG into another allocation."
+        },
+        "actual_native_checks": 76,
+        "baseline_native_checks": 66,
+        "candidate_frames_reviewed": 8,
+        "baseline_frames_reviewed": 8,
+        "same_scene_source_frames_reused": 0,
+        "new_frame_events": {
+          "bounded": 16,
+          "excluded": 12,
+          "retained": 28
+        },
+        "current_static_all82": "PASS",
+        "unchanged_other_functions": 194,
+        "retired_source": {
+          "baseline": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+          "old_path": "assets/opera/worlds/props/goal_geologist.svg",
+          "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+          "exact_runtime_callers": [
+            "scripts/opera_career_world_2d.gd:463:\t\"geologist\": \"goal_geologist.svg\",",
+            "scripts/opera_hotspot_catalog.gd:137:\t\t\"GEODE\": {\"path\": \"res://assets/opera/worlds/props/goal_geologist.svg\", \"motion\": \"pulse\", \"size\": Vector2(150, 150), \"presentation\": \"painted\"},",
+            "scripts/opera_hotspot_catalog.gd:196:\t\"res://assets/opera/worlds/props/goal_geologist.svg\": {\"dimensions\": Vector2i(256, 256), \"role\": \"object_group\"},"
+          ],
+          "retired_svg_path_elements": 5,
+          "tracked_svg": true,
+          "old_import_was_ignored_generated_local_metadata": true,
+          "source_preserved": "assets_src/flat_vector_geologist_goal_20261030/retired_source/goal_geologist.svg",
+          "visible_owner": "Only original world curtain-call prop; painted hotspot catalog source loaded but notdrawn. Backdrop flatcrystal ownership separately open.",
+          "accepted_removal": 0
+        },
+        "new_bounded_source_artifacts": 1,
+        "partial_Dev_artifact_credit": 1,
+        "implementation_unit": "One final crystal goal resourcebinding through whole-image nativealias of existinggallery;0newrasters/generation/exports. Catalogsource loaded-not-drawn grants no worldbackdrop repaircredit.",
+        "new_generation_calls": 0,
+        "generated_outputs": 0,
+        "rejected_takes": 0,
+        "technical_exports": 0,
+        "new_runtime_images": 0,
+        "new_native_alias_resources": 1,
+        "backend": "NO_NEW_GENERATION_DIRECT_REUSE",
+        "source_backend": "built-in image_gen.imagegen",
+        "source_model_version": "NOT_EXPOSED",
+        "animation_calls": 0,
+        "new_roles": 0,
+        "new_families": 0,
+        "candidate": "USABLE_PAINTED_FINAL_CRYSTAL_GOAL_NATIVE_ALIAS",
+        "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+        "runtime": "CONFIGURED_ORIGINAL_MAIN_REAL_FINAL_ACTIVITY_COMPLETION_CURTAIN_CALL_TWO_ASPECT_PASS",
+        "Dev_integrated": true,
+        "exact_new_Dev_APK_verified": false,
+        "whole_role_closed": false,
+        "formal_QA11": null,
         "device": null,
         "child": null,
         "owner": null,
-        "machine": null,
-        "old_fallback_retired": null
-      },
-      "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
-      ],
-      "unchanged_contracts": [
-        "Visible object/input/socket transforms and generous one-finger targets",
-        "Additive saves and unknown keys; no lost progress",
-        "Current action, answer/count, narrative and authored identity",
-        "Protected originals and owner-selected Day One clips"
-      ],
-      "replacement_output": {
-        "lane": "Canvas Sprite2D/TextureRect or authored texture material on functional Control",
-        "layer_owner": "Existing scene/controller; exact z_index retained unless reviewed framing change is needed",
-        "runtime_budget": "<=1024 longest side or POT; POT-only VRAM; Mobile/Speedy 30fps and measured overdraw",
-        "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
-        "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
-      },
-      "review_log": [],
-      "proposed_update": "Review goal geologist during Exact catalog presentation/phase and specialist direct texture consumer; crest is Castle route-card icon on Castle room library picture route; temporary Opera painted left elevator -> playtest card also launches same engine without durable rewards. Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
-      "route_refs": [
-        "opera.act.16"
-      ],
-      "route_evidence": "Castle room library picture route; temporary Opera painted left elevator -> playtest card also launches same engine without durable rewards",
-      "context_action": "Exact catalog presentation/phase and specialist direct texture consumer; crest is Castle route-card icon",
-      "source_image_reviews": [
-        {
-          "observation_id": "ROOT-OBS-04",
-          "evidence": "SOURCE_INSPECTED",
-          "observation": "GEODE_PATH is empty. The shell halves are coloured polygons, seam dots and flat outline; opening exposes crystal SVG.",
-          "reference": "context_review_observations.json"
-        }
-      ],
-      "individual_brief_id": "PIECE-FV-2E260E1F7107"
+        "natural_training_allroutes": null,
+        "accepted_removed": 0,
+        "mission_complete": false,
+        "remaining": "Originalflatbackdrop crystals/cave/river/UI/actor debt and119pullgap unchanged. Catalogpaintedsource loaded-not-drawn; no backdrop credit. Originalcurtain-call showcase suspension/bounce retained. FormalQA11/device/child/owner/natural/training/allroutes/performance/global acceptance remain open. Originalfloatfixture4frames pluscatalog-ineligiblepriorcandidate8frames excluded, failed52green/1red suite preserved; actualwholegoalalias fixes path withoutvalidator/probe/threshold/function relaxation."
+      }
     },
     {
       "id": "FV-8C7C289334A2",
@@ -24215,7 +24371,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261030-R113-DEV",
+  "revision": "FV-AUDIT-20261030-R114-DEV",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -36246,7 +36402,7 @@
     "original_source_CI_green": "39079175770 at ce05d4d3",
     "current_source_CI": "SOURCE_CI_HANDLES.json"
   },
-  "new_generation_calls": 1,
+  "new_generation_calls": 0,
   "r99_new_native_frame_events": 8,
   "r100_parent_receipt_revision": "54522f81b6cc77419d36367f0bcce76fc5f6faa8",
   "r100_pan_ci_recovery": {
@@ -37620,5 +37776,123 @@
     "accepted_removed": 0,
     "mission_complete": false,
     "remaining": "Tiny50px ammonite recognition, natural/training/allroutes, device/performance/child/owner/formalQA11 remain open. Separate goalSVG/legacyactor identity/flatcave/river/otherart and119geode gap unchanged; no whole-game acceptance. Native/import/currentstatic/all82 evidence is source-bound; no engine suite repeated for canonical metadata."
+  },
+  "r114_goal_runtime": {
+    "stable_id": "FV-2E260E1F7107",
+    "state": "PAINTED_GEOLOGIST_FINAL_GOAL_NATIVE_ALIAS_IN_DEV_EXACT_SOURCE_CI_GREEN",
+    "source_revision": "6d2e7c515738bb40a923210bb05c01aafc526e0e",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "source_baseline": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/MANIFEST.json",
+    "source_delivery_required_files": 115,
+    "source_delivery_all_anonymous_exact": true,
+    "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_CI_run": 41125207452,
+    "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41125207452",
+    "source_CI_conclusion": "success",
+    "integrated_dev_revision": "6d2e7c515738bb40a923210bb05c01aafc526e0e",
+    "runtime_exports": [
+      {
+        "path": "assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+        "sha256": "6eae2e93fdafdfb3a059d3968de1ec39d92174035d7f6a211d1d9b828024c900",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "existing whole crystal reused as final goal and catalog source",
+        "existing_unchanged": true,
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 63.3,
+          "faint_haze_pct_of_canvas": 0.4,
+          "semi_pct_of_visible": 0.7,
+          "near_opaque_pct_of_visible": 98.2,
+          "opaque_255_pct": 0.1,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            95,
+            51,
+            422,
+            472
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      }
+    ],
+    "native_alias": {
+      "path": "assets/opera/worlds/props/goal_geologist.tres",
+      "sha256": "4adef859b52f912f5fc4870ec66510f79a93c46ee127cb98c629b3a97c24d424",
+      "type": "AtlasTexture",
+      "atlas": "res://assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+      "region": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "reason": "Satisfy existing goal_* resource whitelist without relaxing it or copying paintedPNG into another allocation."
+    },
+    "actual_native_checks": 76,
+    "baseline_native_checks": 66,
+    "candidate_frames_reviewed": 8,
+    "baseline_frames_reviewed": 8,
+    "same_scene_source_frames_reused": 0,
+    "new_frame_events": {
+      "bounded": 16,
+      "excluded": 12,
+      "retained": 28
+    },
+    "current_static_all82": "PASS",
+    "unchanged_other_functions": 194,
+    "retired_source": {
+      "baseline": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "old_path": "assets/opera/worlds/props/goal_geologist.svg",
+      "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "exact_runtime_callers": [
+        "scripts/opera_career_world_2d.gd:463:\t\"geologist\": \"goal_geologist.svg\",",
+        "scripts/opera_hotspot_catalog.gd:137:\t\t\"GEODE\": {\"path\": \"res://assets/opera/worlds/props/goal_geologist.svg\", \"motion\": \"pulse\", \"size\": Vector2(150, 150), \"presentation\": \"painted\"},",
+        "scripts/opera_hotspot_catalog.gd:196:\t\"res://assets/opera/worlds/props/goal_geologist.svg\": {\"dimensions\": Vector2i(256, 256), \"role\": \"object_group\"},"
+      ],
+      "retired_svg_path_elements": 5,
+      "tracked_svg": true,
+      "old_import_was_ignored_generated_local_metadata": true,
+      "source_preserved": "assets_src/flat_vector_geologist_goal_20261030/retired_source/goal_geologist.svg",
+      "visible_owner": "Only original world curtain-call prop; painted hotspot catalog source loaded but notdrawn. Backdrop flatcrystal ownership separately open.",
+      "accepted_removal": 0
+    },
+    "new_bounded_source_artifacts": 1,
+    "partial_Dev_artifact_credit": 1,
+    "implementation_unit": "One final crystal goal resourcebinding through whole-image nativealias of existinggallery;0newrasters/generation/exports. Catalogsource loaded-not-drawn grants no worldbackdrop repaircredit.",
+    "new_generation_calls": 0,
+    "generated_outputs": 0,
+    "rejected_takes": 0,
+    "technical_exports": 0,
+    "new_runtime_images": 0,
+    "new_native_alias_resources": 1,
+    "backend": "NO_NEW_GENERATION_DIRECT_REUSE",
+    "source_backend": "built-in image_gen.imagegen",
+    "source_model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "new_roles": 0,
+    "new_families": 0,
+    "candidate": "USABLE_PAINTED_FINAL_CRYSTAL_GOAL_NATIVE_ALIAS",
+    "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+    "runtime": "CONFIGURED_ORIGINAL_MAIN_REAL_FINAL_ACTIVITY_COMPLETION_CURTAIN_CALL_TWO_ASPECT_PASS",
+    "Dev_integrated": true,
+    "exact_new_Dev_APK_verified": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "natural_training_allroutes": null,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "remaining": "Originalflatbackdrop crystals/cave/river/UI/actor debt and119pullgap unchanged. Catalogpaintedsource loaded-not-drawn; no backdrop credit. Originalcurtain-call showcase suspension/bounce retained. FormalQA11/device/child/owner/natural/training/allroutes/performance/global acceptance remain open. Originalfloatfixture4frames pluscatalog-ineligiblepriorcandidate8frames excluded, failed52green/1red suite preserved; actualwholegoalalias fixes path withoutvalidator/probe/threshold/function relaxation."
   }
 }
