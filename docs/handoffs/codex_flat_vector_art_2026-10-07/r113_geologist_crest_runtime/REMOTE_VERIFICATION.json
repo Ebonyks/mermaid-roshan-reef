@@ -1,0 +1,619 @@
+{
+  "schema": "reef.remote_delivery_verification/1",
+  "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/MANIFEST.json",
+  "manifest_sha256": "6b1624fb88d0ad50c798f8409c1b6bb19c130fb5ff3ec54cff8fd8c6ce8b0773",
+  "manifest_bytes": 25452,
+  "required_files": 67,
+  "required_bytes": 25568778,
+  "files": [
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297631,
+      "sha256": "1d12f6cc11a67c96e468a8bc911244a1c454a0b1f5ffec7fce787260806daa44",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 289650,
+      "sha256": "a93401b5ffad1ad876421b9fff7122a4365a89fb569fc6d3c1b5f785946cd4a6",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 327554,
+      "sha256": "088c43ee937bbb2b507484e19731c2a24e7d1967287d61f1912d30bbdfde3308",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 272128,
+      "sha256": "f77c60c1313d21c0289cacf2da9d76a3ba099c05660ca899d103afb97e78761c",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 151882,
+      "sha256": "6c4c36e3234f0daa97319fcd76a69519c3703c5c695c2ca666fad2c0d792218a",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/BASELINE_RESULT.json",
+      "bytes": 3753,
+      "sha256": "1899a389642046e5b0d7958174216255417dd1e2cc41ff4b8cc350d24cf85763",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/CANONICAL_GATES.json",
+      "bytes": 731,
+      "sha256": "309ebba3682dcf844e5e334f86d6bc8ca0d197a2428138f41fd04fc17be1b381",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/CANONICAL_PUBLICATION_RUNNER.py",
+      "bytes": 24300,
+      "sha256": "cbfd94281b8f10ad3a28c311dc95c2494d3e1f17efb096d0c3fa5a5692c13ccd",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/DERIVATION.json",
+      "bytes": 3449,
+      "sha256": "dd054ccba09e2288232ea794ddb8d319f7e08e91e13c9af10302bbab85294310",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/DEV_INTEGRATION.json",
+      "bytes": 2803,
+      "sha256": "612e1760a1ca497eb7b8e29dda3c8457ee7df9a8c19330394c29b58fd492cedd",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/DEV_WORKFLOW_HANDLES.json",
+      "bytes": 284,
+      "sha256": "09c0e06b164327257bf63237110987f2c98ea252031289807ae4dc461c55353b",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/FOCUSED_RESULT.json",
+      "bytes": 11250,
+      "sha256": "1ebd579c7b631e3cd03dcf5a7497c23b387e9381949acc43ff7aa935198b7cdf",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/FRAME_REVIEW.json",
+      "bytes": 3425,
+      "sha256": "fd772990e6b84d83887abf3e151631e262940a928643b8fdc79fb83f9f4efa13",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/FUNCTION_PRESERVATION.json",
+      "bytes": 1112,
+      "sha256": "6c5698f58a2124aaebc4ab4a152e5b08b497c7ebdcf62536bc9354613f6be7f0",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/INITIAL_CANONICAL_STOP.json",
+      "bytes": 415,
+      "sha256": "894a313f14a1a0f4ad184f8488a038dff267ba902e0b34544f024a444ed6303c",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/INITIAL_PUBLICATION_STOP.json",
+      "bytes": 384,
+      "sha256": "28d7751684db83b5ef1f0362d2d595acc2fc9fd4126575e15f57cdc75f34afac",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/INITIAL_dev_integration_STOP.json",
+      "bytes": 317,
+      "sha256": "c8f40675393f4353d2b40d8ef4726e99adc99c451c56cb8bde6dc61db934bfd3",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/LOCAL_82_RESULT.json",
+      "bytes": 91365,
+      "sha256": "8638dfd262614316b9de6e465ed87ba323c0eaf2f12c2387fb47d6eea55e9484",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/PLAN.json",
+      "bytes": 5435,
+      "sha256": "0c82687731960a95ac9ac232ce74d696b105b3fd3634049d5e209f53ba34ad4a",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/POSTCOMMIT_EOL_CLEANUP.json",
+      "bytes": 230,
+      "sha256": "48399a6aad3ac9e31b681f5a0c1a8628886f4321501ff04167cc845afb60fa28",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/PRODUCTION.json",
+      "bytes": 3833,
+      "sha256": "0da8cca68faa5ca5eb111a486d2860fcd1ef09d027d227ad5e17cb9dbb48c015",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/PUBLICATION_STAGE_RECOVERY.json",
+      "bytes": 1934,
+      "sha256": "c92e2b444829cf31bed1a36707dff10b17c034867163ad13b04cf8289ad5a876",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/README.md",
+      "bytes": 1687,
+      "sha256": "065b8714ad5df3b6f741ce22cc75b95577779c89fb2d8e36a4063056e2349179",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/RETIRED_SOURCE.json",
+      "bytes": 546,
+      "sha256": "926e84140ad31b1ebd92fb39430b6ed783faaf26c05f515262fd5f770ce25c70",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/SOURCE_CI_GREEN.json",
+      "bytes": 9916,
+      "sha256": "d01f54caa098f257f7324eff69148081286a43118f45ecbe8a303c661182a07d",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/SOURCE_CI_HANDLES.json",
+      "bytes": 289,
+      "sha256": "bca52509e470719eac9c5365e9bfc7526a74e1eaa1b3c3e9f56a3855f5e7d253",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/SOURCE_PIN.json",
+      "bytes": 649668,
+      "sha256": "192249d4a6af97e9d315d289c6a13a8e45957d64f92605a233544125453d0c9b",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/SOURCE_PUBLICATION_FINAL.json",
+      "bytes": 700,
+      "sha256": "24fae8a6a1722bc1cd27aed5d8c7915fc5f341bf42a71125debae8ac299bba6e",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/SOURCE_REMOTE_VERIFICATION.json",
+      "bytes": 41246,
+      "sha256": "cb984641c6b374c9d4e3a044b075448635657baa7476a4644634a1057a880778",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/STATIC_RESULT.json",
+      "bytes": 353,
+      "sha256": "476172b72bcbe8dea7da1f60f02217215ede5d69ad7328855b98069c70d12a94",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/STATUS.json",
+      "bytes": 1463,
+      "sha256": "1997f24d4e93b38b8a35f23b88578de427a22a3c054ad711c31e4b4d827e33a6",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 73324,
+      "sha256": "c4b03c25425d339bece5b09f443ee985fffa21fd08a3eafdc7d23a4573164f4c",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 1815183,
+      "sha256": "3285e44769d49cc3e43cbfec8baf2e06b86c17b3208269e39f1a0e7a682c0aab",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1190261,
+      "sha256": "9f400493fc29fd3f50d4c7cbc8c3546dfc395efda7ea948182782d9a226a57c0",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 525444,
+      "sha256": "d87aa2ed5a9e863c260f20eb9940902eb23247dd70cb78b61328f17c908cdd9a",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "289d3704e2ebbf0a481b6e66df28f26bb8acd90d",
+      "path": "design/audit_impacts/flat-vector-r113-crest-runtime-20261030.json",
+      "bytes": 5694,
+      "sha256": "7fc02cb2311e037e79788b4dc36e2bfcdd663719188d0e4b1f0f52d126432709",
+      "role": "Verified current canonical production/Dev/evidence/count delta",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.png",
+      "bytes": 69478,
+      "sha256": "bd9812cf9dd0c58743ef5a0625ea0493bf7b1a96ecf346f83ba6027b2a61b969",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.png.import",
+      "bytes": 999,
+      "sha256": "3be75deac58d19add81667f4edc24344673cced7a6279f82bc65bffc7da53e79",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/DERIVATION.json",
+      "bytes": 3449,
+      "sha256": "dd054ccba09e2288232ea794ddb8d319f7e08e91e13c9af10302bbab85294310",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/PLAN.json",
+      "bytes": 5435,
+      "sha256": "0c82687731960a95ac9ac232ce74d696b105b3fd3634049d5e209f53ba34ad4a",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/PROMPT.txt",
+      "bytes": 1869,
+      "sha256": "228aeba5205b52c4544bd3dfca30eaddb38ad4f421600fe89cc3aa117b6bcdbc",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/crest_native.aseprite",
+      "bytes": 2356675,
+      "sha256": "bc6987c268d57f7a37ced1f7a0b1ce010f663ad9d6e6f6b32938a044109e6769",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/crest_uniform216.png",
+      "bytes": 69012,
+      "sha256": "6dd565018a25285b609a843d99e2e2c8845b4c133a1cd219742ea5ff88c9ee4b",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/crest_whole256.aseprite",
+      "bytes": 80255,
+      "sha256": "2dea2617dbc593689f24005779a9a848cbba2692c492ecafd3a41c019389a3c8",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/export_whole_crest.lua",
+      "bytes": 675,
+      "sha256": "aefe84b1d6ca4db51056f5d801c2a02ac7e57da59b4ac0fc11f07e6b395b853d",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/native_roundtrip.png",
+      "bytes": 1576846,
+      "sha256": "1a9082c5a7f2d0fe1fe5bd933a3502749cabd88da3e359908951132cef055222",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/retired_source/opera_crest_geologist.svg",
+      "bytes": 583,
+      "sha256": "14023de6e1338fb209b06be58dc37574060c3a22bcb08f3506843389620c2f50",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/retired_source/opera_crest_geologist.svg.import",
+      "bytes": 1094,
+      "sha256": "3af2f498c59b35e7ec54fe978c0b28109e28fadfcf076bf2b82922ad4e71852d",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/take01_native.png",
+      "bytes": 1629279,
+      "sha256": "3eff4de08b63ffa035486069bcd9c1c376847d2099b37e19465654ff711c7951",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "assets_src/imagegen/geologist_crest_20261030/technical_export.py",
+      "bytes": 3339,
+      "sha256": "88c98a6a178ac406a5d2cf5581fcf4058d185d4b1192a43e3c3afdd40dd53d55",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/baseline/1280/01_library_unearned.png",
+      "bytes": 1278049,
+      "sha256": "8919baae3928f18ed8874484c017adaae592149169271dfec4face3d89ffc918",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/baseline/1600/01_library_unearned.png",
+      "bytes": 1305839,
+      "sha256": "0f046485b96988802d7eb05a3d33cafe6739b48d6179bcb2557b3592e4516303",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/candidate/1280/01_library_unearned.png",
+      "bytes": 1279756,
+      "sha256": "1ca7628d92bce73cc0dfa706bbca9fb3485706a4888f9bf4b87e45ae02ce6578",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/candidate/1280/02_library_focused.png",
+      "bytes": 1283135,
+      "sha256": "3033bd7979f167268bc5ba2b254e891dff7a345f5c211f5e7d8f50d422678577",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/candidate/1280/03_library_earned.png",
+      "bytes": 1283065,
+      "sha256": "557564d43d764f6a4659b5c8168e8f1e8bd970f6e0e4d2d0a44bf64fc05327eb",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/candidate/1280/04_library_reentry.png",
+      "bytes": 1281304,
+      "sha256": "826cb784374492669f04b4eba8dd9fb20d2be4580eddc72f9ce4ae93b30a7ce8",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/candidate/1280/05_geologist_launched.png",
+      "bytes": 126809,
+      "sha256": "fb7dfd998978065d6a80849631d8289fb1ae113d267e72570372e5b211235344",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/candidate/1600/01_library_unearned.png",
+      "bytes": 1307362,
+      "sha256": "c5f8412ca2d18c6a195eb7666bd0ee5bc11cda8562a5c9555d6d2568511caa61",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/candidate/1600/02_library_focused.png",
+      "bytes": 1310772,
+      "sha256": "cf2b3430ea8c355524e58f8f9822fef2c4d00f0378233b1fb720dd6ba9f3b793",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/candidate/1600/03_library_earned.png",
+      "bytes": 1311143,
+      "sha256": "262b30c7e5d348c234ab8e60a8599bdd3680f3115f23d29926c412ce629ed052",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/candidate/1600/04_library_reentry.png",
+      "bytes": 1308810,
+      "sha256": "a6d2316b1f821e827090f38f822ef619d1504ac2419be1bb00f277b337c1b76d",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/candidate/1600/05_geologist_launched.png",
+      "bytes": 129814,
+      "sha256": "4631f1ad577bbc9298a22b963a34dd254e79e7e7dd2d25bea73b866273af30b5",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+      "path": "scripts/castle_career_routes.gd",
+      "bytes": 15283,
+      "sha256": "bce57e3662b8bad8c1b9a715285dc9486bf44f8fe069f9e838e848f6bde886fd",
+      "role": "Actual whole painted Geologist crest/source/master/baseline/candidate/current machine evidence; no global acceptance inferred",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets/opera/worlds/ui/crests/opera_crest_chef.png",
+      "bytes": 73746,
+      "sha256": "55ab3093ca9f7e9df0bfb5011980727b140648ce0f10974c6ee8392928f77288",
+      "role": "Neighboring painted shellmedallion style reference; approvalscope unchanged",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets/opera/worlds/props/geologist_mineral_lavender_painted.png",
+      "bytes": 214071,
+      "sha256": "cea8f66b34e657f8216f0038adefee38624a1e2900e365b55aa15169be60b20f",
+      "role": "Current Geologist lavender material reference, provisionalscope retained",
+      "verified": true,
+      "http_status": 200
+    },
+    {
+      "revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+      "path": "assets/opera/worlds/props/geologist_fossil_painted.png",
+      "bytes": 451193,
+      "sha256": "f7b5272f5d73cbd3de012eeffb4603104cc3053a534022a0dafda9e331408acf",
+      "role": "Current Geologist ammonite identity reference, provisionalscope retained",
+      "verified": true,
+      "http_status": 200
+    }
+  ],
+  "access_mode": "Anonymous immutable HTTPS GET, no Authorization/cookies, exact bytes/SHA256 for manifest/every required file.",
+  "checked_at_utc": "2026-10-30T16:41:48.353626+00:00",
+  "state": "ALL_REQUIRED_FILES_ANONYMOUSLY_BYTE_VERIFIED",
+  "limits": "Transport/provenance only.Otherart/formalQA11/device/child/owner/natural/training/global acceptance remain open."
+}
