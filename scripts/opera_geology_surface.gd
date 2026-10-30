@@ -62,7 +62,7 @@ const PAN_GRAIN_PATH := "res://assets/opera/worlds/props/geologist_pan_grain_pai
 const MINERAL_MINT_PATH := "res://assets/opera/worlds/props/geologist_mineral_mint_painted.png"
 const MINERAL_BLUE_PATH := "res://assets/opera/worlds/props/geologist_mineral_blue_painted.png"
 const MINERAL_LAVENDER_PATH := "res://assets/opera/worlds/props/geologist_mineral_lavender_painted.png"
-const CRYSTALS_PATH := "res://assets/opera/worlds/props/goal_geologist.svg"
+const CRYSTALS_PATH := "res://assets/opera/worlds/props/geologist_crystal_gallery_painted.png"
 
 var fossil_texture: Texture2D = null
 var fossil_soil_texture: Texture2D = null
@@ -302,7 +302,7 @@ func _load_textures() -> void:
 	mineral_mint_texture = _required_mineral_texture(MINERAL_MINT_PATH)
 	mineral_blue_texture = _required_mineral_texture(MINERAL_BLUE_PATH)
 	mineral_lavender_texture = _required_mineral_texture(MINERAL_LAVENDER_PATH)
-	crystals_texture = _optional_texture(CRYSTALS_PATH)
+	crystals_texture = _required_mineral_texture(CRYSTALS_PATH)
 
 
 func _optional_texture(path: String) -> Texture2D:
@@ -871,12 +871,7 @@ func _draw_geode() -> void:
 		_draw_ellipse(center + Vector2(geode_pull * 0.5, 0.0),
 			Vector2(36.0 + geode_pull * 0.32, 122.0), Color("#291f48"),
 			Color("#392958"), 8.0)
-		if crystals_texture != null:
-			draw_texture_rect(crystals_texture,
-				Rect2(center + Vector2(geode_pull * 0.5 - 78.0, -84.0),
-					Vector2(156.0, 168.0)), false)
-		else:
-			_draw_crystal_gallery(center + Vector2(geode_pull * 0.5, 18.0))
+		_draw_crystal_gallery(center + Vector2(geode_pull * 0.5, 0.0))
 	var left_half := _geode_half_points(seam_x, center.y, -1.0, 0.0)
 	var right_half := _geode_half_points(seam_x + geode_pull, center.y, 1.0, 0.0)
 	draw_colored_polygon(left_half, Color("#65506e"))
@@ -966,20 +961,13 @@ func _geode_half_points(seam_x: float, center_y: float, side: float,
 
 
 func _draw_crystal_gallery(center: Vector2) -> void:
-	var colours := [Color("#72e0d3"), Color("#d797e8"), Color("#8ce6dd")]
-	for index in range(3):
-		var x := center.x + float(index - 1) * 34.0
-		var height := 62.0 + float(index % 2) * 25.0
-		var points := PackedVector2Array([
-			Vector2(x - 17.0, center.y + 48.0), Vector2(x - 13.0, center.y - height * 0.42),
-			Vector2(x, center.y - height), Vector2(x + 16.0, center.y - height * 0.38),
-			Vector2(x + 20.0, center.y + 48.0),
-		])
-		draw_colored_polygon(points, colours[index])
-		var closed := points.duplicate()
-		closed.append(points[0])
-		draw_polyline(closed, Color("#392958"), 6.0, true)
-
+	if crystals_texture == null:
+		return
+	# One complete authored cluster at a uniform scale, in the original gallery slot.
+	var painted_size: Vector2 = crystals_texture.get_size()
+	painted_size *= minf(156.0 / painted_size.x, 168.0 / painted_size.y)
+	draw_texture_rect(crystals_texture,
+		Rect2(center - painted_size * 0.5, painted_size), false)
 
 func _demo_finger_pose() -> Dictionary:
 	var cycle := fmod(demo_t, 2.4)

@@ -1,0 +1,116 @@
+{
+  "revision": "R109",
+  "stable_id": "FV-F7DB96881260",
+  "baseline": "97cfaa0bd90e47c33dfcae790417d3a1b2d5299a",
+  "scope": "Replace only geode crystal gallery SVG/procedural fallback with one complete painted aqua/lilac crystal cluster. Existing shell/cavity/seam markers and every tap/pull/save/one-finger/completion remain unchanged. Uniform fit in original156x168 gallery slot; no unrelated crest/goal consumer changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010",
+    "MA-OPERA-004"
+  ],
+  "context": [
+    {
+      "path": "assets/opera/worlds/props/geologist_mineral_mint_painted.png",
+      "revision": "97cfaa0bd90e47c33dfcae790417d3a1b2d5299a",
+      "sha256": "ccfff113ae678e150e2b0ba0d54bfda3071c7102f0e05cd0c850044f19dcc390",
+      "role": "appearance_style_reference"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_mineral_lavender_painted.png",
+      "revision": "97cfaa0bd90e47c33dfcae790417d3a1b2d5299a",
+      "sha256": "cea8f66b34e657f8216f0038adefee38624a1e2900e365b55aa15169be60b20f",
+      "role": "appearance_style_reference"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_work_slab_painted.png",
+      "revision": "97cfaa0bd90e47c33dfcae790417d3a1b2d5299a",
+      "sha256": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4",
+      "role": "appearance_style_reference"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_geologist.svg",
+      "revision": "97cfaa0bd90e47c33dfcae790417d3a1b2d5299a",
+      "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "role": "identity_shape_provenance_not_generation_input"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/3/03_complete.png",
+      "revision": "44da99ba5c68153fa247e0794425b5f6d7d3cc79",
+      "sha256": "4db76cd96ae6e873e7b430a4186ccf0666d95ce6033a1f7282faac8f2ac764a7",
+      "role": "scene_context_only_never_generation_pixels"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "97cfaa0bd90e47c33dfcae790417d3a1b2d5299a",
+      "sha256": "f49d696f4a4301102ab4236e87d9f45a1817a570a207b36ee9db306c94c990b9",
+      "role": "source_binding"
+    }
+  ],
+  "quality_choice": "One coherent painted crystal cluster; existing mint/lavender specimens remain useful style references but broad basal slabs have different silhouette. Reuse optional, no failed-reuse prerequisite. Preserve two tall aqua/lilac main spires, cream/pink light, small deep-plum base; no new design for existing specimens.",
+  "generation": {
+    "backend": "built-in image_gen.imagegen",
+    "model_version": "NOT_EXPOSED",
+    "static_take_cap": 2,
+    "calls_used": 1,
+    "animation_calls": 0,
+    "monetary_usage": "NOT_EXPOSED",
+    "state": "TAKE01_NATIVE_AND_EXPORT_USABLE_CANDIDATE"
+  },
+  "production_sequence": [
+    "one complete painted cluster/native Aseprite/whole uniform512 export, C2",
+    "required gallery resource and retire selectedSVG/procedural fallback only",
+    "current originalMain Opera geode actual touchscreen partial/full reveal, two aspects, saved checkpoint/passive/otherfinger/cancel/reentry and original functions proof",
+    "actual candidate exact4.7.2 Mobile/Speedy import/currentstatic/all82",
+    "sourcepublish every manifestfile anonymously exact, exactsourceCIgreen then Dev",
+    "canonicalregistry/coverage/tally once, immutable public byteverification"
+  ],
+  "acceptance_gaps": "FormalQA11, targetdevice/child/owner and natural/training/allroutes open; sourcebound desktop configured scene evidence only. Geode shell/cavity/seam targets and unrelated art remain flat debt. No full role/removed-art or whole-game acceptance claimed. Existing baseline119-to120 clamp guard prevents completion from119; retained actual failure, no mechanic change in art repair.",
+  "coordinator_readonly": "2026-10-30 current coordinator and Geologist chat notLoaded/completed; no competing active editor; no messages/resume/interrupt.",
+  "destination": {
+    "repo": "Ebonyks/mermaid-roshan-reef",
+    "runtime_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "canonical_branch": "codex/flat-vector-r6-20261012",
+    "access": "anonymous immutable GitHub required"
+  },
+  "started_at_utc": "2026-10-30T01:24:38.631057+00:00",
+  "preexisting_terminal_gap": {
+    "state": "PREEXISTING_KNOWN_GEODE119_TERMINAL_GAP_REPRODUCED_NO_RUNTIME_REGRESSION",
+    "baseline": "97cfaa0bd90e47c33dfcae790417d3a1b2d5299a",
+    "actual_native_failing_checks": [
+      {
+        "label": "original input completes selected activity",
+        "pass": false
+      }
+    ],
+    "exact_unchanged_geode_drag_lf_sha256": "4eda2d9cf6537b8ba4e06274b3b6332627aa8b28c1bfcae0c019523f1f9a7dec",
+    "cause": "Original next_pull is clamped120 then returns for next_pull<=geode_pull+1. From119 every attempted120 returns. ExistingR14 historical local terminal-guard trial was not integrated into current runtime.",
+    "scope_decision": "Gallery rendering task preserves mechanics, so do not conceal this with gameplay changes or report this edgecase as passing. Preserve actual8native failed-run frames as excluded events. Re-run only configured native gallery context with ordinary partial100-to120 qualifying drag, retaining successful actual import. Current native valid-path checks remain meaningful;119 terminal restoration remains an explicit acceptance gap.",
+    "runtime_or_art_changed_for_recovery": false,
+    "new_generation_calls": 0,
+    "excluded_native_events": 8,
+    "full_machine_suite_repeated": false
+  },
+  "runtime": "88valid-path nativechecks/16directlyinspected currentframes, plus8excluded actualpreexisting119failureframes retained; import unchanged reused after fixture path correction, no appearance/runtimeedit. Fullsuite pending.",
+  "current_machine": "PASS current owned-worktree static/import and all82trusted with exact source/normal11 guards;88configured native checks and16directly inspected candidate frames."
+}

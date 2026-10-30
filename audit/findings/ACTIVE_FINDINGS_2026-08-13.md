@@ -447,6 +447,8 @@ R107 production2026-10-29: FV-4CD5292EEE1D whole fossil and three exact matching
 
 R108 production2026-10-29: FV-4E515D6F7A64 painted soil material replaces flat cover fill under the original40-cell functional scrub mask. One registered whole source, no generated per-cell parts; same26threshold/input/save. Candidate/machine/CI/Dev/formal/external lanes separate; no finding closure or accepted removal.
 
+R109 production2026-10-29: FV-F7DB96881260 whole painted aqua/lilac crystal gallery replaces selected SVG/procedural fallback under unchanged geode reveal/tap/pull/save. Original shell/cavity/seam targets remain measured debt. Candidate/runtime/machine/CI/Dev/formal/external separate; lifecycle and accepted removals unchanged.
+
 ## MA-PLAY-001
 
 | Field | Value |
