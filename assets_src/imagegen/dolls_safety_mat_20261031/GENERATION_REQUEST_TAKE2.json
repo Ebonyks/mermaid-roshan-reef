@@ -1,0 +1,23 @@
+{
+  "backend": "Built-in image_gen",
+  "model_selector_exposed": false,
+  "returned_version": null,
+  "take": 2,
+  "static_cap": 2,
+  "animation_calls": 0,
+  "prompt_sha256": "ed614935e4e28e0c9433707b77d1c0468736408dd83256ebe8e0fbf304c58716",
+  "references": [
+    {
+      "path": "assets_src/imagegen/dolls_safety_mat_20261031/rejected/mat_round_end_take1.png",
+      "sha256": "cf70d9cdacd49ef38e3f1c83861a00ab23bb8a6864b878f146a4a071f89c7d3e",
+      "role": "Provisional identity/material reference requiring corrected ends; notapprovedruntimepixels"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/excluded_source_exit_boundary/02_passive_safe_landing.png",
+      "sha256": "9d88b3307c4d400def83a1fc5132ec24dc1b552d2d6f22400f4406792ecd8516",
+      "role": "Actual currentscene context only"
+    }
+  ],
+  "transparent_background": true,
+  "requested_at_utc": "2026-10-31T09:27:13.970948+00:00"
+}

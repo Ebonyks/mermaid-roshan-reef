@@ -14650,3 +14650,19 @@ R91 scoped reuse: unchanged `assets/mg/butterfly.png` (SHA-256 `310539d933f10274
 | `assets_src/imagegen/geologist_station_props_20261030/take01_native.png` | OpenAI built-in ImageGen; owner-authorized game art, unexposed model revision | Owner generated for this project | R115 preserved native/Aseprite technical derivative; no destructive source edit; see `assets_src/imagegen/geologist_station_props_20261030/DERIVATION.json` |
 
 | `assets/opera/worlds/hotspots/geologist_layered_rock_painted.png` | Owner-authorized built-in OpenAI ImageGen static take1, version not exposed; whole512Aseprite uniform derivative of preserved native at `assets_src/imagegen/geologist_layered_rock_20261031/` | OpenAI generated output, project use; exact game context/neighbor references retain own licenses | Native request `exec-0795214f-35f4-43f9-93ea-6141c78bcfb3`; no crop/repaint or protected-original edit |
+
+| `assets_src/imagegen/dolls_safety_mat_20261031/native/native_take2.aseprite` | OpenAI built-in ImageGen owner-authorized R117 static candidate; model/version unexposed | Project-generated artwork | Native take or Aseprite whole technical derivative; `assets_src/imagegen/dolls_safety_mat_20261031/DERIVATION.json`; take1 rejected, no owner acceptance. |
+
+| `assets_src/imagegen/dolls_safety_mat_20261031/native_take2.png` | OpenAI built-in ImageGen owner-authorized R117 static candidate; model/version unexposed | Project-generated artwork | Native take or Aseprite whole technical derivative; `assets_src/imagegen/dolls_safety_mat_20261031/DERIVATION.json`; take1 rejected, no owner acceptance. |
+
+| `assets_src/imagegen/dolls_safety_mat_20261031/rejected/mat_round_end_take1.png` | OpenAI built-in ImageGen owner-authorized R117 static candidate; model/version unexposed | Project-generated artwork | Native take or Aseprite whole technical derivative; `assets_src/imagegen/dolls_safety_mat_20261031/DERIVATION.json`; take1 rejected, no owner acceptance. |
+
+| `assets_src/imagegen/dolls_safety_mat_20261031/safety_mat_export.png` | OpenAI built-in ImageGen owner-authorized R117 static candidate; model/version unexposed | Project-generated artwork | Native take or Aseprite whole technical derivative; `assets_src/imagegen/dolls_safety_mat_20261031/DERIVATION.json`; take1 rejected, no owner acceptance. |
+
+| `assets_src/imagegen/dolls_safety_mat_20261031/safety_mat_master.aseprite` | OpenAI built-in ImageGen owner-authorized R117 static candidate; model/version unexposed | Project-generated artwork | Native take or Aseprite whole technical derivative; `assets_src/imagegen/dolls_safety_mat_20261031/DERIVATION.json`; take1 rejected, no owner acceptance. |
+
+| `assets_src/imagegen/dolls_safety_mat_20261031/scaled_whole.aseprite` | OpenAI built-in ImageGen owner-authorized R117 static candidate; model/version unexposed | Project-generated artwork | Native take or Aseprite whole technical derivative; `assets_src/imagegen/dolls_safety_mat_20261031/DERIVATION.json`; take1 rejected, no owner acceptance. |
+
+| `assets_src/imagegen/dolls_safety_mat_20261031/whole_crop.aseprite` | OpenAI built-in ImageGen owner-authorized R117 static candidate; model/version unexposed | Project-generated artwork | Native take or Aseprite whole technical derivative; `assets_src/imagegen/dolls_safety_mat_20261031/DERIVATION.json`; take1 rejected, no owner acceptance. |
+
+| `assets/dolls/safety_mat_painted.png` | R117 native ImageGen take2 via Aseprite1.3.18.4 | Project-generated artwork | Whole uniform padded1024×256 lossless cutout; `assets_src/imagegen/dolls_safety_mat_20261031/DERIVATION.json`; runtime candidate, formal/external pending. |

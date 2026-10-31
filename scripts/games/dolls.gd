@@ -27,7 +27,10 @@ class DollsNurserySurface extends OperaNurseryCatch:
 	const SAFE_VISUAL_EXTENT := 50.0
 	const SAFE_Y := 0.956
 
-	var safe_mat_style: StyleBoxFlat = null
+	const SAFE_MAT_PATH := "res://assets/dolls/safety_mat_painted.png"
+	const SAFE_MAT_CONTENT := Rect2(101.0, 64.0, 823.0, 127.0)
+
+	var safe_mat_texture: Texture2D = null
 
 	func _ready() -> void:
 		mouse_filter = Control.MOUSE_FILTER_STOP
@@ -44,11 +47,8 @@ class DollsNurserySurface extends OperaNurseryCatch:
 		set_meta("live_input_gate_seconds", INPUT_MEMORY)
 		set_meta("presentation", "approved_world_nursery_tiles")
 		set_meta("placeholder_widgets_loaded", false)
-		safe_mat_style = StyleBoxFlat.new()
-		safe_mat_style.bg_color = Color(0.27, 0.20, 0.49, 0.90)
-		safe_mat_style.border_color = Color(0.75, 0.66, 0.92, 0.96)
-		safe_mat_style.set_border_width_all(7)
-		safe_mat_style.set_corner_radius_all(38)
+		safe_mat_texture = load(SAFE_MAT_PATH) as Texture2D
+		assert(safe_mat_texture != null, "Dolls painted safety mat is required")
 
 	func focus_rect_at(at_elapsed: float) -> Rect2:
 		var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)
@@ -80,6 +80,16 @@ class DollsNurserySurface extends OperaNurseryCatch:
 			Vector2(size.x * 0.035, size.y * 0.775),
 			Vector2(size.x * 0.93, size.y * 0.225))
 
+	func safe_mat_destination() -> Rect2:
+		# Fit the whole visible object uniformly to the original width and bottom.
+		# Transparent padding may extend beyond the clipped panel; cloth does not.
+		var mat := safe_mat_rect()
+		var scale_factor := mat.size.x / SAFE_MAT_CONTENT.size.x
+		return Rect2(
+			Vector2(mat.get_center().x - SAFE_MAT_CONTENT.get_center().x * scale_factor,
+				mat.end.y - SAFE_MAT_CONTENT.end.y * scale_factor),
+			safe_mat_texture.get_size() * scale_factor)
+
 	func safe_landing_point(entry: Dictionary) -> Vector2:
 		return Vector2(float(entry.get("x", 0.5)) * size.x,
 			size.y * SAFE_Y)
@@ -110,21 +120,10 @@ class DollsNurserySurface extends OperaNurseryCatch:
 				Color(1.0, 0.72, 0.76) if index < caught
 				else Color(0.94, 0.90, 1.0, 0.62))
 
-		# A single padded safety mat is the honest code-native fallback for the
-		# rejected flat pillow strip. Quilt seams and tufts keep the landing zone
-		# legible without adding transparent sprite layers or scene nodes.
-		var mat_rect := safe_mat_rect()
-		if safe_mat_style != null:
-			draw_style_box(safe_mat_style, mat_rect)
-		for index in range(7):
-			var seam_x := mat_rect.position.x + 28.0 + float(index) * mat_rect.size.x / 7.0
-			draw_line(
-				Vector2(seam_x, mat_rect.position.y + 14.0),
-				Vector2(seam_x + 46.0, mat_rect.end.y - 14.0),
-				Color(0.88, 0.80, 1.0, 0.25), 3.0, true)
-			draw_circle(
-				Vector2(seam_x + 23.0, mat_rect.get_center().y), 4.5,
-				Color(1.0, 0.87, 0.66, 0.82))
+		# One whole painted quilt keeps its authored contour and padded front edge.
+		# Babies and the cradle draw afterward; all catch and landing geometry stays
+		# on the original helpers. There is no procedural mat fallback.
+		draw_texture_rect(safe_mat_texture, safe_mat_destination(), false)
 
 		# The selected-skin child is explicitly drawn behind this parent. A pulsing
 		# U-shaped focus halo belongs to the cradle itself: it bobs without a node

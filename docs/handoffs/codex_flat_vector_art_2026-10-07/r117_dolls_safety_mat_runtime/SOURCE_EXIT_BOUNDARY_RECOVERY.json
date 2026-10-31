@@ -1,0 +1,9 @@
+{
+  "state": "SYNC_NEUTRAL_BOUNDARY_PROVEN_AND_FIXTURE_CORRECTED",
+  "initial_room_owner_explanation": "Initial hypothesis preserved in SOURCE_FIXTURE_RECOVERY.json; ownerreturn added but same finalassert stillfailed. Not claimed as a gamebug.",
+  "verified_diagnostic": "Original Leave synchronously gameempty/dollsblockfalse/dollslayerfalse; after3realframes original auto-return selects level2. Fixture had incorrectly required gameempty after3frames.",
+  "correction": "Sample original synchronous neutral game/control/layer boundary immediately, then separately require layer remains absent and original automaticcourtyard return after3frames. No production changes, thresholds or skipped gameplaychecks.",
+  "excluded_native_frames": 10,
+  "diagnostic_new_frames": 0,
+  "normal_unchanged": true
+}

@@ -1,0 +1,15 @@
+{
+  "failure": "Auditimpact validation result used an unsupported descriptive string; gate requires exact PASS enum. Record rejected, so103 coverage errors followed.",
+  "correction": "Use exact PASS and retain62/72 details separately. All earlier static steps retained; resume at failed audit_development and unrun tail, then first all82engine probes.",
+  "runtime_or_pixels_changed": false,
+  "healthy_engine_or_probe_restarted": false,
+  "new_frame_events": 0,
+  "initial_validation_handle": 53597,
+  "initial_publisher_handle": 87586,
+  "initial_ci_observer_handle": 19697,
+  "at_utc": "2026-10-31T09:52:18.824091+00:00",
+  "original_prefix_sha256": "0f57c50c950d00a87811e4ff5266ab3986cff427d7dc40e284a9f3448398edad",
+  "resume_prefix_sha256": "126ad5e73ac4b52ccf08a6ec64b89ae78df31bbe0646e1303a268ae25f075a07",
+  "unchanged_current_ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "composition": "STATIC_INITIAL_FAIL.log retains all successful preceding gates and enum failure. STATIC_PREFIX.log is exact failed audit_development command and remaining unrun currentci static tail. Fullsuccess requires both portions plus all82first probes; no successful previous engine/native repeated."
+}

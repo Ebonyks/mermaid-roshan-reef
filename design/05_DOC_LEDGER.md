@@ -1150,3 +1150,6 @@ Owner-requested analysis and Codex handoff for the commissioned under-pool book,
 | `assets_src/imagegen/geologist_layered_rock_20261031/README.md` | 🟣 | `PROPOSED / CANDIDATE` R116 preserved whole painted rock source, native/editor/export provenance and retired SVG; owner/runtime acceptance separate. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R116 PAN overlay candidate; RIVER/surface loaded-only, separate machine/Dev/formal/external evidence. |
+
+| `assets_src/imagegen/dolls_safety_mat_20261031/README.md` | 🟣 | `PROPOSED / CANDIDATE` R117 whole quilt source/reject/native/Aseprite/export provenance. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R117 legacy Faron Dolls whole mat; original behavior/room approval and evidence lanes separate. |

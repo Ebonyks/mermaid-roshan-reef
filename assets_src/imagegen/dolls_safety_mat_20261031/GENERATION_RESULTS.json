@@ -1,0 +1,30 @@
+{
+  "backend": "Built-in image_gen",
+  "model_selector_exposed": false,
+  "returned_version": null,
+  "seed_exposed": false,
+  "reported_cost": null,
+  "usage_accounting": "2 calls/2 static samples; monetary usage unreported",
+  "static_take_cap": 2,
+  "static_takes_used": 2,
+  "rejected_takes": 1,
+  "animation_calls": 0,
+  "funded_animation_caps_touched": false,
+  "results": [
+    {
+      "take": 1,
+      "request_id": "exec-4e67327d-ecc6-4720-bb55-ac6678792dee",
+      "path": "rejected/mat_round_end_take1.png",
+      "sha256": "cf70d9cdacd49ef38e3f1c83861a00ab23bb8a6864b878f146a4a071f89c7d3e",
+      "status": "REJECTED_RUNTIME_SUPPORT_GEOMETRY"
+    },
+    {
+      "take": 2,
+      "request_id": "exec-fb5f5a9e-4908-443a-a913-845c7f05e193",
+      "path": "native_take2.png",
+      "sha256": "0b3eb2c42f2b2fa19072c823527bc9f659632b0121d6141c4260324ed62b05bd",
+      "status": "WHOLE_RUNTIME_CANDIDATE",
+      "not_owner_approved": true
+    }
+  ]
+}

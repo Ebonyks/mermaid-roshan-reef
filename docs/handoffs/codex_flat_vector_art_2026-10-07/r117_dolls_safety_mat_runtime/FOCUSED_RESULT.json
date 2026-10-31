@@ -1,0 +1,283 @@
+{
+  "state": "ORIGINAL_MAIN_FARON_DOLLS_FIVE_STATES_TWO_ASPECT_PASS_REVIEW_REQUIRED",
+  "lane": "candidate",
+  "cases": [
+    {
+      "width": 1280,
+      "checks": 36,
+      "frames": [
+        {
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Configured centre faller at0.44; original live Main/Faron game and authored tiles",
+          "game": "dolls",
+          "id": "01_falling_mat",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "01_falling_mat.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "af1c5c80d85c69234d842ff3b51bd4a79a4af0fefd71a194a40f3ceb609cd253",
+          "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:a017426156961305e583ae1fed166909f3586e4db5e9a12f2a16163f3f7470c1"
+        },
+        {
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Original engine-driven passive miss from configured0.905 faller; no reward",
+          "game": "dolls",
+          "id": "02_passive_safe_landing",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "02_passive_safe_landing.png",
+          "safe_landings": [
+            {
+              "texture": 1,
+              "time": 1.11615833333333,
+              "x": 0.5
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "fe80a35f0a338cb33d3393fbb3e55a6389c7298a4175a81fd9752ad7999a4f57",
+          "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:a017426156961305e583ae1fed166909f3586e4db5e9a12f2a16163f3f7470c1"
+        },
+        {
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Configured legal x0.08 extreme safe landing; frozen physics for contact inspection",
+          "game": "dolls",
+          "id": "03_left_safe_edge",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "03_left_safe_edge.png",
+          "safe_landings": [
+            {
+              "texture": 1,
+              "time": 1.25,
+              "x": 0.08
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "39fcffa2ba6486af02f1064ec8546024d452cc31dc9f2e9215e2b615bda8006e",
+          "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:a017426156961305e583ae1fed166909f3586e4db5e9a12f2a16163f3f7470c1"
+        },
+        {
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Configured legal x0.92 extreme safe landing; frozen physics for contact inspection",
+          "game": "dolls",
+          "id": "04_right_safe_edge",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "04_right_safe_edge.png",
+          "safe_landings": [
+            {
+              "texture": 2,
+              "time": 1.25,
+              "x": 0.92
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "0aca5e08ee08dbaa7bdd758f6f09aa533481030c8cc836d1b05296f7d23977ee",
+          "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:a017426156961305e583ae1fed166909f3586e4db5e9a12f2a16163f3f7470c1"
+        },
+        {
+          "caught": 1,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Actual native engine catch after owned single touch; private session below goal",
+          "game": "dolls",
+          "id": "05_owned_catch_mat_remains",
+          "input_live_t": 1.85544133333333,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "05_owned_catch_mat_remains.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "5af8560ba849bec69ab72c225522f3617212e1fde2b3b20aabddf4cc46cd6b7d",
+          "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:a017426156961305e583ae1fed166909f3586e4db5e9a12f2a16163f3f7470c1"
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-safety-mat-20261031\\candidate_native_final\\1280\\output\\RESULT.json",
+      "result_sha256": "3ea910a4905effe152c5b5591283e5cecae2da4ed7f07b93006ae9201f8a2ea8"
+    },
+    {
+      "width": 1600,
+      "checks": 36,
+      "frames": [
+        {
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Configured centre faller at0.44; original live Main/Faron game and authored tiles",
+          "game": "dolls",
+          "id": "01_falling_mat",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "01_falling_mat.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "9035df8076fb03c66f13a3dd9c877271e740e6a965012e1a56c431a9dfe605a0",
+          "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:a017426156961305e583ae1fed166909f3586e4db5e9a12f2a16163f3f7470c1"
+        },
+        {
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Original engine-driven passive miss from configured0.905 faller; no reward",
+          "game": "dolls",
+          "id": "02_passive_safe_landing",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "02_passive_safe_landing.png",
+          "safe_landings": [
+            {
+              "texture": 1,
+              "time": 1.10046966666667,
+              "x": 0.5
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "b3e6a3372de761bd0810fdae0db7c92cc35db0578e17e041c9a0121a46a65e7c",
+          "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:a017426156961305e583ae1fed166909f3586e4db5e9a12f2a16163f3f7470c1"
+        },
+        {
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Configured legal x0.08 extreme safe landing; frozen physics for contact inspection",
+          "game": "dolls",
+          "id": "03_left_safe_edge",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "03_left_safe_edge.png",
+          "safe_landings": [
+            {
+              "texture": 1,
+              "time": 1.25,
+              "x": 0.08
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "ee646411fa2560e6323ec235ed0e9710d6f928104814bb7517f1b32caae0e24a",
+          "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:a017426156961305e583ae1fed166909f3586e4db5e9a12f2a16163f3f7470c1"
+        },
+        {
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Configured legal x0.92 extreme safe landing; frozen physics for contact inspection",
+          "game": "dolls",
+          "id": "04_right_safe_edge",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "04_right_safe_edge.png",
+          "safe_landings": [
+            {
+              "texture": 2,
+              "time": 1.25,
+              "x": 0.92
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "13882c33ab5fe22e11bc0802354c18ef0420997cc1745fd85a0abddcdf4e6c9c",
+          "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:a017426156961305e583ae1fed166909f3586e4db5e9a12f2a16163f3f7470c1"
+        },
+        {
+          "caught": 1,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Actual native engine catch after owned single touch; private session below goal",
+          "game": "dolls",
+          "id": "05_owned_catch_mat_remains",
+          "input_live_t": 1.85,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "05_owned_catch_mat_remains.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "2a4bb8bee39f474c91d224c3422dbfe3acddd191516773661127efb43b7b58cd",
+          "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:a017426156961305e583ae1fed166909f3586e4db5e9a12f2a16163f3f7470c1"
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-safety-mat-20261031\\candidate_native_final\\1600\\output\\RESULT.json",
+      "result_sha256": "9c23b558ab72b8756fa6d654cab6d6d8b29a8d2f494330c23d27a881bfebbcac"
+    }
+  ],
+  "checks": 72,
+  "new_native_frame_events": 10,
+  "source_drift": [],
+  "normal_before": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent"
+  },
+  "normal_after": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent"
+  },
+  "normal_unchanged": true,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "completed_at_utc": "2026-10-31T09:39:50.853290+00:00"
+}
