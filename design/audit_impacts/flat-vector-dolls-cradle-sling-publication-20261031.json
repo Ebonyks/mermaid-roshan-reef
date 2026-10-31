@@ -1,0 +1,42 @@
+{
+  "id": "flat-vector-dolls-cradle-sling-publication-20261031",
+  "scope": "Integrate the already-published R118 Dolls cradle-sling payload pin and anonymous immutable remote-verification receipt from source commit 39178b3139f2192b3b2e4b9d30eb677c54027cb7 onto current dev. This is provenance and delivery evidence only: no runtime code, artwork, protected original, save data, acceptance status, finding lifecycle, or release gate changes.",
+  "baseline": "75716763c88f488a5d8acbe94a2a795c44cc6b39",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-QA-07",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "files": [
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/PAYLOAD_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/REMOTE_VERIFICATION.json"
+  ],
+  "validation": [
+    {
+      "command": "Source Probe Suite run 41215941414 at 39178b3139f2192b3b2e4b9d30eb677c54027cb7",
+      "result": "FAIL",
+      "evidence": "The static audit-development gate reported only the two receipt files as uncovered. Area-music provenance passed; later import/analyzer/trusted probes were skipped. The failure is retained and is not called green."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PENDING",
+      "evidence": "Required on the reconciled integration candidate after this coverage record and all eligible source branches are combined."
+    },
+    {
+      "command": "Exact-head Probe Suite on the reconciled codex integration candidate",
+      "result": "PENDING",
+      "evidence": "Required before updating dev; source publication evidence cannot substitute for exact integration-head CI."
+    }
+  ],
+  "acceptance_gaps": "R118 remains a candidate with formal QA11, device, child, owner, route, Nursery-room and game-wide acceptance open. This receipt does not grant accepted-removal credit, DELIVERY_ACCEPTED, master-audit satisfaction, or release acceptance."
+}
