@@ -437,6 +437,8 @@ R116 partialproduction2026-10-31: [whole painted Geologist layered rock](../../d
 
 R117 partialproduction2026-10-31: [whole painted Dolls mat](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/README.md), sourcea290753627a06ca7b251c3423cce6cf6f5d13827 exactCIgreen/normalDev/local82/static/source62/candidate72checks. Two static takes/one supportreject/one1024x256wholeexport,16other functions and allfunctionalgeometry exact.20source19partialDev artifacts;6901bounded4175excluded11076retained events, ten sourcefixtureframes excluded. Mat/quilt twoexistingroles shareoneimplementation. Otherart/roomapproval/formal/external/global acceptance and lifecycle OPEN;acceptedremoved0.
 
+R118 partialproduction2026-10-31: [whole paintedDolls cradle](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/README.md), source218ae766f8e60afb3f6338b8fafce28ec9fab7f2 exactCIgreen/normalDev/local82/static/native100checks16views,10priorbaselineframes reused no newcredit. Two staticcalls/one wideaspectreject/onewhole512export,17otherfunctions andfunctionalgeometry exact.21source20partialDev artifacts;6917bounded4175excluded11092retained events. Separatefocus/pips/safe-ring/roomapproval/otherart/formal/external/global and lifecycleOPEN,acceptedremoved0.
+
 ## MA-VIS-007
 
 | Field | Value |

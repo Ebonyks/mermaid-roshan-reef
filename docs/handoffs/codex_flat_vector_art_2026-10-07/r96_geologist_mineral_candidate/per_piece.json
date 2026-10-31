@@ -16928,7 +16928,10 @@
       "source_scope_ids": [
         "FVF-23D30F694F3A"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        "scripts/games/dolls.gd:DollsNurserySurface._draw",
+        "assets/dolls/cradle_sling_painted.png"
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
         "coverage_state": "COVERAGE_GAP",
@@ -16949,9 +16952,10 @@
           "draw_arc(catch_point, catch_radius, 0.0, PI, 40,",
           "draw_arc(catch_point, catch_radius, 0.02, PI - 0.02, 40,"
         ],
-        "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        "note": "Expressions are scope evidence, not measured per-piece screen bounds.",
+        "r118_current_scope": "Eightstates at1280/1600; centred visiblecradle x451..573 y493.38..565.4, retains122catchwidth and extendsbase18px below originalbowl. Bothclamps/twosettled and allfeet supported; whole-route acceptance OPEN."
       },
-      "evidence_level": "SOURCE_INSPECTION",
+      "evidence_level": "SOURCE_BOUND_CONFIGURED_NATIVE_TWO_ASPECT",
       "observed_weakness": "Cradle is three thick stacked semicircle arcs.",
       "priority": "P1",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
@@ -16959,21 +16963,21 @@
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
       "named_gap": null,
-      "status": "IDENTIFIED",
-      "integration_sha": null,
+      "status": "PARTIAL_DEV_PAINTED_CANDIDATE",
+      "integration_sha": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
       "acceptance_evidence": {
-        "current_mobile_runtime": null,
-        "wide_phone_runtime": null,
+        "current_mobile_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/218ae766f8e60afb3f6338b8fafce28ec9fab7f2/docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/06_two_owned_catches.png",
+        "wide_phone_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/218ae766f8e60afb3f6338b8fafce28ec9fab7f2/docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/08_right_two_baby_catch_region.png",
         "device": null,
         "child": null,
         "owner": null,
-        "machine": null,
-        "old_fallback_retired": null
+        "machine": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/LOCAL_82_RESULT.json",
+        "old_fallback_retired": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/FUNCTION_PRESERVATION.json"
       },
       "dependencies": [
         "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates",
+        "Owner2026-10-17 static quality mandate: reuse optional, no failed-reuse proof gate; funded animation scopes unchanged"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -16988,7 +16992,13 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
+      "review_log": [
+        {
+          "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/FRAME_REVIEW.json",
+          "scope": "Qualified agent static comparison only; formalQA11/device/child/owner remainOPEN"
+        }
+      ],
       "proposed_update": "Prepare a coherent whole soft cradle/sling matching bowl_rect and broad moving catch region; preserve painted babies and selected character mounting.",
       "route_refs": [
         "minigame.dolls",
@@ -16997,7 +17007,103 @@
       "route_evidence": "Current dolls consumer from scripts/games/dolls.gd:99 (_draw)",
       "context_action": "Nursery cradle sling active/rest/changed/payoff/settle states",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-A1BAFB89E08F"
+      "individual_brief_id": "PIECE-FV-A1BAFB89E08F",
+      "r118_prior_status": "IDENTIFIED",
+      "r118_prior_dependencies": [
+        "Current route/phase capture and source-pixel ownership",
+        "Inspected suitable reuse or recorded exact missing gap",
+        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+      ],
+      "r118_dolls_cradle_runtime": {
+        "stable_id": "FV-A1BAFB89E08F",
+        "stable_ids": [
+          "FV-A1BAFB89E08F"
+        ],
+        "state": "WHOLE_PAINTED_DOLLS_CRADLE_PARTIAL_DEV_EXACT_CI_GREEN",
+        "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+        "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+        "source_CI_run": 41210387137,
+        "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/MANIFEST.json",
+        "source_required_files": 95,
+        "source_all_required_anonymous_exact": true,
+        "runtime_path": "assets/dolls/cradle_sling_painted.png",
+        "runtime_sha256": "837b1dbf53908e9bcdfc2a57c93ad96c7d90a369a87c4e1192c198abedb3e1ca",
+        "runtime_dimensions": [
+          512,
+          512
+        ],
+        "actual_visible_consumer": "Original Main/Faron Dolls moving cradle sling",
+        "actual_native_checks": 100,
+        "candidate_frames_reviewed": 16,
+        "prior_baseline_frames_reused": 10,
+        "new_baseline_frame_credit": 0,
+        "new_frame_events": {
+          "bounded": 16,
+          "excluded": 0,
+          "retained": 16
+        },
+        "three_semicircle_artwork_fallback_retired": true,
+        "unchanged_other_functions": 17,
+        "only_changed_load_render_functions": [
+          "DollsNurserySurface._ready",
+          "DollsNurserySurface._draw"
+        ],
+        "new_render_helper": "painted_cradle_destination",
+        "functional_geometry_unchanged": true,
+        "uniform_whole_object_render": "Original122px catchwidth; whole visiblecloth about72pxtall, paddedbase18px below originalbowl under unchangedsettledbabyfeet. Allone/two/threecentres alpha-supported; actualtwoownedcatches and bothclamps viewed.",
+        "new_bounded_source_artifacts": 1,
+        "partial_Dev_artifact_credit": 1,
+        "new_generation_calls": 2,
+        "generated_outputs": 2,
+        "rejected_generated_takes": 1,
+        "technical_exports": 1,
+        "new_runtime_images": 1,
+        "backend": "Built-in image_gen",
+        "model_selector": "NOT_EXPOSED",
+        "model_version": "NOT_EXPOSED",
+        "animation_calls": 0,
+        "new_roles": 0,
+        "new_families": 0,
+        "candidate": "USABLE_PAINTED_WHOLE_DOLLS_CRADLE",
+        "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+        "runtime": "ORIGINAL_MAIN_FARON_EIGHT_STATES_TWO_ASPECT_PASS",
+        "Dev_integrated": true,
+        "exact_new_Dev_APK_verified": false,
+        "whole_role_closed": false,
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "natural_training_allroutes": null,
+        "accepted_removed": 0,
+        "mission_complete": false,
+        "remaining": "Separate focus/pips/safe-ring, Nurseryroom approval-resolution and paused siblingcaregoal, otherjobart, naturalallroutes/performance/formalQA11/device/child/owner/globaldenominators remainOPEN. No whole-role/accepted-removal credit.",
+        "CI_recovery": {
+          "state": "EXACT_SOURCE_CI_GREEN_FAILED_JOB_ONLY_RECOVERY",
+          "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+          "workflow_run": 41210387137,
+          "original_attempt": 1,
+          "retry_attempt": 2,
+          "failed_job": "area-music-provenance",
+          "failed_job_id": 124563971246,
+          "failure": "Pinned FFmpeg8.1.2 download returned HTTP503; build_area_music lacked FFmpeg. No candidate/audio/source defect established.",
+          "original_failure_log_sha256": "f69b37a16be63d318810595e7e12edf8f400f745c6fd09cd53bcfc4761360cea",
+          "preserved_healthy_job": "probes",
+          "preserved_trusted_step": "success",
+          "only_failed_job_rerun": true,
+          "healthy_engine_native_local82_or_remote_probes_restarted": false,
+          "source_or_pixels_changed": false,
+          "retry_cap": 1,
+          "new_generation_calls": 0,
+          "new_frame_events": 0,
+          "attempt2_conclusion": "success",
+          "at_utc": "2026-10-31T15:37:51.264704+00:00",
+          "successful_job_copied_metadata_proof": "HEALTHY_JOB_REUSE_PROOF.json",
+          "observer_assertion_stop_preserved": "STOP.json",
+          "continuation_runner": "resume_existing_ci_attempt2.py",
+          "no_new_retry_dispatched_by_continuation": true
+        }
+      }
     },
     {
       "id": "FV-B23A63BF66D8",
@@ -24914,7 +25020,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261031-R117-DEV",
+  "revision": "FV-AUDIT-20261031-R118-DEV",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -35613,7 +35719,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json; R117whole painted legacyDolls mat/quilt in exactgreenDev; one implementation across twoexistingroles, otherart/formal/external/global open.",
+  "current_effective_summary": "SUMMARY.json; R118whole painted legacyDolls cradle in exactgreenDev; one implementation foroneexistingrole, otherart/formal/external/global open.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -38818,5 +38924,96 @@
     "accepted_removed": 0,
     "mission_complete": false,
     "remaining": "Other Dolls cradle/focus/pips and allroutes, Nursery room approval/resolution and separate paused paired-care station, otherjob art, performance/formalQA11/device/child/owner/global denominators remainOPEN. No whole-role/accepted-removal credit."
+  },
+  "r118_parent_receipt_revision": "55a4e7a72b4c436ecf3095b3a07b974b6a4adfc7",
+  "r118_dolls_cradle_runtime": {
+    "stable_id": "FV-A1BAFB89E08F",
+    "stable_ids": [
+      "FV-A1BAFB89E08F"
+    ],
+    "state": "WHOLE_PAINTED_DOLLS_CRADLE_PARTIAL_DEV_EXACT_CI_GREEN",
+    "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "source_CI_run": 41210387137,
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/MANIFEST.json",
+    "source_required_files": 95,
+    "source_all_required_anonymous_exact": true,
+    "runtime_path": "assets/dolls/cradle_sling_painted.png",
+    "runtime_sha256": "837b1dbf53908e9bcdfc2a57c93ad96c7d90a369a87c4e1192c198abedb3e1ca",
+    "runtime_dimensions": [
+      512,
+      512
+    ],
+    "actual_visible_consumer": "Original Main/Faron Dolls moving cradle sling",
+    "actual_native_checks": 100,
+    "candidate_frames_reviewed": 16,
+    "prior_baseline_frames_reused": 10,
+    "new_baseline_frame_credit": 0,
+    "new_frame_events": {
+      "bounded": 16,
+      "excluded": 0,
+      "retained": 16
+    },
+    "three_semicircle_artwork_fallback_retired": true,
+    "unchanged_other_functions": 17,
+    "only_changed_load_render_functions": [
+      "DollsNurserySurface._ready",
+      "DollsNurserySurface._draw"
+    ],
+    "new_render_helper": "painted_cradle_destination",
+    "functional_geometry_unchanged": true,
+    "uniform_whole_object_render": "Original122px catchwidth; whole visiblecloth about72pxtall, paddedbase18px below originalbowl under unchangedsettledbabyfeet. Allone/two/threecentres alpha-supported; actualtwoownedcatches and bothclamps viewed.",
+    "new_bounded_source_artifacts": 1,
+    "partial_Dev_artifact_credit": 1,
+    "new_generation_calls": 2,
+    "generated_outputs": 2,
+    "rejected_generated_takes": 1,
+    "technical_exports": 1,
+    "new_runtime_images": 1,
+    "backend": "Built-in image_gen",
+    "model_selector": "NOT_EXPOSED",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "new_roles": 0,
+    "new_families": 0,
+    "candidate": "USABLE_PAINTED_WHOLE_DOLLS_CRADLE",
+    "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+    "runtime": "ORIGINAL_MAIN_FARON_EIGHT_STATES_TWO_ASPECT_PASS",
+    "Dev_integrated": true,
+    "exact_new_Dev_APK_verified": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "natural_training_allroutes": null,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "remaining": "Separate focus/pips/safe-ring, Nurseryroom approval-resolution and paused siblingcaregoal, otherjobart, naturalallroutes/performance/formalQA11/device/child/owner/globaldenominators remainOPEN. No whole-role/accepted-removal credit.",
+    "CI_recovery": {
+      "state": "EXACT_SOURCE_CI_GREEN_FAILED_JOB_ONLY_RECOVERY",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "workflow_run": 41210387137,
+      "original_attempt": 1,
+      "retry_attempt": 2,
+      "failed_job": "area-music-provenance",
+      "failed_job_id": 124563971246,
+      "failure": "Pinned FFmpeg8.1.2 download returned HTTP503; build_area_music lacked FFmpeg. No candidate/audio/source defect established.",
+      "original_failure_log_sha256": "f69b37a16be63d318810595e7e12edf8f400f745c6fd09cd53bcfc4761360cea",
+      "preserved_healthy_job": "probes",
+      "preserved_trusted_step": "success",
+      "only_failed_job_rerun": true,
+      "healthy_engine_native_local82_or_remote_probes_restarted": false,
+      "source_or_pixels_changed": false,
+      "retry_cap": 1,
+      "new_generation_calls": 0,
+      "new_frame_events": 0,
+      "attempt2_conclusion": "success",
+      "at_utc": "2026-10-31T15:37:51.264704+00:00",
+      "successful_job_copied_metadata_proof": "HEALTHY_JOB_REUSE_PROOF.json",
+      "observer_assertion_stop_preserved": "STOP.json",
+      "continuation_runner": "resume_existing_ci_attempt2.py",
+      "no_new_retry_dispatched_by_continuation": true
+    }
   }
 }

@@ -1,0 +1,29 @@
+{
+  "state": "ORIGINAL_SUCCESSFUL_PROBES_METADATA_COPIED_WITHOUT_NEW_EXECUTION",
+  "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "original_job": 124563970967,
+  "copied_metadata_job": 124577617530,
+  "newly_executing_area_music_job": 124577616760,
+  "compared_equal_fields": [
+    "name",
+    "status",
+    "conclusion",
+    "started_at",
+    "completed_at",
+    "runner_id",
+    "runner_name",
+    "steps",
+    "labels"
+  ],
+  "original_started_at": "2026-10-31T14:29:59Z",
+  "original_completed_at": "2026-10-31T15:25:05Z",
+  "retry_dispatched_at": "2026-10-31T15:28:25.323707+00:00",
+  "only_new_execution_started_at": "2026-10-31T15:28:28Z",
+  "original_snapshot_sha256": "3a251a26c9294f0e27a92aab481916008747b0b5b6e159315fc5bc52f3205a02",
+  "current_snapshot_sha256": "99fe2a0b8bf93b0407b8ee474ff3afa30b996ab268ea0844401b18507c33b2ae",
+  "prior_assertion": "Stopped observer assumed attempt2 job listing would omit successful jobs. GitHub copied completed successful probes metadata with a new id and unchanged execution timestamps/steps.",
+  "metadata_only_difference_allowed": "runner_group_id may be 0/null; execution fields and steps exact",
+  "no_new_dispatch": true,
+  "retry_cap_spent": true,
+  "checked_at_utc": "2026-10-31T15:37:49.792634+00:00"
+}

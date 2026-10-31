@@ -1,0 +1,84 @@
+{
+  "state": "PAINTED_DOLLS_CRADLE_EXACT_GREEN_FAILED_JOB_RECOVERY_INTEGRATED_DEV",
+  "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "integrated_dev_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "prior_dev": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+  "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+  "source_CI_run": 41210387137,
+  "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41210387137/attempts/2",
+  "source_CI_conclusion": "success",
+  "trusted_step": "success",
+  "source_CI_evidence_composition": {
+    "method": "Successful job per exactsource revision across original attempt1 and failed-job-only attempt2",
+    "probes_attempt": 1,
+    "area_music_attempt": 2,
+    "original_failure_retained": true,
+    "healthy_probes_restarted": false,
+    "raw_snapshots": [
+      "ORIGINAL_ATTEMPT1.json",
+      "ORIGINAL_RUN_API.json",
+      "ATTEMPT2_JOBS.json",
+      "ATTEMPT2_RUN_API.json",
+      "ATTEMPT2_RUN_VIEW.json",
+      "ATTEMPT1_JOBS_API.json",
+      "HEALTHY_JOB_REUSE_PROOF.json"
+    ],
+    "copied_successful_job_metadata_proof": "HEALTHY_JOB_REUSE_PROOF.json"
+  },
+  "CI_recovery": "CI_RECOVERY.json",
+  "Dev_head_verified_by_anonymous_runtime_bytes_and_git_remote": true,
+  "runtime_files": [
+    {
+      "path": "scripts/games/dolls.gd",
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "bytes": 14041,
+      "sha256": "cd897b813eb4ae58d83d37495ae389a53d0b56bd0eac4cd4f016af245b10d95e",
+      "http_status": 200,
+      "anonymous_exact": true
+    },
+    {
+      "path": "assets/dolls/cradle_sling_painted.png",
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "bytes": 157099,
+      "sha256": "837b1dbf53908e9bcdfc2a57c93ad96c7d90a369a87c4e1192c198abedb3e1ca",
+      "http_status": 200,
+      "anonymous_exact": true
+    },
+    {
+      "path": "assets/dolls/cradle_sling_painted.png.import",
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "bytes": 979,
+      "sha256": "480ee7113f637c95e0f3a07dc647765c0ac64f7a4fa3693bc15e37cb85c47901",
+      "http_status": 200,
+      "anonymous_exact": true
+    }
+  ],
+  "retired_runtime_paths_absent_at_integrated_revision": [],
+  "access_mode": "Anonymous immutable exact runtime bytes; all95source manifestfiles independently verified before CI.",
+  "source_clean": true,
+  "local_dev_master_untouched": true,
+  "PR_created": false,
+  "Dev_workflows": [
+    {
+      "conclusion": "",
+      "databaseId": 41215786419,
+      "headSha": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "status": "in_progress",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41215786419",
+      "workflowName": "Probe suite (graphics fork)"
+    }
+  ],
+  "exact_new_Dev_APK_verified": false,
+  "new_generation_calls": 0,
+  "new_native_frame_events": 0,
+  "new_implementation_artifact_credits": 0,
+  "partial_dev_artifact_credit": 1,
+  "whole_role_closed": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "completed_at_utc": "2026-10-31T15:38:07.569899+00:00"
+}

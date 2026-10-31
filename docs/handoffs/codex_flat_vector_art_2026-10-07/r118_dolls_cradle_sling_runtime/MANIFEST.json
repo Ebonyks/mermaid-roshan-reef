@@ -1,0 +1,773 @@
+{
+  "schema": "reef.runtime_trial_delivery/1",
+  "revision": "FV-AUDIT-20261031-R118-DEV",
+  "baseline": "55a4e7a72b4c436ecf3095b3a07b974b6a4adfc7",
+  "files": [
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297623,
+      "sha256": "f735906da2b7e33f46c8fb134660cc4ecf1f2e15ca0132880855c37f5e16e373",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 292936,
+      "sha256": "74062e06b075f7c3dffaa7c944361421bec1bfc230f061a6a897fb2f2b786ddd",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 330565,
+      "sha256": "c21008a3ff60668b2e1cfee1755b98df21c656aaf8298d09e62314ac39e45a10",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 273680,
+      "sha256": "556670a09f17a2e81160ef5926dc2e6858f51db4ad3fb99bcff0c720de0b1602",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 175561,
+      "sha256": "78b903da5970530ad2e5d3d80938966a309907b772a4482c53c6e8bf5bb0f53e",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/ATTEMPT1_JOBS_API.json",
+      "bytes": 11656,
+      "sha256": "3a251a26c9294f0e27a92aab481916008747b0b5b6e159315fc5bc52f3205a02",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/ATTEMPT2_JOBS.json",
+      "bytes": 11659,
+      "sha256": "99fe2a0b8bf93b0407b8ee474ff3afa30b996ab268ea0844401b18507c33b2ae",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/ATTEMPT2_RUN_API.json",
+      "bytes": 14363,
+      "sha256": "11402be68f32abc1235a97bdc3eb1eca5d0ee6ee6dda5accc851e53785c7e4a1",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/ATTEMPT2_RUN_VIEW.json",
+      "bytes": 10114,
+      "sha256": "26a5aece00604a580449c9106949739fb81316daf16469abb7b66e5224af4de2",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/CANONICAL_GATES.json",
+      "bytes": 731,
+      "sha256": "423c3d4b4e02f0aec75a7a4bf220d8f74d5daa68e7e6733519b477d8b55449b6",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/CANONICAL_PUBLICATION_RUNNER.py",
+      "bytes": 26222,
+      "sha256": "52202498ac24fe653cdc3dc313b1e705b88888d44001f14ad31805c960d7c29e",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/CI_ATTEMPT1_AREA_MUSIC_FAILURE.log",
+      "bytes": 39812,
+      "sha256": "f69b37a16be63d318810595e7e12edf8f400f745c6fd09cd53bcfc4761360cea",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/CI_COPIED_JOB_METADATA_ASSERTION_STOP.json",
+      "bytes": 276,
+      "sha256": "7fd658feabbf509b2a2d75efc2a2a2980e1290629421048d0d28bff549eef552",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/CI_EXISTING_ATTEMPT2_CONTINUATION_RUNNER.py",
+      "bytes": 9922,
+      "sha256": "96f755bcd8f3b7e8299a22ba4280d4197ca01d8f421b036d1cfb2edb51ef8e07",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/CI_FAILED_JOB_RECOVERY_RUNNER.py",
+      "bytes": 9235,
+      "sha256": "3c7f8d5f7e9e0fb9d799cf3e8530dd74e6288afcc94a9dab108022404d669179",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/CI_PRIOR_CANONICAL_GUARD_STOP.json",
+      "bytes": 414,
+      "sha256": "f89da65df4efb3ba4b2d5d49c642a7095074571e7ecf82f52542df5ba0060e86",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/CI_PRIOR_FINAL_GUARD_STOP.json",
+      "bytes": 320,
+      "sha256": "1412e0ef1daa53c28994d210adbd3ee60d988bf1698faa658dffa2fcb6d4f087",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/CI_RECOVERY.json",
+      "bytes": 1154,
+      "sha256": "25c302babdd1182f4b081ebf80b86fd34f0d35c1de4a885ebe7fb04c3152584e",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/CURRENT_ART_CENSUS.json",
+      "bytes": 288938,
+      "sha256": "22f158b3746427d208376b0b7e5ab8ce80b3a8e457e22f07f861537e6a8806aa",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/DERIVATION.json",
+      "bytes": 1941,
+      "sha256": "a879a092c33833f20eaf968c1d972f28b7f740a6930f140e59ccc2b8113bb721",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/DEV_INTEGRATION.json",
+      "bytes": 3245,
+      "sha256": "26482d811402a89a1c65ea20531a5792d8e2afe127a5eff6519b25f38773021f",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/DEV_WORKFLOW_HANDLES.json",
+      "bytes": 299,
+      "sha256": "45aff46747c26d6ff21914dd16faa7fe6f824b00d2d08afa987000d0f47c20ef",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/FOCUSED_RESULT.json",
+      "bytes": 16316,
+      "sha256": "edf9e03bef8a35eabce556687d5b024cba230148b70c224d86e58b2a2d5e03ed",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/FRAME_REVIEW.json",
+      "bytes": 3797,
+      "sha256": "7fb42a68101a1eb27a1656cc7e1e2667d9338b4aca7759067d7f8447cee06f17",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/FUNCTION_PRESERVATION.json",
+      "bytes": 2161,
+      "sha256": "f9138969dae6d666ba5e20a3ea9ce500bdb1a41b110b91d41dd71a0e0065fb35",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/HEALTHY_JOB_REUSE_PROOF.json",
+      "bytes": 1310,
+      "sha256": "51a0193a810f9747dc2a8ffb350998cb642bd66eb13ebe02afb13e8df07e70e1",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/IMPORT_RESULT.json",
+      "bytes": 543,
+      "sha256": "d5a0b6ce798c865d8de5e035b8b53fc2b5c9204eca04a1ea39c04c470a8a3c86",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/LOCAL_82_RESULT.json",
+      "bytes": 91857,
+      "sha256": "29b9333844bec0f310ae3970d2568096b78e9ce22739916475757551c1c36035",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/ORIGINAL_ATTEMPT1.json",
+      "bytes": 10114,
+      "sha256": "6d1b78ef678ea4a7db36e3a2068c4f36883bfb4bc1d054ddb44b348795f05753",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/ORIGINAL_CANONICAL_STOP.json",
+      "bytes": 401,
+      "sha256": "9927732c9f643dca43cbfb38fc44456de82df431d3e10166e4df07b669db2771",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/ORIGINAL_CI_OBSERVER_STOP.json",
+      "bytes": 246,
+      "sha256": "81f8c3202684eff3bc2fe8675bd199b5559a2f78da89f662b3aa9a6f6e1c09a4",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/ORIGINAL_FINAL_GUARD_STOP.json",
+      "bytes": 307,
+      "sha256": "bbbc4cfc748eea0b1aa1833624494c6cec69ad5193f4d4210a531cc06c0db369",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/ORIGINAL_RUN_API.json",
+      "bytes": 14273,
+      "sha256": "d36f785f9013970a20c091329e6f068f44455465deb3249325b58e1108c70903",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/PLAN.json",
+      "bytes": 3742,
+      "sha256": "7f4c1c0dfccb16281929922892118791419643402c060782b7330096dfd59ce8",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/POSTCOMMIT_EOL_CLEANUP.json",
+      "bytes": 190,
+      "sha256": "6136cf8d05a753a13df4afab1d4bc5cca973ce5c8db0ea998584c99bb81167c6",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/PRODUCTION.json",
+      "bytes": 3805,
+      "sha256": "206e70acab4dccff2736a707de031acb9f60ab637eb9bd4f15eb85cdce29beee",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/README.md",
+      "bytes": 2744,
+      "sha256": "a3e585982d72586b65245ce821cdfbe8a4ba1809fd5bb2bbf4f5b2b69232903d",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/REFERENCE_BINDING.json",
+      "bytes": 10060,
+      "sha256": "30007c4b4c6fef039770b7c517f4d28b3460feac3ee3da60091dc436eeee1ed3",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/RETRY_DISPATCH.json",
+      "bytes": 388,
+      "sha256": "42fe948dda14d6ceccafd7d9423dbc6cbdd34c551f62a5fc28a0c3ec07338426",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/SOURCE_CI_GREEN.json",
+      "bytes": 10735,
+      "sha256": "39239b77e55d114d1ca2e1187fe9eba7fc48bcbbc0c101a2cfb6aeb1e92bb045",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/SOURCE_CI_HANDLES.json",
+      "bytes": 289,
+      "sha256": "046a08bea0be664bea2ca90abf5a578616767ef1f144ed00d22578846d89c0f6",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/SOURCE_PIN.json",
+      "bytes": 650935,
+      "sha256": "04d0d78210e4f8b549161454ad6fdd0ed2a2db1dff8eef2cea7c422ff30874b1",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/SOURCE_PUBLICATION_FINAL.json",
+      "bytes": 706,
+      "sha256": "f2eceb156dda82bd597afe8159bb32deca4a413409c76ffd341f312bd81bc90d",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/SOURCE_REMOTE_VERIFICATION.json",
+      "bytes": 42303,
+      "sha256": "8fb94acabd8090ef30b75da6b2ecd194541709c9f36e4b4b01a2b0ff729f4541",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/STATIC_RESULT.json",
+      "bytes": 353,
+      "sha256": "be3a71a069783c70c142518b796701fad40fd382f998f01f8e03f309979be6f5",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/STATUS.json",
+      "bytes": 792,
+      "sha256": "5e517cb0eede3f8fd2cc30954e8278a03cfbb9d2b5e6f155c491664a770e08c3",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/SUPPORT_GEOMETRY.json",
+      "bytes": 2858,
+      "sha256": "599bb34cab522f522fb609b458cf42a9aeab181c4362c0b4e31ecab9f4b1662b",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 97473,
+      "sha256": "08dd4bab89d37f64d08345a3f19321dae3aeee5290af8364331f5ef5f8d68c56",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 1879722,
+      "sha256": "0d44fe37b167bf6663d53dec08ab03b94e0e8aa72466ea1493ed25203a43a988",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1266143,
+      "sha256": "21b5ad2a50ea2653a232a7e426765d5134181e8914c186a29c2228d477984cc2",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 550391,
+      "sha256": "3fafd28ca8421b3f37a6591edb7384ea149705941ae6f3e00371aea3866516df",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/audit_impacts/flat-vector-r118-dolls-cradle-runtime-20261031.json",
+      "bytes": 7390,
+      "sha256": "2ff8a083a317bb4ae13aa0fce11ebffdacdbc598dd1112f562d9839eadf674f0",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets/dolls/cradle_sling_painted.png",
+      "bytes": 157099,
+      "sha256": "837b1dbf53908e9bcdfc2a57c93ad96c7d90a369a87c4e1192c198abedb3e1ca",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets/dolls/cradle_sling_painted.png.import",
+      "bytes": 979,
+      "sha256": "480ee7113f637c95e0f3a07dc647765c0ac64f7a4fa3693bc15e37cb85c47901",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/CUTOUT_PROFILE.json",
+      "bytes": 313,
+      "sha256": "13a216444d1a07ea93382accf71ae01e9a8c6f2fdc0ac2444f4b45ca3ea3800a",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json",
+      "bytes": 1861,
+      "sha256": "8f73b01a2383e24ae9a14dd5ac25d05f94b175bb7e79a7f26c4c314855a032ab",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/GENERATION_REQUEST.json",
+      "bytes": 1047,
+      "sha256": "5b36c062e05824a1e32fc58f9ce3932679e8c1aeb704b6485ba7b994da190864",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/GENERATION_REQUEST_TAKE2.json",
+      "bytes": 934,
+      "sha256": "92f4dbf7fc6a45f2882d54e4353235e536521ec7cab09e6baa6215a2baeb488e",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/GENERATION_RESULTS.json",
+      "bytes": 1065,
+      "sha256": "79de19206919c5e4b149fb88fc205bcdb81e3003eb172bcae95ab0944b70814a",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/PROMPT.txt",
+      "bytes": 2207,
+      "sha256": "1e8c3dec82fc101902bb7f6759332d764898d6ee156df66e4687b2014dbe5855",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/PROMPT_TAKE2.txt",
+      "bytes": 2007,
+      "sha256": "48cb0236693d197e16ca53b7d15b2e367b51b44154aa5cf4c72119708b4ef273",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/README.md",
+      "bytes": 727,
+      "sha256": "a19eedefa7aa265079345b5d69ed7c8838a0cca4ecf3f2dcd8f1fe1be9e4a8b2",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/SUPPORT_GEOMETRY.json",
+      "bytes": 2683,
+      "sha256": "48e5414aaaa16b8ae5e6dee3177c07897cba6afa1824a158870ef889428842bb",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/TAKE1_REJECTION.json",
+      "bytes": 1455,
+      "sha256": "c4c1d02c5f4a00fadc5e3d0ee14c034ab09912e032ac17609448028e9b1467b5",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/cradle_sling_export.png",
+      "bytes": 157099,
+      "sha256": "837b1dbf53908e9bcdfc2a57c93ad96c7d90a369a87c4e1192c198abedb3e1ca",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/cradle_sling_master.aseprite",
+      "bytes": 191876,
+      "sha256": "49f8f4d40641dfffce1ee7f2af7e7854e8f4337af371693f348c0e410fc611ea",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/native_take2.aseprite",
+      "bytes": 1707027,
+      "sha256": "ff74466abaabf521167e94590554d81886d02978fcc971cc3bcd9f265735199f",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/native_take2.png",
+      "bytes": 1304409,
+      "sha256": "991c03be60b6d293c6cbba7533d7a02ce5bfe240fe737607e18e47b40cfe2c22",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/pad_whole.lua",
+      "bytes": 725,
+      "sha256": "66375f083b3e4cb27f9654676fa13f45cb73da78003146730c473ed956461787",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/rejected/sling_wide_haze_take1.png",
+      "bytes": 1558391,
+      "sha256": "1641ed647e39049aaf23b31dd893256cd0e5d515cccbfcf93328cf1142ff0575",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/scaled_whole.aseprite",
+      "bytes": 189000,
+      "sha256": "ac278947d025225c8e4119828e5fdad4caa9fdbdfe7e6ad27a981ec79c732efa",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/01_falling_mat.png",
+      "bytes": 1095868,
+      "sha256": "434ee06837d6d0c4c9181b4cc88af21172b7ae7cf26465e7c013c3a87590d800",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/02_passive_safe_landing.png",
+      "bytes": 1097194,
+      "sha256": "331aa288d91080349a18675708692243f95b275be41691152ed3838e895df06e",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/03_left_safe_edge.png",
+      "bytes": 1097299,
+      "sha256": "5896fab9d8a6c9db037e30982c40124f87d02672faff4d7bd55c329e369613a0",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/04_right_safe_edge.png",
+      "bytes": 1097471,
+      "sha256": "82e3ece644a135adeb62c1bcf8c447bba842fb8e5a911077f10e4e451823a92b",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/05_owned_catch_mat_remains.png",
+      "bytes": 1097084,
+      "sha256": "5607c9778f037cd6f8fa5417b800d0554e1b1157accee5869dfb1f4f256945c5",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/06_two_owned_catches.png",
+      "bytes": 1097250,
+      "sha256": "e0c4d0e923eba841de93550633b7b9faa307b326fbbbb52bf5ebc3576698a8f1",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/07_left_two_baby_catch_region.png",
+      "bytes": 1095109,
+      "sha256": "8b7df9390543c0619314da948c4acbc8255de834b10b0d70ae2d3c8701669564",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/08_right_two_baby_catch_region.png",
+      "bytes": 1094442,
+      "sha256": "dba945e9c84023b3ebbecad008e3b8d62f99e911da6690d34d4d3e5fbf1c3c03",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/RESULT.json",
+      "bytes": 11041,
+      "sha256": "79ca1f385655ff7e63e1be156b9227ac5042cb5bb15dd9d26fa6c4ce54fed874",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/01_falling_mat.png",
+      "bytes": 1103342,
+      "sha256": "d22c856bc5570d67ed70f3c110a2a38e84af537132347f434da07770c8f809fd",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/02_passive_safe_landing.png",
+      "bytes": 1104745,
+      "sha256": "f8dc43dc9e993ca7370d3e318951d311819a5f381dc347514d9854e099f0c28e",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/03_left_safe_edge.png",
+      "bytes": 1104860,
+      "sha256": "2b0b9851aae2243006599a1f4980c288c9da41c70579005de3bbff8eac92d20c",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/04_right_safe_edge.png",
+      "bytes": 1105050,
+      "sha256": "329258ffcc6b6e8d3690c7bfeb6100b8c8bddd9042a8d9f348e681da5aed233d",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/05_owned_catch_mat_remains.png",
+      "bytes": 1104709,
+      "sha256": "f804982ddfd031674206bd66b1d8fb5858c0bff8aa5f4703f5ba2b354500c5fa",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/06_two_owned_catches.png",
+      "bytes": 1104861,
+      "sha256": "7fcf19a8bdabbf00e036811bba7851aaead52584042b0d5164cb7ad4471d4811",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/07_left_two_baby_catch_region.png",
+      "bytes": 1102453,
+      "sha256": "b5d2b982223fc76c89d960e25a01abcc4d4f0c287188f0cc99b8b8501affb8fe",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/08_right_two_baby_catch_region.png",
+      "bytes": 1101720,
+      "sha256": "49ffa9d367ce5832d2440bfa6e50dd801397476b9973a7ef1ccd3062b4fc7982",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/RESULT.json",
+      "bytes": 11033,
+      "sha256": "80cb3ee984c538cb211c46d33c6c62f076a8dbfe7af6abc6144929033da4863f",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "scripts/games/dolls.gd",
+      "bytes": 14041,
+      "sha256": "cd897b813eb4ae58d83d37495ae389a53d0b56bd0eac4cd4f016af245b10d95e",
+      "role": "Actual whole Dolls cradle source/candidate/machine/review/provenance payload"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1280/01_falling_mat.png",
+      "bytes": 1090769,
+      "sha256": "af1c5c80d85c69234d842ff3b51bd4a79a4af0fefd71a194a40f3ceb609cd253",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1280/02_passive_safe_landing.png",
+      "bytes": 1092364,
+      "sha256": "fe80a35f0a338cb33d3393fbb3e55a6389c7298a4175a81fd9752ad7999a4f57",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1280/03_left_safe_edge.png",
+      "bytes": 1092286,
+      "sha256": "39fcffa2ba6486af02f1064ec8546024d452cc31dc9f2e9215e2b615bda8006e",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1280/04_right_safe_edge.png",
+      "bytes": 1092478,
+      "sha256": "0aca5e08ee08dbaa7bdd758f6f09aa533481030c8cc836d1b05296f7d23977ee",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1280/05_owned_catch_mat_remains.png",
+      "bytes": 1092283,
+      "sha256": "5af8560ba849bec69ab72c225522f3617212e1fde2b3b20aabddf4cc46cd6b7d",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1280/RESULT.json",
+      "bytes": 7688,
+      "sha256": "3ea910a4905effe152c5b5591283e5cecae2da4ed7f07b93006ae9201f8a2ea8",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1600/01_falling_mat.png",
+      "bytes": 1099097,
+      "sha256": "9035df8076fb03c66f13a3dd9c877271e740e6a965012e1a56c431a9dfe605a0",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1600/02_passive_safe_landing.png",
+      "bytes": 1100645,
+      "sha256": "b3e6a3372de761bd0810fdae0db7c92cc35db0578e17e041c9a0121a46a65e7c",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1600/03_left_safe_edge.png",
+      "bytes": 1100555,
+      "sha256": "ee646411fa2560e6323ec235ed0e9710d6f928104814bb7517f1b32caae0e24a",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1600/04_right_safe_edge.png",
+      "bytes": 1100730,
+      "sha256": "13882c33ab5fe22e11bc0802354c18ef0420997cc1745fd85a0abddcdf4e6c9c",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1600/05_owned_catch_mat_remains.png",
+      "bytes": 1100541,
+      "sha256": "2a4bb8bee39f474c91d224c3422dbfe3acddd191516773661127efb43b7b58cd",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1600/RESULT.json",
+      "bytes": 7676,
+      "sha256": "9c23b558ab72b8756fa6d654cab6d6d8b29a8d2f494330c23d27a881bfebbcac",
+      "role": "Prior same-scene runtimecontext; sourcepin/deliverybinding establish exacta290bytes, no newacceptance orframecredit"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "scripts/games/dolls.gd",
+      "bytes": 13393,
+      "sha256": "a017426156961305e583ae1fed166909f3586e4db5e9a12f2a16163f3f7470c1",
+      "role": "Exact prior procedural cradle source"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "scripts/opera_nursery_catch.gd",
+      "bytes": 8816,
+      "sha256": "9209a053b34c0bc48c2aab05969d83315921617c51d62904ec31712712a037ef",
+      "role": "Unchanged behaviorparent"
+    },
+    {
+      "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+      "path": "assets/dolls/safety_mat_painted.png",
+      "bytes": 199995,
+      "sha256": "da27e6f70b2ecbe34f62408ee5b6ce716110e9066a71656399154392c7ede8b7",
+      "role": "Actual generationmaterialreference and unchanged adjacent paintedmat"
+    }
+  ],
+  "required_files": 107,
+  "required_bytes": 40592802,
+  "actual_runtime_source": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "scope": "Whole painted legacyDolls cradle partialDev delta; exactruntime/native/master/provenance/currentregistry withbounded immutable priorcontext, no recursive archive dependency. Otherart/roomapproval/formal/external/global OPEN.",
+  "new_generation_calls": 2,
+  "generated_candidate_samples": 2,
+  "rejected_takes": 1,
+  "new_runtime_PNG": 1,
+  "technical_exports": 1,
+  "new_bounded_source_artifacts": 1,
+  "new_frame_events": {
+    "bounded": 16,
+    "excluded": 0,
+    "retained": 16
+  },
+  "accepted_removed": 0,
+  "mission_complete": false
+}

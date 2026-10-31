@@ -2675,3 +2675,7 @@ Actualsource `086e9285e56b2e6b31bdbaf1c4209b57c9722460`: [production](../docs/ha
 ### R117 painted Dolls mat in Dev
 
 Actualsource `a290753627a06ca7b251c3423cce6cf6f5d13827`: [production](../docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/README.md), one whole mat/quilt replacing StyleBox/line/circle art.16otherfunctions andfunctionalgeometry exact. Local82/static/source62/candidate72/exactCI/normalDev verified;20bounded10excluded30retained newevents. SourceCHG-123 owns boundedrollback afterlaterconsumerreview. Canonical preservesroot5/history and healthyengineevidence. Otherart/roomapproval/formal/external/global acceptance open,acceptedremoved0.
+
+### R118 painted Dolls cradle in Dev
+
+Actualsource `218ae766f8e60afb3f6338b8fafce28ec9fab7f2`: [production](../docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/README.md), one wholepainted sling replaces3semicirclearcs,17otherfunctions andfunctionalgeometry exact. Local82/static/native100/exactCI/normalDev verified,16bounded0excluded16retained newevents. SourceCHG-124 owns boundedrollback afterlaterconsumerreview. Canonical preservesroot5/history/healthyengineevidence; otherart/roomapproval/formal/external/global open,acceptedremoved0.
