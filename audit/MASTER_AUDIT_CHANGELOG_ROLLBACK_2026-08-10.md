@@ -2667,3 +2667,7 @@ Actualsource `6d2e7c515738bb40a923210bb05c01aafc526e0e`: [production/evidence](.
 ### R115 painted Geologist foreground in Dev
 
 Actualsource `0bd538456b4b7abc9220ca09de072e8577a32014`: [production/evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md), complete foreground fossil/threewholetrays/gallery set. One generatedsheet,3uniform512exports,2existingwholeimages;28otherbackdropfunctions and allcontroller/input/save logic preserved. Local82/static/native288candidate+168source/exactsourceCIgreen/normalDev verified,32bounded0excluded32newretainedevents.18source17partialDev artifacts. SourceCHG-121 owns any later reviewed runtime rollback; canonicalmetadata noengine rerun. Cavebackground/actors/river/formal/external/global acceptance open,acceptedremoved0.
+
+### R116 painted Geologist layered rock in Dev
+
+Actualsource `086e9285e56b2e6b31bdbaf1c4209b57c9722460`: [production](../docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/README.md), one whole paintedPAN overlay plusRIVER/surface loaded-onlybindings, all67functions exact. Local82/static/native124/exactCI/normalDev verified;8bounded2excluded10retained newevents. SourceCHG-122 owns bounded rollback afterlaterconsumerreview. Canonicalmetadata preservesroot5/history and reuses healthyengineevidence. Otherart/formal/external/global acceptance open,acceptedremoved0.

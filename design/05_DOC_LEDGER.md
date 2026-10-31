@@ -1452,3 +1452,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R114wholepainted finalcrystalgoal via nativefullimage alias inDev; exactsourceCIgreen/local82/static/native76/8candidate and66/8sourceframes. Originalcatalog failure/excludedframes retained, formal/external/otherart/global acceptance open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R115wholepainted foreground station set inDev; exactsourceCIgreen/currentstatic/all82/native288candidate+168source checks,32reviewedframes. Cavebackground/actors/river/formal/external/global acceptance remain open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R116wholepainted layered-rock PAN overlay inDev, native124checks8frames/exactCI/local82/static; RIVER/surface loaded-only and all formal/external/global acceptance open. |

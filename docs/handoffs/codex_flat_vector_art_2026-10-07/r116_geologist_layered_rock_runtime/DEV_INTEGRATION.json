@@ -1,0 +1,77 @@
+{
+  "state": "PAINTED_GEOLOGIST_LAYERED_ROCK_EXACT_GREEN_SOURCE_FAST_FORWARD_INTEGRATED_DEV",
+  "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+  "integrated_dev_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+  "prior_dev": "0bd538456b4b7abc9220ca09de072e8577a32014",
+  "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+  "source_CI_run": 41175467165,
+  "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41175467165",
+  "source_CI_conclusion": "success",
+  "trusted_step": "success",
+  "Dev_head_verified_by_anonymous_runtime_bytes_and_git_remote": true,
+  "runtime_files": [
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+      "bytes": 38005,
+      "sha256": "686be51ca6a7c5ace6f9cae4fbef67fb8f9d858bd214d7c05e258a5aeb26af9e",
+      "http_status": 200,
+      "anonymous_exact": true
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+      "bytes": 26006,
+      "sha256": "d591400205e656004eb574cbfcdd926210abab946f8e8e73523e8ea6cd7d4f5c",
+      "http_status": 200,
+      "anonymous_exact": true
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_layered_rock_painted.png",
+      "revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+      "bytes": 231157,
+      "sha256": "bbd5315020a266ede11c2337229b0f49ff5a9ceb7ee2c3184b63400464838687",
+      "http_status": 200,
+      "anonymous_exact": true
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_layered_rock_painted.png.import",
+      "revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+      "bytes": 1025,
+      "sha256": "c628611fe5bdbe22991c30ed55f6cfb446dc2a4ef878e0a91b56c10afa866701",
+      "http_status": 200,
+      "anonymous_exact": true
+    }
+  ],
+  "retired_runtime_paths_absent_at_integrated_revision": [
+    "assets/opera/worlds/hotspots/geologist_layered_rock.svg",
+    "assets/opera/worlds/hotspots/geologist_layered_rock.svg.import"
+  ],
+  "access_mode": "Anonymous immutable HTTPS GET without Authorization/cookies, exact bytes/SHA256 for four actual runtime binding/art files; Git remote exactDev ref checked separately. The actual full source delivery was previously independently verified.",
+  "source_clean": true,
+  "local_dev_master_untouched": true,
+  "PR_created": false,
+  "Dev_workflows": [
+    {
+      "conclusion": "",
+      "databaseId": 41179216070,
+      "headSha": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+      "status": "queued",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41179216070",
+      "workflowName": "Probe suite (graphics fork)"
+    }
+  ],
+  "exact_new_Dev_APK_verified": false,
+  "new_generation_calls": 0,
+  "new_native_frame_events": 0,
+  "new_implementation_artifact_credits": 0,
+  "partial_dev_artifact_credit": 1,
+  "whole_role_closed": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "completed_at_utc": "2026-10-31T07:05:41.410481+00:00"
+}

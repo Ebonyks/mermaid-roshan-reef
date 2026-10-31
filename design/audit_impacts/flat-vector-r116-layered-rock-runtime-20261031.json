@@ -1,0 +1,72 @@
+{
+  "id": "flat-vector-r116-layered-rock-runtime-20261031",
+  "scope": "VerifiedR116 paintedPAN rock source/Dev delta, one bounded implementation/whole512PNG/1staticcall,8bounded2excluded10retained nativeevents once. Canonical changes no runtime; RIVER/surface loaded-only receive no visiblecredit.",
+  "baseline": "cd3e905da6404be3d93551cd3ba78564da3a9312",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-ASSET-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-OPERA-004"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/CANONICAL_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/CANONICAL_PUBLICATION_RUNNER.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/CURRENT_ART_CENSUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/DERIVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/DEV_WORKFLOW_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/FOCUSED_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/FRAME_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/FUNCTION_PRESERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/IMPORT_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/LOCAL_82_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/PAYLOAD_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/POSTCOMMIT_EOL_CLEANUP.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/PRODUCTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/REFERENCE_BINDING.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/RETIREMENT_REPAIR.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/SOURCE_CI_GREEN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/SOURCE_CI_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/SOURCE_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/SOURCE_PUBLICATION_FINAL.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/STATIC_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Actualcandidate local82/static/native124 and8reviewedframes, every fullsource manifestfile anonymous, exactsourceCIgreen/normalDev",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/SOURCE_REMOTE_VERIFICATION.json; LOCAL_82_RESULT.json; FRAME_REVIEW.json; SOURCE_CI_GREEN.json; DEV_INTEGRATION.json"
+    },
+    {
+      "command": "Currentcanonical authority/development andeverymanifestfile anonymousimmutable",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/CANONICAL_GATES.json; publication/receipt verification separately recorded, not inferred."
+    }
+  ],
+  "acceptance_gaps": "Other cave/river/invitation/actor/UI art, loaded-only visibility limits, natural/training/allroutes, performance/formalQA11/device/child/owner and global denominator gaps remainOPEN. No whole-role or accepted-removal credit. ExactnewDevAPK unverified; source010citedimmutably, canonicaldefined006/OPERA004 only."
+}

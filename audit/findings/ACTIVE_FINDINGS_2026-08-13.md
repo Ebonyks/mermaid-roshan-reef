@@ -433,6 +433,8 @@ R114partialproduction2026-10-30: [painted finalcrystalgoal](../../docs/handoffs/
 
 R115 partialproduction2026-10-31: [whole Geologist foreground station set](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md), source0bd538456b4b7abc9220ca09de072e8577a32014 exactCIgreen/normalDev/local82/static/native288candidate+168source checks pass;32newreviewednativeframes.18source17partialDev artifacts. One generatedsheet/3wholetrayexports+2existingwholeprops;28otherbackdropfunctions andcontroller/input/save exact. Cavebackground/actors/river/formal/external/global acceptance and lifecycle remain OPEN; acceptedremoved0.
 
+R116 partialproduction2026-10-31: [whole painted Geologist layered rock](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/README.md), source086e9285e56b2e6b31bdbaf1c4209b57c9722460 exactCIgreen/normalDev/local82/static/native124checks8reviewedframes. One static take/whole512export, all67functions exact, retiredSVG/import; RIVER/surface loaded-only receive no visiblecredit.19source18partialDev artifacts,6881bounded4165excluded11046retained nativeevents; two stale-remap failureframes excluded. Otherart/formal/external/global acceptance and lifecycle remain OPEN; acceptedremoved0.
+
 ## MA-VIS-007
 
 | Field | Value |

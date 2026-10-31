@@ -21689,9 +21689,10 @@
         "measured_current_bounds": null,
         "coverage_state": "COVERAGE_GAP",
         "geometry_expressions": [],
-        "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        "note": "Expressions are scope evidence, not measured per-piece screen bounds.",
+        "r116_current_scope": "PAN112square invitation envelope; approx88by73opaque illustration at1280/1600, no whole-role coverage closure"
       },
-      "evidence_level": "SOURCE_INSPECTION",
+      "evidence_level": "SOURCE_BOUND_CONFIGURED_NATIVE_TWO_ASPECT",
       "observed_weakness": "Source-bound candidate geologist layered rock uses or delegates visible primitive/material construction in FILE_SCOPE. No current phone-context quality verdict is claimed.",
       "priority": "P1",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
@@ -21699,16 +21700,16 @@
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
       "named_gap": null,
-      "status": "IDENTIFIED",
-      "integration_sha": null,
+      "status": "PARTIAL_DEV_PAINTED_CANDIDATE",
+      "integration_sha": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
       "acceptance_evidence": {
-        "current_mobile_runtime": null,
-        "wide_phone_runtime": null,
+        "current_mobile_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/086e9285e56b2e6b31bdbaf1c4209b57c9722460/docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/candidate/1280/2/01_station_overview.png",
+        "wide_phone_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/086e9285e56b2e6b31bdbaf1c4209b57c9722460/docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/candidate/1600/2/01_station_overview.png",
         "device": null,
         "child": null,
         "owner": null,
-        "machine": null,
-        "old_fallback_retired": null
+        "machine": "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/LOCAL_82_RESULT.json",
+        "old_fallback_retired": "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/DEV_INTEGRATION.json"
       },
       "dependencies": [
         "Current route/phase capture and source-pixel ownership",
@@ -21728,7 +21729,13 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
+      "review_log": [
+        {
+          "revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/FRAME_REVIEW.json",
+          "scope": "Qualified agent static comparison only; no formalQA11/device/child/owner acceptance"
+        }
+      ],
       "proposed_update": "Review geologist layered rock during Exact catalog presentation/phase and specialist direct texture consumer; crest is Castle route-card icon on Castle room library picture route; temporary Opera painted left elevator -> playtest card also launches same engine without durable rewards. Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
       "route_refs": [
         "opera.act.16"
@@ -21736,7 +21743,68 @@
       "route_evidence": "Castle room library picture route; temporary Opera painted left elevator -> playtest card also launches same engine without durable rewards",
       "context_action": "Exact catalog presentation/phase and specialist direct texture consumer; crest is Castle route-card icon",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-192FA763EF56"
+      "individual_brief_id": "PIECE-FV-192FA763EF56",
+      "r116_prior_status": "IDENTIFIED",
+      "r116_layered_rock_runtime": {
+        "stable_id": "FV-192FA763EF56",
+        "state": "WHOLE_PAINTED_LAYERED_ROCK_PARTIAL_DEV_EXACT_CI_GREEN",
+        "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+        "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+        "source_CI_run": 41175467165,
+        "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/MANIFEST.json",
+        "source_required_files": 94,
+        "source_all_required_anonymous_exact": true,
+        "runtime_path": "assets/opera/worlds/hotspots/geologist_layered_rock_painted.png",
+        "runtime_sha256": "bbd5315020a266ede11c2337229b0f49ff5a9ceb7ee2c3184b63400464838687",
+        "runtime_dimensions": [
+          512,
+          512
+        ],
+        "actual_visible_consumer": "PAN overlay in room overview",
+        "loaded_only_consumers": [
+          "RIVER painted presentation: same source loaded, invitation drawn only",
+          "OperaGeologySurface.rock_texture: loaded but not drawn"
+        ],
+        "actual_native_checks": 124,
+        "candidate_frames_reviewed": 8,
+        "prior_baseline_frames_reused": 8,
+        "new_frame_events": {
+          "bounded": 8,
+          "excluded": 2,
+          "retained": 10
+        },
+        "source_retired_svg_sha256": "5bca0522dbadf1fb5658a99f58a9ea88d15ed62d27966db4e4829ef692d3bcce",
+        "old_runtime_svg_and_import_retired": true,
+        "stale_remap_failure": "Initial2frames excluded; actual archived oldimport removed and same retirement assertion passes at all4nativecases. No thresholds or production GD/pixels changed for repair.",
+        "all_67_functions_unchanged": true,
+        "new_bounded_source_artifacts": 1,
+        "partial_Dev_artifact_credit": 1,
+        "new_generation_calls": 1,
+        "generated_outputs": 1,
+        "rejected_generated_takes": 0,
+        "technical_exports": 1,
+        "new_runtime_images": 1,
+        "backend": "Built-in image_gen",
+        "model_selector": "NOT_EXPOSED",
+        "model_version": "NOT_EXPOSED",
+        "animation_calls": 0,
+        "new_roles": 0,
+        "new_families": 0,
+        "candidate": "USABLE_PAINTED_WHOLE_LAYERED_ROCK",
+        "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+        "runtime": "CONFIGURED_ORIGINAL_MAIN_LIBRARY_PHASE0_AND2_OVERVIEW_TASK_TWO_ASPECT_PASS",
+        "Dev_integrated": true,
+        "exact_new_Dev_APK_verified": false,
+        "whole_role_closed": false,
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "natural_training_allroutes": null,
+        "accepted_removed": 0,
+        "mission_complete": false,
+        "remaining": "Other cave/river/invitation/actor/UI art, loaded-only visibility limits, natural/training/allroutes, performance/formalQA11/device/child/owner and global denominator gaps remainOPEN. No whole-role or accepted-removal credit."
+      }
     },
     {
       "id": "FV-F797A3C5F053",
@@ -24682,7 +24750,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261031-R115-DEV",
+  "revision": "FV-AUDIT-20261031-R116-DEV",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -35381,7 +35449,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json; R100 same pan/current Dev source published and anonymously verified,82trusted/static PASS. Prior55minute cancellation preserved, exact new90minuteCI/Dev pending. No additional artwork/frame/artifact/generation/acceptance credit; whole-game totals unknown.",
+  "current_effective_summary": "SUMMARY.json; R116wholepainted PAN layered-rock candidate in exactgreen Dev; loaded-onlyRIVER/surface no visiblecredit, otherart/formal/external/global open.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -38458,5 +38526,66 @@
     "accepted_removed": 0,
     "mission_complete": false,
     "remaining": "Cavebackground/strata/beams/floor, actorstaging/contact, floating/off-target invitations, riverexcavation/connectedchannel, remaining art and natural/training/allroutes/performance/formalQA11/device/child/owner/global acceptance remain OPEN. Existing whole sources keep provisional scope. No backgroundresolution, actorcontact or acceptedremoval credit."
+  },
+  "r116_parent_receipt_revision": "cd3e905da6404be3d93551cd3ba78564da3a9312",
+  "r116_layered_rock_runtime": {
+    "stable_id": "FV-192FA763EF56",
+    "state": "WHOLE_PAINTED_LAYERED_ROCK_PARTIAL_DEV_EXACT_CI_GREEN",
+    "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "source_CI_run": 41175467165,
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/MANIFEST.json",
+    "source_required_files": 94,
+    "source_all_required_anonymous_exact": true,
+    "runtime_path": "assets/opera/worlds/hotspots/geologist_layered_rock_painted.png",
+    "runtime_sha256": "bbd5315020a266ede11c2337229b0f49ff5a9ceb7ee2c3184b63400464838687",
+    "runtime_dimensions": [
+      512,
+      512
+    ],
+    "actual_visible_consumer": "PAN overlay in room overview",
+    "loaded_only_consumers": [
+      "RIVER painted presentation: same source loaded, invitation drawn only",
+      "OperaGeologySurface.rock_texture: loaded but not drawn"
+    ],
+    "actual_native_checks": 124,
+    "candidate_frames_reviewed": 8,
+    "prior_baseline_frames_reused": 8,
+    "new_frame_events": {
+      "bounded": 8,
+      "excluded": 2,
+      "retained": 10
+    },
+    "source_retired_svg_sha256": "5bca0522dbadf1fb5658a99f58a9ea88d15ed62d27966db4e4829ef692d3bcce",
+    "old_runtime_svg_and_import_retired": true,
+    "stale_remap_failure": "Initial2frames excluded; actual archived oldimport removed and same retirement assertion passes at all4nativecases. No thresholds or production GD/pixels changed for repair.",
+    "all_67_functions_unchanged": true,
+    "new_bounded_source_artifacts": 1,
+    "partial_Dev_artifact_credit": 1,
+    "new_generation_calls": 1,
+    "generated_outputs": 1,
+    "rejected_generated_takes": 0,
+    "technical_exports": 1,
+    "new_runtime_images": 1,
+    "backend": "Built-in image_gen",
+    "model_selector": "NOT_EXPOSED",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "new_roles": 0,
+    "new_families": 0,
+    "candidate": "USABLE_PAINTED_WHOLE_LAYERED_ROCK",
+    "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+    "runtime": "CONFIGURED_ORIGINAL_MAIN_LIBRARY_PHASE0_AND2_OVERVIEW_TASK_TWO_ASPECT_PASS",
+    "Dev_integrated": true,
+    "exact_new_Dev_APK_verified": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "natural_training_allroutes": null,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "remaining": "Other cave/river/invitation/actor/UI art, loaded-only visibility limits, natural/training/allroutes, performance/formalQA11/device/child/owner and global denominator gaps remainOPEN. No whole-role or accepted-removal credit."
   }
 }

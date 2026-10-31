@@ -1,0 +1,85 @@
+{
+  "stable_id": "FV-192FA763EF56",
+  "reviewer": "Codex agent direct static image inspection; qualified provisional artistic judgment, not a formal human/owner score",
+  "same_scene_baseline": "REFERENCE_BINDING.json exact0bd R115 native phase0/2 two-aspect overview/task",
+  "all8_candidate_frames_inspected": true,
+  "candidate_direct_views": 8,
+  "prior_baseline_frames_reused": 8,
+  "prior_baseline_frames_reinspected_this_turn": 2,
+  "new_baseline_frame_credit": 0,
+  "axes": [
+    {
+      "axis": "contour",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Hard monolithic SVG stroke becomes thin plum authored edge with rounded chips matching painted fossil and trays."
+    },
+    {
+      "axis": "palette",
+      "candidate_score_out_of5": 4.8,
+      "observation": "Three broad lilac/apricot/aqua bands and exactlytwo warm gold inclusions preserved; lavender body harmonizes with neighbor stone."
+    },
+    {
+      "axis": "light",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Consistent upper-left broad highlights and lavender right/base shadows now give painted material, replacing flat fills."
+    },
+    {
+      "axis": "perspective",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Upright stone remains front readable with shallow right face; no added camera or room perspective change."
+    },
+    {
+      "axis": "scale",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Unchanged112square logical size; visible opaque content roughly88by73px within old invitation envelope. Broad bands readable in both native aspects."
+    },
+    {
+      "axis": "contact",
+      "candidate_score_out_of5": null,
+      "observation": "This is the existing floating UI invitation overlay; no ground-contact improvement claimed. Existing UI shadow and motion remain unchanged. Actor/support issues elsewhere remain open."
+    },
+    {
+      "axis": "occlusion",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Whole rock stays inside ring with no actor/fossil/tray/HUD overlap; original hidden-during-task behavior preserved."
+    },
+    {
+      "axis": "phone_readability",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Stone silhouette, each broad band and two inclusions remain distinguishable at native screen scale; real-device/child check pending."
+    },
+    {
+      "axis": "identity_topology",
+      "candidate_score_out_of5": 4.7,
+      "observation": "One solid upright asymmetric stone, broad base, sloping shoulder, continuous wrapping bands andtwo inclusions; no added parts or altered actor identity."
+    },
+    {
+      "axis": "painted_material_coherence",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Opaque gouache variation and restrained handmade masses match existing crystal trays and fossil. No PBR/glossy/synthetic vector replacement."
+    }
+  ],
+  "applicable_object_review_floor": 4.5,
+  "applicable_axes_at_or_above_floor": true,
+  "candidate_status": "USABLE_PAINTED_LAYERED_ROCK_CANDIDATE_PENDING_FULL_GATES",
+  "source_visible_consumer": "PAN overlay only",
+  "loaded_only_consumers": [
+    "RIVER painted presentation draws invitation only",
+    "OperaGeologySurface rock_texture loaded but never rendered"
+  ],
+  "new_frames": {
+    "bounded": 8,
+    "excluded": 2,
+    "retained": 10
+  },
+  "excluded_scope": "Initial phase0 failed stale SVG import remap retirement assertion; two frames retained diagnostically. Actual archived old remap removed; same assertion then passes at all4cases, no art or gameplay changes.",
+  "original_functions_unchanged": 67,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "whole_role_closed": false,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "reviewed_at_utc": "2026-10-31T03:11:50.818923+00:00"
+}

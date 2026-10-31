@@ -1,0 +1,298 @@
+{
+  "conclusion": "success",
+  "createdAt": "2026-10-31T06:10:02Z",
+  "event": "push",
+  "headBranch": "codex/flat-vector-geologist-pan-runtime-20261017",
+  "headSha": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+  "jobs": [
+    {
+      "completedAt": "2026-10-31T06:18:17Z",
+      "conclusion": "success",
+      "databaseId": 124461991247,
+      "name": "area-music-provenance",
+      "startedAt": "2026-10-31T06:10:05Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-31T06:10:06Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-31T06:10:05Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:16:13Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 2,
+          "startedAt": "2026-10-31T06:10:06Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:16:57Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+          "number": 3,
+          "startedAt": "2026-10-31T06:16:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:18:14Z",
+          "conclusion": "success",
+          "name": "Verify deterministic area-music delivery",
+          "number": 4,
+          "startedAt": "2026-10-31T06:16:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:18:14Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+          "number": 7,
+          "startedAt": "2026-10-31T06:18:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:18:16Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 8,
+          "startedAt": "2026-10-31T06:18:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:18:16Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 9,
+          "startedAt": "2026-10-31T06:18:16Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41175467165/job/124461991247"
+    },
+    {
+      "completedAt": "2026-10-31T07:05:09Z",
+      "conclusion": "success",
+      "databaseId": 124461991556,
+      "name": "probes",
+      "startedAt": "2026-10-31T06:10:05Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-31T06:10:06Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-31T06:10:06Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:18:30Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 2,
+          "startedAt": "2026-10-31T06:10:06Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:18:32Z",
+          "conclusion": "success",
+          "name": "Download Godot (checksum-verified)",
+          "number": 3,
+          "startedAt": "2026-10-31T06:18:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:21:14Z",
+          "conclusion": "success",
+          "name": "Static gates (parse + Variant-inference lint)",
+          "number": 4,
+          "startedAt": "2026-10-31T06:18:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:24:09Z",
+          "conclusion": "success",
+          "name": "Import (deadlock-guarded)",
+          "number": 5,
+          "startedAt": "2026-10-31T06:21:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:35:31Z",
+          "conclusion": "success",
+          "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+          "number": 6,
+          "startedAt": "2026-10-31T06:24:09Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:53:27Z",
+          "conclusion": "success",
+          "name": "Run trusted probes",
+          "number": 7,
+          "startedAt": "2026-10-31T06:35:31Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:53:40Z",
+          "conclusion": "success",
+          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "number": 8,
+          "startedAt": "2026-10-31T06:53:27Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:58:47Z",
+          "conclusion": "success",
+          "name": "Dust boss balance playtest (advisory)",
+          "number": 9,
+          "startedAt": "2026-10-31T06:53:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:58:57Z",
+          "conclusion": "success",
+          "name": "Opera balance playtest (advisory)",
+          "number": 10,
+          "startedAt": "2026-10-31T06:58:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:59:00Z",
+          "conclusion": "success",
+          "name": "Publish opera art manifest (advisory)",
+          "number": 11,
+          "startedAt": "2026-10-31T06:58:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:59:02Z",
+          "conclusion": "success",
+          "name": "Upload opera art manifest",
+          "number": 12,
+          "startedAt": "2026-10-31T06:59:00Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T06:59:02Z",
+          "conclusion": "success",
+          "name": "Capture first-world visual review",
+          "number": 13,
+          "startedAt": "2026-10-31T06:59:02Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:00:35Z",
+          "conclusion": "success",
+          "name": "Capture legacy human-art diagnostic",
+          "number": 14,
+          "startedAt": "2026-10-31T06:59:02Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:00:37Z",
+          "conclusion": "success",
+          "name": "Upload legacy human-art diagnostic",
+          "number": 15,
+          "startedAt": "2026-10-31T07:00:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:00:53Z",
+          "conclusion": "success",
+          "name": "Capture Sky Lagoon visual review",
+          "number": 16,
+          "startedAt": "2026-10-31T07:00:37Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:00:56Z",
+          "conclusion": "success",
+          "name": "Upload Sky Lagoon visual review",
+          "number": 17,
+          "startedAt": "2026-10-31T07:00:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:02:03Z",
+          "conclusion": "success",
+          "name": "Capture northern-world visual review",
+          "number": 18,
+          "startedAt": "2026-10-31T07:00:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:02:06Z",
+          "conclusion": "success",
+          "name": "Upload northern-world visual review",
+          "number": 19,
+          "startedAt": "2026-10-31T07:02:03Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:04:48Z",
+          "conclusion": "success",
+          "name": "Capture dust-boss arena review",
+          "number": 20,
+          "startedAt": "2026-10-31T07:02:06Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:04:49Z",
+          "conclusion": "success",
+          "name": "Upload dust-boss arena review",
+          "number": 21,
+          "startedAt": "2026-10-31T07:04:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:05:04Z",
+          "conclusion": "success",
+          "name": "Capture pearl-castle visual review",
+          "number": 22,
+          "startedAt": "2026-10-31T07:04:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:05:06Z",
+          "conclusion": "success",
+          "name": "Upload pearl-castle visual review",
+          "number": 23,
+          "startedAt": "2026-10-31T07:05:04Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:05:07Z",
+          "conclusion": "success",
+          "name": "Upload advisory sensor receipts",
+          "number": 24,
+          "startedAt": "2026-10-31T07:05:06Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:05:07Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 48,
+          "startedAt": "2026-10-31T07:05:07Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-31T07:05:08Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 49,
+          "startedAt": "2026-10-31T07:05:07Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41175467165/job/124461991556"
+    }
+  ],
+  "status": "completed",
+  "updatedAt": "2026-10-31T07:05:10Z",
+  "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41175467165"
+}
