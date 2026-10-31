@@ -1454,3 +1454,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R115wholepainted foreground station set inDev; exactsourceCIgreen/currentstatic/all82/native288candidate+168source checks,32reviewedframes. Cavebackground/actors/river/formal/external/global acceptance remain open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R116wholepainted layered-rock PAN overlay inDev, native124checks8frames/exactCI/local82/static; RIVER/surface loaded-only and all formal/external/global acceptance open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R117wholepainted legacyDolls mat/quilt inDev, actualnative/currentstatic/all82/exactCI. Otherart/roomapproval/formal/external/global acceptance open. |

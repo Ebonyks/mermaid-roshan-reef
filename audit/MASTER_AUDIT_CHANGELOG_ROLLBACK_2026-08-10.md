@@ -2671,3 +2671,7 @@ Actualsource `0bd538456b4b7abc9220ca09de072e8577a32014`: [production/evidence](.
 ### R116 painted Geologist layered rock in Dev
 
 Actualsource `086e9285e56b2e6b31bdbaf1c4209b57c9722460`: [production](../docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/README.md), one whole paintedPAN overlay plusRIVER/surface loaded-onlybindings, all67functions exact. Local82/static/native124/exactCI/normalDev verified;8bounded2excluded10retained newevents. SourceCHG-122 owns bounded rollback afterlaterconsumerreview. Canonicalmetadata preservesroot5/history and reuses healthyengineevidence. Otherart/formal/external/global acceptance open,acceptedremoved0.
+
+### R117 painted Dolls mat in Dev
+
+Actualsource `a290753627a06ca7b251c3423cce6cf6f5d13827`: [production](../docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/README.md), one whole mat/quilt replacing StyleBox/line/circle art.16otherfunctions andfunctionalgeometry exact. Local82/static/source62/candidate72/exactCI/normalDev verified;20bounded10excluded30retained newevents. SourceCHG-123 owns boundedrollback afterlaterconsumerreview. Canonical preservesroot5/history and healthyengineevidence. Otherart/roomapproval/formal/external/global acceptance open,acceptedremoved0.

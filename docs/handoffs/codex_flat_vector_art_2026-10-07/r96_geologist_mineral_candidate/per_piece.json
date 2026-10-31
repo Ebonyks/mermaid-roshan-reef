@@ -16588,7 +16588,10 @@
       "source_scope_ids": [
         "FVF-23D30F694F3A"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        "scripts/games/dolls.gd:DollsNurserySurface._draw",
+        "assets/dolls/safety_mat_painted.png"
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
         "coverage_state": "COVERAGE_GAP",
@@ -16609,9 +16612,10 @@
           "draw_arc(catch_point, catch_radius, 0.0, PI, 40,",
           "draw_arc(catch_point, catch_radius, 0.02, PI - 0.02, 40,"
         ],
-        "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        "note": "Expressions are scope evidence, not measured per-piece screen bounds.",
+        "r117_current_scope": "Matched5states at1280/1600; local visiblecloth35.84,461.044..988.16,608, uniform width/bottom fit. Functional matrect35.84,471.2,952.32,136.8 unchanged; whole-route acceptance remainsOPEN."
       },
-      "evidence_level": "SOURCE_INSPECTION",
+      "evidence_level": "SOURCE_BOUND_CONFIGURED_NATIVE_TWO_ASPECT",
       "observed_weakness": "Dolls draws a StyleBoxFlat mat with no authored textile volume.",
       "priority": "P1",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
@@ -16619,21 +16623,21 @@
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
       "named_gap": null,
-      "status": "IDENTIFIED",
-      "integration_sha": null,
+      "status": "PARTIAL_DEV_PAINTED_CANDIDATE",
+      "integration_sha": "a290753627a06ca7b251c3423cce6cf6f5d13827",
       "acceptance_evidence": {
-        "current_mobile_runtime": null,
-        "wide_phone_runtime": null,
+        "current_mobile_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/a290753627a06ca7b251c3423cce6cf6f5d13827/docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1280/03_left_safe_edge.png",
+        "wide_phone_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/a290753627a06ca7b251c3423cce6cf6f5d13827/docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1600/04_right_safe_edge.png",
         "device": null,
         "child": null,
         "owner": null,
-        "machine": null,
-        "old_fallback_retired": null
+        "machine": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/LOCAL_82_RESULT.json",
+        "old_fallback_retired": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/FUNCTION_PRESERVATION.json"
       },
       "dependencies": [
         "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates",
+        "Owner2026-10-17 static quality mandate: reuse optional, no failed-reuse proof gate; funded animation scopes unchanged"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -16648,7 +16652,13 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
+      "review_log": [
+        {
+          "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/FRAME_REVIEW.json",
+          "scope": "Qualified agent static comparison only; formalQA11/device/child/owner remainOPEN"
+        }
+      ],
       "proposed_update": "Prepare one broad padded mat aligned with safe_mat_rect and real nursery floor perspective; keep safe landing and no-fail mercy.",
       "route_refs": [
         "minigame.dolls",
@@ -16657,7 +16667,79 @@
       "route_evidence": "Current dolls consumer from scripts/games/dolls.gd:99 (_draw)",
       "context_action": "Nursery safety mat active/rest/changed/payoff/settle states",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-D5FFAA03A9ED"
+      "individual_brief_id": "PIECE-FV-D5FFAA03A9ED",
+      "r117_prior_status": "IDENTIFIED",
+      "r117_prior_dependencies": [
+        "Current route/phase capture and source-pixel ownership",
+        "Inspected suitable reuse or recorded exact missing gap",
+        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+      ],
+      "r117_dolls_mat_runtime": {
+        "stable_ids": [
+          "FV-D5FFAA03A9ED",
+          "FV-2F6CBEE137C3"
+        ],
+        "state": "WHOLE_PAINTED_DOLLS_MAT_PARTIAL_DEV_EXACT_CI_GREEN",
+        "source_revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+        "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+        "source_CI_run": 41193757427,
+        "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/MANIFEST.json",
+        "source_required_files": 127,
+        "source_all_required_anonymous_exact": true,
+        "runtime_path": "assets/dolls/safety_mat_painted.png",
+        "runtime_sha256": "da27e6f70b2ecbe34f62408ee5b6ce716110e9066a71656399154392c7ede8b7",
+        "runtime_dimensions": [
+          1024,
+          256
+        ],
+        "actual_visible_consumer": "Legacy Main/Faron Dolls safety mat beneath unchanged cradle and babies",
+        "actual_native_checks": 72,
+        "source_native_checks": 62,
+        "candidate_frames_reviewed": 10,
+        "source_frames_reviewed": 10,
+        "new_frame_events": {
+          "bounded": 20,
+          "excluded": 10,
+          "retained": 30
+        },
+        "procedural_mat_seam_tuft_fallback_retired": true,
+        "unchanged_other_functions": 16,
+        "only_changed_load_render_functions": [
+          "DollsNurserySurface._ready",
+          "DollsNurserySurface._draw"
+        ],
+        "new_render_helper": "safe_mat_destination",
+        "functional_geometry_unchanged": true,
+        "uniform_whole_object_render": "Original952.32px width and bottom608; top461.04 extends10.16px up, no distortion or clipped opaque cloth. Extreme babyfeet supported by measured alpha252..253.",
+        "fixture_recovery": "Ten source diagnostic frames excluded. ZeroPNG diagnostic proves synchronous teardown then original courtyard auto-return; corrected timing fixture passes unchanged behavior. No production workaround or assertion floor lowered.",
+        "new_bounded_source_artifacts": 1,
+        "partial_Dev_artifact_credit": 1,
+        "new_generation_calls": 2,
+        "generated_outputs": 2,
+        "rejected_generated_takes": 1,
+        "technical_exports": 1,
+        "new_runtime_images": 1,
+        "backend": "Built-in image_gen",
+        "model_selector": "NOT_EXPOSED",
+        "model_version": "NOT_EXPOSED",
+        "animation_calls": 0,
+        "new_roles": 0,
+        "new_families": 0,
+        "candidate": "USABLE_PAINTED_WHOLE_DOLLS_MAT",
+        "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+        "runtime": "ORIGINAL_MAIN_FARON_FIVE_MATCHED_STATES_TWO_ASPECT_PASS",
+        "Dev_integrated": true,
+        "exact_new_Dev_APK_verified": false,
+        "whole_role_closed": false,
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "natural_training_allroutes": null,
+        "accepted_removed": 0,
+        "mission_complete": false,
+        "remaining": "Other Dolls cradle/focus/pips and allroutes, Nursery room approval/resolution and separate paused paired-care station, otherjob art, performance/formalQA11/device/child/owner/global denominators remainOPEN. No whole-role/accepted-removal credit."
+      }
     },
     {
       "id": "FV-2F6CBEE137C3",
@@ -16676,7 +16758,10 @@
       "source_scope_ids": [
         "FVF-23D30F694F3A"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        "scripts/games/dolls.gd:DollsNurserySurface._draw",
+        "assets/dolls/safety_mat_painted.png"
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
         "coverage_state": "COVERAGE_GAP",
@@ -16697,9 +16782,10 @@
           "draw_arc(catch_point, catch_radius, 0.0, PI, 40,",
           "draw_arc(catch_point, catch_radius, 0.02, PI - 0.02, 40,"
         ],
-        "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        "note": "Expressions are scope evidence, not measured per-piece screen bounds.",
+        "r117_current_scope": "Matched5states at1280/1600; local visiblecloth35.84,461.044..988.16,608, uniform width/bottom fit. Functional matrect35.84,471.2,952.32,136.8 unchanged; whole-route acceptance remainsOPEN."
       },
-      "evidence_level": "SOURCE_INSPECTION",
+      "evidence_level": "SOURCE_BOUND_CONFIGURED_NATIVE_TWO_ASPECT",
       "observed_weakness": "Repeated straight quilting lines and dot tufts are drawn over the flat mat.",
       "priority": "P1",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
@@ -16707,21 +16793,21 @@
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
       "named_gap": null,
-      "status": "IDENTIFIED",
-      "integration_sha": null,
+      "status": "PARTIAL_DEV_PAINTED_CANDIDATE",
+      "integration_sha": "a290753627a06ca7b251c3423cce6cf6f5d13827",
       "acceptance_evidence": {
-        "current_mobile_runtime": null,
-        "wide_phone_runtime": null,
+        "current_mobile_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/a290753627a06ca7b251c3423cce6cf6f5d13827/docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1280/03_left_safe_edge.png",
+        "wide_phone_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/a290753627a06ca7b251c3423cce6cf6f5d13827/docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1600/04_right_safe_edge.png",
         "device": null,
         "child": null,
         "owner": null,
-        "machine": null,
-        "old_fallback_retired": null
+        "machine": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/LOCAL_82_RESULT.json",
+        "old_fallback_retired": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/FUNCTION_PRESERVATION.json"
       },
       "dependencies": [
         "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates",
+        "Owner2026-10-17 static quality mandate: reuse optional, no failed-reuse proof gate; funded animation scopes unchanged"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -16736,7 +16822,13 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
+      "review_log": [
+        {
+          "revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/FRAME_REVIEW.json",
+          "scope": "Qualified agent static comparison only; formalQA11/device/child/owner remainOPEN"
+        }
+      ],
       "proposed_update": "Include quilt seams and tufts in the same authored mat material, rather than separate full-surface overlays.",
       "route_refs": [
         "minigame.dolls",
@@ -16745,7 +16837,79 @@
       "route_evidence": "Current dolls consumer from scripts/games/dolls.gd:99 (_draw)",
       "context_action": "Nursery quilt seams and tufts active/rest/changed/payoff/settle states",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-2F6CBEE137C3"
+      "individual_brief_id": "PIECE-FV-2F6CBEE137C3",
+      "r117_prior_status": "IDENTIFIED",
+      "r117_prior_dependencies": [
+        "Current route/phase capture and source-pixel ownership",
+        "Inspected suitable reuse or recorded exact missing gap",
+        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+      ],
+      "r117_dolls_mat_runtime": {
+        "stable_ids": [
+          "FV-D5FFAA03A9ED",
+          "FV-2F6CBEE137C3"
+        ],
+        "state": "WHOLE_PAINTED_DOLLS_MAT_PARTIAL_DEV_EXACT_CI_GREEN",
+        "source_revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+        "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+        "source_CI_run": 41193757427,
+        "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/MANIFEST.json",
+        "source_required_files": 127,
+        "source_all_required_anonymous_exact": true,
+        "runtime_path": "assets/dolls/safety_mat_painted.png",
+        "runtime_sha256": "da27e6f70b2ecbe34f62408ee5b6ce716110e9066a71656399154392c7ede8b7",
+        "runtime_dimensions": [
+          1024,
+          256
+        ],
+        "actual_visible_consumer": "Legacy Main/Faron Dolls safety mat beneath unchanged cradle and babies",
+        "actual_native_checks": 72,
+        "source_native_checks": 62,
+        "candidate_frames_reviewed": 10,
+        "source_frames_reviewed": 10,
+        "new_frame_events": {
+          "bounded": 20,
+          "excluded": 10,
+          "retained": 30
+        },
+        "procedural_mat_seam_tuft_fallback_retired": true,
+        "unchanged_other_functions": 16,
+        "only_changed_load_render_functions": [
+          "DollsNurserySurface._ready",
+          "DollsNurserySurface._draw"
+        ],
+        "new_render_helper": "safe_mat_destination",
+        "functional_geometry_unchanged": true,
+        "uniform_whole_object_render": "Original952.32px width and bottom608; top461.04 extends10.16px up, no distortion or clipped opaque cloth. Extreme babyfeet supported by measured alpha252..253.",
+        "fixture_recovery": "Ten source diagnostic frames excluded. ZeroPNG diagnostic proves synchronous teardown then original courtyard auto-return; corrected timing fixture passes unchanged behavior. No production workaround or assertion floor lowered.",
+        "new_bounded_source_artifacts": 1,
+        "partial_Dev_artifact_credit": 1,
+        "new_generation_calls": 2,
+        "generated_outputs": 2,
+        "rejected_generated_takes": 1,
+        "technical_exports": 1,
+        "new_runtime_images": 1,
+        "backend": "Built-in image_gen",
+        "model_selector": "NOT_EXPOSED",
+        "model_version": "NOT_EXPOSED",
+        "animation_calls": 0,
+        "new_roles": 0,
+        "new_families": 0,
+        "candidate": "USABLE_PAINTED_WHOLE_DOLLS_MAT",
+        "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+        "runtime": "ORIGINAL_MAIN_FARON_FIVE_MATCHED_STATES_TWO_ASPECT_PASS",
+        "Dev_integrated": true,
+        "exact_new_Dev_APK_verified": false,
+        "whole_role_closed": false,
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "natural_training_allroutes": null,
+        "accepted_removed": 0,
+        "mission_complete": false,
+        "remaining": "Other Dolls cradle/focus/pips and allroutes, Nursery room approval/resolution and separate paused paired-care station, otherjob art, performance/formalQA11/device/child/owner/global denominators remainOPEN. No whole-role/accepted-removal credit."
+      }
     },
     {
       "id": "FV-A1BAFB89E08F",
@@ -24750,7 +24914,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261031-R116-DEV",
+  "revision": "FV-AUDIT-20261031-R117-DEV",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -35449,7 +35613,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json; R116wholepainted PAN layered-rock candidate in exactgreen Dev; loaded-onlyRIVER/surface no visiblecredit, otherart/formal/external/global open.",
+  "current_effective_summary": "SUMMARY.json; R117whole painted legacyDolls mat/quilt in exactgreenDev; one implementation across twoexistingroles, otherart/formal/external/global open.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -38587,5 +38751,72 @@
     "accepted_removed": 0,
     "mission_complete": false,
     "remaining": "Other cave/river/invitation/actor/UI art, loaded-only visibility limits, natural/training/allroutes, performance/formalQA11/device/child/owner and global denominator gaps remainOPEN. No whole-role or accepted-removal credit."
+  },
+  "r117_parent_receipt_revision": "bd15e414ab4d24b7c9fa3ef70ed2abf19d23f240",
+  "r117_dolls_mat_runtime": {
+    "stable_ids": [
+      "FV-D5FFAA03A9ED",
+      "FV-2F6CBEE137C3"
+    ],
+    "state": "WHOLE_PAINTED_DOLLS_MAT_PARTIAL_DEV_EXACT_CI_GREEN",
+    "source_revision": "a290753627a06ca7b251c3423cce6cf6f5d13827",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "source_CI_run": 41193757427,
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/MANIFEST.json",
+    "source_required_files": 127,
+    "source_all_required_anonymous_exact": true,
+    "runtime_path": "assets/dolls/safety_mat_painted.png",
+    "runtime_sha256": "da27e6f70b2ecbe34f62408ee5b6ce716110e9066a71656399154392c7ede8b7",
+    "runtime_dimensions": [
+      1024,
+      256
+    ],
+    "actual_visible_consumer": "Legacy Main/Faron Dolls safety mat beneath unchanged cradle and babies",
+    "actual_native_checks": 72,
+    "source_native_checks": 62,
+    "candidate_frames_reviewed": 10,
+    "source_frames_reviewed": 10,
+    "new_frame_events": {
+      "bounded": 20,
+      "excluded": 10,
+      "retained": 30
+    },
+    "procedural_mat_seam_tuft_fallback_retired": true,
+    "unchanged_other_functions": 16,
+    "only_changed_load_render_functions": [
+      "DollsNurserySurface._ready",
+      "DollsNurserySurface._draw"
+    ],
+    "new_render_helper": "safe_mat_destination",
+    "functional_geometry_unchanged": true,
+    "uniform_whole_object_render": "Original952.32px width and bottom608; top461.04 extends10.16px up, no distortion or clipped opaque cloth. Extreme babyfeet supported by measured alpha252..253.",
+    "fixture_recovery": "Ten source diagnostic frames excluded. ZeroPNG diagnostic proves synchronous teardown then original courtyard auto-return; corrected timing fixture passes unchanged behavior. No production workaround or assertion floor lowered.",
+    "new_bounded_source_artifacts": 1,
+    "partial_Dev_artifact_credit": 1,
+    "new_generation_calls": 2,
+    "generated_outputs": 2,
+    "rejected_generated_takes": 1,
+    "technical_exports": 1,
+    "new_runtime_images": 1,
+    "backend": "Built-in image_gen",
+    "model_selector": "NOT_EXPOSED",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "new_roles": 0,
+    "new_families": 0,
+    "candidate": "USABLE_PAINTED_WHOLE_DOLLS_MAT",
+    "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+    "runtime": "ORIGINAL_MAIN_FARON_FIVE_MATCHED_STATES_TWO_ASPECT_PASS",
+    "Dev_integrated": true,
+    "exact_new_Dev_APK_verified": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "natural_training_allroutes": null,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "remaining": "Other Dolls cradle/focus/pips and allroutes, Nursery room approval/resolution and separate paused paired-care station, otherjob art, performance/formalQA11/device/child/owner/global denominators remainOPEN. No whole-role/accepted-removal credit."
   }
 }

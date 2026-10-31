@@ -435,6 +435,8 @@ R115 partialproduction2026-10-31: [whole Geologist foreground station set](../..
 
 R116 partialproduction2026-10-31: [whole painted Geologist layered rock](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/README.md), source086e9285e56b2e6b31bdbaf1c4209b57c9722460 exactCIgreen/normalDev/local82/static/native124checks8reviewedframes. One static take/whole512export, all67functions exact, retiredSVG/import; RIVER/surface loaded-only receive no visiblecredit.19source18partialDev artifacts,6881bounded4165excluded11046retained nativeevents; two stale-remap failureframes excluded. Otherart/formal/external/global acceptance and lifecycle remain OPEN; acceptedremoved0.
 
+R117 partialproduction2026-10-31: [whole painted Dolls mat](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/README.md), sourcea290753627a06ca7b251c3423cce6cf6f5d13827 exactCIgreen/normalDev/local82/static/source62/candidate72checks. Two static takes/one supportreject/one1024x256wholeexport,16other functions and allfunctionalgeometry exact.20source19partialDev artifacts;6901bounded4175excluded11076retained events, ten sourcefixtureframes excluded. Mat/quilt twoexistingroles shareoneimplementation. Otherart/roomapproval/formal/external/global acceptance and lifecycle OPEN;acceptedremoved0.
+
 ## MA-VIS-007
 
 | Field | Value |
