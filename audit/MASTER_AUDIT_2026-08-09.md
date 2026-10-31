@@ -5,6 +5,8 @@ Owner-directed foyer icon placement is tracked in the [bounded impact](../design
 
 ## 0. Planning entry
 
+Owner-commissioned [native Godot rig stress study](../assets_src/animation/native_rig_stress_20261031/README.md) (2026-10-31) compares shoulder/arm bend, blink and tail bend with ImageGen source/segment repairs under a scoped prototype exception. Retained rejected revisions, actual Mobile renders and exact numerical/visual limits are separate from production, finding closure, device, child and owner acceptance.
+
 
 Planning guidance updated 2026-10-03 against integration source `30d82725`.
 Dated updates moved to the [preserved cycle intake history](cycles/2026-10-03-baseline/PLANNING_HISTORY.md); current measurements, roadmap and prompts live in the [cycle home](cycles/README.md).

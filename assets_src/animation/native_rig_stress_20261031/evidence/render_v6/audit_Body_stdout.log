@@ -1,0 +1,83 @@
+{
+  "geometry_pass": false,
+  "clips": {
+    "arm_bend": {
+      "frames": 97,
+      "visible_triangle_count": 9091,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 0.7165528285984103,
+      "max_visible_area_ratio": 1.1363110870543482,
+      "max_visible_stretch": 1.137006574972169,
+      "min_visible_stretch": 0.7165676868636363,
+      "max_bone_scale_error": 2.7677555280991584e-07,
+      "rigid_head_distance_error_px": 2.8741588209868496e-05,
+      "max_alpha_components": 1,
+      "max_interior_hole_pixels": 261,
+      "edge_alpha_pixels": 0,
+      "worst_frame": {
+        "frame": 41,
+        "time": 1.36666666666667
+      },
+      "worst_triangle_source_center": [
+        748,
+        338
+      ],
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": false
+    },
+    "blink": {
+      "frames": 73,
+      "visible_triangle_count": 9091,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 0.9999997709999773,
+      "max_visible_area_ratio": 1.0000002080000454,
+      "max_visible_stretch": 1.0000002554977823,
+      "min_visible_stretch": 0.9999997693569183,
+      "max_bone_scale_error": 2.5764538014172444e-07,
+      "rigid_head_distance_error_px": 0.0,
+      "max_alpha_components": 1,
+      "max_interior_hole_pixels": 258,
+      "edge_alpha_pixels": 0,
+      "worst_frame": {
+        "frame": 0,
+        "time": 0.0
+      },
+      "worst_triangle_source_center": [
+        566,
+        760
+      ],
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": true
+    },
+    "tail_bend": {
+      "frames": 121,
+      "visible_triangle_count": 9091,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 0.8181720524726067,
+      "max_visible_area_ratio": 1.238120809956484,
+      "max_visible_stretch": 1.2319825730423446,
+      "min_visible_stretch": 0.8174296712255493,
+      "max_bone_scale_error": 2.5764538014172444e-07,
+      "rigid_head_distance_error_px": 2.1063644453533925e-05,
+      "max_alpha_components": 1,
+      "max_interior_hole_pixels": 261,
+      "edge_alpha_pixels": 0,
+      "worst_frame": {
+        "frame": 33,
+        "time": 1.1
+      },
+      "worst_triangle_source_center": [
+        716,
+        532
+      ],
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": false
+    }
+  },
+  "negative_controls": {
+    "interior_slit_detected": true,
+    "detached_piece_detected": true,
+    "scaled_head_detected": true
+  }
+}
+

@@ -1,0 +1,10 @@
+{
+  "method": "built-in image_gen",
+  "model_revision": "not exposed",
+  "request_id": "not exposed",
+  "prompt": "Use case: background-extraction / identity-preserve. Input Image 1 supplies the exact painted arm, skin, contours and pose reference. Produce ONLY the arm on the VIEWER'S LEFT, as an isolated 2D animation rig part on genuine transparent background. Keep the same complete arm pose and scale as in the input: the shoulder at approximately x571 y423, elbow x526 y543, wrist x466 y642, relaxed five-finger hand ending near x433 y705 on the same 1254x1254 canvas. Preserve the existing child anatomy, warm pale skin, painted shading, thin warm brown outline and relaxed hand exactly. The ONE repair is to supply a complete rounded bare-skin shoulder cap extending upward to y393, so this part can rotate beneath the original lavender puff sleeve without a gap. NO sleeve, NO cloth, NO hair, NO torso, NO head, NO tail, NO labels, NO duplicate arms. It is one smooth continuous anatomically correct left-on-image arm with its original hand, not separate pieces. Generous transparent space everywhere else; keep original registration and canvas framing. This is a technical source cutout, not a new design.",
+  "native": "native/shoulder_arm.png",
+  "role": "hidden shoulder cap only; original source arm below y460 preserved",
+  "call_number": 4,
+  "result": "candidate"
+}
